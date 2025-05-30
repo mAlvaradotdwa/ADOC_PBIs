@@ -60,7 +60,7 @@ table SOLPED
 			)
 		formatString: \$#,0.00;-\$#,0.00;\$#,0.00
 		lineageTag: d5ffd9be-3dbd-4ab3-a80a-27c4d0c7a03e
-		summarizeBy: none
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 

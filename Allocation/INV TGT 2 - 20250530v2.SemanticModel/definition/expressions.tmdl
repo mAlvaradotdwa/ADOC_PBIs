@@ -236,3 +236,19 @@ expression 'Transform File (4)' =
 
 	annotation PBI_ResultType = Function
 
+expression srvDev = "192.168.16.20" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 798e5153-fb8e-49e0-93f0-ec771feb29ab
+	queryGroup: Parametros
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+
+expression srvCognos = "192.168.16.74" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: e1badbec-2275-40b8-b2e6-2d7662428e66
+	queryGroup: Parametros
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+

@@ -59,12 +59,14 @@ table 'VTA MKD TGT'
 		annotation SummarizationSetBy = Automatic
 
 	column 'INVENTARIO $'
-		dataType: string
+		dataType: double
 		lineageTag: 972d4a2a-c2f2-46cc-bc98-879b9efc5a08
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: INVENTARIO $
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column KEY = 'VTA MKD TGT'[MARCA]&'VTA MKD TGT'[PAIS BV]&'VTA MKD TGT'[DEPTO BV]&'VTA MKD TGT'[GENERO BV]&'VTA MKD TGT'[CATEGORIA BV]
 		lineageTag: fb39e6a0-ee44-40f7-aef5-cae32d35a9b4
@@ -108,9 +110,12 @@ table 'VTA MKD TGT'
 
 	partition 'VTA MKD TGT' = m
 		mode: import
-		source =
+		source = ```
 				let
-				    Source = Excel.Workbook(File.Contents("C:\Users\mdaboub\OneDrive - Empresas ADOC, S.A. de C.V\Escritorio\TGT INVENTARIO CONTINGENCIA\INVENTARIO TARGET.xlsx"), null, true),
+				    Origen = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/", [ApiVersion = 15]),
+				    #"Filas filtradas" = Table.SelectRows(Origen, each ([Folder Path] = "https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/Documents/TEMP_Sharepoint/Allocation/")),
+				    URL = #"Filas filtradas"{[Name="INVENTARIO TARGET.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/Documents/TEMP_Sharepoint/Allocation/"]}[Content],
+				    Source = Excel.Workbook(URL),
 				    Work_Sheet = Source{[Item="Work",Kind="Sheet"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(Work_Sheet, [PromoteAllScalars=true]),
 				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"MARCA", "PAIS BV", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "METRICA", "202501", "202502", "202503", "202504", "202505", "202506", "202507", "202508", "202509", "202510", "202511", "202512", "202601", "202602", "202603", "202604", "202605", "202606", "202607", "202608", "202609", "202610", "202611", "202612"}),
@@ -120,10 +125,7 @@ table 'VTA MKD TGT'
 				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "AÑO MES"}, {"Value", "INVENTARIO $"}}),
 				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each true),
 				    #"Changed Type1" = Table.TransformColumnTypes(#"Filtered Rows",{{"AÑO MES", Int64.Type}}),
-				    #"Added Custom" = Table.AddColumn(#"Changed Type1", "CURRENT", each Number.ToText(Date.Year(Date.From(DateTime.LocalNow())))
-				
-				&
-				
+				    #"Added Custom" = Table.AddColumn(#"Changed Type1", "CURRENT", each Number.ToText(Date.Year(Date.From(DateTime.LocalNow()))) & 
 				Text.PadStart(
 				Number.ToText(Date.Month(Date.From(DateTime.LocalNow()))),2,"0")),
 				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"CURRENT", Int64.Type}}),
@@ -131,6 +133,7 @@ table 'VTA MKD TGT'
 				    #"Filtered Rows2" = Table.SelectRows(#"Added Custom1", each ([FILTRO TIMELINE] = true))
 				in
 				    #"Filtered Rows2"
+				```
 
 	annotation PBI_NavigationStepName = Navigation
 
