@@ -28,9 +28,18 @@ table SOLPED
 		annotation SummarizationSetBy = Automatic
 
 	column CATEGORIA =
-			IF(SOLPED[UM]="CJ",
-			CALCULATE(FIRSTNONBLANK(IH09[Desc. Clase],True()),IH09[GENERICO2]=earlier(SOLPED[GENERICO])),
-			RELATED(IH09[Desc. Clase]))
+			IF (
+			    SOLPED[UM] = "CJ",
+			    CALCULATE (
+			        FIRSTNONBLANK (
+			            IH09[Desc. Clase],
+			            TRUE ()
+			        ),
+			        IH09[GENERICO2]
+			            = EARLIER ( SOLPED[GENERICO] )
+			    ),
+			    RELATED ( IH09[Desc. Clase] )
+			)
 		lineageTag: b4d2fac0-97d7-4085-8a1a-3806bb5ddf18
 		summarizeBy: none
 

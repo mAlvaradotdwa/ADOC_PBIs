@@ -27,7 +27,11 @@ queryGroup 'Archivos Sharepoint'
 
 	annotation PBI_QueryGroupOrder = 4
 
-annotation PBI_QueryOrder = ["IH09","ZINT","TRANS TDAS","INV ACTUAL","INV TGT","CONTENEDORES","MARCAS UNIDAD","LT A BFI","INV ACTUAL (BFI)","VTA MKD TGT","Index Oficial","ARRIBO FUTURO COGNOS","PARA COMPRAS CAT","SOLPED","MKS (2)","TABLA PE","FACT_MARINETRAFFIC","DIM_ETA","srvDev","srvCognos","EKPO"]
+queryGroup 'Conexiones a PowerBI'
+
+	annotation PBI_QueryGroupOrder = 5
+
+annotation PBI_QueryOrder = ["IH09","ZINT","TRANS TDAS","INV ACTUAL","INV TGT","CONTENEDORES","MARCAS UNIDAD","LT A BFI","INV ACTUAL (BFI)","VTA MKD TGT","Index Oficial","ARRIBO FUTURO COGNOS","PARA COMPRAS CAT","SOLPED","MKS (2)","TABLA PE","FACT_MARINETRAFFIC","DIM_ETA","srvDev","srvCognos"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -59,7 +63,6 @@ ref table 'TABLA PE'
 ref table FACT_MARINETRAFFIC
 ref table DIM_ETA
 ref table Fechas
-ref table EKPO
 
 ref cultureInfo en-US
 
