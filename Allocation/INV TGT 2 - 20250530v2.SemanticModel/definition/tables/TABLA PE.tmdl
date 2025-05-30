@@ -32,6 +32,7 @@ table 'TABLA PE'
 
 	partition 'TABLA PE' = m
 		mode: import
+		queryGroup: 'Archivos Sharepoint'
 		source =
 				let
 				

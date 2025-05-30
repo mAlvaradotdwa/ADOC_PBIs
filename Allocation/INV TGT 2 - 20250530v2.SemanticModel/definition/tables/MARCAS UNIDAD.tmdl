@@ -3,7 +3,7 @@ table 'MARCAS UNIDAD'
 
 	column 'MARCA BV'
 		dataType: string
-		lineageTag: 9afdeb81-b273-4671-bd77-063f2d94595f
+		lineageTag: f23c13f6-2d5f-4607-80bb-19fa1c883a40
 		summarizeBy: none
 		sourceColumn: MARCA BV
 
@@ -11,7 +11,7 @@ table 'MARCAS UNIDAD'
 
 	column 'UNIDAD NEGOCIO'
 		dataType: string
-		lineageTag: 037ba969-f2f3-402d-b438-fb1b3cff351f
+		lineageTag: eabed3e5-f95f-44d4-a932-5f970629cbe7
 		summarizeBy: none
 		sourceColumn: UNIDAD NEGOCIO
 
@@ -19,16 +19,16 @@ table 'MARCAS UNIDAD'
 
 	partition 'MARCAS UNIDAD' = m
 		mode: import
+		queryGroup: 'Server Dev (20)'
 		source =
 				let
-				    Source = Csv.Document(File.Contents("C:\Users\mdaboub\OneDrive - Empresas ADOC, S.A. de C.V\Escritorio\TGT INVENTARIO CONTINGENCIA\MARCAS UNIDAD.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
-				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}}),
-				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
-				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"MARCA BV", type text}, {"UNIDAD NEGOCIO", type text}})
+				    Origen = Sql.Database(srvDev, "ADO_SupplyChain"),
+				    dbo_DIM_MARCAS_UNIDAD = Origen{[Schema="dbo",Item="DIM_MARCAS_UNIDAD"]}[Data],
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(dbo_DIM_MARCAS_UNIDAD,{{"MARCA_BV", "MARCA BV"}, {"UNIDAD_NEGOCIO", "UNIDAD NEGOCIO"}})
 				in
-				    #"Changed Type1"
+				    #"Columnas con nombre cambiado"
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 
 	annotation PBI_NavigationStepName = Navigation
 

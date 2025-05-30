@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 2711,
+        "x": 3752,
         "y": 342
       },
       "nodes": [
         {
           "location": {
             "x": 848,
-            "y": 474.5
+            "y": 493.25
           },
           "nodeIndex": "IH09",
           "nodeLineageTag": "0cb25326-a42d-4326-8a5e-f67aed0b5b7c",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 60,
-            "y": 37.5
+            "y": 56.25
           },
           "nodeIndex": "ZINT",
           "nodeLineageTag": "242db06c-0b55-46a7-a6c9-28eb6a0f0a52",
@@ -37,7 +37,7 @@
         {
           "location": {
             "x": 1136,
-            "y": 37.5
+            "y": 56.25
           },
           "nodeIndex": "INV ACTUAL",
           "nodeLineageTag": "2eb77427-871d-4d84-8650-f53775c99941",
@@ -50,7 +50,7 @@
         {
           "location": {
             "x": 1420,
-            "y": 37.5
+            "y": 56.25
           },
           "nodeIndex": "INV TGT",
           "nodeLineageTag": "15ef91ff-9225-4e04-94ad-257ebd981be2",
@@ -63,7 +63,7 @@
         {
           "location": {
             "x": 575,
-            "y": 37.5
+            "y": 56.25
           },
           "nodeIndex": "TRANS TDAS",
           "nodeLineageTag": "7fa4e3a7-8bd9-494a-9b2c-482224726d61",
@@ -75,21 +75,8 @@
         },
         {
           "location": {
-            "x": 1340,
-            "y": 487
-          },
-          "nodeIndex": "CONTENEDORES",
-          "nodeLineageTag": "6c24cbbf-aaea-4cba-9bec-71c1c088c77f",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 18
-        },
-        {
-          "location": {
             "x": 414,
-            "y": 504
+            "y": 522.75
           },
           "nodeIndex": "MARCAS UNIDAD",
           "nodeLineageTag": "a4fc80d6-4d2f-4b5a-9086-81a1dd883958",
@@ -102,7 +89,7 @@
         {
           "location": {
             "x": 1648,
-            "y": 273
+            "y": 291.75
           },
           "nodeIndex": "INV ACTUAL (BFI)",
           "nodeLineageTag": "1c9eedd7-eee0-4856-bac5-a2ae3e4e3fa8",
@@ -115,7 +102,7 @@
         {
           "location": {
             "x": 1872,
-            "y": 287
+            "y": 305.75
           },
           "nodeIndex": "VTA MKD TGT",
           "nodeLineageTag": "a2b111b2-3701-4806-8e8c-7cd891cd4aed",
@@ -128,7 +115,7 @@
         {
           "location": {
             "x": 2096,
-            "y": 323
+            "y": 341.75
           },
           "nodeIndex": "ARRIBOS BFI ACUM",
           "size": {
@@ -140,7 +127,7 @@
         {
           "location": {
             "x": 2544,
-            "y": 273
+            "y": 291.75
           },
           "nodeIndex": "Index Oficial",
           "nodeLineageTag": "750d4074-460d-4625-bd66-edc0b21ea4f4",
@@ -153,7 +140,7 @@
         {
           "location": {
             "x": 2768,
-            "y": 323
+            "y": 341.75
           },
           "nodeIndex": "% VENTA RESTANTE",
           "size": {
@@ -165,7 +152,7 @@
         {
           "location": {
             "x": 354,
-            "y": 738
+            "y": 756.75
           },
           "nodeIndex": "ARRIBO FUTURO COGNOS",
           "nodeLineageTag": "1e82047e-f4a6-4244-a03b-6e23af0f1316",
@@ -178,7 +165,7 @@
         {
           "location": {
             "x": 2992,
-            "y": 449.75
+            "y": 468.5
           },
           "nodeIndex": "LT A BFI",
           "size": {
@@ -190,7 +177,7 @@
         {
           "location": {
             "x": 3216,
-            "y": 437.75
+            "y": 456.5
           },
           "nodeIndex": "ARRIBOS BFI S/C ACUM",
           "size": {
@@ -202,7 +189,7 @@
         {
           "location": {
             "x": 3664,
-            "y": 401.75
+            "y": 420.5
           },
           "nodeIndex": "PARA COMPRAS CAT",
           "nodeLineageTag": "7550f617-56ce-4f73-9315-abda7788d6eb",
@@ -215,7 +202,7 @@
         {
           "location": {
             "x": 861,
-            "y": 37.5
+            "y": 56.25
           },
           "nodeIndex": "SOLPED",
           "nodeLineageTag": "4118f3c2-0714-43d3-a648-4e741fbcdec0",
@@ -228,7 +215,7 @@
         {
           "location": {
             "x": 3888,
-            "y": 473.75
+            "y": 492.5
           },
           "nodeIndex": "MKS (2)",
           "nodeLineageTag": "380c100d-8b04-4434-a418-aae6f29c548f",
@@ -241,7 +228,7 @@
         {
           "location": {
             "x": 1778,
-            "y": 645.75
+            "y": 664.5
           },
           "nodeIndex": "TABLA PE",
           "nodeLineageTag": "582db3b9-dd57-4ae1-baf6-54efeb931122",
@@ -255,7 +242,7 @@
         {
           "location": {
             "x": 4446,
-            "y": 387.75
+            "y": 406.5
           },
           "nodeIndex": "DIM_ETA",
           "nodeLineageTag": "030768a0-a4b5-4766-8f60-48927dcbb2b1",
@@ -268,10 +255,33 @@
         {
           "location": {
             "x": 4162,
-            "y": 337.75
+            "y": 356.5
           },
           "nodeIndex": "FACT_MARINETRAFFIC",
           "nodeLineageTag": "ba3cbb08-f36e-455a-a9d4-d46213d60dce",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4759,
+            "y": 343
+          },
+          "nodeIndex": "Fechas",
+          "nodeLineageTag": "545169b2-b709-484c-85a6-d38888bcd212",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "CONTENEDORES",
+          "nodeLineageTag": "398cc3a0-2014-48f7-9fb9-43faa506a8cf",
           "size": {
             "height": 300,
             "width": 234
@@ -285,8 +295,102 @@
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 42,
+        "y": 25
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Fechas",
+          "nodeLineageTag": "545169b2-b709-484c-85a6-d38888bcd212",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 407,
+            "y": 13
+          },
+          "nodeIndex": "ARRIBOS BFI ACUM",
+          "nodeLineageTag": "aea83bfb-d9e2-421d-9b83-416e3fe89694",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 383,
+            "y": 262
+          },
+          "nodeIndex": "INV TGT",
+          "nodeLineageTag": "15ef91ff-9225-4e04-94ad-257ebd981be2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 756,
+            "y": 496
+          },
+          "nodeIndex": "IH09",
+          "nodeLineageTag": "0cb25326-a42d-4326-8a5e-f67aed0b5b7c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1031,
+            "y": 599
+          },
+          "nodeIndex": "TABLA PE",
+          "nodeLineageTag": "582db3b9-dd57-4ae1-baf6-54efeb931122",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 796,
+            "y": 84
+          },
+          "nodeIndex": "CONTENEDORES",
+          "nodeLineageTag": "398cc3a0-2014-48f7-9fb9-43faa506a8cf",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Fechas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
     }
   ],
-  "selectedDiagram": "All tables",
+  "selectedDiagram": "Fechas",
   "defaultDiagram": "All tables"
 }

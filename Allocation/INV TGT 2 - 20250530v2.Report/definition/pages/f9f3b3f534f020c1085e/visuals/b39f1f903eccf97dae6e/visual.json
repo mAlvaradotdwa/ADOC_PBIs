@@ -1,56 +1,62 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
-  "name": "2a577ef798ca60d59ec7",
+  "name": "b39f1f903eccf97dae6e",
   "position": {
-    "x": 0,
-    "y": 0,
-    "z": 1000,
-    "height": 91.689488152899585,
-    "width": 176.14033250425447,
-    "tabOrder": 1000
+    "x": 8,
+    "y": 104,
+    "z": 8001,
+    "height": 72,
+    "width": 432
   },
   "visual": {
-    "visualType": "slicer",
+    "visualType": "card",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "INV TGT"
+                      "Entity": "Fechas"
                     }
                   },
-                  "Property": "METRICA"
+                  "Property": "Fechas Seleccionadas"
                 }
               },
-              "queryRef": "INV TGT.METRICA",
-              "nativeQueryRef": "METRICA",
-              "active": true
+              "queryRef": "Fechas.Fechas Seleccionadas",
+              "nativeQueryRef": "Fechas Seleccionadas"
             }
           ]
         }
       }
     },
     "objects": {
-      "data": [
+      "labels": [
         {
           "properties": {
-            "mode": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'Basic'"
+                  "Value": "16D"
                 }
               }
             }
           }
         }
       ],
-      "general": [
+      "categoryLabels": [
         {
-          "properties": {}
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
         }
       ]
     },

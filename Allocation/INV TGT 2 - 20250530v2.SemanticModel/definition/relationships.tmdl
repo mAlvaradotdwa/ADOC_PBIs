@@ -34,10 +34,6 @@ relationship 820c46e5-bf77-e5c7-dd24-c8baadd550d2
 	fromColumn: SOLPED.Artículo
 	toColumn: IH09.'Artículo SAP'
 
-relationship 7ab6a32c-2f25-5bd1-b888-859b4b7c3fbc
-	fromColumn: SOLPED.'MARCA (TEST)'
-	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
-
 relationship 96ff2146-dc97-cf2e-0c65-755b13bcb084
 	fromColumn: CONTENEDORES.GENERICO
 	toColumn: IH09.'Artículo SAP'
@@ -54,11 +50,24 @@ relationship AutoDetected_8270723f-7ed9-48e6-8ca7-9c0b66da1824
 	fromColumn: FACT_MARINETRAFFIC.shipment_id
 	toColumn: DIM_ETA.shipment_id
 
-relationship AutoDetected_8b496fc1-6d3e-435e-aaa8-8e7897339291
+relationship AutoDetected_0fbaf4d4-3a5c-4bc4-893b-e426577284c7
 	fromColumn: 'INV ACTUAL'.'MARCA BV'
 	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
 
-relationship AutoDetected_81bd8ded-8531-4802-bda5-68b4be247ad1
+relationship AutoDetected_53c420e5-7164-49c7-96e6-0e0891704748
 	fromColumn: 'INV ACTUAL (BFI)'.'MARCA BV'
 	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
+
+relationship 1100bd10-b40f-81ed-e6da-5c7fa894938f
+	fromColumn: SOLPED.'MARCA (TEST)'
+	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
+
+relationship 043b6b5e-e3c8-df78-4e35-ddd2fdd3443b
+	fromColumn: CONTENEDORES.EKPO[FIRST_ETA]
+	toColumn: Fechas.Fecha
+
+relationship 4b811d57-85da-92bf-8ce6-4385493cc2fe
+	toCardinality: many
+	fromColumn: 'INV TGT'.'AÑO MES'
+	toColumn: Fechas.NumAñoMes
 
