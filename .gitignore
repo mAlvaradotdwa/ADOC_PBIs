@@ -399,3 +399,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# PowerBI local configuration files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+*.pbix
