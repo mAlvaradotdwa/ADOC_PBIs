@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "9acd7d43065a2951b95b",
+  "position": {
+    "x": 565.82065715407771,
+    "y": 0,
+    "z": 6000,
+    "height": 91.689488152899585,
+    "width": 218.36575467993191,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "INV TGT"
+                    }
+                  },
+                  "Property": "CATEGORIA BV"
+                }
+              },
+              "queryRef": "INV TGT.CATEGORIA BV",
+              "nativeQueryRef": "CATEGORIA BV",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

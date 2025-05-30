@@ -1,0 +1,666 @@
+table 'MKS (2)'
+	lineageTag: 380c100d-8b04-4434-a418-aae6f29c548f
+
+	column TIPO_DOCUMENTO
+		dataType: string
+		lineageTag: 929654c0-04cf-4ac3-a6f2-62d6a018fb28
+		summarizeBy: none
+		sourceColumn: TIPO_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: 13b06083-105f-4b76-a57c-0221894ed8cb
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 9d635c36-c3e5-4e50-b018-579261abd903
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: b08a029c-390a-45a4-84b6-7bb9bf679a71
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD
+		dataType: double
+		lineageTag: 1d603c8b-d8df-4a62-a18b-22b3f7e9821f
+		summarizeBy: sum
+		sourceColumn: CANTIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ALMACEN
+		dataType: string
+		lineageTag: 59aef414-5931-404d-a74c-036a74c409fc
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD_PARES
+		dataType: double
+		lineageTag: 27a79ec7-abc0-4cf2-8c76-b9769b952f5b
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_PARES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PE
+		dataType: string
+		lineageTag: 25edf8de-befb-405d-a600-f9ac75034348
+		summarizeBy: none
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANO_PE
+		dataType: string
+		lineageTag: efa49c58-fd42-4a11-bc7c-7479fe3751d4
+		summarizeBy: none
+		sourceColumn: ANO_PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CREACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8f543b8a-c3f1-47ac-9466-c9940a08a3c1
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_CREACION2
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 67454eb8-ee08-4b2e-bf6e-aa2570960e48
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column XFACTORY_ACTUALIZADO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 605a20af-fd90-460d-a613-ba914c91dc12
+		summarizeBy: none
+		sourceColumn: XFACTORY_ACTUALIZADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column XFACTORY_ORIGINAL
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: aea0b72d-f092-406d-a609-af94791deb38
+		summarizeBy: none
+		sourceColumn: XFACTORY_ORIGINAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ENTIDAD_CD
+		dataType: string
+		lineageTag: e49fc82f-e004-4884-982c-063438f44414
+		summarizeBy: none
+		sourceColumn: ENTIDAD_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_SOLICITANTE
+		dataType: string
+		lineageTag: a6c4f3d2-5d55-47c7-8a8d-dd1947298f9a
+		summarizeBy: none
+		sourceColumn: ENTIDAD_SOLICITANTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column XFACTORY_REQUERIDA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9bc2a94a-280a-4494-b38a-42a7bc6a2b82
+		summarizeBy: none
+		sourceColumn: XFACTORY_REQUERIDA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_EKKO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b6b2566c-a21c-42af-9f0b-5c7e9662f821
+		summarizeBy: none
+		sourceColumn: FECHA_EKKO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column NUMERO_PROVEEDOR
+		dataType: string
+		lineageTag: 0a170670-8107-49d9-ae4e-39858aaa06d1
+		summarizeBy: none
+		sourceColumn: NUMERO_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCOTERM
+		dataType: string
+		lineageTag: 4259a547-d185-4ea6-8fb1-eb79d86c1a07
+		summarizeBy: none
+		sourceColumn: INCOTERM
+
+		annotation SummarizationSetBy = Automatic
+
+	column PUERTO_ORIGEN
+		dataType: string
+		lineageTag: 124ab56e-2870-45f7-89e6-c919c16966b9
+		summarizeBy: none
+		sourceColumn: PUERTO_ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_DESPACHO_FINAL
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dbc01310-442a-4488-9c18-502249940c99
+		summarizeBy: none
+		sourceColumn: FECHA_DESPACHO_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_DESPACHO_INICIAL
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 635dc943-05e6-4037-96ac-90e83e8aea79
+		summarizeBy: none
+		sourceColumn: FECHA_DESPACHO_INICIAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TIPO_DE_FLETE
+		dataType: string
+		lineageTag: 7e13d50b-06ff-4dce-bc4d-204ccb46d7b0
+		summarizeBy: none
+		sourceColumn: TIPO_DE_FLETE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PUERTO_ORIGEN2
+		dataType: string
+		lineageTag: d0a90861-8113-434e-b8e0-997098f8514c
+		summarizeBy: none
+		sourceColumn: PUERTO_ORIGEN2
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_COMPRA
+		dataType: string
+		lineageTag: 27f8696c-cd8d-4eb3-be88-8553e3eb9171
+		summarizeBy: none
+		sourceColumn: ENTIDAD_COMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_SOLICITANTE2
+		dataType: string
+		lineageTag: f9d0e4ca-48d3-4ff7-8dea-748e320e3896
+		summarizeBy: none
+		sourceColumn: ENTIDAD_SOLICITANTE2
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_CD2
+		dataType: string
+		lineageTag: 5308f9fc-51a2-4df2-aa4f-e7d18f199332
+		summarizeBy: none
+		sourceColumn: ENTIDAD_CD2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CARGO_READY_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 96c0c80a-48f5-43b3-a45e-98775cf697dd
+		summarizeBy: none
+		sourceColumn: CARGO_READY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_ARRIVO_CFS
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: de175171-3188-4660-bccb-3f134b59adb7
+		summarizeBy: none
+		sourceColumn: FECHA_ARRIVO_CFS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETD
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cb6eb151-26e6-4c6a-8207-757ea88a1a45
+		summarizeBy: none
+		sourceColumn: ETD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ATD
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 950de120-791f-416d-8025-3dc30ada3e6a
+		summarizeBy: none
+		sourceColumn: ATD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7653ec1b-1630-4124-8f16-bf6ad599afe3
+		summarizeBy: none
+		sourceColumn: ETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MODALIDAD_DESPACHO
+		dataType: string
+		lineageTag: bdbe41db-99fa-4e27-a022-318f3f44b848
+		summarizeBy: none
+		sourceColumn: MODALIDAD_DESPACHO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMERO_PUERTO
+		dataType: string
+		lineageTag: b5cd2a4f-84d8-49cf-86c6-e4853d86b958
+		summarizeBy: none
+		sourceColumn: NUMERO_PUERTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS_ORIGEN
+		dataType: string
+		lineageTag: 140caf62-5588-4bbe-9bed-fff95b3aedf7
+		summarizeBy: none
+		sourceColumn: PAIS_ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: 67b6d176-2cba-4c4d-aa26-954ad0087a3e
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_LIBERACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 769c9f4d-c5f9-46b5-83a0-a997b94383a3
+		summarizeBy: none
+		sourceColumn: FECHA_LIBERACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ESTILO
+		dataType: string
+		lineageTag: fedfd220-ffb0-41f9-bcbf-ba2d3282d3ca
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		lineageTag: 87df7b3b-73e4-4f72-9c64-63bf648da812
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO_COLOR
+		dataType: string
+		lineageTag: b9ba3468-b579-4efb-945d-91ce8be1a30d
+		summarizeBy: none
+		sourceColumn: ESTILO_COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: f2b9f561-99d0-4ea5-af7c-19e460fdf40b
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO
+		dataType: string
+		lineageTag: 160c1c50-514b-4940-9d42-7ab6a01a90ee
+		summarizeBy: none
+		sourceColumn: GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: 608cff96-f852-434d-9f66-f3b39c0bdf36
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE2
+		dataType: string
+		lineageTag: d8148157-8d97-42a3-8058-6bb328273018
+		summarizeBy: none
+		sourceColumn: PE2
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE_ANO2
+		dataType: string
+		lineageTag: 19d85217-08bf-4832-ae74-7384bf20bbe9
+		summarizeBy: none
+		sourceColumn: PE_ANO2
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD
+		dataType: string
+		lineageTag: a173ae25-4396-4264-a054-68bc2dd47d54
+		summarizeBy: none
+		sourceColumn: UNIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_RECEPCION_BFI
+		dataType: string
+		lineageTag: 221075d4-c6f8-4862-82d0-b9e28d475dc3
+		summarizeBy: none
+		sourceColumn: FECHA_RECEPCION_BFI
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CREACION3
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7023ec26-d9b4-4bf7-b2e5-ec64d89270dc
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_CREACION_FINAL
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d6ce2821-4c74-4de8-b65f-b04c10a868d5
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column reference_number
+		dataType: string
+		lineageTag: 2056d847-499c-466d-afc6-003badd0a7a7
+		summarizeBy: none
+		sourceColumn: reference_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column transportation_status
+		dataType: string
+		lineageTag: 34d92a08-fa78-4ea0-8525-1f002f945273
+		summarizeBy: none
+		sourceColumn: transportation_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrival_delay_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 11086bb9-c6b6-4248-828d-9d8b95c10b1a
+		summarizeBy: sum
+		sourceColumn: arrival_delay_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column created
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9e72bce4-aeb2-442e-8c8f-f672e0789b91
+		summarizeBy: none
+		sourceColumn: created
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f8fa4aee-ddc6-48b6-8533-e64f90726dae
+		summarizeBy: none
+		sourceColumn: updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipment_id
+		dataType: string
+		lineageTag: 75ef82c1-7046-4aab-acc6-6850216f80ea
+		summarizeBy: none
+		sourceColumn: shipment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column loading_actual_port
+		dataType: string
+		lineageTag: 8388db6b-2502-460a-aaad-fcd294fbbfd0
+		summarizeBy: none
+		sourceColumn: loading_actual_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column loading_departure_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 61d650d8-a245-4490-9d77-1e842c938149
+		summarizeBy: none
+		sourceColumn: loading_departure_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_load_dep_timestamp
+		dataType: int64
+		formatString: 0
+		lineageTag: bda9ba59-f02d-4405-9f7d-4ac237d0a5b2
+		summarizeBy: sum
+		sourceColumn: offset_load_dep_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_planned_port
+		dataType: string
+		lineageTag: e67482af-cd2b-44cc-8156-faf03bc4e9b4
+		summarizeBy: none
+		sourceColumn: discharge_planned_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_planned_arrival_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3a333ab6-9d38-47b8-95ee-b10a10ec3971
+		summarizeBy: none
+		sourceColumn: discharge_planned_arrival_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_dis_plan_arr_timestamp
+		dataType: int64
+		formatString: 0
+		lineageTag: 25e7321f-68a1-4913-8c4d-505612424d88
+		summarizeBy: sum
+		sourceColumn: offset_dis_plan_arr_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_actual_port
+		dataType: string
+		lineageTag: 2bddc7fc-7c2e-4982-8b36-4e62f6d20578
+		summarizeBy: none
+		sourceColumn: discharge_actual_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_actual_arrival_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ee870225-6f5c-4261-b3b2-47d46bddd74c
+		summarizeBy: none
+		sourceColumn: discharge_actual_arrival_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_dis_act_arr_timestamp
+		dataType: int64
+		formatString: 0
+		lineageTag: 148d11a8-2695-4547-b181-156502dd49d3
+		summarizeBy: sum
+		sourceColumn: offset_dis_act_arr_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d330fdcb-9c34-4876-8b65-9a682652a4d1
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETA_Marin_Traffic
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1b4bcbdc-1ed4-41ba-8dc7-14720710eb5f
+		summarizeBy: none
+		sourceColumn: ETA_Marin_Traffic
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETA_Local_Time_Offset
+		dataType: int64
+		formatString: 0
+		lineageTag: 77b05f5d-2207-48f4-9c5b-d275f7614770
+		summarizeBy: sum
+		sourceColumn: ETA_Local_Time_Offset
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIRST_ETA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e65d3036-ddfb-4d79-aa20-632b5e15311d
+		summarizeBy: none
+		sourceColumn: FIRST_ETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MAX_ETA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d269257f-ce0b-49b1-ab19-305dca518c44
+		summarizeBy: none
+		sourceColumn: MAX_ETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CAMBIOS
+		dataType: int64
+		formatString: 0
+		lineageTag: cbac76c1-6b04-461d-9ea6-56d8dc05cf3f
+		summarizeBy: sum
+		sourceColumn: CAMBIOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIAS_DIFF
+		dataType: int64
+		formatString: 0
+		lineageTag: ec255090-0531-4448-86f6-c354a1062d1c
+		summarizeBy: sum
+		sourceColumn: DIAS_DIFF
+
+		annotation SummarizationSetBy = Automatic
+
+	column País = SWITCH('MKS (2)'[ENTIDAD_CD2],"1010","SV","2010","GT","3010","CR","4010","HN","5010","NI","5030","NI","6010","PA","-")
+		lineageTag: f49d52e1-ed2f-460f-8da2-40ee5e0cd415
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'MKS (2)' = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "#(lf)WITH NAST_RANKED AS (#(lf)    SELECT #(lf)        OBJKY, #(lf)        DATVR,#(lf)        ROW_NUMBER() OVER (PARTITION BY OBJKY ORDER BY DATVR ASC) AS rn#(lf)    FROM SAP_ECC.NAST#(lf)    WHERE VSTAT = '1'#(lf)),#(lf)NAST_RANKED_ERDAT AS (#(lf)    SELECT #(lf)        OBJKY, #(lf)        ERDAT,#(lf)        ROW_NUMBER() OVER (PARTITION BY OBJKY ORDER BY ERDAT ASC) AS rn2#(lf)    FROM SAP_ECC.NAST#(lf)    WHERE NACHA = '1'#(lf)),#(lf)FINAL_DATA AS (#(lf)    SELECT #(lf)        EKKO.BSART AS Tipo_Documento,  #(lf)        EKPO.EBELN AS Documento,#(lf)        EKPO.MATNR AS Articulo,#(lf)        EKPO.TXZ01 AS Descripcion, #(lf)        EKPO.KTMNG AS Cantidad,#(lf)        EKPO.LGORT AS Almacen,#(lf)        CASE #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack' #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER) #(lf)            ELSE 1 #(lf)        END * EKPO.KTMNG AS Cantidad_Pares,#(lf)        EKPO.SAISO AS PE,#(lf)        EKPO.SAISO AS Ano_PE,#(lf)        EKPO.AEDAT AS Fecha_Creacion,#(lf)        EKPO.CREATIONDATE AS Fecha_Creacion2,#(lf)        EKPO.ZFACTORY AS XFactory_Actualizado, #(lf)        EKPO.ZFACTORYO AS XFactory_Original,#(lf)        EKPO.WERKS AS Entidad_CD,#(lf)        EKPO.BUKRS AS Entidad_Solicitante,#(lf)        EKKO.ZZF_DESPACHO AS XFactory_Requerida,#(lf)        EKKO.AEDAT AS Fecha_EKKO,#(lf)        EKKO.LIFNR AS Numero_Proveedor, #(lf)        EKKO.INCO1 AS Incoterm,#(lf)        EKKO.INCO2 AS Puerto_Origen,#(lf)        EKKO.ZZF_DESPACHO AS Fecha_Despacho_Final,#(lf)        EKKO.ZZF_DESPINI AS Fecha_Despacho_Inicial,#(lf)        EKKO.ZZ_TIPO_FLETE AS Tipo_de_Flete,#(lf)        EKKO.ZZ_ZPORT AS Puerto_Origen2,#(lf)        EKKO.BUKRS AS Entidad_Compra,#(lf)        EKKO.EKORG AS Entidad_Solicitante2,#(lf)        EKKO.ZZ_CENTRO_D AS Entidad_CD2,#(lf)        ZT.CARGO_READY_DATE AS Cargo_Ready_Date,#(lf)        ZT.DATE_ARRIVAL AS Fecha_Arrivo_CFS,#(lf)        ZT.ETD AS ETD,#(lf)        ZT.ATD AS ATD,#(lf)        ZT.ETA AS ETA, #(lf)        ZT.LINE_CONTAINER AS Modalidad_Despacho,#(lf)        ZT.PORT AS Numero_Puerto,#(lf)        ZT.LAND1 AS Pais_Origen,#(lf)        ZT.CONTAINER AS Contenedor,#(lf)        NAST.DATVR AS Fecha_Liberacion,#(lf)        MARA.GROES AS ESTILO,#(lf)        MARA.FREE_CHAR AS COLOR,#(lf)        MARA.ZZ_ALU AS ESTILO_COLOR,#(lf)        MARA.BRAND_ID AS MARCA,#(lf)        MARA.ZZ_ART_PROV AS GENERO,#(lf)        MARA.ZZ_DEPART AS DEPARTAMENTO,#(lf)        MARA.SAISO AS PE2,#(lf)        MARA.SAISJ AS PE_ANO2,#(lf)        MARA.MEINS AS UNIDAD,#(lf)        (SELECT MIN(EKPO2.FECHA_LIQ)#(lf)         FROM SAP_ECC.ZTUNGYA_MK_UPD ZT2#(lf)         JOIN SAP_ECC.EKKO EKKO2 ON ZT2.CONTAINER = EKKO2.UNSEZ#(lf)         JOIN SAP_ECC.EKPO EKPO2 ON EKKO2.EBELN = EKPO2.EBELN#(lf)         WHERE ZT2.CONTAINER = ZT.CONTAINER#(lf)           AND EKKO2.LOEKZ <> 'L'#(lf)           AND EKPO2.LOEKZ <> 'L'#(lf)           AND EKKO2.EBELN LIKE '45%') AS Fecha_Recepcion_BFI,#(lf)        NAST2.ERDAT AS Fecha_Creacion3,#(lf)        LEAST(EKPO.AEDAT, EKPO.CREATIONDATE, NAST2.ERDAT) AS Fecha_Creacion_Final#(lf)    FROM SAP_ECC.EKPO EKPO#(lf)    LEFT JOIN SAP_ECC.EKKO EKKO ON EKPO.EBELN = EKKO.EBELN #(lf)    LEFT JOIN SAP_ECC.ZTUNGYA_MK_UPD ZT ON EKPO.EBELN = ZT.EBELN AND ZT.MATNR = EKPO.MATNR#(lf)    LEFT JOIN (#(lf)        SELECT OBJKY, MAX(DATVR) AS DATVR#(lf)        FROM SAP_ECC.NAST#(lf)        WHERE VSTAT = '1'#(lf)        GROUP BY OBJKY#(lf)    ) NAST ON EKPO.EBELN = NAST.OBJKY #(lf)    LEFT JOIN (#(lf)        SELECT OBJKY, MIN(ERDAT) AS ERDAT#(lf)        FROM SAP_ECC.NAST#(lf)        WHERE NACHA = '1'#(lf)        GROUP BY OBJKY#(lf)    ) NAST2 ON EKPO.EBELN = NAST2.OBJKY #(lf)    LEFT JOIN SAP_ECC.MARA MARA ON EKPO.MATNR = MARA.MATNR    #(lf)    WHERE EKPO.LOEKZ <> 'L'#(lf)      AND EKPO.EBELN LIKE '44%'#(lf)      --AND EKPO.EBELN IN ('4400051437') #(lf)      --AND EKPO.MATNR IN ('000000030066924003') #(lf))#(lf)#(lf)SELECT DISTINCT *#(lf)FROM FINAL_DATA#(lf)WHERE Fecha_Creacion_Final >= '20230101'", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"FECHA_CREACION", type date}, {"XFACTORY_ORIGINAL", type date}, {"FECHA_DESPACHO_FINAL", type date}, {"FECHA_DESPACHO_INICIAL", type date}, {"CARGO_READY_DATE", type date}, {"FECHA_ARRIVO_CFS", type date}, {"ETD", type date}, {"ATD", type date}, {"ETA", type date}, {"FECHA_CREACION2", type date}, {"FECHA_LIBERACION", type date}, {"FECHA_CREACION3", type date}, {"FECHA_CREACION_FINAL", type date}, {"FECHA_EKKO", type date}, {"XFACTORY_ACTUALIZADO", type date}, {"XFACTORY_REQUERIDA", type date}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Tipo cambiado", {"CONTENEDOR"}, FACT_MARINETRAFFIC, {"container_number"}, "FACT_MARINETRAFFIC", JoinKind.LeftOuter),
+				    #"Se expandió FACT_MARINETRAFFIC" = Table.ExpandTableColumn(#"Consultas combinadas", "FACT_MARINETRAFFIC", {"reference_number", "transportation_status", "arrival_delay_days", "created", "updated", "shipment_id", "loading_actual_port", "loading_departure_timestamp", "offset_load_dep_timestamp", "discharge_planned_port", "discharge_planned_arrival_timestamp", "offset_dis_plan_arr_timestamp", "discharge_actual_port", "discharge_actual_arrival_timestamp", "offset_dis_act_arr_timestamp", "last_updated", "ETA_Marin_Traffic", "ETA_Local_Time_Offset"}, {"reference_number", "transportation_status", "arrival_delay_days", "created", "updated", "shipment_id", "loading_actual_port", "loading_departure_timestamp", "offset_load_dep_timestamp", "discharge_planned_port", "discharge_planned_arrival_timestamp", "offset_dis_plan_arr_timestamp", "discharge_actual_port", "discharge_actual_arrival_timestamp", "offset_dis_act_arr_timestamp", "last_updated", "ETA_Marin_Traffic", "ETA_Local_Time_Offset"}),
+				    #"Consultas combinadas1" = Table.NestedJoin(#"Se expandió FACT_MARINETRAFFIC", {"shipment_id"}, DIM_ETA, {"shipment_id"}, "DIM_ETA", JoinKind.LeftOuter),
+				    #"Se expandió DIM_ETA" = Table.ExpandTableColumn(#"Consultas combinadas1", "DIM_ETA", {"FIRST_ETA", "MAX_ETA", "CAMBIOS", "DIAS_DIFF"}, {"FIRST_ETA", "MAX_ETA", "CAMBIOS", "DIAS_DIFF"})
+				in
+				    #"Se expandió DIM_ETA"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

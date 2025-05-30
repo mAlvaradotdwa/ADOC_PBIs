@@ -1,0 +1,113 @@
+table 'PARA COMPRAS CAT'
+	lineageTag: 7550f617-56ce-4f73-9315-abda7788d6eb
+
+	column MARCA
+		dataType: string
+		lineageTag: f44948f1-6c3a-4e57-a935-b7fe05052979
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PAIS BV'
+		dataType: string
+		lineageTag: 6a6e16b9-f43b-4601-bc0b-5573ba4e8ca4
+		summarizeBy: none
+		sourceColumn: PAIS BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DEPTO BV'
+		dataType: string
+		lineageTag: 7c8200c6-be4d-4625-bee5-dad4f65e998d
+		summarizeBy: none
+		sourceColumn: DEPTO BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GENERO BV'
+		dataType: string
+		lineageTag: bf86c0f6-8562-4f5a-adf2-e66b95e1e5a3
+		summarizeBy: none
+		sourceColumn: GENERO BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CATEGORIA BV'
+		dataType: string
+		lineageTag: b5e6d554-28a4-4269-8448-fa2190271210
+		summarizeBy: none
+		sourceColumn: CATEGORIA BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column METRICA
+		dataType: string
+		lineageTag: 9f0825aa-c8ee-40a0-a12f-adbe7ef9f9cb
+		summarizeBy: none
+		sourceColumn: METRICA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AÑO MES'
+		dataType: int64
+		formatString: 0
+		lineageTag: ff2cc9af-bc76-45a8-8626-f922a47c31ed
+		summarizeBy: sum
+		sourceColumn: AÑO MES
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INVENTARIO $'
+		dataType: double
+		lineageTag: 713cc895-7757-4dbc-a110-d9206da5ff93
+		summarizeBy: sum
+		sourceColumn: INVENTARIO $
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KEY = 'PARA COMPRAS CAT'[DEPTO BV]&'PARA COMPRAS CAT'[GENERO BV]&'PARA COMPRAS CAT'[CATEGORIA BV]&'PARA COMPRAS CAT'[AÑO MES]
+		lineageTag: 5c3ed6a2-e5cd-42cf-8895-6dec2b5bde8b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROPORCION = 'PARA COMPRAS CAT'[INVENTARIO $]/CALCULATE(SUM('PARA COMPRAS CAT'[INVENTARIO $]),FILTER('PARA COMPRAS CAT','PARA COMPRAS CAT'[KEY]=EARLIEST('PARA COMPRAS CAT'[KEY])))
+		formatString: 0.00
+		lineageTag: 9cd943d0-abc6-47fc-b520-2f6359689637
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KEY PROP CAT' = 'PARA COMPRAS CAT'[MARCA]&'PARA COMPRAS CAT'[PAIS BV]&'PARA COMPRAS CAT'[DEPTO BV]&'PARA COMPRAS CAT'[GENERO BV]&'PARA COMPRAS CAT'[CATEGORIA BV]&'PARA COMPRAS CAT'[AÑO MES]
+		lineageTag: 91738bcf-9505-498d-a206-67bcd1b601dd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'PARA COMPRAS CAT' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\mdaboub\OneDrive - Empresas ADOC, S.A. de C.V\Escritorio\TGT INVENTARIO CONTINGENCIA\INVENTARIO TARGET.xlsx"), null, true),
+				    Work_Sheet = Source{[Item="Work",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Work_Sheet, [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"MARCA", "PAIS BV", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "METRICA", "202501", "202502", "202503", "202504", "202505", "202506", "202507", "202508", "202509", "202510", "202511", "202512", "202601", "202602", "202603", "202604", "202605", "202606", "202607", "202608", "202609", "202610", "202611", "202612"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Removed Other Columns",{"MARCA", "PAIS BV", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "METRICA", "202501", "202502", "202503", "202504", "202505", "202506", "202507", "202508", "202509", "202510", "202511", "202512", "202601", "202602", "202603", "202604", "202605", "202606", "202607", "202608", "202609", "202610", "202611", "202612"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Removed Other Columns1", each ([METRICA] = "INV$ TGT")),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Filtered Rows1", {"MARCA", "PAIS BV", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "METRICA"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "AÑO MES"}, {"Value", "INVENTARIO $"}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each true),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Filtered Rows",{{"AÑO MES", Int64.Type}}),
+				    #"Filtered Rows2" = Table.SelectRows(#"Changed Type1", each ([AÑO MES] <> 202408) and ([MARCA] = "CAT"))
+				in
+				    #"Filtered Rows2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

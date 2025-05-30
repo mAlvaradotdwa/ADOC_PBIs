@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "INV TGT 2 - 20250530v2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dc5021f1-5200-421a-8bc5-c8a3f5cf8ec2"
+  }
+}

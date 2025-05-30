@@ -1,0 +1,174 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "42a0dbecb75060a619eb",
+  "position": {
+    "x": 177.21115537848604,
+    "y": 94.342629482071715,
+    "z": 0,
+    "height": 587.72908366533864,
+    "width": 924.30278884462143,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTENEDORES"
+                    }
+                  },
+                  "Property": "EKPO[FIRST_ETA]"
+                }
+              },
+              "queryRef": "CONTENEDORES.EKPO[FIRST_ETA]",
+              "nativeQueryRef": "EKPO[FIRST_ETA]",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTENEDORES"
+                    }
+                  },
+                  "Property": "EKPO[CONTENEDOR]"
+                }
+              },
+              "queryRef": "CONTENEDORES.EKPO[CONTENEDOR]",
+              "nativeQueryRef": "EKPO[CONTENEDOR]",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTENEDORES"
+                        }
+                      },
+                      "Property": "EKPO[CONTENEDOR]"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Min(CONTENEDORES.EKPO[CONTENEDOR])",
+              "nativeQueryRef": "Count of EKPO[CONTENEDOR]"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTENEDORES"
+                        }
+                      },
+                      "Property": "[Pares]"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(CONTENEDORES.[Pares])",
+              "nativeQueryRef": "Sum of [Pares]"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "CONTENEDORES.EKPO[FIRST_ETA]"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CONTENEDORES.EKPO[CONTENEDOR]"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4de6843609b058cc6a57",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CONTENEDORES"
+              }
+            },
+            "Property": "ETA BLUE/SAP"
+          }
+        },
+        "type": "RelativeDate",
+        "howCreated": "User"
+      }
+    ]
+  }
+}

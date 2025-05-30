@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "54744e91b9e54d52206b",
+  "position": {
+    "x": 889.14674695640781,
+    "y": 88.070166252127237,
+    "z": 7000,
+    "height": 148.39219793166643,
+    "width": 370.37727451237072,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "SmartFilterBySQLBI1458262140625",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZINT"
+                    }
+                  },
+                  "Property": "Denom. Estilo"
+                }
+              },
+              "queryRef": "ZINT.Denom. Estilo",
+              "nativeQueryRef": "Denom. Estilo"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "internalSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{}'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

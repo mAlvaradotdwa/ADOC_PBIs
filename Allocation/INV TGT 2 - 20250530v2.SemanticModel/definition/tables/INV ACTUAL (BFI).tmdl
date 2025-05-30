@@ -1,0 +1,185 @@
+table 'INV ACTUAL (BFI)'
+	lineageTag: 1c9eedd7-eee0-4856-bac5-a2ae3e4e3fa8
+
+	column 'MARCA BV2' = IF(LOOKUPVALUE('MARCAS UNIDAD'[UNIDAD NEGOCIO],'MARCAS UNIDAD'[MARCA BV],'INV ACTUAL (BFI)'[MARCA BV])="PAR2","PAR2",'INV ACTUAL (BFI)'[MARCA BV])
+		lineageTag: a22e9aa1-e25e-49ff-bb9a-82d0ff1f2125
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = 'INV ACTUAL (BFI)'[MARCA BV2]&'INV ACTUAL (BFI)'[PAIS BV]&'INV ACTUAL (BFI)'[DEPTO BV]&'INV ACTUAL (BFI)'[GENERO BV]&'INV ACTUAL (BFI)'[CATEGORIA BV]
+		lineageTag: c2b90807-7d97-4e94-b98f-49c19f79f819
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VALOR PROMEDIO $' =
+			
+			CALCULATE(
+			    AVERAGE('INV ACTUAL'[VALOR $ PROMEDIO]),
+			    FILTER(
+			        'INV ACTUAL',
+			        'INV ACTUAL'[KEY] = EARLIER('INV ACTUAL (BFI)'[KEY]) &&
+			        'INV ACTUAL'[COD ALMACEN] = "AL01"
+			    )
+			)
+		formatString: \$#,0.###############;-\$#,0.###############;\$#,0.###############
+		lineageTag: 1d93f5a0-253c-462f-aa07-23068fc409e5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column PE
+		dataType: string
+		lineageTag: 3f51bc5e-dd8a-4343-81ee-ee53e868253f
+		summarizeBy: none
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES_LANZ = RELATED('TABLA PE'[AÑO MES LANZAMIENTO])
+		lineageTag: 4e9e9fa5-3b71-4c16-99e5-8945dd3b60bf
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PAIS BV'
+		dataType: string
+		lineageTag: 8be18540-c0f6-4386-92d4-152652a82525
+		summarizeBy: none
+		sourceColumn: PAIS BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COD ALMACEN'
+		dataType: string
+		lineageTag: a4d7490f-f206-4a13-9c54-8dc7e88604d1
+		summarizeBy: none
+		sourceColumn: COD ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MARCA BV'
+		dataType: string
+		lineageTag: 07d46ea2-be27-4708-9217-d705b0340794
+		summarizeBy: none
+		sourceColumn: MARCA BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DEPTO BV'
+		dataType: string
+		lineageTag: 0eedd023-9d54-49af-8df2-2261dfee75ac
+		summarizeBy: none
+		sourceColumn: DEPTO BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GENERO BV'
+		dataType: string
+		lineageTag: 380d612b-5b84-4b08-819c-8b9608f644bf
+		summarizeBy: none
+		sourceColumn: GENERO BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CATEGORIA BV'
+		dataType: string
+		lineageTag: c1b9d4b4-b119-4e46-9427-cfc6471b4d24
+		summarizeBy: none
+		sourceColumn: CATEGORIA BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TIPO ESTILO'
+		dataType: string
+		lineageTag: aff58426-d8fa-4c3a-ab14-079b234abe62
+		summarizeBy: none
+		sourceColumn: TIPO ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EXISTENCIA PARES ULTIMO DIA'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5963ece4-8b24-4020-a529-62a2f3e38630
+		summarizeBy: sum
+		sourceColumn: EXISTENCIA PARES ULTIMO DIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EXISTENCIA NETA $ ULTIMO DIA'
+		dataType: decimal
+		formatString: \$#,0.###############;-\$#,0.###############;\$#,0.###############
+		lineageTag: b0057734-5b2b-4300-8a63-7fdb82402f07
+		summarizeBy: sum
+		sourceColumn: EXISTENCIA NETA $ ULTIMO DIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'PARES DISPONIBLE ULTIMO DIA'
+		dataType: int64
+		formatString: 0
+		lineageTag: e8902ef0-64e9-43fd-bcef-7b2789d41085
+		summarizeBy: sum
+		sourceColumn: PARES DISPONIBLE ULTIMO DIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TIPO OPERACION'
+		dataType: string
+		lineageTag: 105b5593-fb32-4bcb-8de4-98c8a49f90dc
+		summarizeBy: none
+		sourceColumn: TIPO OPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COD TIPO OPERACION'
+		dataType: string
+		lineageTag: b214a04e-5d2e-45b8-a541-44023fbe69ca
+		summarizeBy: none
+		sourceColumn: COD TIPO OPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ARRIBO PARES ULTIMO DIA'
+		dataType: int64
+		formatString: 0
+		lineageTag: 72e8f4b5-64b2-467b-b9cb-47f86701ffc3
+		summarizeBy: sum
+		sourceColumn: ARRIBO PARES ULTIMO DIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ARRIBO NETO $ ULTIMO DIA'
+		dataType: decimal
+		formatString: \$#,0.###############;-\$#,0.###############;\$#,0.###############
+		lineageTag: fe0dc8aa-f53c-44c9-ad3d-a36a8d6eadd8
+		summarizeBy: sum
+		sourceColumn: ARRIBO NETO $ ULTIMO DIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	partition 'INV ACTUAL (BFI)' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="#(lf)select#(lf)#(tab)(coalesce(""D"".""PAIS_BV"", ""D3"".""PAIS_BV"")) ""PAIS_BV"" ,#(lf)#(tab)(coalesce(""D"".""COD_ALMACEN"", ""D3"".""COD_ALMACEN"")) ""COD_ALMACEN"" ,#(lf)#(tab)(coalesce(""D"".""MARCA_BV"", ""D3"".""MARCA_BV"")) ""MARCA_BV"" ,#(lf)#(tab)(coalesce(""D"".""DEPTO_BV"", ""D3"".""DEPTO_BV"")) ""DEPTO_BV"" ,#(lf)#(tab)(coalesce(""D"".""GENERO_BV"", ""D3"".""GENERO_BV"")) ""GENERO_BV"" ,#(lf)#(tab)(coalesce(""D"".""CATEGORIA_BV"", ""D3"".""CATEGORIA_BV"")) ""CATEGORIA_BV"" ,#(lf)#(tab)""D3"".""EXISTENCIA_PARES_ULTIMO_DIA"" ""EXISTENCIA_PARES_ULTIMO_DIA"" ,#(lf)#(tab)""D3"".""EXISTENCIA_NETA___ULTIMO_DIA"" ""EXISTENCIA_NETA___ULTIMO_DIA"" ,#(lf)#(tab)""D3"".""PARES_DISPONIBLE_ULTIMO_DIA"" ""PARES_DISPONIBLE_ULTIMO_DIA"" ,#(lf)#(tab)(coalesce(""D"".""TIPO_ESTILO"", ""D3"".""TIPO_ESTILO"")) ""TIPO_ESTILO"" ,#(lf)#(tab)(coalesce(""D"".""COD_TIPO_OPERACION"", ""D3"".""COD_TIPO_OPERACION"")) ""COD_TIPO_OPERACION"" ,#(lf)#(tab)(coalesce(""D"".""TIPO_OPERACION"", ""D3"".""TIPO_OPERACION"")) ""TIPO_OPERACION"" ,#(lf)#(tab)""D"".""ARRIBO_PARES_ULTIMO_DIA"" ""ARRIBO_PARES_ULTIMO_DIA"" ,#(lf)#(tab)""D"".""ARRIBO_NETO___ULTIMO_DIA"" ""ARRIBO_NETO___ULTIMO_DIA"" ,#(lf)#(tab)(coalesce(""D"".""COD_TEMPORADA_SAP"", ""D3"".""COD_TEMPORADA_SAP"")) ""COD_TEMPORADA_SAP""#(lf)from#(lf)#(tab)(#(lf)#(tab)select#(lf)#(tab)#(tab)""DIM_PAIS"".""BV_PAIS"" ""PAIS_BV"" ,#(lf)#(tab)#(tab)""DIM_ALMACEN"".""SK_ALMACEN"" ""COD_ALMACEN"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_MARCA"" ""MARCA_BV"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_DEPTO"" ""DEPTO_BV"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_GENERO"" ""GENERO_BV"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_CATEGORIA"" ""CATEGORIA_BV"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""TIPOESTILO"" ""TIPO_ESTILO"" ,#(lf)#(tab)#(tab)""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" ""COD_TIPO_OPERACION"" ,#(lf)#(tab)#(tab)""DIM_TIPOOPERACION"".""TIPO_OPERACION"" ""TIPO_OPERACION"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""SK_COLECCION"" ""COD_TEMPORADA_SAP"" ,#(lf)#(tab)#(tab)sum(""FAC_ARRIBOFUTUROUD4"".""PARES"") ""ARRIBO_PARES_ULTIMO_DIA"" ,#(lf)#(tab)#(tab)sum(""FAC_ARRIBOFUTUROUD4"".""PRECIO_VENTANETA_USD"") ""ARRIBO_NETO___ULTIMO_DIA""#(lf)#(tab)from#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_PAIS"" ""DIM_PAIS"",#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_ALMACEN"" ""DIM_ALMACEN"",#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_ARTICULOSAP"" ""DIM_ARTICULOSAP"",#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_TIPOOPERACION"" ""DIM_TIPOOPERACION"",#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""FAC_ARRIBOFUTUROUD"" ""FAC_ARRIBOFUTUROUD4"",#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_TIENDA"" ""DIM_TIENDA""#(lf)#(tab)where#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""SK_CATEGORIA"" NOT in (N'PR', N'G4')#(lf)#(tab)#(tab)and ""DIM_ARTICULOSAP"".""SK_DEPTO"" in (N'A', N'C', N'R')#(lf)#(tab)#(tab)and ""DIM_TIENDA"".""SK_TIENDA"" NOT in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020')#(lf)#(tab)#(tab)and ""DIM_TIENDA"".""SK_TIENDA"" NOT in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020')#(lf)#(tab)#(tab)and ""DIM_TIENDA"".""SK_TIENDA"" NOT in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020')#(lf)#(tab)#(tab)and ""DIM_PAIS"".""SK_PAIS"" = ""FAC_ARRIBOFUTUROUD4"".""SK_PAIS""#(lf)#(tab)#(tab)and ""FAC_ARRIBOFUTUROUD4"".""SK_ALMACEN"" = ""DIM_ALMACEN"".""SK_ALMACEN""#(lf)#(tab)#(tab)and ""FAC_ARRIBOFUTUROUD4"".""SK_MATNR"" = ""DIM_ARTICULOSAP"".""SK_MATNR""#(lf)#(tab)#(tab)and ""FAC_ARRIBOFUTUROUD4"".""SK_TIENDA"" = ""DIM_TIENDA"".""SK_TIENDA""#(lf)#(tab)#(tab)and ""FAC_ARRIBOFUTUROUD4"".""SK_TIPOOPERACION"" = ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION""#(lf)#(tab)group by#(lf)#(tab)#(tab)""DIM_PAIS"".""BV_PAIS"",#(lf)#(tab)#(tab)""DIM_ALMACEN"".""SK_ALMACEN"",#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_MARCA"",#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_DEPTO"",#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_GENERO"",#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_CATEGORIA"",#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""TIPOESTILO"",#(lf)#(tab)#(tab)""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"",#(lf)#(tab)#(tab)""DIM_TIPOOPERACION"".""TIPO_OPERACION"",#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""SK_COLECCION"") ""D""#(lf)FULL OUTER JOIN (#(lf)#(tab)select#(lf)#(tab)#(tab)""DIM_PAIS"".""BV_PAIS"" ""PAIS_BV"" ,#(lf)#(tab)#(tab)""DIM_ALMACEN"".""SK_ALMACEN"" ""COD_ALMACEN"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_MARCA"" ""MARCA_BV"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_DEPTO"" ""DEPTO_BV"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_GENERO"" ""GENERO_BV"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_CATEGORIA"" ""CATEGORIA_BV"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""TIPOESTILO"" ""TIPO_ESTILO"" ,#(lf)#(tab)#(tab)""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" ""COD_TIPO_OPERACION"" ,#(lf)#(tab)#(tab)""DIM_TIPOOPERACION"".""TIPO_OPERACION"" ""TIPO_OPERACION"" ,#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""SK_COLECCION"" ""COD_TEMPORADA_SAP"" ,#(lf)#(tab)#(tab)sum(""FAC_INVENTARIOUD5"".""PARES"") ""EXISTENCIA_PARES_ULTIMO_DIA"" ,#(lf)#(tab)#(tab)sum(""FAC_INVENTARIOUD5"".""PRECIO_USD"") ""EXISTENCIA_NETA___ULTIMO_DIA"" ,#(lf)#(tab)#(tab)sum(""FAC_INVENTARIOUD5"".""DISPONIBLE"") ""PARES_DISPONIBLE_ULTIMO_DIA""#(lf)#(tab)from#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_PAIS"" ""DIM_PAIS"",#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_ALMACEN"" ""DIM_ALMACEN"",#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_ARTICULOSAP"" ""DIM_ARTICULOSAP"",#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_TIPOOPERACION"" ""DIM_TIPOOPERACION"",#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""FAC_INVENTARIOUD"" ""FAC_INVENTARIOUD5"",#(lf)#(tab)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_TIENDA"" ""DIM_TIENDA""#(lf)#(tab)where#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""SK_CATEGORIA"" NOT in (N'PR', N'G4')#(lf)#(tab)#(tab)#(tab)and ""DIM_ARTICULOSAP"".""SK_DEPTO"" in (N'A', N'C', N'R')#(lf)#(tab)#(tab)#(tab)#(tab)and ""DIM_TIENDA"".""SK_TIENDA"" NOT in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020')#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)and ""DIM_TIENDA"".""SK_TIENDA"" NOT in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020')#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and ""DIM_TIENDA"".""SK_TIENDA"" NOT in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020')#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and ""FAC_INVENTARIOUD5"".""SK_PAIS"" = ""DIM_PAIS"".""SK_PAIS""#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and ""DIM_ALMACEN"".""SK_ALMACEN"" = ""FAC_INVENTARIOUD5"".""SK_ALMACEN""#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and ""DIM_ARTICULOSAP"".""SK_MATNR"" = ""FAC_INVENTARIOUD5"".""SK_MATNR""#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and ""DIM_TIENDA"".""SK_TIENDA"" = ""FAC_INVENTARIOUD5"".""SK_TIENDA""#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and ""FAC_INVENTARIOUD5"".""SK_TIPOOPERACION"" = ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION""#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)group by#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)""DIM_PAIS"".""BV_PAIS"",#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)""DIM_ALMACEN"".""SK_ALMACEN"",#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_MARCA"",#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_DEPTO"",#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_GENERO"",#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)""DIM_ARTICULOSAP"".""BV_CATEGORIA"",#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)""DIM_ARTICULOSAP"".""TIPOESTILO"",#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"",#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)""DIM_TIPOOPERACION"".""TIPO_OPERACION"",#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)""DIM_ARTICULOSAP"".""SK_COLECCION"") ""D3"" on#(lf)#(tab)""D"".""PAIS_BV"" = ""D3"".""PAIS_BV""#(lf)#(tab)and ""D"".""COD_ALMACEN"" = ""D3"".""COD_ALMACEN""#(lf)#(tab)and ""D"".""MARCA_BV"" = ""D3"".""MARCA_BV""#(lf)#(tab)and ""D"".""DEPTO_BV"" = ""D3"".""DEPTO_BV""#(lf)#(tab)and ""D"".""GENERO_BV"" = ""D3"".""GENERO_BV""#(lf)#(tab)and ""D"".""CATEGORIA_BV"" = ""D3"".""CATEGORIA_BV""#(lf)#(tab)and ""D"".""TIPO_ESTILO"" = ""D3"".""TIPO_ESTILO""#(lf)#(tab)and ""D"".""COD_TIPO_OPERACION"" = ""D3"".""COD_TIPO_OPERACION""#(lf)#(tab)and ""D"".""TIPO_OPERACION"" = ""D3"".""TIPO_OPERACION""#(lf)#(tab)and ""D"".""COD_TEMPORADA_SAP"" = ""D3"".""COD_TEMPORADA_SAP""", CreateNavigationProperties=false]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"PAIS_BV", "PAIS BV"}, {"COD_ALMACEN", "COD ALMACEN"}, {"MARCA_BV", "MARCA BV"}, {"DEPTO_BV", "DEPTO BV"}, {"GENERO_BV", "GENERO BV"}, {"CATEGORIA_BV", "CATEGORIA BV"}, {"EXISTENCIA_PARES_ULTIMO_DIA", "EXISTENCIA PARES ULTIMO DIA"}, {"EXISTENCIA_NETA___ULTIMO_DIA", "EXISTENCIA NETA $ ULTIMO DIA"}, {"PARES_DISPONIBLE_ULTIMO_DIA", "PARES DISPONIBLE ULTIMO DIA"}, {"TIPO_ESTILO", "TIPO ESTILO"}, {"COD_TIPO_OPERACION", "COD TIPO OPERACION"}, {"TIPO_OPERACION", "TIPO OPERACION"}, {"ARRIBO_PARES_ULTIMO_DIA", "ARRIBO PARES ULTIMO DIA"}, {"ARRIBO_NETO___ULTIMO_DIA", "ARRIBO NETO $ ULTIMO DIA"}, {"COD_TEMPORADA_SAP", "COD TEMPORADA SAP"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"PARES DISPONIBLE ULTIMO DIA", Int64.Type}, {"EXISTENCIA NETA $ ULTIMO DIA", Currency.Type}, {"EXISTENCIA PARES ULTIMO DIA", Int64.Type}, {"ARRIBO PARES ULTIMO DIA", Int64.Type}, {"ARRIBO NETO $ ULTIMO DIA", Currency.Type}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([TIPO OPERACION] = "INVENTARIO BODEGA FISCAL") and ([TIPO ESTILO] <> "NOS") and ([COD ALMACEN] = "BF01" or [COD ALMACEN] = "BF17")),
+				    #"Added Custom" = Table.AddColumn(#"Filtered Rows", "PE", each Text.Start([COD TEMPORADA SAP],4)),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Added Custom",{"PAIS BV", "COD ALMACEN", "MARCA BV", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "TIPO ESTILO", "EXISTENCIA PARES ULTIMO DIA", "EXISTENCIA NETA $ ULTIMO DIA", "PARES DISPONIBLE ULTIMO DIA", "TIPO OPERACION", "COD TIPO OPERACION", "ARRIBO PARES ULTIMO DIA", "ARRIBO NETO $ ULTIMO DIA", "PE"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "5a878cdc7d0d3b981e33",
+  "position": {
+    "x": 177.21115537848604,
+    "y": 0,
+    "z": 3000,
+    "height": 79.04382470119522,
+    "width": 175.93625498007967,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTENEDORES"
+                    }
+                  },
+                  "Property": "MARCA BV"
+                }
+              },
+              "queryRef": "CONTENEDORES.MARCA BV",
+              "nativeQueryRef": "MARCA BV",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

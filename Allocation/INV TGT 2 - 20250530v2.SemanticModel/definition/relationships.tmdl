@@ -1,0 +1,64 @@
+relationship AutoDetected_112fb572-6341-46cd-92ff-d5c164e816cb
+	fromColumn: 'INV ACTUAL'.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship AutoDetected_a7752eed-7d74-4935-9e74-9d4ff8f90a9f
+	fromColumn: 'INV ACTUAL (BFI)'.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship AutoDetected_93a74ac9-2ead-4b23-9483-d2d755649999
+	fromColumn: 'ARRIBO FUTURO COGNOS'.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship e103dacd-83cb-4597-f13a-8f86d7d167a2
+	fromColumn: CONTENEDORES.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship 41d09433-935c-1045-5fc5-d0a414bfce0e
+	fromColumn: SOLPED.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship b881e526-e6de-e55c-e29b-e7f8ed3b8f08
+	fromColumn: ZINT.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship 27994d1d-2867-a4e0-78df-42f7f9068202
+	fromColumn: 'TRANS TDAS'.Artículo
+	toColumn: IH09.'Artículo SAP'
+
+relationship 5961fdc4-1d69-70a6-3e8d-9f25387ab04e
+	fromColumn: ZINT.Artículo
+	toColumn: IH09.'Artículo SAP'
+
+relationship 820c46e5-bf77-e5c7-dd24-c8baadd550d2
+	fromColumn: SOLPED.Artículo
+	toColumn: IH09.'Artículo SAP'
+
+relationship 7ab6a32c-2f25-5bd1-b888-859b4b7c3fbc
+	fromColumn: SOLPED.'MARCA (TEST)'
+	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
+
+relationship 96ff2146-dc97-cf2e-0c65-755b13bcb084
+	fromColumn: CONTENEDORES.GENERICO
+	toColumn: IH09.'Artículo SAP'
+
+relationship AutoDetected_95903090-1f35-4818-8de8-5fb8fa56ad14
+	fromColumn: 'MKS (2)'.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship AutoDetected_fd8c1ca0-9ed8-4b40-a30b-cae86b68daf8
+	fromColumn: 'MKS (2)'.shipment_id
+	toColumn: DIM_ETA.shipment_id
+
+relationship AutoDetected_8270723f-7ed9-48e6-8ca7-9c0b66da1824
+	fromColumn: FACT_MARINETRAFFIC.shipment_id
+	toColumn: DIM_ETA.shipment_id
+
+relationship AutoDetected_8b496fc1-6d3e-435e-aaa8-8e7897339291
+	fromColumn: 'INV ACTUAL'.'MARCA BV'
+	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
+
+relationship AutoDetected_81bd8ded-8531-4802-bda5-68b4be247ad1
+	fromColumn: 'INV ACTUAL (BFI)'.'MARCA BV'
+	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
+

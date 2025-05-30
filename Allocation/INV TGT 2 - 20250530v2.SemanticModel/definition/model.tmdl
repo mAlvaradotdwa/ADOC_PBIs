@@ -1,0 +1,83 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-SV
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errors in queries that were loaded on 30/8/2024 22:08:25.
+queryGroup 'Query Errors - 30/8/2024 22:08:25'
+
+	annotation PBI_QueryGroupOrder = 0
+
+/// Errors in queries that were loaded on 7/10/2024 10:09:42.
+queryGroup 'Query Errors - 7/10/2024 10:09:42'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'Transform File from IH09S'
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup 'Transform File from IH09S\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transform File from MKS (2)'
+
+	annotation PBI_QueryGroupOrder = 4
+
+queryGroup 'Transform File from MKS (2)\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transform File from ZINTS'
+
+	annotation PBI_QueryGroupOrder = 6
+
+queryGroup 'Transform File from ZINTS\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transform File from TRANS TDAS (2)'
+
+	annotation PBI_QueryGroupOrder = 8
+
+queryGroup 'Transform File from TRANS TDAS (2)\Helper Queries'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["IH09","ZINT","TRANS TDAS","INV ACTUAL","INV TGT","CONTENEDORES","Errors in CONTENEDORES","MARCAS UNIDAD","INV ACTUAL (BFI)","VTA MKD TGT","Index Oficial","ARRIBO FUTURO COGNOS","LT A BFI","PARA COMPRAS CAT","Errors in INV TGT","SOLPED","Parameter1","Transform Sample File","Sample File","Transform File","MKS (2)","Parameter2","Transform Sample File (2)","Sample File (2)","Transform File (2)","Sample File (3)","Parameter3","Transform Sample File (3)","Transform File (3)","Sample File (4)","Parameter4","Transform Sample File (4)","Transform File (4)","TABLA PE","FACT_MARINETRAFFIC","DIM_ETA"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.143.878.0 (25.05)+b20aa3b866ec1b70879135a4e60e4b1301c75b21
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table IH09
+ref table ZINT
+ref table 'TRANS TDAS'
+ref table 'INV ACTUAL'
+ref table 'INV TGT'
+ref table CONTENEDORES
+ref table 'MARCAS UNIDAD'
+ref table 'INV ACTUAL (BFI)'
+ref table 'VTA MKD TGT'
+ref table 'ARRIBOS BFI ACUM'
+ref table 'Index Oficial'
+ref table '% VENTA RESTANTE'
+ref table 'ARRIBO FUTURO COGNOS'
+ref table 'LT A BFI'
+ref table 'ARRIBOS BFI S/C ACUM'
+ref table 'PARA COMPRAS CAT'
+ref table SOLPED
+ref table 'MKS (2)'
+ref table 'TABLA PE'
+ref table FACT_MARINETRAFFIC
+ref table DIM_ETA
+
+ref cultureInfo en-US
+

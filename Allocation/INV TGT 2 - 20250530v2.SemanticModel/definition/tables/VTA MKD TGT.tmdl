@@ -1,0 +1,138 @@
+table 'VTA MKD TGT'
+	lineageTag: a2b111b2-3701-4806-8e8c-7cd891cd4aed
+
+	column MARCA
+		dataType: string
+		lineageTag: 677312e6-e84f-416a-bc36-467026c2237c
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PAIS BV'
+		dataType: string
+		lineageTag: 328fcd5b-f2af-41db-a57a-4b57bff9d44d
+		summarizeBy: none
+		sourceColumn: PAIS BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DEPTO BV'
+		dataType: string
+		lineageTag: 27ff92f5-000a-41a5-a35e-7b20d6dea7f4
+		summarizeBy: none
+		sourceColumn: DEPTO BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GENERO BV'
+		dataType: string
+		lineageTag: c2967138-9f0f-435c-b862-b129fbfe312f
+		summarizeBy: none
+		sourceColumn: GENERO BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CATEGORIA BV'
+		dataType: string
+		lineageTag: 17dde41f-4761-43fa-aa93-41189a85aecd
+		summarizeBy: none
+		sourceColumn: CATEGORIA BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column METRICA
+		dataType: string
+		lineageTag: 47436311-22c9-4832-b119-873d7cc4a9d6
+		summarizeBy: none
+		sourceColumn: METRICA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AÑO MES'
+		dataType: int64
+		formatString: 0
+		lineageTag: e1630bf9-2526-4994-a76b-fc30815bbce8
+		summarizeBy: sum
+		sourceColumn: AÑO MES
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INVENTARIO $'
+		dataType: string
+		lineageTag: 972d4a2a-c2f2-46cc-bc98-879b9efc5a08
+		summarizeBy: none
+		sourceColumn: INVENTARIO $
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = 'VTA MKD TGT'[MARCA]&'VTA MKD TGT'[PAIS BV]&'VTA MKD TGT'[DEPTO BV]&'VTA MKD TGT'[GENERO BV]&'VTA MKD TGT'[CATEGORIA BV]
+		lineageTag: fb39e6a0-ee44-40f7-aef5-cae32d35a9b4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FACTOR INDEX' = IF(CONVERT('VTA MKD TGT'[AÑO MES],STRING)=YEAR(TODAY())&FORMAT(MONTH(TODAY()),"00"),LOOKUPVALUE('% VENTA RESTANTE'[VENTA RESTANTE %],'% VENTA RESTANTE'[PAIS_FECHA],'VTA MKD TGT'[PAIS BV]&VALUE(TODAY())),1)
+		lineageTag: fee54d7a-2c6d-4ace-ba08-2fe4aba81e69
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VENTAMKD = 'VTA MKD TGT'[INVENTARIO $]*'VTA MKD TGT'[FACTOR INDEX]
+		formatString: \$#,0.###############;-\$#,0.###############;\$#,0.###############
+		lineageTag: b765d4f4-4baa-4924-805f-88efdd33507b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column CURRENT
+		dataType: int64
+		formatString: 0
+		lineageTag: da1a1a85-5822-4fc4-85f6-af1b7a47bc84
+		summarizeBy: sum
+		sourceColumn: CURRENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FILTRO TIMELINE'
+		dataType: string
+		lineageTag: be3bcd39-708d-4287-b11a-99531f026358
+		summarizeBy: none
+		sourceColumn: FILTRO TIMELINE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'VTA MKD TGT' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\mdaboub\OneDrive - Empresas ADOC, S.A. de C.V\Escritorio\TGT INVENTARIO CONTINGENCIA\INVENTARIO TARGET.xlsx"), null, true),
+				    Work_Sheet = Source{[Item="Work",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Work_Sheet, [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"MARCA", "PAIS BV", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "METRICA", "202501", "202502", "202503", "202504", "202505", "202506", "202507", "202508", "202509", "202510", "202511", "202512", "202601", "202602", "202603", "202604", "202605", "202606", "202607", "202608", "202609", "202610", "202611", "202612"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Removed Other Columns",{"MARCA", "PAIS BV", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "METRICA", "202501", "202502", "202503", "202504", "202505", "202506", "202507", "202508", "202509", "202510", "202511", "202512", "202601", "202602", "202603", "202604", "202605", "202606", "202607", "202608", "202609", "202610", "202611", "202612"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Removed Other Columns1", each ([METRICA] = "MKD$" or [METRICA] = "VTA$")),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Filtered Rows1", {"MARCA", "PAIS BV", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "METRICA"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "AÑO MES"}, {"Value", "INVENTARIO $"}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each true),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Filtered Rows",{{"AÑO MES", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type1", "CURRENT", each Number.ToText(Date.Year(Date.From(DateTime.LocalNow())))
+				
+				&
+				
+				Text.PadStart(
+				Number.ToText(Date.Month(Date.From(DateTime.LocalNow()))),2,"0")),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"CURRENT", Int64.Type}}),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type2", "FILTRO TIMELINE", each [AÑO MES]>=[CURRENT]),
+				    #"Filtered Rows2" = Table.SelectRows(#"Added Custom1", each ([FILTRO TIMELINE] = true))
+				in
+				    #"Filtered Rows2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
