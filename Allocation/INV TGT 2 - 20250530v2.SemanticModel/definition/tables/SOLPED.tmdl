@@ -42,7 +42,7 @@ table SOLPED
 
 		annotation SummarizationSetBy = Automatic
 
-	column KEY = RELATED('MARCAS UNIDAD'[UNIDAD NEGOCIO])&SOLPED[PAIS]&SOLPED[DEPTO]&SOLPED[GENERO]&SOLPED[CATEGORIA]
+	column KEY = RELATED ( 'MARCAS UNIDAD'[UNIDAD NEGOCIO] ) & SOLPED[PAIS] & SOLPED[DEPTO] & SOLPED[GENERO] & SOLPED[CATEGORIA]
 		lineageTag: 2b6e4876-3855-4d3d-be21-e8caac037020
 		summarizeBy: none
 
@@ -50,17 +50,17 @@ table SOLPED
 
 	column 'VALOR PROMEDIO $' =
 			
-			CALCULATE(
-			    AVERAGE('INV ACTUAL'[VALOR $ PROMEDIO]),
-			    FILTER(
+			CALCULATE (
+			    AVERAGE ( 'INV ACTUAL'[VALOR $ PROMEDIO] ),
+			    FILTER (
 			        'INV ACTUAL',
-			        'INV ACTUAL'[KEY] = EARLIER('SOLPED'[KEY]) &&
-			        'INV ACTUAL'[COD ALMACEN] = "AL01"
+			        'INV ACTUAL'[KEY] = EARLIER ( 'SOLPED'[KEY] )
+			            && 'INV ACTUAL'[COD ALMACEN] = "AL01"
 			    )
 			)
 		formatString: \$#,0.00;-\$#,0.00;\$#,0.00
 		lineageTag: d5ffd9be-3dbd-4ab3-a80a-27c4d0c7a03e
-		summarizeBy: sum
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 

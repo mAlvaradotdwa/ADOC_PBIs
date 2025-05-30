@@ -58,3 +58,16 @@ relationship AutoDetected_53c420e5-7164-49c7-96e6-0e0891704748
 	fromColumn: 'INV ACTUAL (BFI)'.'MARCA BV'
 	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
 
+relationship 043b6b5e-e3c8-df78-4e35-ddd2fdd3443b
+	fromColumn: CONTENEDORES.EKPO[FIRST_ETA]
+	toColumn: Fechas.Fecha
+
+relationship 1100bd10-b40f-81ed-e6da-5c7fa894938f
+	fromColumn: SOLPED.'MARCA (TEST)'
+	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
+
+relationship 4b811d57-85da-92bf-8ce6-4385493cc2fe
+	toCardinality: many
+	fromColumn: 'INV TGT'.'AÑO MES'
+	toColumn: Fechas.NumAñoMes
+

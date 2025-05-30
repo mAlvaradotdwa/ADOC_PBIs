@@ -1,0 +1,120 @@
+table EKPO
+	lineageTag: 398cc3a0-2014-48f7-9fb9-43faa506a8cf
+
+	column EKPO[DEPARTAMENTO]
+		dataType: string
+		lineageTag: 7b5c2605-7f18-4179-9acd-0b6a35c35c2e
+		summarizeBy: none
+		sourceColumn: EKPO[DEPARTAMENTO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[GENERO]
+		dataType: string
+		lineageTag: 5fbdeade-4b40-4686-ab2f-6eb33da190a8
+		summarizeBy: none
+		sourceColumn: EKPO[GENERO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[BV_CATEGORIA]
+		dataType: string
+		lineageTag: 1016342d-b0a2-44e1-91cc-608401690d47
+		summarizeBy: none
+		sourceColumn: EKPO[BV_CATEGORIA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[Tipo_Estilo]
+		dataType: string
+		lineageTag: 3cb868e5-4630-4f9a-802c-f1f7f194e207
+		summarizeBy: none
+		sourceColumn: EKPO[Tipo_Estilo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[MARCA]
+		dataType: string
+		lineageTag: 1b20a7a5-6c70-4186-8ddb-81b6c44bbfb2
+		summarizeBy: none
+		sourceColumn: EKPO[MARCA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[Articulo_GenericoF]
+		dataType: string
+		lineageTag: aebe8869-cd7a-4830-9e77-02c447344185
+		summarizeBy: none
+		sourceColumn: EKPO[Articulo_GenericoF]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EKPO[Pais Destino2]'
+		dataType: string
+		lineageTag: c810737c-7fb5-4b1b-be90-2fd645be2064
+		summarizeBy: none
+		sourceColumn: EKPO[Pais Destino2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[CONTENEDOR]
+		dataType: string
+		lineageTag: cd60dc00-6638-46bf-90f3-d673088e44f0
+		summarizeBy: none
+		sourceColumn: EKPO[CONTENEDOR]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[DOCUMENTO]
+		dataType: string
+		lineageTag: a51d28f0-82a4-40e8-b8aa-76537178dfa6
+		summarizeBy: none
+		sourceColumn: EKPO[DOCUMENTO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[FIRST_ETA]
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b4b635db-1929-4ff2-9e7a-fc633b424872
+		summarizeBy: none
+		sourceColumn: EKPO[FIRST_ETA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[MAX_ETA]
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5ab8c661-13b7-4e4a-88ff-6b7f266d40e1
+		summarizeBy: none
+		sourceColumn: EKPO[MAX_ETA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[CANTIDAD_PARES]
+		dataType: int64
+		formatString: 0
+		lineageTag: acba143d-ccea-48aa-a47d-30680a072a12
+		summarizeBy: sum
+		sourceColumn: EKPO[CANTIDAD_PARES]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[PRECIOVENTA_USD]
+		dataType: double
+		lineageTag: 035766d3-edf3-42b8-884b-f354884c80b8
+		summarizeBy: sum
+		sourceColumn: EKPO[PRECIOVENTA_USD]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition EKPO = m
+		mode: import
+		source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Data%20Mining%20%26%20BI", "Seguimiento Mercadería", [Query="EVALUATE SUMMARIZECOLUMNS(#(lf)    EKPO[DEPARTAMENTO],#(lf)    EKPO[GENERO],#(lf)    EKPO[BV_CATEGORIA],#(lf)    EKPO[Tipo_Estilo],#(lf)    EKPO[MARCA],#(lf)    EKPO[Articulo_GenericoF],#(lf)    EKPO[Pais Destino2],#(lf)    EKPO[CONTENEDOR],#(lf)    EKPO[DOCUMENTO],#(lf)    EKPO[FIRST_ETA],#(lf)    EKPO[MAX_ETA],#(lf)    EKPO[CANTIDAD_PARES],#(lf)    EKPO[PRECIOVENTA_USD]#(lf))", Implementation="2.0"])
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

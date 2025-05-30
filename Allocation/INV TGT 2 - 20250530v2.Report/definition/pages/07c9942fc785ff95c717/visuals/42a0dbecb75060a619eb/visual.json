@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CONTENEDORES"
+                      "Entity": "Fechas"
                     }
                   },
-                  "Property": "EKPO[FIRST_ETA]"
+                  "Property": "Mes Año"
                 }
               },
-              "queryRef": "CONTENEDORES.EKPO[FIRST_ETA]",
-              "nativeQueryRef": "EKPO[FIRST_ETA]",
+              "queryRef": "Fechas.Mes Año",
+              "nativeQueryRef": "Mes Año",
               "active": true
             },
             {
@@ -99,7 +99,7 @@
         "levels": [
           {
             "queryRefs": [
-              "CONTENEDORES.EKPO[FIRST_ETA]"
+              "Fechas.Mes Año"
             ],
             "isCollapsed": true,
             "isPinned": true

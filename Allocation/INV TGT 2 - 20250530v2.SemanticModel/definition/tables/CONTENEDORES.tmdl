@@ -31,7 +31,7 @@ table CONTENEDORES
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'ETA COMPUESTO' = CONTENEDORES[EKPO[MAX_ETA]]].[Date]
+	column 'ETA COMPUESTO' = CONTENEDORES[EKPO[MAX_ETA]]]
 		dataType: dateTime
 		formatString: d mmm yyyy
 		lineageTag: 47117da0-9759-4fd1-9b91-776c260f0af8

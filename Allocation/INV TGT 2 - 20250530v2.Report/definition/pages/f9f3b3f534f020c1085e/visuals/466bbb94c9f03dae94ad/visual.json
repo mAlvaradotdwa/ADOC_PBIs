@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
-  "name": "0de79971119edebe71a2",
+  "name": "466bbb94c9f03dae94ad",
   "position": {
-    "x": 949.468778635947,
-    "y": 39.812540908495876,
-    "z": 8000,
-    "height": 96.515250687262721,
-    "width": 197.85626390888859,
-    "tabOrder": 8000
+    "x": 968.00000000000011,
+    "y": 72,
+    "z": 8002,
+    "height": 104,
+    "width": 248.00000000000003,
+    "tabOrder": 8001
   },
   "visual": {
     "visualType": "slicer",
@@ -20,20 +20,35 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "INV TGT"
+                      "Entity": "Fechas"
                     }
                   },
-                  "Property": "AÑO MES"
+                  "Property": "Fecha"
                 }
               },
-              "queryRef": "INV TGT.AÑO MES",
-              "nativeQueryRef": "AÑO MES1",
+              "queryRef": "Fechas.Fecha",
+              "nativeQueryRef": "Fecha",
               "active": true
             }
           ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Fechas"
+                  }
+                },
+                "Property": "Fecha"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -61,17 +76,17 @@
       "data": [
         {
           "properties": {
-            "numericStart": {
+            "startDate": {
               "expr": {
                 "Literal": {
-                  "Value": "202504D"
+                  "Value": "datetime'2025-04-01T00:00:00'"
                 }
               }
             },
-            "numericEnd": {
+            "endDate": {
               "expr": {
                 "Literal": {
-                  "Value": "202512D"
+                  "Value": "datetime'2025-12-31T00:00:00'"
                 }
               }
             },
@@ -93,8 +108,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "i",
-                    "Entity": "INV TGT",
+                    "Name": "f",
+                    "Entity": "Fechas",
                     "Type": 0
                   }
                 ],
@@ -109,35 +124,35 @@
                               "Column": {
                                 "Expression": {
                                   "SourceRef": {
-                                    "Source": "i"
+                                    "Source": "f"
                                   }
                                 },
-                                "Property": "AÑO MES"
+                                "Property": "Fecha"
                               }
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "202504D"
+                                "Value": "datetime'2025-04-01T00:00:00'"
                               }
                             }
                           }
                         },
                         "Right": {
                           "Comparison": {
-                            "ComparisonKind": 4,
+                            "ComparisonKind": 3,
                             "Left": {
                               "Column": {
                                 "Expression": {
                                   "SourceRef": {
-                                    "Source": "i"
+                                    "Source": "f"
                                   }
                                 },
-                                "Property": "AÑO MES"
+                                "Property": "Fecha"
                               }
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "202512D"
+                                "Value": "datetime'2026-01-01T00:00:00'"
                               }
                             }
                           }

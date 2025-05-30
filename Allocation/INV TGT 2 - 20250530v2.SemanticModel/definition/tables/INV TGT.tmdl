@@ -127,7 +127,7 @@ table 'INV TGT'
 	column 'INV EN BP' = CALCULATE(SUM('INV ACTUAL'[EXISTENCIA DISPONIBLE $]),'INV ACTUAL'[KEY]=EARLIER('INV TGT'[KEY]),'INV ACTUAL'[COD ALMACEN] = "BP01", 'INV ACTUAL'[TIPO ESTILO]<>"NOS",'INV ACTUAL'[MES_LANZ]<=EARLIER('INV TGT'[AÑO MES]))
 		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: aabc4f0c-fa8e-4005-88fb-6e053c1de5df
-		summarizeBy: none
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 
@@ -135,7 +135,7 @@ table 'INV TGT'
 		dataType: int64
 		formatString: 0
 		lineageTag: bf40a99c-5e6c-40a0-9b47-d60db5515e27
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: AÑO MES
 
 		annotation SummarizationSetBy = Automatic
@@ -182,14 +182,36 @@ table 'INV TGT'
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'INV TRANS A BP S/CONT' = CALCULATE(SUM('ZINT'[INV TRANS $]),'ZINT'[KEY]=EARLIER('INV TGT'[KEY]), ZINT[TIPO ESTILO]<>"NOS",ZINT[CON CONTENEDOR]="NO", ZINT[INGRESADO]="NO",ZINT[MES_LANZ]<=EARLIER('INV TGT'[AÑO MES]))+CALCULATE(SUM('SOLPED'[INV TRANS $]),'SOLPED'[KEY]=EARLIER('INV TGT'[KEY]), SOLPED[TIPO ESTILO]<>"NOS",SOLPED[CDoc]<>"ZTRU",SOLPED[MES_LANZ]<=EARLIER('INV TGT'[AÑO MES]))
+	column 'INV TRANS A BP S/CONT' = ```
+			CALCULATE (
+			    SUM ( 'ZINT'[INV TRANS $] ),
+			    'ZINT'[KEY] = EARLIER ( 'INV TGT'[KEY] ),
+			    ZINT[TIPO ESTILO] <> "NOS",
+			    ZINT[CON CONTENEDOR] = "NO",
+			    ZINT[INGRESADO] = "NO",
+			    ZINT[MES_LANZ] <= EARLIER ( 'INV TGT'[AÑO MES] )
+			) 
+			    + CALCULATE (
+			        SUM ( 'SOLPED'[INV TRANS $] ),
+			        'SOLPED'[KEY] = EARLIER ( 'INV TGT'[KEY] ),
+			        SOLPED[TIPO ESTILO] <> "NOS",
+			        SOLPED[CDoc] <> "ZTRU" ,
+			        SOLPED[MES_LANZ] <= EARLIER ( 'INV TGT'[AÑO MES] )
+			    )
+			```
 		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: ae29b694-70e4-4a17-9b7d-e423ea841c34
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'ARRIBANDO A BFI' = CALCULATE(SUM('CONTENEDORES'[INV TRANS $]),'CONTENEDORES'[KEY BFI MES]=EARLIER('INV TGT'[KEY BFI MES]),CONTENEDORES[TIPO ESTILO]<>"NOS",CONTENEDORES[MES_LANZ]<=EARLIER('INV TGT'[AÑO MES]))*'INV TGT'[PROPORCION COMPRAS CAT]
+	column 'ARRIBANDO A BFI' =
+			CALCULATE (
+			    SUM ( 'CONTENEDORES'[INV TRANS $] ),
+			    'CONTENEDORES'[KEY BFI MES] = EARLIER ( 'INV TGT'[KEY BFI MES] ),
+			    CONTENEDORES[TIPO ESTILO] <> "NOS",
+			    CONTENEDORES[MES_LANZ] <= EARLIER ( 'INV TGT'[AÑO MES] )
+			) * 'INV TGT'[PROPORCION COMPRAS CAT]
 		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 7c6f800f-b15e-4564-9dc6-5c6c2dae858b
 		summarizeBy: sum
@@ -211,7 +233,12 @@ table 'INV TGT'
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
 
-	column 'ARRIBO A BFI ACUMULADO' = CALCULATE(SUM('ARRIBOS BFI ACUM'[ARRIBANDO A BFI]),'ARRIBOS BFI ACUM'[KEY]=EARLIER('INV TGT'[KEY]),'ARRIBOS BFI ACUM'[AÑO MES]<=EARLIER('INV TGT'[AÑO MES]))
+	column 'ARRIBO A BFI ACUMULADO' =
+			CALCULATE (
+			    SUM ( 'ARRIBOS BFI ACUM'[ARRIBANDO A BFI] ),
+			    'ARRIBOS BFI ACUM'[KEY] = EARLIER ( 'INV TGT'[KEY] ),
+			    'ARRIBOS BFI ACUM'[AÑO MES] <= EARLIER ( 'INV TGT'[AÑO MES] )
+			)
 		formatString: \$#,0;-\$#,0;\$#,0
 		lineageTag: 81ebb40d-9824-4c3c-8292-4d13cc701898
 		summarizeBy: sum
