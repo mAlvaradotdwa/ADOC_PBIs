@@ -7,53 +7,27 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-/// Errors in queries that were loaded on 30/8/2024 22:08:25.
-queryGroup 'Query Errors - 30/8/2024 22:08:25'
-
-	annotation PBI_QueryGroupOrder = 1
-
-/// Errors in queries that were loaded on 7/10/2024 10:09:42.
-queryGroup 'Query Errors - 7/10/2024 10:09:42'
-
-	annotation PBI_QueryGroupOrder = 2
-
-queryGroup 'Transform File from IH09S'
-
-	annotation PBI_QueryGroupOrder = 3
-
-queryGroup 'Transform File from IH09S\Helper Queries'
-
-	annotation PBI_QueryGroupOrder = 0
-
-queryGroup 'Transform File from MKS (2)'
-
-	annotation PBI_QueryGroupOrder = 4
-
-queryGroup 'Transform File from MKS (2)\Helper Queries'
-
-	annotation PBI_QueryGroupOrder = 0
-
-queryGroup 'Transform File from ZINTS'
-
-	annotation PBI_QueryGroupOrder = 5
-
-queryGroup 'Transform File from ZINTS\Helper Queries'
-
-	annotation PBI_QueryGroupOrder = 0
-
-queryGroup 'Transform File from TRANS TDAS (2)'
-
-	annotation PBI_QueryGroupOrder = 6
-
-queryGroup 'Transform File from TRANS TDAS (2)\Helper Queries'
-
-	annotation PBI_QueryGroupOrder = 0
-
 queryGroup Parametros
 
 	annotation PBI_QueryGroupOrder = 0
 
-annotation PBI_QueryOrder = ["IH09","ZINT","TRANS TDAS","INV ACTUAL","INV TGT","CONTENEDORES","Errors in CONTENEDORES","MARCAS UNIDAD","INV ACTUAL (BFI)","VTA MKD TGT","Index Oficial","ARRIBO FUTURO COGNOS","LT A BFI","PARA COMPRAS CAT","Errors in INV TGT","SOLPED","Parameter1","Transform Sample File","Sample File","Transform File","MKS (2)","Parameter2","Transform Sample File (2)","Sample File (2)","Transform File (2)","Sample File (3)","Parameter3","Transform Sample File (3)","Transform File (3)","Sample File (4)","Parameter4","Transform Sample File (4)","Transform File (4)","TABLA PE","FACT_MARINETRAFFIC","DIM_ETA","srvDev","srvCognos"]
+queryGroup 'Server Cognos (74)'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'Server Dev (20)'
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup 'Server SAP (HANA)'
+
+	annotation PBI_QueryGroupOrder = 3
+
+queryGroup 'Archivos Sharepoint'
+
+	annotation PBI_QueryGroupOrder = 4
+
+annotation PBI_QueryOrder = ["IH09","ZINT","TRANS TDAS","INV ACTUAL","INV TGT","CONTENEDORES","MARCAS UNIDAD","LT A BFI","INV ACTUAL (BFI)","VTA MKD TGT","Index Oficial","ARRIBO FUTURO COGNOS","PARA COMPRAS CAT","SOLPED","MKS (2)","TABLA PE","FACT_MARINETRAFFIC","DIM_ETA","srvDev","srvCognos"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 

@@ -234,6 +234,7 @@ table CONTENEDORES
 
 	partition CONTENEDORES = m
 		mode: import
+		queryGroup: 'Archivos Sharepoint'
 		source =
 				let
 				    Source = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/", [ApiVersion = 15]),

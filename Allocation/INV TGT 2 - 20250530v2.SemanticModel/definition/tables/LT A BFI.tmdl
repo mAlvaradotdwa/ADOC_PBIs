@@ -37,6 +37,7 @@ table 'LT A BFI'
 
 	partition 'LT A BFI' = m
 		mode: import
+		queryGroup: 'Server Dev (20)'
 		source =
 				let
 				    Origen = Sql.Database(srvDev, "ADO_SupplyChain"),
@@ -47,5 +48,5 @@ table 'LT A BFI'
 
 	annotation PBI_NavigationStepName = Navigation
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 

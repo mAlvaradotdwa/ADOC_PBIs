@@ -51,6 +51,7 @@ table DIM_ETA
 
 	partition DIM_ETA = m
 		mode: import
+		queryGroup: 'Server Cognos (74)'
 		source =
 				let
 				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from openquery(MYSQL, 'SELECT a.shipment_id, min(CAST(a.arrival_timestamp AS DATE)) FIRST_ETA, max(CAST(a.arrival_timestamp AS DATE)) MAX_ETA, #(lf)count(DISTINCT(CAST(a.arrival_timestamp AS DATE)))-1 CAMBIOS, datediff(max(CAST(a.arrival_timestamp AS DATE)),min(CAST(a.arrival_timestamp AS DATE))) DIAS_DIFF#(lf)FROM adminecommerce_marinetraffic.`port_of_discharge` a#(lf)GROUP BY 1#(lf)')"]),

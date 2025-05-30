@@ -131,6 +131,7 @@ table IH09
 
 	partition IH09 = m
 		mode: import
+		queryGroup: 'Server Cognos (74)'
 		source =
 				let
 				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT#(lf)#(tab)SK_MATNR ,#(lf)#(tab)MATNR = TRY_CAST( SK_MATNR AS BIGINT ) ,#(lf)#(tab)SK_ARTICULO = TRY_CAST( SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)SK_COLECCION ,#(lf)#(tab)ALU ,#(lf)#(tab)BV_CATEGORIA ,#(lf)#(tab)BV_GENERO ,#(lf)#(tab)BV_DEPTO ,#(lf)#(tab)ESTILO ,#(lf)#(tab)MARCA ,#(lf)#(tab)SK_MARCA,#(lf)#(tab)BV_MARCA,#(lf)#(tab)TIPOESTILO ,#(lf)#(tab)JERARQUIA#(lf)FROM DIM_ARTICULOSAP#(lf)WHERE ISNUMERIC( SK_MATNR ) = 1", CreateNavigationProperties=false]),

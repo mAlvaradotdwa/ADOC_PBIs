@@ -19,6 +19,7 @@ table 'MARCAS UNIDAD'
 
 	partition 'MARCAS UNIDAD' = m
 		mode: import
+		queryGroup: 'Server Dev (20)'
 		source =
 				let
 				    Origen = Sql.Database(srvDev, "ADO_SupplyChain"),
@@ -27,7 +28,7 @@ table 'MARCAS UNIDAD'
 				in
 				    #"Columnas con nombre cambiado"
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 
 	annotation PBI_NavigationStepName = Navigation
 
