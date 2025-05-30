@@ -312,8 +312,8 @@
     {
       "ordinal": 1,
       "scrollPosition": {
-        "x": 0,
-        "y": 0
+        "x": 42,
+        "y": 25
       },
       "nodes": [
         {
@@ -369,6 +369,45 @@
             "width": 234
           },
           "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 796,
+            "y": 84
+          },
+          "nodeIndex": "EKPO",
+          "nodeLineageTag": "398cc3a0-2014-48f7-9fb9-43faa506a8cf",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 756,
+            "y": 496
+          },
+          "nodeIndex": "IH09",
+          "nodeLineageTag": "0cb25326-a42d-4326-8a5e-f67aed0b5b7c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1031,
+            "y": 599
+          },
+          "nodeIndex": "TABLA PE",
+          "nodeLineageTag": "582db3b9-dd57-4ae1-baf6-54efeb931122",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Fechas",
