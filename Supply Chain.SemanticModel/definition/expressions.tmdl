@@ -1,0 +1,482 @@
+expression Tiendas_Geolocalizaciones =
+		let
+		    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+		    dbo_DIM_GEOLOCALIZACION_TIENDA = Origen{[Schema="dbo",Item="DIM_GEOLOCALIZACION_TIENDA"]}[Data],
+		    #"Columnas quitadas" = Table.RemoveColumns(dbo_DIM_GEOLOCALIZACION_TIENDA,{"UBICACION"}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas quitadas",{{"SK_TIENDA", Int64.Type}, {"LATITUD", type number}, {"LONGITUD", type number}})
+		in
+		    #"Tipo cambiado"
+	lineageTag: df40f5b6-f055-4e90-8126-fdc4b4ac5f96
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression RangeStart = #datetime(2023, 1, 1, 0, 0, 0) meta [IsParameterQuery=true, Type="DateTime", IsParameterQueryRequired=true]
+	lineageTag: 5f393dbf-d343-4c2a-a579-45777f9350e0
+
+	annotation PBI_ResultType = DateTime
+
+expression RangeEnd = #datetime(2025, 12, 31, 0, 0, 0) meta [IsParameterQuery=true, Type="DateTime", IsParameterQueryRequired=true]
+	lineageTag: 27be2944-a4a2-4e23-9a65-c81ff1962173
+
+	annotation PBI_ResultType = DateTime
+
+expression getDateKey =
+		let
+		    Source = (x as datetime) => Date.Year(x)*10000 + Date.Month(x)*100 + Date.Day(x)
+		in
+		    Source
+	lineageTag: 9ffa3ec6-6ea6-4c4c-a98b-770fa72fd47d
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Function
+
+expression ACO_Importaciones =
+		let
+		    Source = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com", [ApiVersion = 15]),
+		    #"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/" = Source{[Name="TRANSITOS ACOAVANZAR 2023.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com/Documents/"]}[Content],
+		    #"Imported Excel Workbook" = Excel.Workbook(#"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/"),
+		    IMPORTACIONES_Sheet = #"Imported Excel Workbook"{[Item="IMPORTACIONES",Kind="Sheet"]}[Data],
+		    #"Filas filtradas" = Table.SelectRows(IMPORTACIONES_Sheet, each [Column1] <> null and [Column1] <> ""),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Filas filtradas", [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"NUMERO DE EXPEDIENTE", type any}, {"FORWARD", type text}, {"CONTENEDOR/ CARTA DE PORTE/GUIA AEREA", type text}, {"Column4", type any}, {"BL # / GUIA / CARTA PORTE", type text}, {"DESTINO", type text}, {"ETA", type date}, {"FECHA ENTREGA DOCUMENTOS", type date}, {"FECHA DE MOVILIZACION Y/O POSICIONAMIENTO", type date}, {"FECHA RECIBIDA LIBERACION", type any}, {"FECHA VENCIMIENTO DIAS LIBRES", type any}, {"FECHA LLEGADA EXPORTSALVA Y/O BODEGA DESTINO", type date}, {"DIAS DE DEMORA", Int64.Type}, {"MONTO $", type any}, {"FECHA FINALIZACION TRANSITO", type any}, {"Column16", type text}, {"FECHA INICIO DESCARGA", type any}, {"FECHA FINALIZACION DESCARGA", type any}, {"FECHA SALIDA ZONA FRANCA VACIO", type any}, {"FECHA ENTREGA CONTENEDOR VACIO", type any}, {"MANIFIESTO", Int64.Type}, {"DMTI", Int64.Type}, {"NUMERO MARCHAMO", Int64.Type}, {"MOTORISTA", type text}, {"LICENCIA", type text}, {"PLACAS", type text}, {"CHASIS", type text}, {"SV", type text}, {"TEL", type text}, {"COMENTARIO PROCESO", type text}, {"Column31", type text}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"NUMERO DE EXPEDIENTE", "NumExpediente"}, {"CONTENEDOR/ CARTA DE PORTE/GUIA AEREA", "ContenedorCartaPorteGuiaAerea"}, {"Column4", "ContenedorCartaPorteGuiaAerea_2"}, {"BL # / GUIA / CARTA PORTE", "BlGuiaCartaPorte"}, {"DESTINO", "Destino"}, {"FECHA ENTREGA DOCUMENTOS", "FechaEntregaDocumento"}, {"FECHA DE MOVILIZACION Y/O POSICIONAMIENTO", "FechaMovilizacion"}, {"FECHA RECIBIDA LIBERACION", "FechaRecibidaLiberacion"}, {"FECHA VENCIMIENTO DIAS LIBRES", "FechaVencimientoDiasLibres"}, {"FECHA LLEGADA EXPORTSALVA Y/O BODEGA DESTINO", "FechaLlegadaDestino"}, {"DIAS DE DEMORA", "DiasMora"}, {"MONTO $", "Monto"}, {"FECHA FINALIZACION TRANSITO", "FechaFinTransito"}, {"Column16", "HoraFinTransito"}, {"FECHA INICIO DESCARGA", "FechaInicioDescarga"}, {"FECHA FINALIZACION DESCARGA", "FechaFinDescarga"}, {"FECHA SALIDA ZONA FRANCA VACIO", "FechaSalidaZF"}, {"FECHA ENTREGA CONTENEDOR VACIO", "FechaEntregaContenedor"}, {"MANIFIESTO", "Manifiesto"}, {"NUMERO MARCHAMO", "NoMarchamo"}, {"MOTORISTA", "Motorista"}, {"LICENCIA", "Licencia"}, {"PLACAS", "Placas"}, {"CHASIS", "Chasis"}, {"COMENTARIO PROCESO", "Comentario"}}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"Column31"}),
+		    #"Removed Top Rows1" = Table.Skip(#"Removed Columns",1)
+		in
+		    #"Removed Top Rows1"
+	lineageTag: e26a9109-3044-49e6-9bc2-70f56502c8d2
+	queryGroup: 'Fuentes Sharepoint'
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+
+expression ACO_Traslados =
+		let
+		    Source = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com", [ApiVersion = 15]),
+		    #"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/" = Source{[Name="TRANSITOS ACOAVANZAR 2023.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com/Documents/"]}[Content],
+		    #"Imported Excel Workbook" = Excel.Workbook(#"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/"),
+		    IMPORTACIONES_Sheet = #"Imported Excel Workbook"{[Item="TRASLADOS SV",Kind="Sheet"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(IMPORTACIONES_Sheet,5),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Column15", "Column16", "Column17"})
+		in
+		    #"Removed Columns"
+	lineageTag: df80fe1e-4e79-4991-a381-6723b9c08c74
+	queryGroup: 'Fuentes Sharepoint'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression ACO_Exportaciones_original =
+		let
+		    Source = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com", [ApiVersion = 15]),
+		    #"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/" = Source{[Name="TRANSITOS ACOAVANZAR 2023.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com/Documents/"]}[Content],
+		    #"Imported Excel Workbook" = Excel.Workbook(#"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/"),
+		    IMPORTACIONES_Sheet = #"Imported Excel Workbook"{[Item="EXPORTACIONES",Kind="Sheet"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(IMPORTACIONES_Sheet,3),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Removed Top Rows1" = Table.Skip(#"Promoted Headers",1),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Top Rows1",{{"EMBARQUE", "Embarque"}, {"ORIGEN", "Origen"}, {"PROVEEDORES", "Proveedores"}, {"MERCADERIA", "Mercaderia"}, {"EQUIPO CAPACIDAD", "Capacidad"}, {"Column6", "CBM"}, {"Column7", "Ocupacion"}, {"CANTIDAD", "Cantidad"}, {"Column9", "Bultos"}, {"DESTINO", "Destino"}}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns","6;00","6:00",Replacer.ReplaceValue,{"Column12"}),
+		    Custom1 = Table.ReplaceValue(#"Replaced Value","8;00","8:00",Replacer.ReplaceValue,{"Column12"}),
+		    #"Renamed Columns1" = Table.RenameColumns(Custom1,{{ "FECHA Y HORA DE LLEGADA A ZONA FRANCA Y/O BODEGA DE CARGA" , "fLlegadaZF" } , { "Column12" , "hLlegadaZF" } , { "FECHA Y HORA DE INICIO DE CARGA" , "fInicioCarga" } , { "Column14" , "hInicioCarga" } , { "FECHA Y HORA DE FINALIZACION DE CARGA" , "fFinCarga" } , { "Column16" , "hFinCarga" } , { "FECHA Y HORA SALIDA ZONA FRANCA Y/O BODEGA" , "fSalidaZF" } , { "Column18" , "hSalidaZF" } , { "FRONTERA DE DESTINO" , "FronteraDestino" } , { "FECHA Y HORA DE LLEGADA A FRONTERA" , "fLlegadaFrontera" } , { "Column21" , "hLlegadaFrontera" } , { "FECHA Y HORA DE SALIDA DE FRONTERA" , "fSalidaFrontera" } , { "Column23" , "hSalidaFrontera" } , { "FECHA Y HORA DE LLEGADA A BODEGA DE DESTINO" , "fLlegadaBodega" } , { "Column25" , "hLlegadaBodega" } , { "FECHA Y HORA DE DESCARGA EN BODEGA DE DESTINO" , "fDescargaBodega" } , { "Column27" , "hDescargaBodega" } , { "DUCA" , "DUCAF" } , { "Column29" , "DUCAT" } , { "MARCHAMO" , "Marchamo" } , { "CARTA DE PORTE" , "CartaPorte" } , { "MANIFIESTO DE CARGA" , "ManifiestoCarga" } , { "MOTORISTA" , "Motorista" } , { "LICENCIA DE CONDUCIR" , "LicenciaConducir" } , { "PLACAS" , "Placas" } , { "SV" , "SV" } , { "COMENTARIOS" , "Comentarios" }}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns1",{{"fDescargaBodega", type date}, {"fLlegadaBodega", type date}, {"fSalidaFrontera", type date}, {"fLlegadaFrontera", type date}, {"fSalidaZF", type date}, {"fFinCarga", type date}, {"fInicioCarga", type date}, {"fLlegadaZF", type date}, {"hLlegadaZF", type time}, {"hInicioCarga", type time}, {"hFinCarga", type time}, {"hSalidaZF", type time}, {"hLlegadaFrontera", type time}, {"hSalidaFrontera", type time}, {"hLlegadaBodega", type time}, {"hDescargaBodega", type time}}),
+		    #"Added LlegadaZF" = Table.AddColumn(#"Changed Type", "LlegadaZF", each [fLlegadaZF] & [hLlegadaZF]) ,
+		    #"Added InicioCarga" = Table.AddColumn(#"Added LlegadaZF", "InicioCarga", each [fInicioCarga] & [hInicioCarga]) ,
+		    #"Added FinCarga" = Table.AddColumn(#"Added InicioCarga", "FinCarga", each [fFinCarga] & [hFinCarga]) ,
+		    #"Added SalidaZF" = Table.AddColumn(#"Added FinCarga", "SalidaZF", each [fSalidaZF] & [hSalidaZF]) ,
+		    #"Added LlegadaFrontera" = Table.AddColumn(#"Added SalidaZF", "LlegadaFrontera", each [fLlegadaFrontera] & [hLlegadaFrontera]) ,
+		    #"Added SalidaFrontera" = Table.AddColumn(#"Added LlegadaFrontera", "SalidaFrontera", each [fSalidaFrontera] & [hSalidaFrontera]) ,
+		    #"Added LlegadaBodega" = Table.AddColumn(#"Added SalidaFrontera", "LlegadaBodega", each [fLlegadaBodega] & [hLlegadaBodega]) ,
+		    #"Added DescargaBodega" = Table.AddColumn(#"Added LlegadaBodega", "DescargaBodega", each [fDescargaBodega] & [hDescargaBodega]),
+		    #"Removed Columns" = Table.RemoveColumns(#"Added DescargaBodega",{"fLlegadaZF", "hLlegadaZF", "fInicioCarga", "hInicioCarga", "fFinCarga", "hFinCarga", "fSalidaZF", "hSalidaZF", "fLlegadaFrontera", "hLlegadaFrontera", "fSalidaFrontera", "hSalidaFrontera", "fLlegadaBodega", "hLlegadaBodega", "fDescargaBodega", "hDescargaBodega", "Column38"})
+		in
+		    #"Removed Columns"
+	lineageTag: f5357fd3-fc6a-4015-9021-a864333b9e50
+	queryGroup: 'Fuentes Sharepoint'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression FechasLotes =
+		let
+		    InventarioBFI = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- MB51#(lf)SELECT#(lf)  --  mseg.mblnr Documento,#(lf)  --  mseg.mjahr Anyo,#(lf)  --  mseg.zeile posicion_documento,#(lf)  --  mseg.bwart CodMovimiento,#(lf)  --  mseg.matnr CodMaterial,#(lf)  --  mseg.werks CodCentro,#(lf)  --  mseg.lgort CodAlmacen,#(lf)  mseg.charg Lote,#(lf)  --  mseg.waers Moneda,#(lf)  --  mseg.dmbtr Monto,#(lf)  -- SUM(mseg.menge) Cantidad,#(lf)  --  mseg.meins UdM,#(lf)  --  mseg.ebeln Pedido,#(lf)  --  mseg.ebelp posPedido,#(lf)  --  mseg.bukrs Sociedad,#(lf)  --  mseg.umlgo CentroReceptor,#(lf)  MIN(mseg.budat_mkpf) FechaContable --,#(lf)  --  mseg.usnam_mkpf Usuario,#(lf)  --  mseg.xblnr_mkpf Referencia#(lf)FROM#(lf)  SAP_ECC.mseg#(lf)WHERE#(lf)  mseg.budat_mkpf >= '20210101'#(lf)  and mseg.werks = '8010' --CodCentro#(lf)  AND mseg.bwart = '101' --CodMovimiento#(lf)  AND LENGTH(mseg.charg) > 1#(lf)GROUP BY#(lf)  mseg.charg", null, [EnableFolding=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(InventarioBFI,{{"FECHACONTABLE", type date}})
+		in
+		    #"Changed Type"
+	lineageTag: d8db87a7-6315-4da6-9172-1b495c1228f2
+	queryGroup: 'Fuentes SAP'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Exception
+
+expression ACO_Exportaciones_Limpieza2 = ```
+		let
+		    Source = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com", [ApiVersion = 15]),
+		    #"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/" = Source{[Name="TRANSITOS ACOAVANZAR 2023.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com/Documents/"]}[Content],
+		    #"Imported Excel Workbook" = Excel.Workbook(#"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/"),
+		    IMPORTACIONES_Sheet = #"Imported Excel Workbook"{[Item="EXPORTACIONES",Kind="Sheet"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(IMPORTACIONES_Sheet,3),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Removed Top Rows1" = Table.Skip(#"Promoted Headers",1),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Top Rows1",{{"EMBARQUE", "Embarque"}, {"ORIGEN", "Origen"}, {"PROVEEDORES", "Proveedores"}, {"MERCADERIA", "Mercaderia"}, {"EQUIPO CAPACIDAD", "Capacidad"}, {"Column6", "CBM"}, {"Column7", "Ocupacion"}, {"CANTIDAD", "Cantidad"}, {"Column9", "Bultos"}, {"DESTINO", "Destino"}}),
+		    #"Removed Columns1" = Table.RemoveColumns(#"Renamed Columns",{"Origen", "Proveedores", "Mercaderia", "Capacidad", "CBM", "Ocupacion", "Cantidad", "Bultos", "Destino", "DUCA", "Column29", "MARCHAMO", "CARTA DE PORTE", "MANIFIESTO DE CARGA", "MOTORISTA", "LICENCIA DE CONDUCIR", "PLACAS", "SV", "COMENTARIOS", "Column38", "FRONTERA DE DESTINO"}),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns1",{{"Column12", type text},{"Column14", type text},{"Column16", type text},{"Column18", type text},{"Column21", type text},{"Column23", type text},{"Column25", type text},{"Column27", type text}}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Changed Type1",";",":",Replacer.ReplaceText,{"Column12", "Column14", "Column16", "Column18", "Column21", "Column23", "Column25", "Column27"}),
+		    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",".",":",Replacer.ReplaceText,{"Column12", "Column14", "Column16", "Column18", "Column21", "Column23", "Column25", "Column27"}),
+		    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","´","",Replacer.ReplaceText,{"Column12", "Column14", "Column16", "Column18", "Column21", "Column23", "Column25", "Column27"}),
+		    #"Parsed Time" = Table.TransformColumns(#"Replaced Value2",{{"Column12", each Time.From(DateTimeZone.From(_)), type time}, {"Column14", each Time.From(DateTimeZone.From(_)), type time}, {"Column16", each Time.From(DateTimeZone.From(_)), type time}, {"Column18", each Time.From(DateTimeZone.From(_)), type time}, {"Column21", each Time.From(DateTimeZone.From(_)), type time}, {"Column23", each Time.From(DateTimeZone.From(_)), type time}, {"Column25", each Time.From(DateTimeZone.From(_)), type time}, {"Column27", each Time.From(DateTimeZone.From(_)), type time}}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Parsed Time",{{ "FECHA Y HORA DE LLEGADA A ZONA FRANCA Y/O BODEGA DE CARGA" , "fLlegadaZF" } , 
+		{ "Column12" , "hLlegadaZF" } , 
+		{ "FECHA Y HORA DE INICIO DE CARGA" , "fInicioCarga" } , 
+		{ "Column14" , "hInicioCarga" } , 
+		{ "FECHA Y HORA DE FINALIZACION DE CARGA" , "fFinCarga" } , 
+		{ "Column16" , "hFinCarga" } , 
+		{ "FECHA Y HORA SALIDA ZONA FRANCA Y/O BODEGA" , "fSalidaZF" } , 
+		{ "Column18" , "hSalidaZF" } , 
+		{ "FECHA Y HORA DE LLEGADA A FRONTERA" , "fLlegadaFrontera" } , 
+		{ "Column21" , "hLlegadaFrontera" } , 
+		{ "FECHA Y HORA DE SALIDA DE FRONTERA" , "fSalidaFrontera" } , 
+		{ "Column23" , "hSalidaFrontera" } , 
+		{ "FECHA Y HORA DE LLEGADA A BODEGA DE DESTINO" , "fLlegadaBodega" } , 
+		{ "Column25" , "hLlegadaBodega" } , 
+		{ "FECHA Y HORA DE DESCARGA EN BODEGA DE DESTINO" , "fDescargaBodega" } , 
+		{ "Column27" , "hDescargaBodega" } 
+		}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns1",{{"fDescargaBodega", type date}, {"fLlegadaBodega", type date}, {"fSalidaFrontera", type date}, {"fLlegadaFrontera", type date}, {"fSalidaZF", type date}, {"fFinCarga", type date}, {"fInicioCarga", type date}, {"fLlegadaZF", type date}, {"hLlegadaZF", type time}, {"hInicioCarga", type time}, {"hFinCarga", type time}, {"hSalidaZF", type time}, {"hLlegadaFrontera", type time}, {"hSalidaFrontera", type time}, {"hLlegadaBodega", type time}, {"hDescargaBodega", type time}}),
+		    #"Added LlegadaZF" = Table.AddColumn(#"Changed Type", "LlegadaZF", each [fLlegadaZF] & [hLlegadaZF]) ,
+		    #"Added InicioCarga" = Table.AddColumn(#"Added LlegadaZF", "InicioCarga", each [fInicioCarga] & [hInicioCarga]) ,
+		    #"Added FinCarga" = Table.AddColumn(#"Added InicioCarga", "FinCarga", each [fFinCarga] & [hFinCarga]) ,
+		    #"Added SalidaZF" = Table.AddColumn(#"Added FinCarga", "SalidaZF", each [fSalidaZF] & [hSalidaZF]) ,
+		    #"Added LlegadaFrontera" = Table.AddColumn(#"Added SalidaZF", "LlegadaFrontera", each [fLlegadaFrontera] & [hLlegadaFrontera]) ,
+		    #"Added SalidaFrontera" = Table.AddColumn(#"Added LlegadaFrontera", "SalidaFrontera", each [fSalidaFrontera] & [hSalidaFrontera]) ,
+		    #"Added LlegadaBodega" = Table.AddColumn(#"Added SalidaFrontera", "LlegadaBodega", each [fLlegadaBodega] & [hLlegadaBodega]) ,
+		    #"Added DescargaBodega" = Table.AddColumn(#"Added LlegadaBodega", "DescargaBodega", each [fDescargaBodega] & [hDescargaBodega]),
+		    #"Removed Columns" = Table.RemoveColumns(#"Added DescargaBodega",{"fLlegadaZF", "hLlegadaZF", "fInicioCarga", "hInicioCarga", "fFinCarga", "hFinCarga", "fSalidaZF", "hSalidaZF", "fLlegadaFrontera", "hLlegadaFrontera", "fSalidaFrontera", "hSalidaFrontera", "fLlegadaBodega", "hLlegadaBodega", "fDescargaBodega", "hDescargaBodega"})
+		in
+		    #"Removed Columns"
+		```
+	lineageTag: be89e55f-39f5-44ec-8d70-4ca599e7e1fe
+	queryGroup: 'Fuentes Sharepoint'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression ACO_Exportaciones_Limpieza3 = ```
+		let
+		    Source = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com", [ApiVersion = 15]),
+		    #"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/" = Source{[Name="TRANSITOS ACOAVANZAR 2023.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com/Documents/"]}[Content],
+		    #"Imported Excel Workbook" = Excel.Workbook(#"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/"),
+		    IMPORTACIONES_Sheet = #"Imported Excel Workbook"{[Item="EXPORTACIONES",Kind="Sheet"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(IMPORTACIONES_Sheet,3),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Removed Top Rows1" = Table.Skip(#"Promoted Headers",1),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Top Rows1",{{"EMBARQUE", "Embarque"}, {"ORIGEN", "Origen"}, {"PROVEEDORES", "Proveedores"}, {"MERCADERIA", "Mercaderia"}, {"EQUIPO CAPACIDAD", "Capacidad"}, {"Column6", "CBM"}, {"Column7", "Ocupacion"}, {"CANTIDAD", "Cantidad"}, {"Column9", "Bultos"}, {"DESTINO", "Destino"}}),
+		    #"Removed Columns1" = Table.RemoveColumns(#"Renamed Columns",{"Origen", "Proveedores", "Mercaderia", "Capacidad", "CBM", "Ocupacion", "Cantidad", "Bultos", "Destino", "DUCA", "Column29", "MARCHAMO", "CARTA DE PORTE", "MANIFIESTO DE CARGA", "MOTORISTA", "LICENCIA DE CONDUCIR", "PLACAS", "SV", "COMENTARIOS", "Column38", "FRONTERA DE DESTINO"}),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns1",{{"Column12", type text},{"Column14", type text},{"Column16", type text},{"Column18", type text},{"Column21", type text},{"Column23", type text},{"Column25", type text},{"Column27", type text}}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Changed Type1",";",":",Replacer.ReplaceText,{"Column12", "Column14", "Column16", "Column18", "Column21", "Column23", "Column25", "Column27"}),
+		    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",".",":",Replacer.ReplaceText,{"Column12", "Column14", "Column16", "Column18", "Column21", "Column23", "Column25", "Column27"}),
+		    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","´","",Replacer.ReplaceText,{"Column12", "Column14", "Column16", "Column18", "Column21", "Column23", "Column25", "Column27"}),
+		    #"Parsed Time" = Table.TransformColumns(#"Replaced Value2",{{"Column12", each Time.From(DateTimeZone.From(_)), type time}, {"Column14", each Time.From(DateTimeZone.From(_)), type time}, {"Column16", each Time.From(DateTimeZone.From(_)), type time}, {"Column18", each Time.From(DateTimeZone.From(_)), type time}, {"Column21", each Time.From(DateTimeZone.From(_)), type time}, {"Column23", each Time.From(DateTimeZone.From(_)), type time}, {"Column25", each Time.From(DateTimeZone.From(_)), type time}, {"Column27", each Time.From(DateTimeZone.From(_)), type time}}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Parsed Time",{{ "FECHA Y HORA DE LLEGADA A ZONA FRANCA Y/O BODEGA DE CARGA" , "fLlegadaZF" } , 
+		{ "Column12" , "hLlegadaZF" } , 
+		{ "FECHA Y HORA DE INICIO DE CARGA" , "fInicioCarga" } , 
+		{ "Column14" , "hInicioCarga" } , 
+		{ "FECHA Y HORA DE FINALIZACION DE CARGA" , "fFinCarga" } , 
+		{ "Column16" , "hFinCarga" } , 
+		{ "FECHA Y HORA SALIDA ZONA FRANCA Y/O BODEGA" , "fSalidaZF" } , 
+		{ "Column18" , "hSalidaZF" } , 
+		{ "FECHA Y HORA DE LLEGADA A FRONTERA" , "fLlegadaFrontera" } , 
+		{ "Column21" , "hLlegadaFrontera" } , 
+		{ "FECHA Y HORA DE SALIDA DE FRONTERA" , "fSalidaFrontera" } , 
+		{ "Column23" , "hSalidaFrontera" } , 
+		{ "FECHA Y HORA DE LLEGADA A BODEGA DE DESTINO" , "fLlegadaBodega" } , 
+		{ "Column25" , "hLlegadaBodega" } , 
+		{ "FECHA Y HORA DE DESCARGA EN BODEGA DE DESTINO" , "fDescargaBodega" } , 
+		{ "Column27" , "hDescargaBodega" } 
+		}),
+		    #"Added LlegadaZF" = Table.AddColumn(#"Renamed Columns1", "LlegadaZF", each [fLlegadaZF] & [hLlegadaZF]) ,
+		    #"Added InicioCarga" = Table.AddColumn(#"Added LlegadaZF", "InicioCarga", each [fInicioCarga] & [hInicioCarga]) ,
+		    #"Added FinCarga" = Table.AddColumn(#"Added InicioCarga", "FinCarga", each [fFinCarga] & [hFinCarga]) ,
+		    #"Added SalidaZF" = Table.AddColumn(#"Added FinCarga", "SalidaZF", each [fSalidaZF] & [hSalidaZF]) ,
+		    #"Added LlegadaFrontera" = Table.AddColumn(#"Added SalidaZF", "LlegadaFrontera", each [fLlegadaFrontera] & [hLlegadaFrontera]) ,
+		    #"Added SalidaFrontera" = Table.AddColumn(#"Added LlegadaFrontera", "SalidaFrontera", each [fSalidaFrontera] & [hSalidaFrontera]) ,
+		    #"Added LlegadaBodega" = Table.AddColumn(#"Added SalidaFrontera", "LlegadaBodega", each [fLlegadaBodega] & [hLlegadaBodega]) ,
+		    #"Added DescargaBodega" = Table.AddColumn(#"Added LlegadaBodega", "DescargaBodega", each [fDescargaBodega] & [hDescargaBodega]),
+		    #"Removed Columns" = Table.RemoveColumns(#"Added DescargaBodega",{"fLlegadaZF", "hLlegadaZF", "fInicioCarga", "hInicioCarga", "fFinCarga", "hFinCarga", "fSalidaZF", "hSalidaZF", "fLlegadaFrontera", "hLlegadaFrontera", "fSalidaFrontera", "hSalidaFrontera", "fLlegadaBodega", "hLlegadaBodega", "fDescargaBodega", "hDescargaBodega"}) ,
+		    #"Trimmed Text" = Table.TransformColumns(#"Removed Columns",{{"Embarque", Text.Trim, type text}}),
+		    #"Split Column by Delimiter" = Table.ExpandListColumn(Table.TransformColumns(#"Trimmed Text", {{"Embarque", Splitter.SplitTextByDelimiter(" ", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Split Column by Delimiter1" = Table.ExpandListColumn(Table.TransformColumns(#"Split Column by Delimiter", {{"Embarque", Splitter.SplitTextByDelimiter("#(tab)", QuoteStyle.None), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Split Column by Delimiter2" = Table.ExpandListColumn(Table.TransformColumns(#"Split Column by Delimiter1", {{"Embarque", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Split Column by Delimiter3" = Table.ExpandListColumn(Table.TransformColumns(#"Split Column by Delimiter2", {{"Embarque", Splitter.SplitTextByDelimiter("#(cr)", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Split Column by Delimiter4" = Table.ExpandListColumn(Table.TransformColumns(#"Split Column by Delimiter3", {{"Embarque", Splitter.SplitTextByDelimiter("#(00A0)", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Split Column by Delimiter5" = Table.ExpandListColumn(Table.TransformColumns(#"Split Column by Delimiter4", {{"Embarque", Splitter.SplitTextByDelimiter(".", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Changed Type5" = Table.TransformColumnTypes(#"Split Column by Delimiter5",{{"Embarque", type text}}),
+		    #"Cleaned Text1" = Table.TransformColumns(#"Changed Type5",{{"Embarque", Text.Clean, type text}}),
+		    #"Uppercased Text" = Table.TransformColumns(#"Cleaned Text1",{{"Embarque", Text.Upper, type text}}),
+		    #"Replaced Valuex" = Table.ReplaceValue(#"Uppercased Text","LL","L",Replacer.ReplaceText,{"Embarque"}),
+		    #"Added Custom" = Table.AddColumn(#"Replaced Valuex", "Personalizado", each Text.Contains([#"Embarque"], "-")),
+		    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Personalizado.1", each Text.Length([#"Embarque"])),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom1", each ([Personalizado] = true)),
+		    #"Removed Duplicates" = Table.Distinct(#"Filtered Rows", {"Embarque"}),
+		    #"Changed Typex" = Table.TransformColumnTypes(#"Removed Duplicates",{{"LlegadaZF", type datetime}, {"InicioCarga", type datetime}, {"FinCarga", type datetime}, {"SalidaZF", type datetime}, {"LlegadaFrontera", type datetime}, {"SalidaFrontera", type datetime}, {"LlegadaBodega", type datetime}, {"DescargaBodega", type datetime}}),
+		    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Typex", {{"InicioCarga", null},{"FinCarga", null},{"LlegadaZF", null},{"SalidaZF", null},{"LlegadaFrontera", null},{"SalidaFrontera", null},{"LlegadaBodega", null},{"DescargaBodega", null}}),
+		    #"Removed Columns2" = Table.RemoveColumns(#"Replaced Errors",{"Personalizado", "Personalizado.1"})
+		in
+		    #"Removed Columns2"
+		```
+	lineageTag: 67fd8e92-3001-4050-8e68-a89e8336f4f2
+	queryGroup: 'Fuentes Sharepoint'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'zsap_ZMM_PRODUCT - detalle productos' =
+		let
+		    zsap_ZMM_PRODUCT = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- ZMM_PRODUCT#(lf)SELECT#(lf)     LIKP.VBELN Documento,#(lf)     LIKP.ERDAT FechaCreacionEntrega,#(lf)     LIKP.VSTEL puestoexpedicion,#(lf)     LIKP.ERZET Fechcreacion,#(lf)     LIPS.WERKS Centro,#(lf)     LIPS.LGORT Almacen,#(lf)     LIPS.VRKME UnidadMedidaventa,#(lf)     YYLOG_PICKING.USER_HH Usuario,#(lf)     YYLOG_PICKING.LFIMGH cantidadescaneada,#(lf)     YYLOG_PICKING.FECHA_SCAN fechaescaneo,#(lf)     YYLOG_PICKING.HORA_SCAN horaescaneo,#(lf)     YYLOG_PICKING.HORA_PICK horapicking,#(lf)     YYLOG_PICKING.FECHA_PICK fechapicking,#(lf)     YYLOG_PICKING.POSNR posicionpicking,#(lf)     MARA.ZZ_ART_PROV genero,#(lf)     MARA.BRAND_ID marca,#(lf)     MARA.ZZ_DEPART departamento,#(lf)     MARA.MATNR codigomaterial#(lf)FROM#(lf)     SAP_ECC.LIKP#(lf)     INNER JOIN SAP_ECC.LIPS ON LIPS.VBELN = LIKP.VBELN#(lf)     INNER JOIN SAP_ECC.YYLOG_PICKING ON YYLOG_PICKING.POSNR = LIPS.POSNR#(lf)     AND YYLOG_PICKING.VBELN = LIPS.VBELN#(lf)     INNER JOIN SAP_ECC.MARA ON MARA.MATNR = YYLOG_PICKING.MATNR#(lf)WHERE#(lf)     --LIKP~VBELN in SP$00001 documento#(lf)     LIKP.ERDAT >= '20221230' #(lf)     --   and LIPS~WERKS in SP$00004 Centro#(lf)     --   and LIPS~LGORT in SP$00005 Almacen#(lf)     --   and YYLOG_PICKING~USER_HH in SP$00006 Usuario HH#(lf)     --   and YYLOG_PICKING~FECHA_SCAN in SP$00007 Fecha de escaneo#(lf)     --   and MARA~BRAND_ID in SP$00008 Marca#(lf)", null, [EnableFolding=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(zsap_ZMM_PRODUCT,{{"FECHAESCANEO", type date}, {"HORAESCANEO", type time}, {"HORAPICKING", type time}, {"FECHAPICKING", type date}, {"DOCUMENTO", Int64.Type}, {"FECHACREACIONENTREGA", type date}, {"FECHCREACION", type time}, {"POSICIONPICKING", Int64.Type}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed Type", "Fecha Escaneo", each [FECHAESCANEO] & [HORAESCANEO]),
+		    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Fecha Picking", each [FECHAPICKING] & [HORAPICKING]),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom1",{{"Fecha Escaneo", type datetime}, {"Fecha Picking", type datetime}}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Changed Type1",{"FECHAESCANEO", "HORAESCANEO", "HORAPICKING", "FECHAPICKING"}),
+		    #"Inserted Date" = Table.AddColumn(#"Removed Columns", "Fecha", each DateTime.Date([Fecha Picking]), type date),
+		    #"Renamed Columns" = Table.RenameColumns(#"Inserted Date",{{"Fecha", "fPicking"}})
+		in
+		    #"Renamed Columns"
+	lineageTag: 58625475-ad77-4c8c-9ae6-6fa65ab53d29
+	queryGroup: 'Fuentes SAP'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Exception
+
+expression Inventarios_Full =
+		let
+		    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="-- Inventarios FULL#(lf)SELECT TOP 0 #(lf)       [fac].[SK_PERIODO] , #(lf)       [fac].[SK_TIPOOPERACION] , #(lf)       [SK_MATNR] = MAX([fac].[SK_MATNR]) , #(lf)       [fac].[SK_TIENDA] , #(lf)       [fac].[SK_ALMACEN] , #(lf)       --[fac].[SK_PROVEEDOR] , #(lf)       [fac].[SK_ESTATUS] , #(lf)       [COSTO_USD] = SUM([fac].[COSTO_USD]) , #(lf)       [PRECIO_USD] = SUM([fac].[PRECIO_USD]) , #(lf)       [PARES] = SUM([fac].[PARES]) , #(lf)       [RESERVADO] = SUM([fac].[RESERVADO]) , #(lf)       [DISPONIBLE] = SUM([fac].[DISPONIBLE]) , #(lf)       [pe].[ID_VENCIMIENTO] , #(lf)       [ID_VencimientoEstadistico] = CASE#(lf)                                         WHEN [pe].[IDPeriodo] IS NULL THEN-1#(lf)                                         WHEN [pe].[IDPeriodo] = '99' THEN 0#(lf)                                         WHEN [pe].[FIN_COLECCION] >= [dim].[PERIODO] THEN [pe].[ID_VENCIMIENTO]#(lf)                                         WHEN [pe].[FIN_COLECCION] < [dim].[PERIODO] THEN-100#(lf)                                     END#(lf)  FROM [dbo].[FAC_INVENTARIOD] [fac] WITH(NOLOCK)#(lf)  LEFT JOIN [dbo].[DIM_PERIODO] [dim]#(lf)       ON [fac].[SK_PERIODO] = [dim].[SK_PERIODO]#(lf)  LEFT JOIN [dbo].[DIM_ARTICULOSAP] [art]#(lf)       ON [fac].[SK_MATNR] = [art].[SK_MATNR]#(lf)  LEFT JOIN [vw_Periodos_Estadisticos] [pe]#(lf)       ON [art].[SK_COLECCION] = [pe].[SK_COLECCION]#(lf) WHERE [dim].[PERIODO] > DATEADD(day , -15 , CAST(GETDATE() AS DATE))#(lf) GROUP BY #(lf)          [fac].[SK_PERIODO] , #(lf)          [fac].[SK_TIPOOPERACION] , #(lf)          --[fac].[SK_MATNR] , #(lf)          [art].[BV_JERARQUIA] , #(lf)          [fac].[SK_TIENDA] , #(lf)          [fac].[SK_ALMACEN] , #(lf)          --[fac].[SK_PROVEEDOR] , #(lf)          [fac].[SK_ESTATUS] , #(lf)          [pe].[ID_VENCIMIENTO] , #(lf)          [pe].[IDPeriodo] , #(lf)          [pe].[FIN_COLECCION] , #(lf)          [dim].[PERIODO]#(lf)#(lf)#(lf)UNION#(lf)#(lf)SELECT TOP 0#(lf)       [fac].[SK_PERIODO] , #(lf)       [fac].[SK_TIPOOPERACION] , #(lf)       [SK_MATNR] = MAX([fac].[SK_MATNR]) , #(lf)       [fac].[SK_TIENDA] , #(lf)       [fac].[SK_ALMACEN] , #(lf)       --[fac].[SK_PROVEEDOR] , #(lf)       [fac].[SK_ESTATUS] , #(lf)       [COSTO_USD] = SUM([fac].[COSTO_USD]) , #(lf)       [PRECIO_USD] = SUM([fac].[PRECIO_USD]) , #(lf)       [PARES] = SUM([fac].[PARES]) , #(lf)       [RESERVADO] = SUM([fac].[RESERVADO]) , #(lf)       [DISPONIBLE] = SUM([fac].[DISPONIBLE]) , #(lf)       [pe].[ID_VENCIMIENTO] , #(lf)       [ID_VencimientoEstadistico] = CASE#(lf)                                         WHEN [pe].[IDPeriodo] IS NULL THEN-1#(lf)                                         WHEN [pe].[IDPeriodo] = '99' THEN 0#(lf)                                         WHEN [pe].[FIN_COLECCION] >= [dim].[PERIODO] THEN [pe].[ID_VENCIMIENTO]#(lf)                                         WHEN [pe].[FIN_COLECCION] < [dim].[PERIODO] THEN-100#(lf)                                     END#(lf)  FROM [dbo].[FAC_INVENTARIOS] [fac] WITH(NOLOCK)#(lf)  LEFT JOIN [dbo].[DIM_PERIODO] [dim]#(lf)       ON [fac].[SK_PERIODO] = [dim].[SK_PERIODO]#(lf)  LEFT JOIN [dbo].[DIM_ARTICULOSAP] [art]#(lf)       ON [fac].[SK_MATNR] = [art].[SK_MATNR]#(lf)  LEFT JOIN [vw_Periodos_Estadisticos] [pe]#(lf)       ON [art].[SK_COLECCION] = [pe].[SK_COLECCION]#(lf) WHERE [dim].[PERIODO] BETWEEN '20220101' AND DATEADD(day , -15 , CAST(GETDATE() AS DATE))#(lf)#(lf) GROUP BY #(lf)          [fac].[SK_PERIODO] , #(lf)          [fac].[SK_TIPOOPERACION] , #(lf)          --[fac].[SK_MATNR] , #(lf)          [art].[BV_JERARQUIA] , #(lf)          [fac].[SK_TIENDA] , #(lf)          [fac].[SK_ALMACEN] , #(lf)          --[fac].[SK_PROVEEDOR] , #(lf)          [fac].[SK_ESTATUS] , #(lf)          [pe].[ID_VENCIMIENTO] , #(lf)          [pe].[IDPeriodo] , #(lf)          [pe].[FIN_COLECCION] , #(lf)          [dim].[PERIODO]#(lf)", CreateNavigationProperties=false])
+		in
+		    Source
+	lineageTag: d873a938-47a6-4314-a45f-117c395efb84
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression getDateValue =
+		let
+		    Source = (x as datetime) => DateTime.Date(x)
+		in
+		    Source
+	lineageTag: 6542e4ab-da63-4f31-b886-0cfa747e556e
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Function
+
+expression ACO_Exportaciones = ```
+		let
+		    Source = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com", [ApiVersion = 15]),
+		    #"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/" = Source{[Name="TRANSITOS ACOAVANZAR 2023.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/delmy_henriquez_acoavanzar_com/Documents/"]}[Content],
+		    #"Imported Excel Workbook" = Excel.Workbook(#"TRANSITOS ACOAVANZAR 2023 xlsx_https://empresasadoc-my sharepoint com/personal/delmy_henriquez_acoavanzar_com/Documents/"),
+		    IMPORTACIONES_Sheet = #"Imported Excel Workbook"{[Item="EXPORTACIONES",Kind="Sheet"]}[Data],
+		    #"Removed Top Rows" = Table.Skip(IMPORTACIONES_Sheet,3),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Removed Top Rows1" = Table.Skip(#"Promoted Headers",1),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Top Rows1",{{"EMBARQUE", "Embarque"}, {"ORIGEN", "Origen"}, {"PROVEEDORES", "Proveedores"}, {"MERCADERIA", "Mercaderia"}, {"EQUIPO CAPACIDAD", "Capacidad"}, {"Column6", "CBM"}, {"Column7", "Ocupacion"}, {"CANTIDAD", "Cantidad"}, {"Column9", "Bultos"}, {"DESTINO", "Destino"}}),
+		    #"Removed Columns1" = Table.RemoveColumns(#"Renamed Columns",{"Origen", "Proveedores", "Mercaderia", "Capacidad", "CBM", "Ocupacion", "Cantidad", "Bultos", "Destino", "DUCA", "Column29", "MARCHAMO", "CARTA DE PORTE", "MANIFIESTO DE CARGA", "MOTORISTA", "LICENCIA DE CONDUCIR", "PLACAS", "SV", "COMENTARIOS", "Column38", "FRONTERA DE DESTINO"}),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns1",{{"Column12", type text},{"Column14", type text},{"Column16", type text},{"Column18", type text},{"Column21", type text},{"Column23", type text},{"Column25", type text},{"Column27", type text}}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Changed Type1",";",":",Replacer.ReplaceText,{"Column12", "Column14", "Column16", "Column18", "Column21", "Column23", "Column25", "Column27"}),
+		    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",".",":",Replacer.ReplaceText,{"Column12", "Column14", "Column16", "Column18", "Column21", "Column23", "Column25", "Column27"}),
+		    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value1","´","",Replacer.ReplaceText,{"Column12", "Column14", "Column16", "Column18", "Column21", "Column23", "Column25", "Column27"}),
+		    #"Parsed Time" = Table.TransformColumns(#"Replaced Value2",{{"Column12", each Time.From(DateTimeZone.From(_)), type time}, {"Column14", each Time.From(DateTimeZone.From(_)), type time}, {"Column16", each Time.From(DateTimeZone.From(_)), type time}, {"Column18", each Time.From(DateTimeZone.From(_)), type time}, {"Column21", each Time.From(DateTimeZone.From(_)), type time}, {"Column23", each Time.From(DateTimeZone.From(_)), type time}, {"Column25", each Time.From(DateTimeZone.From(_)), type time}, {"Column27", each Time.From(DateTimeZone.From(_)), type time}}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Parsed Time",{{ "FECHA Y HORA DE LLEGADA A ZONA FRANCA Y/O BODEGA DE CARGA" , "fLlegadaZF" } , 
+		{ "Column12" , "hLlegadaZF" } , 
+		{ "FECHA Y HORA DE INICIO DE CARGA" , "fInicioCarga" } , 
+		{ "Column14" , "hInicioCarga" } , 
+		{ "FECHA Y HORA DE FINALIZACION DE CARGA" , "fFinCarga" } , 
+		{ "Column16" , "hFinCarga" } , 
+		{ "FECHA Y HORA SALIDA ZONA FRANCA Y/O BODEGA" , "fSalidaZF" } , 
+		{ "Column18" , "hSalidaZF" } , 
+		{ "FECHA Y HORA DE LLEGADA A FRONTERA" , "fLlegadaFrontera" } , 
+		{ "Column21" , "hLlegadaFrontera" } , 
+		{ "FECHA Y HORA DE SALIDA DE FRONTERA" , "fSalidaFrontera" } , 
+		{ "Column23" , "hSalidaFrontera" } , 
+		{ "FECHA Y HORA DE LLEGADA A BODEGA DE DESTINO" , "fLlegadaBodega" } , 
+		{ "Column25" , "hLlegadaBodega" } , 
+		{ "FECHA Y HORA DE DESCARGA EN BODEGA DE DESTINO" , "fDescargaBodega" } , 
+		{ "Column27" , "hDescargaBodega" } 
+		}),
+		    #"Added LlegadaZF" = Table.AddColumn(#"Renamed Columns1", "LlegadaZF", each [fLlegadaZF] & [hLlegadaZF]) ,
+		    #"Added InicioCarga" = Table.AddColumn(#"Added LlegadaZF", "InicioCarga", each [fInicioCarga] & [hInicioCarga]) ,
+		    #"Added FinCarga" = Table.AddColumn(#"Added InicioCarga", "FinCarga", each [fFinCarga] & [hFinCarga]) ,
+		    #"Added SalidaZF" = Table.AddColumn(#"Added FinCarga", "SalidaZF", each [fSalidaZF] & [hSalidaZF]) ,
+		    #"Added LlegadaFrontera" = Table.AddColumn(#"Added SalidaZF", "LlegadaFrontera", each [fLlegadaFrontera] & [hLlegadaFrontera]) ,
+		    #"Added SalidaFrontera" = Table.AddColumn(#"Added LlegadaFrontera", "SalidaFrontera", each [fSalidaFrontera] & [hSalidaFrontera]) ,
+		    #"Added LlegadaBodega" = Table.AddColumn(#"Added SalidaFrontera", "LlegadaBodega", each [fLlegadaBodega] & [hLlegadaBodega]) ,
+		    #"Added DescargaBodega" = Table.AddColumn(#"Added LlegadaBodega", "DescargaBodega", each [fDescargaBodega] & [hDescargaBodega]),
+		    #"Removed Columns" = Table.RemoveColumns(#"Added DescargaBodega",{"fLlegadaZF", "hLlegadaZF", "fInicioCarga", "hInicioCarga", "fFinCarga", "hFinCarga", "fSalidaZF", "hSalidaZF", "fLlegadaFrontera", "hLlegadaFrontera", "fSalidaFrontera", "hSalidaFrontera", "fLlegadaBodega", "hLlegadaBodega", "fDescargaBodega", "hDescargaBodega"}) ,
+		    #"Trimmed Text" = Table.TransformColumns(#"Removed Columns",{{"Embarque", Text.Trim, type text}}),
+		    #"Split Column by Delimiter" = Table.ExpandListColumn(Table.TransformColumns(#"Trimmed Text", {{"Embarque", Splitter.SplitTextByDelimiter(" ", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Split Column by Delimiter1" = Table.ExpandListColumn(Table.TransformColumns(#"Split Column by Delimiter", {{"Embarque", Splitter.SplitTextByDelimiter("#(tab)", QuoteStyle.None), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Split Column by Delimiter2" = Table.ExpandListColumn(Table.TransformColumns(#"Split Column by Delimiter1", {{"Embarque", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Split Column by Delimiter3" = Table.ExpandListColumn(Table.TransformColumns(#"Split Column by Delimiter2", {{"Embarque", Splitter.SplitTextByDelimiter("#(cr)", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Split Column by Delimiter4" = Table.ExpandListColumn(Table.TransformColumns(#"Split Column by Delimiter3", {{"Embarque", Splitter.SplitTextByDelimiter("#(00A0)", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Split Column by Delimiter5" = Table.ExpandListColumn(Table.TransformColumns(#"Split Column by Delimiter4", {{"Embarque", Splitter.SplitTextByDelimiter(".", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Embarque"),
+		    #"Changed Type5" = Table.TransformColumnTypes(#"Split Column by Delimiter5",{{"Embarque", type text}}),
+		    #"Cleaned Text1" = Table.TransformColumns(#"Changed Type5",{{"Embarque", Text.Clean, type text}}),
+		    #"Uppercased Text" = Table.TransformColumns(#"Cleaned Text1",{{"Embarque", Text.Upper, type text}}),
+		    #"Replaced Valuex" = Table.ReplaceValue(#"Uppercased Text","LL","L",Replacer.ReplaceText,{"Embarque"}),
+		    #"Added Custom" = Table.AddColumn(#"Replaced Valuex", "Personalizado", each Text.Contains([#"Embarque"], "-")),
+		    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Personalizado.1", each Text.Length([#"Embarque"])),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom1", each ([Personalizado] = true)),
+		    #"Removed Duplicates" = Table.Distinct(#"Filtered Rows", {"Embarque"}),
+		    #"Changed Typex" = Table.TransformColumnTypes(#"Removed Duplicates",{{"LlegadaZF", type datetime}, {"InicioCarga", type datetime}, {"FinCarga", type datetime}, {"SalidaZF", type datetime}, {"LlegadaFrontera", type datetime}, {"SalidaFrontera", type datetime}, {"LlegadaBodega", type datetime}, {"DescargaBodega", type datetime}}),
+		    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Typex", {{"InicioCarga", null},{"FinCarga", null},{"LlegadaZF", null},{"SalidaZF", null},{"LlegadaFrontera", null},{"SalidaFrontera", null},{"LlegadaBodega", null},{"DescargaBodega", null}}),
+		    #"Removed Columns2" = Table.RemoveColumns(#"Replaced Errors",{"Personalizado", "Personalizado.1"})
+		in
+		    #"Removed Columns2"
+		```
+	lineageTag: 022f11d9-042e-4c56-9b7e-224bc9739533
+	queryGroup: 'Fuentes Sharepoint'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression dim_unidad =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/diego_perez_empresasadoc_com/Documents/TDW/M%C3%B3dulo%20SCM/DIMENSIONES.xlsx"), null, true),
+		    dim_unidad_Sheet = #"Origen"{[Item="dim_unidad",Kind="Sheet"]}[Data],
+		    #"Tipo cambiado" = Table.TransformColumnTypes(dim_unidad_Sheet,{{"Column1", type text}, {"Column2", type text}}),
+		    #"Encabezados promovidos" = Table.PromoteHeaders(#"Tipo cambiado", [PromoteAllScalars=true]),
+		    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"SK_UNIDADDENEGOCIO", type text}, {"DESCRIPCION", type text}})
+		in
+		    #"Tipo cambiado1"
+	lineageTag: 770b8134-27b8-43af-9e32-945e974938e3
+	queryGroup: referencias_Sharepoint
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression dim_capacidades =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/diego_perez_empresasadoc_com/Documents/TDW/M%C3%B3dulo%20SCM/DIMENSIONES.xlsx"), null, true),
+		    dim_unidad_Sheet = #"Origen"{[Item="dim_capacidades",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(dim_unidad_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"SK_CD", type text}, {"CAPACIDAD", Int64.Type}})
+		in
+		    #"Tipo cambiado"
+	lineageTag: 67c402b3-5682-4495-85a7-43c23a7b1d7f
+	queryGroup: referencias_Sharepoint
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression ParámetroL7 = #"Archivo L7" meta [IsParameterQuery=true, BinaryIdentifier=#"Archivo L7", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: ae7ef8e4-c3d0-4ce2-baa3-9c1b98814494
+	queryGroup: 'Datos Linea 7\Consultas auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Archivo L7' =
+		let
+		    Source = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/", [ApiVersion = 15]),
+		    #"Filtered Rows" = Table.SelectRows(Source, each ([Folder Path] = "https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/SCM_Linea7_Linea3/") and ([Extension] = ".xlsx")),
+		    #"Filtered Rows1" = Table.SelectRows(#"Filtered Rows", each Text.StartsWith([Name], "L7")),
+		    #"Sorted Rows" = Table.Sort(#"Filtered Rows1",{{"Date created", Order.Descending}}),
+		    #"Kept First Rows" = Table.FirstN(#"Sorted Rows",1),
+		    Navigation1 = #"Kept First Rows"{0}[Content]
+		in
+		    Navigation1
+	lineageTag: eaa4b265-8da7-4965-a013-0a044ba683a9
+	queryGroup: 'Datos Linea 7\Consultas auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegación
+
+expression 'Transformar archivo L7' =
+		let
+		    Origen = (ParámetroL7 as binary) => let
+		    Source = Excel.Workbook(ParámetroL7, null, true),
+		    Data1 = Source{[Name="Data"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Data1, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+		in
+		    Origen
+	lineageTag: ac72290a-8fef-45ec-9eee-a0b249ac212d
+	queryGroup: 'Datos Linea 7\Consultas auxiliares'
+
+	annotation PBI_ResultType = Function
+
+expression 'Transformar archivo de ejemplo L7' =
+		let
+		    Source = Excel.Workbook(ParámetroL7, null, true),
+		    Data1 = Source{[Name="Data"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Data1, [PromoteAllScalars=true])
+		in
+		    #"Promoted Headers"
+	lineageTag: aa6fc564-2db4-4675-888e-d06d27316dce
+	queryGroup: 'Datos Linea 7'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression zsap_MB51_MovimientosBodegas =
+		let
+		    zsap_MB51_MovimientosBodegas = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT #(lf)--     mseg.bwart CodMovimiento,#(lf)     mseg.matnr CodMaterial,#(lf)     mseg.werks CodCentro,#(lf)     mseg.lgort CodAlmacen ,#(lf)     --MIN(mseg.budat_mkpf) PrimerMovimiento,#(lf)     MAX(mseg.budat_mkpf) UltimoMovimiento ,#(lf)     MAX(CASE WHEN mseg.bwart = 601 THEN mseg.budat_mkpf ELSE NULL END  ) UM601 ,#(lf)     MAX(CASE WHEN mseg.bwart = 602 THEN mseg.budat_mkpf ELSE NULL END  ) UM602 ,#(lf)     MAX(CASE WHEN mseg.bwart = 641 THEN mseg.budat_mkpf ELSE NULL END  ) UM641 ,#(lf)     MAX(CASE WHEN mseg.bwart = 642 THEN mseg.budat_mkpf ELSE NULL END  ) UM642 ,#(lf)     MAX(CASE WHEN mseg.bwart = 643 THEN mseg.budat_mkpf ELSE NULL END  ) UM643 ,#(lf)     MAX(CASE WHEN mseg.bwart = 644 THEN mseg.budat_mkpf ELSE NULL END  ) UM644 #(lf)FROM#(lf)     SAP_ECC.mseg#(lf)WHERE#(lf)     mseg.budat_mkpf >= '20220101' -- FechaContable#(lf)     AND mseg.bwart IN ( 601 , 602 , 641 , 642 , 643 , 644 )#(tab)-- CodMovimiento#(lf)     AND mseg.lgort IN ( 'BP01', 'BP02', 'BP10','BP13' ) #(tab)#(tab)-- CodAlmacen#(lf)GROUP BY   #(lf)#(tab)--mseg.bwart ,-- CodMovimiento,#(lf)    mseg.matnr , -- CodMaterial,#(lf)    mseg.werks , -- CodCentro,#(lf)    mseg.lgort -- CodAlmacen", null, [EnableFolding=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(zsap_MB51_MovimientosBodegas,{{"CODMATERIAL", Int64.Type}, {"ULTIMOMOVIMIENTO", type date}, {"UM601", type date}, {"UM602", type date}, {"UM641", type date}, {"UM642", type date}, {"UM643", type date}, {"UM644", type date}})
+		in
+		    #"Tipo cambiado"
+	lineageTag: 0b204101-064c-4409-8d55-4c3510304ea5
+	queryGroup: 'Fuentes SAP'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression tablas_periodos_estadisticos =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/balmore_hernandez_empresasadoc_com/Documents/Documentos/10.%20VARIOS/Tabla%20Periodos%20Estadisticos.xlsx"), null, false),
+		    Hoja1_sheet = Source{[Item="Hoja1",Kind="Sheet"]}[Data],
+		    FilterNullAndWhitespace = each List.Select(_, each _ <> null and (not (_ is text) or Text.Trim(_) <> "")),
+		    #"Removed Other Columns" = Table.SelectColumns(Hoja1_sheet, List.Select(Table.ColumnNames(Hoja1_sheet), each try not List.IsEmpty(FilterNullAndWhitespace(Table.Column(Hoja1_sheet, _))) otherwise true)),
+		    #"Removed Blank Rows" = Table.SelectRows(#"Removed Other Columns", each not List.IsEmpty(FilterNullAndWhitespace(Record.FieldValues(_)))),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Blank Rows", [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Tipo PE", type text}, {"Año", Int64.Type}, {"Variante", Int64.Type}, {"PE", Int64.Type}, {"1er Mes", Int64.Type}, {"Duración", Int64.Type}, {"Mes lanzamiento", type date}, {"Mes ZINT", type date}, {"Mes MKD", type date}, {"Trimestre MKD", Int64.Type}, {"Tipo Vencimiento", type text}, {"Tipo Lanzamiento", type text}, {"Q Lanzamiento", Int64.Type}, {"Tipo Vencimiento2", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: cf1554d6-df9f-4a2d-be99-6dda30033c89
+	queryGroup: referencias_Sharepoint
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'zsap_ZPS_TRACING2_PREPARACIONES - original' =
+		let
+		    zsap_ZPS_TRACING2 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "/***************** Tracing2 + ZMM045 *****************/#(lf)WITH Tracing AS (#(lf)#(tab)SELECT #(tab)#(lf)#(tab)       EKKO.EBELN                 Doc_compra , #(lf)#(tab)       EKPO.MATNR                 articulo , #(lf)#(tab)       EKET.MENGE                 cantidad_reparto , #(tab)-- SOLICITADO #(lf)#(tab)       EKPO.MEINS                 unidad , #(lf)#(tab)       EKET.GLMNG                 entregas , #(tab)#(tab)#(tab)-- CONFIRMADO DE ENTREGA#(lf)#(tab)       EKET.MENGE - EKET.GLMNG#(tab)  Borrados , #(tab)#(tab)#(tab)-- BORRADOS#(lf)#(tab)       EKET.WAMNG                 cantidad_salida , #(tab)-- Cantidad preparada en CD, en transito a tienda#(lf)#(tab)       EKET.WEMNG                 cantidad_ingresada , #(tab)-- Cantidad que ha llegado a tienda#(lf)#(tab)       EKET.WAMNG - EKET.WEMNG#(tab)  Transito , #(tab)#(tab)#(tab)-- diferencia entre preparado e ingresado#(lf)#(tab)       EKKO.BSART                 clase_doc , #(lf)#(tab)       EKKO.AEDAT                 creado_el , #(lf)#(tab)       EKKO.RESWK                 centro_suminis , #(lf)#(tab)       EKPO.WERKS                 centro , #(lf)#(tab)       EKPO.MTART                 tipo_material , #(lf)#(tab)       EKPO.LOEKZ                 indicador_de_borrado , #(lf)#(tab)       EKPO.RESLO                 almacen_emisor , #(lf)#(tab)       EKPO.LGORT                 almacen , #(lf)#(tab)       EKKO.ZZF_DESPACHO          fecha , #(lf)#(tab)       EKPO.FECHA_EXP             fecha_expediente , #(lf)#(tab)       EKPO.FECHA_LIQ             fecha_liquidacion , #(lf)#(tab)       EKKO.BEDAT                 fecha_documento #(lf)#(tab)  FROM SAP_ECC.EKKO#(lf)#(tab)  INNER JOIN SAP_ECC.EKPO#(lf)#(tab)       ON EKPO.EBELN = EKKO.EBELN#(lf)#(tab)  LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_IMP#(lf)#(tab)       ON ZMM_EXPED_IMP.LBELN = EKPO.LBELN#(lf)#(tab)  LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_CONTS#(lf)#(tab)       ON ZMM_EXPED_CONTS.LBELN = EKPO.LBELN#(lf)#(tab)  INNER JOIN SAP_ECC.EKET#(lf)#(tab)       ON EKET.EBELN = EKPO.EBELN#(lf)#(tab)          AND EKET.EBELP = EKPO.EBELP#(lf)#(tab)  INNER JOIN SAP_ECC.MARA#(lf)#(tab)       ON MARA.MATNR = EKPO.MATNR#(lf)#(tab)  INNER JOIN SAP_ECC.T001W#(lf)#(tab)       ON T001W.WERKS = EKPO.WERKS#(lf)#(tab) WHERE #(lf)#(tab)#(tab)EKKO.AEDAT BETWEEN TO_VARCHAR(ADD_DAYS(LAST_DAY(ADD_MONTHS(CURRENT_DATE , -4)) , 1) , 'YYYYMMDD') AND TO_VARCHAR(LAST_DAY(CURRENT_DATE) , 'YYYYMMDD')#(lf)#(tab)#(tab)AND EKPO.LOEKZ <> 'L'#(lf)#(tab)#(tab)AND EKKO.BSART IN ( 'UB' , 'ZREP' ) #(tab)-- PEDIDOS COLOCADOS MANUAL Y AUTOMATICO#(lf)#(tab)#(tab)AND MARA.MTART IN ( 'MODE' , 'ZMOD' ) #(tab)-- PRODUCTOS DE LINEA 1 Y 7#(lf)) , #(lf)ZMM045 AS (#(lf)#(tab)SELECT #(lf)#(tab)#(tab)LIKP.VBELN#(tab)DocumentoEntrega,#(lf)#(tab)#(tab)LIPS.VGBEL #(tab)Doc_compra ,#(lf)#(tab)#(tab)LIKP.LFART#(tab)ClaseEntrega,#(lf)#(tab)#(tab)LIKP.ERDAT#(tab)FechaCreacion,#(lf)#(tab)#(tab)LIKP.ERZET #(tab)HoraCreacion,#(lf)#(tab)#(tab)LIPS.MATNR #(tab)SK_MATNR,#(lf)#(tab)#(tab)LIKP.VKORG#(tab)Sociedad,#(lf)#(tab)#(tab)LIPS.WERKS#(tab)CentroEmisor,#(lf)#(tab)#(tab)LIPS.LGORT#(tab)Almacen,#(lf)#(tab)#(tab)LIKP.WERKS #(tab)CentroReceptor,#(lf)#(tab)#(tab)SUBSTRING(VTTP.TKNUM,5) NroTransporte,#(lf)#(tab)#(tab)VTTP.ERDAT FechaCreaTransporte,#(lf)#(tab)#(tab)VTTP.ERZET HoraCreaTransporte,#(lf)#(tab)#(tab)LIPS.LGMNG CantEntrega,#(tab)-- Actual quantity delivered in stockkeeping units#(lf)#(tab)#(tab)LIPS.ORMNG CantOriginal#(tab)--Original Quantity of Delivery Item#(lf)#(tab)FROM SAP_ECC.LIKP#(lf)#(tab)INNER JOIN SAP_ECC.LIPS#(lf)#(tab)   ON LIPS.VBELN = LIKP.VBELN#(lf)#(tab)INNER JOIN SAP_ECC.T001W#(lf)#(tab)#(tab)ON T001W.KUNNR = LIKP.KUNNR#(lf)#(tab)INNER JOIN SAP_ECC.ZTIPOTIENDA#(lf)#(tab)#(tab)ON ZTIPOTIENDA.WERKS = LIKP.WERKS#(lf)#(tab)INNER JOIN SAP_ECC.VTTP#(lf)#(tab)#(tab)ON VTTP.VBELN = LIKP.VBELN#(lf)#(tab)INNER JOIN SAP_ECC.MARA m  #(lf)#(tab)#(tab)ON LIPS.MATNR = m.MATNR #(lf)#(tab)WHERE#(lf)#(tab)#(tab)LIKP.ERDAT BETWEEN TO_VARCHAR(ADD_DAYS(LAST_DAY(ADD_MONTHS(CURRENT_DATE , -4)) , 1) , 'YYYYMMDD') AND TO_VARCHAR(LAST_DAY(CURRENT_DATE) , 'YYYYMMDD')#(lf))#(lf)SELECT #(lf)#(tab)t.* ,#(lf)#(tab)Z.DocumentoEntrega ,#(lf)#(tab)Z.NroTransporte ,#(lf)#(tab)Z.FechaCreaTransporte ,#(lf)#(tab)Z.HoraCreaTransporte#(lf)FROM tracing t#(lf)LEFT JOIN ZMM045 Z #(lf)#(tab)ON t.Doc_Compra = Z.Doc_Compra#(lf)#(tab)AND t.articulo = Z.SK_MATNR#(lf)#(tab)AND T.Centro = Z.CentroReceptor#(lf)#(tab)AND T.Centro_suminis = Z.CentroEmisor#(lf)#(tab)#(lf)", null, [EnableFolding=true]),
+		    #"Valor reemplazado" = Table.ReplaceValue(zsap_ZPS_TRACING2,"00000000",null,Replacer.ReplaceValue,{"FECHA_LIQUIDACION", "FECHA", "FECHA_EXPEDIENTE", "FECHA_DOCUMENTO"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Valor reemplazado",{{"CREADO_EL", type date}, {"FECHA", type date}, {"FECHA_EXPEDIENTE", type date}, {"FECHA_LIQUIDACION", type date}, {"FECHA_DOCUMENTO", type date}}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Changed Type",{{"DOC_COMPRA", Int64.Type}, {"ARTICULO", Int64.Type}, {"CENTRO_SUMINIS", Int64.Type}, {"CENTRO", Int64.Type}, {"FECHACREATRANSPORTE", type date}})
+		in
+		    #"Tipo cambiado"
+	lineageTag: fa4003c2-1b81-4e8d-a62d-9afd14fee84d
+	queryGroup: 'Fuentes SAP'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Exception
+

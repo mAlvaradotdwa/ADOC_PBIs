@@ -1,0 +1,267 @@
+table 'Inventario en Bodegas'
+	lineageTag: e669c1e0-5c60-414b-a2e7-85041c2a3954
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2ae132a3-f1c7-461c-97f7-4856d56cab1d
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column SK_TIPOOPERACION
+		dataType: string
+		lineageTag: df9a8b1b-cbdb-496d-b1a5-6d5f615a5e58
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MATNR
+		dataType: int64
+		formatString: 0
+		lineageTag: f80da959-9645-466b-8b8c-b56029b1b1fd
+		summarizeBy: sum
+		sourceColumn: SK_MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_DIVISION
+		dataType: string
+		lineageTag: 1ff6f33e-5573-470c-ad31-eb511365531e
+		summarizeBy: none
+		sourceColumn: SK_DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		lineageTag: 6e6bf8ce-fcd8-48cf-8683-a63186a8caa5
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: 1758c0c6-de59-4e46-b424-2d0db653314d
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTO_USD
+		dataType: double
+		lineageTag: 3b39a0c1-6dee-466f-bc02-66e482ffbbf7
+		summarizeBy: sum
+		sourceColumn: COSTO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRECIO_USD
+		dataType: double
+		lineageTag: 553ce74a-81a0-41f2-b375-bbf4b4325c99
+		summarizeBy: sum
+		sourceColumn: PRECIO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PARES
+		dataType: int64
+		formatString: 0
+		lineageTag: 069b6689-bb0c-4310-9a9a-d4eb907b7eb9
+		summarizeBy: sum
+		sourceColumn: PARES
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALU
+		dataType: string
+		lineageTag: 2a37ff5a-eb92-4794-a0c1-2a3c28fd62c3
+		summarizeBy: none
+		sourceColumn: ALU
+
+		annotation SummarizationSetBy = Automatic
+
+	column TALLA
+		dataType: string
+		lineageTag: 3827c2b2-bad5-438f-924d-f47e4bc83c6c
+		summarizeBy: none
+		sourceColumn: TALLA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_JERARQUIA
+		dataType: string
+		lineageTag: 957e2693-b17d-4262-b20b-c8329312d045
+		summarizeBy: none
+		sourceColumn: BV_JERARQUIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_LINEA
+		dataType: string
+		lineageTag: 38cbfcae-7c74-4ac6-a011-714df1e3a0e8
+		summarizeBy: none
+		sourceColumn: SK_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: bd1dcd5d-44d9-43a8-8d87-3fd987d01caf
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_LINEA
+		dataType: string
+		lineageTag: 28d27929-8f2f-4421-bf7a-22adf445bbdf
+		summarizeBy: none
+		sourceColumn: BV_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_COLECCION
+		dataType: string
+		lineageTag: e95fdd19-4db2-4f23-971c-6578abdb5392
+		summarizeBy: none
+		sourceColumn: SK_COLECCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTIMOMOVIMIENTO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ddc9a291-3061-42ff-8148-b522d6b5b282
+		summarizeBy: none
+		sourceColumn: ULTIMOMOVIMIENTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UM601
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 544da8e4-7115-407b-87e8-ed23bc1e82cc
+		summarizeBy: none
+		sourceColumn: UM601
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UM602
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1dc1ee47-e3fd-42c0-aaca-b0e98f8b6859
+		summarizeBy: none
+		sourceColumn: UM602
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UM641
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1aea85ee-4c02-4777-a032-7685059664be
+		summarizeBy: none
+		sourceColumn: UM641
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UM642
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 931faff1-276f-4c57-a475-34cf16495d89
+		summarizeBy: none
+		sourceColumn: UM642
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UM643
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5cba6b13-3a39-4cdb-b0f2-527e13196a40
+		summarizeBy: none
+		sourceColumn: UM643
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UM644
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6b2e9811-1c1d-4c3c-aa29-1221bf2d6313
+		summarizeBy: none
+		sourceColumn: UM644
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Antiguedad
+		dataType: int64
+		formatString: 0
+		lineageTag: ea556b73-d16f-4cd0-b606-cc3e3dcd721c
+		summarizeBy: sum
+		sourceColumn: Antiguedad
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Períodos Antiguedad'
+		dataType: string
+		lineageTag: 7999d2bf-62c1-4561-817d-e67a8aeea555
+		summarizeBy: none
+		sourceColumn: Períodos Antiguedad
+		sortByColumn: IDPeriodoAntiguedad
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDPeriodoAntiguedad
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ec76949-1d84-4250-aa6a-0f3f08420092
+		summarizeBy: sum
+		sourceColumn: IDPeriodoAntiguedad
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Inventario en Bodegas-baf6bf38-3f31-4ed3-b99b-76e5ec10ab09' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT #(lf)       [Fecha] = TRY_CAST([per].[PERIODO] AS DATE) , #(lf)       [fac].[SK_TIPOOPERACION] , #(lf)       [SK_MATNR] = TRY_CAST([fac].[SK_MATNR] AS BIGINT) , #(lf)       [fac].[SK_DIVISION] , #(lf)       [fac].[SK_TIENDA] , #(lf)       [fac].[SK_ALMACEN] , #(lf)       [fac].[COSTO_USD] , #(lf)       [fac].[PRECIO_USD] , #(lf)       [PARES] = NULLIF([fac].[PARES] , 0) , #(lf)       [dim].[ALU] , #(lf)       --[dim].[BV_ESTILO_COLOR] , #(lf)       [dim].[TALLA] , #(lf)       [dim].[BV_JERARQUIA] , #(lf)       [dim].[SK_LINEA] , #(lf)       [dim].[MARCA] , #(lf)       [dim].[BV_LINEA] , #(lf)       [dim].[SK_COLECCION]#(lf)  FROM [dbo].[FAC_INVENTARIOUD] [fac]#(lf)  LEFT JOIN [dbo].[DIM_ARTICULOSAP] [dim]#(lf)       ON [fac].[SK_MATNR] = [dim].[SK_MATNR]#(lf)  LEFT JOIN [dbo].[DIM_PERIODO] [per]#(lf)       ON [fac].[SK_PERIODO] = [per].[SK_PERIODO]#(lf) WHERE [fac].[SK_ALMACEN] IN#(lf)                             ( 'BP01' , #(lf)                               'BP02' , #(lf)                               'BP10' , #(lf)                               'BP13'#(lf)                             )", CreateNavigationProperties=false]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Source,{{"Fecha", type date}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Tipo cambiado", {"SK_MATNR", "SK_TIENDA", "SK_ALMACEN"}, zsap_MB51_MovimientosBodegas, {"CODMATERIAL", "CODCENTRO", "CODALMACEN"}, "zsap_MB51_MovimientosBodegas", JoinKind.LeftOuter),
+				    #"Se expandió zsap_MB51_MovimientosBodegas" = Table.ExpandTableColumn(#"Consultas combinadas", "zsap_MB51_MovimientosBodegas", {"ULTIMOMOVIMIENTO", "UM601", "UM602", "UM641", "UM642", "UM643", "UM644"}, {"ULTIMOMOVIMIENTO", "UM601", "UM602", "UM641", "UM642", "UM643", "UM644"}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Se expandió zsap_MB51_MovimientosBodegas", "Antiguedad", each [Fecha] - [ULTIMOMOVIMIENTO]),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Personalizada agregada",{{"Antiguedad", Int64.Type}}),
+				    #"Personalizada agregada1" = Table.AddColumn(#"Tipo cambiado1", "Períodos Antiguedad", each if [Antiguedad] = null then "Sin Movimiento desde Dic. 2021" else if [Antiguedad] <= 7 then "Con movimiento la última semana" else if [Antiguedad] <= 14 then "de 8 a 14 días sin movimiento" else if [Antiguedad] <= 30 then "hasta 30 días sin movimiento" else if [Antiguedad] <= 91 then "hasta 3 meses sin movimiento" else if [Antiguedad] <= 182 then "hasta 6 meses sin movimiento" else if [Antiguedad] <= 365 then "hasta 12 meses sin movimiento" else "Más de 12 meses sin movimiento"),
+				    #"Personalizada agregada2" = Table.AddColumn(#"Personalizada agregada1", "IDPeriodoAntiguedad", each if [Antiguedad] = null then -1 else if [Antiguedad] <= 7 then 0 else if [Antiguedad] <= 14 then 1 else if [Antiguedad] <= 30 then 2 else if [Antiguedad] <= 91 then 3 else if [Antiguedad] <= 182 then 4 else if [Antiguedad] <= 365 then 5 else 99)
+				in
+				    #"Personalizada agregada2"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

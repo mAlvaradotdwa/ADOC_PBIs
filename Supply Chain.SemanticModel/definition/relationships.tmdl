@@ -1,0 +1,226 @@
+relationship ba7a2eb8-1df1-4786-a51c-847c30fd3261
+	fromColumn: Ventas.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 5b540431-ba15-457f-ad66-a7de43a3c671
+	fromColumn: Inventarios.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 6112d040-49d0-40cf-80af-f3b44320ad1c
+	fromColumn: Inventarios.ID_VencimientoEstadistico
+	toColumn: PeriodosEstadisticos.ID_VencimientoEstadistico
+
+relationship 72e6b5a9-1027-4eb1-b31b-c522e505b5a8
+	fromColumn: Ventas_Mayoreo.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship f3115680-d9c1-49a9-bd84-f48e098c4118
+	fromColumn: Crossdocks_det.REFERENCIA
+	toColumn: Crossdocks.REFERENCIA
+
+relationship cc9a834f-398c-41b0-9bf8-fba081c56a05
+	fromColumn: Zdel_O_n_Time.Entrega
+	toColumn: Crossdocks.REFERENCIA
+
+relationship 7399c3a2-bfc6-41a6-8357-de0ebe0d9db8
+	fromColumn: zsap_ZMM_PRODUCT.FechaPicking
+	toColumn: Fecha.Fecha
+
+relationship bfaec06c-c085-4bc0-aef9-848bdbc1cb25
+	fromColumn: Inventarios.SK_ALMACEN
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship af6bc6ed-b260-454f-b408-21bc6a63ff2c
+	fromColumn: Ventas.SK_ALMACEN
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship 486ff358-f28b-428f-bba4-9f8bc2406e56
+	fromColumn: InventarioBFI.ALMACEN
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship 7a79895a-34f5-4d8b-9bf4-023fe6181200
+	fromColumn: zsap_ZPS_TRACING2.ALMACEN
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship d51ff6fc-af47-4abe-b6c9-f5ef28e949d0
+	fromColumn: zsap_ZMM_PRODUCT.ALMACEN
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship 63da77eb-53b2-42fd-939e-d987431b3d80
+	fromColumn: zsap_ZMM_TRACKING.ALMACEN
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship 86f1fed5-6205-4d95-905c-c9235e52b0ae
+	fromColumn: zsap_ZMM_TRACKING.FECHADOCUMENTO
+	toColumn: Fecha.Fecha
+
+relationship f63acff8-492e-4247-901e-b0e67d2360b7
+	fromColumn: Zdel_O_n_Time.Almacen
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship 78a7cdb0-67db-4b25-806d-a4d4671db50f
+	isActive: false
+	fromColumn: Zdel_O_n_Time.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 7474b43e-17f1-47f1-a81a-069b362d219b
+	fromColumn: Zdel_O_n_Time.Fecha
+	toColumn: Fecha.Fecha
+
+relationship 5c3fd92b-699c-4c90-b55e-fa39b9a707e7
+	fromColumn: Zdel_O_n_Time.Centro
+	toColumn: Tiendas.SK_TIENDA
+
+relationship e7262f37-4464-4c2f-8643-0c0917df737b
+	fromColumn: Inventarios.PERIODO
+	toColumn: Fecha.Fecha
+
+relationship 4d890dc9-9c22-4729-95ca-287713a8ffac
+	fromColumn: Ventas.PERIODO
+	toColumn: Fecha.Fecha
+
+relationship c1b86f96-f019-bce7-e29c-d6bc49d85e83
+	fromColumn: Ventas_Mayoreo.PERIODO
+	toColumn: Fecha.Fecha
+
+relationship 8ffc955b-4447-4c28-96c6-ac8cc438c385
+	fromColumn: Ventas.SK_PRODUCTO
+	toColumn: Articulos.SK_PRODUCTO
+
+relationship 191f465d-3a23-46eb-a289-e5e602f373e0
+	fromColumn: Inventarios.SK_PRODUCTO
+	toColumn: Articulos.SK_PRODUCTO
+
+relationship 5daf1f9c-4527-4b0b-b436-e8d1d8c9f200
+	fromColumn: Ventas_Mayoreo.SK_PRODUCTO
+	toColumn: Articulos.SK_PRODUCTO
+
+relationship c24b98ef-4266-4492-ad21-dc64c59a949a
+	fromColumn: Articulos_SAP.SK_PRODUCTO
+	toColumn: Articulos.SK_PRODUCTO
+
+relationship 52b6cb93-7a17-4ab3-8e5a-c9b121cb57d8
+	fromColumn: zsap_ZPS_TRACING2.ARTICULO
+	toColumn: Articulos_SAP.SK_MATNR
+
+relationship c9aabb1b-c76a-47e8-b175-a2f2357e2aa3
+	fromColumn: Crossdocks_det.CODMATERIAL
+	toColumn: Articulos_SAP.SK_MATNR
+
+relationship 914a50b6-dbc3-420d-ad70-03c6ec17ab5b
+	fromColumn: zsap_MB51.CODMATERIAL
+	toColumn: Articulos_SAP.SK_MATNR
+
+relationship b6ef468f-9dd2-494d-bc72-e9df39d9664c
+	fromColumn: zsap_ZMM_TRACKING.CODIGOMATERIAL
+	toColumn: Articulos_SAP.SK_MATNR
+
+relationship 21ad452f-1132-44c2-8b58-fd737347c4dc
+	fromColumn: InventarioBFI.MATNR
+	toColumn: Articulos_SAP.SK_MATNR
+
+relationship f936501c-968c-491f-a8a4-b45fa1219aaa
+	fromColumn: DATA_CD.Fecha
+	toColumn: Fecha.Fecha
+
+relationship cbe61b07-b908-4c47-9aff-cdf40f97f8e5
+	fromColumn: zsap_ZMM_PRODUCT.CENTRO
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 9583801e-3400-4b6f-a551-512f1db9465f
+	fromColumn: Inventarios.SK_TIPOOPERACION
+	toColumn: TipoInventario.SK_TIPOOPERACION
+
+relationship aed796d4-320f-4abf-90d4-5ddb6aeae1f1
+	fromColumn: 'Inventario en Bodegas'.SK_ALMACEN
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship d1450cf4-0434-1079-83f6-dbaab588a621
+	fromColumn: Linea7.'EX FACTORY LINE'
+	toColumn: Fecha.Fecha
+
+relationship b7e6bc32-44e2-402a-9dce-9945d0b75082
+	fromColumn: zsap_TrasladosInternos_MB51.ACCOUNTINGDOCDATE
+	toColumn: Fecha.Fecha
+
+relationship f912621d-f2a3-4e66-af00-ea0d444c1c56
+	fromColumn: zsap_PREPARACIONES.FECHA_DOCUMENTO
+	toColumn: Fecha.Fecha
+
+relationship da2a6288-4c69-4c43-8188-608b9e96f4be
+	fromColumn: zsap_PREPARACIONES.CENTRO
+	toColumn: Tiendas.SK_TIENDA
+
+relationship c95238cd-2ba1-4e56-98a5-c60c3efb1c35
+	isActive: false
+	fromColumn: zsap_ZPS_TRACING2.FECHA_LIQUIDACION
+	toColumn: Fecha.Fecha
+
+relationship 8cd77880-bb5b-4cd7-b41b-b8995bdf3259
+	fromColumn: zsap_ONTIME.Centro
+	toColumn: Tiendas.SK_TIENDA
+
+relationship AutoDetected_125cfffb-4030-429f-bf08-aeb3a534100b
+	fromColumn: zsap_PREPARACIONES.CENTRO
+	toColumn: '-- centros_en_zmm45'.CENTRO
+
+relationship 3468d73d-1ab3-45b4-9d54-110440c7658b
+	isActive: false
+	fromColumn: zsap_PREPARACIONES.CENTRO_SUMINIS
+	toColumn: Tiendas.SK_TIENDA
+
+relationship AutoDetected_f3461ee4-9219-4273-ac40-e2951b89e202
+	fromColumn: 'Capacidades CD'.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 0f4787c4-87b2-4e89-8daf-7102d642aff2
+	fromColumn: Fecha.'Num. Mes'
+	toColumn: 'Meses Temporada Alta'.Mes
+
+relationship 32265491-9cb4-1085-6b69-bc1900c01bf1
+	fromColumn: EKBE.SKTIENDA_INGRESO
+	toColumn: Tiendas.SK_TIENDA
+
+relationship a0be46e4-652d-3673-8c47-046977ef6cce
+	fromColumn: EKBE.MATNR
+	toColumn: Articulos_SAP.SK_MATNR
+
+relationship 1d479eba-d794-7de2-7d5c-b2d332bba2c3
+	fromColumn: EKBE.FECHA_PEDIDO
+	toColumn: Fecha.Fecha
+
+relationship 0918e0ad-a413-2c2f-56fb-0ea8234d6eeb
+	isActive: false
+	fromColumn: EKBE.SKTIENDA_SALIDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship dfada823-f09d-52ed-68e4-bbec38c5a872
+	isActive: false
+	fromColumn: EKBE.FECHA_SALIDA
+	toColumn: Fecha.Fecha
+
+relationship e7a3b994-115f-4af9-38c2-b1997f8e4f28
+	fromColumn: ZTUNGYA.BOOKING_DATE
+	toColumn: Fecha.Fecha
+
+relationship 8f99e9d6-98f3-e1b8-f036-7402f06f0321
+	fromColumn: ZTUNGYA.MATNR
+	toColumn: Articulos_SAP.SK_MATNR
+
+relationship 0f4d4106-d35c-c003-72bf-9847808da13d
+	isActive: false
+	fromColumn: zsap_ZPS_TRACING2.FECHA_DOCUMENTO
+	toColumn: Fecha.Fecha
+
+relationship ee93bf32-5d1e-8f62-c826-28a5cfc2ce99
+	fromColumn: Contenedores.FIMPORT
+	toColumn: Fecha.Fecha
+
+relationship 17f003fe-039e-305f-6a74-f6096e2759b3
+	fromColumn: zsap_ZPS_TRACING2.Fecha_2
+	toColumn: Fecha.Fecha
+
+relationship 409d56f6-4108-46f8-6216-967b86e54b60
+	fromColumn: zsap_ZPS_TRACING2.CENTRO_SUMINIS
+	toColumn: Tiendas.SK_TIENDA
+

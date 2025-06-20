@@ -1,0 +1,40 @@
+table ref_dsc_transitos
+	isHidden
+	lineageTag: 5b294102-2d54-4a72-8e4b-99aa6129b8bb
+
+	column SK_TIPOOPERACION
+		dataType: string
+		isHidden
+		lineageTag: b9f52ca5-1db8-477d-b236-f229a797038f
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		isHidden
+		lineageTag: dd7f21b8-355e-4e08-871a-a93006ff8f30
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ref_dsc_transitos-f58fe1d7-af23-46dd-88a8-6352b04fd206 = m
+		mode: import
+		queryGroup: referencias_Sharepoint
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCgly9Av2DPFXcHFVCPF09XNxVNJRCik6vDCvOLMkXyEkvyQxRyElVSEkMzUvJbFYKVYHVY+Tv4urO6oeoGpnF4VEqBal2FgA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [SK_TIPOOPERACION = _t, DESCRIPCION = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"SK_TIPOOPERACION", type text}, {"DESCRIPCION", type text}})
+				in
+				    #"Tipo cambiado"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

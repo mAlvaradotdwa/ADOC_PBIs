@@ -1,0 +1,95 @@
+table Ventas_Mayoreo
+	lineageTag: 763d5e28-8991-404b-85ab-5b55915a4b48
+
+	column SK_TIENDA
+		dataType: int64
+		formatString: 0
+		lineageTag: 874f47f5-2186-43d4-aa74-46b962b153f8
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOOPERACION
+		dataType: string
+		lineageTag: 3193b877-fafc-4ac9-b57a-9044b7b80549
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pares
+		dataType: double
+		lineageTag: b7419559-581c-47cf-9b2b-c053dd0e399e
+		summarizeBy: sum
+		sourceColumn: Pares
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Venta_USD
+		dataType: double
+		lineageTag: b0894217-0457-424c-ad5a-f01cbdad9ad0
+		summarizeBy: sum
+		sourceColumn: Venta_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Costo_USD
+		dataType: double
+		lineageTag: ea7f790e-2d3b-484c-935c-cfcd3f1c68ec
+		summarizeBy: sum
+		sourceColumn: Costo_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Descuento_USD
+		dataType: double
+		lineageTag: c3deedbb-0f43-47e1-9369-1bb4e7104893
+		summarizeBy: sum
+		sourceColumn: Descuento_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PERIODO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b9692552-664e-477f-82f9-c208033ec76c
+		summarizeBy: none
+		sourceColumn: PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PRODUCTO
+		dataType: string
+		isHidden
+		lineageTag: 37000abb-7e5d-4452-aa8d-b27b52524dd7
+		summarizeBy: none
+		sourceColumn: SK_PRODUCTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Ventas_Mayoreo-67f4fc85-bacb-4981-98ca-9587afa61979 = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    Source = Origen{[Schema="dbo",Item="vw_sc_VentasMayoreo"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Source,{{"PERIODO", type datetime}}),
+				    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each [PERIODO] >= RangeStart and [PERIODO] < RangeEnd)
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_IsMQueryFoldable = True
+

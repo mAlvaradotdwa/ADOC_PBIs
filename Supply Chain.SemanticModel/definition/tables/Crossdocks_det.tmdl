@@ -1,0 +1,218 @@
+table Crossdocks_det
+	lineageTag: 3a4f0aef-4fd3-413d-9cb2-19eeaa916547
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: b03929a6-1f8e-4c38-934d-7fb1f3a76780
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANYO
+		dataType: string
+		lineageTag: ebb0f4e2-1770-434a-ae96-419fdd3b458b
+		summarizeBy: none
+		sourceColumn: ANYO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSICION_DOCUMENTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 83d9ea2b-e214-47f3-8afa-a307a8567903
+		summarizeBy: sum
+		sourceColumn: POSICION_DOCUMENTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODMOVIMIENTO
+		dataType: string
+		lineageTag: b159250f-8f6c-4ec2-aa87-542da330da76
+		summarizeBy: none
+		sourceColumn: CODMOVIMIENTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODMATERIAL
+		dataType: string
+		lineageTag: d1da175e-b546-4048-844c-77a0330e1d4e
+		summarizeBy: none
+		sourceColumn: CODMATERIAL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODCENTRO
+		dataType: string
+		lineageTag: 9be21957-47ae-4255-bc37-e91f71a6358e
+		summarizeBy: none
+		sourceColumn: CODCENTRO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODALMACEN
+		dataType: string
+		lineageTag: 1c2d50e1-23e1-4a83-b609-78a6b8a446c5
+		summarizeBy: none
+		sourceColumn: CODALMACEN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOTE
+		dataType: string
+		lineageTag: bdc09d3e-da3c-4986-876e-44d66d1ca85a
+		summarizeBy: none
+		sourceColumn: LOTE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONEDA
+		dataType: string
+		lineageTag: da82aef0-74c8-420a-8aa6-369b76a21ad7
+		summarizeBy: none
+		sourceColumn: MONEDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTO
+		dataType: double
+		lineageTag: 26792434-70c3-4e40-aa93-c6c9fea7d3fc
+		summarizeBy: sum
+		sourceColumn: MONTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD
+		dataType: double
+		lineageTag: 0813190f-2369-4819-9baf-216c63d4d10c
+		summarizeBy: sum
+		sourceColumn: CANTIDAD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UDM
+		dataType: string
+		lineageTag: f4119ccf-caf6-4d6e-acc8-7bb9756a1266
+		summarizeBy: none
+		sourceColumn: UDM
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PEDIDO
+		dataType: string
+		lineageTag: 76640a95-e9f5-42c3-8e21-d7b910783c7b
+		summarizeBy: none
+		sourceColumn: PEDIDO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSPEDIDO
+		dataType: int64
+		formatString: 0
+		lineageTag: 5aff70b8-9bdd-4d6a-bf76-a96b30e56c34
+		summarizeBy: sum
+		sourceColumn: POSPEDIDO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOCIEDAD
+		dataType: string
+		lineageTag: 807de0d8-ad77-46c2-9bc4-69ed5d7a051c
+		summarizeBy: none
+		sourceColumn: SOCIEDAD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRORECEPTOR
+		dataType: string
+		lineageTag: 7ea2b3fc-a55d-4185-96dc-e19aa12132a6
+		summarizeBy: none
+		sourceColumn: CENTRORECEPTOR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHACONTABLE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f35e73f4-65ec-4366-96bf-f5ba0e7f7ca7
+		summarizeBy: none
+		sourceColumn: FECHACONTABLE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column USUARIO
+		dataType: string
+		lineageTag: 3b517212-4f3a-4915-9d5f-e669e8087a8b
+		summarizeBy: none
+		sourceColumn: USUARIO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFERENCIA
+		dataType: string
+		lineageTag: 3975704b-1060-4bd4-a239-fb9fa1c29423
+		summarizeBy: none
+		sourceColumn: REFERENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Crossdocks_det-3c70586e-6ff2-4a33-81d5-29578ea94798 = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source =
+				let
+				    zsap_MB51_crossdocks = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- MB51#(lf)SELECT#(lf)     mseg.mblnr Documento,#(lf)     mseg.mjahr Anyo,#(lf)     mseg.zeile posicion_documento,#(lf)     mseg.bwart CodMovimiento,#(lf)     mseg.matnr CodMaterial,#(lf)     mseg.werks CodCentro,#(lf)     mseg.lgort CodAlmacen,#(lf)     mseg.charg Lote,#(lf)     mseg.waers Moneda,#(lf)     mseg.dmbtr Monto,#(lf)     mseg.menge Cantidad,#(lf)     mseg.meins UdM,#(lf)     mseg.ebeln Pedido,#(lf)     mseg.ebelp posPedido,#(lf)     mseg.bukrs Sociedad,#(lf)     mseg.umlgo CentroReceptor,#(lf)     mseg.budat_mkpf FechaContable,#(lf)     mseg.usnam_mkpf Usuario,#(lf)     mseg.xblnr_mkpf Referencia#(lf)FROM#(lf)     SAP_ECC.mseg#(lf)WHERE#(lf)     mseg.budat_mkpf >= '20230101' #(lf)     AND mseg.bwart = '641'  --CodMovimiento#(lf)     AND mseg.lgort = 'BP07'#(lf)     AND mseg.werks IN ('1010','2010','3101')", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(zsap_MB51_crossdocks,{{"FECHACONTABLE", type date}, {"POSICION_DOCUMENTO", Int64.Type}, {"POSPEDIDO", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

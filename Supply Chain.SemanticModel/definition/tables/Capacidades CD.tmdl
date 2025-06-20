@@ -1,0 +1,50 @@
+table 'Capacidades CD'
+	lineageTag: 1a397e8c-e9a5-4ff3-9818-5fbcdafaa94a
+
+	column SK_TIENDA
+		dataType: int64
+		formatString: 0
+		lineageTag: 606ad28f-002e-4e46-9eda-db5fae85b40e
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS
+		dataType: string
+		lineageTag: 737ec5f9-6be2-4cd7-81a3-28a68d58c6cf
+		summarizeBy: none
+		sourceColumn: BV_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Capacidad'
+		dataType: string
+		lineageTag: e076221a-47d8-487c-a049-c45dc58e0d24
+		summarizeBy: none
+		sourceColumn: Tipo Capacidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Capacidad
+		dataType: int64
+		formatString: 0
+		lineageTag: 58cac549-063b-4a4d-94c5-a8e909dba2b5
+		summarizeBy: sum
+		sourceColumn: Capacidad
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Capacidades CD' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("nZC9DsIgFEZfpWHuABT8GbWDdmmMNi5NhxthaKMtwcbnF0KtDhYSGEgg54PvnrpGBBOMUnS5mi0HBbdWgEiK/iX7EXQ7mGuO7UJNWiPq6EO1TDPMP3Tm6Py8TBM608zRx9JDf5twR5eFp/f89P8hT1oq0OYw9PKZVPKhBg0Ckj10YMB1YOpAPMN+DYH4xq8l9Dn1agqkrbgIb7v7aNPbSG9TnEd6m+IEx4mb4isWJe6nO2qaNw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [SK_TIENDA = _t, BV_PAIS = _t, #"Tipo Capacidad" = _t, Capacidad = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"SK_TIENDA", Int64.Type}, {"BV_PAIS", type text}, {"Tipo Capacidad", type text}, {"Capacidad", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

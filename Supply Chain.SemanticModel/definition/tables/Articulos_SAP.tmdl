@@ -1,0 +1,38 @@
+table Articulos_SAP
+	isHidden
+	lineageTag: be22c8bb-f2f2-48e6-9360-665a6796d096
+
+	column SK_MATNR
+		dataType: string
+		isHidden
+		lineageTag: 7e199b15-e18e-4b56-a3c4-82f20fdd7264
+		summarizeBy: none
+		sourceColumn: SK_MATNR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PRODUCTO
+		dataType: string
+		isHidden
+		lineageTag: 76300b99-fb42-403a-9d8f-0fc964a01e32
+		summarizeBy: none
+		sourceColumn: SK_PRODUCTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Articulos_SAP-3672cd95-48ff-4c1a-bbdf-eddf76f8bb5b = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT#(lf)       [A1].[SK_MATNR] , #(lf)       --[A1].[SK_ARTICULO] , #(lf)       [SK_PRODUCTO] = CONCAT([A1].[SK_COLECCION] , '.' , [A1].[SK_UNIDADNEGOCIO] , '.' , [A1].[BV_MARCA] , '.' , [A1].[BV_DEPTO])#(lf)  FROM [dbo].[DIM_ARTICULOSAP] [A1]#(lf) WHERE [a1].[SK_DEPTO] IN#(lf)                          ( 'C' , #(lf)                            'R' , #(lf)                            'A'#(lf)                          )#(lf)#(tab)", CreateNavigationProperties=false])
+				in
+				    Source
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

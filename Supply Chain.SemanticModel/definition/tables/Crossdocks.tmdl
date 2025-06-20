@@ -1,0 +1,28 @@
+table Crossdocks
+	lineageTag: 32ae9a53-baa0-446b-b571-0c19a65175b4
+
+	column REFERENCIA
+		dataType: string
+		lineageTag: b0367e33-ed29-470e-b107-b6dac089dcaa
+		summarizeBy: none
+		sourceColumn: REFERENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Crossdocks-388c56a3-1fc6-472f-a2d7-2787c2783ac5 = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source =
+				let
+				    zsap_MB51_crossdocks = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- MB51#(lf)SELECT DISTINCT#(lf)     mseg.xblnr_mkpf Referencia#(lf)FROM#(lf)     SAP_ECC.mseg#(lf)WHERE#(lf)     mseg.budat_mkpf >= '20230101' #(lf)     AND mseg.bwart = '641'  --CodMovimiento#(lf)     AND mseg.lgort = 'BP07'#(lf)     AND mseg.werks IN ('1010','2010','3101')", null, [EnableFolding=true])
+				in
+				    zsap_MB51_crossdocks
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

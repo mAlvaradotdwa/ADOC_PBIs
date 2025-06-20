@@ -1,0 +1,1532 @@
+table Métricas
+	lineageTag: 9773ebdf-4109-4f93-a73e-b65746a91d6d
+
+	measure _baseInventarioCosto =
+			CALCULATE (
+			    SUM ( Inventarios[COSTO_USD] ),
+			    'Inventarios'[SK_TIPOOPERACION] = "INVENTARIO"
+			)
+		displayFolder: _base\_Inventario
+		lineageTag: 8beb0546-ae3b-46bd-8904-ff3e4e2682bd
+
+	measure _baseInventarioPrecio =
+			CALCULATE (
+			    SUM ( Inventarios[PRECIO_USD] ),
+			    'Inventarios'[SK_TIPOOPERACION] = "INVENTARIO"
+			)
+		displayFolder: _base\_Inventario
+		lineageTag: 8f602c04-2a72-49e2-b198-f9b5601fcd6d
+
+	measure _baseInventarioUn = ```
+			CALCULATE (
+			    SUM ( Inventarios[PARES] ),
+			    'Inventarios'[SK_TIPOOPERACION] = "INVENTARIO" 
+			)
+			```
+		displayFolder: _base\_Inventario
+		lineageTag: 7f5a00bb-0420-4c58-9e47-b4e64fd9f132
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _baseCostoVenta = SUM ( Ventas[Costo_USD] ) + SUM ( Ventas_Mayoreo[Costo_USD] )
+		displayFolder: _base\_Venta
+		lineageTag: 625a85e8-2b7c-483e-8c68-a995d42d9eda
+
+	measure _baseDescuento = SUM ( Ventas[Descuento_USD] ) + SUM ( Ventas_Mayoreo[Descuento_USD] )
+		displayFolder: _base\_Venta
+		lineageTag: a6de6e73-30d0-4ac7-b5ac-2fb1e897f75a
+
+	measure _baseTransacciones = BLANK() // DISTINCTCOUNT ( Ventas[FACTURA_RPRO] )
+		displayFolder: _base\_Venta
+		lineageTag: f9beaad5-16f6-4e58-9137-ba233d7991f1
+
+	measure _baseUnidades = SUM ( ventas[Pares] ) + SUM ( Ventas_Mayoreo[Pares] )
+		displayFolder: _base\_Venta
+		lineageTag: f6ff13de-0ae2-40d3-b50d-9e1c4238563b
+
+	measure _baseVenta = SUM ( Ventas[Venta_USD] ) + SUM ( Ventas_Mayoreo[Venta_USD] )
+		displayFolder: _base\_Venta
+		lineageTag: c8bd5cc4-c871-4e8e-994a-bfc809e0bc01
+
+	measure _baseVentaSinDescuento = [_baseVenta]+[_baseDescuento]
+		displayFolder: _base\_Venta
+		lineageTag: 626e7fa4-7ffa-46f6-8648-062aba7bf21b
+
+	measure 'Inv. Costo Prom.12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Costo] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Inventarios\Promedio 12 Meses
+		lineageTag: 834faaa4-4f05-47dd-b730-9d9f6cbe7506
+
+	measure 'Inv. Precio Prom.12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Precio] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Inventarios\Promedio 12 Meses
+		lineageTag: a2b405a7-3f26-41a6-a3c4-88bcb6338da0
+
+	measure 'Inv. Un Prom.12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Un] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: #,0
+		displayFolder: Inventarios\Promedio 12 Meses
+		lineageTag: 6b78eacc-58f3-461e-9ca0-d9099eecdc1f
+
+	measure 'Inv. Costo Prom.' =
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			VAR _offsets =
+			    SUMMARIZE ( Fecha, Fecha[Offset] )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Costo] ),
+			        REMOVEFILTERS ( Fecha ),
+			        _offsets
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		isHidden
+		displayFolder: Inventarios\Promedio Mensual
+		lineageTag: f3294117-4536-4bfa-b4b3-1bece7963be6
+
+	measure 'Inv. Precio Prom.' =
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			VAR _offsets =
+			    SUMMARIZE ( Fecha, Fecha[Offset] )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Precio] ),
+			        REMOVEFILTERS ( Fecha ),
+			        _offsets
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		isHidden
+		displayFolder: Inventarios\Promedio Mensual
+		lineageTag: 42eeb3fa-c006-457d-90ee-27ffa37f0c22
+
+	measure 'Inv. Un Prom.' =
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			VAR _offsets =
+			    SUMMARIZE ( Fecha, Fecha[Offset] )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Un] ),
+			        REMOVEFILTERS ( Fecha ),
+			        _offsets
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: #,0
+		isHidden
+		displayFolder: Inventarios\Promedio Mensual
+		lineageTag: 44ba0364-dbcc-4620-8427-d423545bdd2b
+
+	measure 'Inventario Costo' =
+			VAR _UltimaFechaInventario =
+			    CALCULATE (
+			        MAX ( Inventarios[PERIODO] ),
+			        ALL ( Articulos ),
+			        ALL ( Tiendas ),
+			        ALL ( PeriodosEstadisticos )
+			    )
+			RETURN
+			    CALCULATE (
+			        [_baseInventarioCosto],
+			        ALL ( Fecha ),
+			        Fecha[Fecha] = _UltimaFechaInventario
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Inventarios
+		lineageTag: 30992eb1-bd79-437e-a9a1-238fdf7686bd
+
+	measure 'Inventario Precio' =
+			VAR _UltimaFechaInventario =
+			    CALCULATE (
+			        MAX ( Inventarios[PERIODO] ),
+			        ALL ( Articulos ),
+			        ALL ( Tiendas ),
+			        ALL ( PeriodosEstadisticos )
+			    )
+			
+			RETURN
+			    CALCULATE (
+			        [_baseInventarioPrecio],
+			        ALL ( Fecha ),
+			        Fecha[Fecha] = _UltimaFechaInventario
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Inventarios
+		lineageTag: d217e482-504b-4010-951e-e64fc4f00f73
+
+	measure 'Inventario Precio Prom.' = DIVIDE([Inventario Precio],[Inventario Un])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Inventarios
+		lineageTag: f83fd7ed-6407-4811-8067-1e13e47becbd
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Inventario Un' =
+			VAR _UltimaFechaInventario =
+			    CALCULATE (
+			        MAX ( Inventarios[PERIODO] ),
+			        ALL ( Articulos ),
+			        ALL ( Tiendas ),
+			        ALL ( PeriodosEstadisticos )
+			    )
+			
+			RETURN
+			    CALCULATE (
+			        [_baseInventarioUn],
+			        ALL ( Fecha ),
+			        Fecha[Fecha] = _UltimaFechaInventario
+			    )
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: 805f8f31-12a1-40de-86f4-e40217d78740
+
+	measure 'Sell Off' = ```
+			BLANK() //DIVIDE ( [Unidades] , [Unidades] + [Inventario Un] ) 
+			```
+		formatString: #,0.00 %
+		displayFolder: Inventarios
+		lineageTag: b9e3ed77-1eba-46e1-a31c-dd3c945111e3
+
+	measure _capacidadBodega = SUM ( Tiendas[CAPACIDAD2_BODEGA] )
+		displayFolder: _base\_Tiendas
+		lineageTag: ecedc770-12f9-4ecc-b17f-9bd3c17400f6
+
+	measure _capacidadSala = SUM ( Tiendas[CAPACIDAD_SALA] )
+		displayFolder: _base\_Tiendas
+		lineageTag: 24af90fc-bf24-46ba-ae0b-edea994f07e0
+
+	measure 'Capacidad Total' = ```
+			[_capacidadBodega] + [_capacidadSala] 
+			```
+		formatString: #,0
+		displayFolder: Ocupación
+		lineageTag: bd0adf78-7201-4b96-904a-63e93a7ac0f2
+
+	measure 'Ocupacion Total' = DIVIDE ( [Inventario Un] , [Capacidad Total] )
+		formatString: 0,0.0 %
+		displayFolder: Ocupación
+		lineageTag: 2fda6aa6-fb50-40f5-960b-eb0e4162dcee
+
+	measure 'Inventario Un LW' =
+			VAR _lastDate =
+			    CALCULATE ( LASTDATE ( Fecha[Fecha] ), Fecha[DiasConVenta] = TRUE () )
+			VAR _last7days = _lastDate - 7
+			var _lastWeekWithSales = LOOKUPVALUE( Fecha[NumAnoSemana] , Fecha[Fecha] , _last7Days)
+			VAR _dws =
+			    LOOKUPVALUE ( Fecha[DiasConVenta], Fecha[Fecha], _lastDate )
+			VAR _val =
+			    CALCULATE ( [Inventario Un], ALL ( Fecha ), Fecha[NumAnoSemana] = _lastWeekWithSales )
+			RETURN
+			    _val * DIVIDE ( _dws, _dws )
+		formatString: #,0
+		displayFolder: Inventarios\Semana Anterior\Unidades
+		lineageTag: 7e33f790-780d-4722-87a4-b5d387b5e531
+
+	measure 'Var Inv LW' = [Inventario Un] - [Inventario Un LW]
+		formatString: #,0
+		displayFolder: Inventarios\Semana Anterior\Unidades
+		lineageTag: f8468d24-abf4-4a4c-94a1-8bdf55018295
+
+	measure '_baseInventarioUn Disponible' =
+			CALCULATE (
+			    SUM ( Inventarios[Disponible] ),
+			    'Inventarios'[SK_TIPOOPERACION] IN { "INVENTARIO","TRANSITO DE BODEGA"}
+			)
+		displayFolder: _base\_Inventario
+		lineageTag: 5df5a693-b3f6-485e-b221-9baecf3415c7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '_baseInventarioUn Reservado' =
+			CALCULATE (
+			    SUM ( Inventarios[Reservado] ),
+			    'Inventarios'[SK_TIPOOPERACION] IN { "INVENTARIO", "TRANSITO DE BODEGA"}
+			)
+		displayFolder: _base\_Inventario
+		lineageTag: c47812e3-79e4-4b58-93df-b791311cf2d3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inventario Un Disponible' =
+			VAR _UltimaFechaInventario =
+			    MAX ( Inventarios[PERIODO] )
+			RETURN
+			    CALCULATE (
+			        [_baseInventarioUn Disponible],
+			        ALL ( Fecha ),
+			        Fecha[Fecha] = _UltimaFechaInventario
+			    )
+		formatString: #,0
+		displayFolder: Inventarios\Estatus
+		lineageTag: 1c99c335-b0be-4f93-b1eb-f8aecba003d9
+
+	measure 'Inventario Un Reservado' =
+			VAR _UltimaFechaInventario =
+			    MAX ( Inventarios[PERIODO] )
+			RETURN
+			    CALCULATE (
+			        [_baseInventarioUn Reservado],
+			        ALL ( Fecha ),
+			        Fecha[Fecha] = _UltimaFechaInventario
+			    )
+		formatString: #,0
+		displayFolder: Inventarios\Estatus
+		lineageTag: 60fc7eca-0d85-4dfd-ba46-1e6c0f3596d1
+
+	measure '% Disponible' = DIVIDE ([Inventario Un Disponible] ,[Inventario Un] )
+		formatString: #0,0.0 %
+		displayFolder: Inventarios\Estatus
+		lineageTag: 5f2df62d-9a13-46e2-8bab-af2f8e49d43d
+
+	measure Salidas =
+			VAR _lastDate =
+			    CALCULATE ( LASTDATE ( Fecha[Fecha] ), Fecha[DiasConVenta] = TRUE () )
+			VAR _last7days = _lastDate - 7
+			VAR _lastWeekWithSales =
+			    LOOKUPVALUE ( Fecha[NumAnoSemana], Fecha[Fecha], _last7Days )
+			VAR _dws =
+			    LOOKUPVALUE ( Fecha[DiasConVenta], Fecha[Fecha], _lastDate )
+			VAR _val =
+			    CALCULATE (
+			        [_baseUnidades],
+			        ALL ( Fecha ),
+			        Fecha[NumAnoSemana] = _lastWeekWithSales
+			    )
+			VAR _flag =
+			    ABS ( [Inventario Un] ) + ABS ( [Inventario Un LW] )
+			RETURN
+			    _val * DIVIDE ( _flag, _flag )
+		formatString: #,0
+		displayFolder: Inventarios\Semana Anterior\Unidades
+		lineageTag: 82378ff5-8b7d-4b42-b4fc-60fd990141c5
+
+	measure Entradas = [Inventario Un] - [Inventario Un LW] + [Salidas]
+		formatString: #,0
+		displayFolder: Inventarios\Semana Anterior\Unidades
+		lineageTag: 7b8f6d30-46a8-40ab-976c-78f0461f8d31
+
+	measure _baseMetaVenta = BLANK ()
+		displayFolder: _base\_Venta
+		lineageTag: dd7fc73a-6c1b-4dca-a1db-96c0e05386a6
+
+	measure _baseTrafico = blank()
+		displayFolder: _base\_Venta
+		lineageTag: c1d9f53d-2829-4cb1-ae13-c42de6494eb1
+
+	measure 'Repartos Export' =
+			CALCULATE (
+			    SUM ( zsap_ZPS_TRACING2[CantidadReparto_total] ),
+			    KEEPFILTERS ( zsap_ZPS_TRACING2[CLASE_DOC] = "ZINT" )
+			)
+		formatString: #,0
+		displayFolder: SCM\Export
+		lineageTag: 9bc664c8-7a26-4c03-adea-80ca8362dcc1
+
+	measure 'LeadTime 1' =
+			CALCULATE (
+			    DIVIDE (
+			        SUMX (
+			            zsap_ZPS_TRACING2,
+			            ( zsap_ZPS_TRACING2[FECHA_EXPEDIENTE] - zsap_ZPS_TRACING2[CREADO_EL] ) * zsap_ZPS_TRACING2[CANTIDAD_REPARTO]
+			        ),
+			        [Repartos Export]
+			    ),
+			    ISBLANK ( zsap_ZPS_TRACING2[FECHA_EXPEDIENTE] ) = FALSE ()
+			)
+		displayFolder: SCM\Export\Lead Times Globales
+		lineageTag: afe39675-6788-489a-8a7e-ea0ea59099a6
+
+	measure 'LeadTime 2' =
+			CALCULATE (
+			    AVERAGEX (
+			        zsap_ZPS_TRACING2,
+			        zsap_ZPS_TRACING2[FECHA_LIQUIDACION] - zsap_ZPS_TRACING2[FECHA_EXPEDIENTE]
+			    ),
+			    ISBLANK ( zsap_ZPS_TRACING2[FECHA_LIQUIDACION] ) = FALSE ()
+			)
+		displayFolder: SCM\Export\Lead Times Globales
+		lineageTag: 19094286-f390-4351-83b9-ca992424065a
+
+	measure InventarioBFI = SUM ( InventarioBFI[EXISTENCIA] )
+		formatString: #,0
+		displayFolder: SCM\BFI
+		lineageTag: 74f82666-f574-40f5-b076-e5207f562fde
+
+	measure 'InventarioBFI Reservado' = SUM ( InventarioBFI[Reservado] )
+		formatString: #,0
+		displayFolder: SCM\BFI
+		lineageTag: 344e4acc-66e5-44b3-b8c1-36fb0bff45de
+
+	measure 'InventarioBFI Disponible' = [InventarioBFI] - [InventarioBFI Reservado]
+		formatString: #,0
+		displayFolder: SCM\BFI
+		lineageTag: 580f0ba9-6d9e-4408-b8c7-a5c5eb2e81b4
+
+	measure 'Transitos Export BFI' =
+			CALCULATE (
+			    SUM ( zsap_ZPS_TRACING2[CantidadReparto_total] ),
+			    KEEPFILTERS ( zsap_ZPS_TRACING2[CLASE_DOC] = "ZINT" ),
+			    KEEPFILTERS ( ISBLANK ( zsap_ZPS_TRACING2[FECHA_LIQUIDACION] ) = TRUE () ),
+			    NOT zsap_ZPS_TRACING2[NO_EXPEDIENTE_EKPO] = "",
+			    TREATAS ( VALUES ( Tiendas[SK_TIENDA] ), zsap_ZPS_TRACING2[CENTRO_SUMINIS] )
+			)
+		displayFolder: SCM\Export
+		lineageTag: e573d1c2-ed51-4fdc-b65a-b2c60308ee55
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ordenes Abiertas Export BFI' =
+			CALCULATE (
+			    DISTINCTCOUNT('zsap_ZPS_TRACING2'[DOC_COMPRA]),
+			    KEEPFILTERS ( ISBLANK ( zsap_ZPS_TRACING2[FECHA_LIQUIDACION] ) = TRUE () ),
+			    NOT zsap_ZPS_TRACING2[NO_EXPEDIENTE_EKPO] = ""
+			)
+		formatString: #,0
+		displayFolder: SCM\Export
+		lineageTag: 5ed4b40d-db2d-425b-ac3b-f1bcf4542791
+
+	measure _baseTransitoTiendaCosto =
+			CALCULATE (
+			    SUM ( Inventarios[COSTO_USD] ),
+			    KEEPFILTERS('Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE TIENDA")
+			)
+		displayFolder: _base\_TransitoTienda
+		lineageTag: 84464586-095b-4b35-b7f2-34989fdb6d81
+
+	measure _baseTransitoTiendaPrecio =
+			CALCULATE (
+			    SUM ( Inventarios[PRECIO_USD] ),
+			    KEEPFILTERS('Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE TIENDA")
+			)
+		displayFolder: _base\_TransitoTienda
+		lineageTag: 6318b2fa-b01a-4671-9add-e828338bcbcd
+
+	measure _baseTransitoTiendaUn =
+			CALCULATE (
+			    SUM ( Inventarios[PARES] ),
+			    KEEPFILTERS('Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE TIENDA")
+			)
+		displayFolder: _base\_TransitoTienda
+		lineageTag: c3ea7bb9-bb21-4311-9c4c-5c28ae4e4973
+
+	measure '_baseTransitoTiendaUn Disponible' =
+			CALCULATE (
+			    SUM ( Inventarios[Disponible] ),
+			    KEEPFILTERS('Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE TIENDA")
+			)
+		displayFolder: _base\_TransitoTienda
+		lineageTag: 55457fee-0caf-47ed-b38e-1d1bbd8cad6d
+
+	measure '_baseTransitoTiendaUn Reservado' =
+			CALCULATE (
+			    SUM ( Inventarios[Reservado] ),
+			    KEEPFILTERS('Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE TIENDA")
+			)
+		displayFolder: _base\_TransitoTienda
+		lineageTag: b64365d3-576f-4eaf-b1fe-e9fc106680b5
+
+	measure _baseTransitoBodegaCosto =
+			CALCULATE (
+			    SUM ( Inventarios[COSTO_USD] ),
+			    KEEPFILTERS('Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE BODEGA")
+			)
+		displayFolder: _base\_TransitoBodega
+		lineageTag: bed1c4de-03d8-48b9-bd5c-19c2b1bcf0db
+
+	measure _baseTransitoBodegaPrecio =
+			CALCULATE (
+			    SUM ( Inventarios[PRECIO_USD] ),
+			    KEEPFILTERS('Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE BODEGA")
+			)
+		displayFolder: _base\_TransitoBodega
+		lineageTag: 63c8ecc8-3dc7-42e9-b978-13ec57623961
+
+	measure _baseTransitoBodegaUn =
+			CALCULATE (
+			    SUM ( Inventarios[PARES] ),
+			    KEEPFILTERS('Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE BODEGA")
+			)
+		displayFolder: _base\_TransitoBodega
+		lineageTag: 212dcdd9-54cd-48d3-823f-6d91caa7f0c1
+
+	measure '_baseTransitoBodegaUn Disponible' =
+			CALCULATE (
+			    SUM ( Inventarios[Disponible] ),
+			    KEEPFILTERS('Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE BODEGA")
+			)
+		displayFolder: _base\_TransitoBodega
+		lineageTag: dddde9fb-d274-4738-8da5-85d2064f996d
+
+	measure '_baseTransitoBodegaUn Reservado' =
+			CALCULATE (
+			    SUM ( Inventarios[Reservado] ),
+			    KEEPFILTERS('Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE BODEGA")
+			)
+		displayFolder: _base\_TransitoBodega
+		lineageTag: c8e25e8e-f0c0-4aff-bfa5-33c1ad6053b8
+
+	measure 'Transito Tiendas Un' =
+			VAR _UltimaFechaInventario =
+			    CALCULATE (
+			        MAX ( Inventarios[PERIODO] ),
+			        ALL ( Articulos ),
+			        ALL ( Tiendas ),
+			        ALL ( PeriodosEstadisticos )
+			    )
+			
+			RETURN
+			    CALCULATE (
+			        [_baseTransitoTiendaUn],
+			        ALL ( Fecha ),
+			        Fecha[Fecha] = _UltimaFechaInventario
+			    )
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: 7373b856-d3c4-46c3-b36a-2a621309dabe
+
+	measure 'Transito Bodegas Un' = ```
+			VAR _UltimaFechaInventario =
+			    CALCULATE (
+			        MAX ( Inventarios[PERIODO] ),
+			        ALL ( Articulos ),
+			        ALL ( Tiendas ),
+			        ALL ( PeriodosEstadisticos )
+			    )
+			
+			RETURN
+			    CALCULATE (
+			        [_baseTransitoBodegaUn],
+			        ALL ( Fecha ),
+			        Fecha[Fecha] = _UltimaFechaInventario
+			    ) 
+			```
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: a38fca88-c7f4-4cef-87ac-e6e4953d7af6
+
+	measure LeadTime_1LlegadaZF =
+			VAR _killSwitch = [_LeadTimeKillSwitch]
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( zsap_ZPS_TRACING2, zsap_ZPS_TRACING2[LT_1LlegadaZF] ),
+			        zsap_ZPS_TRACING2[LT_1LlegadaZF] < _killSwitch,
+			        zsap_ZPS_TRACING2[LT_1LlegadaZF] > 0
+			    )
+		formatString: #,0.00
+		displayFolder: SCM\Export\Desglose ACOAVANZAR
+		lineageTag: 00873bf3-e166-444c-8509-e05540db1089
+
+	measure LeadTime_2EsperaCarga =
+			VAR _killSwitch = [_LeadTimeKillSwitch]
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( zsap_ZPS_TRACING2, zsap_ZPS_TRACING2[LT_2EsperaCarga] ),
+			        zsap_ZPS_TRACING2[LT_2EsperaCarga] < _killSwitch,
+			        zsap_ZPS_TRACING2[LT_2EsperaCarga] > 0
+			    )
+		formatString: #,0.00
+		displayFolder: SCM\Export\Desglose ACOAVANZAR
+		lineageTag: 8fc73eb2-9402-4af5-9edc-9c0c68443535
+
+	measure LeadTime_3Carga =
+			VAR _killSwitch = [_LeadTimeKillSwitch]
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( zsap_ZPS_TRACING2, zsap_ZPS_TRACING2[LT_3Carga] ),
+			        zsap_ZPS_TRACING2[LT_3Carga] < _killSwitch,
+			        zsap_ZPS_TRACING2[LT_3Carga] > 0
+			    )
+		formatString: #,0.00
+		displayFolder: SCM\Export\Desglose ACOAVANZAR
+		lineageTag: 49bbf4ca-0691-4e47-a55c-5067e1d8a995
+
+	measure LeadTime_4SalidaZF =
+			VAR _killSwitch = [_LeadTimeKillSwitch]
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( zsap_ZPS_TRACING2, zsap_ZPS_TRACING2[LT_4SalidaZF] ),
+			        zsap_ZPS_TRACING2[LT_4SalidaZF] < _killSwitch,
+			        zsap_ZPS_TRACING2[LT_4SalidaZF] > 0
+			    )
+		formatString: #,0.00
+		displayFolder: SCM\Export\Desglose ACOAVANZAR
+		lineageTag: ec063da3-1be2-4d7b-b22a-d7672bf38f1c
+
+	measure LeadTime_5LlegadaFrontera =
+			VAR _killSwitch = [_LeadTimeKillSwitch]
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( zsap_ZPS_TRACING2, zsap_ZPS_TRACING2[LT_5LlegadaFrontera] ),
+			        zsap_ZPS_TRACING2[LT_5LlegadaFrontera] < _killSwitch,
+			        zsap_ZPS_TRACING2[LT_5LlegadaFrontera] > 0
+			    )
+		formatString: #,0.00
+		displayFolder: SCM\Export\Desglose ACOAVANZAR
+		lineageTag: bab1b787-54df-46de-b3e8-c69bddb23301
+
+	measure LeadTime_6EsperaFrontera =
+			VAR _killSwitch = [_LeadTimeKillSwitch]
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( zsap_ZPS_TRACING2, zsap_ZPS_TRACING2[LT_6EsperaFrontera] ),
+			        zsap_ZPS_TRACING2[LT_6EsperaFrontera] < _killSwitch,
+			        zsap_ZPS_TRACING2[LT_6EsperaFrontera] > 0
+			    )
+		formatString: #,0.00
+		displayFolder: SCM\Export\Desglose ACOAVANZAR
+		lineageTag: 36f2469f-8f3b-4bd7-b02c-bea5449714e2
+
+	measure LeadTime_7LlegadaBodega =
+			VAR _killSwitch = [_LeadTimeKillSwitch]
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( zsap_ZPS_TRACING2, zsap_ZPS_TRACING2[LT_7LlegadaBodega] ),
+			        zsap_ZPS_TRACING2[LT_7LlegadaBodega] < _killSwitch,
+			        zsap_ZPS_TRACING2[LT_7LlegadaBodega] > 0
+			    )
+		formatString: #,0.00
+		displayFolder: SCM\Export\Desglose ACOAVANZAR
+		lineageTag: 9f37f1f9-9406-4072-ab29-a124914dfee3
+
+	measure LeadTime_8DescargaBodega =
+			VAR _killSwitch = [_LeadTimeKillSwitch]
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( zsap_ZPS_TRACING2, zsap_ZPS_TRACING2[LT_8DescargaBodega] ),
+			        zsap_ZPS_TRACING2[LT_8DescargaBodega] < _killSwitch,
+			        zsap_ZPS_TRACING2[LT_8DescargaBodega] > 0
+			    )
+		formatString: #,0.00
+		displayFolder: SCM\Export\Desglose ACOAVANZAR
+		lineageTag: f58b0d88-dca0-45d3-85c8-7c20f67c8682
+
+	measure _LeadTimeKillSwitch = 20
+		displayFolder: SCM\Export
+		lineageTag: aa5df446-396e-4771-8c88-03fe38659af9
+
+	measure 'Pares Productividad' = SUM ( zsap_ZMM_PRODUCT[CANTIDADESCANEADA] )
+		formatString: #,0
+		displayFolder: SCM\Productividad Horas Hombre
+		lineageTag: 04fafb24-6a40-4cd3-8777-6fa8c22e3135
+
+	measure 'Horas Productividad' = DIVIDE ( SUM ( zsap_ZMM_PRODUCT[Segundos] ), 60 * 60 )
+		formatString: #,0.0
+		displayFolder: SCM\Productividad Horas Hombre
+		lineageTag: 1bf9f3aa-83f2-4fa0-a0f3-5d6173bb538b
+
+	measure 'Pares x Hora Productividad' = DIVIDE ( [Pares Productividad], [Horas Productividad] )
+		formatString: #,0
+		displayFolder: SCM\Productividad Horas Hombre
+		lineageTag: 1894753d-cab9-4241-bc47-7ce4fb80a891
+
+	/// #,0
+	measure 'Pares x Hora Productividad Plan' =
+			VAR _selCentro =
+			    SELECTEDVALUE ( zsap_ZMM_PRODUCT[CENTRO] )
+			RETURN
+			    IF (
+			        ISINSCOPE ( zsap_ZMM_PRODUCT[CENTRO] ) || ISINSCOPE ( Tiendas[BV_PAIS] ),
+			        SWITCH ( _selCentro, "1010", 100, "2010", 70, "3010", 70 )
+			    )
+		displayFolder: SCM\Productividad Horas Hombre
+		lineageTag: d733913e-678e-458b-baf1-bf44b53ddb87
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cumplimiento PPHH Usuario' =
+			INT ( [Pares x Hora Productividad] >= [Pares x Hora Productividad Plan] )
+			    * DIVIDE ( [Pares x Hora Productividad], [Pares x Hora Productividad] )
+		formatString: 0 %
+		displayFolder: SCM\Productividad Horas Hombre
+		lineageTag: 3c57f710-f6c5-45d6-bf4d-4bb8270a1a6c
+
+	/// #,0
+	measure EntregasTotal_OT =
+			//CALCULATE (
+			//    DISTINCTCOUNT ( ZOnTime[Entrega] ),
+			//    KEEPFILTERS ( ISBLANK ( ZOnTime[isCrossDock] ) = TRUE () )
+			//)
+		formatString: #,0
+		displayFolder: SCM\on Time
+		lineageTag: 04dd91d0-8f74-4e9a-9c34-f98065a3349c
+
+	/// #,0
+	measure EntregasATiempo_OT =
+			//CALCULATE ( [EntregasTotal_OT], KEEPFILTERS ( ZOnTime[On_Time] = "1" ) )
+			CALCULATE (
+			    COUNTROWS ( zsap_PREPARACIONES ),
+			    KEEPFILTERS ( zsap_PREPARACIONES[OnTime] = 1 ),
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			)
+		formatString: #,0
+		displayFolder: SCM\on Time
+		lineageTag: 1bc33c78-6826-410b-8d94-ede8dfbd4743
+
+	/// #,0
+	measure EntregasNoATiempo_OT =
+			CALCULATE (
+			    COUNTROWS ( zsap_PREPARACIONES ),
+			    KEEPFILTERS ( zsap_PREPARACIONES[OnTime] = 0 ),
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			)
+		formatString: #,0
+		displayFolder: SCM\on Time
+		lineageTag: 468bdc37-47e2-4679-8ee8-9a0900b32d5e
+
+	/// #,0
+	measure EntregasPendientes_OT =
+			CALCULATE (
+			    COUNTROWS ( zsap_PREPARACIONES ),
+			    KEEPFILTERS ( zsap_PREPARACIONES[OnTime] = 2 ) ,
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			)
+		formatString: #,0
+		displayFolder: SCM\on Time
+		lineageTag: bb3cff85-e087-4be7-9949-a21abaa97232
+
+	measure OnTime% =
+			DIVIDE (
+			    [EntregasATiempo_OT],
+			    [EntregasATiempo_OT] + [EntregasNoATiempo_OT]
+			)
+		formatString: #,0.0 %
+		displayFolder: SCM\on Time
+		lineageTag: 3aeb943f-4e48-49da-bd9f-0dd67c6dd12e
+
+	measure CantidadTotal_OT =
+			//CALCULATE (
+			//    SUM ( ZOnTime[Cantidad_Entrega] ),
+			//    KEEPFILTERS ( ISBLANK ( ZOnTime[isCrossDock] ) = TRUE () )
+			//)
+		formatString: #,0
+		displayFolder: SCM\on Time
+		lineageTag: 5e574705-1a37-4fb3-9124-e78cd0a21867
+
+	measure LeadTimes = BLANK ()
+		displayFolder: SCM\Export
+		lineageTag: 705a3da2-4739-482e-bec0-abe0b92e37ec
+
+	measure 'Cumplimiento PPHH' =
+			DIVIDE (
+			    SUMX (
+			        SUMMARIZE (
+			            zsap_ZMM_PRODUCT,
+			            zsap_ZMM_PRODUCT[USUARIO],
+			            zsap_ZMM_PRODUCT[CENTRO]
+			        ),
+			        [Cumplimiento PPHH Usuario]
+			    ),
+			    COUNTX (
+			        SUMMARIZE (
+			            zsap_ZMM_PRODUCT,
+			            zsap_ZMM_PRODUCT[USUARIO],
+			            zsap_ZMM_PRODUCT[CENTRO]
+			        ),
+			        [Cumplimiento PPHH Usuario]
+			    )
+			)
+		formatString: 0 %
+		displayFolder: SCM\Productividad Horas Hombre
+		lineageTag: 8e137548-8b48-4ad2-99e9-016856ab6f80
+
+	measure LeadTime_9Liquidacion =
+			VAR _killSwitch = [_LeadTimeKillSwitch]
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( zsap_ZPS_TRACING2, zsap_ZPS_TRACING2[LT_9Liquidacion] ),
+			        zsap_ZPS_TRACING2[LT_9Liquidacion] < _killSwitch,
+			        zsap_ZPS_TRACING2[LT_9Liquidacion] > 0
+			    )
+		formatString: #,0.00
+		displayFolder: SCM\Export\Desglose ACOAVANZAR
+		lineageTag: d6b6ae11-0115-4ad0-9367-da13337c1f1a
+
+	measure 'LeadTime 3' = [LeadTime 1] + [LeadTime 2]
+		displayFolder: SCM\Export\Lead Times Globales
+		lineageTag: ce0e59fc-b7cb-43ac-961d-4bef617b2657
+
+	measure 'Ultima Actualización' = FORMAT ( MAX ( LastRefresh[LastRefresh] ), "dd MMM yyyy HH:mm" )
+		formatString: dd MMM yyy HH:mm
+		lineageTag: dd81d6a2-0d58-449a-9ecc-b5b7c782b0de
+
+	measure 'Saldo Inicial' =
+			VAR _fIni =
+			    CALCULATE ( MIN ( DATA_CD[Fecha] ), REMOVEFILTERS ( DATA_CD[Pais] ) )
+			VAR _val =
+			    CALCULATE ( SUM ( DATA_CD[Saldo inicial] ), Fecha[Fecha] = _fIni )
+			RETURN
+			    _val
+		formatString: #,0
+		displayFolder: SCM\SLA
+		lineageTag: 74e31cea-a23f-418b-899d-f5db79297dde
+
+	measure 'Saldo Final' =
+			VAR _fIni =
+			    CALCULATE ( MAX ( DATA_CD[Fecha] ), REMOVEFILTERS ( DATA_CD[Pais] ) )
+			VAR _val =
+			    CALCULATE ( SUM ( DATA_CD[Saldo Final] ), Fecha[Fecha] = _fIni )
+			RETURN
+			    _val
+		formatString: #,0
+		displayFolder: SCM\SLA
+		lineageTag: 9941a67e-ef15-4620-bdcd-fb8f7b3ba997
+
+	measure Preparaciones = SUM ( DATA_CD[Preparaciones] )
+		formatString: #,0
+		displayFolder: SCM\SLA
+		lineageTag: b37bef81-9096-4e65-9b49-131f8cf5bbc7
+
+	measure Pedidos = SUM ( DATA_CD[Pedidos] )
+		formatString: #,0
+		displayFolder: SCM\SLA
+		lineageTag: ac4e7f69-c8ff-4345-b30f-fe4b9ca8c4e8
+
+	measure SLA = SUM ( DATA_CD[SLA] )
+		formatString: #,0
+		displayFolder: SCM\SLA
+		lineageTag: 7ddf5b3e-b7e8-4b33-a776-ebd6e52aba8a
+
+	measure 'Pedidos UltSem' =
+			VAR _ultFecha =
+			    MAX ( DATA_CD[Fecha] )
+			VAR _ultSemanaConDatos =
+			    LOOKUPVALUE ( Fecha[NumAnoSemana], Fecha[Fecha], _ultFecha )
+			VAR _ultSemana =
+			    IF (
+			        ISFILTERED ( Fecha ),
+			        _ultSemanaConDatos,
+			        CALCULATE (
+			            MAX ( Fecha[NumAnoSemana] ),
+			            ALL ( DATA_CD ),
+			            Fecha[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    CALCULATE ( [Pedidos], Fecha[NumAnoSemana] = _ultSemana )
+		formatString: #,0
+		displayFolder: SCM\SLA\Semana Actual
+		lineageTag: 37e0bf22-8211-4a4a-b80f-21ef91349036
+
+	measure 'Preparaciones UltSem' =
+			VAR _ultFecha =
+			    MAX ( DATA_CD[Fecha] )
+			VAR _ultSemanaConDatos =
+			    LOOKUPVALUE ( Fecha[NumAnoSemana], Fecha[Fecha], _ultFecha )
+			VAR _ultSemana =
+			    IF (
+			        ISFILTERED ( Fecha ),
+			        _ultSemanaConDatos,
+			        CALCULATE (
+			            MAX ( Fecha[NumAnoSemana] ),
+			            ALL ( DATA_CD ),
+			            Fecha[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    CALCULATE ( [Preparaciones], Fecha[NumAnoSemana] = _ultSemana )
+		formatString: #,0
+		displayFolder: SCM\SLA\Semana Actual
+		lineageTag: db7ddbfd-128a-4191-80fa-bf8e093bbe54
+
+	measure 'Saldo Inicial UltSem' =
+			VAR _ultFecha =
+			    MAX ( DATA_CD[Fecha] )
+			VAR _ultSemanaConDatos =
+			    LOOKUPVALUE ( Fecha[NumAnoSemana], Fecha[Fecha], _ultFecha )
+			VAR _ultSemana =
+			    IF (
+			        ISFILTERED ( Fecha ),
+			        _ultSemanaConDatos,
+			        CALCULATE (
+			            MAX ( Fecha[NumAnoSemana] ),
+			            ALL ( DATA_CD ),
+			            Fecha[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    CALCULATE ( [Saldo Inicial], Fecha[NumAnoSemana] = _ultSemana )
+		formatString: #,0
+		displayFolder: SCM\SLA\Semana Actual
+		lineageTag: 87825e17-d5b6-4918-9311-4a00c7ffe8c7
+
+	measure 'Saldo Final UltSem' =
+			VAR _ultFecha =
+			    MAX ( DATA_CD[Fecha] )
+			VAR _ultSemanaConDatos =
+			    LOOKUPVALUE ( Fecha[NumAnoSemana], Fecha[Fecha], _ultFecha )
+			VAR _ultSemana =
+			    IF (
+			        ISFILTERED ( Fecha ),
+			        _ultSemanaConDatos,
+			        CALCULATE (
+			            MAX ( Fecha[NumAnoSemana] ),
+			            ALL ( DATA_CD ),
+			            Fecha[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    CALCULATE ( [Saldo Final], Fecha[NumAnoSemana] = _ultSemana )
+		formatString: #,0
+		displayFolder: SCM\SLA\Semana Actual
+		lineageTag: 5707b528-b42c-4fab-855e-2f6385b76997
+
+	measure 'SLA UltSem' =
+			VAR _ultFecha =
+			    MAX ( DATA_CD[Fecha] )
+			VAR _ultSemanaConDatos =
+			    LOOKUPVALUE ( Fecha[NumAnoSemana], Fecha[Fecha], _ultFecha )
+			VAR _ultSemana =
+			    IF (
+			        ISFILTERED ( Fecha ),
+			        _ultSemanaConDatos,
+			        CALCULATE (
+			            MAX ( Fecha[NumAnoSemana] ),
+			            ALL ( DATA_CD ),
+			            Fecha[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    CALCULATE ( [SLA], Fecha[NumAnoSemana] = _ultSemana )
+		formatString: #,0
+		displayFolder: SCM\SLA\Semana Actual
+		lineageTag: e9dc4e86-e02d-45c8-8eaf-f259e4e88810
+
+	measure '% Preparaciones UltSem' = DIVIDE( [Preparaciones UltSem] , [Pedidos UltSem] )
+		formatString: #,0.0 %
+		displayFolder: SCM\SLA\Semana Actual
+		lineageTag: b66d65c3-a374-42cc-935b-bff2952728d4
+
+	measure '% Preparaciones' = DIVIDE( [Preparaciones] , [Pedidos] )
+		formatString: #,0.0 %
+		displayFolder: SCM\SLA
+		lineageTag: c189ab77-44a6-4cd7-af1a-e117ac7ce995
+
+	measure '% Preparaciones SLA' = DIVIDE( [Preparaciones] , [SLA] )
+		formatString: #,0.0 %
+		displayFolder: SCM\SLA
+		lineageTag: 91909584-f98b-4d48-a878-a97bc835c9f8
+
+	measure '% Preparaciones SLA UltSem' = DIVIDE( [Preparaciones UltSem] , [SLA UltSem] )
+		formatString: #,0.0 %
+		displayFolder: SCM\SLA\Semana Actual
+		lineageTag: fe812336-4865-463a-9f5c-9f5df2c69294
+
+	measure _onTime_Pais =
+			"OnTime CD a Tiendas por País - del "
+			    & FORMAT ( MIN ( zsap_PREPARACIONES[Fecha] ), "dd-MMM " )
+			    & FORMAT ( MAX ( zsap_PREPARACIONES[Fecha] ), "\a\l dd-MMM" )
+		displayFolder: SCM\on Time\_dynamicHeaders
+		lineageTag: 87ed2aad-c62c-4937-860f-238122840821
+
+	measure _onTime_Semanal =
+			"On Time CD a Tiendas Semanal por País - del "
+			    & FORMAT ( MIN ( zsap_PREPARACIONES[Fecha] ), "dd-MMM " )
+			    & FORMAT ( MAX ( zsap_PREPARACIONES[Fecha] ), "\a\l dd-MMM" )
+		displayFolder: SCM\on Time\_dynamicHeaders
+		lineageTag: bc826530-e28a-473f-8384-eaf66b889f38
+
+	measure 'Transito Total' =
+			VAR _UltimaFechaInventario =
+			    CALCULATE (
+			        MAX ( Inventarios[PERIODO] ),
+			        ALL ( Articulos ),
+			        ALL ( Tiendas ),
+			        ALL ( PeriodosEstadisticos )
+			    )
+			
+			RETURN
+			    CALCULATE (
+			        [_baseTransitoBodegaUn] + [_baseTransitoTiendaUn],
+			        ALL ( Fecha ),
+			        Fecha[Fecha] = _UltimaFechaInventario
+			    )
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: c35e8a23-791a-40d5-894d-bacd503b93ee
+
+	measure _baseTransitoUn =
+			CALCULATE (
+			    SUM ( Inventarios[COSTO_USD] )
+			)
+		displayFolder: _base\_TransitoTotal
+		lineageTag: c74c3e69-d04f-4b48-8527-0e5585ea30c6
+
+	measure 'Transito Total LW' =
+			VAR _lastDate =
+			    CALCULATE ( LASTDATE ( Fecha[Fecha] ), Fecha[DiasConVenta] = TRUE () )
+			VAR _last7days = _lastDate - 7
+			var _lastWeekWithSales = LOOKUPVALUE( Fecha[NumAnoSemana] , Fecha[Fecha] , _last7Days)
+			VAR _dws =
+			    LOOKUPVALUE ( Fecha[DiasConVenta], Fecha[Fecha], _lastDate )
+			VAR _val =
+			    CALCULATE ( [Transito Total], ALL ( Fecha ), Fecha[NumAnoSemana] = _lastWeekWithSales )
+			RETURN
+			    _val * DIVIDE ( _dws, _dws )
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: ca1475e3-d640-4198-859a-ba506a6531a6
+
+	measure 'Var Tran LW' = [Transito Total] - [Transito Total LW]
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: 9764391d-3aaf-42a7-a3ad-ca230f866e54
+
+	measure 'Transitos Import BFI' =
+			CALCULATE (
+			    SUM ( zsap_ZPS_TRACING2[CantidadReparto_total] ),
+			    KEEPFILTERS ( zsap_ZPS_TRACING2[CLASE_DOC] IN { "ZIMP" , "ZUB" } ),
+			    KEEPFILTERS ( ISBLANK ( zsap_ZPS_TRACING2[FECHA_LIQUIDACION] ) = TRUE () ),
+			    NOT zsap_ZPS_TRACING2[NO_EXPEDIENTE_EKPO] = "",
+			    zsap_ZPS_TRACING2[TIPO_MATERIAL] = "MODE"
+			)
+		formatString: #,0
+		displayFolder: SCM\Import
+		lineageTag: 0f1f14b6-ed00-4729-bca1-a30913c2610f
+
+	measure 'Ordenes Abiertas Import BFI' =
+			CALCULATE (
+			    DISTINCTCOUNT ( 'zsap_ZPS_TRACING2'[DOC_COMPRA] ),
+			    KEEPFILTERS ( zsap_ZPS_TRACING2[CLASE_DOC] = "ZIMP" ),
+			    KEEPFILTERS ( ISBLANK ( zsap_ZPS_TRACING2[FECHA_LIQUIDACION] ) = TRUE () ),
+			    NOT zsap_ZPS_TRACING2[NO_EXPEDIENTE_EKPO] = "",
+			    zsap_ZPS_TRACING2[TIPO_MATERIAL] = "MODE"
+			)
+		formatString: #,0
+		displayFolder: SCM\Import
+		lineageTag: 00f8cb74-a6d0-4bad-8be1-456a15d7b521
+
+	measure '% de MK' =
+			DIVIDE (
+			    [Conteo de MK],
+			    CALCULATE (
+			        [Conteo de MK],
+			        ALL( )
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Línea 7
+		lineageTag: be9c0026-1e79-4eeb-8b5a-bf0589c76f88
+
+	measure '% Monto MK A Tiempo' = DIVIDE( [Monto MK A Tiempo] , [Monto MK] )
+		formatString: #,0.0 %
+		displayFolder: Línea 7
+		lineageTag: deabd01c-b47b-457d-ad06-070a1d74cca1
+
+	measure '% Monto MK Adelantado' = DIVIDE( [Monto MK Adelantado] , [Monto MK] )
+		formatString: #,0.0 %
+		displayFolder: Línea 7
+		lineageTag: c6982ff8-fc30-4f35-92fe-8958ccdc441f
+
+	measure '% Monto MK Retraso' = DIVIDE( [Monto MK Retrasado] , [Monto MK] )
+		formatString: #,0.0 %
+		displayFolder: Línea 7
+		lineageTag: 5f62f979-37f5-4794-90d3-fcdc6eaef36c
+
+	measure 'Conteo de MK' = DISTINCTCOUNT ( Linea7[ORDER #] )
+		formatString: #,0
+		displayFolder: Línea 7
+		lineageTag: 482a380f-a5b0-414f-890a-935218e55aa7
+
+	measure 'Conteo de Proveedores' = DISTINCTCOUNT ( Linea7[Supplier] )
+		formatString: #,0
+		displayFolder: Línea 7
+		lineageTag: 35baac37-19d2-4b1b-b026-e2009316f293
+
+	measure 'Monto MK' = SUM ( Linea7[TOTAL PRICE] )
+		formatString: $ #,0
+		displayFolder: Línea 7
+		lineageTag: 36c9c681-8914-4df5-8d36-bc17bde1ce98
+
+	measure 'Monto MK A Tiempo' =
+			CALCULATE (
+			    [Monto MK],
+			    KEEPFILTERS ( Linea7[Estado Despacho] = "A Tiempo" )
+			)
+		formatString: $ #,0
+		displayFolder: Línea 7
+		lineageTag: 1b011e34-1aa6-48ed-9b40-520d9cfcbe5e
+
+	measure 'Monto MK Adelantado' =
+			CALCULATE (
+			    [Monto MK],
+			    KEEPFILTERS ( Linea7[Estado Despacho] = "Adelantado" )
+			)
+		formatString: $ #,0
+		displayFolder: Línea 7
+		lineageTag: f3d46e28-6f66-461a-9cab-da6948fe8bd3
+
+	measure 'Monto MK Retrasado' =
+			CALCULATE (
+			    [Monto MK],
+			    KEEPFILTERS ( Linea7[Estado Despacho] = "Retrasado" )
+			)
+		formatString: $ #,0
+		displayFolder: Línea 7
+		lineageTag: 6ebce4e2-fa3b-4708-b714-4227d917201e
+
+	measure 'Monto MK Label' = SUM ( Linea7[TOTAL PRICE] )
+		formatString: \( $ #,0 \)
+		displayFolder: Línea 7
+		lineageTag: 67ba5063-c33f-4337-ae6b-172f55dd7f00
+
+	measure 'Conteo de MK Label' = DISTINCTCOUNT ( Linea7[ORDER #] )
+		formatString: #,0 \M\K
+		displayFolder: Línea 7
+		lineageTag: 8e2d36d5-199c-4859-b1c4-61ecb7bc730c
+
+	measure 'Conteo de Proveedores Label' = DISTINCTCOUNT ( Linea7[Supplier] )
+		formatString: #,0 \P\r\o\v\e\e\d\o\r\e\s
+		displayFolder: Línea 7
+		lineageTag: 6614a5c3-63d2-4b29-9040-29983dc68e06
+
+	measure 'Label Fechas' =
+			VAR _minFecha = min(Fecha[Fecha])
+			VAR _maxFecha = MAX(Fecha[Fecha])
+			VAR _strMin = FORMAT( _minFecha , "dd MMM. yyyy" )
+			VAR _strMax = FORMAT( _maxFecha , "dd MMM. yyyy" )
+			VAR _head = "Reporte de cumplimiento de fecha XF. del "
+			
+			RETURN _Head & _strMin & " al " & _strMax
+		formatString: #,0.0 %
+		displayFolder: Línea 7
+		lineageTag: 87e68a11-4361-49de-aea8-e5af851b014a
+
+	measure 'Pares Bodegas' = SUM('Inventario en Bodegas'[PARES] )
+		formatString: #,0
+		displayFolder: Ultimo Inventario en Bodegas
+		lineageTag: 3c2edbb0-ac06-4be1-8b3c-7bdb87c2101f
+
+	measure 'Inventario Bodegas' = SUM('Inventario en Bodegas'[COSTO_USD] )
+		formatString: $ #,0
+		displayFolder: Ultimo Inventario en Bodegas
+		lineageTag: a74a8d3e-db8a-40e6-a40c-b161c5c2ecf3
+
+	measure 'Label Período' = "Reporte de Antiguedad de Inventarios al " & FORMAT ( MAX ( 'Inventario en Bodegas'[Fecha] ), "dd MMM. yyyy" )
+		displayFolder: Ultimo Inventario en Bodegas
+		lineageTag: d6b03d0e-d97d-4b31-ac0b-50d26b2f27a4
+
+	measure '% Monto MK' =
+			DIVIDE (
+			    [Monto MK],
+			    CALCULATE (
+			        [Monto MK],
+			        ALL ( Linea7[Estado Despacho] )
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Línea 7
+		lineageTag: 86305b76-b859-45a8-86c7-22f6d2bacfa7
+
+	measure 'Pares Solicitados' =
+			
+			SUM ( zsap_PREPARACIONES[CANTIDAD_REPARTO] )
+		formatString: #,0
+		displayFolder: Preparaciones
+		lineageTag: 5978d942-cddb-42e1-9016-c44d05c43997
+
+	measure 'Pares Confirmados' =
+			CALCULATE (
+			    SUM ( zsap_PREPARACIONES[ENTREGAS] ),
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			)
+		formatString: #,0
+		displayFolder: Preparaciones
+		lineageTag: 1ca69164-606f-4c1e-bcf1-6eab24a0d883
+
+	measure 'Pares Borrados' =
+			CALCULATE (
+			    SUM ( zsap_PREPARACIONES[BORRADOS] ),
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] <> ""
+			)
+		formatString: #,0
+		displayFolder: Preparaciones
+		lineageTag: 8203d0ff-9088-4c01-94c9-c9afccd3b540
+
+	measure 'Pares Salida' =
+			CALCULATE (
+			    SUM ( zsap_PREPARACIONES[CANTIDAD_SALIDA] ),
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			)
+		formatString: #,0
+		displayFolder: Preparaciones
+		lineageTag: 3f2886eb-4901-4171-92fa-bf77d3e66de7
+
+	measure 'Pares Enviados' =
+			CALCULATE (
+			    SUM ( zsap_PREPARACIONES[CANTIDAD_SALIDA] ),
+			    NOT ISBLANK ( zsap_PREPARACIONES[NROTRANSPORTE] ) ,
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			)
+		formatString: #,0
+		displayFolder: Preparaciones
+		lineageTag: 548a19e5-98cc-4e7c-b6c0-2656b313c634
+
+	measure 'Pares sin Enviar' =
+			CALCULATE (
+			    SUM ( zsap_PREPARACIONES[CANTIDAD_SALIDA] ),
+			    ISBLANK ( zsap_PREPARACIONES[NROTRANSPORTE] ) ,
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			)
+		formatString: #,0
+		displayFolder: Preparaciones
+		lineageTag: 6696893b-afed-4eee-8632-033a3372186d
+
+	measure 'Pares Ingresados' =
+			CALCULATE (
+			    SUM ( zsap_PREPARACIONES[CANTIDAD_INGRESADA] ),
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			)
+		formatString: #,0
+		displayFolder: Preparaciones
+		lineageTag: 6d073a91-8dfe-4ae5-b625-c84493f3464b
+
+	measure 'Pares sin Salida' = [Pares Confirmados] - [Pares Salida]
+		formatString: #,0
+		displayFolder: Preparaciones
+		lineageTag: bb901b91-dd39-45d7-8fb8-08c1cf0a0ac1
+
+	measure '% Preparaciones mm45' = DIVIDE( [Pares Confirmados] , [Pares Solicitados] )
+		formatString: #,0.0 %
+		displayFolder: Preparaciones
+		lineageTag: 87ac3c9f-466a-4237-b0dc-8cca6e69925e
+
+	measure '% Borrados mm45' = DIVIDE( [Pares Borrados] , [Pares Solicitados] )
+		formatString: #,0.0 %
+		displayFolder: Preparaciones
+		lineageTag: d7f19042-b2aa-46cb-9aab-ad1eede9d410
+
+	measure '% Salidas' = ```
+			DIVIDE( [Pares Salida] , [Pares Confirmados])
+			
+			```
+		formatString: #,0.0 %
+		displayFolder: Preparaciones
+		lineageTag: 1d85bbbf-550a-4c54-adc3-635d92f2158c
+
+	measure '% Enviados' = DIVIDE ( [Pares Enviados], [Pares Salida] )
+		formatString: #,0.0 %
+		displayFolder: Preparaciones
+		lineageTag: 907f8d99-b67b-4447-b2e6-d32bdd06fb59
+
+	measure 'LeadTime Liquidacion' =
+			CALCULATE (
+			    DIVIDE (
+			        SUMX (
+			            zsap_ZPS_TRACING2,
+			            ( zsap_ZPS_TRACING2[FECHA_LIQUIDACION] - zsap_ZPS_TRACING2[CREADO_EL] ) * zsap_ZPS_TRACING2[CANTIDAD_REPARTO]
+			        ),
+			        SUM ( zsap_ZPS_TRACING2[CANTIDAD_REPARTO] )
+			    ),
+			    ISBLANK ( zsap_ZPS_TRACING2[FECHA_EXPEDIENTE] ) = FALSE (),
+			    KEEPFILTERS ( zsap_ZPS_TRACING2[CLASE_DOC] IN { "ZINT" } ),
+			    NOT ISBLANK ( zsap_ZPS_TRACING2[FECHA_LIQUIDACION] )
+			)
+		displayFolder: SCM\Export\Lead Times Globales
+		lineageTag: 870331d9-e19b-46e9-a585-050eec77c99c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Preparaciones Tránsitos' =
+			CALCULATE (
+			    COUNTROWS ( zsap_PREPARACIONES ),
+			    KEEPFILTERS (
+			        NOT ISBLANK ( zsap_PREPARACIONES[Antiguedad] )
+			    ),
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			)
+		formatString: #,0
+		displayFolder: SCM\Preparaciones
+		lineageTag: 69831542-95ea-4748-ae9d-d4519ea00020
+
+	measure 'Capacidad Preparaciones' =
+			VAR _dws =
+			    CALCULATE ( COUNTROWS ( Fecha ), Fecha[DiasConVenta] = TRUE () )
+			VAR _esTemporadaAlta =
+			    MAX ( Fecha[Es Temporada Alta] )
+			VAR _capacidadAlta =
+			    CALCULATE (
+			        SUM ( 'Capacidades CD'[Capacidad] ),
+			        'Capacidades CD'[Tipo Capacidad] = "Capacidad Preparaciones temporada alta"
+			    )
+			VAR _capacidadBaja =
+			    CALCULATE (
+			        SUM ( 'Capacidades CD'[Capacidad] ),
+			        'Capacidades CD'[Tipo Capacidad] = "Capacidad Preparaciones temporada baja"
+			    )
+			RETURN
+			    IF ( _esTemporadaAlta > 0, _capacidadAlta, _capacidadBaja )
+			        * DIVIDE ( _dws, _dws )
+		formatString: #,0
+		displayFolder: Preparaciones
+		lineageTag: 3272342d-c707-4811-8907-cf7e1c39fd30
+
+	measure '% Preparaciones Capacidad' =
+			VAR _capacidad = [Capacidad Preparaciones]
+			VAR _pedido = [Pares Confirmados]
+			VAR _salida = [Pares Salida]
+			RETURN
+			    DIVIDE ( _salida, IF ( _pedido > _capacidad, _capacidad, _pedido ) )
+		formatString: #,0.0 %
+		displayFolder: Preparaciones
+		lineageTag: e896ed68-3f76-4bb7-be51-a7b40fb11e28
+
+	measure 'Pares Facturados' =
+			CALCULATE (
+			    [Pares Salida],
+			    NOT ISBLANK ( zsap_PREPARACIONES[FECHA_EXPEDIENTE] ),
+			    zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			)
+		formatString: #,0
+		displayFolder: Preparaciones
+		lineageTag: f581e2ae-3c5b-420b-85d8-5dd7f3630c22
+
+	measure '% Salidas Facturadas' = ```
+			DIVIDE( [Pares Facturados] , [Pares Confirmados])
+			
+			```
+		formatString: #,0.0 %
+		displayFolder: Preparaciones
+		lineageTag: 7185ee76-def8-4377-a8f2-6d1f07773a6b
+
+	measure 'Inventario Total SAP + Cognos' = ```
+			[Inventario Un BFI] 
+			+ [Inventario Un]
+			+ [Transito Bodegas Un] 
+			+ [Transito Tiendas Un] 
+			+ [Transitos Import BFI] 
+			+ [Transitos Export BFI]
+			```
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: 8cb0ad95-7746-456c-a448-273c3709508c
+
+	measure 'Transito Total (SAP + Cognos)' = ```
+			  [Transito Bodegas Un] 
+			+ [Transito Tiendas Un] 
+			+ [Transitos Import BFI] 
+			+ [Transitos Export BFI]
+			```
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: beb490ba-5260-41c3-81d6-6622388cfd10
+
+	measure '% Transito Total (SAP + Cognos)' =
+			DIVIDE (
+			    [Transito Total (SAP + Cognos)],
+			    [Inventario Total SAP + Cognos]
+			)
+		formatString: #,0.0 %
+		displayFolder: Inventarios
+		lineageTag: 6ffb0434-9881-4dbc-aef4-a4f351fb1b2e
+
+	measure '% Inventario (SAP + Cognos)' =
+			DIVIDE (
+			    [Inventario Un] ,
+			    [Inventario Total SAP + Cognos]
+			)
+		formatString: #,0.0 %
+		displayFolder: Inventarios
+		lineageTag: 4de251dd-48e4-4847-8edf-ef062cff8472
+
+	measure _labelOnhand = ```
+			"On Hand : " 
+			    & FORMAT ( [Inventario Un], "#,0" )
+			    & FORMAT ( [% Inventario (SAP + Cognos)], " (#,0.0 %)" )
+			```
+		displayFolder: Inventarios
+		lineageTag: 6d66c419-5e2a-4918-a0ea-dbe9e13189b8
+
+	measure _labelTansitoTotal = ```
+			"Tránsitos: " 
+			    & FORMAT ( [Transito Total (SAP + Cognos)], "#,0" ) 
+			    & FORMAT ( [% Transito Total (SAP + Cognos)], "  (#,0.0 %)" )
+			```
+		displayFolder: Inventarios
+		lineageTag: 487824f6-8b5e-4fc7-863f-2c866ff7fd88
+
+	measure 'Cantidad Contenedor' = SUM ( Contenedores[CANTIDAD_PARES] )
+		formatString: #,0
+		displayFolder: Contenedores
+		lineageTag: 18384e9d-bfa4-45a4-ad90-fcb965d5aa6e
+
+	measure 'Confirmado Contenedor' = SUM ( Contenedores[CONFIRMADO] )
+		formatString: #,0
+		displayFolder: Contenedores
+		lineageTag: 26ef2ea5-bc4d-4b2a-819a-01c2f72cb7cd
+
+	measure 'Solicitado Contenedor' = SUM ( Contenedores[SOLICITADO] )
+		formatString: #,0
+		displayFolder: Contenedores
+		lineageTag: d64dd4e8-d60e-4109-b7d2-6e38003d4652
+
+	measure '% Solicitado' = DIVIDE ( [Solicitado Contenedor], [Cantidad Contenedor] )
+		formatString: #,0.0 %
+		displayFolder: Contenedores
+		lineageTag: 5bee24bf-bafa-4ede-852d-c94d45d96ee4
+
+	measure '% Confirmado' = DIVIDE ( [Confirmado Contenedor], [Solicitado Contenedor] )
+		formatString: #,0.0 %
+		displayFolder: Contenedores
+		lineageTag: 092f9697-eba0-42b1-b764-b3543cce6904
+
+	measure 'Prom. Artículos x Contenedor' =
+			AVERAGEX (
+			    VALUES ( Contenedores[Contenedor] ),
+			    [Artículos Contenedor]
+			)
+		formatString: #,0
+		displayFolder: Contenedores
+		lineageTag: 38b6aa21-42d5-4372-b201-db14e86dd922
+
+	measure 'Artículos Contenedor' = DISTINCTCOUNT ( Contenedores[Articulo] )
+		formatString: #,0
+		displayFolder: Contenedores
+		lineageTag: e316432a-8e3f-4484-bddf-d0802d7b0484
+
+	measure 'Artículos Solicitados' =
+			CALCULATE (
+			    [Artículos Contenedor],
+			    NOT ISBLANK ( Contenedores[SOLICITADO] )
+			)
+		formatString: #,0
+		displayFolder: Contenedores
+		lineageTag: 3c9c32ef-33a0-4218-8b15-a663361a7737
+
+	measure 'Artículos Confirmados' =
+			CALCULATE (
+			    [Artículos Contenedor],
+			    NOT ISBLANK ( Contenedores[CONFIRMADO] )
+			)
+		formatString: #,0
+		displayFolder: Contenedores
+		lineageTag: 4d7b4184-661f-4737-b0e3-31a05d56794a
+
+	measure _baseInventarioUnBFI = ```
+			
+			IF (
+			    HASONEFILTER('Inventarios'[SK_TIENDA]) && 
+			    VALUES('Inventarios'[SK_TIENDA]) = "8010",
+			    CALCULATE(
+			        SUM(Inventarios[PARES]),
+			        'Inventarios'[SK_TIPOOPERACION] = "INVENTARIO"
+			    ),
+			    CALCULATE(
+			        SUM(Inventarios[PARES]),
+			        'Inventarios'[SK_TIPOOPERACION] = "TRANSITO DE BODEGA"
+			    )
+			)
+			```
+		displayFolder: _base\_Inventario
+		lineageTag: 7951b3e1-ebed-4efc-b810-f9d3fe68b000
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inventario Un BFI' =
+			VAR _UltimaFechaInventario =
+			    CALCULATE (
+			        MAX ( Inventarios[PERIODO] ),
+			        ALL ( Articulos ),
+			        ALL ( Tiendas ),
+			        ALL ( PeriodosEstadisticos )
+			    )
+			
+			RETURN
+			    CALCULATE (
+			        [_baseInventarioUnBFI],
+			        ALL ( Fecha ),
+			        Fecha[Fecha] = _UltimaFechaInventario
+			    )
+		displayFolder: Inventarios
+		lineageTag: 0399bb1c-5eb7-48f2-baa6-681f73e2d5a5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Pares ZINT' =
+			CALCULATE (
+			    SUM ( zsap_ZPS_TRACING2[ParesT] ),
+			    KEEPFILTERS ( zsap_ZPS_TRACING2[CLASE_DOC] = "ZINT" )
+			)
+		formatString: #,0
+		displayFolder: S&OP
+		lineageTag: 696619c8-6f6f-4ccc-a653-3f80e02cf1cf
+
+	measure 'Pares ZTRA' =
+			CALCULATE (
+			    SUM ( zsap_ZPS_TRACING2[ParesT] ),
+			    KEEPFILTERS ( zsap_ZPS_TRACING2[CLASE_DOC] = "ZTRA" )
+			)
+		formatString: #,0
+		displayFolder: S&OP
+		lineageTag: f7e8f6f0-2e06-466b-b8fc-f4ef863dbc81
+
+	measure 'Pares ZTR2' =
+			CALCULATE (
+			    SUM ( zsap_ZPS_TRACING2[ParesT] ),
+			    KEEPFILTERS ( zsap_ZPS_TRACING2[CLASE_DOC] = "ZTR2" )
+			)
+		formatString: #,0
+		displayFolder: S&OP
+		lineageTag: 5e352a23-114e-4e92-ad0f-94fb0c85c62d
+
+	measure 'Preparación Export' =
+			DIVIDE (
+			    [Pares ZTRA],
+			    [Pares ZINT]
+			)
+		formatString: #,0.00 %
+		displayFolder: S&OP
+		lineageTag: cda38731-47ef-41db-a571-1b768391eb7e
+
+	column ColName
+		isHidden
+		formatString: 0
+		lineageTag: 6415d1b2-a28d-401c-927f-06b60584f124
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [ColName]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Métricas-03ba7493-bc9e-48f0-9014-97a70d9a6009 = calculated
+		mode: import
+		source = DATATABLE ( "ColName", INTEGER, { { BLANK () } } )
+
+	annotation PBI_Id = 2b1766aa1b7441e7b7d981660ad476b5
+

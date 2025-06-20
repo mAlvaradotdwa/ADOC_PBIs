@@ -1,0 +1,39 @@
+table Canales
+	lineageTag: f04658af-7bf9-492f-a5e5-75da4361d773
+
+	column IDCanal
+		dataType: int64
+		formatString: 0
+		lineageTag: 66077fc2-4664-494d-9cd2-ce08880a0ac5
+		summarizeBy: sum
+		sourceColumn: IDCanal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Canal
+		dataType: string
+		lineageTag: e136737a-ac9a-47d2-a6b4-54dccdb32a81
+		summarizeBy: none
+		sourceColumn: Canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plataforma
+		dataType: string
+		lineageTag: edf8551a-40e2-407d-bbcc-c2c7adaa6008
+		summarizeBy: none
+		sourceColumn: Plataforma
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Canales-6bef3712-1d7d-4f9b-874a-0aa942f3600d = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("bZHBDoIwEET/pWcwgoB6bCoED9AGMMYQDg02akRLgIt/7xYuEPa2O/PaTKdlSRxikeKlvnfZw5RyO2Q8ScKMhaSySuKCmMjurYa2kbXCkB2I16ccetm29nQVhnkg8qHTmOeDyOQgG/1A/QBEeuJsU+sPjHnMxTm6jdbeHKUF4hxgj8UFcY6wC5q5iOVsTR9phFnO/KEmjtljWuRUiIlw5wSkWgGLriDcCvDmgMm4IvxF3Wm0AoLxy366U6bLhN54FnJSVX8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [IDCanal = _t, Canal = _t, Plataforma = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"IDCanal", Int64.Type}, {"Canal", type text}, {"Plataforma", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

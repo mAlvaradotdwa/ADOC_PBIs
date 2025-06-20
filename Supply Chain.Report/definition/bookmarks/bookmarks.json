@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "Bookmark6b5228b8cbca0cc1c535",
+      "displayName": "Preparaciones",
+      "children": [
+        "Bookmark8436ffd77224ea873b8d",
+        "Bookmark35e93e701dd0c6418073"
+      ]
+    }
+  ]
+}

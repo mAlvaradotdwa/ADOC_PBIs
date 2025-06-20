@@ -1,0 +1,32 @@
+table '- Cambiar a Centro de Preparacion'
+	lineageTag: 440ab6c7-6aa5-420f-8441-949970b841dd
+
+	calculationGroup
+		precedence: 3
+
+		calculationItem 'Centro Receptor' = SELECTEDMEASURE ()
+
+		calculationItem 'Cenrtro Emisor' =
+				CALCULATE (
+				    SELECTEDMEASURE (),
+				    USERELATIONSHIP ( Tiendas[SK_TIENDA], zsap_PREPARACIONES[CENTRO_SUMINIS] )
+				)
+
+	column 'Tipo Centro'
+		dataType: string
+		lineageTag: 223d6d19-2f34-4c94-94f4-7dac00f8e936
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		lineageTag: 9cef29a9-bec5-413f-b559-35c74337be53
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

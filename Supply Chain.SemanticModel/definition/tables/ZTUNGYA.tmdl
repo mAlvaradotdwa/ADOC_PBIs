@@ -1,0 +1,362 @@
+table ZTUNGYA
+	lineageTag: e455610c-ca7b-48c3-a42a-53934e4d3ff2
+
+	column MANDT
+		dataType: int64
+		formatString: 0
+		lineageTag: 910cdda7-8ce5-4597-9169-8841f5b951c9
+		summarizeBy: sum
+		sourceColumn: MANDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column EBELN
+		dataType: int64
+		formatString: 0
+		lineageTag: 324692b4-7a99-405e-a1f7-51296010f18e
+		summarizeBy: sum
+		sourceColumn: EBELN
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSNR
+		dataType: int64
+		formatString: 0
+		lineageTag: 26b367fe-5c83-41de-a202-e0cee2af201a
+		summarizeBy: sum
+		sourceColumn: POSNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATNR
+		dataType: int64
+		formatString: 0
+		lineageTag: fd7c4cec-1ff4-47b4-8681-d6ed3d219834
+		summarizeBy: none
+		sourceColumn: MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TXZ01
+		dataType: string
+		lineageTag: a06fb6a4-b645-4560-ace2-bf073556d53e
+		summarizeBy: none
+		sourceColumn: TXZ01
+
+		annotation SummarizationSetBy = Automatic
+
+	column NBOOKING
+		dataType: string
+		lineageTag: c9e5a98b-891b-4254-b37f-f7b202f23ec6
+		summarizeBy: none
+		sourceColumn: NBOOKING
+
+		annotation SummarizationSetBy = Automatic
+
+	column BOOKING_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3e6c3e1e-6946-46d7-a749-740e8e8f13ce
+		summarizeBy: none
+		sourceColumn: BOOKING_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column COLLECT_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 86a5a4d6-ef29-428f-8eaf-52d505c19975
+		summarizeBy: none
+		sourceColumn: COLLECT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column QTY_BOOKED
+		dataType: double
+		lineageTag: 4153207e-acdf-48c0-a22e-d5f5bbe282c4
+		summarizeBy: sum
+		sourceColumn: QTY_BOOKED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CARGO_READY_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a14f5f09-cc0d-4530-b60e-1f20dd6b2acd
+		summarizeBy: none
+		sourceColumn: CARGO_READY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column DATE_ARRIVAL
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 8395a1f9-c519-411d-b9b3-0fac406bfc84
+		summarizeBy: none
+		sourceColumn: DATE_ARRIVAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column HOUSE_BILL
+		dataType: string
+		lineageTag: 1abd7bd4-d7ca-48aa-a8ab-491d107b5170
+		summarizeBy: none
+		sourceColumn: HOUSE_BILL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONT_MODE
+		dataType: string
+		lineageTag: 586dafc4-5609-4713-a031-db18ea445b7b
+		summarizeBy: none
+		sourceColumn: CONT_MODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column INVOICE_NUMBER
+		dataType: string
+		lineageTag: 25f9d53e-b792-4d50-aeb5-302c9be53a43
+		summarizeBy: none
+		sourceColumn: INVOICE_NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETD
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 0cc8c3da-01f3-4ab2-844e-61de1fa2dc89
+		summarizeBy: none
+		sourceColumn: ETD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ATD
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: cfb665fb-50c6-41f1-a4d8-0623fec12e13
+		summarizeBy: none
+		sourceColumn: ATD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ETA
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: ed474a46-10e7-436b-ad99-ff790bcc3102
+		summarizeBy: none
+		sourceColumn: ETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column LINE_VOLUME
+		dataType: double
+		lineageTag: 84e2175f-bf25-4e49-80a0-41f4a19c9a6a
+		summarizeBy: sum
+		sourceColumn: LINE_VOLUME
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LINE_CARTONS
+		dataType: string
+		lineageTag: 01b58d46-30b5-43b7-a8a7-866abab9bc7a
+		summarizeBy: none
+		sourceColumn: LINE_CARTONS
+
+		annotation SummarizationSetBy = Automatic
+
+	column LINE_CONTAINER
+		dataType: string
+		lineageTag: 147a7323-37e6-4709-b74b-5cfe8da7dcb4
+		summarizeBy: none
+		sourceColumn: LINE_CONTAINER
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORT
+		dataType: string
+		lineageTag: 6892de6c-016f-494a-b8a2-47953aa15dc0
+		summarizeBy: none
+		sourceColumn: PORT
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAND1
+		dataType: string
+		lineageTag: 6fdfd997-fd5c-4101-9539-2c841fbb289e
+		summarizeBy: none
+		sourceColumn: LAND1
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARRIVAL_VESSEL
+		dataType: string
+		lineageTag: 50632d7c-0798-483e-b2da-0c8399660954
+		summarizeBy: none
+		sourceColumn: ARRIVAL_VESSEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTAINER
+		dataType: string
+		lineageTag: 8360c186-bbde-49c7-9b97-6ea46803afda
+		summarizeBy: none
+		sourceColumn: CONTAINER
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTAINER_TYPE
+		dataType: string
+		lineageTag: ecd86468-981f-48fc-85d5-9cf1c16970d2
+		summarizeBy: none
+		sourceColumn: CONTAINER_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORDER_STATUS
+		dataType: string
+		lineageTag: 54cc7c0c-022a-438f-8c2b-9451a9473e23
+		summarizeBy: none
+		sourceColumn: ORDER_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECEIVING_AGENT
+		dataType: string
+		lineageTag: 2f52b2e7-16e0-4f07-911c-f447b79e9df1
+		summarizeBy: none
+		sourceColumn: RECEIVING_AGENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TYPESHIP
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ca4abac-99a8-4e5c-8f36-ffca15ff9ebc
+		summarizeBy: sum
+		sourceColumn: TYPESHIP
+
+		annotation SummarizationSetBy = Automatic
+
+	column USER_NAME
+		dataType: string
+		lineageTag: b68d8ab4-4e20-4b4d-b684-a9acffb87901
+		summarizeBy: none
+		sourceColumn: USER_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column UP_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7ccabc1b-4f8f-4242-8709-284a0292e3e3
+		summarizeBy: none
+		sourceColumn: UP_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column LOEKZ
+		dataType: string
+		lineageTag: 83b5a29e-0746-4f6d-8612-d5dc0195db01
+		summarizeBy: none
+		sourceColumn: LOEKZ
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOC_COMPRA
+		dataType: string
+		lineageTag: 6c7c0448-87e0-4666-be99-2f27c22e6d4b
+		summarizeBy: none
+		sourceColumn: DOC_COMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MESSAGE
+		dataType: string
+		lineageTag: 489e00b8-2f7b-4830-9960-eecf5b8e1399
+		summarizeBy: none
+		sourceColumn: MESSAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NO_expediente_ekpo
+		dataType: string
+		lineageTag: d5a31bbd-92b9-4a74-9861-b6c09b962329
+		summarizeBy: none
+		sourceColumn: NO_expediente_ekpo
+
+		annotation SummarizationSetBy = Automatic
+
+	column MESSAGE_EXP
+		dataType: string
+		lineageTag: 1985dd70-1655-4991-8cee-eca42439a531
+		summarizeBy: none
+		sourceColumn: MESSAGE_EXP
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiasColecta =
+			
+			VAR _dt = IF( ISBLANK([COLLECT_DATE]) , [CARGO_READY_DATE] , [COLLECT_DATE] )
+			RETURN _dt - [CARGO_READY_DATE]
+		dataType: int64
+		formatString: 0
+		lineageTag: 15b3c739-fd29-4115-a8e0-3010fd96fade
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ZTUNGYA = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source =
+				let
+				    Consulta2 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT#(lf)    *#(lf)FROM#(lf)    SAP_ECC.ZTUNGYA_MK_UPD t", null, [EnableFolding=true]),
+				    #"Columnas reordenadas" = Table.ReorderColumns(Consulta2,{"MANDT", "EBELN", "POSNR", "MATNR", "TXZ01", "NBOOKING", "BOOKING_DATE", "CARGO_READY_DATE", "COLLECT_DATE", "DATE_ARRIVAL", "ETD", "ETA", "ATD", "QTY_BOOKED", "HOUSE_BILL", "CONT_MODE", "INVOICE_NUMBER", "LINE_VOLUME", "LINE_CARTONS", "LINE_CONTAINER", "PORT", "LAND1", "ARRIVAL_VESSEL", "CONTAINER", "CONTAINER_TYPE", "ORDER_STATUS", "RECEIVING_AGENT", "TYPESHIP", "USER_NAME", "UP_DATE", "LOEKZ", "ZIMP", "MESSAGE", "LBELN", "MESSAGE_EXP"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas reordenadas",{{"MANDT", Int64.Type}, {"EBELN", Int64.Type}, {"POSNR", Int64.Type}, {"MATNR", Int64.Type}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Tipo cambiado","00000000","",Replacer.ReplaceValue,{"BOOKING_DATE", "COLLECT_DATE", "CARGO_READY_DATE", "DATE_ARRIVAL", "ETD", "ATD", "ETA", "UP_DATE"}),
+				    #"Valor reemplazado1" = Table.ReplaceValue(#"Valor reemplazado","########","",Replacer.ReplaceText,{"BOOKING_DATE", "COLLECT_DATE", "CARGO_READY_DATE", "DATE_ARRIVAL", "ETD", "ATD", "ETA", "UP_DATE"}),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Valor reemplazado1",{{"BOOKING_DATE", type date}, {"COLLECT_DATE", type date}, {"CARGO_READY_DATE", type date}, {"DATE_ARRIVAL", type date}, {"ETD", type date}, {"ATD", type date}, {"ETA", type date}, {"UP_DATE", type date}}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Tipo cambiado1",{{"LBELN", "NO_expediente_ekpo"}, {"ZIMP", "DOC_COMPRA"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_ResultType = Table
+

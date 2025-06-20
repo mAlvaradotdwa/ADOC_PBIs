@@ -1,0 +1,160 @@
+table zsap_ZMM_PRODUCT
+	lineageTag: c6084560-c341-4a98-bc30-234051814073
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: c93b72cd-8d0a-4c07-a98d-85a0d6c0645d
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHACREACIONENTREGA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 55674ecd-a64f-40ae-a8f1-d071d2ff2421
+		summarizeBy: none
+		sourceColumn: FECHACREACIONENTREGA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PUESTOEXPEDICION
+		dataType: string
+		lineageTag: aebfa39c-57c1-4fed-b92f-19e8bbf1d24a
+		summarizeBy: none
+		sourceColumn: PUESTOEXPEDICION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO
+		dataType: string
+		lineageTag: 62c4165b-8f8a-4a96-a79f-258c976ab123
+		summarizeBy: none
+		sourceColumn: CENTRO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: b6453a78-e054-4aad-8f91-30145714e34a
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column USUARIO
+		dataType: string
+		lineageTag: 108f04e5-528f-4842-a6d5-ec096c97d7d6
+		summarizeBy: none
+		sourceColumn: USUARIO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDADESCANEADA
+		dataType: double
+		lineageTag: afe8b296-86f9-413f-8abb-fb77cd1da00e
+		summarizeBy: sum
+		sourceColumn: CANTIDADESCANEADA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FECHAHORAESCANEO
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 74bf87d2-9e1b-4cd8-8ed2-421107016012
+		summarizeBy: none
+		sourceColumn: FECHAHORAESCANEO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHAHORAPICKING
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 333f13dc-9320-41a4-922d-857c39749d40
+		summarizeBy: none
+		sourceColumn: FECHAHORAPICKING
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FechaEscaneo
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b9c8f7e8-2863-40fe-b405-5baa67c20ad7
+		summarizeBy: none
+		sourceColumn: FechaEscaneo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column FechaPicking
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a891cfd6-62e6-466f-b48b-644115da92b6
+		summarizeBy: none
+		sourceColumn: FechaPicking
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Segundos
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d46cd1d-c664-43cd-afe6-309c8f0bf6ed
+		summarizeBy: sum
+		sourceColumn: Segundos
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition zsap_ZMM_PRODUCT-7d4e4dcf-db75-42bf-b367-5ce62c70da1e = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source =
+				let
+				    zsap_ZMM_PRODUCT = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- ZMM_PRODUCT#(lf)SELECT#(lf)#(tab)LIKP.VBELN Documento,#(lf)#(tab)CAST(CONCAT(LIKP.ERDAT, LIKP.ERZET ) AS timestamp ) FechaCreacionEntrega,#(lf)#(tab)LIKP.VSTEL puestoexpedicion,#(lf)#(tab)LIPS.WERKS Centro,#(lf)#(tab)LIPS.LGORT Almacen,#(lf)#(tab)--#(tab)LIPS.VRKME UnidadMedidaventa,#(lf)#(tab)YYLOG_PICKING.USER_HH Usuario,#(lf)#(tab)SUM(YYLOG_PICKING.LFIMGH) cantidadescaneada,#(lf)#(tab)--#(tab)MIN(CAST(CONCAT(YYLOG_PICKING.FECHA_SCAN , YYLOG_PICKING.HORA_SCAN ) AS timestamp) ) fechaescaneo_1,#(lf)#(tab)--#(tab)MAX(CAST(CONCAT(YYLOG_PICKING.FECHA_SCAN , YYLOG_PICKING.HORA_SCAN ) AS timestamp) ) fechaescaneo_2, #(lf)#(tab)--#(tab)MIN(CAST(CONCAT(YYLOG_PICKING.FECHA_PICK , YYLOG_PICKING.HORA_PICK ) AS timestamp) ) fechapicking_1,#(lf)#(tab)--#(tab)MAX(CAST(CONCAT(YYLOG_PICKING.FECHA_PICK , YYLOG_PICKING.HORA_PICK ) AS timestamp) ) fechapicking_2 ,#(lf)#(tab)CASE#(lf)#(tab)#(tab)WHEN MIN(YYLOG_PICKING.FECHA_SCAN) <> MIN(YYLOG_PICKING.FECHA_PICK) THEN MIN(CAST(CONCAT(YYLOG_PICKING.FECHA_PICK , YYLOG_PICKING.HORA_PICK ) AS timestamp) )#(lf)#(tab)#(tab)ELSE MIN(CAST(CONCAT(YYLOG_PICKING.FECHA_SCAN , YYLOG_PICKING.HORA_SCAN ) AS timestamp) )#(lf)#(tab)END FechaEscaneo ,#(lf)#(tab)MAX(CAST(CONCAT(YYLOG_PICKING.FECHA_PICK , YYLOG_PICKING.HORA_PICK ) AS timestamp) ) fechaPicking#(lf)#(tab)--,#(lf)#(tab)--     YYLOG_PICKING.POSNR posicionpicking,#(lf)#(tab)--     MARA.ZZ_ART_PROV genero,#(lf)#(tab)--     MARA.BRAND_ID marca,#(lf)#(tab)--     MARA.ZZ_DEPART departamento,#(lf)#(tab)--     MARA.MATNR codigomaterial,#(lf)FROM#(lf)#(tab)SAP_ECC.LIKP#(lf)INNER JOIN SAP_ECC.LIPS ON#(lf)#(tab)LIPS.VBELN = LIKP.VBELN#(lf)INNER JOIN SAP_ECC.YYLOG_PICKING ON#(lf)#(tab)YYLOG_PICKING.POSNR = LIPS.POSNR#(lf)#(tab)AND YYLOG_PICKING.VBELN = LIPS.VBELN#(lf)INNER JOIN SAP_ECC.MARA ON#(lf)#(tab)MARA.MATNR = YYLOG_PICKING.MATNR#(lf)WHERE#(lf)#(tab)--LIKP~VBELN in SP$00001 documento#(lf)#(tab)LIKP.ERDAT >= '20221230'#(lf)#(tab)AND YYLOG_PICKING.USER_HH NOT LIKE '%PREPACK%'#(lf)#(tab)AND YYLOG_PICKING.USER_HH NOT LIKE '%ACCE%'#(lf)#(tab)--   and LIPS~WERKS in SP$00004 Centro#(lf)#(tab)--   and LIPS~LGORT in SP$00005 Almacen#(lf)#(tab)--   and YYLOG_PICKING~USER_HH in SP$00006 Usuario HH#(lf)#(tab)--   and YYLOG_PICKING~FECHA_SCAN in SP$00007 Fecha de escaneo#(lf)#(tab)--   and MARA~BRAND_ID in SP$00008 Marca#(lf)#(tab)--   AND LIKP.VBELN = '0082186372'#(lf)GROUP BY#(lf)#(tab)LIKP.VBELN ,#(lf)#(tab)LIKP.ERDAT ,#(lf)#(tab)LIKP.VSTEL ,#(lf)#(tab)LIKP.ERZET ,#(lf)#(tab)LIPS.WERKS ,#(lf)#(tab)LIPS.LGORT ,#(lf)#(tab)--#(tab)LIPS.VRKME ,#(lf)#(tab)YYLOG_PICKING.USER_HH#(lf)", null, [EnableFolding=true]),
+				    #"Inserted Date" = Table.AddColumn(zsap_ZMM_PRODUCT, "Fecha", each DateTime.Date([FECHAESCANEO]), type date),
+				    #"Inserted Date1" = Table.AddColumn(#"Inserted Date", "Fecha.1", each DateTime.Date([FECHAPICKING]), type date),
+				    #"Renamed Columns" = Table.RenameColumns(#"Inserted Date1",{{"FECHAESCANEO", "FECHAHORAESCANEO"}, {"FECHAPICKING", "FECHAHORAPICKING"}, {"Fecha", "FechaEscaneo"}, {"Fecha.1", "FechaPicking"}}),
+				    #"Inserted Date Subtraction" = Table.AddColumn(#"Renamed Columns", "Resta", each Duration.TotalSeconds([FECHAHORAPICKING] - [FECHAHORAESCANEO]), Int64.Type),
+				    #"Calculated Absolute Value" = Table.TransformColumns(#"Inserted Date Subtraction",{{"Resta", Number.Abs, Int64.Type}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Calculated Absolute Value",{{"Resta", "Segundos"}})
+				in
+				    #"Renamed Columns1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

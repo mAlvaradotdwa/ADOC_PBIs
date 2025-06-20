@@ -1,0 +1,242 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "e928be32dc35b231e340",
+  "position": {
+    "x": 240,
+    "y": 48,
+    "z": 9000,
+    "height": 528,
+    "width": 784,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tiendas"
+                    }
+                  },
+                  "Property": "BV_PAIS"
+                }
+              },
+              "queryRef": "Tiendas.BV_PAIS",
+              "nativeQueryRef": "BV_PAIS",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tiendas"
+                    }
+                  },
+                  "Property": "BV_FORMATO"
+                }
+              },
+              "queryRef": "Tiendas.BV_FORMATO",
+              "nativeQueryRef": "BV_FORMATO",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tiendas"
+                    }
+                  },
+                  "Property": "AGRUPACION_TIENDA"
+                }
+              },
+              "queryRef": "Tiendas.AGRUPACION_TIENDA",
+              "nativeQueryRef": "AGRUPACION_TIENDA",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKBE"
+                    }
+                  },
+                  "Property": "Salidas EKBE"
+                }
+              },
+              "queryRef": "EKBE.Salidas EKBE",
+              "nativeQueryRef": "Salidas EKBE"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKBE"
+                    }
+                  },
+                  "Property": "Entregas EKBE"
+                }
+              },
+              "queryRef": "EKBE.Entregas EKBE",
+              "nativeQueryRef": "Entregas EKBE"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKBE"
+                    }
+                  },
+                  "Property": "Ingresos EKBE"
+                }
+              },
+              "queryRef": "EKBE.Ingresos EKBE",
+              "nativeQueryRef": "Ingresos EKBE"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKBE"
+                    }
+                  },
+                  "Property": "% Entregas EKBE"
+                }
+              },
+              "queryRef": "EKBE.% Entregas EKBE",
+              "nativeQueryRef": "% Entregas EKBE"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKBE"
+                    }
+                  },
+                  "Property": "% Ingresos EKBE"
+                }
+              },
+              "queryRef": "EKBE.% Ingresos EKBE",
+              "nativeQueryRef": "% Ingresos EKBE"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Tiendas"
+                  }
+                },
+                "Property": "BV_FORMATO"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Tiendas.BV_PAIS"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tiendas"
+                    }
+                  },
+                  "Property": "BV_PAIS"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Tiendas.BV_FORMATO"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Tiendas.AGRUPACION_TIENDA"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tiendas"
+                    }
+                  },
+                  "Property": "AGRUPACION_TIENDA"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'SV'"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "rowHeaders": [
+        {
+          "properties": {
+            "showExpandCollapseButtons": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,139 @@
+table InventarioBFI
+	lineageTag: 8de65df5-2a10-4781-b348-f27634e43425
+
+	column CODCENTRO
+		dataType: string
+		lineageTag: 7240f0cf-77d1-4da0-ac92-04d11efa81c1
+		summarizeBy: none
+		sourceColumn: CODCENTRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATNR
+		dataType: string
+		lineageTag: 67e1b287-2c31-4231-9ccf-47b38be72d8a
+		summarizeBy: none
+		sourceColumn: MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: 2fb5881f-8c19-4040-a1e8-fe2721db0e32
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOTE
+		dataType: string
+		lineageTag: dc75e11b-732a-4560-8481-8d683d427ca5
+		summarizeBy: none
+		sourceColumn: LOTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXISTENCIA
+		dataType: double
+		lineageTag: c7a91e5c-3e4d-4f51-bc12-4859501c6015
+		summarizeBy: sum
+		sourceColumn: EXISTENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: ca3a2a6b-1972-4fab-a714-ca5a510a9cc4
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESERVADO
+		dataType: double
+		lineageTag: 610340f1-a673-4689-afa4-3453d53b9060
+		summarizeBy: sum
+		sourceColumn: RESERVADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FECHAINGRESO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2d19f2db-df6b-427d-9c07-c609b32ffeac
+		summarizeBy: none
+		sourceColumn: FECHAINGRESO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DiasAntiguedad
+		dataType: int64
+		formatString: 0
+		lineageTag: d32224cb-3246-49a1-b8ec-434e4d7376d4
+		summarizeBy: sum
+		sourceColumn: DiasAntiguedad
+
+		annotation SummarizationSetBy = Automatic
+
+	column PeriodoInventario = ```
+			
+			    SWITCH (
+			        TRUE (),
+			        InventarioBFI[DiasAntiguedad] < 0, "SIN LOTE",
+			        InventarioBFI[DiasAntiguedad] <= 30, "00 a 30 dias",
+			        InventarioBFI[DiasAntiguedad] <= 60, "31 a 60 dias",
+			        InventarioBFI[DiasAntiguedad] <= 90, "61 a 90 dias",
+			        InventarioBFI[DiasAntiguedad] <= 182, "91 a 182 dias",
+			        InventarioBFI[DiasAntiguedad] <= 365, "183 a 365 dias",
+			        "Mas de un año"
+			    )
+			```
+		lineageTag: ca4afe21-9377-4512-8fe0-0656d776ede3
+		summarizeBy: none
+		sortByColumn: IDPeriodoInventario
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDPeriodoInventario = ```
+			
+			    SWITCH (
+			        TRUE (),
+			        InventarioBFI[DiasAntiguedad] < 0,   99,
+			        InventarioBFI[DiasAntiguedad] <= 30, 1,
+			        InventarioBFI[DiasAntiguedad] <= 60, 2,
+			        InventarioBFI[DiasAntiguedad] <= 90, 3,
+			        InventarioBFI[DiasAntiguedad] <= 182, 4,
+			        InventarioBFI[DiasAntiguedad] <= 365, 5,
+			        90
+			    )
+			```
+		formatString: 0
+		lineageTag: 099856c5-35d9-441b-bf8a-c14e06d6bcc3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition InventarioBFI-ffb36388-1769-4810-9ace-91ec1f5aa697 = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source =
+				let
+				    InventarioBFI = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT#(lf)#(tab)a.*,#(lf)#(tab)lt.FechaIngreso#(lf)FROM#(lf)#(tab)(#(lf)#(tab)#(tab)-- MB51 EXISTENCIA#(lf)#(tab)#(tab)SELECT#(lf)#(tab)#(tab)#(tab)a.werks CodCentro,#(lf)#(tab)#(tab)#(tab)a.matnr,#(lf)#(tab)#(tab)#(tab)a.lgort Almacen,#(lf)#(tab)#(tab)#(tab)a.charg Lote,#(lf)#(tab)#(tab)#(tab)a.vbeln Documento,#(lf)#(tab)#(tab)#(tab)SUM(a.vmeng) AS Existencia ,#(lf)#(tab)#(tab)#(tab)NULL RESERVADO#(lf)#(tab)#(tab)FROM#(lf)#(tab)#(tab)#(tab)sap_ecc.vbbe AS a#(lf)#(tab)#(tab)INNER JOIN sap_ecc.mara AS b ON#(lf)#(tab)#(tab)#(tab)a.matnr = b.matnr#(lf)#(tab)#(tab)WHERE#(lf)#(tab)#(tab)#(tab)a.sobkz IN (#(lf)#(tab)#(tab)#(tab)#(tab)'', 'K'#(lf)#(tab)#(tab)#(tab))#(lf)#(tab)#(tab)#(tab)AND a.mbdat < '99999999'#(lf)#(tab)#(tab)#(tab)AND a.vbtyp NOT IN (#(lf)#(tab)#(tab)#(tab)#(tab)'B', 'C'#(lf)#(tab)#(tab)#(tab))#(lf)#(tab)#(tab)#(tab)AND a.werks IN ('8010')#(lf)#(tab)#(tab)GROUP BY#(lf)#(tab)#(tab)#(tab)a.werks,#(lf)#(tab)#(tab)#(tab)a.matnr,#(lf)#(tab)#(tab)#(tab)a.lgort,#(lf)#(tab)#(tab)#(tab)a.charg,#(lf)#(tab)#(tab)#(tab)a.vbeln#(lf)#(tab)UNION#(lf)#(tab)#(tab)-- MB51 Reservado?#(lf)#(tab)#(tab)SELECT#(lf)#(tab)#(tab)#(tab)a.reswk CODCENTRO,#(lf)#(tab)#(tab)#(tab)a.matnr,#(lf)#(tab)#(tab)#(tab)d.reslo ALMACEN,#(lf)#(tab)#(tab)#(tab)c.charg LOTE ,#(lf)#(tab)#(tab)#(tab)a.ebeln DOCUMENTO,#(lf)#(tab)#(tab)#(tab)NULL EXISTENCIA ,#(lf)#(tab)#(tab)#(tab)c.menge RESERVADO#(lf)#(tab)#(tab)#(tab)-- Scheduled Quantity#(lf)#(tab)#(tab)FROM#(lf)#(tab)#(tab)#(tab)sap_ecc.ekub AS a#(lf)#(tab)#(tab)INNER JOIN sap_ecc.mara AS b ON#(lf)#(tab)#(tab)#(tab)a.matnr = b.matnr#(lf)#(tab)#(tab)INNER JOIN sap_ecc.eket AS c ON#(lf)#(tab)#(tab)#(tab)a.ebeln = c.ebeln#(lf)#(tab)#(tab)#(tab)AND a.ebelp = c.ebelp#(lf)#(tab)#(tab)INNER JOIN sap_ecc.ekpo AS d ON#(lf)#(tab)#(tab)#(tab)c.ebeln = d.ebeln#(lf)#(tab)#(tab)#(tab)AND c.ebelp = d.ebelp#(lf)#(tab)#(tab)WHERE#(lf)#(tab)#(tab)#(tab)a.RESWK IN (#(lf)#(tab)#(tab)#(tab)#(tab)'1010', '2010', '3010', '4010', '5010'#(lf)#(tab)#(tab)#(tab))#(lf)#(tab)#(tab)#(tab)AND c.wamng = 0#(lf)#(tab)#(tab)#(tab)--Issued Quantity#(lf)#(tab)#(tab)#(tab)AND c.glmng = 0#(lf)#(tab)#(tab)#(tab)--Quantity Delivered (Stock Transfer)#(lf)#(tab)#(tab)#(tab)AND b.zz_tip_estilo IN (#(lf)#(tab)#(tab)#(tab)#(tab)'MODE', 'ZMOD'#(lf)#(tab)#(tab)#(tab))#(lf)#(tab)#(tab)#(tab)AND d.LOEKZ = ''#(lf)#(tab)#(tab)#(tab)--Deletion Indicator #(lf)#(tab)) a#(lf)LEFT JOIN (#(lf)#(tab)#(tab)-- MB51#(lf)#(tab)#(tab)SELECT#(lf)#(tab)#(tab)#(tab)mseg.charg Lote,#(lf)#(tab)#(tab)#(tab)MIN(mseg.budat_mkpf) FechaIngreso#(lf)#(tab)#(tab)FROM#(lf)#(tab)#(tab)#(tab)SAP_ECC.mseg#(lf)#(tab)#(tab)WHERE#(lf)#(tab)#(tab)#(tab)mseg.werks = '8010'#(lf)#(tab)#(tab)#(tab)--CodCentro#(lf)#(tab)#(tab)#(tab)AND mseg.bwart = '101'#(lf)#(tab)#(tab)#(tab)--CodMovimiento#(lf)#(tab)#(tab)#(tab)AND LENGTH(mseg.charg) > 1#(lf)#(tab)#(tab)GROUP BY#(lf)#(tab)#(tab)#(tab)mseg.charg#(lf)#(tab)) lt ON#(lf)#(tab)a.Lote = lt.Lote#(lf)", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(InventarioBFI,{{"FECHAINGRESO", type date}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "DiasAntiguedad", each if [FECHAINGRESO] is null then -99 else DateTime.Date(DateTime.LocalNow()) - [FECHAINGRESO]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"DiasAntiguedad", Int64.Type}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

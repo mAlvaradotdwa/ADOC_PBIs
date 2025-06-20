@@ -1,0 +1,58 @@
+table PeriodosEstadisticos
+	lineageTag: a5b71ca1-d32f-4b52-819e-bc7ad7efe059
+
+	column ID_VencimientoEstadistico
+		formatString: 0
+		lineageTag: 63f3e2c5-2e8e-48b9-a3fb-e389395c38bb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Inventarios[ID_VencimientoEstadistico]
+
+		annotation SummarizationSetBy = Automatic
+
+	column VencimientoEstadistico
+		lineageTag: d81a29a3-2b70-4a0c-9137-685cc332b31a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [VencimientoEstadistico]
+
+		annotation SummarizationSetBy = Automatic
+
+	column GrupoVencimientoEstadistico
+		lineageTag: 0ee5d069-cfa2-4c40-bbac-9dc6a001025f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [GrupoVencimientoEstadistico]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PeriodosEstadisticos-41b4c910-b8f2-4778-964a-36218a34988d = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS (
+				    SUMMARIZE ( Inventarios, Inventarios[ID_VencimientoEstadistico] ),
+				    "VencimientoEstadistico",
+				        SWITCH (
+				            TRUE (),
+				            [ID_VencimientoEstadistico] = -100, "VENCIDO",
+				            [ID_VencimientoEstadistico] = -1, "SIN PERIODO",
+				            [ID_VencimientoEstadistico] = 0, "NO VENCE",
+				            VAR _yr = LEFT([ID_VencimientoEstadistico],4)
+				            VAR _qq = RIGHT( [ID_VencimientoEstadistico] , 1 )
+				            return "VENCE " & _yr & " Q"& _qq
+				        ) ,
+				    "GrupoVencimientoEstadistico",
+				        SWITCH (
+				            TRUE (),
+				            [ID_VencimientoEstadistico] = -100, "VENCIDO",
+				            [ID_VencimientoEstadistico] = -1, "SIN PERIODO",
+				            [ID_VencimientoEstadistico] = 0, "NO VENCE",
+				            VAR _yr = LEFT([ID_VencimientoEstadistico],4)
+				            VAR _qq = RIGHT( [ID_VencimientoEstadistico] , 1 )
+				            return "VIGENTE"
+				        )
+				)
+
+	annotation PBI_Id = 17716c19b65546aea7e83a4b7a47d8bb
+

@@ -1,0 +1,168 @@
+table zsap_MB51
+	lineageTag: f00d36c2-9c5c-46e0-87f3-6e96cdba5f6c
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: 16f6ab47-3cf5-4918-8ea0-6307e6ea9ec3
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANYO
+		dataType: string
+		lineageTag: a2670db2-8a94-4a69-bdf0-e1e11928e2d4
+		summarizeBy: none
+		sourceColumn: ANYO
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSICION_DOCUMENTO
+		dataType: string
+		lineageTag: a4a84d28-16e8-4b8b-9259-359ab06f8179
+		summarizeBy: none
+		sourceColumn: POSICION_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODMOVIMIENTO
+		dataType: string
+		lineageTag: f69ab175-4d9a-4afb-8570-0066e794407e
+		summarizeBy: none
+		sourceColumn: CODMOVIMIENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODMATERIAL
+		dataType: string
+		lineageTag: 93343e3f-b24d-4b29-bf0c-b82543f9aad9
+		summarizeBy: none
+		sourceColumn: CODMATERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODCENTRO
+		dataType: string
+		lineageTag: 8c33caa5-fb2d-4857-92b4-3b644cf5215b
+		summarizeBy: none
+		sourceColumn: CODCENTRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODALMACEN
+		dataType: string
+		lineageTag: 45bc8fcf-0b1d-47cf-83bd-5410c7e6cde6
+		summarizeBy: none
+		sourceColumn: CODALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOTE
+		dataType: string
+		lineageTag: 3a3223b2-59c7-4612-970e-3b426c776047
+		summarizeBy: none
+		sourceColumn: LOTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONEDA
+		dataType: string
+		lineageTag: 27d81ffc-030a-4474-b0c9-d6f5c0b44db5
+		summarizeBy: none
+		sourceColumn: MONEDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTO
+		dataType: double
+		lineageTag: c1ab92e0-3043-46a6-a19c-b1e4c565ceda
+		summarizeBy: sum
+		sourceColumn: MONTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD
+		dataType: double
+		lineageTag: 7602b99f-d268-4490-984f-341c29e98863
+		summarizeBy: sum
+		sourceColumn: CANTIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UDM
+		dataType: string
+		lineageTag: b21efc32-349f-457f-b383-50592aa78ed1
+		summarizeBy: none
+		sourceColumn: UDM
+
+		annotation SummarizationSetBy = Automatic
+
+	column PEDIDO
+		dataType: string
+		lineageTag: 73752ffc-cb9c-442e-9264-622ce4d6a283
+		summarizeBy: none
+		sourceColumn: PEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSPEDIDO
+		dataType: string
+		lineageTag: 69ca0a83-023c-48dc-8ee4-4502fd0c520c
+		summarizeBy: none
+		sourceColumn: POSPEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOCIEDAD
+		dataType: string
+		lineageTag: 8f54b0c0-d003-41f1-a84b-9b2b719cdc3e
+		summarizeBy: none
+		sourceColumn: SOCIEDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRORECEPTOR
+		dataType: string
+		lineageTag: e4c7a05b-0374-4689-8e19-f7de25c6a625
+		summarizeBy: none
+		sourceColumn: CENTRORECEPTOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHACONTABLE
+		dataType: string
+		lineageTag: e9e845aa-4e24-4c0e-8e74-cf3090b92857
+		summarizeBy: none
+		sourceColumn: FECHACONTABLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column USUARIO
+		dataType: string
+		lineageTag: e89276b6-e2bd-4edb-b422-1eb2dfbbfa4d
+		summarizeBy: none
+		sourceColumn: USUARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFERENCIA
+		dataType: string
+		lineageTag: 47466241-768a-4f2a-8505-cd30a32878f7
+		summarizeBy: none
+		sourceColumn: REFERENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition zsap_MB51-5e623fe2-1c2d-4225-b8c4-954289dc4794 = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- MB51#(lf)SELECT#(lf)     mseg.mblnr Documento,#(lf)     mseg.mjahr Anyo,#(lf)     mseg.zeile posicion_documento,#(lf)     mseg.bwart CodMovimiento,#(lf)     mseg.matnr CodMaterial,#(lf)     mseg.werks CodCentro,#(lf)     mseg.lgort CodAlmacen,#(lf)     mseg.charg Lote,#(lf)     mseg.waers Moneda,#(lf)     mseg.dmbtr Monto,#(lf)     mseg.menge Cantidad,#(lf)     mseg.meins UdM,#(lf)     mseg.ebeln Pedido,#(lf)     mseg.ebelp posPedido,#(lf)     mseg.bukrs Sociedad,#(lf)     mseg.umlgo CentroReceptor,#(lf)     mseg.budat_mkpf FechaContable,#(lf)     mseg.usnam_mkpf Usuario,#(lf)     mseg.xblnr_mkpf Referencia#(lf)FROM#(lf)     SAP_ECC.mseg#(lf)WHERE#(lf)     mseg.budat_mkpf >= '20230101' #(lf)     and mseg.werks = '8010' --CodCentro#(lf)     AND mseg.bwart = '101'  --CodMovimiento", null, [EnableFolding=true])
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

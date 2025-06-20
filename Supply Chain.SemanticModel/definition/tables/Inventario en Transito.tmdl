@@ -1,0 +1,29 @@
+table 'Inventario en Transito'
+	lineageTag: 9a5a8dae-ef8f-4e72-84e6-242167a43ac3
+
+	calculationGroup
+
+		calculationItem 'Transito a BFI' = [Transitos Import BFI]
+
+		calculationItem 'Transito Tienda - Tienda' = [Transito Tiendas Un]
+
+		calculationItem 'Transito CD - Tienda' = [Transito Bodegas Un]
+
+	column Indicador
+		dataType: string
+		lineageTag: e21b80a3-0440-4d26-927c-1a656b058d5a
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		lineageTag: a296196b-6e23-473c-b8f3-564beb6b284b
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

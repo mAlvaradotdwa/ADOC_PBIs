@@ -1,0 +1,34 @@
+EVALUATE
+SUMMARIZECOLUMNS (
+    //    zsap_ZPS_TRACING2[CLASE_DOC],
+    zsap_ZPS_TRACING2[ARTICULO],
+    //    zsap_ZPS_TRACING2[DOC_COMPRA],
+    //    zsap_ZPS_TRACING2[POSICION],
+    //    FILTER (
+    //        zsap_ZPS_TRACING2,
+    //        zsap_ZPS_TRACING2[ARTICULO] = "000000030080783005"
+    //    ),
+    FILTER (
+        Fecha,
+        Fecha[Año] >= 2025
+    ),
+    "ZINT", [Pares ZINT],
+    "ZTRA", [Pares ZTRA],
+    "ZTR2", [Pares ZTR2],
+    "%Prep", [Preparación Export]
+)
+ORDER BY [%Prep] DESC
+
+EVALUATE
+SUMMARIZECOLUMNS (
+    zsap_ZPS_TRACING2[CLASE_DOC],
+	zsap_ZPS_TRACING2[FECHA_DOCUMENTO],
+    zsap_ZPS_TRACING2[ARTICULO],
+//    zsap_ZPS_TRACING2[DOC_COMPRA],
+    zsap_ZPS_TRACING2[POSICION],
+    FILTER ( zsap_ZPS_TRACING2, zsap_ZPS_TRACING2[ARTICULO] = "000000030084206005" ),
+	"x", COUNTROWS( zsap_ZPS_TRACING2 ) ,
+    "ZINT", [Pares ZINT],
+    "ZTRA", [Pares ZTRA],
+    "ZTR2", [Pares ZTR2]
+) order by [CLASE_DOC]

@@ -1,0 +1,354 @@
+table zsap_ONTIME
+	lineageTag: 94c4da8b-9fb9-46fb-ba44-eaf8274805a1
+
+	column Entrega
+		dataType: int64
+		formatString: 0
+		lineageTag: c8523952-251e-4fd3-ad76-5dabaaf8b13b
+		summarizeBy: sum
+		sourceColumn: Entrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClaseEntrega
+		dataType: string
+		lineageTag: 4d5db387-bcec-4bf7-8d3c-9889113c3373
+		summarizeBy: none
+		sourceColumn: ClaseEntrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreadoPor
+		dataType: string
+		lineageTag: 49189eaf-7cb7-489a-9209-1bdd835c0b2e
+		summarizeBy: none
+		sourceColumn: CreadoPor
+
+		annotation SummarizationSetBy = Automatic
+
+	column FechaCreacion
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 1f5ba77b-6fb2-4dda-adb9-4af2531f4cfe
+		summarizeBy: none
+		sourceColumn: FechaCreacion
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column HoraCreacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 60c4aba8-b25c-4c91-8d4b-2f27cf629025
+		summarizeBy: sum
+		sourceColumn: HoraCreacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sociedad
+		dataType: string
+		lineageTag: 68764506-4483-4f59-b2f5-b7e65bce801d
+		summarizeBy: none
+		sourceColumn: Sociedad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Centro
+		dataType: string
+		lineageTag: 28f84455-496a-4bf2-a7d9-42be3a636019
+		summarizeBy: none
+		sourceColumn: Centro
+
+		annotation SummarizationSetBy = Automatic
+
+	column Almacen
+		dataType: string
+		lineageTag: 8c4f673a-f486-4781-990e-dd4ff3742540
+		summarizeBy: none
+		sourceColumn: Almacen
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		lineageTag: 3b228146-2cbb-451b-9035-0214cb23d641
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreDestinatario
+		dataType: string
+		lineageTag: 61e09599-e56d-47a4-945b-fd4a437d602b
+		summarizeBy: none
+		sourceColumn: NombreDestinatario
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS
+		dataType: string
+		lineageTag: a86e1956-629b-4ac0-8016-10c58b734a0f
+		summarizeBy: none
+		sourceColumn: BV_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPOZONA
+		dataType: string
+		lineageTag: 9e1fb9d6-1b27-468d-a73b-a299a4893ef8
+		summarizeBy: none
+		sourceColumn: TIPOZONA
+
+		annotation SummarizationSetBy = Automatic
+
+	column NROTRANSPORTE
+		dataType: string
+		lineageTag: 88c96ca7-dfdc-4a6e-abb1-f241cbb64a22
+		summarizeBy: none
+		sourceColumn: NROTRANSPORTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHACREATRANSPORTE
+		dataType: string
+		lineageTag: 60ce3bb4-c4b0-4f54-b74a-9e0848390290
+		summarizeBy: none
+		sourceColumn: FECHACREATRANSPORTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column HORACREATRANSPORTE
+		dataType: string
+		lineageTag: ed1737c7-34e7-417f-a623-6a716e4644d2
+		summarizeBy: none
+		sourceColumn: HORACREATRANSPORTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NIVELSERVICIO
+		dataType: int64
+		formatString: 0
+		lineageTag: 701638a0-40b1-4404-8dc9-81c2fa4b8a69
+		summarizeBy: sum
+		sourceColumn: NIVELSERVICIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHACALCULADA
+		dataType: string
+		lineageTag: 8f3967c8-a932-4ccf-87c3-a461194342ee
+		summarizeBy: none
+		sourceColumn: FECHACALCULADA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_FIN
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: d3931bad-13b8-4663-8124-6631bde3b06a
+		summarizeBy: none
+		sourceColumn: FECHA_FIN
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column HORA_FIN
+		dataType: dateTime
+		formatString: hh:nn
+		lineageTag: 099b927c-fd65-4fe5-ad10-62fe099c3624
+		summarizeBy: none
+		sourceColumn: HORA_FIN
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column CANTIDADENTREGA
+		dataType: double
+		lineageTag: dc888d2d-8d26-444c-86bb-03fcd7117443
+		summarizeBy: sum
+		sourceColumn: CANTIDADENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TIENDA
+		dataType: string
+		lineageTag: 80308543-d430-41f2-8d9b-2df2303b8b52
+		summarizeBy: none
+		sourceColumn: TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HORACREACION - Copy'
+		dataType: string
+		lineageTag: 2acecd09-1603-482d-9186-facc6e07e5f7
+		summarizeBy: none
+		sourceColumn: HORACREACION - Copy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 942dc5d5-5f61-4d23-a973-4558a73d28a5
+		summarizeBy: none
+		sourceColumn: Day Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: 472be4cd-ff42-4942-ad77-816d28085929
+		summarizeBy: sum
+		sourceColumn: Day of Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column FechaInicioCalculada
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 183564a5-c4bd-4b11-a372-a63bc1146101
+		summarizeBy: none
+		sourceColumn: FechaInicioCalculada
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column HoraInicioCalculada
+		dataType: dateTime
+		formatString: hh:nn
+		lineageTag: 134e38e5-4523-452d-9cc4-2c91347918cf
+		summarizeBy: none
+		sourceColumn: HoraInicioCalculada
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column DiferenciaDias_Dias
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f1e621f-e7ab-41a8-bdb4-2e5adc202f4e
+		summarizeBy: sum
+		sourceColumn: DiferenciaDias_Dias
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiferenciaHoras_Dias
+		dataType: double
+		lineageTag: feafae9a-7483-4cf4-8ccc-b3bd4e4b4875
+		summarizeBy: sum
+		sourceColumn: DiferenciaHoras_Dias
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Diferencia_Horas
+		dataType: string
+		lineageTag: 804c5ff2-159f-49af-a4b3-f3eb6073c16b
+		summarizeBy: none
+		sourceColumn: Diferencia_Horas
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnTime
+		dataType: string
+		lineageTag: c43398ae-1f17-47e9-9b3e-bffd737a427a
+		summarizeBy: none
+		sourceColumn: OnTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_FIN_MIN
+		dataType: string
+		lineageTag: 89094644-cc32-45b3-875e-e28b66b381a8
+		summarizeBy: none
+		sourceColumn: FECHA_FIN_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column HORA_FIN_MIN
+		dataType: string
+		lineageTag: 09bcbccc-9264-4764-8f9b-9fe07e850550
+		summarizeBy: none
+		sourceColumn: HORA_FIN_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	partition zsap_ONTIME = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source = ```
+				let
+				    Query1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT --DISTINCT #(lf)#(tab)#(tab)LIKP.VBELN#(tab)DocumentoEntrega,#(lf)#(tab)#(tab)LIKP.LFART#(tab)ClaseEntrega,#(lf)#(tab)#(tab)LIKP.ERNAM#(tab)CreadorPor,#(lf)#(tab)#(tab)LIKP.ERDAT#(tab)FechaCreacion,#(lf)#(tab)#(tab)LIKP.ERZET HoraCreacion,#(lf)#(tab)#(tab)--//lips.matnr,#(lf)---- Este VKORG son los códigos de 1000, 2000, etc#(tab)#(lf)#(tab)#(tab)LIKP.VKORG#(tab)Sociedad,#(lf)#(tab)#(tab)LIPS.WERKS#(tab)Centro,#(lf)#(tab)#(tab)LIPS.LGORT#(tab)Almacen,#(lf)#(tab)#(tab)LIKP.WERKS DestinararioMercaderia,#(lf)#(tab)#(tab)T001W.NAME1 NombreDestinatario,#(lf)#(tab)#(tab)T001W.LAND1 CodPais,#(lf)#(tab)#(tab)ZTIPOTIENDA.TIPO TipodeTienda,#(lf)#(tab)#(tab)ZTIPOTIENDA.ZONA TipoZona,#(lf)#(tab)#(tab)SUBSTRING(VTTP.TKNUM,5) NroTransporte,#(lf)#(tab)#(tab)VTTP.ERDAT FechaCreaTransporte,#(lf)#(tab)#(tab)VTTP.ERZET HoraCreaTransporte,#(lf)#(tab)#(tab)ZTIPOTIENDA.NIVEL NivelServicio,#(lf)#(tab)#(tab)LIKP.TDDAT FechaCalculada,#(lf)#(tab)#(tab)MAX(ZMM_TRANSPORTES.FECHA) Fecha_Fin,#(lf)#(tab)#(tab)MAX(ZMM_TRANSPORTES.HORA) Hora_Fin,#(lf)#(tab)#(tab)SUM(LIPS.LFIMG) CantidadEntrega,#(lf)#(tab)#(tab)LEFT(T001W.NAME1,3) Tienda ,#(lf)#(tab)#(tab)MIN(ZMM_TRANSPORTES.FECHA) Fecha_Fin_min,#(lf)#(tab)#(tab)MIN(ZMM_TRANSPORTES.HORA) Hora_Fin_min#(tab)#(lf)#(tab)FROM SAP_ECC.LIKP#(lf)  #(tab)INNER JOIN SAP_ECC.LIPS#(lf)       ON LIPS.VBELN = LIKP.VBELN#(lf)    INNER JOIN SAP_ECC.T001W#(lf)    #(tab)ON T001W.KUNNR = LIKP.KUNNR#(lf)    INNER JOIN SAP_ECC.ZTIPOTIENDA#(lf)    #(tab)ON ZTIPOTIENDA.WERKS = LIKP.WERKS#(lf)    INNER JOIN SAP_ECC.VTTP#(lf)    #(tab)ON VTTP.VBELN = LIKP.VBELN#(lf)    LEFT JOIN SAP_ECC.ZMM_TRANSPORTES#(lf)    #(tab)ON RIGHT(VTTP.TKNUM,5) = ZMM_TRANSPORTES.NOORDEN#(lf)#(tab)WHERE#(lf)#(tab)#(tab)YEAR( VTTP.ERDAT ) >= YEAR( CURRENT_DATE )-1 #(lf)#(tab)#(tab)AND ZTIPOTIENDA.TIPO != ''#(lf)#(tab)GROUP BY #(tab)#(tab)LIKP.VBELN#(tab),#(lf)#(tab)#(tab)LIKP.LFART#(tab),#(lf)#(tab)#(tab)LIKP.ERNAM#(tab),#(lf)#(tab)#(tab)LIKP.ERDAT#(tab),#(lf)#(tab)#(tab)LIKP.ERZET ,#(lf)#(tab)#(tab)LIKP.VKORG#(tab),#(lf)#(tab)#(tab)LIPS.WERKS#(tab),#(lf)#(tab)#(tab)LIPS.LGORT#(tab),#(lf)#(tab)#(tab)LIKP.WERKS ,#(lf)#(tab)#(tab)T001W.NAME1 ,#(lf)#(tab)#(tab)T001W.LAND1 ,#(lf)#(tab)#(tab)ZTIPOTIENDA.TIPO ,#(lf)#(tab)#(tab)ZTIPOTIENDA.ZONA ,#(lf)#(tab)#(tab)SUBSTRING(VTTP.TKNUM,5) ,#(lf)#(tab)#(tab)VTTP.ERDAT , --FechaCreaTransporte,#(lf)#(tab)#(tab)VTTP.ERZET , --HoraCreaTransporte,#(lf)#(tab)#(tab)ZTIPOTIENDA.NIVEL , --NivelServicio,#(lf)#(tab)#(tab)LIKP.TDDAT , --FechaCalculada,#(lf)#(tab)#(tab)LEFT(T001W.NAME1,3) -- Tienda#(lf)", null, [EnableFolding=true]),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(Query1, {{"FECHACREACION", type date}}, "en-US"),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Changed Type with Locale", "HORACREACION", "HORACREACION - Copy"),
+				    #"Inserted Day Name" = Table.AddColumn(#"Duplicated Column", "Day Name", each Date.DayOfWeekName([FECHACREACION]), type text),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Inserted Day Name",{{"HORACREACION", Int64.Type}, {"NIVELSERVICIO", Int64.Type}}),
+				    #"Inserted Day of Week" = Table.AddColumn(#"Changed Type", "Day of Week", each Date.DayOfWeek([FECHACREACION],Day.Monday), Int64.Type),
+				    #"Added Custom" = Table.AddColumn(#"Inserted Day of Week", "Custom", each if (
+				    ([Day of Week] = 4 and [HORACREACION] > 120000) 
+				        or [Day of Week] > 4) and [NIVELSERVICIO] > 60 
+				        then Date.AddDays([FECHACREACION],7-[Day of Week]) else
+				    if 
+				        [Day of Week] <= 3 and [HORACREACION] > 120000
+				        then Date.AddDays([FECHACREACION],1) 
+				    else
+				        if 
+				            [Day of Week] > 3 and [HORACREACION] > 120000
+				            then Date.AddDays([FECHACREACION],7-[Day of Week]) 
+				        else [FECHACREACION]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"Custom", "FechaInicioCalculada"}}),
+				    #"Added Custom1" = Table.AddColumn(#"Renamed Columns", "Custom", each if (
+				    ([Day of Week] = 4 and [HORACREACION] > 120000) 
+				        or [Day of Week] > 4) and [NIVELSERVICIO] > 60
+				    then "073000" 
+				else 
+				    if 
+				        [Day of Week] <= 3 and [HORACREACION] > 120000
+				        then "073000" 
+				    else
+				        if 
+				            [Day of Week] > 3 and [HORACREACION] > 120000
+				            then "073000" 
+				        else 
+				            [#"HORACREACION - Copy"]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom1",{{"Custom", type time}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type1",{{"Custom", "HoraInicioCalculada"}}),
+				    #"Changed Type with Locale1" = Table.TransformColumnTypes(#"Renamed Columns1", {{"FechaInicioCalculada", type date}}, "en-US"),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Changed Type with Locale1",{{"HORA_FIN", type time}}),
+				    #"Changed Type with Locale2" = Table.TransformColumnTypes(#"Changed Type2", {{"FECHA_FIN", type date}}, "en-US"),
+				    #"Added Custom2" = Table.AddColumn(#"Changed Type with Locale2", "Custom", each [FECHA_FIN]-[FechaInicioCalculada]),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Custom2",{{"Custom", Int64.Type}}),
+				    #"Added Custom3" = Table.AddColumn(#"Changed Type3", "Custom.1", each [HORA_FIN]-[HoraInicioCalculada]),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Added Custom3",{{"Custom.1", type number}}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Changed Type4",{{"Custom", "DiferenciaDias_Dias"}, {"Custom.1", "DiferenciaHoras_Dias"}}),
+				    #"Added Custom4" = Table.AddColumn(#"Renamed Columns2", "Custom", each ([DiferenciaDias_Dias]+[DiferenciaHoras_Dias])*24),
+				    #"Changed Type5" = Table.TransformColumnTypes(#"Added Custom4",{{"NIVELSERVICIO", Int64.Type}}),
+				    #"Added Custom5" = Table.AddColumn(#"Changed Type5", "Custom.1", each if [DiferenciaHoras_Dias] = null then 2 else if [Custom] > [NIVELSERVICIO] then 0 else 1),
+				    #"Changed Type6" = Table.TransformColumnTypes(#"Added Custom5",{{"DOCUMENTOENTREGA", Int64.Type}}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Changed Type6",{{"DOCUMENTOENTREGA", "Entrega"}, {"CLASEENTREGA", "ClaseEntrega"}, {"CREADORPOR", "CreadoPor"}, {"FECHACREACION", "FechaCreacion"}, {"HORACREACION", "HoraCreacion"}, {"SOCIEDAD", "Sociedad"}, {"CENTRO", "Centro"}, {"ALMACEN", "Almacen"}, {"DESTINARARIOMERCADERIA", "SK_TIENDA"}, {"NOMBREDESTINATARIO", "NombreDestinatario"}, {"CODPAIS", "BV_PAIS"}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns3",{"TIPODETIENDA"}),
+				    #"Renamed Columns4" = Table.RenameColumns(#"Removed Columns",{{"Custom.1", "OnTime"}, {"Custom", "Diferencia_Horas"}})
+				in
+				    #"Renamed Columns4"
+				```
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,120 @@
+table 'Reporte de Tránsitos'
+	lineageTag: 85882d88-1bb3-425d-9ba0-8cd5d722854d
+
+	calculationGroup
+		precedence: 1
+
+		calculationItem 'ZINT Exp.' =
+				IF (
+				    SELECTEDMEASURE () = [LeadTimes],
+				    [LeadTime 1],
+				    BLANK ()
+				)
+
+			formatStringDefinition = "#,0.0"
+
+		calculationItem 'Llegada a Zona Franca' =
+				IF (
+				    SELECTEDMEASURE () = [LeadTimes],
+				    [LeadTime_1LlegadaZF],
+				    BLANK ()
+				)
+
+			formatStringDefinition = "#,0.0"
+
+		calculationItem 'Salida de Zona Franca' = ```
+				IF (
+				    SELECTEDMEASURE () = [LeadTimes],
+				        [LeadTime_2EsperaCarga] + 
+				        [LeadTime_3Carga] + 
+				        [LeadTime_4SalidaZF] ,
+				    BLANK ()
+				)
+				```
+
+			formatStringDefinition = "#,0.0"
+
+		calculationItem 'Tránsito a Frontera' =
+				IF (
+				    SELECTEDMEASURE () = [LeadTimes],
+				        [LeadTime_5LlegadaFrontera],
+				    BLANK ()
+				)
+
+			formatStringDefinition = "#,0.0"
+
+		calculationItem 'Espera en Frontera' =
+				IF (
+				    SELECTEDMEASURE () = [LeadTimes],
+				    [LeadTime_6EsperaFrontera],
+				    BLANK ()
+				)
+
+			formatStringDefinition = "#,0.0"
+
+		calculationItem 'Tránsito Bodega a CD' =
+				IF (
+				    SELECTEDMEASURE () = [LeadTimes],
+				    [LeadTime_7LlegadaBodega],
+				    BLANK ()
+				)
+
+			formatStringDefinition = "#,0.0"
+
+		calculationItem 'Total Tránsito' =
+				IF (
+				    SELECTEDMEASURE () = [LeadTimes],
+				        [LeadTime_5LlegadaFrontera] +
+				        [LeadTime_6EsperaFrontera] +
+				        [LeadTime_7LlegadaBodega]
+				    ,
+				    BLANK ()
+				)
+
+			formatStringDefinition = "#,0.0"
+
+		calculationItem 'Descarga en Destino' =
+				IF (
+				    SELECTEDMEASURE () = [LeadTimes],
+				    [LeadTime_8DescargaBodega],
+				    BLANK ()
+				)
+
+			formatStringDefinition = "#,0.0"
+
+		calculationItem Liquidación =
+				IF (
+				    SELECTEDMEASURE () = [LeadTimes],
+				    [LeadTime_9Liquidacion],
+				    BLANK ()
+				)
+
+			formatStringDefinition = "#,0.0"
+
+		calculationItem Total =
+				IF (
+				    SELECTEDMEASURE () = [LeadTimes],
+				    [LeadTime 3],
+				    BLANK ()
+				)
+
+			formatStringDefinition = "#,0.0"
+
+	column Tiempo
+		dataType: string
+		lineageTag: c9c15268-deed-485c-839d-8c994768e2ad
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		lineageTag: f539f3c5-a762-4cce-8668-931a1cb75a30
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

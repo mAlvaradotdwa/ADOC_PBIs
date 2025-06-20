@@ -1,0 +1,356 @@
+table Consulta1
+	lineageTag: a2cf63b3-42cf-472b-9648-21e020bd2273
+
+	column DOC_COMPRA
+		dataType: string
+		lineageTag: 634b9574-b6b9-4ff7-ab64-592042cc2f8b
+		summarizeBy: none
+		sourceColumn: DOC_COMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSICION
+		dataType: string
+		lineageTag: cefd5585-9fac-44a8-a1bf-d3c4e47ce7bd
+		summarizeBy: none
+		sourceColumn: POSICION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 4f36a76b-4f99-4e98-8b4d-482d91708efb
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD_REPARTO
+		dataType: double
+		lineageTag: 3cef51ef-5fe9-4bd5-baa9-da070380d1ec
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_REPARTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNIDAD
+		dataType: string
+		lineageTag: c0a8e4aa-55aa-4de0-ab55-b9e9016900af
+		summarizeBy: none
+		sourceColumn: UNIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTREGAS
+		dataType: double
+		lineageTag: 9d35a6aa-ddf4-4f26-940d-bdad063005eb
+		summarizeBy: sum
+		sourceColumn: ENTREGAS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD_SALIDA
+		dataType: double
+		lineageTag: 0d1f586a-d314-456d-973c-a0206179b8fd
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_SALIDA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD_INGRESADA
+		dataType: double
+		lineageTag: d0b97f80-3dfe-4e32-a53b-66895ae6bd93
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_INGRESADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CLASE_DOC
+		dataType: string
+		lineageTag: c6dfc46a-a003-4424-bd98-169a87e7e4be
+		summarizeBy: none
+		sourceColumn: CLASE_DOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREADO_EL
+		dataType: string
+		lineageTag: 362bba98-e565-4173-bf3c-157df83acb82
+		summarizeBy: none
+		sourceColumn: CREADO_EL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREADO_POR
+		dataType: string
+		lineageTag: 012c4ec3-cdc9-43a7-b0a8-67bd4f55cf8c
+		summarizeBy: none
+		sourceColumn: CREADO_POR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO_SUMINIS
+		dataType: string
+		lineageTag: b0e516d1-0fc9-4e49-bd10-ef2a7fbe901a
+		summarizeBy: none
+		sourceColumn: CENTRO_SUMINIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEXTO_BREVE
+		dataType: string
+		lineageTag: 9c764542-f10e-45cd-90ff-f852230bfd54
+		summarizeBy: none
+		sourceColumn: TEXTO_BREVE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO
+		dataType: string
+		lineageTag: 109ad51d-ede9-4e67-b549-1e642c7aea3b
+		summarizeBy: none
+		sourceColumn: CENTRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_MATERIAL
+		dataType: string
+		lineageTag: d0e00d66-59be-4b83-b7ad-8d2f4b123d7b
+		summarizeBy: none
+		sourceColumn: TIPO_MATERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: 9450cdbf-726e-4db0-8c95-d612034be58a
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAT_GRAL_CONF
+		dataType: string
+		lineageTag: b6df1d3a-00b9-4634-8146-7f3ccc0cb88e
+		summarizeBy: none
+		sourceColumn: MAT_GRAL_CONF
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		lineageTag: 8d0dcd15-fc99-4185-ba2d-06c27a386bec
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TALLA
+		dataType: string
+		lineageTag: 92bbfb81-f2e4-47b5-be61-5dab98757a87
+		summarizeBy: none
+		sourceColumn: TALLA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: e9667efb-0a2b-4772-bcbf-120dd381a849
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO
+		dataType: string
+		lineageTag: e5282c15-1343-4a8d-8c8b-a7b6770af3d7
+		summarizeBy: none
+		sourceColumn: GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIENDA
+		dataType: string
+		lineageTag: 8036d74b-5af8-4e6f-955a-c11f786bbc2f
+		summarizeBy: none
+		sourceColumn: TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS
+		dataType: string
+		lineageTag: 704f3982-6657-4e31-8114-c6e065ebc967
+		summarizeBy: none
+		sourceColumn: PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICADOR_DE_BORRADO
+		dataType: string
+		lineageTag: 449b0a2e-1439-4e1e-a099-07faee759e0f
+		summarizeBy: none
+		sourceColumn: INDICADOR_DE_BORRADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: a785c8ef-6bb9-4b64-88c4-39dd46e11e12
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_FLETE
+		dataType: string
+		lineageTag: cd32ad4e-e3cc-47d1-9792-66a3af961521
+		summarizeBy: none
+		sourceColumn: TIPO_FLETE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDEDOR
+		dataType: string
+		lineageTag: f8bc5594-c148-4dc5-8129-8b15e16bd659
+		summarizeBy: none
+		sourceColumn: VENDEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN_EMISOR
+		dataType: string
+		lineageTag: c6c54fd8-c64a-4766-96ce-c5bb6fbac4fa
+		summarizeBy: none
+		sourceColumn: ALMACEN_EMISOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: 9373f4cd-a1f1-45f8-97c2-77154eaaa4a5
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: bdb8193d-98ea-42dd-96ed-dc211fe5ffcc
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA
+		dataType: string
+		lineageTag: a048b94c-b366-4a41-b667-3e48190d3862
+		summarizeBy: none
+		sourceColumn: FECHA
+
+		annotation SummarizationSetBy = Automatic
+
+	column NO_EXPEDIENTE_EKPO
+		dataType: string
+		lineageTag: 81809348-74cf-4ecd-b95b-45cfd97795bc
+		summarizeBy: none
+		sourceColumn: NO_EXPEDIENTE_EKPO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NO_EXPEDIENTE
+		dataType: string
+		lineageTag: 646d8412-0b4e-4b46-9932-62bb24e7a99d
+		summarizeBy: none
+		sourceColumn: NO_EXPEDIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_EXPEDIENTE
+		dataType: string
+		lineageTag: 836b67ff-eceb-40e6-a708-323c2bbb2f50
+		summarizeBy: none
+		sourceColumn: FECHA_EXPEDIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_LIQUIDACION
+		dataType: string
+		lineageTag: be64133a-8df4-4e60-9b96-c5d1a6f3e838
+		summarizeBy: none
+		sourceColumn: FECHA_LIQUIDACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOTE
+		dataType: string
+		lineageTag: fbd9c40d-187c-4326-913b-0c122d285dde
+		summarizeBy: none
+		sourceColumn: LOTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_DOCUMENTO
+		dataType: string
+		lineageTag: d3b0f86a-4af6-46b2-b71b-961bfee4ba75
+		summarizeBy: none
+		sourceColumn: FECHA_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRUPO_DE_COMPRA
+		dataType: string
+		lineageTag: 2b41bb7b-52c0-467c-baa2-a453b7017f0a
+		summarizeBy: none
+		sourceColumn: GRUPO_DE_COMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column UPC
+		dataType: string
+		lineageTag: ddd3da94-04ae-4f4c-a1f4-f4723b1bb955
+		summarizeBy: none
+		sourceColumn: UPC
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICADOR_DE_LIQUIDACION
+		dataType: string
+		lineageTag: b3b7fbb2-00f7-448f-8a79-cf73c74b58b9
+		summarizeBy: none
+		sourceColumn: INDICADOR_DE_LIQUIDACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTREGA_FINAL
+		dataType: string
+		lineageTag: b001a3ab-cb05-4e30-bed3-a6c8ad4a0542
+		summarizeBy: none
+		sourceColumn: ENTREGA_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDADREPARTO_TOTAL
+		dataType: double
+		lineageTag: ab278765-87fd-4fd5-abb9-c58febcfa0cb
+		summarizeBy: sum
+		sourceColumn: CANTIDADREPARTO_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Consulta1 = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT #(lf)       EKKO.EBELN                 Doc_compra , #(lf)       EKPO.EBELP                 posicion , #(lf)       EKPO.MATNR                 articulo , #(lf)       EKET.MENGE                 cantidad_reparto , #(lf)       -- EKPO.MEINS                 unidad , #(lf)       UnDsc.MSEH3                unidad , #(lf)       EKET.GLMNG                 entregas , #(lf)       EKET.WAMNG                 cantidad_salida , #(lf)       EKET.WEMNG                 cantidad_ingresada , #(lf)       EKKO.BSART                 clase_doc , #(lf)       EKKO.AEDAT                 creado_el , #(lf)       EKKO.ERNAM                 creado_por , #(lf)       EKKO.RESWK                 centro_suminis , #(lf)       EKPO.TXZ01                 Texto_breve , #(lf)       EKPO.WERKS                 centro , #(lf)       MARA.MTART                 tipo_material , #(lf)       MARA.GROES                 estilo , #(lf)       MARA.SATNR                 mat_gral_conf , #(lf)       MARA.FREE_CHAR             color , #(lf)       MARA.SIZE1                 talla , #(lf)       MARA.BRAND_ID              marca , #(lf)       MARA.ZZ_ART_PROV           genero , #(lf)       T001W.NAME1                tienda , #(lf)       T001W.LAND1                pais , #(lf)       EKPO.LOEKZ                 indicador_de_borrado , #(lf)       MARA.ZZ_DEPART             departamento , #(lf)       EKKO.ZZ_TIPO_FLETE         tipo_flete , #(lf)       EKKO.VERKF                 vendedor , #(lf)       EKPO.RESLO                 almacen_emisor , #(lf)       EKPO.LGORT                 almacen , #(lf)       ZMM_EXPED_CONTS.CONTENEDOR contenedor , #(lf)       EKKO.ZZF_DESPACHO          fecha , #(lf)       EKPO.LBELN                 NO_expediente_ekpo , #(lf)       ZMM_EXPED_IMP.LBELN        no_expediente , #(lf)       EKPO.FECHA_EXP             fecha_expediente , #(lf)       EKPO.FECHA_LIQ             fecha_liquidacion , #(lf)       EKET.CHARG                 lote , #(lf)       EKKO.BEDAT                 fecha_documento , #(lf)       EKKO.EKGRP                 grupo_de_compra , #(lf)       MARA.EAN11                 upc , #(lf)       EKKO.FRGKE                 indicador_de_liquidacion , #(lf)       EKPO.ELIKZ                 entrega_final ,#(lf)       CASE#(lf)          WHEN ekpo.attyp = '11' THEN CAST(#(lf)               REPLACE(SUBSTRING(ekpo.txz01, 9, 2), '-', '') AS int#(lf)          )#(lf)       ELSE 1#(lf)     END * EKET.MENGE             CantidadReparto_total#(lf)  FROM SAP_ECC.EKKO#(lf)  INNER JOIN SAP_ECC.EKPO#(lf)       ON EKPO.EBELN = EKKO.EBELN#(lf)  LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_IMP#(lf)       ON ZMM_EXPED_IMP.LBELN = EKPO.LBELN#(lf)  LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_CONTS#(lf)       ON ZMM_EXPED_CONTS.LBELN = EKPO.LBELN#(lf)  INNER JOIN SAP_ECC.EKET#(lf)       ON EKET.EBELN = EKPO.EBELN#(lf)          AND EKET.EBELP = EKPO.EBELP#(lf)  INNER JOIN SAP_ECC.MARA#(lf)       ON MARA.MATNR = EKPO.MATNR#(lf)  INNER JOIN SAP_ECC.T001W#(lf)       ON T001W.WERKS = EKPO.WERKS#(lf)LEFT JOIN SAP_ECC.T006A UnDsc#(lf)#(tab)ON EKPO.MEINS = UnDsc.MSEHI #(lf) WHERE #(lf)#(tab)EKKO.AEDAT BETWEEN TO_VARCHAR(ADD_DAYS(LAST_DAY(ADD_MONTHS(CURRENT_DATE , -4)) , 1) , 'YYYYMMDD') AND TO_VARCHAR(LAST_DAY(CURRENT_DATE) , 'YYYYMMDD')#(lf)#(tab)AND EKPO.LOEKZ <> 'L'#(lf)#(tab)AND (#(lf)#(tab)#(tab)(#(lf)#(tab)#(tab) #(tab)EKKO.BSART IN ( 'ZINT' )#(lf)#(tab)       #(tab)AND EKKO.RESWK IN ( '8010' , '1010' , '2010' )#(lf)#(tab)#(tab)#(tab)AND MARA.MTART IN ( 'MODE' )#(lf)#(tab)   #(tab)) OR (#(lf)#(tab)   #(tab)#(tab)EKKO.BSART IN ( 'ZIMP' )#(lf)#(tab)   #(tab)) #(lf)#(tab))#(lf)#(tab)-- Filtro Aplicado por solicitud de Jose Mena#(lf)#(tab)AND UnDsc.SPRAS = 'S'#(lf)#(tab)AND UnDsc.MSEH3 IN ('PAR','UN')#(lf)#(tab)-- -- Para validación de conversion de columnas#(lf)#(tab)-- AND EKKO.EBELN = '4700157612'#(lf)#(lf)#(tab)#(lf)#(tab)", null, [EnableFolding=true])
+
+	annotation PBI_ResultType = Table
+
