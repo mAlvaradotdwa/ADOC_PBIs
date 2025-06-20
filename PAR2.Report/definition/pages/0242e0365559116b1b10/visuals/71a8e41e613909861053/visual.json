@@ -245,7 +245,8 @@
                 }
               },
               "queryRef": "Articulos.PrimeraFecha",
-              "nativeQueryRef": "PrimeraFecha"
+              "nativeQueryRef": "Primera Fecha Venta",
+              "displayName": "Primera Fecha Venta"
             },
             {
               "field": {
@@ -1048,10 +1049,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Parámetro"
+                    "Entity": "Métricas"
                   }
                 },
-                "Property": "Oferta"
+                "Property": "Precio CA"
               }
             },
             "direction": "Descending"
