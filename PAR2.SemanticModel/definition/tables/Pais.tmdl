@@ -1,0 +1,73 @@
+table Pais
+	lineageTag: e6b430b2-866f-4eef-8d1e-f2ff45a38486
+
+	column SK_PAIS
+		dataType: string
+		isHidden
+		lineageTag: f7f391e6-1773-461c-b76b-79c8143a10ab
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS_RPRO
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2d2d7781-fa00-4b82-8174-980a81823cef
+		summarizeBy: sum
+		sourceColumn: SK_PAIS_RPRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS
+		dataType: string
+		lineageTag: 123de386-c1cd-4f91-946f-7e52fecaa39a
+		summarizeBy: none
+		sourceColumn: PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS
+		dataType: string
+		lineageTag: 0150ceb7-8276-42b9-acd7-998b135b9f2b
+		summarizeBy: none
+		sourceColumn: BV_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONEDA
+		dataType: string
+		isHidden
+		lineageTag: fd28b46a-a177-4700-b4be-be1a97d41e22
+		summarizeBy: none
+		sourceColumn: MONEDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TASAIVA
+		dataType: double
+		isHidden
+		lineageTag: 95089d5b-546f-40be-86ac-c5302c99836a
+		summarizeBy: sum
+		sourceColumn: TASAIVA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Pais = m
+		mode: import
+		queryGroup: dbCOGNOS
+		source =
+				let
+				    Origen = Sql.Database(srvCOGNOS, dbCOGNOS),
+				    dbo_DIM_PAIS = Origen{[Schema="dbo",Item="DIM_PAIS"]}[Data],
+				    #"Filas filtradas" = Table.SelectRows(dbo_DIM_PAIS, each ([SK_PAIS] <> "PA01"))
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

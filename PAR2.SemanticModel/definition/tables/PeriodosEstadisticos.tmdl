@@ -1,0 +1,147 @@
+table PeriodosEstadisticos
+	lineageTag: 7cb5b9ea-3458-45c3-9827-061e11cdf8fc
+
+	column 'Tipo Vencimiento2'
+		dataType: string
+		lineageTag: f5bea12e-10d1-427b-94c0-03d5b0785c77
+		summarizeBy: none
+		sourceColumn: Tipo Vencimiento2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Q Lanzamiento'
+		dataType: int64
+		formatString: 0
+		lineageTag: d045d8dd-9ea0-45e5-9c7c-9e126ec00654
+		summarizeBy: none
+		sourceColumn: Q Lanzamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Lanzamiento'
+		dataType: string
+		lineageTag: bea89fc8-ffee-4c93-9405-49ddfc3f30a8
+		summarizeBy: none
+		sourceColumn: Tipo Lanzamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Vencimiento'
+		dataType: string
+		lineageTag: cf670ed0-fc12-4989-a755-ba307399149f
+		summarizeBy: none
+		sourceColumn: Tipo Vencimiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trimestre MKD'
+		dataType: int64
+		formatString: 0
+		lineageTag: eb956b1f-cb96-4993-9543-2135714ed5ca
+		summarizeBy: none
+		sourceColumn: Trimestre MKD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes MKD'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 23d4ccab-6d4d-4375-9766-378094df8567
+		summarizeBy: none
+		sourceColumn: Mes MKD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Mes ZINT'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3c76b51b-7881-4d3a-9959-98458565116c
+		summarizeBy: none
+		sourceColumn: Mes ZINT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Mes lanzamiento'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9b29ae23-1c45-47d9-962f-77269a1538c0
+		summarizeBy: none
+		sourceColumn: Mes lanzamiento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Duración
+		dataType: int64
+		formatString: 0
+		lineageTag: 65af7212-63c8-4e8a-a9e6-7f8a60d0057b
+		summarizeBy: none
+		sourceColumn: Duración
+
+		annotation SummarizationSetBy = Automatic
+
+	column '1er Mes'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c29490b-6952-4be5-bd3c-3bd562e46db3
+		summarizeBy: none
+		sourceColumn: 1er Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE
+		dataType: string
+		lineageTag: 17b82b21-1763-4532-9e46-7eaf9807e7e2
+		summarizeBy: none
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column Variante
+		dataType: int64
+		formatString: 0
+		lineageTag: 835bbe1a-2d38-462c-af18-7ffebda4eacd
+		summarizeBy: none
+		sourceColumn: Variante
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: 874c5224-aef5-4fa0-b68e-af45b490421e
+		summarizeBy: none
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo PE'
+		dataType: string
+		lineageTag: afd3bac5-4c81-47cb-8f82-2c9ee1be32ee
+		summarizeBy: none
+		sourceColumn: Tipo PE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PeriodosEstadisticos = m
+		mode: import
+		queryGroup: Sharepoint
+		source =
+				let
+				    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/balmore_hernandez_empresasadoc_com/Documents/Documentos/10.%20VARIOS/Tabla%20Periodos%20Estadisticos.xlsx"), null, true),
+				    Hoja1_Sheet = Origen{[Item="Hoja1",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Hoja1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Tipo PE", type text}, {"Año", Int64.Type}, {"Variante", Int64.Type}, {"PE", type text}, {"1er Mes", Int64.Type}, {"Duración", Int64.Type}, {"Mes lanzamiento", type date}, {"Mes ZINT", type date}, {"Mes MKD", type date}, {"Trimestre MKD", Int64.Type}, {"Tipo Vencimiento", type text}, {"Tipo Lanzamiento", type text}, {"Q Lanzamiento", Int64.Type}, {"Tipo Vencimiento2", type text}, {"Column15", type any}, {"Column16", type any}, {"Column17", type any}, {"Column18", type any}, {"Column19", type any}}),
+				    #"Otras columnas quitadas" = Table.SelectColumns(#"Tipo cambiado",{"Tipo Vencimiento2", "Q Lanzamiento", "Tipo Lanzamiento", "Tipo Vencimiento", "Trimestre MKD", "Mes MKD", "Mes ZINT", "Mes lanzamiento", "Duración", "1er Mes", "PE", "Variante", "Año", "Tipo PE"})
+				in
+				    #"Otras columnas quitadas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

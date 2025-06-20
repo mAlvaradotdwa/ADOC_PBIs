@@ -1,0 +1,59 @@
+table ArticuloProveedor
+	lineageTag: 4bb7c796-94b4-40a0-a0dc-6d9a94f9692c
+
+	column TIPO_DOCUMENTO
+		dataType: string
+		lineageTag: 9e46b545-9f68-4fa0-b6c5-01fcbd69b8f0
+		summarizeBy: none
+		sourceColumn: TIPO_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: 5c3ec855-ea1b-4a7e-9aa2-8bd9927f3b21
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SATNR
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b510e88-2e84-483a-84be-58001c9300a2
+		summarizeBy: sum
+		sourceColumn: SATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMERO_PROVEEDOR
+		dataType: string
+		lineageTag: fac16b6e-1817-4c18-a8c6-0a9a1d58714c
+		summarizeBy: none
+		sourceColumn: NUMERO_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_PROVEEDOR
+		dataType: string
+		lineageTag: 548b3f1a-7a97-4043-a8c6-4386033dba75
+		summarizeBy: none
+		sourceColumn: NOMBRE_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ArticuloProveedor = m
+		mode: import
+		queryGroup: dbSAP
+		source =
+				let
+				    Origen = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation="2.0"]), "    SELECT DISTINCT #(lf)        EKKO.BSART AS Tipo_Documento,  #(lf)        EKPO.EBELN AS Documento,#(lf)        -- CAST ( EKPO.MATNR AS BIGINT ) AS MATNR,#(lf)        CAST ( SUBSTRING (EKPO.MATNR,8,8) AS BIGINT ) AS SATNR ,#(lf)        EKKO.LIFNR AS Numero_Proveedor ,#(lf)        PROV.NAME1 AS Nombre_Proveedor#(lf)    FROM SAP_ECC.EKPO EKPO#(lf)    LEFT JOIN SAP_ECC.EKKO EKKO ON EKPO.EBELN = EKKO.EBELN #(lf)    LEFT JOIN SAP_ECC.MARA MARA ON EKPO.MATNR = MARA.MATNR#(lf)    LEFT JOIN SAP_ECC.LFA1 PROV ON EKKO.LIFNR = PROV.LIFNR#(lf)    WHERE EKPO.LOEKZ <> 'L'#(lf)      AND EKPO.EBELN LIKE '44%'#(lf)      AND MARA.SATNR IS NOT NULL #(lf)", null, [EnableFolding=true])
+				in
+				    Origen
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

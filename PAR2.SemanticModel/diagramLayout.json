@@ -1,0 +1,379 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 510,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1226,
+            "y": 0
+          },
+          "nodeIndex": "Imagenes",
+          "nodeLineageTag": "c9012b12-1bc8-4b0c-99b9-4446836789d0",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 9,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 291,
+            "y": 0
+          },
+          "nodeIndex": "Articulos",
+          "nodeLineageTag": "404b5d32-3d9e-408b-8cf4-f0dcc94836a0",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 290,
+            "y": 355
+          },
+          "nodeIndex": "Precios",
+          "nodeLineageTag": "e0bbb9e8-9c78-43f0-bf1f-bd290311fd15",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 10,
+          "expandedHeight": 248
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 355
+          },
+          "nodeIndex": "Precio_FOB",
+          "nodeLineageTag": "403d14e1-8332-4759-a2c8-957fb690961a",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 7,
+          "expandedHeight": 176
+        },
+        {
+          "location": {
+            "x": 615,
+            "y": 355
+          },
+          "nodeIndex": "Ventas",
+          "nodeLineageTag": "5799c44c-04d8-4a63-8acd-7a604a18b178",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 8,
+          "expandedHeight": 293
+        },
+        {
+          "location": {
+            "x": 941,
+            "y": 355
+          },
+          "nodeIndex": "Inventarios",
+          "nodeLineageTag": "07a1de7b-f337-4fd8-ada7-370920fde851",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 11,
+          "expandedHeight": 296
+        },
+        {
+          "location": {
+            "x": 940,
+            "y": 0
+          },
+          "nodeIndex": "Almacenes",
+          "nodeLineageTag": "53bc3c21-e6ac-4502-8997-e306ea5965a1",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 4,
+          "expandedHeight": 224
+        },
+        {
+          "location": {
+            "x": 616,
+            "y": 0
+          },
+          "nodeIndex": "Pais",
+          "nodeLineageTag": "e6b430b2-866f-4eef-8d1e-f2ff45a38486",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 5,
+          "expandedHeight": 224
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Fecha",
+          "nodeLineageTag": "20eda3df-0c5e-45fb-90e5-616f31fa88f2",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 6,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1510,
+            "y": 165.5
+          },
+          "nodeIndex": "Métricas",
+          "nodeLineageTag": "6f8fa7ec-9bf5-4b42-8ad8-12760d50e734",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 155,
+            "y": 586
+          },
+          "nodeIndex": "REF_PROVEEDOR",
+          "nodeLineageTag": "c6910ed9-9ca8-4f44-a371-01b66c3dcb74",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1257,
+            "y": 196.5
+          },
+          "nodeIndex": "PeriodosEstadisticos",
+          "nodeLineageTag": "7cb5b9ea-3458-45c3-9827-061e11cdf8fc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1794,
+            "y": 217.5
+          },
+          "nodeIndex": "ArriboFuturo",
+          "nodeLineageTag": "84f6735e-b330-41b9-aa02-d1bfdc2afa8c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {},
+          "nodeIndex": "Parámetro",
+          "nodeLineageTag": "08959bf1-51ab-43b9-b8e1-243d9f6c5a96",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Parámetro Ctvs",
+          "nodeLineageTag": "919e515a-616f-4cb2-92a9-c59ebb4548c2",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "ArticuloProveedor",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 33,
+            "y": 108
+          },
+          "nodeIndex": "Inventarios",
+          "nodeLineageTag": "07a1de7b-f337-4fd8-ada7-370920fde851",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 674,
+            "y": 142
+          },
+          "nodeIndex": "Pais",
+          "nodeLineageTag": "e6b430b2-866f-4eef-8d1e-f2ff45a38486",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Disposición 1",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 2,
+      "scrollPosition": {
+        "x": 15,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 852.37139066944792,
+            "y": 336.18454793576086
+          },
+          "nodeIndex": "ArriboFuturo",
+          "nodeLineageTag": "84f6735e-b330-41b9-aa02-d1bfdc2afa8c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 294.18720592880595,
+            "y": 340.19379057686609
+          },
+          "nodeIndex": "Ventas",
+          "nodeLineageTag": "5799c44c-04d8-4a63-8acd-7a604a18b178",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 280.82211202158885,
+            "y": 0
+          },
+          "nodeIndex": "Articulos",
+          "nodeLineageTag": "404b5d32-3d9e-408b-8cf4-f0dcc94836a0",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 572,
+            "y": 0
+          },
+          "nodeIndex": "Pais",
+          "nodeLineageTag": "e6b430b2-866f-4eef-8d1e-f2ff45a38486",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 854.37139066944792,
+            "y": 0
+          },
+          "nodeIndex": "Almacenes",
+          "nodeLineageTag": "53bc3c21-e6ac-4502-8997-e306ea5965a1",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 4,
+          "expandedHeight": 224
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Fecha",
+          "nodeLineageTag": "20eda3df-0c5e-45fb-90e5-616f31fa88f2",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 5,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1129,
+            "y": 366
+          },
+          "nodeIndex": "ArticuloProveedor",
+          "nodeLineageTag": "4bb7c796-94b4-40a0-a0dc-6d9a94f9692c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Disposición 2",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Disposición 2",
+  "defaultDiagram": "Todas las tablas"
+}

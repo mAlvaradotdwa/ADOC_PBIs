@@ -1,0 +1,55 @@
+table Precio_FOB
+	lineageTag: 403d14e1-8332-4759-a2c8-957fb690961a
+
+	column SK_ARTICULO
+		dataType: int64
+		formatString: 0
+		lineageTag: 932f75fe-3ef0-4b41-bae0-1580532442a1
+		summarizeBy: none
+		sourceColumn: SK_ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column KNUMH
+		dataType: string
+		lineageTag: 97cef0cf-7bd4-4804-b0d0-ad4bb8f24eb2
+		summarizeBy: none
+		sourceColumn: KNUMH
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRECIO_FOB
+		dataType: double
+		lineageTag: 051a7da5-eb70-4470-baa2-ec56143d61fe
+		summarizeBy: sum
+		sourceColumn: PRECIO_FOB
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REFERENCIA_PROVEEDOR
+		dataType: string
+		lineageTag: b30c824e-bd57-4ad6-a55b-bcf7c93d46f4
+		summarizeBy: none
+		sourceColumn: REFERENCIA_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Precio_FOB = m
+		mode: import
+		queryGroup: dbSAP
+		source =
+				let
+				    Precio_FOB = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation="2.0"]), "/*  ZDM_INFOREP */#(lf)SELECT#(lf)    DISTINCT #(lf)    m.SATNR * 1 SK_ARTICULO ,#(lf)    -- a.MATNR,#(lf)    a.KNUMH ,#(lf)    k.KBETR PRECIO_FOB,#(lf)    -- m.BISMT ,#(lf)    m.ZZ_ALU Referencia_Proveedor#(lf)FROM#(lf)    SAP_ECC.MARA m#(lf)INNER JOIN SAP_ECC.A018 a#(lf)    ON#(lf)    m.SATNR = a.MATNR#(lf)INNER JOIN SAP_ECC.KONP k#(lf)    ON#(lf)    a.KNUMH = k.KNUMH#(lf)WHERE#(lf)    m.BRAND_ID IN (#(lf)        '501' , 'MIR' , 'KIP' , 'KIC' , 'VEL' , '4X4' , 'BRA' , 'NIP' , 'BRI' , 'PR2' , 'DIN'#(lf)    )#(lf)    -- AND m.SATNR LIKE '%30000287';", null, [EnableFolding=true]),
+				    #"Consultas combinadas" = Table.NestedJoin(Precio_FOB, {"SK_ARTICULO"}, Articulos, {"SK_ARTICULO"}, "Articulos", JoinKind.LeftOuter),
+				    #"Se expandió Articulos" = Table.ExpandTableColumn(#"Consultas combinadas", "Articulos", {"SK_ARTICULO"}, {"SK_ARTICULO.1"}),
+				    #"Filas filtradas" = Table.SelectRows(#"Se expandió Articulos", each [SK_ARTICULO.1] <> null and [SK_ARTICULO.1] <> ""),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Filas filtradas",{"SK_ARTICULO.1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

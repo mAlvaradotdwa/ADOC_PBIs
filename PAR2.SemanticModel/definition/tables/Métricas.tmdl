@@ -1,0 +1,421 @@
+table Métricas
+	lineageTag: 6f8fa7ec-9bf5-4b42-8ad8-12760d50e734
+
+	measure 'Precio Un. Local' =
+			VAR _flag =
+			    ISINSCOPE ( Pais[BV_PAIS] )
+			        || ISINSCOPE ( Pais[PAIS] )
+			        || HASONEFILTER ( Pais[BV_Pais] )
+			        || HASONEFILTER ( Pais[Pais] )
+			RETURN
+			    IF (
+			        _flag,
+			        DIVIDE (
+			            SUM ( Inventarios[PRECIOT_LOCAL] ),
+			            SUM ( Inventarios[PARES] )
+			        )
+			    )
+		formatString: #,0.00
+		displayFolder: Precios Unitarios
+		lineageTag: 479fa4de-162e-4eb7-a843-38252963cc8e
+
+	measure 'Precio Un. USD' =
+			
+			DIVIDE (
+			    SUM ( Inventarios[PRECIOT_USD] ),
+			    SUM ( Inventarios[PARES] )
+			)
+		formatString: $ #,0.00
+		displayFolder: Precios Unitarios
+		lineageTag: fac6fed5-fa5f-41be-b107-d21b3ae9cbae
+
+	measure 'Venta Pares' = SUM ( Ventas[Pares] )
+		formatString: #,0
+		displayFolder: Métrias Comerciales
+		lineageTag: bec14efd-4869-4f2d-aada-f90ebbce3679
+
+	measure Venta = SUM ( Ventas[Venta_USD] )
+		formatString: $ #,0
+		displayFolder: Métrias Comerciales
+		lineageTag: 08e82c5d-7722-4cad-9b33-1e7343310b2b
+
+	measure Costo = SUM ( Ventas[Costo_USD] )
+		formatString: $ #,0
+		displayFolder: Métrias Comerciales
+		lineageTag: 40d3e4d7-c577-40cd-96cd-37c2ecb805ff
+
+	measure Margen = [Venta] - [Costo]
+		formatString: $ #,0
+		displayFolder: Métrias Comerciales
+		lineageTag: d3389a1b-83b1-4cd6-9dcc-2d7e41bbaa93
+
+	measure Inventario =
+			CALCULATE (
+			    SUM ( Inventarios[PARES] ),
+			    KEEPFILTERS ( Inventarios[SK_TIPOOPERACION] = "Inventario" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario
+		lineageTag: 239f138e-6b68-4c44-998e-94e1976a2b6d
+
+	measure 'Inventario Sala' =
+			CALCULATE (
+			    [Inventario],
+			    KEEPFILTERS ( Almacenes[SK_ALMACEN] = "AL01" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario
+		lineageTag: e111abad-461e-4ef4-a0e3-048222aa445a
+
+	measure 'Inventario Bodega' =
+			CALCULATE (
+			    [Inventario],
+			    KEEPFILTERS ( Almacenes[SK_ALMACEN] <> "AL01" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario
+		lineageTag: d58f612e-1fd9-4ecb-bbd1-705188a4e06f
+
+	measure 'Inventario Transitos' =
+			CALCULATE (
+			    SUM ( Inventarios[PARES] ),
+			    KEEPFILTERS ( Inventarios[SK_TIPOOPERACION] <> "Inventario" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario
+		lineageTag: 94a71c72-1f9a-4b8d-88a0-3c7b957ae090
+
+	measure 'Costo Un. USD' =
+			
+			DIVIDE (
+			    SUM ( Inventarios[COSTOT_USD] ),
+			    SUM ( Inventarios[PARES] )
+			)
+		formatString: $ #,0.00
+		displayFolder: Precios Unitarios
+		lineageTag: 7ccf972c-5513-49a3-8bce-d1932ceecec8
+
+	measure 'Margen Un. USD' =
+			DIVIDE (
+			    [Precio Un. USD] - [Costo Un. USD],
+			    [Precio Un. USD]
+			)
+		formatString: #,0.0 %
+		displayFolder: Precios Unitarios
+		lineageTag: 63f7da9e-910d-44ad-a862-d9b6a985c9c6
+
+	measure Arribos =
+			CALCULATE (
+			    SUM ( ArriboFuturo[ARRIBO_PARES_ULTIMO_DIA] )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario
+		lineageTag: b2733531-fdb0-480e-8f8c-1f014c69f1a9
+
+	measure 'Sell Out' = DIVIDE ( [Venta Pares], [Inventario] + [Venta Pares] )
+		formatString: #,0.0 %
+		displayFolder: Precios Unitarios
+		lineageTag: adaa1382-f6ef-4cf9-acbf-375220042c61
+
+	measure 'Margen Un %' = DIVIDE ( [Precio Un. USD] - [Costo Un. USD], [Precio Un. USD] )
+		displayFolder: Precios Unitarios
+		lineageTag: aba57252-e843-44e1-a0c4-b2b33e4c3367
+
+	measure FOB = AVERAGE ( Precio_FOB[PRECIO_FOB] )
+		formatString: $ #,0.00
+		displayFolder: Precios Unitarios
+		lineageTag: 641cc4f4-0390-4120-a044-78b937d6d6b2
+
+	measure 'F.I.' = DIVIDE ( [Costo Un. USD], AVERAGE ( Precio_FOB[PRECIO_FOB] ) )
+		formatString: $ #,0.00
+		displayFolder: Precios Unitarios
+		lineageTag: dd853a41-1c2b-4e7b-9826-50357d3865fa
+
+	measure 'Precio CA' =
+			CALCULATE (
+			    [Precio Un. USD],
+			    REMOVEFILTERS ( Fecha ),
+			    REMOVEFILTERS ( Pais )
+			)
+		formatString: $ #,0.00
+		displayFolder: Precios Unitarios
+		lineageTag: cb840147-984e-4f15-9cae-6bb99fe85a5d
+
+	measure 'Costo CA' =
+			CALCULATE (
+			    [Costo Un. USD],
+			    REMOVEFILTERS ( Fecha ),
+			    REMOVEFILTERS ( Pais )
+			)
+		formatString: $ #,0.00
+		displayFolder: Precios Unitarios
+		lineageTag: dd9fdb9b-1f67-4f82-a16a-a5f7c9aecadc
+
+	measure 'Margen CA' =
+			CALCULATE (
+			    [Margen Un. USD],
+			    REMOVEFILTERS ( Fecha ),
+			    REMOVEFILTERS ( Pais )
+			)
+		formatString: #,0.00 %
+		displayFolder: Precios Unitarios
+		lineageTag: 5a0e6e0a-debe-4357-aeb4-2c04f3ce305d
+
+	measure 'Venta Mes Actual' = CALCULATE ( [Venta], KEEPFILTERS ( Fecha[Offset] = 0 ) )
+		formatString: $ #,0
+		displayFolder: Métrias Comerciales\Mes Actual
+		lineageTag: fc14f292-f619-4895-a549-5999797c2c0f
+
+	measure 'Pares Mes Actual' = CALCULATE ( [Venta Pares], KEEPFILTERS ( Fecha[Offset] = 0 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Mes Actual
+		lineageTag: 1486d80f-89d9-4432-adf9-b1673d48ba07
+
+	measure 'Margen Mes Actual ' = CALCULATE ( [Margen], KEEPFILTERS ( Fecha[Offset] = 0 ) )
+		formatString: $ #,0
+		displayFolder: Métrias Comerciales\Mes Actual
+		lineageTag: fc0768d6-f3f6-462c-ad6c-fefe575d8aad
+
+	measure vEne = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 1 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: ee22ffc7-4d30-45c8-98b8-73eb4a6c5695
+
+	measure vFeb = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 2 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: 5cc5edbc-cd31-4e8f-ac2c-52e5b4ffa295
+
+	measure vSep = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 9 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: 73033459-0c6b-4c60-ac3a-2e637ea80b5a
+
+	measure vNov = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 11 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: 4e05f425-81a6-43ee-9eec-f00409424ff5
+
+	measure vDic = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 12 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: 1738b969-bf18-46fe-ad71-b3eccb6dbf57
+
+	measure vOct = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 10 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: 2dfb6319-20f7-48eb-a3a8-3e061d9f6516
+
+	measure vAgo = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 8 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: 50b36ae7-338f-44ee-a119-d7404f323adb
+
+	measure vJul = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 7 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: 442b9a48-56eb-46f9-9ff9-028c64fb828b
+
+	measure vJun = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 6 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: 80c48e27-c4bb-49e8-a138-e44a149ca6a6
+
+	measure vMar = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 3 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: 2aa6f1a4-e7d4-435f-9d23-13cc963c5ae4
+
+	measure vAbr = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 4 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: ce160e76-9bca-49a3-8c5e-793d8a2b75af
+
+	measure vMay = CALCULATE ( [Venta Pares], KEEPFILTERS ( 'Fecha'[Num. Mes] = 5 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Pares Mensual
+		lineageTag: b7414f31-8cf3-4e67-ba9f-9f8d4d660296
+
+	measure aAbr = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 4 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: cb15b7b4-23f4-4dbc-bdd8-6b1732478bc6
+
+	measure aAgo = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 8 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: 2b85d24e-241e-4b5b-aeac-d65b2fefb72e
+
+	measure aDic = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 12 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: ad12bd7b-299b-4e22-adc1-dd2d680beed1
+
+	measure aEne = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 1 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: 73f2aceb-e772-411d-8a69-2159f3c2116b
+
+	measure aFeb = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 2 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: 6b7ad8c6-3bb0-4a1c-8000-7acc11c0b0f2
+
+	measure aJul = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 7 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: a41e1c67-19fa-45b1-8250-84e0ed368f37
+
+	measure aJun = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 6 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: c2036b08-aa02-4643-8bcc-6f4e853959ad
+
+	measure aMar = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 3 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: e84d8af5-8dba-4b73-a4c0-88eac6715fb3
+
+	measure aMay = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 5 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: 8f98ab58-20d0-446c-8df8-26162ae6b62f
+
+	measure aNov = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 11 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: 2d4d9e8b-fe7d-42ca-b5ef-f790b735de11
+
+	measure aOct = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 10 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: 9954a84b-214a-4608-b1ac-322d7711941d
+
+	measure aSep = CALCULATE ( [Arribos], KEEPFILTERS ( 'Fecha'[Num. Mes] = 9 ) )
+		formatString: #,0
+		displayFolder: Métrias Comerciales\Arribos Mensual
+		lineageTag: 33b833e3-7c62-4899-a58c-b31143095240
+
+	measure 'Meses con Venta' =
+			CALCULATE (
+			    DISTINCTCOUNT ( Fecha[NumAnoMes] ),
+			    Fecha[Fecha] IN VALUES ( Ventas[Fecha] )
+			)
+		formatString: #,0
+		displayFolder: Métrias Comerciales
+		lineageTag: d2658bac-57df-4ebb-a4bf-098869ad7105
+
+	measure Cobertura =
+			DIVIDE (
+			    [Inventario],
+			    DIVIDE (
+			        [Venta Pares],
+			        [Meses con Venta]
+			    )
+			)
+		formatString: #,0.0
+		displayFolder: Métricas Inventario
+		lineageTag: 2d61f12b-44c2-4c0f-ad27-3364af57eee6
+
+	measure 'Sell Out Anual' =
+			DIVIDE (
+			    [Venta Pares],
+			    [Inventario] + [Arribos]
+			)
+		formatString: #,0.0 %
+		displayFolder: Precios Unitarios
+		lineageTag: 7483690e-181d-4e7f-a908-c0f46385cc23
+
+	measure 'Venta Pares Prom.' = DIVIDE ( [Venta Pares] , [Meses con Venta] )
+		formatString: #,0
+		displayFolder: Métrias Comerciales
+		lineageTag: b307bc02-8ca5-462d-8df4-4f3aafaf4dbc
+
+	measure EOSS =
+			-- FROM PROMOS PRISM
+			-- IF ( NOT ISBLANK ( COUNTROWS ( PROMOS ) ), "X" )
+			IF (
+			    SELECTEDVALUE ( 'Articulos'[SK_ESTATUS] ) IN { "2", "3", "4" },
+			    "X"
+			)
+		displayFolder: Métrias Comerciales
+		lineageTag: f3158caf-1a90-4aeb-971d-1534f27acc74
+
+	measure 'Inventario BP10' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS ( Almacenes[SK_ALMACEN] = "BP10" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas
+		lineageTag: 902df04b-a4ca-4786-a288-0bf232f61f27
+
+	measure 'Inventario BFI' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS ( CONTAINSSTRING ( Almacenes[SK_ALMACEN], "BF" ) )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas
+		lineageTag: 3ea05e2c-6dac-415d-8e6d-79f07c0994e9
+
+	measure 'Inventario Otras Bodegas' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS (
+			        NOT CONTAINSSTRING ( Almacenes[SK_ALMACEN], "BF" )
+			            && NOT Almacenes[SK_ALMACEN] = "BP10"
+			    )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas
+		lineageTag: 221cc14e-5cc7-487e-ae5d-43f578dbba6f
+
+	measure 'Cod Prov.' =
+			CALCULATE (
+			    FIRSTNONBLANK (
+			        'ArriboFuturo'[COD-PRO],
+			        TRUE ()
+			    )
+			)
+		displayFolder: Métricas Inventario
+		lineageTag: 9d519818-79e5-40f6-83e6-5da5800a50fb
+
+	measure 'Nom Prov.' =
+			CALCULATE (
+			    FIRSTNONBLANK (
+			        'ArriboFuturo'[NOPRMP],
+			        TRUE ()
+			    )
+			)
+		displayFolder: Métricas Inventario
+		lineageTag: ed029117-f810-44d0-80b7-ecac5ddee64c
+
+	measure 'PV $' =
+			VAR _flag =
+			    ISINSCOPE ( Pais[BV_PAIS] )
+			        || ISINSCOPE ( Pais[PAIS] )
+			        || HASONEFILTER ( Pais[BV_Pais] )
+			        || HASONEFILTER ( Pais[Pais] )
+			RETURN
+			    IF (
+			        _flag,
+			        [Precio Un. USD]
+			    )
+		formatString: #,0.00
+		displayFolder: Precios Unitarios
+		lineageTag: 73676980-736e-4ede-8219-1ee435d6c1ab
+
+	column Value
+		isHidden
+		lineageTag: d4fdf9b7-3933-4949-89ba-53aad45b77f3
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'New Calculated Table' = calculated
+		mode: import
+		source = {BLANK()}
+

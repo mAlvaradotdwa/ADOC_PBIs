@@ -1,0 +1,2283 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "71a8e41e613909861053",
+  "position": {
+    "x": 8,
+    "y": 80,
+    "z": 0,
+    "height": 832,
+    "width": 1904,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "ARTICULO"
+                }
+              },
+              "queryRef": "Articulos.ARTICULO",
+              "nativeQueryRef": "ARTICULO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "Imagen"
+                }
+              },
+              "queryRef": "Articulos.Imagen",
+              "nativeQueryRef": "Imagen"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "BV_ESTILO_COLOR"
+                }
+              },
+              "queryRef": "Articulos.BV_ESTILO_COLOR",
+              "nativeQueryRef": "ESTILO COLOR",
+              "displayName": "ESTILO COLOR"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "SK_ESTATUS"
+                }
+              },
+              "queryRef": "Articulos.SK_ESTATUS",
+              "nativeQueryRef": "ESTATUS",
+              "displayName": "ESTATUS"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "SK_MARCA"
+                }
+              },
+              "queryRef": "Articulos.SK_MARCA",
+              "nativeQueryRef": "MARCA",
+              "displayName": "MARCA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "TIPOESTILO"
+                }
+              },
+              "queryRef": "Articulos.TIPOESTILO",
+              "nativeQueryRef": "TIPOESTILO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "CLASE"
+                }
+              },
+              "queryRef": "Articulos.CLASE",
+              "nativeQueryRef": "CLASE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "BV_SUBCATEGORIA"
+                }
+              },
+              "queryRef": "Articulos.BV_SUBCATEGORIA",
+              "nativeQueryRef": "SUBCATEGORIA",
+              "displayName": "SUBCATEGORIA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "Descripcion Proveedor"
+                }
+              },
+              "queryRef": "Articulos.Descripcion Proveedor",
+              "nativeQueryRef": "REF",
+              "displayName": "REF"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario Bodega"
+                }
+              },
+              "queryRef": "Métricas.Inventario Bodega",
+              "nativeQueryRef": "Ex. BOD",
+              "displayName": "Ex. BOD"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario Sala"
+                }
+              },
+              "queryRef": "Métricas.Inventario Sala",
+              "nativeQueryRef": "Ex. TDA",
+              "displayName": "Ex. TDA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario"
+                }
+              },
+              "queryRef": "Métricas.Inventario",
+              "nativeQueryRef": "Ex. TT",
+              "displayName": "Ex. TT"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "PERIODO"
+                }
+              },
+              "queryRef": "Articulos.PERIODO",
+              "nativeQueryRef": "PERIODO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PeriodosEstadisticos"
+                    }
+                  },
+                  "Property": "Tipo Vencimiento"
+                }
+              },
+              "queryRef": "PeriodosEstadisticos.Tipo Vencimiento",
+              "nativeQueryRef": "Tipo Vencimiento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PeriodosEstadisticos"
+                    }
+                  },
+                  "Property": "Tipo Vencimiento2"
+                }
+              },
+              "queryRef": "PeriodosEstadisticos.Tipo Vencimiento2",
+              "nativeQueryRef": "Tipo Vencimiento2"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "PrimeraFecha"
+                }
+              },
+              "queryRef": "Articulos.PrimeraFecha",
+              "nativeQueryRef": "PrimeraFecha"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Sell Out"
+                }
+              },
+              "queryRef": "Métricas.Sell Off",
+              "nativeQueryRef": "Sell Out"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Costo CA"
+                }
+              },
+              "queryRef": "Métricas.Costo CA",
+              "nativeQueryRef": "Costo CA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Precio CA"
+                }
+              },
+              "queryRef": "Métricas.Precio CA",
+              "nativeQueryRef": "Precio CA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Margen CA"
+                }
+              },
+              "queryRef": "Métricas.Margen CA",
+              "nativeQueryRef": "Margen CA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "FOB"
+                }
+              },
+              "queryRef": "Métricas.FOB",
+              "nativeQueryRef": "FOB"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "F.I."
+                }
+              },
+              "queryRef": "Métricas.F.I.",
+              "nativeQueryRef": "F.I."
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Precio Un. Local"
+                }
+              },
+              "queryRef": "Métricas.Precio Un. Local",
+              "nativeQueryRef": "PVP",
+              "displayName": "PVP"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "PV $"
+                }
+              },
+              "queryRef": "Métricas.PV $",
+              "nativeQueryRef": "PV $"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "BV_LINEA"
+                }
+              },
+              "queryRef": "Articulos.BV_LINEA",
+              "nativeQueryRef": "LINEA",
+              "displayName": "LINEA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Cod Prov."
+                }
+              },
+              "queryRef": "Métricas.Cod Prov.",
+              "nativeQueryRef": "Cod Prov."
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Nom Prov."
+                }
+              },
+              "queryRef": "Métricas.Nom Prov.",
+              "nativeQueryRef": "Nom Prov."
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Inventarios"
+                        }
+                      },
+                      "Property": "COSTOT_USD"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Inventarios.COSTOT_USD)",
+              "nativeQueryRef": "INV VAL $$",
+              "displayName": "INV VAL $$"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Pares Mes Actual"
+                }
+              },
+              "queryRef": "Métricas.Pares Mes Actual",
+              "nativeQueryRef": "Pares Mes Actual"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Venta Mes Actual"
+                }
+              },
+              "queryRef": "Métricas.Venta Mes Actual",
+              "nativeQueryRef": "Venta Mes Actual"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Margen Mes Actual "
+                }
+              },
+              "queryRef": "Métricas.Margen Mes Actual ",
+              "nativeQueryRef": "Margen Mes Actual "
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Parámetro"
+                    }
+                  },
+                  "Property": "Oferta"
+                }
+              },
+              "queryRef": "Parámetro.Oferta",
+              "nativeQueryRef": "Oferta"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Parámetro"
+                    }
+                  },
+                  "Property": "Desc %"
+                }
+              },
+              "queryRef": "Parámetro.Desc %",
+              "nativeQueryRef": "Desc %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Parámetro"
+                    }
+                  },
+                  "Property": "MGN"
+                }
+              },
+              "queryRef": "Parámetro.MGN",
+              "nativeQueryRef": "MGN"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "EOSS"
+                }
+              },
+              "queryRef": "Métricas.EOSS",
+              "nativeQueryRef": "EOSS"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aEne"
+                }
+              },
+              "queryRef": "Métricas.aEne",
+              "nativeQueryRef": "Ingresos Ene.",
+              "displayName": "Ingresos Ene."
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aFeb"
+                }
+              },
+              "queryRef": "Métricas.aFeb",
+              "nativeQueryRef": "Feb",
+              "displayName": "Feb"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aMar"
+                }
+              },
+              "queryRef": "Métricas.aMar",
+              "nativeQueryRef": "Mar",
+              "displayName": "Mar"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aAbr"
+                }
+              },
+              "queryRef": "Métricas.aAbr",
+              "nativeQueryRef": "Abr",
+              "displayName": "Abr"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aMay"
+                }
+              },
+              "queryRef": "Métricas.aMay",
+              "nativeQueryRef": "May",
+              "displayName": "May"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aJun"
+                }
+              },
+              "queryRef": "Métricas.aJun",
+              "nativeQueryRef": "Jun",
+              "displayName": "Jun"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aJul"
+                }
+              },
+              "queryRef": "Métricas.aJul",
+              "nativeQueryRef": "Jul",
+              "displayName": "Jul"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aAgo"
+                }
+              },
+              "queryRef": "Métricas.aAgo",
+              "nativeQueryRef": "Ago",
+              "displayName": "Ago"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aSep"
+                }
+              },
+              "queryRef": "Métricas.aSep",
+              "nativeQueryRef": "Sep",
+              "displayName": "Sep"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aOct"
+                }
+              },
+              "queryRef": "Métricas.aOct",
+              "nativeQueryRef": "Oct",
+              "displayName": "Oct"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aNov"
+                }
+              },
+              "queryRef": "Métricas.aNov",
+              "nativeQueryRef": "Nov",
+              "displayName": "Nov"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "aDic"
+                }
+              },
+              "queryRef": "Métricas.aDic",
+              "nativeQueryRef": "Dic",
+              "displayName": "Dic"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Arribos"
+                }
+              },
+              "queryRef": "Métricas.Arribos",
+              "nativeQueryRef": "Ingresos",
+              "displayName": "Ingresos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vEne"
+                }
+              },
+              "queryRef": "Métricas.vEne",
+              "nativeQueryRef": "Pares Ene",
+              "displayName": "Pares Ene"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vFeb"
+                }
+              },
+              "queryRef": "Métricas.vFeb",
+              "nativeQueryRef": "Feb1",
+              "displayName": "Feb"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vMar"
+                }
+              },
+              "queryRef": "Métricas.vMar",
+              "nativeQueryRef": "Mar1",
+              "displayName": "Mar"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vAbr"
+                }
+              },
+              "queryRef": "Métricas.vAbr",
+              "nativeQueryRef": "Abr1",
+              "displayName": "Abr"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vMay"
+                }
+              },
+              "queryRef": "Métricas.vMay",
+              "nativeQueryRef": "May1",
+              "displayName": "May"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vJun"
+                }
+              },
+              "queryRef": "Métricas.vJun",
+              "nativeQueryRef": "Jun1",
+              "displayName": "Jun"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vJul"
+                }
+              },
+              "queryRef": "Métricas.vJul",
+              "nativeQueryRef": "Jul1",
+              "displayName": "Jul"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vAgo"
+                }
+              },
+              "queryRef": "Métricas.vAgo",
+              "nativeQueryRef": "Ago1",
+              "displayName": "Ago"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vSep"
+                }
+              },
+              "queryRef": "Métricas.vSep",
+              "nativeQueryRef": "Sep1",
+              "displayName": "Sep"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vOct"
+                }
+              },
+              "queryRef": "Métricas.vOct",
+              "nativeQueryRef": "Oct1",
+              "displayName": "Oct"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vNov"
+                }
+              },
+              "queryRef": "Métricas.vNov",
+              "nativeQueryRef": "Nov1",
+              "displayName": "Nov"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "vDic"
+                }
+              },
+              "queryRef": "Métricas.vDic",
+              "nativeQueryRef": "Dic1",
+              "displayName": "Dic"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Venta Pares"
+                }
+              },
+              "queryRef": "Métricas.Venta Pares",
+              "nativeQueryRef": "Pares",
+              "displayName": "Pares"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Meses con Venta"
+                }
+              },
+              "queryRef": "Métricas.Meses con Venta",
+              "nativeQueryRef": "Meses con Venta"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Cobertura"
+                }
+              },
+              "queryRef": "Métricas.Cobertura",
+              "nativeQueryRef": "Cobertura"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Sell Out Anual"
+                }
+              },
+              "queryRef": "Métricas.Sell Out Anual",
+              "nativeQueryRef": "Sell Out Anual"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Venta Pares Prom."
+                }
+              },
+              "queryRef": "Métricas.Venta Pares Prom.",
+              "nativeQueryRef": "Venta Pares Prom."
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario BFI"
+                }
+              },
+              "queryRef": "Métricas.Inventario BFI",
+              "nativeQueryRef": "Inventario BFI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario BP10"
+                }
+              },
+              "queryRef": "Métricas.Inventario BP10",
+              "nativeQueryRef": "Inventario BP10"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario Otras Bodegas"
+                }
+              },
+              "queryRef": "Métricas.Inventario Otras Bodegas",
+              "nativeQueryRef": "Inventario Otras Bodegas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario Sala"
+                }
+              },
+              "queryRef": "Métricas.Inventario Sala",
+              "nativeQueryRef": "Ex. TDA",
+              "displayName": "Ex. TDA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario Transitos"
+                }
+              },
+              "queryRef": "Métricas.Inventario Transitos",
+              "nativeQueryRef": "Inventario Transitos"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Parámetro"
+                  }
+                },
+                "Property": "Oferta"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Métricas.aEne"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aEne"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aFeb"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aMar"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aAbr"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aMay"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aJun"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aJul"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aAgo"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aSep"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aOct"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aNov"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.aDic"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.vEne"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Arribos"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Venta Pares"
+          }
+        },
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Articulos.ARTICULO"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Parámetro.Oferta"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Parámetro.Desc %"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Parámetro.MGN"
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Inventario Otras Bodegas"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Inventario Transitos"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.ARTICULO"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.Imagen"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.BV_ESTILO_COLOR"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.SK_ESTATUS"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.SK_MARCA"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.TIPOESTILO"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.CLASE"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.BV_SUBCATEGORIA"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.Descripcion Proveedor"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Inventario Bodega"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Inventario Sala"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Inventario"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.PERIODO"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "PeriodosEstadisticos.Tipo Vencimiento"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "PeriodosEstadisticos.Tipo Vencimiento2"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.PrimeraFecha"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Sell Off"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Costo CA"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Precio CA"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Margen CA"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.FOB"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.F.I."
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Precio Un. Local"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Articulos.BV_LINEA"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Sum(Inventarios.COSTOT_USD)"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Pares Mes Actual"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Venta Mes Actual"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Margen Mes Actual "
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.EOSS"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aEne"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aFeb"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aMar"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aAbr"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aMay"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aJun"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aJul"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aAgo"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aSep"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aOct"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aNov"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.aDic"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Arribos"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vEne"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vFeb"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vMar"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vAbr"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vMay"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vJun"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vJul"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vAgo"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vSep"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vOct"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vNov"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.vDic"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Venta Pares"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Meses con Venta"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Cobertura"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Sell Out Anual"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Venta Pares Prom."
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Inventario BFI"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Inventario BP10"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "section": {
+              "expr": {
+                "Literal": {
+                  "Value": "'0545e40bdcb779c20c04'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'BoldHeader'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1468228e4e8e3c029790",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Articulos"
+              }
+            },
+            "Property": "ARTICULO"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "Articulos",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "a"
+                            }
+                          },
+                          "Property": "ARTICULO"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

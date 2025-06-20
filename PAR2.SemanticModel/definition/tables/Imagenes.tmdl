@@ -1,0 +1,43 @@
+table Imagenes
+	isHidden
+	lineageTag: c9012b12-1bc8-4b0c-99b9-4446836789d0
+
+	column SK_ARTICULO
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 21266b9d-7b3a-4855-ac92-9b679c555618
+		summarizeBy: sum
+		sourceColumn: SK_ARTICULO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IMAGE_URL
+		dataType: string
+		isHidden
+		lineageTag: c86c5d3c-3dde-4937-bbd4-0986f1f23533
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: IMAGE_URL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Imagenes = m
+		mode: import
+		queryGroup: dbCOGNOS
+		source =
+				let
+				    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query="SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)IMAGE_URL#(lf)FROM OPENQUERY( MYSQL , '#(lf)#(tab)SELECT#(lf)#(tab)#(tab)LEFT( a.sku , 8 ) SK_ARTICULO ,#(lf)#(tab)#(tab)MAX( image_url ) IMAGE_URL#(lf)#(tab)FROM stg_descripciones a#(lf)#(tab)GROUP BY 1;#(lf)' )#(lf)WHERE image_url <> ''#(lf)#(tab)AND ISNUMERIC( SK_ARTICULO ) = 1", CreateNavigationProperties=false])
+				in
+				    Origen
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

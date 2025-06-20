@@ -1,0 +1,66 @@
+table Almacenes
+	lineageTag: 53bc3c21-e6ac-4502-8997-e306ea5965a1
+
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: 5e8280eb-5120-4621-a38a-68b4780aa7eb
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: f48643b0-c3e6-4d3a-a922-c12e3a5a36bc
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_DIVISION
+		dataType: string
+		lineageTag: 27d6ca60-dff9-4839-8c05-bf3eaf607f4c
+		summarizeBy: none
+		sourceColumn: SK_DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_ALMACEN
+		dataType: string
+		lineageTag: 748355c5-c861-4342-a021-44f46e64eb85
+		summarizeBy: none
+		sourceColumn: BV_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_DIVISION
+		dataType: string
+		lineageTag: 9e141762-4b95-4019-a14c-7a5004d91d68
+		summarizeBy: none
+		sourceColumn: BV_DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVISION
+		dataType: string
+		lineageTag: e8b8a179-4fc9-4152-92f0-400cb4c02193
+		summarizeBy: none
+		sourceColumn: DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Almacenes = m
+		mode: import
+		queryGroup: dbCOGNOS
+		source =
+				let
+				    Origen = Sql.Database(srvCOGNOS, dbCOGNOS),
+				    dbo_DIM_ALMACEN = Origen{[Schema="dbo",Item="DIM_ALMACEN"]}[Data],
+				    #"Filas filtradas" = Table.SelectRows(dbo_DIM_ALMACEN, each ([SK_ALMACEN] <> null and [SK_ALMACEN] <> " "))
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

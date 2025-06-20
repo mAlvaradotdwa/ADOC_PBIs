@@ -1,0 +1,159 @@
+table Articulos
+	lineageTag: 404b5d32-3d9e-408b-8cf4-f0dcc94836a0
+
+	measure IMG = SELECTEDVALUE ( 'Articulos'[Imagen] )
+		lineageTag: 5146fa6d-aef5-4f74-a3f9-abc3d9bdc961
+		dataCategory: ImageUrl
+
+		changedProperty = IsHidden
+
+	column SK_ARTICULO
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 726047d8-3fee-46e2-ac0f-77f638b0fa22
+		summarizeBy: none
+		sourceColumn: SK_ARTICULO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_ESTILO_COLOR
+		dataType: string
+		lineageTag: ba3d5ab6-7953-4e65-9f3a-9b9735973f79
+		summarizeBy: none
+		sourceColumn: BV_ESTILO_COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIODO
+		dataType: string
+		lineageTag: 17913b92-73b3-4522-9ce6-eb81cd000bad
+		summarizeBy: none
+		sourceColumn: PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_COLECCION
+		dataType: string
+		lineageTag: 1e668ecc-a2f6-4ae1-bfc1-546e0d2ee56c
+		summarizeBy: none
+		sourceColumn: SK_COLECCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASE
+		dataType: string
+		lineageTag: 55978515-e3c1-4e37-b4fe-3982b642e408
+		summarizeBy: none
+		sourceColumn: CLASE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPOESTILO
+		dataType: string
+		lineageTag: 19f30b36-8374-4918-b27c-69db9e36b90e
+		summarizeBy: none
+		sourceColumn: TIPOESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ESTATUS
+		dataType: string
+		lineageTag: ef51988d-282b-4939-ab77-64f0f9b8f7fa
+		summarizeBy: none
+		sourceColumn: SK_ESTATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALU
+		dataType: string
+		lineageTag: e7de8287-44a5-49be-a4e5-e4297c132155
+		summarizeBy: none
+		sourceColumn: ALU
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MARCA
+		dataType: string
+		lineageTag: f903f606-116c-4888-994b-165570b1de03
+		summarizeBy: none
+		sourceColumn: SK_MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_SUBCATEGORIA
+		dataType: string
+		lineageTag: 7ec27be2-b89d-48f0-92e8-c02ef1ccbc90
+		summarizeBy: none
+		sourceColumn: BV_SUBCATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CREAARTICULO
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7e81f8be-8c91-4f43-b765-80b66eeb750b
+		summarizeBy: none
+		sourceColumn: FECHA_CREAARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Imagen = LOOKUPVALUE( Imagenes[IMAGE_URL] , Imagenes[SK_ARTICULO] , Articulos[SK_ARTICULO] )
+		lineageTag: 9e863dc8-325e-4159-a6bf-dc101f64b9ee
+		dataCategory: ImageUrl
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO = ```
+			FORMAT( [SK_ARTICULO] , "#" ) 
+			```
+		lineageTag: 87cd34af-0cef-4cc2-9705-0c40a53f3ad1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimeraFecha
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 62ce4ac0-5a97-46b1-b833-e412443be0e8
+		summarizeBy: none
+		sourceColumn: PrimeraFecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column BV_LINEA
+		dataType: string
+		lineageTag: 23dae3fe-0c22-4489-8117-25f0ea0ad805
+		summarizeBy: none
+		sourceColumn: BV_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Descripcion Proveedor' = RELATED( REF_PROVEEDOR[Desc. Proveedor] )
+		lineageTag: 20ce0a0a-e342-49e0-bc6d-7fe39d65948b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Articulos = m
+		mode: import
+		queryGroup: dbCOGNOS
+		source =
+				let
+				    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query="SELECT DISTINCT#(lf)#(tab)SK_ARTICULO = TRY_CAST( a.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)BV_ESTILO_COLOR ,#(lf)#(tab)PERIODO = LEFT( SK_COLECCION , 4 ) ,#(lf)#(tab)SK_COLECCION ,#(lf)#(tab)CLASE ,#(lf)#(tab)TIPOESTILO ,#(lf)#(tab)SK_ESTATUS ,#(lf)#(tab)ALU ,#(lf)#(tab)SK_MARCA ,#(lf)#(tab)BV_SUBCATEGORIA ,#(lf)#(tab)BV_LINEA ,#(lf)#(tab)FECHA_CREAARTICULO ,#(lf)#(tab)PrimeraFecha = TRY_CAST ( CONCAT ( f.PrimeraFecha , '' ) AS DATE )#(lf)FROM dim_articulosap a#(lf)LEFT JOIN (#(lf)#(tab)SELECT#(lf)#(tab)#(tab)SK_ARTICULO ,#(lf)#(tab)#(tab)PrimeraFecha = MIN( SK_PERIODO )#(lf)#(tab)FROM FAC_VENTARPRO#(lf)#(tab)WHERE SK_DIVISION = 10#(lf)#(tab)GROUP BY SK_ARTICULO#(lf)) f#(lf)#(tab)ON a.SK_ARTICULO = f.SK_ARTICULO#(lf)WHERE SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)#(tab)AND a.SK_ARTICULO != '000000000000000000'#(lf)#(tab)AND ISNUMERIC( a.SK_ARTICULO ) = 1", CreateNavigationProperties=false]),
+				    #"Filas ordenadas" = Table.Sort(Origen,{{"FECHA_CREAARTICULO", Order.Descending}}),
+				    #"Duplicados quitados" = Table.Distinct(#"Filas ordenadas", {"SK_ARTICULO"})
+				in
+				    #"Duplicados quitados"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

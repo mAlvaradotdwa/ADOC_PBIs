@@ -1,0 +1,71 @@
+relationship a3b1971a-b7f5-acde-f82e-0882c29c8f05
+	fromColumn: Precio_FOB.SK_ARTICULO
+	toColumn: Articulos.SK_ARTICULO
+
+relationship 216e5937-87c2-4e3a-5cf5-0fb951f9e1b7
+	fromColumn: Precios.SK_ARTICULO
+	toColumn: Articulos.SK_ARTICULO
+
+relationship AutoDetected_0e06c558-92f4-497c-abe6-6cfe92ce043f
+	fromColumn: Ventas.SK_ARTICULO
+	toColumn: Articulos.SK_ARTICULO
+
+relationship AutoDetected_3f0e9780-4939-4ad8-815c-e3ea5585f125
+	fromColumn: Inventarios.SK_ARTICULO
+	toColumn: Articulos.SK_ARTICULO
+
+relationship AutoDetected_75ec2064-7484-4cb9-9e58-07fd00799d7c
+	fromColumn: Precios.SK_PAIS
+	toColumn: Pais.SK_PAIS
+
+relationship AutoDetected_5ab50a30-5a41-41c6-a202-25eccaa07f8b
+	fromColumn: Ventas.SK_PAIS
+	toColumn: Pais.SK_PAIS
+
+relationship AutoDetected_e61650f8-3355-4953-87f5-e7b353c35926
+	fromColumn: Inventarios.SK_PAIS
+	toColumn: Pais.SK_PAIS
+
+relationship ad66db8c-3999-032b-8711-dfb39b73d071
+	fromColumn: Inventarios.SK_ALMACEN
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship 9e35782b-230c-e627-e619-f51b8849f960
+	fromColumn: Ventas.SK_ALMACEN
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship 5d8575e0-dabf-1dde-d86f-53285c66c447
+	fromColumn: Ventas.Fecha
+	toColumn: Fecha.Fecha
+
+relationship a5a8659e-6baa-35fb-0b54-6deeb17c08d8
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Articulos.SK_ARTICULO
+	toColumn: REF_PROVEEDOR.SATNR
+
+relationship b38b3061-fb0e-fa42-36e3-384043746b3f
+	fromColumn: Articulos.PERIODO
+	toColumn: PeriodosEstadisticos.PE
+
+relationship 4120e4d3-3f40-8b3e-319d-2587694a7eef
+	isActive: false
+	fromColumn: ArriboFuturo.PERIODO
+	toColumn: Fecha.Fecha
+
+relationship 5672ae6f-993e-ea33-cd35-3742a8546dcf
+	fromColumn: ArriboFuturo.'FECHA ARRIBO'
+	toColumn: Fecha.Fecha
+
+relationship 1eb33d4e-5208-e552-eaac-1702847e5b56
+	fromColumn: ArriboFuturo.ARTICULO
+	toColumn: Articulos.SK_ARTICULO
+
+relationship 04a48af6-f825-f7eb-fd04-a4127f436ed9
+	fromColumn: ArriboFuturo.'COD ALMACEN'
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship a7a688a9-8757-beed-508f-2019e3adbf9a
+	fromColumn: ArriboFuturo.'PAIS BV'
+	toColumn: Pais.BV_PAIS
+

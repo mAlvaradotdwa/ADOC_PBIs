@@ -1,0 +1,24 @@
+expression srvCOGNOS = "192.168.16.74" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: d4d0663f-cdff-4958-849f-cef367f995fc
+	queryGroup: Parámetros
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+
+expression dbCOGNOS = "DM_COMERCIAL" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 03bdc47c-b7b9-4e01-8ac8-991a2271f113
+	queryGroup: Parámetros
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+
+expression srvSAP = "vhadoahpdb01.hec.empresasadoc.com:30215" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 172ec6d6-6ce3-4b23-b38f-db36259cdcaa
+	queryGroup: Parámetros
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+

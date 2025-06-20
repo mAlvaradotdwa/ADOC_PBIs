@@ -1,0 +1,93 @@
+table Ventas
+	lineageTag: 5799c44c-04d8-4a63-8acd-7a604a18b178
+
+	column SK_ARTICULO
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b95ea9f-927c-4abb-87af-e4b6f55c8492
+		summarizeBy: none
+		sourceColumn: SK_ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: 17ced458-4a60-4315-b163-e4a12c28d7aa
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pares
+		dataType: double
+		lineageTag: a84346c3-bfb1-48e2-98aa-77855bc1c986
+		summarizeBy: sum
+		sourceColumn: Pares
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Venta_USD
+		dataType: double
+		lineageTag: 851ad0a2-c9dd-45ca-b795-a255e7632aff
+		summarizeBy: sum
+		sourceColumn: Venta_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Costo_USD
+		dataType: double
+		lineageTag: c33285bf-4434-4b58-975e-cdbaf8cf8322
+		summarizeBy: sum
+		sourceColumn: Costo_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Descuento_USD
+		dataType: double
+		lineageTag: 8518735e-6570-470f-bf91-327adb8f3f02
+		summarizeBy: sum
+		sourceColumn: Descuento_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: 218af08d-5ef5-42a2-91e7-2c824d384ed5
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 96cfb54e-ab46-41f0-b656-79e3ac228031
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Ventas = m
+		mode: import
+		queryGroup: dbCOGNOS
+		source =
+				let
+				    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query="SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)V.SK_PAIS ,#(lf)#(tab)SK_ALMACEN ,#(lf)#(tab)Fecha = DATEFROMPARTS ( ANO , COD_MES , 1 ) ,#(lf)#(tab)[Pares] = SUM( [V].[PARES] ) ,#(lf)#(tab)[Venta_USD] = SUM( [V].[VENTANETA_USD] ) ,#(lf)#(tab)[Costo_USD] = SUM( [V].[COSTOTOTAL_USD] ) ,#(lf)#(tab)[Descuento_USD] = NULLIF( SUM( [V].[ORIG_VENTANETA_USD] - [V].[VENTANETA_USD] ) , 0 )#(lf)FROM FAC_VENTARPRO V#(lf)INNER JOIN DIM_PERIODO F#(lf)#(tab)ON V.SK_PERIODO = F.SK_PERIODO#(lf)INNER JOIN DIM_ARTICULOSAP A#(lf)#(tab)ON V.SK_MATNR = A.SK_MATNR#(lf)WHERE F.PERIODO >= DATEADD( MONTH , -12 , DATEADD( DAY , 1 , eomonth( GETDATE() ) ) )#(lf)#(tab)AND V.SK_DIVISION = 10#(lf)#(tab)AND A.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)#(tab)AND A.[SK_DEPTO] IN ('C' , 'R' , 'A')#(lf)-- AND A.SK_ARTICULO LIKE '%30074038'#(lf)GROUP BY A.SK_ARTICULO ,#(lf)#(tab)#(tab) V.SK_PAIS ,#(lf)#(tab)#(tab) SK_ALMACEN ,#(lf)#(tab)#(tab) ANO ,#(lf)#(tab)#(tab) COD_MES", CreateNavigationProperties=false]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Fecha", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
