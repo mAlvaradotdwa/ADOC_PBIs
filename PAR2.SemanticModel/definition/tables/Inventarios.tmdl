@@ -83,12 +83,20 @@ table Inventarios
 
 		annotation SummarizationSetBy = Automatic
 
+	column SK_TIENDA
+		dataType: string
+		lineageTag: 22c72cc2-2971-4a27-9f2d-dee79d227728
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Inventarios = m
 		mode: import
 		queryGroup: dbCOGNOS
 		source =
 				let
-				    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query="SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)I.SK_TIPOOPERACION ,#(lf)#(tab)I.SK_PAIS ,#(lf)#(tab)I.SK_ALMACEN ,#(lf)#(tab)COSTOT_LOCAL = SUM( I.COSTO_LOCAL ) ,#(lf)#(tab)PRECIOT_LOCAL = SUM( I.PRECIO_LOCAL ) ,#(lf)#(tab)COSTOT_USD = SUM( I.COSTO_USD ) ,#(lf)#(tab)PRECIOT_USD = SUM( I.PRECIO_USD ) ,#(lf)#(tab)PARES = SUM( I.PARES )#(lf)FROM FAC_INVENTARIOUD I#(lf)INNER JOIN DIM_ARTICULOSAP a#(lf)#(tab)ON i.SK_MATNR = A.SK_MATNR#(lf)WHERE ISNUMERIC( a.SK_ARTICULO ) = 1#(lf)#(tab)--AND I.PARES > 0#(lf)#(tab)AND A.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)GROUP BY A.SK_ARTICULO ,#(lf)#(tab)#(tab) i.SK_PAIS ,#(lf)#(tab)#(tab) I.SK_ALMACEN ,#(lf)#(tab)#(tab) I.SK_TIPOOPERACION", CreateNavigationProperties=false])
+				    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query="SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)I.SK_TIPOOPERACION ,#(lf)#(tab)I.SK_PAIS ,#(lf)#(tab)I.SK_TIENDA ,#(lf)#(tab)I.SK_ALMACEN ,#(lf)#(tab)COSTOT_LOCAL = SUM( I.COSTO_LOCAL ) ,#(lf)#(tab)PRECIOT_LOCAL = SUM( I.PRECIO_LOCAL ) ,#(lf)#(tab)COSTOT_USD = SUM( I.COSTO_USD ) ,#(lf)#(tab)PRECIOT_USD = SUM( I.PRECIO_USD ) ,#(lf)#(tab)PARES = SUM( I.PARES )#(lf)FROM FAC_INVENTARIOUD I WITH (NOLOCK)#(lf)INNER JOIN DIM_ARTICULOSAP a WITH (NOLOCK)#(lf)#(tab)ON i.SK_MATNR = A.SK_MATNR#(lf)WHERE ISNUMERIC( a.SK_ARTICULO ) = 1#(lf)#(tab)--AND I.PARES> 0#(lf)#(tab)AND A.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)GROUP BY A.SK_ARTICULO ,#(lf)#(tab)#(tab) i.SK_PAIS ,#(lf)#(tab)#(tab) I.SK_TIENDA ,#(lf)#(tab)#(tab) I.SK_ALMACEN ,#(lf)#(tab)#(tab) I.SK_TIPOOPERACION", CreateNavigationProperties=false])
 				in
 				    Origen
 

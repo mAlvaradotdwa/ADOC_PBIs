@@ -1,8 +1,12 @@
-EVALUATE 
-SUMMARIZECOLUMNS(
-	FILTER( Fecha , Fecha[Offset] = 0 ) , 
-	"vta", [Venta] 
-)
+// EVALUATE 
+// SUMMARIZECOLUMNS(
+// 	FILTER( Fecha , Fecha[Offset] = 0 ) , 
+// 	"vta", [Venta] 
+// )
 
 
-EVALUATE {max(Ventas[Fecha])}
+// EVALUATE {max(Ventas[Fecha])}
+
+
+
+EVALUATE topn( 5 , FACT_INVENTARIOUD ) 
