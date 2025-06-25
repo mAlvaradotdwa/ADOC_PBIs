@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.4.0/schema.json",
   "name": "ReportSection02f114a10ea30ae080d0",
   "displayName": "EVAL - Preparaciones en CD 2",
-  "displayOption": "ActualSize",
+  "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,
   "filterConfig": {
@@ -197,6 +197,7 @@
       }
     ]
   },
+  "visibility": "HiddenInViewMode",
   "visualInteractions": [
     {
       "source": "eaf32bdf5bc4c242b866",

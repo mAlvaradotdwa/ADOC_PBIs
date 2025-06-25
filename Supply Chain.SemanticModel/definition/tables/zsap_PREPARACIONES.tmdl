@@ -22,17 +22,15 @@ table zsap_PREPARACIONES
 		annotation SummarizationSetBy = Automatic
 
 	column CENTRO_SUMINIS
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: 3cd03509-6be0-4c02-922b-649056107972
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CENTRO_SUMINIS
 
 		annotation SummarizationSetBy = Automatic
 
 	column CENTRO
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: 7084de79-9a38-4ccc-af9c-1c7361d0e310
 		summarizeBy: none
 		sourceColumn: CENTRO
@@ -344,7 +342,7 @@ table zsap_PREPARACIONES
 				    #"Valor reemplazado" = Table.ReplaceValue(zsap_ZPS_TRACING2,"00000000",null,Replacer.ReplaceValue,{"FECHA_LIQUIDACION", "FECHA", "FECHA_EXPEDIENTE", "FECHA_DOCUMENTO"}),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Valor reemplazado",{{"CREADO_EL", type date}, {"FECHA", type date}, {"FECHA_EXPEDIENTE", type date}, {"FECHA_LIQUIDACION", type date}, {"FECHA_DOCUMENTO", type date}}),
 				    #"Valor reemplazado1" = Table.ReplaceValue(#"Changed Type","00000000",null,Replacer.ReplaceValue,{"FECHA_FIN_ENVIO", "FECHA_ENTREGA"}),
-				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Valor reemplazado1",{{"DOC_COMPRA", Int64.Type}, {"CENTRO_SUMINIS", Int64.Type}, {"CENTRO", Int64.Type}, {"FECHACREATRANSPORTE", type date}, {"NROTRANSPORTE", Int64.Type}, {"FECHA_FIN_ENVIO", type date}, {"FECHA_ENTREGA", type date}})
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Valor reemplazado1",{{"DOC_COMPRA", Int64.Type}, {"FECHACREATRANSPORTE", type date}, {"NROTRANSPORTE", Int64.Type}, {"FECHA_FIN_ENVIO", type date}, {"FECHA_ENTREGA", type date}})
 				in
 				    #"Tipo cambiado"
 

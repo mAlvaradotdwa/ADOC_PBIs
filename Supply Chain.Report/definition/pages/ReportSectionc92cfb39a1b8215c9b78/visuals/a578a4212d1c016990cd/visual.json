@@ -4,10 +4,10 @@
   "position": {
     "x": 224,
     "y": 488,
-    "z": 25000,
+    "z": 21000,
     "height": 224,
     "width": 728,
-    "tabOrder": 25000
+    "tabOrder": 21000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -305,7 +305,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "a92a733f7220a04ac40e",
+        "name": "64c75b0101ec89904086",
         "field": {
           "Arithmetic": {
             "Left": {

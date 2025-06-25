@@ -78,18 +78,24 @@ table Ventas_Mayoreo
 
 		annotation SummarizationSetBy = Automatic
 
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: 77c14af8-9e22-4222-bd17-ad9a8cada540
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Ventas_Mayoreo-67f4fc85-bacb-4981-98ca-9587afa61979 = m
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
-				    Source = Origen{[Schema="dbo",Item="vw_sc_VentasMayoreo"]}[Data],
-				    #"Tipo cambiado" = Table.TransformColumnTypes(Source,{{"PERIODO", type datetime}}),
-				    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each [PERIODO] >= RangeStart and [PERIODO] < RangeEnd)
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT #(lf)#(tab)[PERIODO] = CAST( [dim].[PERIODO] AS DATETIME ) ,#(lf)#(tab)[SK_TIENDA] = [V1].[SK_TIENDA] * 1 ,#(lf)#(tab)--[V1].[SK_MATNR] , #(lf)#(tab)[V1].[SK_TIPOOPERACION] ,#(lf)#(tab)[V1].[SK_ALMACEN] ,#(lf)#(tab)[Pares] = SUM( [V1].[PARES] ) ,#(lf)#(tab)[Venta_USD] = SUM( [V1].[VENTANETA_USD] ) ,#(lf)#(tab)[Costo_USD] = SUM( [V1].[COSTOTOTAL_USD] ) ,#(lf)#(tab)[Descuento_USD] = SUM( [V1].[ORIG_VENTANETA_USD] - [V1].[VENTANETA_USD] ) ,#(lf)#(tab)[SK_PRODUCTO] = CONCAT( [A1].[SK_COLECCION] , '.' , [A1].[SK_UNIDADNEGOCIO] , '.' , [A1].[BV_MARCA] , '.' , [A1].[BV_DEPTO] )#(lf)FROM [FAC_VENTASAP] AS [V1]#(lf)LEFT JOIN [dbo].[DIM_PERIODO] [dim]#(lf)#(tab)ON [V1].[SK_PERIODO] = [dim].[SK_PERIODO]#(lf)LEFT JOIN [DIM_ARTICULOSAP] AS [A1]#(lf)#(tab)ON [v1].[SK_MATNR] = [A1].[SK_MATNR]#(lf)WHERE CAST( [dim].[PERIODO] AS DATE ) BETWEEN DATEADD( DAY , -371 , CAST( GETDATE() AS DATE ) ) AND DATEADD( DAY , -8 , CAST( GETDATE() AS DATE ) )#(lf)#(tab)AND [V1].[SK_DIVISION] = 20#(lf)#(tab)AND [A1].[SK_DEPTO] IN#(lf)#(tab)('C' ,#(lf)#(tab)'R' ,#(lf)#(tab)'A'#(lf)#(tab))#(lf)GROUP BY [dim].[PERIODO] ,#(lf)#(tab)#(tab) [V1].[SK_TIENDA] ,#(lf)#(tab)#(tab) [V1].[SK_TIPOOPERACION] ,#(lf)#(tab)#(tab) [V1].[SK_ALMACEN] ,#(lf)#(tab)#(tab) [A1].[SK_COLECCION] ,#(lf)#(tab)#(tab) [A1].[SK_UNIDADNEGOCIO] ,#(lf)#(tab)#(tab) [A1].[BV_MARCA] ,#(lf)#(tab)#(tab) [A1].[BV_DEPTO]", CreateNavigationProperties=false]) ,
+				    out = Table.TransformColumnTypes(Source,{{"PERIODO", type datetime}})
 				in
-				    #"Filas filtradas"
+				    out
 
 	annotation PBI_ResultType = Table
 
-	annotation PBI_IsMQueryFoldable = True
+	annotation PBI_NavigationStepName = Navegación
 

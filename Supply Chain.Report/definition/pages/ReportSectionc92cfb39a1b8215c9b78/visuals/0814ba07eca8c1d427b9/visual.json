@@ -4,10 +4,10 @@
   "position": {
     "x": 960,
     "y": 488,
-    "z": 26000,
+    "z": 22000,
     "height": 224,
     "width": 312,
-    "tabOrder": 26000
+    "tabOrder": 22000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -291,7 +291,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "091fe8000a4de38405ad",
+        "name": "770cf1dc872ba8eeab67",
         "field": {
           "Arithmetic": {
             "Left": {
@@ -326,7 +326,7 @@
         "howCreated": "User"
       },
       {
-        "name": "5fdeac74046b79a02ca2",
+        "name": "951a900cb5e01cec4d90",
         "field": {
           "Measure": {
             "Expression": {

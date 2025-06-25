@@ -343,6 +343,22 @@ table ZTUNGYA
 
 		annotation SummarizationSetBy = Automatic
 
+	column ZZ_TIPO_FLETE
+		dataType: string
+		lineageTag: 3bf7dc76-58ce-4b60-826a-b389a8bb9c57
+		summarizeBy: none
+		sourceColumn: ZZ_TIPO_FLETE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZCENTRODES
+		dataType: string
+		lineageTag: 5cdfedf0-ba05-4c40-8f46-4b9b4d257251
+		summarizeBy: none
+		sourceColumn: ZCENTRODES
+
+		annotation SummarizationSetBy = Automatic
+
 	partition ZTUNGYA = m
 		mode: import
 		queryGroup: 'Fuentes SAP'

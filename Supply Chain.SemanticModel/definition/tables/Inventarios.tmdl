@@ -100,10 +100,9 @@ table Inventarios
 
 	column SK_TiendaAgrupada =
 			
-			IF( Inventarios[SK_TIPOOPERACION] = "INVENTARIO" , INT([SK_TIENDA]) , -1 )
-		formatString: 0
+			IF( Inventarios[SK_TIPOOPERACION] = "INVENTARIO" , [SK_TIENDA] , "-1" )
 		lineageTag: 2d0caa7c-efab-4414-a360-38d041e11a3e
-		summarizeBy: sum
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
@@ -146,7 +145,9 @@ table Inventarios
 				in
 				    #"Filas filtradas"
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 
 	annotation PBI_IsMQueryFoldable = True
+
+	annotation PBI_NavigationStepName = Navegación
 

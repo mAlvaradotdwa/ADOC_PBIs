@@ -20,19 +20,49 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PeriodosEstadisticos"
+                      "Entity": "Tiendas"
                     }
                   },
-                  "Property": "VencimientoEstadistico"
+                  "Property": "BV_PAIS"
                 }
               },
-              "queryRef": "PeriodosEstadisticos.VencimientoEstadistico",
+              "queryRef": "Tiendas.BV_PAIS",
+              "nativeQueryRef": "BV_PAIS",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
+                  "Property": "UnidadNegocio"
+                }
+              },
+              "queryRef": "Articulos.UnidadNegocio",
+              "nativeQueryRef": "UnidadNegocio",
+              "active": false
             }
           ]
         },
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario Un AP"
+                }
+              },
+              "queryRef": "Métricas.Inventario Un AP",
+              "nativeQueryRef": "Inventario Un AP"
+            },
             {
               "field": {
                 "Measure": {
@@ -48,50 +78,17 @@
             },
             {
               "field": {
-                "Arithmetic": {
-                  "Left": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Métricas"
-                        }
-                      },
-                      "Property": "Inventario Un"
-                    }
-                  },
-                  "Right": {
-                    "ScopedEval": {
-                      "Expression": {
-                        "Measure": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "Métricas"
-                            }
-                          },
-                          "Property": "Inventario Un"
-                        }
-                      },
-                      "Scope": []
-                    }
-                  },
-                  "Operator": 3
-                }
-              },
-              "queryRef": "Divide(Métricas.Inventario Un, ScopedEval(Métricas.Inventario Un, []))",
-              "displayName": "Share Inventario"
-            },
-            {
-              "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "Métricas"
                     }
                   },
-                  "Property": "Var Inv LW"
+                  "Property": "Var Inventario"
                 }
               },
-              "queryRef": "Métricas.Var Inv LW"
+              "queryRef": "Métricas.Var Inventario",
+              "nativeQueryRef": "Var Inventario"
             }
           ]
         }
@@ -122,7 +119,14 @@
         "levels": [
           {
             "queryRefs": [
-              "PeriodosEstadisticos.VencimientoEstadistico"
+              "Tiendas.BV_PAIS"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Articulos.UnidadNegocio"
             ],
             "isCollapsed": true,
             "isPinned": true
@@ -142,6 +146,19 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Métricas.Var Inventario"
           }
         },
         {
@@ -177,7 +194,7 @@
                                     "Entity": "Métricas"
                                   }
                                 },
-                                "Property": "Var Inv LW"
+                                "Property": "Var Inventario"
                               }
                             },
                             "Right": {
@@ -195,57 +212,6 @@
                       },
                       {
                         "Condition": {
-                          "And": {
-                            "Left": {
-                              "Comparison": {
-                                "ComparisonKind": 2,
-                                "Left": {
-                                  "Measure": {
-                                    "Expression": {
-                                      "SourceRef": {
-                                        "Entity": "Métricas"
-                                      }
-                                    },
-                                    "Property": "Var Inv LW"
-                                  }
-                                },
-                                "Right": {
-                                  "Literal": {
-                                    "Value": "-0.00001D"
-                                  }
-                                }
-                              }
-                            },
-                            "Right": {
-                              "Comparison": {
-                                "ComparisonKind": 3,
-                                "Left": {
-                                  "Measure": {
-                                    "Expression": {
-                                      "SourceRef": {
-                                        "Entity": "Métricas"
-                                      }
-                                    },
-                                    "Property": "Var Inv LW"
-                                  }
-                                },
-                                "Right": {
-                                  "Literal": {
-                                    "Value": "0D"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "Value": {
-                          "Literal": {
-                            "Value": "'TriangleMedium'"
-                          }
-                        }
-                      },
-                      {
-                        "Condition": {
                           "Comparison": {
                             "ComparisonKind": 3,
                             "Left": {
@@ -255,12 +221,12 @@
                                     "Entity": "Métricas"
                                   }
                                 },
-                                "Property": "Var Inv LW"
+                                "Property": "Var Inventario"
                               }
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "-0.00001D"
+                                "Value": "0D"
                               }
                             }
                           }
@@ -281,11 +247,11 @@
             "data": [
               {
                 "dataViewWildcard": {
-                  "matchingOption": 1
+                  "matchingOption": 0
                 }
               }
             ],
-            "metadata": "Métricas.Var Inv LW"
+            "metadata": "Métricas.Var Inventario"
           }
         }
       ],
@@ -353,7 +319,7 @@
                   "color": {
                     "expr": {
                       "Literal": {
-                        "Value": "'#333333'"
+                        "Value": "'#fae99f'"
                       }
                     }
                   }
@@ -372,11 +338,87 @@
                     "Value": "false"
                   }
                 }
+              },
+              "totalMatchingOption": {
+                "expr": {
+                  "Literal": {
+                    "Value": "1L"
+                  }
+                }
               }
             }
           },
           "selector": {
             "metadata": "Métricas.Inventario Un"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "Métricas.Var Inventario"
+          }
+        },
+        {
+          "properties": {
+            "dataBars": {
+              "positiveColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'#cccccc'"
+                      }
+                    }
+                  }
+                }
+              },
+              "negativeColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "axisColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'#cccccc'"
+                      }
+                    }
+                  }
+                }
+              },
+              "reverseDirection": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "hideText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "totalMatchingOption": {
+                "expr": {
+                  "Literal": {
+                    "Value": "1L"
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Inventario Un AP"
           }
         }
       ]
@@ -388,7 +430,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Distribución por Período Estadístico LEGACY'"
+                  "Value": "'Comparativo de Inventario vs Año Pasado'"
                 }
               }
             },
@@ -510,6 +552,7 @@
           }
         },
         "type": "Categorical",
+        "howCreated": "User",
         "objects": {
           "general": [
             {

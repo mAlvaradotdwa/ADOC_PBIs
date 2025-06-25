@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "81e6fa05999ef543354d",
   "position": {
-    "x": 1025,
+    "x": 1056,
     "y": 8,
     "z": 8000,
     "height": 88,
-    "width": 112,
+    "width": 96,
     "tabOrder": 8000
   },
   "visual": {
@@ -121,7 +121,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tran. Tienda - Tienda'"
+                  "Value": "'Tran. Tda - Tda'"
                 }
               }
             },

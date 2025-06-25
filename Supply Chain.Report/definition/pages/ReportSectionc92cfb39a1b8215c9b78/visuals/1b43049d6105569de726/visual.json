@@ -6,8 +6,8 @@
     "y": 104,
     "z": 1000,
     "height": 184,
-    "width": 728,
-    "tabOrder": 2000
+    "width": 792,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "stackedAreaChart",
@@ -160,7 +160,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8D"
                 }
               }
             },
@@ -253,6 +253,92 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Almacenes"
+                          }
+                        },
+                        "Property": "BV_DIVISION"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'DET'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Almacenes"
+                          }
+                        },
+                        "Property": "BV_DIVISION"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'MAY'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
           }
         }
       ]
@@ -541,6 +627,48 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "d62d6d691d6836b03012",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fecha"
+              }
+            },
+            "Property": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b0cfedf85458be301e01",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fecha"
+              }
+            },
+            "Property": "Num. Semana"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7518c592b8020ba61aa0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Inventario Un"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

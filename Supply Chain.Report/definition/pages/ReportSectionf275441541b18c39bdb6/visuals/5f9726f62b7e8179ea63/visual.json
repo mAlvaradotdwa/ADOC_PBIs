@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "5f9726f62b7e8179ea63",
   "position": {
-    "x": 896,
+    "x": 848,
     "y": 400,
     "z": 6000,
     "height": 312,
-    "width": 376,
+    "width": 424,
     "tabOrder": 6000
   },
   "visual": {
@@ -23,11 +23,27 @@
                       "Entity": "Articulos"
                     }
                   },
+                  "Property": "UnidadNegocio"
+                }
+              },
+              "queryRef": "Articulos.UnidadNegocio",
+              "nativeQueryRef": "Unidad Negocio",
+              "active": true,
+              "displayName": "Unidad Negocio"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Articulos"
+                    }
+                  },
                   "Property": "MARCA"
                 }
               },
               "queryRef": "Articulos.MARCA",
-              "active": true
+              "active": false
             }
           ]
         },
@@ -92,6 +108,41 @@
                 }
               },
               "queryRef": "Métricas.Var Inv LW"
+            },
+            {
+              "field": {
+                "Arithmetic": {
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Métricas"
+                        }
+                      },
+                      "Property": "Venta"
+                    }
+                  },
+                  "Right": {
+                    "ScopedEval": {
+                      "Expression": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Métricas"
+                            }
+                          },
+                          "Property": "Venta"
+                        }
+                      },
+                      "Scope": []
+                    }
+                  },
+                  "Operator": 3
+                }
+              },
+              "queryRef": "Métricas.Venta",
+              "nativeQueryRef": "Share Venta",
+              "displayName": "Share Venta"
             }
           ]
         }
@@ -120,6 +171,13 @@
           "Rows"
         ],
         "levels": [
+          {
+            "queryRefs": [
+              "Articulos.UnidadNegocio"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
           {
             "queryRefs": [
               "Articulos.MARCA"
@@ -391,6 +449,36 @@
             "metadata": "Métricas.Inventario Un"
           }
         }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Divide(Métricas.Inventario Un, ScopedEval(Métricas.Inventario Un, []))"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "60D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Venta"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -506,5 +594,148 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3bb753b1bca24e9cea42",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Articulos"
+              }
+            },
+            "Property": "MARCA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b755bffdc2006e8e29d4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Inventario Un"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "02abef2c312d00d68ee6",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Métricas"
+                  }
+                },
+                "Property": "Inventario Un"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Métricas"
+                      }
+                    },
+                    "Property": "Inventario Un"
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "282442438e5a585e5630",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Var Inv LW"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "02c6a90041b6c4170980",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Articulos"
+              }
+            },
+            "Property": "UnidadNegocio"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "20137126d1e64ae32a05",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Venta"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "0d0a501b0ea4c3d9e5a4",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Métricas"
+                  }
+                },
+                "Property": "Venta"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Métricas"
+                      }
+                    },
+                    "Property": "Venta"
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

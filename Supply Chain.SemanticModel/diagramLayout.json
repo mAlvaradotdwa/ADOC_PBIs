@@ -503,6 +503,32 @@
             "width": 234
           },
           "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 7247.4,
+            "y": 467.00840336134445
+          },
+          "nodeIndex": "FAC_INVENTARIOUD",
+          "nodeLineageTag": "5232a181-70ac-4e0d-bde1-1d8541c97bfd",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7531.4,
+            "y": 467.00840336134445
+          },
+          "nodeIndex": "EKPO",
+          "nodeLineageTag": "5939dd6b-4b18-4f93-95b7-8d64ab703d40",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
@@ -521,8 +547,8 @@
       "nodes": [
         {
           "location": {
-            "x": 322.20122213630884,
-            "y": 106.06880871357401
+            "x": 442.92798318273066,
+            "y": 55.159933573516611
           },
           "nodeIndex": "zsap_ZPS_TRACING2",
           "nodeLineageTag": "47b74101-2bfa-4f9a-ad30-b6fd9271c207",
@@ -547,8 +573,8 @@
         },
         {
           "location": {
-            "x": 663.34575802556174,
-            "y": 33
+            "x": 1499.6291939396219,
+            "y": 99.9082648219341
           },
           "nodeIndex": "Almacenes",
           "nodeLineageTag": "f9e04b0d-1b7c-4958-abbe-032c61a12389",
@@ -579,10 +605,11 @@
           "nodeIndex": "Tiendas",
           "nodeLineageTag": "f6f2273e-1213-442e-9f04-34664fe32323",
           "size": {
-            "height": 300,
+            "height": 104,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 0,
+          "expandedHeight": 300
         },
         {
           "location": {
@@ -591,6 +618,45 @@
           },
           "nodeIndex": "zsap_ONTIME",
           "nodeLineageTag": "94c4da8b-9fb9-46fb-ba44-eaf8274805a1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1336.7207934914381,
+            "y": 600.26978048421267
+          },
+          "nodeIndex": "Ventas",
+          "nodeLineageTag": "2717b7dd-aa26-4a9b-85c4-03dadfa41832",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1594.1742477711573,
+            "y": 598.81524119449671
+          },
+          "nodeIndex": "Ventas_Mayoreo",
+          "nodeLineageTag": "763d5e28-8991-404b-85ab-5b55915a4b48",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2.9090785794318492,
+            "y": 594.45162332534892
+          },
+          "nodeIndex": "Inventario en Bodegas",
+          "nodeLineageTag": "e669c1e0-5c60-414b-a2e7-85041c2a3954",
           "size": {
             "height": 300,
             "width": 234
@@ -788,6 +854,19 @@
             "width": 234
           },
           "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 935.30887823519515,
+            "y": 373.19192893263221
+          },
+          "nodeIndex": "EKPO",
+          "nodeLineageTag": "5939dd6b-4b18-4f93-95b7-8d64ab703d40",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "EKBE",
@@ -926,6 +1005,6 @@
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Todas las tablas",
+  "selectedDiagram": "Disposición 1",
   "defaultDiagram": "Todas las tablas"
 }

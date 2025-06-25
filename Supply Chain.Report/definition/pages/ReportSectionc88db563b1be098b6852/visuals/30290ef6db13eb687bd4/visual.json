@@ -39,14 +39,29 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
+                      "Entity": "Tiendas"
+                    }
+                  },
+                  "Property": "BV_PAIS"
+                }
+              },
+              "queryRef": "Tiendas.BV_PAIS",
+              "nativeQueryRef": "BV_PAIS",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
                       "Entity": "Inventario en Bodegas"
                     }
                   },
-                  "Property": "Períodos Antiguedad"
+                  "Property": "Períodos Antiguedad 2"
                 }
               },
-              "queryRef": "Inventario en Bodegas.Períodos Antiguedad",
-              "nativeQueryRef": "Períodos Antiguedad",
+              "queryRef": "Inventario en Bodegas.Períodos Antiguedad 2",
+              "nativeQueryRef": "Períodos Antiguedad 2",
               "active": true
             },
             {
@@ -104,16 +119,29 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Métricas"
+                    "Entity": "Tiendas"
                   }
                 },
-                "Property": "Pares Bodegas"
+                "Property": "BV_PAIS"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Inventario en Bodegas"
+                  }
+                },
+                "Property": "Períodos Antiguedad 2"
+              }
+            },
+            "direction": "Ascending"
           }
         ]
       }
@@ -126,21 +154,15 @@
         "levels": [
           {
             "queryRefs": [
-              "Inventario en Bodegas.Períodos Antiguedad"
+              "Tiendas.BV_PAIS"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Inventario en Bodegas.Períodos Antiguedad 2"
             ],
             "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Inventario en Bodegas"
-                    }
-                  },
-                  "Property": "Períodos Antiguedad"
-                }
-              }
-            ],
             "isPinned": true
           },
           {
@@ -285,7 +307,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Reporte Semanal de días Prom. de Tránsito'"
+                  "Value": "'Antiguedad por País y Bodega'"
                 }
               }
             },
@@ -301,5 +323,93 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e26e11f39a410932e00d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Almacenes"
+              }
+            },
+            "Property": "Almacen_desc"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e1313264b42cc8b8a9b3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inventario en Bodegas"
+              }
+            },
+            "Property": "MARCA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "347e5944cb2e64090660",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inventario en Bodegas"
+              }
+            },
+            "Property": "BV_JERARQUIA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0f367bc60a624a0c9395",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Pares Bodegas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9ce9ab403ec0481798cd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inventario en Bodegas"
+              }
+            },
+            "Property": "Períodos Antiguedad 2"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fed1c6801201a07708e0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Tiendas"
+              }
+            },
+            "Property": "BV_PAIS"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

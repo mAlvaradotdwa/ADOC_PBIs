@@ -24,7 +24,7 @@ table 'Inventario en Bodegas'
 		dataType: int64
 		formatString: 0
 		lineageTag: f80da959-9645-466b-8b8c-b56029b1b1fd
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: SK_MATNR
 
 		annotation SummarizationSetBy = Automatic
@@ -243,6 +243,40 @@ table 'Inventario en Bodegas'
 		sourceColumn: IDPeriodoAntiguedad
 
 		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDAntiguedad2 =
+			
+			SWITCH(
+			    TRUE() ,
+			    ISBLANK( [Antiguedad] ) , 99 ,
+			    [Antiguedad] <= 91 , 1 ,
+			    [Antiguedad] <= 182 , 2 ,
+			    [Antiguedad]<= 365 , 3 ,
+			    99
+			)
+		formatString: 0
+		lineageTag: dbc5d6a9-bce7-4024-9b8e-964db845ca89
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Períodos Antiguedad 2' =
+			
+			SWITCH(
+			    TRUE() ,
+			    ISBLANK( [Antiguedad] ) , "Más de 12 meses sin movimiento" ,
+			    [Antiguedad] <= 91 , "hasta 3 meses sin movimiento" ,
+			    [Antiguedad] <= 182 , "hasta 6 meses sin movimiento" ,
+			    [Antiguedad] <= 365 , "hasta 12 meses sin movimiento" ,
+			    "Más de 12 meses sin movimiento"
+			)
+		lineageTag: 0a956e3b-8a5f-4ff5-898a-160f24416963
+		summarizeBy: none
+		sortByColumn: IDAntiguedad2
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 

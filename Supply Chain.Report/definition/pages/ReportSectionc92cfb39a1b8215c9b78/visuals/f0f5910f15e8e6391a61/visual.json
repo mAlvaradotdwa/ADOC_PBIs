@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "f0f5910f15e8e6391a61",
   "position": {
-    "x": 960,
+    "x": 1024,
     "y": 104,
-    "z": 21000,
+    "z": 20000,
     "height": 184,
-    "width": 312,
-    "tabOrder": 4000
+    "width": 248,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -374,6 +374,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "74b4bab21006edc4818d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Inventario Un"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

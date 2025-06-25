@@ -10,17 +10,15 @@ table Tiendas
 		annotation SummarizationSetBy = Automatic
 
 	column SK_PAIS
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: ab908bb9-8229-46c3-a7a4-b4060db63f1b
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: SK_PAIS
 
 		annotation SummarizationSetBy = Automatic
 
 	column SK_TIENDA
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: c5d59d7d-6042-4b84-b810-03274e077424
 		summarizeBy: none
 		sourceColumn: SK_TIENDA
@@ -256,7 +254,7 @@ table Tiendas
 		source =
 				let
 				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="-- Tiendas#(lf)DECLARE @InitialDate INT = 20210101#(lf)#(lf)SELECT          #(lf)       [a].[BV_PAIS] , #(lf)       [a].[SK_PAIS] , #(lf)       [a].[SK_TIENDA] , #(lf)       [a].[BV_PAIS_TIENDA] , #(lf)       [a].[TIPO_TIENDA_108] , #(lf)       [a].[MALL_STREET] , #(lf)       [a].[UBICACION] , #(lf)       [a].[MTS2_TOTAL] , #(lf)       [a].[FORMATO_CANAL] , #(lf)       [a].[BV_FORMATO] , #(lf)       [a].[FECHA_APERTURA] , #(lf)       [a].[FECHA_CIERRE] , #(lf)       [a].[ZONA] , #(lf)       [a].[ESTATUS_TIENDA] , #(lf)       [a].[CAPACIDAD_BODEGA] , #(lf)       [a].[CAPACIDAD_SALA] , #(lf)       [TiendaUbicacion] = [a].[BV_PAIS_TIENDA] + ' - ' + [a].[UBICACION] ,#(lf)       [AGRUPACION_TIENDA] = CASE#(lf)                          WHEN [BV_FORMATO] IN('ADOC' , 'CAT' , 'CG' , 'HP' , 'PAR2' , 'TNF') THEN 'TIENDAS'#(lf)                          WHEN [BV_FORMATO] IN('BOD') THEN 'CD'#(lf)                          ELSE [BV_FORMATO]#(lf)                      END , #(lf)       [SK_AGRUPACION_TIENDA] = CASE#(lf)                             WHEN [BV_FORMATO] IN('ADOC' , 'CAT' , 'CG' , 'HP' , 'PAR2' , 'TNF') THEN 4#(lf)                             WHEN [BV_FORMATO] IN('BOD') THEN 3#(lf)                             WHEN [BV_FORMATO] IN('BFI') THEN 2#(lf)                         END#(lf)  FROM (#(lf)         SELECT DISTINCT #(lf)                [S1].[BV_PAIS_TIENDA] , #(lf)                [C1].[BV_PAIS] , #(lf)                [S1].[SK_PAIS] , #(lf)                [S1].[SK_TIENDA] , #(lf)                [S1].[TIPO_TIENDA_108] , #(lf)                [S1].[MALL_STREET] , #(lf)                [S1].[UBICACION] , #(lf)                [S1].[MTS2_TOTAL] , #(lf)                [s1].[FECHA_APERTURA] , #(lf)                [s1].[FECHA_CIERRE] , #(lf)                [s1].[ZONA] ,#(lf)                CASE#(lf)                    WHEN [S1].[TIENDA] LIKE '%V%' THEN 'Ecommerce'#(lf)                    ELSE [S1].[BV_FORMATO]#(lf)                END AS [FORMATO_CANAL] , #(lf)                [S1].[BV_FORMATO] , #(lf)                [S1].[ESTATUS_TIENDA] , #(lf)                [S1].[CAPACIDAD_BODEGA] , #(lf)                [S1].[CAPACIDAD_SALA]#(lf)           FROM [dbo].[DIM_TIENDA] AS [S1]#(lf)           JOIN [dbo].[DIM_PAIS] AS [C1]#(lf)                ON [C1].[SK_PAIS] = [S1].[SK_PAIS]#(lf)          WHERE [S1].[SK_TIENDA] IN (#(lf)                                      SELECT DISTINCT #(lf)                                             [fac].[SK_TIENDA]#(lf)                                        FROM [FAC_INVENTARIOS] [fac]#(lf)                                       WHERE [SK_PERIODO] >= @InitialDate#(lf)                                    )#(lf)       ) [a]#(lf) GROUP BY #(lf)          [a].[BV_PAIS_TIENDA] , #(lf)          [a].[BV_PAIS] , #(lf)          [a].[SK_PAIS] , #(lf)          [a].[TIPO_TIENDA_108] , #(lf)          [a].[SK_Tienda] , #(lf)          [a].[MALL_STREET] , #(lf)          [a].[UBICACION] , #(lf)          [a].[MTS2_TOTAL] , #(lf)          [a].[FORMATO_CANAL] , #(lf)          [a].[BV_FORMATO] , #(lf)          [a].[FECHA_APERTURA] , #(lf)          [a].[FECHA_CIERRE] , #(lf)          [a].[ZONA] , #(lf)          [a].[ESTATUS_TIENDA] , #(lf)          [a].[CAPACIDAD_BODEGA] , #(lf)          [a].[CAPACIDAD_SALA]#(lf)#(lf)", CreateNavigationProperties=false]),
-				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"SK_TIENDA", Int64.Type}, {"SK_PAIS", Int64.Type}, {"FECHA_APERTURA", type date}, {"FECHA_CIERRE", type date}}),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{ {"FECHA_APERTURA", type date}, {"FECHA_CIERRE", type date} } ),
 				    #"Consultas combinadas" = Table.NestedJoin(#"Changed Type", {"SK_TIENDA"}, Tiendas_Geolocalizaciones, {"SK_TIENDA"}, "Tiendas_Geolocalizaciones", JoinKind.LeftOuter),
 				    #"Se expandió Tiendas_Geolocalizaciones" = Table.ExpandTableColumn(#"Consultas combinadas", "Tiendas_Geolocalizaciones", {"LATITUD", "LONGITUD", "LATITUD_GMS", "LONGITUD_GMS", "DEPARTAMENTO", "MUNICIPIO", "REFERENCIA"}, {"LATITUD", "LONGITUD", "LATITUD_GMS", "LONGITUD_GMS", "DEPARTAMENTO", "MUNICIPIO", "REFERENCIA"}),
 				    #"Valor reemplazado" = Table.ReplaceValue(#"Se expandió Tiendas_Geolocalizaciones","",null,Replacer.ReplaceValue,{"DEPARTAMENTO", "MUNICIPIO", "REFERENCIA"}),

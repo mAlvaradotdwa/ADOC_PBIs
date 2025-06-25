@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.4.0/schema.json",
   "name": "ed3cb4759b3b74cd19bc",
-  "displayName": "Duplicado de Colocaclón de Contenedores",
-  "displayOption": "ActualSize",
+  "displayName": "Colocaclón de Contenedores - Export Seleccionado",
+  "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,
   "objects": {

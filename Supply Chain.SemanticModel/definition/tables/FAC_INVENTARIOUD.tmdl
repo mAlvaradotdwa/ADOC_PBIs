@@ -1,0 +1,213 @@
+table FAC_INVENTARIOUD
+	lineageTag: 5232a181-70ac-4e0d-bde1-1d8541c97bfd
+
+	column SK_PERIODO
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 38622800-0d5c-4bc0-8296-03c4a9ec59d9
+		summarizeBy: sum
+		sourceColumn: SK_PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOOPERACION
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 90e03c62-fb81-4c8f-9b39-28a0b33dfee7
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MATNR
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6c57df47-867c-474a-bd7f-c73cb40be1f4
+		summarizeBy: none
+		sourceColumn: SK_MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_DIVISION
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 74e2f798-5cf2-440e-be01-3993b680a1c2
+		summarizeBy: sum
+		sourceColumn: SK_DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 831c5e73-00f3-4c55-8a21-ee53ea1ca626
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 666a9394-03da-4148-9863-0e6452c299eb
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ALMACEN
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ebfd62ec-c994-4240-9dee-2ed7acaf88dd
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PROVEEDOR
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e0ed9cca-21fc-421f-8ce3-665e85685077
+		summarizeBy: none
+		sourceColumn: SK_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTO_LOCAL
+		dataType: double
+		sourceProviderType: decimal(38, 9)
+		lineageTag: 35d95408-193d-47c2-8424-9a259cf9997c
+		summarizeBy: sum
+		sourceColumn: COSTO_LOCAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRECIO_LOCAL
+		dataType: double
+		sourceProviderType: decimal(38, 9)
+		lineageTag: d89c0a12-4760-4d38-912c-d26786710807
+		summarizeBy: sum
+		sourceColumn: PRECIO_LOCAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COSTO_USD
+		dataType: double
+		sourceProviderType: decimal(38, 9)
+		lineageTag: a920cd5c-f9d0-4211-8418-7471be2e49ed
+		summarizeBy: sum
+		sourceColumn: COSTO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRECIO_USD
+		dataType: double
+		sourceProviderType: decimal(38, 9)
+		lineageTag: 7941b1d2-3f02-461d-87c8-53297856a6fa
+		summarizeBy: sum
+		sourceColumn: PRECIO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PARES
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: e04b7f5d-9de3-49cb-b67d-dcb87d05a223
+		summarizeBy: sum
+		sourceColumn: PARES
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ARTICULO
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 59c65b12-af8f-4de9-9a2d-c570fe97a324
+		summarizeBy: none
+		sourceColumn: SK_ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESERVADO
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 5ddcd651-4db5-43de-a7bc-f919319f5ce3
+		summarizeBy: sum
+		sourceColumn: RESERVADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISPONIBLE
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 23300046-0225-4748-9a55-5e5866d99529
+		summarizeBy: sum
+		sourceColumn: DISPONIBLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_BASICO_ACTIVO
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: bf333ece-b4fd-4ffa-a9c5-f184477ef41c
+		summarizeBy: sum
+		sourceColumn: SK_BASICO_ACTIVO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ESTATUS
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 139ab217-85e9-4992-b243-152b91e02569
+		summarizeBy: none
+		sourceColumn: SK_ESTATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOESTILO
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c296974f-499d-4a3b-ba95-0b36ca0e0e06
+		summarizeBy: none
+		sourceColumn: SK_TIPOESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPO_TIENDA_108
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: a719e101-32f6-4dba-9ba6-562bf809b177
+		summarizeBy: sum
+		sourceColumn: SK_TIPO_TIENDA_108
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FAC_INVENTARIOUD = m
+		mode: import
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adoc-bi-dev"]),
+				    #"adoc-bi-dev" = Origen{[Name="adoc-bi-dev"]}[Data],
+				    CA_TEMP_Schema = #"adoc-bi-dev"{[Name="CA_TEMP",Kind="Schema"]}[Data],
+				    FAC_INVENTARIOUD_Table = CA_TEMP_Schema{[Name="FAC_INVENTARIOUD",Kind="Table"]}[Data]
+				in
+				    FAC_INVENTARIOUD_Table
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

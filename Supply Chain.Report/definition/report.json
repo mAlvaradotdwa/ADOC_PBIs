@@ -62,7 +62,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "true"
+                "Value": "false"
               }
             }
           },
@@ -106,6 +106,7 @@
     "defaultFilterActionIsDataFilter": true,
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
     "useDefaultAggregateDisplayName": true
   },
   "slowDataSourceSettings": {

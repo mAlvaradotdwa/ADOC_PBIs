@@ -115,7 +115,9 @@ table Ventas
 				in
 				    #"Filas filtradas"
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 
 	annotation PBI_IsMQueryFoldable = True
+
+	annotation PBI_NavigationStepName = Navegación
 

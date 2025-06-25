@@ -224,3 +224,27 @@ relationship 409d56f6-4108-46f8-6216-967b86e54b60
 	fromColumn: zsap_ZPS_TRACING2.CENTRO_SUMINIS
 	toColumn: Tiendas.SK_TIENDA
 
+relationship a760928e-bba6-40bb-624e-eafbb6ab2315
+	fromColumn: EKPO.FECHA_LIQUIDACION_ESTIMADA
+	toColumn: Fecha.Fecha
+
+relationship 263668da-1054-73ba-2472-cc18d12966c0
+	fromColumn: EKPO.ENTIDAD_CD
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 3ac942bb-3574-7e9d-5106-7a5b65bb4e0c
+	fromColumn: EKPO.ARTICULO
+	toColumn: Articulos_SAP.SK_MATNR
+
+relationship AutoDetected_7d1ff741-a322-4f2c-912b-c94745e3e734
+	fromColumn: Ventas_Mayoreo.SK_ALMACEN
+	toColumn: Almacenes.SK_ALMACEN
+
+relationship 9be8a160-0817-f432-62d3-b9d5dc9b1d2f
+	fromColumn: 'Inventario en Bodegas'.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 83799dec-bc41-228e-0b8d-a8e6fcbd7216
+	fromColumn: 'Inventario en Bodegas'.SK_MATNR
+	toColumn: Articulos_SAP.SK_MATNR
+

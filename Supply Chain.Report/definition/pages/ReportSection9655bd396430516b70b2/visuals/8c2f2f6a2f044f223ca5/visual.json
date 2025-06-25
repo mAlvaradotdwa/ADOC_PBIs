@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "8c2f2f6a2f044f223ca5",
   "position": {
-    "x": 515,
+    "x": 496,
     "y": 8,
     "z": 27000,
     "height": 88,
-    "width": 114,
+    "width": 88,
     "tabOrder": 27000
   },
   "visual": {
@@ -291,6 +291,20 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "c36fc2211025208a2e0a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Inventario Un BFI"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

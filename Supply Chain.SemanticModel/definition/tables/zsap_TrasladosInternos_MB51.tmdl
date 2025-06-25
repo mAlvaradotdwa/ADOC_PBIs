@@ -11,19 +11,17 @@ table zsap_TrasladosInternos_MB51
 		annotation SummarizationSetBy = Automatic
 
 	column CODCENTRO
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: 74187f31-498b-4988-a187-37284a740839
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CODCENTRO
 
 		annotation SummarizationSetBy = Automatic
 
 	column CODCENTRORECEPTOR
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: 3798f04c-93ae-40d4-ae8a-83b808b71c0d
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CODCENTRORECEPTOR
 
 		annotation SummarizationSetBy = Automatic
@@ -137,7 +135,7 @@ table zsap_TrasladosInternos_MB51
 		source =
 				let
 				    zsap_MB51_TrasladosInternos = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- MB51#(lf)SELECT#(lf)#(tab)--#(tab)mseg.mblnr Documento,#(lf)#(tab)--#(tab)mseg.mjahr Anyo,#(lf)#(tab)--#(tab)mseg.zeile posicion_documento,#(lf)#(tab)mseg.bwart CodMovimiento,#(lf)#(tab)--#(tab)mseg.matnr CodMaterial,#(lf)#(tab)mseg.werks CodCentro,#(lf)#(tab)mseg.umwrk CodCentroReceptor,#(lf)#(tab)mseg.lgort CodAlmacen,#(lf)#(tab)mseg.umlgo CodAlmacenReceptor,#(lf)#(tab)--#(tab)mseg.charg Lote,#(lf)#(tab)mseg.waers Moneda,#(lf)#(tab)SUM(mseg.dmbtr) *#(lf)#(tab)CASE#(lf)#(tab)#(tab)WHEN mseg.bwart = '304' THEN -1#(lf)#(tab)#(tab)ELSE 1#(lf)#(tab)END  #(lf)#(tab)Monto,#(lf)#(tab)SUM(mseg.menge) *#(lf)#(tab)CASE#(lf)#(tab)#(tab)WHEN mseg.bwart = '304' THEN -1#(lf)#(tab)#(tab)ELSE 1#(lf)#(tab)END Cantidad,#(lf)#(tab)mseg.meins UdM,#(lf)#(tab)mseg.budat_mkpf FechaContable,#(lf)#(tab)mseg.xblnr_mkpf Referencia ,#(lf)#(tab)/**/#(lf)#(tab)mseg.CPUDT_MKPF AccountingDocDate,#(lf)#(tab)mseg.TCODE2_MKPF TransactionCode#(lf)FROM#(lf)#(tab)SAP_ECC.mseg#(lf)WHERE#(lf)#(tab)mseg.budat_mkpf >= '20220101'#(lf)#(tab)AND mseg.bwart IN (#(lf)#(tab)#(tab)'303', '304' , '305'#(lf)#(tab))#(lf)#(tab)AND mseg.lgort != ''#(lf)GROUP BY #(lf)#(tab)mseg.bwart ,#(lf)#(tab)mseg.werks ,#(lf)#(tab)mseg.umwrk ,#(lf)#(tab)mseg.lgort ,#(lf)#(tab)mseg.umlgo ,#(lf)#(tab)mseg.waers ,#(lf)--#(tab)mseg.dmbtr *#(lf)#(tab)mseg.meins ,#(lf)#(tab)mseg.budat_mkpf ,#(lf)#(tab)mseg.xblnr_mkpf ,#(lf)#(tab)mseg.CPUDT_MKPF ,#(lf)#(tab)mseg.TCODE2_MKPF #(lf)", null, [EnableFolding=true]),
-				    #"Tipo cambiado" = Table.TransformColumnTypes(zsap_MB51_TrasladosInternos,{{"CODCENTRO", Int64.Type}, {"CODMOVIMIENTO", Int64.Type}, {"MONTO", Currency.Type}, {"CANTIDAD", Currency.Type}, {"FECHACONTABLE", type date}, {"CODCENTRORECEPTOR", Int64.Type}, {"ACCOUNTINGDOCDATE", type date}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(zsap_MB51_TrasladosInternos,{{"CODMOVIMIENTO", Int64.Type}, {"MONTO", Currency.Type}, {"CANTIDAD", Currency.Type}, {"FECHACONTABLE", type date}, {"ACCOUNTINGDOCDATE", type date}}),
 				    #"Columna duplicada" = Table.DuplicateColumn(#"Tipo cambiado", "REFERENCIA", "REFERENCIA - Copia"),
 				    #"Texto extraído antes del delimitador" = Table.TransformColumns(#"Columna duplicada", {{"REFERENCIA - Copia", each Text.BeforeDelimiter(_, "/"), type text}}),
 				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Texto extraído antes del delimitador",{{"REFERENCIA - Copia", "numReferencia"}}),
@@ -146,4 +144,6 @@ table zsap_TrasladosInternos_MB51
 				    #"Tipo cambiado1"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
 

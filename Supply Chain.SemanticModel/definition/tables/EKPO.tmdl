@@ -1,0 +1,100 @@
+table EKPO
+	lineageTag: 5939dd6b-4b18-4f93-95b7-8d64ab703d40
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: 5c48c9f4-fc27-403b-a3db-b77449465c65
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 6543584e-cd5d-43da-ad49-ae3b2769cf3e
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: 8b6ff952-2fc5-4219-9959-f110468858b9
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_DOCUMENTO
+		dataType: string
+		lineageTag: db782f02-9120-4ea8-ad62-596c19bbb129
+		summarizeBy: none
+		sourceColumn: TIPO_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_CD
+		dataType: string
+		lineageTag: 53beae7a-e5b2-4b2a-a37e-8f404cac22e2
+		summarizeBy: none
+		sourceColumn: ENTIDAD_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2d9ce404-0e20-4ab5-83a8-82d5e3b38002
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETA_MarineTraffic_BFI
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0b6e4a1d-dc56-4546-84ea-fccb048b6fe3
+		summarizeBy: none
+		sourceColumn: ETA_MarineTraffic_BFI
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_LIQUIDACION_ESTIMADA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d95a14f8-b419-4eae-a730-e3333607dd53
+		summarizeBy: none
+		sourceColumn: FECHA_LIQUIDACION_ESTIMADA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_CD2
+		dataType: string
+		lineageTag: 1a94fba7-6b8c-466b-9c78-46a6f86f7e15
+		summarizeBy: none
+		sourceColumn: ENTIDAD_CD2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pares
+		dataType: int64
+		formatString: 0
+		lineageTag: 14b500f2-5bb0-4ee6-8b66-72b187518c51
+		summarizeBy: sum
+		sourceColumn: Pares
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EKPO = m
+		mode: import
+		source =
+				let
+				    Consulta2 = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Data%20Mining%20%26%20BI", "Seguimiento Mercadería", [Query="EVALUATE#(lf)SUMMARIZE (#(lf)    EKPO,#(lf)    EKPO[CONTENEDOR],#(lf)    EKPO[ARTICULO],#(lf)    EKPO[DOCUMENTO],#(lf)    EKPO[TIPO_DOCUMENTO],#(lf)    EKPO[ENTIDAD_CD],#(lf)    EKPO[Fecha],#(lf)    EKPO[ETA_MarineTraffic_BFI],#(lf)    EKPO[FECHA_LIQUIDACION_ESTIMADA],#(lf)    EKPO[ENTIDAD_CD2],#(lf)    ""Pares"", SUM ( EKPO[CANTIDAD_PARES] )#(lf))", Implementation="2.0"]),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(Consulta2,{{"EKPO[CONTENEDOR]", "CONTENEDOR"}, {"EKPO[ARTICULO]", "ARTICULO"}, {"EKPO[DOCUMENTO]", "DOCUMENTO"}, {"EKPO[TIPO_DOCUMENTO]", "TIPO_DOCUMENTO"}, {"EKPO[ENTIDAD_CD]", "ENTIDAD_CD"}, {"EKPO[Fecha]", "Fecha"}, {"EKPO[ETA_MarineTraffic_BFI]", "ETA_MarineTraffic_BFI"}, {"EKPO[FECHA_LIQUIDACION_ESTIMADA]", "FECHA_LIQUIDACION_ESTIMADA"}, {"EKPO[ENTIDAD_CD2]", "ENTIDAD_CD2"}, {"[Pares]", "Pares"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -12,10 +12,9 @@ table zsap_ZMM_TRACKING
 		annotation SummarizationSetBy = Automatic
 
 	column PROVEEDOR
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: d8420610-b80d-4259-8f01-baeb5f93bd1b
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: PROVEEDOR
 
 		changedProperty = IsHidden
@@ -112,10 +111,9 @@ table zsap_ZMM_TRACKING
 		annotation SummarizationSetBy = Automatic
 
 	column CENTRODESTINO
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: e1d9a4b6-0147-4063-a258-cdb6d5a57129
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CENTRODESTINO
 
 		changedProperty = IsHidden
@@ -320,11 +318,13 @@ table zsap_ZMM_TRACKING
 				let
 				    zsap_ZMM_TRACKING = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "#(lf)     -- ZMM_TRACKING#(lf)SELECT#(lf)     ekko.ebeln DocCompra,#(lf)     ekko.aedat Fechacreacion,#(lf)     ekko.bedat Fechadocumento,#(lf)     ekko.lifnr Proveedor,#(lf)     ekko.bsart TipoDocumento,#(lf)     ekko.zzf_despacho FechaDespacho,#(lf)     ekko.zz_zport puerto,#(lf)     ekko.zz_centro_d centrodestino,#(lf)     -- ekko.zzf_ent_ff,#(lf)     ekko.waers moneda,#(lf)     ekko.wkurs TasaCambio,#(lf)     ekko.bukrs sociedad,#(lf)     ekko.ekgrp GrupoDeCompra,#(lf)     ekpo.ebelp posicionpedido,#(lf)     ekpo.uebpo indicadorpapa,#(lf)     --(cuando es preeepack papa los hijos se llenan en este campo con la posicion papa) #(lf)     --ekpo.matkl descripcionmaterial,#(lf)     ekpo.ematn codigomaterial,#(lf)     ekpo.txz01 textoposicion,#(lf)     ekpo.ktmng cantidadprevista,#(lf)     ekpo.meins unidadmedida,#(lf)     ekpo.netpr montoneto,#(lf)     ekpo.menge cantidadpedida,#(lf)     ekpo.konnr contratoMK,#(lf)     ekpo.ktpnr posicionMK,#(lf)     ekpo.lbeln expediente,#(lf)     ekpo.werks centro,#(lf)     ekpo.lgort almacen,#(lf)     ekpo.attyp Categmaterial,#(lf)     --(11 preepack y 02 solido)#(lf)     ekpo.loekz,#(lf)     CASE#(lf)          WHEN ekpo.attyp = '11' THEN CAST(#(lf)               REPLACE(SUBSTRING(ekpo.txz01, 9, 2), '-', '') AS int#(lf)          )#(lf)          ELSE 1#(lf)     END PrePackFactor#(lf)FROM#(lf)     SAP_ECC.ekko#(lf)     INNER JOIN SAP_ECC.ekpo ON ekko.ebeln = ekpo.ebeln#(lf)WHERE#(lf)     ekko.bsart IN ('ZINT', 'MK')#(lf)     AND ekko.aedat >= '20230101'#(lf)     AND ekpo.loekz != 'L'", null, [EnableFolding=true]),
 				    #"Replaced Value" = Table.ReplaceValue(zsap_ZMM_TRACKING,"00000000",null,Replacer.ReplaceValue,{"FECHADESPACHO"}),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"FECHACREACION", type date}, {"FECHADOCUMENTO", type date}, {"FECHADESPACHO", type date}, {"PROVEEDOR", Int64.Type}, {"PUERTO", Int64.Type}, {"CENTRODESTINO", Int64.Type}, {"SOCIEDAD", Int64.Type}, {"GRUPODECOMPRA", Int64.Type}, {"POSICIONPEDIDO", Int64.Type}, {"INDICADORPAPA", Int64.Type}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"FECHACREACION", type date}, {"FECHADOCUMENTO", type date}, {"FECHADESPACHO", type date}, {"PUERTO", Int64.Type}, {"SOCIEDAD", Int64.Type}, {"GRUPODECOMPRA", Int64.Type}, {"POSICIONPEDIDO", Int64.Type}, {"INDICADORPAPA", Int64.Type}})
 				in
 				    #"Changed Type"
 
 	changedProperty = IsHidden
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
 

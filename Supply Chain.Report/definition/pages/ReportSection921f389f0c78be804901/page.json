@@ -1,9 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.4.0/schema.json",
-  "name": "ReportSection921f389f0c78be804901",
-  "displayName": "Nuevas métricas",
-  "displayOption": "FitToPage",
-  "height": 720,
-  "width": 1280,
-  "visibility": "HiddenInViewMode"
-}

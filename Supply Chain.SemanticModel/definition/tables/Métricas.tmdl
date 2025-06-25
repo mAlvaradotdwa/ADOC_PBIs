@@ -1514,6 +1514,42 @@ table Métricas
 		displayFolder: S&OP
 		lineageTag: cda38731-47ef-41db-a571-1b768391eb7e
 
+	measure 'Inventario Un AP' =
+			VAR _ldt =
+			    MAX ( Inventarios[PERIODO] ) - (7*52)
+			VAR _dap =
+			    CALCULATE ( MAX ( Fecha[NumAnoSemana] ), Fecha[Fecha] = _ldt )
+			
+			RETURN
+			    CALCULATE (
+			        [Inventario Un],
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[NumAnoSemana] = _dap
+			    )
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: 71c943b9-4000-4dac-b81d-53465f944c52
+
+	measure 'Var Inventario' = [Inventario Un] - [Inventario Un AP]
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: 86341850-c682-44ad-bee5-0746b669a384
+
+	measure 'Pares EKPO' = SUM ( EKPO[Pares] )
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: 5dc6be1c-636a-4ec2-9a80-bd90b96fce7f
+
+	measure Venta =
+			CALCULATE (
+			    [_baseVenta],
+			    REMOVEFILTERS ( Almacenes[Almacen_desc] ),
+			    REMOVEFILTERS ( Tiendas[AGRUPACION_TIENDA] )
+			)
+		formatString: $ #,0
+		displayFolder: SCM
+		lineageTag: d976f619-bbee-4fc5-b00c-a1f4719617f6
+
 	column ColName
 		isHidden
 		formatString: 0
