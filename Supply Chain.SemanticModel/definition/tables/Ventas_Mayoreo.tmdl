@@ -1,0 +1,101 @@
+table Ventas_Mayoreo
+	lineageTag: 763d5e28-8991-404b-85ab-5b55915a4b48
+
+	column SK_TIENDA
+		dataType: int64
+		formatString: 0
+		lineageTag: 874f47f5-2186-43d4-aa74-46b962b153f8
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOOPERACION
+		dataType: string
+		lineageTag: 3193b877-fafc-4ac9-b57a-9044b7b80549
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pares
+		dataType: double
+		lineageTag: b7419559-581c-47cf-9b2b-c053dd0e399e
+		summarizeBy: sum
+		sourceColumn: Pares
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Venta_USD
+		dataType: double
+		lineageTag: b0894217-0457-424c-ad5a-f01cbdad9ad0
+		summarizeBy: sum
+		sourceColumn: Venta_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Costo_USD
+		dataType: double
+		lineageTag: ea7f790e-2d3b-484c-935c-cfcd3f1c68ec
+		summarizeBy: sum
+		sourceColumn: Costo_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Descuento_USD
+		dataType: double
+		lineageTag: c3deedbb-0f43-47e1-9369-1bb4e7104893
+		summarizeBy: sum
+		sourceColumn: Descuento_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PERIODO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b9692552-664e-477f-82f9-c208033ec76c
+		summarizeBy: none
+		sourceColumn: PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PRODUCTO
+		dataType: string
+		isHidden
+		lineageTag: 37000abb-7e5d-4452-aa8d-b27b52524dd7
+		summarizeBy: none
+		sourceColumn: SK_PRODUCTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: 77c14af8-9e22-4222-bd17-ad9a8cada540
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Ventas_Mayoreo-67f4fc85-bacb-4981-98ca-9587afa61979 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT #(lf)#(tab)[PERIODO] = CAST( [dim].[PERIODO] AS DATETIME ) ,#(lf)#(tab)[SK_TIENDA] = [V1].[SK_TIENDA] * 1 ,#(lf)#(tab)--[V1].[SK_MATNR] , #(lf)#(tab)[V1].[SK_TIPOOPERACION] ,#(lf)#(tab)[V1].[SK_ALMACEN] ,#(lf)#(tab)[Pares] = SUM( [V1].[PARES] ) ,#(lf)#(tab)[Venta_USD] = SUM( [V1].[VENTANETA_USD] ) ,#(lf)#(tab)[Costo_USD] = SUM( [V1].[COSTOTOTAL_USD] ) ,#(lf)#(tab)[Descuento_USD] = SUM( [V1].[ORIG_VENTANETA_USD] - [V1].[VENTANETA_USD] ) ,#(lf)#(tab)[SK_PRODUCTO] = CONCAT( [A1].[SK_COLECCION] , '.' , [A1].[SK_UNIDADNEGOCIO] , '.' , [A1].[BV_MARCA] , '.' , [A1].[BV_DEPTO] )#(lf)FROM [FAC_VENTASAP] AS [V1]#(lf)LEFT JOIN [dbo].[DIM_PERIODO] [dim]#(lf)#(tab)ON [V1].[SK_PERIODO] = [dim].[SK_PERIODO]#(lf)LEFT JOIN [DIM_ARTICULOSAP] AS [A1]#(lf)#(tab)ON [v1].[SK_MATNR] = [A1].[SK_MATNR]#(lf)WHERE CAST( [dim].[PERIODO] AS DATE ) BETWEEN DATEADD( DAY , -371 , CAST( GETDATE() AS DATE ) ) AND DATEADD( DAY , -8 , CAST( GETDATE() AS DATE ) )#(lf)#(tab)AND [V1].[SK_DIVISION] = 20#(lf)#(tab)AND [A1].[SK_DEPTO] IN#(lf)#(tab)('C' ,#(lf)#(tab)'R' ,#(lf)#(tab)'A'#(lf)#(tab))#(lf)GROUP BY [dim].[PERIODO] ,#(lf)#(tab)#(tab) [V1].[SK_TIENDA] ,#(lf)#(tab)#(tab) [V1].[SK_TIPOOPERACION] ,#(lf)#(tab)#(tab) [V1].[SK_ALMACEN] ,#(lf)#(tab)#(tab) [A1].[SK_COLECCION] ,#(lf)#(tab)#(tab) [A1].[SK_UNIDADNEGOCIO] ,#(lf)#(tab)#(tab) [A1].[BV_MARCA] ,#(lf)#(tab)#(tab) [A1].[BV_DEPTO]", CreateNavigationProperties=false]) ,
+				    out = Table.TransformColumnTypes(Source,{{"PERIODO", type datetime}})
+				in
+				    out
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

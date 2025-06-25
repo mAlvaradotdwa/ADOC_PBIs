@@ -1,0 +1,306 @@
+table Zdel_O_n_Time
+	isHidden
+	lineageTag: 7670fa15-7418-40bc-a302-1188c77453c3
+
+	column Mandante
+		dataType: string
+		isHidden
+		lineageTag: fd7351b3-735d-43ac-82ad-fcbf66b30a71
+		summarizeBy: none
+		sourceColumn: Mandante
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Entrega
+		dataType: string
+		isHidden
+		lineageTag: 655aaf26-9880-433c-83fc-4a245e76fca4
+		summarizeBy: none
+		sourceColumn: Entrega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Posicion
+		dataType: double
+		isHidden
+		lineageTag: 2342d561-3930-42f0-b0e9-b2af9582da56
+		summarizeBy: sum
+		sourceColumn: Posicion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Puesto_Exped
+		dataType: string
+		isHidden
+		lineageTag: 3673983d-b712-41e1-8911-1f29e52d6c77
+		summarizeBy: none
+		sourceColumn: Puesto_Exped
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Organiz_Ventas
+		dataType: string
+		isHidden
+		lineageTag: 309bd308-ddfd-4d0d-9053-3d3c2480630a
+		summarizeBy: none
+		sourceColumn: Organiz_Ventas
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Centro
+		dataType: string
+		isHidden
+		lineageTag: ddd4b0a7-7b4e-49ed-853d-3aa6659d5ae6
+		summarizeBy: none
+		sourceColumn: Centro
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Almacen
+		dataType: string
+		isHidden
+		lineageTag: a0ac6999-43fc-44bf-b404-44bf891a6601
+		summarizeBy: none
+		sourceColumn: Almacen
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		isHidden
+		lineageTag: 472ba37c-3f7d-43de-953e-74cfd74e8031
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATNR
+		dataType: string
+		isHidden
+		lineageTag: 2f958c9a-62b0-446d-b526-fcffb65d5795
+		summarizeBy: none
+		sourceColumn: MATNR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cantidad_Entrega
+		dataType: double
+		isHidden
+		lineageTag: b212e4f1-af75-4390-96d6-2884c0a2af42
+		summarizeBy: sum
+		sourceColumn: Cantidad_Entrega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Fecha_Fin_Planificacion
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: b8e2f58a-273e-418c-a581-8e22bb7c1eaa
+		summarizeBy: none
+		sourceColumn: Fecha_Fin_Planificacion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Nivel
+		dataType: double
+		isHidden
+		lineageTag: 454b6d67-1dae-47e2-b45b-ffce2e0b8b48
+		summarizeBy: sum
+		sourceColumn: Nivel
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column H_Transito
+		dataType: string
+		isHidden
+		lineageTag: 5ebee198-a174-4cf5-9e75-94b646edb55a
+		summarizeBy: none
+		sourceColumn: H_Transito
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column On_Time
+		dataType: string
+		isHidden
+		lineageTag: ac6aefef-0dc1-4431-ae70-50309715bf11
+		summarizeBy: none
+		sourceColumn: On_Time
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIENDA
+		dataType: string
+		isHidden
+		lineageTag: 126ee70c-9592-46fb-b992-7abea28c66b6
+		summarizeBy: none
+		sourceColumn: TIENDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clase_Entrega
+		dataType: string
+		isHidden
+		lineageTag: 8cac7a08-eb38-46b3-987a-1799ebf958f5
+		summarizeBy: none
+		sourceColumn: Clase_Entrega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia
+		dataType: string
+		isHidden
+		lineageTag: 1d50be86-5dbb-48d5-b923-4239b85b8fb5
+		summarizeBy: none
+		sourceColumn: Dia
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column isCrossDock = ```
+			
+			VAR _e = [Entrega]
+			RETURN
+			    CALCULATE (
+			        COUNTROWS ( Crossdocks ),
+			        Crossdocks[REFERENCIA] = _e
+			    )
+			
+			```
+		isHidden
+		formatString: 0
+		lineageTag: 069de558-9cd1-4c22-93e8-fd976894d230
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fCreacion
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 44c8ed27-3cdd-446c-afb5-7b3caa890409
+		summarizeBy: none
+		sourceColumn: fCreacion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fCreacionTransporte
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: bb8dd86a-27d6-48d8-a90b-cc0ca47aa542
+		summarizeBy: none
+		sourceColumn: fCreacionTransporte
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fCreacionCalculada
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 3263378e-7a71-4724-be4d-78b32a3d764c
+		summarizeBy: none
+		sourceColumn: fCreacionCalculada
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fFin
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 09f3bd47-99a2-4703-a7ea-500f61d47e99
+		summarizeBy: none
+		sourceColumn: fFin
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 1924f751-7bd3-4957-b938-6c45ed12f048
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Zdel_O_n_Time-7227dd02-4b1f-42ea-97c4-39b20e32106f = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "ST_COMERCIAL", [Query="SELECT#(lf)       --[dim].[BV_JERARQUIA] , #(lf)       --[dim].[ESTILO] , #(lf)       --[dim].[COLOR] , #(lf)       --[dim].[TALLA] , #(lf)       [Mandante] = [MANDT] , #(lf)       [Entrega] = [VBELN] , #(lf)       [Posicion] = [POSNR] , #(lf)       --[Creado_Por] = [ERNAM] , #(lf)       [FechaCreacion] = [ERDAT] , #(lf)       [HoraCreacion] = [ERZET] , #(lf)       [Puesto_Exped] = [VSTEL] , #(lf)       [Organiz_Ventas] = [VKORG] , #(lf)       [Centro] = [WERKS] , #(lf)       [Almacen] = [LGORT] , #(lf)       [SK_TIENDA] = [KUNNR] , #(lf)       --[Nombre_Tienda] = [ZNOMCLIENTE] , #(lf)       [MATNR] = [MATNR] , #(lf)       --[Estilo_Color_Talla] = [ARKTX] , #(lf)       --[Categoria] = [ZCATEGORIA] , #(lf)       --[Genero] = [ZZ_ART_PROV] , #(lf)       --[Departamento] = [ZDEPART] , #(lf)       --[Temporada] = [SAISO] , #(lf)       --[Descripcion_Temporada] = [ZDESTEM] , #(lf)       [Cantidad_Entrega] = [LFIMG] , #(lf)       --[Precio] = [KBETR] , #(lf)       --[Pais] = [LAND1] , #(lf)       --[Numero_Transporte] = [ZTRANSPORTE] , #(lf)       --[Tipo_Tienda] = [ZTIPOTIENDA] , #(lf)       --[Zona] = [ZZONAZONA] , #(lf)       [Fecha_Creado_Transporte] = [ZFTRANS] , #(lf)       [Hora_Creado_Transporte] = [ZHTRANS] , #(lf)       [Fecha_Fin_Planificacion] = [ZFPLANIFICACION] , #(lf)       [Nivel] = [ZNIVELSERV] , #(lf)       [Fecha_Calculada] = [ZFCALCULADA] , #(lf)       [Hora_Calculada] = [ZHCALCULADA] , #(lf)       [Fecha_Fin] = [ZFECFIN] , #(lf)       [Hora_Fin_Calculada] = [ZHFIN] , #(lf)       [H_Transito] = [ZHTRANSITO] , #(lf)       [On_Time] = [ZONTIME] , #(lf)       [TIENDA] = [ZTIENDA] , #(lf)       [Clase_Entrega] = [ZCLENT] , #(lf)       [Dia] = [ZDIA] , #(lf)       [Fecha_Creacion] = [ERSDA] , #(lf)       [Hora_Creacion] = [CPUTM] --, #(lf)       --[Nombre_Usuario] = [USNAM]#(lf)  FROM [dbo].[SAP_ZONTIME] [sap]#(lf)  --LEFT JOIN [DM_COMERCIAL].[dbo].[DIM_ARTICULOSAP] [dim]#(lf)  --     ON [sap].[MATNR] = [dim].[SK_MATNR]#(lf)--  WHERE [sap].[VBELN] IN #(lf)-- ( '0082259225' , '0082259226' , '0082259227' , '0082259228' , '0082259229' , '0082259230' , '0082259248' , '0082259250' , '0082259251' , '0082259252' , '0082259254' , '0082274468' , '0082274469' , '0082274470' , '0082274471' , '0082274472' , '0082274473' , '0082274474' , '0082274475' , '0082274476' ) #(lf)", CreateNavigationProperties=false]),
+				    #"Replaced Value" = Table.ReplaceValue(Source,"00000000",null,Replacer.ReplaceValue,{"Fecha_Creado_Transporte", "Fecha_Fin_Planificacion"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","000000",null,Replacer.ReplaceValue,{"Hora_Creado_Transporte"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value1",{{"FechaCreacion", type date}, {"Fecha_Creado_Transporte", type date}, {"Fecha_Fin_Planificacion", type date}, {"Fecha_Calculada", type date}, {"Fecha_Fin", type date}, {"Fecha_Creacion", type date}, {"HoraCreacion", type time}, {"Hora_Creado_Transporte", type time}, {"Hora_Calculada", type time}, {"Hora_Fin_Calculada", type time}, {"Hora_Creacion", type time}}) ,
+				    #"Inserted_fCreacion" = Table.AddColumn(#"Changed Type", "fCreacion", each [FechaCreacion] & [HoraCreacion]) ,
+				    #"Inserted_fCreacionTransporte" = Table.AddColumn(Inserted_fCreacion, "fCreacionTransporte", each [Fecha_Creado_Transporte] & [Hora_Creado_Transporte]),
+				    #"Inserted_fCreacionCalculada" = Table.AddColumn(Inserted_fCreacionTransporte , "fCreacionCalculada", each [Fecha_Calculada] & [Hora_Calculada]) ,
+				    #"Inserted_fFin" = Table.AddColumn(#"Inserted_fCreacionCalculada" , "fFin", each [Fecha_Fin] & [Hora_Fin_Calculada]) ,
+				    Inserted_fCaptura = Table.AddColumn(#"Inserted_fFin" , "fCaptura", each [Fecha_Creacion] & [Hora_Creacion]),
+				    #"Removed Columns" = Table.RemoveColumns(Inserted_fCaptura,{"FechaCreacion", "HoraCreacion", "Fecha_Creado_Transporte", "Hora_Creado_Transporte", "Fecha_Calculada", "Hora_Calculada", "Fecha_Fin", "Hora_Fin_Calculada", "Fecha_Creacion", "Hora_Creacion"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"fCreacion", type datetime}, {"fCreacionTransporte", type datetime}, {"fCreacionCalculada", type datetime}, {"fFin", type datetime}, {"fCaptura", type datetime}}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Changed Type1",{"fCaptura"}),
+				    #"Inserted Date" = Table.AddColumn(#"Removed Columns1", "Fecha", each DateTime.Date([fCreacion]), type date),
+				    #"Filtered Rows" = Table.SelectRows(#"Inserted Date", each true)
+				in
+				    #"Filtered Rows"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

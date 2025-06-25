@@ -1,0 +1,273 @@
+table Tiendas
+	lineageTag: f6f2273e-1213-442e-9f04-34664fe32323
+
+	column BV_PAIS
+		dataType: string
+		lineageTag: d99ae810-31cf-40ef-a8fc-e8f149c8f6e7
+		summarizeBy: none
+		sourceColumn: BV_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: ab908bb9-8229-46c3-a7a4-b4060db63f1b
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		lineageTag: c5d59d7d-6042-4b84-b810-03274e077424
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS_TIENDA
+		dataType: string
+		lineageTag: 4f08b304-37a8-4754-afdd-77054b2dd031
+		summarizeBy: none
+		sourceColumn: BV_PAIS_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_TIENDA_108
+		dataType: string
+		lineageTag: e2fedf4d-2822-413b-a768-360d9c21a8aa
+		summarizeBy: none
+		sourceColumn: TIPO_TIENDA_108
+
+		annotation SummarizationSetBy = Automatic
+
+	column MALL_STREET
+		dataType: string
+		lineageTag: c7c123b9-eb9a-4a04-92e0-7c965ac0a683
+		summarizeBy: none
+		sourceColumn: MALL_STREET
+
+		annotation SummarizationSetBy = Automatic
+
+	column UBICACION
+		dataType: string
+		lineageTag: 0fef7fff-2a72-4d36-8970-e5a82b7130e7
+		summarizeBy: none
+		sourceColumn: UBICACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column MTS2_TOTAL
+		dataType: double
+		lineageTag: ee6326e6-2953-4e85-9f13-ced456322c2e
+		summarizeBy: sum
+		sourceColumn: MTS2_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FORMATO_CANAL
+		dataType: string
+		lineageTag: d5e6853b-a858-40fe-98eb-36889d362785
+		summarizeBy: none
+		sourceColumn: FORMATO_CANAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_FORMATO
+		dataType: string
+		lineageTag: 92f0ef5b-b568-4d36-a0f3-0319d999a351
+		summarizeBy: none
+		sourceColumn: BV_FORMATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_APERTURA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 65b60b67-a768-4002-8fac-1e06db9e697c
+		summarizeBy: none
+		sourceColumn: FECHA_APERTURA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_CIERRE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 394e724b-4d34-4c10-ae08-a5c031bfcb56
+		summarizeBy: none
+		sourceColumn: FECHA_CIERRE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ZONA
+		dataType: string
+		lineageTag: e545418c-cce8-48d7-aa2d-96d81da8f483
+		summarizeBy: none
+		sourceColumn: ZONA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTATUS_TIENDA
+		dataType: string
+		lineageTag: 04a8922c-d3c3-4084-9847-72b03f706717
+		summarizeBy: none
+		sourceColumn: ESTATUS_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TiendaUbicacion
+		dataType: string
+		lineageTag: a5f1326b-bd90-4d94-abd2-b9c44a12ca1a
+		summarizeBy: none
+		sourceColumn: TiendaUbicacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column LATITUD
+		dataType: double
+		lineageTag: e6cceb52-b524-4605-8524-85c2d4729d1f
+		summarizeBy: sum
+		sourceColumn: LATITUD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LONGITUD
+		dataType: double
+		lineageTag: e7c7745e-9f56-485d-bbe7-d9a74a9dc4ac
+		summarizeBy: sum
+		sourceColumn: LONGITUD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LATITUD_GMS
+		dataType: string
+		lineageTag: 1779bbcb-e3d8-4b6e-a1ac-1be97cb026a4
+		summarizeBy: none
+		sourceColumn: LATITUD_GMS
+
+		annotation SummarizationSetBy = Automatic
+
+	column LONGITUD_GMS
+		dataType: string
+		lineageTag: 46688147-8790-418a-a791-aa0c097fd4fa
+		summarizeBy: none
+		sourceColumn: LONGITUD_GMS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: b8ceb6bc-ca04-455d-8eb5-2cec4f779c56
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MUNICIPIO
+		dataType: string
+		lineageTag: 380e3d20-8b2d-4471-9626-af270b7fe8d6
+		summarizeBy: none
+		sourceColumn: MUNICIPIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFERENCIA
+		dataType: string
+		lineageTag: 3a5a890c-2fa0-4c24-b490-112f1d2c0070
+		summarizeBy: none
+		sourceColumn: REFERENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAPACIDAD_SALA
+		dataType: double
+		lineageTag: bed145eb-03f5-4bf0-ac98-92654654667e
+		summarizeBy: sum
+		sourceColumn: CAPACIDAD_SALA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AGRUPACION_TIENDA
+		dataType: string
+		lineageTag: 369bfde3-d22d-4db9-a443-c42d63ef6a4d
+		summarizeBy: none
+		sourceColumn: AGRUPACION_TIENDA
+		sortByColumn: SK_AGRUPACION_TIENDA
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_AGRUPACION_TIENDA
+		dataType: int64
+		formatString: 0
+		lineageTag: dc1e9710-d7c7-4d18-a4e5-938a54a619bb
+		summarizeBy: sum
+		sourceColumn: SK_AGRUPACION_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAPACIDAD_BODEGA
+		dataType: int64
+		formatString: 0
+		lineageTag: 88b6ce91-8c3c-4dfe-bee3-c11c1f512882
+		summarizeBy: sum
+		sourceColumn: CAPACIDAD_BODEGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Capacidad2_Bodega =
+			VAR _cap =
+			    LOOKUPVALUE (
+			        'Capacidades CD'[Capacidad],
+			        'Capacidades CD'[SK_TIENDA], [SK_TIENDA],
+			        'Capacidades CD'[Tipo Capacidad], "Capacidad Inventario"
+			    )
+			VAR _val =
+			    IF (
+			        ISBLANK ( _cap ),
+			        IF ( Tiendas[AGRUPACION_TIENDA] = "cd", BLANK (), Tiendas[CAPACIDAD_BODEGA] ),
+			        _cap
+			    )
+			RETURN
+			    _val * DIVIDE ( _val, _val )
+		formatString: 0
+		lineageTag: 08a9fd12-1f7b-4da4-803c-f64425592cb4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Tiendas-d93c4f97-9824-435b-aa1b-02bd74fe3607 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="-- Tiendas#(lf)DECLARE @InitialDate INT = 20210101#(lf)#(lf)SELECT          #(lf)       [a].[BV_PAIS] , #(lf)       [a].[SK_PAIS] , #(lf)       [a].[SK_TIENDA] , #(lf)       [a].[BV_PAIS_TIENDA] , #(lf)       [a].[TIPO_TIENDA_108] , #(lf)       [a].[MALL_STREET] , #(lf)       [a].[UBICACION] , #(lf)       [a].[MTS2_TOTAL] , #(lf)       [a].[FORMATO_CANAL] , #(lf)       [a].[BV_FORMATO] , #(lf)       [a].[FECHA_APERTURA] , #(lf)       [a].[FECHA_CIERRE] , #(lf)       [a].[ZONA] , #(lf)       [a].[ESTATUS_TIENDA] , #(lf)       [a].[CAPACIDAD_BODEGA] , #(lf)       [a].[CAPACIDAD_SALA] , #(lf)       [TiendaUbicacion] = [a].[BV_PAIS_TIENDA] + ' - ' + [a].[UBICACION] ,#(lf)       [AGRUPACION_TIENDA] = CASE#(lf)                          WHEN [BV_FORMATO] IN('ADOC' , 'CAT' , 'CG' , 'HP' , 'PAR2' , 'TNF') THEN 'TIENDAS'#(lf)                          WHEN [BV_FORMATO] IN('BOD') THEN 'CD'#(lf)                          ELSE [BV_FORMATO]#(lf)                      END , #(lf)       [SK_AGRUPACION_TIENDA] = CASE#(lf)                             WHEN [BV_FORMATO] IN('ADOC' , 'CAT' , 'CG' , 'HP' , 'PAR2' , 'TNF') THEN 4#(lf)                             WHEN [BV_FORMATO] IN('BOD') THEN 3#(lf)                             WHEN [BV_FORMATO] IN('BFI') THEN 2#(lf)                         END#(lf)  FROM (#(lf)         SELECT DISTINCT #(lf)                [S1].[BV_PAIS_TIENDA] , #(lf)                [C1].[BV_PAIS] , #(lf)                [S1].[SK_PAIS] , #(lf)                [S1].[SK_TIENDA] , #(lf)                [S1].[TIPO_TIENDA_108] , #(lf)                [S1].[MALL_STREET] , #(lf)                [S1].[UBICACION] , #(lf)                [S1].[MTS2_TOTAL] , #(lf)                [s1].[FECHA_APERTURA] , #(lf)                [s1].[FECHA_CIERRE] , #(lf)                [s1].[ZONA] ,#(lf)                CASE#(lf)                    WHEN [S1].[TIENDA] LIKE '%V%' THEN 'Ecommerce'#(lf)                    ELSE [S1].[BV_FORMATO]#(lf)                END AS [FORMATO_CANAL] , #(lf)                [S1].[BV_FORMATO] , #(lf)                [S1].[ESTATUS_TIENDA] , #(lf)                [S1].[CAPACIDAD_BODEGA] , #(lf)                [S1].[CAPACIDAD_SALA]#(lf)           FROM [dbo].[DIM_TIENDA] AS [S1]#(lf)           JOIN [dbo].[DIM_PAIS] AS [C1]#(lf)                ON [C1].[SK_PAIS] = [S1].[SK_PAIS]#(lf)          WHERE [S1].[SK_TIENDA] IN (#(lf)                                      SELECT DISTINCT #(lf)                                             [fac].[SK_TIENDA]#(lf)                                        FROM [FAC_INVENTARIOS] [fac]#(lf)                                       WHERE [SK_PERIODO] >= @InitialDate#(lf)                                    )#(lf)       ) [a]#(lf) GROUP BY #(lf)          [a].[BV_PAIS_TIENDA] , #(lf)          [a].[BV_PAIS] , #(lf)          [a].[SK_PAIS] , #(lf)          [a].[TIPO_TIENDA_108] , #(lf)          [a].[SK_Tienda] , #(lf)          [a].[MALL_STREET] , #(lf)          [a].[UBICACION] , #(lf)          [a].[MTS2_TOTAL] , #(lf)          [a].[FORMATO_CANAL] , #(lf)          [a].[BV_FORMATO] , #(lf)          [a].[FECHA_APERTURA] , #(lf)          [a].[FECHA_CIERRE] , #(lf)          [a].[ZONA] , #(lf)          [a].[ESTATUS_TIENDA] , #(lf)          [a].[CAPACIDAD_BODEGA] , #(lf)          [a].[CAPACIDAD_SALA]#(lf)#(lf)", CreateNavigationProperties=false]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{ {"FECHA_APERTURA", type date}, {"FECHA_CIERRE", type date} } ),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Changed Type", {"SK_TIENDA"}, Tiendas_Geolocalizaciones, {"SK_TIENDA"}, "Tiendas_Geolocalizaciones", JoinKind.LeftOuter),
+				    #"Se expandió Tiendas_Geolocalizaciones" = Table.ExpandTableColumn(#"Consultas combinadas", "Tiendas_Geolocalizaciones", {"LATITUD", "LONGITUD", "LATITUD_GMS", "LONGITUD_GMS", "DEPARTAMENTO", "MUNICIPIO", "REFERENCIA"}, {"LATITUD", "LONGITUD", "LATITUD_GMS", "LONGITUD_GMS", "DEPARTAMENTO", "MUNICIPIO", "REFERENCIA"}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Se expandió Tiendas_Geolocalizaciones","",null,Replacer.ReplaceValue,{"DEPARTAMENTO", "MUNICIPIO", "REFERENCIA"}),
+				    #"Consultas combinadas1" = Table.NestedJoin(#"Valor reemplazado", {"BV_PAIS_TIENDA"}, dim_capacidades, {"SK_CD"}, "dim_capacidades", JoinKind.LeftOuter),
+				    #"Se expandió dim_capacidades" = Table.ExpandTableColumn(#"Consultas combinadas1", "dim_capacidades", {"CAPACIDAD"}, {"CAPACIDAD"}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Se expandió dim_capacidades", "CAPACIDAD_BODEGA_temp", each if [CAPACIDAD] is null then [CAPACIDAD_BODEGA] else [CAPACIDAD]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Personalizada agregada",{{"CAPACIDAD_BODEGA_temp", Int64.Type}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"CAPACIDAD", "CAPACIDAD_BODEGA"}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columnas quitadas",{{"CAPACIDAD_BODEGA_temp", "CAPACIDAD_BODEGA"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

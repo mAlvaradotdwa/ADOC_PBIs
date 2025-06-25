@@ -1,0 +1,236 @@
+table DATA_CD
+	lineageTag: af9c5ff4-4612-41c3-a601-9eed3cb38803
+
+	column Pais
+		dataType: string
+		lineageTag: ddeadad7-a365-4759-9589-cdd088473722
+		summarizeBy: none
+		sourceColumn: Pais
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: cc902c8e-b025-47dc-8469-1de24e4df5d2
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Semana
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7d8a9860-5b73-431a-8f31-bd59ce14eaf8
+		summarizeBy: sum
+		sourceColumn: Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes '
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: bf3394b0-6cd4-481e-8bfe-140561b903fc
+		summarizeBy: sum
+		sourceColumn: "Mes "
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d481dc72-c1c1-4ea8-b206-85d3865a1df1
+		summarizeBy: sum
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Saldo inicial'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e3e9e603-7d0b-4e28-83d3-767195d98a9d
+		summarizeBy: sum
+		sourceColumn: Saldo inicial
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pedidos
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 331eabf3-881e-4e4f-bfcf-059d7b96a061
+		summarizeBy: sum
+		sourceColumn: Pedidos
+
+		annotation SummarizationSetBy = Automatic
+
+	column Preparaciones
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6669447e-3f2a-492e-9323-c235ed1b6156
+		summarizeBy: sum
+		sourceColumn: Preparaciones
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Saldo Final'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7a683e9d-1130-4996-92f8-75d011c43dea
+		summarizeBy: sum
+		sourceColumn: Saldo Final
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Despacho de pedidos'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2e526d2d-b9f3-4e68-b83a-f611dd469fd6
+		summarizeBy: sum
+		sourceColumn: Despacho de pedidos
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Despacho de Transferencias'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c197e370-3bbf-4f4f-8c3e-22538cdede76
+		summarizeBy: sum
+		sourceColumn: Despacho de Transferencias
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Despachos'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 79086e5f-874f-474e-91f6-b3182abd93c3
+		summarizeBy: sum
+		sourceColumn: Total Despachos
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ingresos L1'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: cac630cb-9113-4449-b537-9cbabe86771a
+		summarizeBy: sum
+		sourceColumn: Ingresos L1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ingresos L7'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fd98babb-e295-45d8-8d4f-4a948ed7adab
+		summarizeBy: sum
+		sourceColumn: Ingresos L7
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ingresos
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f6e641c4-d1a4-480c-a318-63f80f2707e0
+		summarizeBy: sum
+		sourceColumn: Ingresos
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Saldo Final semana'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3b350e63-0a4b-4808-9fc4-9485f4fa6283
+		summarizeBy: sum
+		sourceColumn: Saldo Final semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column AM
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7091a8dc-b818-4d99-aa11-fab717bfb2c0
+		summarizeBy: sum
+		sourceColumn: AM
+
+		annotation SummarizationSetBy = Automatic
+
+	column PM
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2b2b280b-f281-4a48-9da2-4272f5540078
+		summarizeBy: sum
+		sourceColumn: PM
+
+		annotation SummarizationSetBy = Automatic
+
+	column FHL
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4cfe41b8-fd4f-46cd-8ff3-39eb82c36402
+		summarizeBy: sum
+		sourceColumn: FHL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLA
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9cd18239-1d30-462c-a707-e698a52866ec
+		summarizeBy: sum
+		sourceColumn: SLA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia sem'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6b01842c-ed67-4a19-97f4-2c6dfcff5eb9
+		summarizeBy: sum
+		sourceColumn: Dia sem
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DATA_CD-b45dfd22-d2bb-4301-95e5-688b24be941a = m
+		mode: import
+		source =
+				let
+				    Origen = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/ricardo_erazo_empresasadoc_com", [ApiVersion = 15]),
+				    #"Medidas xlsx_https://empresasadoc-my sharepoint com/personal/ricardo_erazo_empresasadoc_com/Documents/Bases Dashboard/" = Origen{[Name="Medidas.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/ricardo_erazo_empresasadoc_com/Documents/Bases Dashboard/"]}[Content],
+				    #"Libro de Excel importado" = Excel.Workbook(#"Medidas xlsx_https://empresasadoc-my sharepoint com/personal/ricardo_erazo_empresasadoc_com/Documents/Bases Dashboard/"),
+				    #"DATA CD_Sheet" = #"Libro de Excel importado"{[Item="DATA CD",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"DATA CD_Sheet", [PromoteAllScalars=true]),
+				    #"Errores reemplazados" = Table.ReplaceErrorValues(#"Encabezados promovidos", {{"Saldo Final", null} , {"Saldo Final semana", null},{"Pedidos", null},{"Preparaciones", null}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Errores reemplazados",{{"PS", type text}, {"Día", type date}, {"Semana", Int64.Type}, {"Mes ", Int64.Type}, {"Año", Int64.Type}, {"Saldo inicial", type any}, {"Pedidos", type any}, {"Preparaciones", Int64.Type}, {"Saldo Final", type any}, {"Despacho de pedidos", type any}, {"Despacho de Transferencias", type any}, {"Total Despachos", type any}, {"Ingresos L1", type any}, {"Ingresos L7", type any}, {"Ingresos", type any}, {"Saldo Final semana", type any}, {"AM", type any}, {"PM", type any}, {"FHL", type any}, {"SLA", type any}, {"Dia sem", Int64.Type}, {"Column22", type any}, {"Column23", type any}, {"Column24", type any}, {"Column25", type any}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Column22", "Column23", "Column24", "Column25"}),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Columnas quitadas",{{"Dia sem", Int64.Type}, {"SLA", Int64.Type}, {"FHL", Int64.Type}, {"PM", Int64.Type}, {"AM", Int64.Type}, {"Preparaciones", Int64.Type}, {"Ingresos", Int64.Type}, {"Ingresos L7", Int64.Type}, {"Ingresos L1", Int64.Type}, {"Total Despachos", Int64.Type}, {"Despacho de Transferencias", Int64.Type}, {"Despacho de pedidos", Int64.Type}, {"Pedidos", Int64.Type}, {"Saldo Final semana", Int64.Type}, {"Saldo Final", Int64.Type}, {"Saldo inicial", Int64.Type}, {"Año", Int64.Type}, {"Mes ", Int64.Type}, {"Semana", Int64.Type}}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Tipo cambiado1",{{"Día", "Fecha"}, {"PS", "Pais"}}),
+				    #"Filas filtradas" = Table.SelectRows(#"Columnas con nombre cambiado", each [Año] >= 2022),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Filas filtradas",0,null,Replacer.ReplaceValue,{"SLA", "Saldo inicial", "Saldo Final" , "Pedidos", "Preparaciones"})
+				in
+				    #"Valor reemplazado"
+
+	annotation PBI_ResultType = Table
+

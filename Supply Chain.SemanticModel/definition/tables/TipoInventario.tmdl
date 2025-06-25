@@ -1,0 +1,26 @@
+table TipoInventario
+	lineageTag: 06a6dcd2-b9f7-45e0-8b44-f211cdc22ef4
+
+	column SK_TIPOOPERACION
+		lineageTag: a0798f87-1142-42ef-a9d4-4bf2a80a8a65
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Inventarios[SK_TIPOOPERACION]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Operacion' =
+			
+			VAR _val = LOOKUPVALUE( ref_dsc_transitos[DESCRIPCION] , ref_dsc_transitos[SK_TIPOOPERACION] , [SK_TIPOOPERACION] )
+			RETURN IF( ISBLANK( _val ) , [SK_TIPOOPERACION] , _val )
+		lineageTag: 7846953b-1ea9-4689-aa2f-2b15698538c6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TipoInventario-b694da4f-4e63-4002-91d6-459e272a7b23 = calculated
+		mode: import
+		source = CALCULATETABLE( VALUES( Inventarios[SK_TIPOOPERACION] ) , REMOVEFILTERS() )
+
+	annotation PBI_Id = 6860e67d822741afb8f12083f330a520
+

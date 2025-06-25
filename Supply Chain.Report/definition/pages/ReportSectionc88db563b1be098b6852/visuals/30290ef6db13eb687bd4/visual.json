@@ -1,0 +1,415 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "30290ef6db13eb687bd4",
+  "position": {
+    "x": 224,
+    "y": 80,
+    "z": 1000,
+    "height": 632,
+    "width": 1048,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Almacenes"
+                    }
+                  },
+                  "Property": "Almacen_desc"
+                }
+              },
+              "queryRef": "Almacenes.Almacen_desc",
+              "nativeQueryRef": "Almacen_desc",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tiendas"
+                    }
+                  },
+                  "Property": "BV_PAIS"
+                }
+              },
+              "queryRef": "Tiendas.BV_PAIS",
+              "nativeQueryRef": "BV_PAIS",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Inventario en Bodegas"
+                    }
+                  },
+                  "Property": "Períodos Antiguedad 2"
+                }
+              },
+              "queryRef": "Inventario en Bodegas.Períodos Antiguedad 2",
+              "nativeQueryRef": "Períodos Antiguedad 2",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Inventario en Bodegas"
+                    }
+                  },
+                  "Property": "MARCA"
+                }
+              },
+              "queryRef": "Inventario en Bodegas.MARCA",
+              "nativeQueryRef": "MARCA",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Inventario en Bodegas"
+                    }
+                  },
+                  "Property": "BV_JERARQUIA"
+                }
+              },
+              "queryRef": "Inventario en Bodegas.BV_JERARQUIA",
+              "nativeQueryRef": "BV_JERARQUIA",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Pares Bodegas"
+                }
+              },
+              "queryRef": "Métricas.Pares Bodegas",
+              "nativeQueryRef": "Pares Bodegas"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Tiendas"
+                  }
+                },
+                "Property": "BV_PAIS"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Inventario en Bodegas"
+                  }
+                },
+                "Property": "Períodos Antiguedad 2"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Tiendas.BV_PAIS"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Inventario en Bodegas.Períodos Antiguedad 2"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Inventario en Bodegas.MARCA"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Inventario en Bodegas"
+                    }
+                  },
+                  "Property": "MARCA"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Inventario en Bodegas.BV_JERARQUIA"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "rowHeaders": [
+        {
+          "properties": {
+            "showExpandCollapseButtons": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Antiguedad por País y Bodega'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e26e11f39a410932e00d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Almacenes"
+              }
+            },
+            "Property": "Almacen_desc"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e1313264b42cc8b8a9b3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inventario en Bodegas"
+              }
+            },
+            "Property": "MARCA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "347e5944cb2e64090660",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inventario en Bodegas"
+              }
+            },
+            "Property": "BV_JERARQUIA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0f367bc60a624a0c9395",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Pares Bodegas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9ce9ab403ec0481798cd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Inventario en Bodegas"
+              }
+            },
+            "Property": "Períodos Antiguedad 2"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fed1c6801201a07708e0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Tiendas"
+              }
+            },
+            "Property": "BV_PAIS"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

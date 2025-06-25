@@ -1,0 +1,153 @@
+table Inventarios
+	lineageTag: e3bd36f8-244d-418d-9546-c6a083b5e9f3
+
+	column SK_TIPOOPERACION
+		dataType: string
+		lineageTag: 1ac521a3-e05e-4d81-ab45-b7920c33f798
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		lineageTag: 3ff01c1a-dcd7-4d03-9ff7-068cbe59714b
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: 5e534002-2753-4ad3-8084-e669dcedb085
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ESTATUS
+		dataType: string
+		lineageTag: 82b6a4a4-6b8b-4a7d-bc7c-1b7f476af26e
+		summarizeBy: none
+		sourceColumn: SK_ESTATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTO_USD
+		dataType: double
+		lineageTag: 916434b1-6daa-4cc6-a38b-4ed206525ba0
+		summarizeBy: sum
+		sourceColumn: COSTO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRECIO_USD
+		dataType: double
+		lineageTag: f90f5d66-19e3-41d7-86cb-7881c57ebed6
+		summarizeBy: sum
+		sourceColumn: PRECIO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PARES
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ca0ce69-94d0-451d-922b-76232c7f2fda
+		summarizeBy: sum
+		sourceColumn: PARES
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESERVADO
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b31ad40-ca4c-408b-acb8-8f300154315c
+		summarizeBy: sum
+		sourceColumn: RESERVADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISPONIBLE
+		dataType: int64
+		formatString: 0
+		lineageTag: c4044c6c-227c-4de6-a4ea-fb0382cd0693
+		summarizeBy: sum
+		sourceColumn: DISPONIBLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_VENCIMIENTO
+		dataType: int64
+		formatString: 0
+		lineageTag: e8e49d9b-56ca-4f89-a270-3fcb8b418422
+		summarizeBy: sum
+		sourceColumn: ID_VENCIMIENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_VencimientoEstadistico
+		dataType: int64
+		formatString: 0
+		lineageTag: 84659e41-9c6c-4703-a4b4-1b54e9370eac
+		summarizeBy: none
+		sourceColumn: ID_VencimientoEstadistico
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TiendaAgrupada =
+			
+			IF( Inventarios[SK_TIPOOPERACION] = "INVENTARIO" , [SK_TIENDA] , "-1" )
+		lineageTag: 2d0caa7c-efab-4414-a360-38d041e11a3e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIODO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5f4a2001-1a8a-4f7e-b8a1-f9435ccd3865
+		summarizeBy: none
+		sourceColumn: PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_COLECCION
+		dataType: string
+		lineageTag: 2355b256-41ce-496c-a822-fe83495a909c
+		summarizeBy: none
+		sourceColumn: SK_COLECCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PRODUCTO
+		dataType: string
+		isHidden
+		lineageTag: 48447611-b3cd-4b60-b59f-abf3ca9b7f5c
+		summarizeBy: none
+		sourceColumn: SK_PRODUCTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Inventarios-d54603a3-a3ab-4726-a46c-f32886337af9 = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    Source = Origen{[Schema="dbo",Item="vw_sc_Inventarios"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Source,{{"PERIODO", type datetime}}),
+				    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each [PERIODO] >= RangeStart and [PERIODO] < RangeEnd)
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_IsMQueryFoldable = True
+
+	annotation PBI_NavigationStepName = Navegación
+

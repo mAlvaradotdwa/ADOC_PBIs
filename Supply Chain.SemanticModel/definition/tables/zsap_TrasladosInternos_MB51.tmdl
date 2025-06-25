@@ -1,0 +1,149 @@
+table zsap_TrasladosInternos_MB51
+	lineageTag: 97337751-c92b-4118-b0b4-76c3ef72c655
+
+	column CODMOVIMIENTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 041e6249-873f-4969-8b10-90329794a97a
+		summarizeBy: sum
+		sourceColumn: CODMOVIMIENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODCENTRO
+		dataType: string
+		lineageTag: 74187f31-498b-4988-a187-37284a740839
+		summarizeBy: none
+		sourceColumn: CODCENTRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODCENTRORECEPTOR
+		dataType: string
+		lineageTag: 3798f04c-93ae-40d4-ae8a-83b808b71c0d
+		summarizeBy: none
+		sourceColumn: CODCENTRORECEPTOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODALMACEN
+		dataType: string
+		lineageTag: 079306df-7de9-4e6f-9cf6-3d7f6c051ccd
+		summarizeBy: none
+		sourceColumn: CODALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODALMACENRECEPTOR
+		dataType: string
+		lineageTag: cfdedc87-cd96-4041-a429-70a79c96e295
+		summarizeBy: none
+		sourceColumn: CODALMACENRECEPTOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONEDA
+		dataType: string
+		lineageTag: da2fa2b5-278d-4e3c-b188-a3bdaf1b249b
+		summarizeBy: none
+		sourceColumn: MONEDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTO
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 87b60e49-aee4-4a86-b6af-3016b916b76f
+		summarizeBy: sum
+		sourceColumn: MONTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CANTIDAD
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 70e9e5b1-38b0-4d67-9a4b-e063954c7260
+		summarizeBy: sum
+		sourceColumn: CANTIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column UDM
+		dataType: string
+		lineageTag: 968c172e-7908-4c4b-baf4-72138e9a8481
+		summarizeBy: none
+		sourceColumn: UDM
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHACONTABLE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 96b9468c-b16c-4186-9620-c41eeb1f275d
+		summarizeBy: none
+		sourceColumn: FECHACONTABLE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column REFERENCIA
+		dataType: string
+		lineageTag: 26c24d77-d2ab-4944-8ea6-f07f44abc664
+		summarizeBy: none
+		sourceColumn: REFERENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACCOUNTINGDOCDATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: df7d4b47-2c86-419a-9f3b-5703ebc57602
+		summarizeBy: none
+		sourceColumn: ACCOUNTINGDOCDATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TRANSACTIONCODE
+		dataType: string
+		lineageTag: 95c33b3b-42fd-464c-a6ad-bc35fd8ff959
+		summarizeBy: none
+		sourceColumn: TRANSACTIONCODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column numReferencia
+		dataType: int64
+		formatString: 0
+		lineageTag: c3beb5de-e144-4a46-849f-0a93098ef25d
+		summarizeBy: sum
+		sourceColumn: numReferencia
+
+		annotation SummarizationSetBy = Automatic
+
+	partition zsap_TrasladosInternos_MB51 = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source =
+				let
+				    zsap_MB51_TrasladosInternos = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- MB51#(lf)SELECT#(lf)#(tab)--#(tab)mseg.mblnr Documento,#(lf)#(tab)--#(tab)mseg.mjahr Anyo,#(lf)#(tab)--#(tab)mseg.zeile posicion_documento,#(lf)#(tab)mseg.bwart CodMovimiento,#(lf)#(tab)--#(tab)mseg.matnr CodMaterial,#(lf)#(tab)mseg.werks CodCentro,#(lf)#(tab)mseg.umwrk CodCentroReceptor,#(lf)#(tab)mseg.lgort CodAlmacen,#(lf)#(tab)mseg.umlgo CodAlmacenReceptor,#(lf)#(tab)--#(tab)mseg.charg Lote,#(lf)#(tab)mseg.waers Moneda,#(lf)#(tab)SUM(mseg.dmbtr) *#(lf)#(tab)CASE#(lf)#(tab)#(tab)WHEN mseg.bwart = '304' THEN -1#(lf)#(tab)#(tab)ELSE 1#(lf)#(tab)END  #(lf)#(tab)Monto,#(lf)#(tab)SUM(mseg.menge) *#(lf)#(tab)CASE#(lf)#(tab)#(tab)WHEN mseg.bwart = '304' THEN -1#(lf)#(tab)#(tab)ELSE 1#(lf)#(tab)END Cantidad,#(lf)#(tab)mseg.meins UdM,#(lf)#(tab)mseg.budat_mkpf FechaContable,#(lf)#(tab)mseg.xblnr_mkpf Referencia ,#(lf)#(tab)/**/#(lf)#(tab)mseg.CPUDT_MKPF AccountingDocDate,#(lf)#(tab)mseg.TCODE2_MKPF TransactionCode#(lf)FROM#(lf)#(tab)SAP_ECC.mseg#(lf)WHERE#(lf)#(tab)mseg.budat_mkpf >= '20220101'#(lf)#(tab)AND mseg.bwart IN (#(lf)#(tab)#(tab)'303', '304' , '305'#(lf)#(tab))#(lf)#(tab)AND mseg.lgort != ''#(lf)GROUP BY #(lf)#(tab)mseg.bwart ,#(lf)#(tab)mseg.werks ,#(lf)#(tab)mseg.umwrk ,#(lf)#(tab)mseg.lgort ,#(lf)#(tab)mseg.umlgo ,#(lf)#(tab)mseg.waers ,#(lf)--#(tab)mseg.dmbtr *#(lf)#(tab)mseg.meins ,#(lf)#(tab)mseg.budat_mkpf ,#(lf)#(tab)mseg.xblnr_mkpf ,#(lf)#(tab)mseg.CPUDT_MKPF ,#(lf)#(tab)mseg.TCODE2_MKPF #(lf)", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(zsap_MB51_TrasladosInternos,{{"CODMOVIMIENTO", Int64.Type}, {"MONTO", Currency.Type}, {"CANTIDAD", Currency.Type}, {"FECHACONTABLE", type date}, {"ACCOUNTINGDOCDATE", type date}}),
+				    #"Columna duplicada" = Table.DuplicateColumn(#"Tipo cambiado", "REFERENCIA", "REFERENCIA - Copia"),
+				    #"Texto extraído antes del delimitador" = Table.TransformColumns(#"Columna duplicada", {{"REFERENCIA - Copia", each Text.BeforeDelimiter(_, "/"), type text}}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Texto extraído antes del delimitador",{{"REFERENCIA - Copia", "numReferencia"}}),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Columnas con nombre cambiado",{{"numReferencia", Int64.Type}})
+				in
+				    #"Tipo cambiado1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

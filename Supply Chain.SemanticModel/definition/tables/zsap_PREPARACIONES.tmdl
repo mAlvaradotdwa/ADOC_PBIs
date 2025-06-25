@@ -1,0 +1,352 @@
+table zsap_PREPARACIONES
+	lineageTag: b1d2de0f-3914-40eb-938b-edbad6d09c57
+
+	column DOC_COMPRA
+		dataType: int64
+		formatString: 0
+		lineageTag: f08c5f36-2c5a-4d40-a9ee-9260e6435107
+		summarizeBy: sum
+		sourceColumn: DOC_COMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTOENTREGA
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ee6705e-542f-45a1-a550-b90cb5d0d1ea
+		summarizeBy: sum
+		sourceColumn: DOCUMENTOENTREGA
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO_SUMINIS
+		dataType: string
+		lineageTag: 3cd03509-6be0-4c02-922b-649056107972
+		summarizeBy: none
+		sourceColumn: CENTRO_SUMINIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO
+		dataType: string
+		lineageTag: 7084de79-9a38-4ccc-af9c-1c7361d0e310
+		summarizeBy: none
+		sourceColumn: CENTRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN_EMISOR
+		dataType: string
+		lineageTag: 7a65dfa7-93e6-43ec-872b-5b5fedf955fe
+		summarizeBy: none
+		sourceColumn: ALMACEN_EMISOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: f85d9ec6-79e2-4a3b-9104-63a00cb28c12
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASE_DOC
+		dataType: string
+		lineageTag: d6a113a7-7e5d-43ea-adfa-208549f58168
+		summarizeBy: none
+		sourceColumn: CLASE_DOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD_REPARTO
+		dataType: double
+		lineageTag: 450754a1-577e-4e3a-9db2-e54da23e688b
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_REPARTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ENTREGAS
+		dataType: double
+		lineageTag: 916846a6-a8e5-4523-9624-f66a661c7d18
+		summarizeBy: sum
+		sourceColumn: ENTREGAS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BORRADOS
+		dataType: double
+		lineageTag: 58cb08e0-bf50-4a7e-b7eb-327e22b581e2
+		summarizeBy: sum
+		sourceColumn: BORRADOS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD_SALIDA
+		dataType: double
+		lineageTag: ced9873b-c71f-4db8-aa2c-53c567cce240
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_SALIDA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD_INGRESADA
+		dataType: double
+		lineageTag: 69fa7db0-f650-4d5e-b01a-63cad0494353
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_INGRESADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TRANSITO
+		dataType: double
+		lineageTag: d4e9d10f-a813-4f33-abc0-cdd2dbfa4d55
+		summarizeBy: sum
+		sourceColumn: TRANSITO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CREADO_EL
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a1424007-5bd5-49eb-bf6c-c7a33e350c51
+		summarizeBy: none
+		sourceColumn: CREADO_EL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column FECHA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8be7e8ff-25bd-44ba-b0ba-2b35339848ab
+		summarizeBy: none
+		sourceColumn: FECHA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_EXPEDIENTE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f57718f3-8d23-43df-b83f-809acf063af1
+		summarizeBy: none
+		sourceColumn: FECHA_EXPEDIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_LIQUIDACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 83be5229-789d-4306-aa29-862c1c1fa4a4
+		summarizeBy: none
+		sourceColumn: FECHA_LIQUIDACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_DOCUMENTO
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 0d8d5d0f-4b34-4279-adaa-ce9be18b776d
+		summarizeBy: none
+		sourceColumn: FECHA_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column NROTRANSPORTE
+		dataType: int64
+		formatString: 0
+		lineageTag: a74e1d12-47a9-41b1-aa77-bba774b2716a
+		summarizeBy: sum
+		sourceColumn: NROTRANSPORTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHACREATRANSPORTE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 28ed8568-b519-444e-8037-916a7b6ec17f
+		summarizeBy: none
+		sourceColumn: FECHACREATRANSPORTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column HORACREATRANSPORTE
+		dataType: string
+		lineageTag: 577e9d24-887f-49db-9cf7-3aa72ad5321b
+		summarizeBy: none
+		sourceColumn: HORACREATRANSPORTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnTime =
+			LOOKUPVALUE (
+			    zsap_ONTIME[OnTime],
+			    zsap_ONTIME[Entrega], [DOCUMENTOENTREGA]
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: 6eaa127d-e17b-48ab-87f5-6c4bf673d71c
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo =
+			LOOKUPVALUE (
+			    zPRISM_EstatusTransitos[Tipo],
+			    zPRISM_EstatusTransitos[Entrega], [DOCUMENTOENTREGA]
+			)
+		lineageTag: c864647c-ee9a-43b1-9fa4-c03cbca2c890
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_FIN_ENVIO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9293e1a8-cd5b-47da-83ba-c9ee70f516c1
+		summarizeBy: none
+		sourceColumn: FECHA_FIN_ENVIO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_ENTREGA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 40a61adb-e0ea-4ec6-9d1a-e3473cd1aa76
+		summarizeBy: none
+		sourceColumn: FECHA_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Antiguedad =
+			
+			IF (
+			    NOT ISBLANK ( zsap_PREPARACIONES[FECHACREATRANSPORTE] )
+			        && NOT zsap_PREPARACIONES[ESTATUS_ENTREGA] = "X"
+			        && zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = "",
+			    TODAY () - zsap_PREPARACIONES[FECHACREATRANSPORTE]
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: f31c7236-59ad-44ef-8280-4a777d5a8487
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiasTransito =
+			
+			IF (
+			    NOT ISBLANK ( zsap_PREPARACIONES[FECHACREATRANSPORTE] )
+			        && NOT ISBLANK ( zsap_PREPARACIONES[FECHA_ENTREGA] )
+			            && zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = "",
+			    zsap_PREPARACIONES[FECHA_ENTREGA] - zsap_PREPARACIONES[FECHACREATRANSPORTE]
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f3b3376-9fa2-4471-9957-d64912693488
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column VTTK_TKNUM
+		dataType: string
+		lineageTag: f0323e66-ecaf-4f62-b05a-0d70d3e2d7fc
+		summarizeBy: none
+		sourceColumn: VTTK_TKNUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTATUS_ENTREGA
+		dataType: string
+		lineageTag: 78497a1c-4377-44be-85cf-cdbdd48b91c9
+		summarizeBy: none
+		sourceColumn: ESTATUS_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Grupo Antiguedad' =
+			
+			SWITCH (
+			    TRUE (),
+			    NOT ISBLANK ( zsap_PREPARACIONES[Antiguedad] )
+			        && zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			        && zsap_PREPARACIONES[Antiguedad] <= 3, "0 - 3 Días",
+			    NOT ISBLANK ( zsap_PREPARACIONES[Antiguedad] )
+			        && zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			        && zsap_PREPARACIONES[Antiguedad] <= 7, "4 - 7 Días",
+			    NOT ISBLANK ( zsap_PREPARACIONES[Antiguedad] )
+			        && zsap_PREPARACIONES[INDICADOR_DE_BORRADO] = ""
+			        && zsap_PREPARACIONES[Antiguedad] >= 8, "8 o más Días"
+			)
+		lineageTag: 7be780f6-12b6-4a0b-9a52-e38331961e90
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICADOR_DE_BORRADO
+		dataType: string
+		lineageTag: e93358bb-b507-41b1-97ac-7900d0c0ce25
+		summarizeBy: none
+		sourceColumn: INDICADOR_DE_BORRADO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition zsap_PREPARACIONES = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source =
+				let
+				    zsap_ZPS_TRACING2 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "/*#(lf)    Connector:  SapHana.Database#(lf)    Server:     vhadoahpdb01.hec.empresasadoc.com:30215 #(lf) */#(lf)#(lf)/***************** Tracing2 + ZMM045 *****************/#(lf)WITH Tracing AS (#(lf)    SELECT#(lf)        EKKO.EBELN Doc_compra ,#(lf)        EKPO.MATNR articulo ,#(lf)        EKET.MENGE cantidad_reparto ,#(lf)        -- SOLICITADO #(lf)        EKPO.MEINS unidad ,#(lf)        EKET.GLMNG entregas ,#(lf)        -- CONFIRMADO DE ENTREGA#(lf)        EKET.MENGE - EKET.GLMNG Borrados ,#(lf)        -- BORRADOS#(lf)        EKET.WAMNG cantidad_salida ,#(lf)        -- Cantidad preparada en CD, en transito a tienda#(lf)        EKET.WEMNG cantidad_ingresada ,#(lf)        -- Cantidad que ha llegado a tienda#(lf)        EKET.WAMNG - EKET.WEMNG Transito ,#(lf)        -- diferencia entre preparado e ingresado#(lf)        EKKO.BSART clase_doc ,#(lf)        EKKO.AEDAT creado_el ,#(lf)        EKKO.RESWK centro_suminis ,#(lf)        EKPO.WERKS centro ,#(lf)        EKPO.MTART tipo_material ,#(lf)        EKPO.LOEKZ indicador_de_borrado ,#(lf)        EKPO.RESLO almacen_emisor ,#(lf)        EKPO.LGORT almacen ,#(lf)        EKKO.ZZF_DESPACHO fecha ,#(lf)        EKPO.FECHA_EXP fecha_expediente ,#(lf)        EKPO.FECHA_LIQ fecha_liquidacion ,#(lf)        EKKO.BEDAT fecha_documento#(lf)    FROM#(lf)        SAP_ECC.EKKO#(lf)    INNER JOIN SAP_ECC.EKPO#(lf)           ON#(lf)        EKPO.EBELN = EKKO.EBELN#(lf)    LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_IMP#(lf)           ON#(lf)        ZMM_EXPED_IMP.LBELN = EKPO.LBELN#(lf)    LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_CONTS#(lf)           ON#(lf)        ZMM_EXPED_CONTS.LBELN = EKPO.LBELN#(lf)    INNER JOIN SAP_ECC.EKET#(lf)           ON#(lf)        EKET.EBELN = EKPO.EBELN#(lf)        AND EKET.EBELP = EKPO.EBELP#(lf)    INNER JOIN SAP_ECC.MARA#(lf)           ON#(lf)        MARA.MATNR = EKPO.MATNR#(lf)    INNER JOIN SAP_ECC.T001W#(lf)           ON#(lf)        T001W.WERKS = EKPO.WERKS#(lf)    WHERE#(lf)        YEAR(EKKO.AEDAT) >= YEAR(CURRENT_DATE)-1#(lf)        -- AND EKPO.LOEKZ <> 'L'#(lf)        AND EKKO.BSART IN (#(lf)            'UB' , 'ZREP' , 'ZINT' , 'ZTRA2'#(lf)        )#(lf)        -- PEDIDOS COLOCADOS MANUAL Y AUTOMATICO#(lf)        AND MARA.MTART IN (#(lf)            'MODE' , 'ZMOD'#(lf)        )#(lf)        -- PRODUCTOS DE LINEA 1 Y 7#(lf)) , #(lf)ZMM045 AS (#(lf)    SELECT #(lf)        LIKP.VBELN  DocumentoEntrega,#(lf)        LIPS.VGBEL  Doc_compra ,#(lf)        K.TKNUM ,#(lf)        K.DATEN FECHA_FIN_ENVIO ,#(lf)        K.AEDAT FECHA_ENTREGA ,#(lf)        K.STABF ESTATUS_ENTREGA , -- Status of shipment completion , DOMAIN : STTRA#(lf)        LIKP.LFART  ClaseEntrega,#(lf)        LIKP.ERDAT  FechaCreacion,#(lf)        LIKP.ERZET  HoraCreacion,#(lf)        LIPS.MATNR  SK_MATNR,#(lf)        LIKP.VKORG  Sociedad,#(lf)        LIPS.WERKS  CentroEmisor,#(lf)        LIPS.LGORT  Almacen,#(lf)        LIKP.WERKS  CentroReceptor,#(lf)        SUBSTRING(VTTP.TKNUM,5) NroTransporte,#(lf)        VTTP.ERDAT FechaCreaTransporte,#(lf)        VTTP.ERZET HoraCreaTransporte,#(lf)        LIPS.LGMNG CantEntrega, -- Actual quantity delivered in stockkeeping units#(lf)        LIPS.ORMNG CantOriginal -- Original Quantity of Delivery Item#(lf)    FROM SAP_ECC.LIKP#(lf)    INNER JOIN SAP_ECC.LIPS#(lf)       ON LIPS.VBELN = LIKP.VBELN#(lf)    INNER JOIN SAP_ECC.T001W#(lf)        ON T001W.KUNNR = LIKP.KUNNR#(lf)    INNER JOIN SAP_ECC.ZTIPOTIENDA#(lf)        ON ZTIPOTIENDA.WERKS = LIKP.WERKS#(lf)    INNER JOIN SAP_ECC.VTTP#(lf)        ON VTTP.VBELN = LIKP.VBELN#(lf)    LEFT JOIN SAP_ECC.VTTK K #(lf)        ON VTTP.TKNUM = K.TKNUM #(lf)    INNER JOIN SAP_ECC.MARA m  #(lf)        ON LIPS.MATNR = m.MATNR #(lf)    WHERE#(lf)        YEAR(LIKP.ERDAT) >= YEAR(CURRENT_DATE)-1#(lf)    --  AND k.TKNUM = '0000088452'#(lf))#(lf)SELECT#(lf)    t.Doc_compra,#(lf)    z.DOCUMENTOENTREGA,#(lf)    t.CENTRO_SUMINIS,#(lf)    t.CENTRO,#(lf)    t.ALMACEN_EMISOR,#(lf)    t.ALMACEN,#(lf)    t.CLASE_DOC,#(lf)    SUM(CANTIDAD_REPARTO) CANTIDAD_REPARTO,#(lf)    SUM(ENTREGAS) ENTREGAS ,#(lf)    SUM(BORRADOS) BORRADOS ,#(lf)    SUM(CANTIDAD_SALIDA) CANTIDAD_SALIDA ,#(lf)    SUM(CANTIDAD_INGRESADA) CANTIDAD_INGRESADA ,#(lf)    SUM(TRANSITO) TRANSITO ,#(lf)    MIN(CREADO_EL) CREADO_EL ,#(lf)    MIN(FECHA) FECHA ,#(lf)    MIN(FECHA_EXPEDIENTE) FECHA_EXPEDIENTE ,#(lf)    MAX(FECHA_LIQUIDACION) FECHA_LIQUIDACION ,#(lf)    MAX(FECHA_DOCUMENTO) FECHA_DOCUMENTO ,#(lf)    MAX(NROTRANSPORTE) NROTRANSPORTE ,#(lf)    MAX(FECHACREATRANSPORTE) FECHACREATRANSPORTE ,#(lf)    MAX(HORACREATRANSPORTE) HORACREATRANSPORTE ,#(lf)    MAX(Z.FECHA_FIN_ENVIO) FECHA_FIN_ENVIO ,#(lf)    MAX(Z.FECHA_ENTREGA) FECHA_ENTREGA,#(lf)    z.TKNUM VTTK_TKNUM,#(lf)    z.ESTATUS_ENTREGA,#(lf)    t.indicador_de_borrado#(lf)FROM#(lf)    tracing t#(lf)LEFT JOIN ZMM045 Z #(lf)    ON#(lf)    t.Doc_Compra = Z.Doc_Compra#(lf)    AND t.articulo = Z.SK_MATNR#(lf)    AND T.Centro = Z.CentroReceptor#(lf)    AND T.Centro_suminis = Z.CentroEmisor#(lf)GROUP BY #(lf)    z.TKNUM,#(lf)    z.ESTATUS_ENTREGA,#(lf)    t.Doc_compra,#(lf)    z.DOCUMENTOENTREGA,#(lf)    t.CENTRO_SUMINIS,#(lf)    t.CENTRO,#(lf)    t.ALMACEN_EMISOR,#(lf)    t.ALMACEN,#(lf)    t.CLASE_DOC ,#(lf)    t.indicador_de_borrado#(lf)", null, [EnableFolding=true]),
+				    #"Valor reemplazado" = Table.ReplaceValue(zsap_ZPS_TRACING2,"00000000",null,Replacer.ReplaceValue,{"FECHA_LIQUIDACION", "FECHA", "FECHA_EXPEDIENTE", "FECHA_DOCUMENTO"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Valor reemplazado",{{"CREADO_EL", type date}, {"FECHA", type date}, {"FECHA_EXPEDIENTE", type date}, {"FECHA_LIQUIDACION", type date}, {"FECHA_DOCUMENTO", type date}}),
+				    #"Valor reemplazado1" = Table.ReplaceValue(#"Changed Type","00000000",null,Replacer.ReplaceValue,{"FECHA_FIN_ENVIO", "FECHA_ENTREGA"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Valor reemplazado1",{{"DOC_COMPRA", Int64.Type}, {"FECHACREATRANSPORTE", type date}, {"NROTRANSPORTE", Int64.Type}, {"FECHA_FIN_ENVIO", type date}, {"FECHA_ENTREGA", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

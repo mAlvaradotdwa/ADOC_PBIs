@@ -1,0 +1,123 @@
+table Ventas
+	lineageTag: 2717b7dd-aa26-4a9b-85c4-03dadfa41832
+
+	column SK_TIENDA
+		dataType: int64
+		formatString: 0
+		lineageTag: 309e8abe-3a07-4af7-acab-c41ee107c036
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: 42a26725-5b05-4462-97c4-a0f2b41e6f09
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pares
+		dataType: double
+		lineageTag: 363601e4-915f-475b-8cbb-ff8134f4d1dc
+		summarizeBy: sum
+		sourceColumn: Pares
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Costo_USD
+		dataType: double
+		lineageTag: 74c4a82f-ce2e-4def-aa97-94b9f2e57b78
+		summarizeBy: sum
+		sourceColumn: Costo_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Venta_USD
+		dataType: double
+		lineageTag: 545fde57-81c8-43b7-a011-4b2b50da60a3
+		summarizeBy: sum
+		sourceColumn: Venta_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Descuento_USD
+		dataType: double
+		lineageTag: f4339b68-6007-480f-b5fa-d248ff6da2e8
+		summarizeBy: sum
+		sourceColumn: Descuento_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PERIODO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1233e0c0-4c3b-4188-8976-4b14684ef88c
+		summarizeBy: none
+		sourceColumn: PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_COLECCION
+		dataType: string
+		lineageTag: aa924ee2-a293-4716-8b04-e5af5ce1ceb6
+		summarizeBy: none
+		sourceColumn: SK_COLECCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_VENCIMIENTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 317e3a78-c624-4601-82d1-30eef60d8979
+		summarizeBy: sum
+		sourceColumn: ID_VENCIMIENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_VencimientoEstadistico
+		dataType: int64
+		formatString: 0
+		lineageTag: 202211f1-4178-4653-8365-b3155e391de1
+		summarizeBy: sum
+		sourceColumn: ID_VencimientoEstadistico
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PRODUCTO
+		dataType: string
+		isHidden
+		lineageTag: 5b12695d-c1dd-48a2-a5ee-a33abcd4bb25
+		summarizeBy: none
+		sourceColumn: SK_PRODUCTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Ventas-a176e44f-172c-404c-8a91-513f98c42abe = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    Source = Origen{[Schema="dbo",Item="vw_sc_VentasDetalle"]}[Data],
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Source,{{"PERIODO", type datetime}}),
+				    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each [PERIODO] >= RangeStart and [PERIODO] < RangeEnd)
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_IsMQueryFoldable = True
+
+	annotation PBI_NavigationStepName = Navegación
+

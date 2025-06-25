@@ -1,0 +1,91 @@
+table Almacenes
+	lineageTag: f9e04b0d-1b7c-4958-abbe-032c61a12389
+
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: 4390106b-7513-4453-b658-6e94f1beccf7
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: badd8f12-5bdc-44df-b9c3-7e8709a1c219
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_DIVISION
+		dataType: string
+		lineageTag: 71f062ef-20a0-4710-a821-b0eef331e82c
+		summarizeBy: none
+		sourceColumn: SK_DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_ALMACEN
+		dataType: string
+		lineageTag: 28c0815b-3a2d-4c6f-883f-2c17c46242d0
+		summarizeBy: none
+		sourceColumn: BV_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_DIVISION
+		dataType: string
+		lineageTag: db13e1f9-1e44-475e-9e58-ab3334797ed4
+		summarizeBy: none
+		sourceColumn: BV_DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVISION
+		dataType: string
+		lineageTag: 60589eca-f631-4733-9451-a33a78cd988f
+		summarizeBy: none
+		sourceColumn: DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column Almacen_desc = Almacenes[SK_ALMACEN] & " - " & Almacenes[ALMACEN]
+		lineageTag: 8480b62b-d373-4392-8f1f-7e87e1314b4c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column cnt = ```
+			
+			VAR _alm = Almacenes[SK_ALMACEN]
+			VAR _it = CALCULATE( COUNTROWS( Inventarios ) , Inventarios[SK_ALMACEN] = _alm )
+			VAR _vt = CALCULATE( COUNTROWS(Ventas) , Ventas[SK_ALMACEN] = _alm ) 
+			VAR _ib = CALCULATE( COUNTROWS(InventarioBFI) , InventarioBFI[ALMACEN] = _alm )
+			VAR _st = CALCULATE( COUNTROWS(zsap_ZMM_TRACKING) , zsap_ZMM_TRACKING[ALMACEN] = _alm )
+			VAR _sO = CALCULATE( COUNTROWS(Zdel_O_n_Time) , Zdel_O_n_Time[Almacen] = _alm )
+			VAR _sA = CALCULATE( COUNTROWS(zsap_ZPS_TRACING2) , zsap_ZPS_TRACING2[ALMACEN] = _alm )
+			VAR _ph = CALCULATE( COUNTROWS(zsap_ZMM_PRODUCT) , zsap_ZMM_PRODUCT[ALMACEN] = _alm )
+			RETURN _it + _vt + _ib + _st + _sO + _sA + _ph
+			```
+		isHidden
+		formatString: 0
+		lineageTag: 02e56d78-8a42-4950-a1e9-a086fad56e2d
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Almacenes-ba0fa1d7-b35f-4f3b-ac01-ac0794a354e4 = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    dbo_DIM_GEOLOCALIZACION_TIENDA = Origen{[Schema="dbo",Item="DIM_ALMACEN"]}[Data],
+				    #"Removed Duplicates" = Table.Distinct(dbo_DIM_GEOLOCALIZACION_TIENDA, {"SK_ALMACEN"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Duplicates", each ([SK_ALMACEN] <> null))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+

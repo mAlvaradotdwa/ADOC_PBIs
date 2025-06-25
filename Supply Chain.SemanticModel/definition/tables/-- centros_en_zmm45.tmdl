@@ -1,0 +1,88 @@
+table '-- centros_en_zmm45'
+	lineageTag: ff5c6e07-73b5-4a80-85f4-57e1e1161b59
+
+	column CENTRO_SUMINIS
+		dataType: int64
+		formatString: 0
+		lineageTag: afe84c8c-dace-45e3-8aa7-71e866d81f99
+		summarizeBy: none
+		sourceColumn: CENTRO_SUMINIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO
+		dataType: int64
+		formatString: 0
+		lineageTag: 27532cd1-7ca0-43e6-b97b-f84a01bef475
+		summarizeBy: none
+		sourceColumn: CENTRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suministrador = LOOKUPVALUE( Tiendas[BV_PAIS_TIENDA] , Tiendas[SK_TIENDA] , [CENTRO_SUMINIS] )
+		lineageTag: 4296a9ab-ada9-46bf-a146-09534e334e43
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Destino = LOOKUPVALUE( Tiendas[BV_PAIS_TIENDA] , Tiendas[SK_TIENDA] , [CENTRO] )
+		lineageTag: 9e4f1140-133c-4e03-be1a-99507734bab3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA
+		dataType: string
+		lineageTag: 9f0ff727-fb14-4662-aeda-068db8964dfb
+		summarizeBy: none
+		sourceColumn: FECHA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_EXPEDIENTE
+		dataType: string
+		lineageTag: 2c1d4ba6-acf0-43c5-8e86-f802c8dfadc5
+		summarizeBy: none
+		sourceColumn: FECHA_EXPEDIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_LIQUIDACION
+		dataType: string
+		lineageTag: be86555f-366b-4ced-a39d-630b3fc02fd5
+		summarizeBy: none
+		sourceColumn: FECHA_LIQUIDACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_DOCUMENTO
+		dataType: string
+		lineageTag: bc24a65e-9b7d-4b87-8b30-868630a17a8e
+		summarizeBy: none
+		sourceColumn: FECHA_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pais Suministrador' = LOOKUPVALUE( Tiendas[BV_PAIS] , Tiendas[SK_TIENDA] , [CENTRO_SUMINIS] )
+		lineageTag: d053370e-b308-4f08-aa6e-026b090c46f6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pais Destino' = LOOKUPVALUE( Tiendas[BV_PAIS] , Tiendas[SK_TIENDA] , [CENTRO] )
+		lineageTag: 7d7b389e-68e8-4017-ae7e-2da2a6237368
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '-- centros_en_zmm45' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("pZpBbt0wDETv8tdZSJQs22cJev9r9CMJPLI238PXTYK2A0rkkBzS+v5+tVLL6+vVau3vH1Gily3296/l78/91+s//Pv6ftVfbI0fwN8/HZ+wxw37/pnH1gB2O8Ae4MxbHkv83ArAAj83cN82gJ/zMYog3AB+DpALBfi5Em60PHYjdkEuBDhzB7m/gTzaiJ8BnxvIo3qCMwNsB3k0gN0D2D0ANw7AjRPU2DOfg1Hyfo7I17og3NhBzTkA9szHN2o+9wP0lOg+ry4tmuiDwvp5dGGB3oggWgXkbyN1EvRfwKt3IgFe+Zzcyo/43TJ+vrAFYKvPZ9kl9/W5Ibt+fIX1edV/49szc4qwfg5e2EQ/urCJniK7vr6SXeCr7tdJYUHuD5/P8YuNWqa6UT9h64Lteezcjx5ipWOB3ug+J3XmAu7r+1laBXDjzGvgID0FzIOR0BvSk0CbBdDPncwLec3w/ksQXzB3D8DJDdjdAfYA2IRW0ZkBdoA8SvSjq16Nqe+b9SoKqRtkzwDsJnSs9vyTnx/u+S9s8fXVFaN592X3ULDb3EEPnXf1D88sP4M6mZgX5CufV8qjlr9vQvPrvkAT7o7O2RZugJrTiK/I/pnojTyvAuwKgtSN04nvqkVB3djyZ771lPiEbQs3gEZKzOzafQG9kdjJyO7kK/O7cz1BbZ91nTsfVTCHNmcOHUutc3poLLwiu3o/93Vf4OfdmbsXXx2gPs/z0UNOilfnHIJHMZKv/D2D7uv4efFVB3Z338/SG04etcVXvjbTfcEu6ADY4fSyhRtzP3J51f0c1H4SzAsJHat9nRPfNff9WUO+cvi82G2gL8y9zMaCOll9uxc35vi6dbKAGB3Az8PhVV/sOr4aS0/xtZlyH2iGQngFauxw+uD9zDFz46F+Voy2tN3bGxuzxt6+lT+0qzoJ9Ea9hcCMr5OD28Irf+d2+Wre5bq97Mz33yhOfBdeDaeHLthKvj05uTCWeR+8STj82Uq17kZXTzMk3gTq++9h25XO8d8/X9jwseIk4caEtWvOsM8s7Aaw/ryv3PdnDcXXv6+w/n3FDV8jya7vK9n1c1B2wZljysHyCRtL/u557PT+6ifUD7DKI7/vy1egdzdfA+u+wFez5nfPPPx6pfdIxT6zsP59VTfADupw5u5+P3Mij4T1c1++CttX4jOoG4lvi8L6eSQs6N2JXqYY+T1F2CkH2yfsXU9GdTjZFm5MvnLzaH6bZ88azpnHUuv8GKm2+zO7tJl/X71DBt80D2efs844E/ZjfMtyZvDmUzqnt092a1u+Lfq1TvNCfsc4vxmrH+2uM6wzl627gvF6HqO33X//AQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [CENTRO_SUMINIS = _t, CENTRO = _t, FECHA = _t, FECHA_EXPEDIENTE = _t, FECHA_LIQUIDACION = _t, FECHA_DOCUMENTO = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"CENTRO_SUMINIS", Int64.Type}, {"CENTRO", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

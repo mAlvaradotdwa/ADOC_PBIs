@@ -1,0 +1,52 @@
+table 'Detalle de Inventarios'
+	lineageTag: 9f143a4c-3b07-4759-a900-b01358379a2b
+
+	calculationGroup
+		precedence: 2
+
+		calculationItem 'Tran. a BFI' = [Transitos Import BFI]
+
+			formatStringDefinition = "#,0"
+
+		calculationItem BFI = CALCULATE ( [inventario un], Tiendas[AGRUPACION_TIENDA] = "BFI" )
+
+			formatStringDefinition = "#,0"
+
+		calculationItem 'Tran. a CD' = [Transitos Export BFI]
+
+			formatStringDefinition = "#,0"
+
+		calculationItem CD = CALCULATE ( [inventario un], Tiendas[AGRUPACION_TIENDA] = "CD" )
+
+			formatStringDefinition = "#,0"
+
+		calculationItem 'Tran. CD - Tienda' = [Transito Bodegas Un]
+
+			formatStringDefinition = "#,0"
+
+		calculationItem Tiendas = CALCULATE ( [inventario un], Tiendas[AGRUPACION_TIENDA] = "Tiendas" )
+
+			formatStringDefinition = "#,0"
+
+		calculationItem 'Tran. Total Tienda' = [Transito Tiendas Un]
+
+			formatStringDefinition = "#,0"
+
+	column Indicador
+		dataType: string
+		lineageTag: 6824ca47-d205-4048-a2f0-935c5e821788
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		lineageTag: 8ab86fef-0ce0-4723-9822-bb4b5eba1176
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

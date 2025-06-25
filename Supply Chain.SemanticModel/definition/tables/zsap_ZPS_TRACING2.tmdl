@@ -1,0 +1,768 @@
+table zsap_ZPS_TRACING2
+	lineageTag: 47b74101-2bfa-4f9a-ad30-b6fd9271c207
+
+	column DOC_COMPRA
+		dataType: string
+		lineageTag: 24db6d4a-6cd6-4d69-bb03-41a9e27ed0dc
+		summarizeBy: none
+		sourceColumn: DOC_COMPRA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSICION
+		dataType: string
+		lineageTag: c006894c-eabd-4a16-be0d-efdecee6e777
+		summarizeBy: none
+		sourceColumn: POSICION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 8a99554d-81bd-43cc-ab85-755be496327d
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD_REPARTO
+		dataType: double
+		lineageTag: ecc920d5-062a-4760-8e2d-c77b2b39c284
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_REPARTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNIDAD
+		dataType: string
+		lineageTag: baeab431-44d7-40a1-9430-c6da6090df13
+		summarizeBy: none
+		sourceColumn: UNIDAD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTREGAS
+		dataType: double
+		lineageTag: a3156b12-602a-4fb0-aeb1-581ab833c9da
+		summarizeBy: sum
+		sourceColumn: ENTREGAS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD_SALIDA
+		dataType: double
+		lineageTag: 788fc8b2-92ee-4449-9b22-b7d57e734182
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_SALIDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD_INGRESADA
+		dataType: double
+		lineageTag: 4fb37ded-5ee4-433e-8ed4-183a2ef22b0b
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_INGRESADA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CLASE_DOC
+		dataType: string
+		lineageTag: 3309d929-06fc-4651-a599-91b667256dee
+		summarizeBy: none
+		sourceColumn: CLASE_DOC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREADO_EL
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 44c42cbb-8f16-45ad-b480-d0f1b88a2f71
+		summarizeBy: none
+		sourceColumn: CREADO_EL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column CREADO_POR
+		dataType: string
+		lineageTag: f264b4bb-f44d-4bdc-9919-01054fc771c7
+		summarizeBy: none
+		sourceColumn: CREADO_POR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO_SUMINIS
+		dataType: string
+		lineageTag: d5278e78-fd08-421f-9d30-f011a7853dce
+		summarizeBy: none
+		sourceColumn: CENTRO_SUMINIS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEXTO_BREVE
+		dataType: string
+		lineageTag: f6b0f401-cdeb-42f5-84ab-2d3d84a0f8e8
+		summarizeBy: none
+		sourceColumn: TEXTO_BREVE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO
+		dataType: string
+		lineageTag: 0d00e527-e8df-48fe-b05d-da8c4fc46a35
+		summarizeBy: none
+		sourceColumn: CENTRO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_MATERIAL
+		dataType: string
+		lineageTag: 463e4498-d2f8-45fd-a407-f95fb1c5f7cd
+		summarizeBy: none
+		sourceColumn: TIPO_MATERIAL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: 2a7b8470-4e63-4482-bd87-5a092f16c064
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAT_GRAL_CONF
+		dataType: string
+		lineageTag: 5804c0c9-97b9-4f2b-9401-ce11a1884b4f
+		summarizeBy: none
+		sourceColumn: MAT_GRAL_CONF
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		lineageTag: 6decc086-899f-4e70-8583-6c3e7f2cafd2
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TALLA
+		dataType: string
+		lineageTag: bd877785-1ca8-4d46-a7af-d4694ae57987
+		summarizeBy: none
+		sourceColumn: TALLA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: 44e1b290-48a3-423b-bd9f-4d5acf222ebe
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO
+		dataType: string
+		lineageTag: f7ff5693-fa24-48bd-b709-85415b7bb3ac
+		summarizeBy: none
+		sourceColumn: GENERO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIENDA
+		dataType: string
+		lineageTag: 2841de45-70e7-41a5-b611-c801a261a648
+		summarizeBy: none
+		sourceColumn: TIENDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS
+		dataType: string
+		lineageTag: 24ec6ac0-2188-4dbc-8fda-427516c167b2
+		summarizeBy: none
+		sourceColumn: PAIS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICADOR_DE_BORRADO
+		dataType: string
+		lineageTag: b4e59e2d-beb5-406b-b6c1-c660cb9c14f9
+		summarizeBy: none
+		sourceColumn: INDICADOR_DE_BORRADO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: 0f3e697f-5709-42a2-b330-5af9bc38ca71
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_FLETE
+		dataType: string
+		lineageTag: 380d4654-b0de-4e73-8ad5-60e42482f997
+		summarizeBy: none
+		sourceColumn: TIPO_FLETE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDEDOR
+		dataType: string
+		lineageTag: e765e01b-d4ae-49c5-abb5-1198f2f7871b
+		summarizeBy: none
+		sourceColumn: VENDEDOR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN_EMISOR
+		dataType: string
+		lineageTag: dec8a180-13f8-4333-abd8-6790f59529ea
+		summarizeBy: none
+		sourceColumn: ALMACEN_EMISOR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: daf0ffbe-ac00-45fb-a5eb-e3612585c49a
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: 5ebeb9c1-ddfb-4bae-ae69-a7207ba7b02a
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 6f55690d-6585-4880-bc4b-65f203e225cc
+		summarizeBy: none
+		sourceColumn: FECHA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column NO_EXPEDIENTE_EKPO
+		dataType: string
+		lineageTag: 2f3c0ec7-41ce-4e2a-b0e1-c8155711cc6e
+		summarizeBy: none
+		sourceColumn: NO_EXPEDIENTE_EKPO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NO_EXPEDIENTE
+		dataType: string
+		lineageTag: 7abf3aea-ff81-4733-a826-5ffb71a8b06c
+		summarizeBy: none
+		sourceColumn: NO_EXPEDIENTE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_EXPEDIENTE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 33097017-a6e2-4160-90d1-d604c4832528
+		summarizeBy: none
+		sourceColumn: FECHA_EXPEDIENTE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column FECHA_LIQUIDACION
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 30d0da44-5796-42fc-86f7-8f205360d195
+		summarizeBy: none
+		sourceColumn: FECHA_LIQUIDACION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column LOTE
+		dataType: string
+		lineageTag: f3370b08-d79f-49d2-bdf9-3b3f0d96f6bf
+		summarizeBy: none
+		sourceColumn: LOTE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_DOCUMENTO
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 838c91ef-58d4-4556-8c6c-7db93699b6ff
+		summarizeBy: none
+		sourceColumn: FECHA_DOCUMENTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column GRUPO_DE_COMPRA
+		dataType: string
+		lineageTag: 710b1e22-1393-4e88-add3-89399b91b48e
+		summarizeBy: none
+		sourceColumn: GRUPO_DE_COMPRA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column UPC
+		dataType: string
+		lineageTag: f5c7d29a-1c6d-4700-98ba-5a8ff1e3adc9
+		summarizeBy: none
+		sourceColumn: UPC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICADOR_DE_LIQUIDACION
+		dataType: string
+		lineageTag: 23c6766e-2fac-43a8-84c1-46a0ad7917ce
+		summarizeBy: none
+		sourceColumn: INDICADOR_DE_LIQUIDACION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTREGA_FINAL
+		dataType: string
+		lineageTag: 645f4907-145f-4b04-8d0a-b60d8d24be6b
+		summarizeBy: none
+		sourceColumn: ENTREGA_FINAL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LlegadaZF
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: 995c107f-ae02-483a-a147-8ba17002509f
+		summarizeBy: none
+		sourceColumn: LlegadaZF
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column InicioCarga
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: ab102024-05d6-4505-9e24-3ffcab908fa6
+		summarizeBy: none
+		sourceColumn: InicioCarga
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinCarga
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: bf86c2ca-f617-4639-8904-94cf3638c078
+		summarizeBy: none
+		sourceColumn: FinCarga
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalidaZF
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: 66f642f6-3dc8-491e-bcff-cda24dbf8409
+		summarizeBy: none
+		sourceColumn: SalidaZF
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LlegadaFrontera
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: a5606b7b-6b00-4a6d-9478-7d86b7f50811
+		summarizeBy: none
+		sourceColumn: LlegadaFrontera
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalidaFrontera
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: 939ead73-c9cf-451a-be45-fb0860cdc051
+		summarizeBy: none
+		sourceColumn: SalidaFrontera
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LlegadaBodega
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: b52e1d33-bb7d-4f84-b181-63ae87c6762a
+		summarizeBy: none
+		sourceColumn: LlegadaBodega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DescargaBodega
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: d71a2664-9774-43b2-b961-4abcf520af10
+		summarizeBy: none
+		sourceColumn: DescargaBodega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LT_1LlegadaZF
+		dataType: double
+		lineageTag: f5dbb0ce-d66c-47b3-8867-8d85e207be4f
+		summarizeBy: sum
+		sourceColumn: LT_1LlegadaZF
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LT_2EsperaCarga
+		dataType: double
+		lineageTag: 9848a52c-d08c-4f2f-8e84-5de26dcbbc1a
+		summarizeBy: sum
+		sourceColumn: LT_2EsperaCarga
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LT_3Carga
+		dataType: double
+		lineageTag: a46446e6-11f8-4f25-bcab-8ef0a8278499
+		summarizeBy: sum
+		sourceColumn: LT_3Carga
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LT_4SalidaZF
+		dataType: decimal
+		formatString: \$#,0.###############;-\$#,0.###############;\$#,0.###############
+		lineageTag: 1d08ac81-9809-495d-b0fb-599c52c77dca
+		summarizeBy: sum
+		sourceColumn: LT_4SalidaZF
+
+		changedProperty = DataType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-MX"}
+
+	column LT_5LlegadaFrontera
+		dataType: double
+		lineageTag: e1af4fd3-5c42-4931-9f3d-6a26ca1e584e
+		summarizeBy: sum
+		sourceColumn: LT_5LlegadaFrontera
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LT_6EsperaFrontera
+		dataType: double
+		lineageTag: 1779445c-6d8b-43c8-be45-a88c75f630bb
+		summarizeBy: sum
+		sourceColumn: LT_6EsperaFrontera
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LT_7LlegadaBodega
+		dataType: double
+		lineageTag: f5b5eaf3-941b-4d57-8405-a1422bdcb0cb
+		summarizeBy: sum
+		sourceColumn: LT_7LlegadaBodega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LT_8DescargaBodega
+		dataType: double
+		lineageTag: a9c47fe3-c9fe-4f4b-8df4-1ca735d845ad
+		summarizeBy: sum
+		sourceColumn: LT_8DescargaBodega
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column InvalidRow =
+			
+			VAR _ks = [_LeadTimeKillSwitch]
+			RETURN
+			    SWITCH ( TRUE() ,
+			        [LT_1LlegadaZF] < 0 || [LT_1LlegadaZF] > _ks,
+			        1,
+			        [LT_2EsperaCarga] < 0 || [LT_2EsperaCarga] > _ks,
+			        2,
+			        [LT_3Carga] < 0 || [LT_3Carga] > _ks,
+			        3,
+			        [LT_4SalidaZF] < 0 || [LT_4SalidaZF] > _ks,
+			        4,
+			        [LT_5LlegadaFrontera] < 0 || [LT_5LlegadaFrontera] > _ks,
+			        5,
+			        [LT_6EsperaFrontera] < 0 || [LT_6EsperaFrontera] > _ks,
+			        6,
+			        [LT_7LlegadaBodega] < 0 || [LT_7LlegadaBodega] > _ks,
+			        7,
+			        [LT_8DescargaBodega] < 0 || [LT_8DescargaBodega] > _ks,
+			        8 ,
+			        0
+			    )
+		formatString: 0
+		lineageTag: e9877455-8919-4958-94a2-893fd182fa5b
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDADREPARTO_TOTAL
+		dataType: double
+		lineageTag: 33cca791-b810-4e3d-b2be-939b3178a34c
+		summarizeBy: sum
+		sourceColumn: CANTIDADREPARTO_TOTAL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LT_9Liquidacion
+		dataType: double
+		lineageTag: 82512a86-925c-4c65-abc7-635f25b7ef94
+		summarizeBy: sum
+		sourceColumn: LT_9Liquidacion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Fecha_2 = ```
+			
+			IF( 
+			    [CLASE_DOC] = "ZUB" ,
+			    COALESCE( [FECHA] , [FECHA_DOCUMENTO] ) ,
+			
+			IF(
+			    [CLASE_DOC] = "ZINT" ,
+			    [CREADO_EL],
+			    [FECHA]
+			)
+			)
+			```
+		formatString: yyyy-mm-dd
+		lineageTag: 21241add-63b2-476c-93cf-ab19bc300331
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Posicion0 =
+			
+			MID( [POSICION] , 5 , 1 ) = "0"
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 75363c81-10c1-4343-b3c1-bf6bbdbaf21c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParesT =
+			
+			IF (
+			    [CLASE_DOC] = "ZINT" &&  [Posicion0],
+			    BLANK (),
+			    [CANTIDAD_INGRESADA]
+			)
+		lineageTag: 2621bbd6-0b65-4ed7-bcd1-956e36443c4b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CONTENEDOREKKO
+		dataType: string
+		lineageTag: cf66e8bb-468b-4e3c-b125-9cbd5286ba1d
+		summarizeBy: none
+		sourceColumn: CONTENEDOREKKO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition zsap_ZPS_TRACING2-73c14e02-ae88-4d2e-be12-3cdb8f0cb19d = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source =
+				let
+				    zsap_ZPS_TRACING2 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT#(lf)    EKKO.EBELN Doc_compra ,#(lf)    EKPO.EBELP posicion ,#(lf)    EKPO.MATNR articulo ,#(lf)    EKPO.MENGE cantidad_reparto ,#(lf)    EKPO.MEINS unidad ,#(lf)    EKET.GLMNG entregas ,#(lf)    EKET.WAMNG cantidad_salida ,#(lf)    EKET.WEMNG cantidad_ingresada ,#(lf)    EKKO.BSART clase_doc ,#(lf)    EKKO.AEDAT creado_el ,#(lf)    EKKO.ERNAM creado_por ,#(lf)    EKKO.RESWK centro_suminis ,#(lf)    EKPO.TXZ01 Texto_breve ,#(lf)    EKPO.WERKS centro ,#(lf)    MARA.MTART tipo_material ,#(lf)    MARA.GROES estilo ,#(lf)    MARA.SATNR mat_gral_conf ,#(lf)    MARA.FREE_CHAR color ,#(lf)    MARA.SIZE1 talla ,#(lf)    MARA.BRAND_ID marca ,#(lf)    MARA.ZZ_ART_PROV genero ,#(lf)    T001W.NAME1 tienda ,#(lf)    T001W.LAND1 pais ,#(lf)    EKPO.LOEKZ indicador_de_borrado ,#(lf)    MARA.ZZ_DEPART departamento ,#(lf)    EKKO.ZZ_TIPO_FLETE tipo_flete ,#(lf)    EKKO.VERKF vendedor ,#(lf)    EKPO.RESLO almacen_emisor ,#(lf)    EKPO.LGORT almacen ,#(lf)    ZMM_EXPED_CONTS.CONTENEDOR contenedor ,#(lf)    EKKO.ZZF_DESPACHO fecha ,#(lf)    EKPO.LBELN NO_expediente_ekpo ,#(lf)    ZMM_EXPED_IMP.LBELN no_expediente ,#(lf)    EKPO.FECHA_EXP fecha_expediente ,#(lf)    EKPO.FECHA_LIQ fecha_liquidacion ,#(lf)    EKET.CHARG lote ,#(lf)    EKKO.BEDAT fecha_documento ,#(lf)    EKKO.EKGRP grupo_de_compra ,#(lf)    MARA.EAN11 upc ,#(lf)    EKKO.FRGKE indicador_de_liquidacion ,#(lf)    EKPO.ELIKZ entrega_final ,#(lf)    -- Ajuste de la lógica de Prepack para cantidades correctas#(lf)    SUM( CASE#(lf)        WHEN LEFT( EKPO.TXZ01 , 7 ) = 'Prepack' #(lf)            THEN CAST(SUBSTRING_REGEXPR('\\d+' IN EKPO.TXZ01 GROUP 0) AS INTEGER) #(lf)        ELSE 1#(lf)    END * EKPO.MENGE ) OVER (PARTITION BY EKKO.EBELN , EKPO.EBELP) AS CantidadReparto_total ,#(lf)    EKKO.UNSEZ ContenedorEKKO#(lf)FROM SAP_ECC.EKKO#(lf)INNER JOIN SAP_ECC.EKPO#(lf)    ON EKPO.EBELN = EKKO.EBELN#(lf)LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_IMP#(lf)    ON ZMM_EXPED_IMP.LBELN = EKPO.LBELN#(lf)LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_CONTS#(lf)    ON ZMM_EXPED_CONTS.LBELN = EKPO.LBELN#(lf)INNER JOIN SAP_ECC.EKET#(lf)    ON EKET.EBELN = EKPO.EBELN#(lf)        AND EKET.EBELP = EKPO.EBELP#(lf)INNER JOIN SAP_ECC.MARA#(lf)    ON MARA.MATNR = EKPO.MATNR#(lf)INNER JOIN SAP_ECC.T001W#(lf)    ON T001W.WERKS = EKPO.WERKS#(lf)WHERE EKKO.AEDAT BETWEEN TO_VARCHAR( ADD_DAYS( LAST_DAY( ADD_MONTHS( CURRENT_DATE , -4 ) ) , 1 ) , 'YYYYMMDD' ) AND TO_VARCHAR( LAST_DAY( CURRENT_DATE ) , 'YYYYMMDD' )#(lf)    AND EKPO.LOEKZ <> 'L'#(lf)    AND (#(lf)        (#(lf)            EKKO.BSART IN ('ZINT' , 'ZTRU' , 'ZUIN' , 'ZTRA' , 'ZTR2')#(lf)            AND EKKO.RESWK IN ('8010' , '8020' , '1010' , '2010' , '3010' , '3030' , '4010' , '5010' , '5030')#(lf)            AND MARA.MTART IN ('MODE')#(lf)        )#(lf)        OR (#(lf)        EKKO.BSART IN ('ZIMP' , 'ZUB')#(lf)        )#(lf)    )", null, [EnableFolding=true]),
+				    #"Valor reemplazado" = Table.ReplaceValue(zsap_ZPS_TRACING2,"00000000",null,Replacer.ReplaceValue,{"FECHA_LIQUIDACION", "FECHA", "FECHA_EXPEDIENTE", "FECHA_DOCUMENTO"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Valor reemplazado",{{"CREADO_EL", type date}, {"FECHA", type date}, {"FECHA_EXPEDIENTE", type date}, {"FECHA_LIQUIDACION", type date}, {"FECHA_DOCUMENTO", type date}}),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Changed Type", {{"FECHA_EXPEDIENTE", type datetime} , {"FECHA_LIQUIDACION", type datetime}}, "es-MX"),
+				    #"Merged Queries" = Table.NestedJoin(#"Changed Type with Locale", {"CONTENEDOR"}, ACO_Exportaciones, {"Embarque"}, "ACO_Exportaciones", JoinKind.LeftOuter),
+				    #"Expanded {0}" = Table.ExpandTableColumn(#"Merged Queries", "ACO_Exportaciones", {"LlegadaZF", "InicioCarga", "FinCarga", "SalidaZF", "LlegadaFrontera", "SalidaFrontera", "LlegadaBodega", "DescargaBodega"}, {"LlegadaZF", "InicioCarga", "FinCarga", "SalidaZF", "LlegadaFrontera", "SalidaFrontera", "LlegadaBodega", "DescargaBodega"}),
+				    #"AddedLlegadaZF" = Table.AddColumn(#"Expanded {0}", "LT_1LlegadaZF", each [LlegadaZF] - [FECHA_EXPEDIENTE] ),
+				    #"AddedInicioCarga" = Table.AddColumn(AddedLlegadaZF, "LT_2EsperaCarga", each [InicioCarga] - [LlegadaZF] ),
+				    #"AddedFinCarga" = Table.AddColumn(#"AddedInicioCarga", "LT_3Carga", each [FinCarga] - [InicioCarga] ),
+				    #"AddedSalidaZF" = Table.AddColumn(#"AddedFinCarga", "LT_4SalidaZF", each [SalidaZF] - [FinCarga] ),
+				    #"AddedLlegadaFrontera" = Table.AddColumn(#"AddedSalidaZF", "LT_5LlegadaFrontera", each [LlegadaFrontera] - [SalidaZF] ),
+				    #"AddedSalidaFrontera" = Table.AddColumn(#"AddedLlegadaFrontera", "LT_6EsperaFrontera", each [SalidaFrontera] - [LlegadaFrontera] ),
+				    #"AddedLlegadaBodega" = Table.AddColumn(#"AddedSalidaFrontera", "LT_7LlegadaBodega", each [LlegadaBodega] - [SalidaFrontera] ),
+				    #"AddedDescargaBodega" = Table.AddColumn(#"AddedLlegadaBodega", "LT_8DescargaBodega", each [DescargaBodega] - [LlegadaBodega] ),
+				    #"AddedLiquidacion" = Table.AddColumn(#"AddedDescargaBodega", "LT_9Liquidacion", each [FECHA_LIQUIDACION] - [DescargaBodega] ),
+				    #"Changed Type1" = Table.TransformColumnTypes(AddedLiquidacion,{{"LT_8DescargaBodega", type number}, {"LT_7LlegadaBodega", type number}, {"LT_6EsperaFrontera", type number}, {"LT_5LlegadaFrontera", type number}, {"LT_4SalidaZF", type number}, {"LT_3Carga", type number}, {"LT_2EsperaCarga", type number}, {"LT_1LlegadaZF", type number}, {"LT_9Liquidacion", type number}})
+				in
+				    #"Changed Type1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

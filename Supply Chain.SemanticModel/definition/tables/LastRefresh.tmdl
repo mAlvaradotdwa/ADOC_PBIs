@@ -1,0 +1,34 @@
+table LastRefresh
+	lineageTag: 62297898-5c12-4f9c-a427-1a8811553ac9
+
+	column SK_PERIODO
+		dataType: int64
+		formatString: 0
+		lineageTag: c488774f-0266-496f-917a-b9a1092498d3
+		summarizeBy: sum
+		sourceColumn: SK_PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastRefresh
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f3bb6f1b-b122-4a96-bbf4-9cdee2087d74
+		summarizeBy: none
+		sourceColumn: LastRefresh
+
+		annotation SummarizationSetBy = Automatic
+
+	partition LastRefresh-029d8a3d-c901-4c5a-87c2-6c3c9c1116f3 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    dbo_vw_LastRefresh = Source{[Schema="dbo",Item="vw_LastRefresh"]}[Data]
+				in
+				    dbo_vw_LastRefresh
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

@@ -1,0 +1,239 @@
+table Articulos
+	lineageTag: ab3fab7e-bbc3-4d91-bcb1-ad17a4d2fafd
+
+	column BV_MARCA
+		dataType: string
+		lineageTag: 037050aa-4d35-457d-9691-fd53c69cf567
+		summarizeBy: none
+		sourceColumn: BV_MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_COLECCION
+		dataType: string
+		lineageTag: 722e6c3b-d174-4378-bded-3cdd7193ad15
+		summarizeBy: none
+		sourceColumn: SK_COLECCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_DEPTO
+		dataType: string
+		lineageTag: 4a90e264-7eb8-40a3-9dcf-517e30d10ceb
+		summarizeBy: none
+		sourceColumn: BV_DEPTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_UNIDADNEGOCIO
+		dataType: string
+		lineageTag: 830e2206-c5b9-46a5-9113-804d8adcc3c5
+		summarizeBy: none
+		sourceColumn: SK_UNIDADNEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PRODUCTO
+		dataType: string
+		lineageTag: 84daccb9-4bb4-4b7f-b8f9-1a6d493d75ea
+		summarizeBy: none
+		sourceColumn: SK_PRODUCTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: ab61c434-db2e-4460-ac0e-079f0613d40d
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_LINEA
+		dataType: string
+		lineageTag: 008cd5dc-f054-4ed1-9b5b-c208706ddbcd
+		summarizeBy: none
+		sourceColumn: BV_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnidadNegocio
+		dataType: string
+		lineageTag: 3d00f92b-82b8-42ff-9643-7f54181d457c
+		summarizeBy: none
+		sourceColumn: UnidadNegocio
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: string
+		lineageTag: 18bb14c4-be82-4ee2-ae8c-ad1a108e11a3
+		summarizeBy: none
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e733a5e-f409-4b32-803a-5efd5d34afc1
+		summarizeBy: sum
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_PE
+		dataType: string
+		lineageTag: 5207310b-fc4e-4eac-9ff4-a4c35d02cf2b
+		summarizeBy: none
+		sourceColumn: Tipo_PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column Variante
+		dataType: int64
+		formatString: 0
+		lineageTag: d872b9f5-1492-47e1-80c4-5a2456582368
+		summarizeBy: sum
+		sourceColumn: Variante
+
+		annotation SummarizationSetBy = Automatic
+
+	column 1er_Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 4aed3b66-dd44-4129-826e-7b2539426684
+		summarizeBy: sum
+		sourceColumn: 1er_Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Duracion
+		dataType: int64
+		formatString: 0
+		lineageTag: b26e2c17-4b3a-4591-a0d8-62928ea57706
+		summarizeBy: sum
+		sourceColumn: Duracion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes_lanzamiento
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5b7b4ec2-fd24-44ba-955f-e77910a0b5ad
+		summarizeBy: none
+		sourceColumn: Mes_lanzamiento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Mes_ZINT
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 52f0dd6b-44e4-4c0c-9c9d-ebd691cc7aec
+		summarizeBy: none
+		sourceColumn: Mes_ZINT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Mes_MKD
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 22434549-dc32-4a09-ad91-bccf9ebc6ad0
+		summarizeBy: none
+		sourceColumn: Mes_MKD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Trimestre_MKD
+		dataType: int64
+		formatString: 0
+		lineageTag: 01294160-90e7-412c-84fe-b1a3f5293c56
+		summarizeBy: sum
+		sourceColumn: Trimestre_MKD
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Vencimiento
+		dataType: string
+		lineageTag: 2c094c26-431d-44a7-a978-8be9396e87ab
+		summarizeBy: none
+		sourceColumn: Tipo_Vencimiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Lanzamiento
+		dataType: string
+		lineageTag: 66ed989b-56c0-457a-9f8b-936a87dcb42e
+		summarizeBy: none
+		sourceColumn: Tipo_Lanzamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Q_Lanzamiento
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fbbfbc1-eff1-4a40-9947-b0af7546b5ce
+		summarizeBy: sum
+		sourceColumn: Q_Lanzamiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Vencimiento2
+		dataType: string
+		lineageTag: 6053274d-7c41-4c4b-9839-2d0c1cac8948
+		summarizeBy: none
+		sourceColumn: Tipo_Vencimiento2
+
+		annotation SummarizationSetBy = Automatic
+
+	column GrupoVencimientoEstadistico =
+			SWITCH(
+			            TRUE (),
+			            [Tipo_Vencimiento] = "VENCIDO", "VENCIDO",
+			            [Tipo_Vencimiento] = "SIN PERIODO", "SIN PERIODO",
+			            [Tipo_Vencimiento] = "NO VENCE", "NO VENCE",
+			            "VIGENTE"
+			    )
+		lineageTag: 8c5b4b0a-7abe-42df-bec4-602aaea2bc9c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Articulos-576d3c10-26b8-4be6-ae7b-b00ab8865a54 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="WITH prod#(lf)     AS (SELECT #(lf)                [SK_PRODUCTO] = CONCAT(ISNULL([art].[SK_COLECCION] , '') , '.' , [art].[SK_UNIDADNEGOCIO] , '.' , [art].[BV_MARCA] , '.' , [art].[BV_DEPTO]) , #(lf)                [SK_COLECCION] = ISNULL([art].[SK_COLECCION] , '') , #(lf)                [art].[SK_UNIDADNEGOCIO] , #(lf)                [art].[BV_MARCA] , #(lf)                [art].[BV_DEPTO] , #(lf)                [MARCA] = LTRIM(RTRIM(MIN([art].[MARCA])))#(lf)           FROM [dbo].[DIM_ARTICULOSAP] [art]#(lf)          --WHERE CONCAT([art].[SK_COLECCION] , '.' , [art].[SK_UNIDADNEGOCIO] , '.' , [art].[BV_MARCA] , '.' , [art].[BV_DEPTO]) = '.UN HPU.CAT.CAL'#(lf)          GROUP BY #(lf)                   ISNULL([art].[SK_COLECCION] , '') , #(lf)                   [art].[SK_UNIDADNEGOCIO] , #(lf)                   [art].[BV_MARCA] , #(lf)                   [art].[BV_DEPTO] #(lf)     --#(lf)     ) ,#(lf)     dts#(lf)     AS (SELECT #(lf)                [SK_PRODUCTO] = CONCAT(ISNULL([art].[SK_COLECCION] , '') , '.' , [art].[SK_UNIDADNEGOCIO] , '.' , [art].[BV_MARCA] , '.' , [art].[BV_DEPTO]) , #(lf)                [SK_COLECCION] = ISNULL([art].[SK_COLECCION] , '') , #(lf)                [art].[SK_UNIDADNEGOCIO] , #(lf)                [art].[BV_MARCA] , #(lf)                [art].[BV_DEPTO] , #(lf)                [MARCA] = LTRIM(RTRIM(MIN([art].[MARCA]))) , #(lf)                [art].[BV_LINEA] , #(lf)                [Cnt] = COUNT(1)#(lf)           FROM [dbo].[DIM_ARTICULOSAP] [art]#(lf)          --WHERE CONCAT([art].[SK_COLECCION] , '.' , [art].[SK_UNIDADNEGOCIO] , '.' , [art].[BV_MARCA] , '.' , [art].[BV_DEPTO]) = '.UN HPU.CAT.CAL'#(lf)          GROUP BY #(lf)                   ISNULL([art].[SK_COLECCION] , '') , #(lf)                   [art].[SK_UNIDADNEGOCIO] , #(lf)                   [art].[BV_MARCA] , #(lf)                   [art].[BV_DEPTO] , #(lf)                   [art].[BV_LINEA]#(lf)     --#(lf)     ) ,#(lf)     grp#(lf)     AS (SELECT #(lf)                * , #(lf)                [RID] = ROW_NUMBER() OVER(PARTITION BY [d].[SK_PRODUCTO]#(lf)                ORDER BY #(lf)                         [Cnt] DESC)#(lf)           FROM [dts] [d]#(lf)     --#(lf)     ) ,#(lf)     dtsLimpios#(lf)     AS (SELECT #(lf)                [grp].[SK_PRODUCTO] , #(lf)                [RID] = MIN([RID])#(lf)           FROM [grp] [grp]#(lf)          WHERE [grp].[BV_LINEA] != ''#(lf)          GROUP BY #(lf)                   [grp].[SK_PRODUCTO]#(lf)#(lf)     --#(lf)     ) ,#(lf)     Lineas#(lf)     AS (SELECT #(lf)                [grp].*#(lf)           FROM [grp]#(lf)           INNER JOIN [dtsLimpios] [dts]#(lf)                ON [grp].[SK_PRODUCTO] = [dts].[SK_PRODUCTO]#(lf)                   AND [grp].[RID] = [dts].[RID]#(lf)         --#(lf)         )#(lf)     SELECT #(lf)            [Prod].* , #(lf)            [BV_LINEA] = ISNULL([lin].[BV_LINEA] , '')#(lf)       FROM [Prod]#(lf)       LEFT JOIN [Lineas] [lin]#(lf)            ON [Prod].[SK_PRODUCTO] = [lin].[SK_PRODUCTO]", CreateNavigationProperties=false]),
+				    #"Consultas combinadas" = Table.NestedJoin(Source, {"SK_UNIDADNEGOCIO"}, dim_unidad, {"SK_UNIDADDENEGOCIO"}, "dim_unidad", JoinKind.LeftOuter),
+				    #"Se expandió dim_unidad" = Table.ExpandTableColumn(#"Consultas combinadas", "dim_unidad", {"DESCRIPCION"}, {"dim_unidad.DESCRIPCION"}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Se expandió dim_unidad", "UnidadNegocio", each if [dim_unidad.DESCRIPCION] is null then [SK_UNIDADNEGOCIO] else [dim_unidad.DESCRIPCION]),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Personalizada agregada",{"dim_unidad.DESCRIPCION"}),
+				    #"Sorted Rows" = Table.Sort(#"Columnas quitadas",{{"SK_COLECCION", Order.Descending}}),
+				    #"Inserted Text Range" = Table.AddColumn(#"Sorted Rows", "Text Range", each Text.Middle([SK_COLECCION], 4, 4), type text),
+				    #"Inserted Last Characters" = Table.AddColumn(#"Inserted Text Range", "Last Characters", each Text.End([SK_COLECCION], 4), type text),
+				    #"Inserted First Characters" = Table.AddColumn(#"Inserted Last Characters", "First Characters", each Text.Start([SK_COLECCION], 4), type text),
+				    #"Removed Columns" = Table.RemoveColumns(#"Inserted First Characters",{"Text Range"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Last Characters", "Año"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Año", Int64.Type}}),
+				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Type", {{"Año", null}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Replaced Errors",{{"First Characters", Int64.Type}}),
+				    #"Replaced Errors1" = Table.ReplaceErrorValues(#"Changed Type1", {{"First Characters", null}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Replaced Errors1",{{"First Characters", "PE"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns1",each [Año],each if [PE] = 9999 then null else [Año],Replacer.ReplaceValue,{"Año"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Replaced Value", {"Año", "PE"}, tablas_periodos_estadisticos, {"Año", "PE"}, "tablas_periodos_estadisticos", JoinKind.LeftOuter),
+				    #"Expanded tablas_periodos_estadisticos" = Table.ExpandTableColumn(#"Merged Queries", "tablas_periodos_estadisticos", {"Tipo PE", "Variante", "1er Mes", "Duración", "Mes lanzamiento", "Mes ZINT", "Mes MKD", "Trimestre MKD", "Tipo Vencimiento", "Tipo Lanzamiento", "Q Lanzamiento", "Tipo Vencimiento2"}, {"Tipo PE", "Variante", "1er Mes", "Duración", "Mes lanzamiento", "Mes ZINT", "Mes MKD", "Trimestre MKD", "Tipo Vencimiento", "Tipo Lanzamiento", "Q Lanzamiento", "Tipo Vencimiento2"}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Expanded tablas_periodos_estadisticos",{{"Tipo PE", "Tipo_PE"}, {"1er Mes", "1er_Mes"}, {"Mes lanzamiento", "Mes_lanzamiento"}, {"Mes ZINT", "Mes_ZINT"}, {"Mes MKD", "Mes_MKD"}, {"Trimestre MKD", "Trimestre_MKD"}, {"Tipo Vencimiento", "Tipo_Vencimiento"}, {"Tipo Lanzamiento", "Tipo_Lanzamiento"}, {"Q Lanzamiento", "Q_Lanzamiento"}, {"Tipo Vencimiento2", "Tipo_Vencimiento2"}, {"Duración", "Duracion"}}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Renamed Columns2",null,"SIN PERIODO",Replacer.ReplaceValue,{"Tipo_Vencimiento"})
+				in
+				    #"Replaced Value1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

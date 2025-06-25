@@ -1,0 +1,510 @@
+table Linea7
+	lineageTag: 7a463579-f098-4296-a885-9267c75b8f09
+
+	column 'ORDER #'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2328ce66-471b-4226-b472-5394883e3dad
+		summarizeBy: sum
+		sourceColumn: ORDER #
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ORIGINAL ORDER'
+		dataType: int64
+		formatString: 0
+		lineageTag: c9037155-55f7-4f0e-9d71-4692b051c705
+		summarizeBy: sum
+		sourceColumn: ORIGINAL ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column NBOOKING
+		dataType: string
+		lineageTag: 0abd42c8-e633-4f27-a912-9d9e50519cde
+		summarizeBy: none
+		sourceColumn: NBOOKING
+
+		annotation SummarizationSetBy = Automatic
+
+	column SPLIT
+		dataType: int64
+		formatString: 0
+		lineageTag: b816083f-810a-470f-9ef1-f3a394827b0d
+		summarizeBy: sum
+		sourceColumn: SPLIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column GCP
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d1ba08e-58a3-4252-a3d8-05baa7909c42
+		summarizeBy: sum
+		sourceColumn: GCP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CPAG POR MK'
+		dataType: string
+		lineageTag: dd7495b7-20b4-4ea3-884c-14bb8ce7833f
+		summarizeBy: none
+		sourceColumn: CPAG POR MK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LINE #'
+		dataType: int64
+		formatString: 0
+		lineageTag: ba4b451c-baef-4d6f-916b-765401852001
+		summarizeBy: sum
+		sourceColumn: LINE #
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PRODUCT #'
+		dataType: int64
+		formatString: 0
+		lineageTag: d0c7dfe0-ade2-46c2-9453-be0160d144f3
+		summarizeBy: sum
+		sourceColumn: PRODUCT #
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LINE DESCRIPTION'
+		dataType: string
+		lineageTag: 25d1229a-5901-46a3-8e46-70bc692b939c
+		summarizeBy: none
+		sourceColumn: LINE DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUPPLIER
+		dataType: string
+		lineageTag: c67e774c-2063-40fa-96f6-fbf5fc191652
+		summarizeBy: none
+		sourceColumn: SUPPLIER
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VENDOR SKU'
+		dataType: string
+		lineageTag: e8a0028b-c202-4c4a-9e69-eeb630d4dfd3
+		summarizeBy: none
+		sourceColumn: VENDOR SKU
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ADDITIONAL DESCRIPTION'
+		dataType: string
+		lineageTag: 989256e7-2168-4cbf-89df-d75b072951f2
+		summarizeBy: none
+		sourceColumn: ADDITIONAL DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SIZE
+		dataType: string
+		lineageTag: f8c19865-8176-4e1c-96e0-d859a8373910
+		summarizeBy: none
+		sourceColumn: SIZE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'STYLE / COLOUR'
+		dataType: string
+		lineageTag: d843dba3-51a1-44f1-a2f5-ccc5897e32d8
+		summarizeBy: none
+		sourceColumn: STYLE / COLOUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PERIODO ESTADISTICO'
+		dataType: int64
+		formatString: 0
+		lineageTag: 54820274-f67c-4224-944c-3a8f8917fef5
+		summarizeBy: sum
+		sourceColumn: PERIODO ESTADISTICO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BRAND
+		dataType: string
+		lineageTag: 2d6c3a43-1413-40bb-bd2f-633bba0be3ef
+		summarizeBy: none
+		sourceColumn: BRAND
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANAL
+		dataType: string
+		lineageTag: 568d93ee-08cc-487e-b132-529d57af6ca7
+		summarizeBy: none
+		sourceColumn: CANAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column PPK
+		dataType: string
+		lineageTag: 85f3b32b-93f0-496a-abce-5cc73cee5455
+		summarizeBy: none
+		sourceColumn: PPK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QTY ORDERED'
+		dataType: int64
+		formatString: 0
+		lineageTag: b7df9c0a-72e3-4653-af20-ff1d06b66efd
+		summarizeBy: sum
+		sourceColumn: QTY ORDERED
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QTY BOOKED'
+		dataType: int64
+		formatString: 0
+		lineageTag: b629ab9b-ed34-4bb5-98f6-a66fe97173df
+		summarizeBy: sum
+		sourceColumn: QTY BOOKED
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QTY REMAIN'
+		dataType: int64
+		formatString: 0
+		lineageTag: 967cbb39-1fa6-4b72-9387-c64ebf158a82
+		summarizeBy: sum
+		sourceColumn: QTY REMAIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UNITY OF QTY'
+		dataType: string
+		lineageTag: 96f0f4a7-d468-403a-a717-b1c8275774ea
+		summarizeBy: none
+		sourceColumn: UNITY OF QTY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURRENCY
+		dataType: string
+		lineageTag: ac19b928-9a30-4a61-ba3e-a081dbbe8e9c
+		summarizeBy: none
+		sourceColumn: CURRENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ITEM PRICE'
+		dataType: double
+		lineageTag: 4f7034c8-92ec-4cb8-977b-9a370415ae13
+		summarizeBy: sum
+		sourceColumn: ITEM PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'TOTAL PRICE'
+		dataType: double
+		lineageTag: f91f8956-f768-4747-b420-62eb9e86748a
+		summarizeBy: sum
+		sourceColumn: TOTAL PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'TOTAL PRICE CALCULADO'
+		dataType: int64
+		formatString: 0
+		lineageTag: d4b31273-1d2c-4783-8b42-45448027893b
+		summarizeBy: sum
+		sourceColumn: TOTAL PRICE CALCULADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CENTRO DESTINO'
+		dataType: string
+		lineageTag: 190607b8-809d-4d49-9b21-6034c780f792
+		summarizeBy: none
+		sourceColumn: CENTRO DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EX FACTORY LINE'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7e9491d0-57f0-4148-9e32-1268a15e2d1b
+		summarizeBy: none
+		sourceColumn: EX FACTORY LINE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'CARGO READY DATE'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: f7eac4ba-5f30-41b9-828a-823134e89640
+		summarizeBy: none
+		sourceColumn: CARGO READY DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'BOOKING DATE'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 2449c012-2d4b-4757-ae5e-a553e9e6f577
+		summarizeBy: none
+		sourceColumn: BOOKING DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'COLLECT DATE'
+		dataType: string
+		lineageTag: 68381511-9c9b-4372-8044-6c5339c802ec
+		summarizeBy: none
+		sourceColumn: COLLECT DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATE OF ARRIVAL AT CFS'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9a63d6ec-9b65-4172-90b4-bd6cfbf883bd
+		summarizeBy: none
+		sourceColumn: DATE OF ARRIVAL AT CFS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'HOUSE BILL'
+		dataType: string
+		lineageTag: 9ac9b90e-a8cb-4607-add8-7e6136af49c4
+		summarizeBy: none
+		sourceColumn: HOUSE BILL
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCOTERM
+		dataType: string
+		lineageTag: d7f75c8e-d510-42ae-b304-c1eae2daffcb
+		summarizeBy: none
+		sourceColumn: INCOTERM
+
+		annotation SummarizationSetBy = Automatic
+
+	column MODE
+		dataType: string
+		lineageTag: a39984e6-36b9-4ec7-8911-c8f2d7966aa2
+		summarizeBy: none
+		sourceColumn: MODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CONT. MODE'
+		dataType: string
+		lineageTag: 860779b4-da18-4f5d-8d9a-f9fc084b629f
+		summarizeBy: none
+		sourceColumn: CONT. MODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PUERTO ORIGEN'
+		dataType: string
+		lineageTag: 0ca5eeaa-a7ce-4101-af30-e976b2f68776
+		summarizeBy: none
+		sourceColumn: PUERTO ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PUERTO DESTINO'
+		dataType: string
+		lineageTag: 451ffce3-0d39-4f65-a541-d78ef1d308c8
+		summarizeBy: none
+		sourceColumn: PUERTO DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETD
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7ded6c11-2fe0-40c8-a887-e0e73d6b6ed9
+		summarizeBy: none
+		sourceColumn: ETD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ATD
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 070326d3-e53c-4fd1-b6c5-344cda177ec3
+		summarizeBy: none
+		sourceColumn: ATD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETA
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: ee1ed452-950a-4808-82d9-64d62c4199b5
+		summarizeBy: none
+		sourceColumn: ETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ATA
+		dataType: string
+		lineageTag: daa4e321-0d02-4a32-aabc-7ebb915332ac
+		summarizeBy: none
+		sourceColumn: ATA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LINE VOLUME'
+		dataType: double
+		lineageTag: ec9fd5b6-537f-41a1-aa6a-2ad3ceb83c80
+		summarizeBy: sum
+		sourceColumn: LINE VOLUME
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'LINE CONTAINER'
+		dataType: string
+		lineageTag: 511b2c62-0c4e-4262-a9a6-ebab3eace5c7
+		summarizeBy: none
+		sourceColumn: LINE CONTAINER
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ARRIVAL VESSEL'
+		dataType: string
+		lineageTag: d835531e-4e88-492d-837f-a4094943d068
+		summarizeBy: none
+		sourceColumn: ARRIVAL VESSEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTAINER
+		dataType: string
+		lineageTag: e9f1a83f-568b-4ab3-bbad-ebaf260ffc8f
+		summarizeBy: none
+		sourceColumn: CONTAINER
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CONTAINER TYPE'
+		dataType: string
+		lineageTag: 9d42608e-21af-4d32-b634-ac7da7ab8532
+		summarizeBy: none
+		sourceColumn: CONTAINER TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ORDER STATUS'
+		dataType: string
+		lineageTag: c9ecf292-9642-4eae-8311-b9217760bec0
+		summarizeBy: none
+		sourceColumn: ORDER STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RECEIVING AGENT'
+		dataType: string
+		lineageTag: d47abd45-5212-4aee-a859-5704290af908
+		summarizeBy: none
+		sourceColumn: RECEIVING AGENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dias
+		dataType: double
+		lineageTag: 94bb510b-c11e-4f4f-94d9-83dc7bd37e5c
+		summarizeBy: sum
+		sourceColumn: Dias
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Estado Despacho'
+		dataType: string
+		lineageTag: 493c3026-7a31-42cb-babf-d62c6527d1d4
+		summarizeBy: none
+		sourceColumn: Estado Despacho
+
+		annotation SummarizationSetBy = Automatic
+
+	column MBL_NO
+		dataType: string
+		lineageTag: 1b549fcf-d7ea-49ea-9467-33b1bf1bec14
+		summarizeBy: none
+		sourceColumn: MBL_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BL_NO
+		dataType: string
+		lineageTag: 6619e84f-09de-4c4b-98a7-2635537efed6
+		summarizeBy: none
+		sourceColumn: BL_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Linea7-f2c4450b-946f-4f44-a62b-e411e5a29125 = m
+		mode: import
+		queryGroup: 'Datos Linea 7'
+		source = ```
+				let
+				    Source = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/", [ApiVersion = 15]),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Folder Path] = "https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/SCM_Linea7_Linea3/") and ([Extension] = ".xlsx")),
+				    #"Filtered Rows1" = Table.SelectRows(#"Filtered Rows", each Text.StartsWith([Name], "L7")),
+				    #"Sorted Rows" = Table.Sort(#"Filtered Rows1",{{"Date created", Order.Descending}}),
+				    #"Kept First Rows" = Table.FirstN(#"Sorted Rows",1),
+				    #"Filtered Hidden Files1" = Table.SelectRows(#"Kept First Rows", each [Attributes]?[Hidden]? <> true),
+				    #"Invoke Custom Function1" = Table.AddColumn(#"Filtered Hidden Files1", "Transformar archivo", each #"Transformar archivo L7"([Content])),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Invoke Custom Function1", {"Name", "Source.Name"}),
+				    #"Removed Other Columns1" = Table.SelectColumns(#"Renamed Columns1", {"Source.Name", "Transformar archivo"}),
+				    #"Se expandió Transformar archivo" = Table.ExpandTableColumn(#"Removed Other Columns1", "Transformar archivo", {"ORDER #", "ORIGINAL ORDER", "NBOOKING", "SPLIT", "GCP", "CPAG POR MK", "LINE #", "PRODUCT #", "LINE DESCRIPTION", "SUPPLIER", "VENDOR SKU", "ADDITIONAL DESCRIPTION", "SIZE", "STYLE / COLOUR", "PERIODO ESTADISTICO", "BRAND", "CANAL", "PPK", "QTY ORDERED", "QTY BOOKED", "QTY REMAIN", "UNITY OF QTY", "CURRENCY", "ITEM PRICE", "TOTAL PRICE", "TOTAL PRICE CALCULADO", "CENTRO DESTINO", "EX FACTORY LINE", "CARGO READY DATE", "BOOKING DATE", "COLLECT DATE", "DATE OF ARRIVAL AT CFS", "HOUSE BILL", "INCOTERM", "MODE", "CONT. MODE", "PUERTO ORIGEN", "PUERTO DESTINO", "ETD", "ATD", "ETA", "ATA", "LINE VOLUME", "LINE CONTAINER", "ARRIVAL VESSEL", "CONTAINER", "CONTAINER TYPE", "ORDER STATUS", "RECEIVING AGENT", "MBL_NO", "BL_NO"}, {"ORDER #", "ORIGINAL ORDER", "NBOOKING", "SPLIT", "GCP", "CPAG POR MK", "LINE #", "PRODUCT #", "LINE DESCRIPTION", "SUPPLIER", "VENDOR SKU", "ADDITIONAL DESCRIPTION", "SIZE", "STYLE / COLOUR", "PERIODO ESTADISTICO", "BRAND", "CANAL", "PPK", "QTY ORDERED", "QTY BOOKED", "QTY REMAIN", "UNITY OF QTY", "CURRENCY", "ITEM PRICE", "TOTAL PRICE", "TOTAL PRICE CALCULADO", "CENTRO DESTINO", "EX FACTORY LINE", "CARGO READY DATE", "BOOKING DATE", "COLLECT DATE", "DATE OF ARRIVAL AT CFS", "HOUSE BILL", "INCOTERM", "MODE", "CONT. MODE", "PUERTO ORIGEN", "PUERTO DESTINO", "ETD", "ATD", "ETA", "ATA", "LINE VOLUME", "LINE CONTAINER", "ARRIVAL VESSEL", "CONTAINER", "CONTAINER TYPE", "ORDER STATUS", "RECEIVING AGENT", "MBL_NO", "BL_NO"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Se expandió Transformar archivo",{{"Source.Name", type text}, {"ORDER #", Int64.Type}, {"ORIGINAL ORDER", Int64.Type}, {"NBOOKING", type text}, {"SPLIT", Int64.Type}, {"GCP", Int64.Type}, {"CPAG POR MK", type text}, {"LINE #", Int64.Type}, {"PRODUCT #", Int64.Type}, {"LINE DESCRIPTION", type text}, {"SUPPLIER", type text}, {"VENDOR SKU", type text}, {"ADDITIONAL DESCRIPTION", type text}, {"SIZE", type text}, {"STYLE / COLOUR", type text}, {"PERIODO ESTADISTICO", Int64.Type}, {"BRAND", type text}, {"CANAL", type any}, {"PPK", type text}, {"QTY ORDERED", Int64.Type}, {"QTY BOOKED", Int64.Type}, {"QTY REMAIN", Int64.Type}, {"UNITY OF QTY", type text}, {"CURRENCY", type text}, {"ITEM PRICE", type number}, {"TOTAL PRICE", type number}, {"TOTAL PRICE CALCULADO", Int64.Type}, {"CENTRO DESTINO", type any}, {"COLLECT DATE", type any}, {"HOUSE BILL", type text}, {"INCOTERM", type text}, {"MODE", type text}, {"CONT. MODE", type text}, {"PUERTO ORIGEN", type text}, {"PUERTO DESTINO", type text}, {"ATA", type any}, {"LINE VOLUME", type number}, {"LINE CONTAINER", type text}, {"ARRIVAL VESSEL", type text}, {"CONTAINER", type text}, {"CONTAINER TYPE", type text}, {"ORDER STATUS", type text}, {"RECEIVING AGENT", type text}}),
+				    #"Tipo cambiado con configuración regional" = Table.TransformColumnTypes(#"Changed Type", {{"EX FACTORY LINE", type date}, {"CARGO READY DATE", type date}, {"BOOKING DATE", type date}, {"DATE OF ARRIVAL AT CFS", type date}, {"ETD", type date}, {"ATD", type date}, {"ETA", type date} }, "en-US"),
+				    #"Errores reemplazados" = Table.ReplaceErrorValues(#"Tipo cambiado con configuración regional", {{"CARGO READY DATE", null}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Errores reemplazados",null, Date.AddDays(Date.From(DateTime.LocalNow()),7) ,Replacer.ReplaceValue,{"CARGO READY DATE"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Valor reemplazado",{"Source.Name"}),
+				    #"Filtered Rows2" = Table.SelectRows(#"Removed Columns", each [EX FACTORY LINE] >= #date(2023, 5, 1)),
+				    #"Added Custom" = Table.AddColumn(#"Filtered Rows2", "Dias", each ([CARGO READY DATE] - [EX FACTORY LINE])),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"Dias", Int64.Type}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type1",null,999,Replacer.ReplaceValue,{"Dias"}),
+				    #"Added Custom1" = Table.AddColumn(#"Replaced Value", "Estado Despacho", each if [Dias] < 0 then "Adelantado" 
+				else if [Dias] = 0 then "A Tiempo"
+				else if [Dias] = 999 and [EX FACTORY LINE] > DateTime.Date(DateTime.LocalNow()) then "A Tiempo"
+				else "Retrasado"),
+				    #"Filtered Rows3" = Table.SelectRows(#"Added Custom1", each true)
+				in
+				    #"Filtered Rows3"
+				```
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,241 @@
+table Contenedores
+	lineageTag: 6f1c6780-1d9a-47ac-b5f3-8550e4464462
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: e7815891-a8c5-428b-81ca-40247b96d06f
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 4a5315ea-bdd0-4aed-80f3-eaa3fd81e71b
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MOV_EKKO
+		dataType: string
+		lineageTag: 81f03e2b-cb48-4b68-bbde-870be1e39530
+		summarizeBy: none
+		sourceColumn: MOV_EKKO
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESWK
+		dataType: string
+		lineageTag: 865702cd-2f26-4a91-89fb-cda3fbff2281
+		summarizeBy: none
+		sourceColumn: RESWK
+
+		annotation SummarizationSetBy = Automatic
+
+	column WERKS
+		dataType: string
+		lineageTag: 1120c852-9a2d-4a9a-9d27-a204306df5b2
+		summarizeBy: none
+		sourceColumn: WERKS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: 17d70c1a-cb77-424b-ba9b-0f7a92d57960
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIMPORT
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 8fa09402-9b56-4340-887c-37e1fc91e3dc
+		summarizeBy: none
+		sourceColumn: FIMPORT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column MOV_EBAN
+		dataType: string
+		lineageTag: bf9d5476-91d6-4e18-a482-79ec158f3dd1
+		summarizeBy: none
+		sourceColumn: MOV_EBAN
+
+		annotation SummarizationSetBy = Automatic
+
+	column FSOLICITUD
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 1059d495-fa64-4b44-8b25-29eb2ab80295
+		summarizeBy: none
+		sourceColumn: FSOLICITUD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column SOLICITADO
+		dataType: double
+		lineageTag: 7a82171a-1f20-44a2-b87c-b18fd5e6e3b7
+		summarizeBy: sum
+		sourceColumn: SOLICITADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CONFIRMADO
+		dataType: double
+		lineageTag: 20ad8e0a-6394-45b8-914f-8ba399ced899
+		summarizeBy: sum
+		sourceColumn: CONFIRMADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BORRADOTRASLADO
+		dataType: string
+		lineageTag: 103a9a4a-e362-442c-ac5c-474ba344718f
+		summarizeBy: none
+		sourceColumn: BORRADOTRASLADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BORRADOIMPORT
+		dataType: string
+		lineageTag: e4537710-5d7d-4b2d-b4f1-4aff3f6fecea
+		summarizeBy: none
+		sourceColumn: BORRADOIMPORT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTROEBAN
+		dataType: string
+		lineageTag: ac43f6cd-d736-433f-a87a-7c611a85e73e
+		summarizeBy: none
+		sourceColumn: CENTROEBAN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tiene Solicitud' = ```
+			IF ( 
+			    ISBLANK ( Contenedores[Solicitado] ) ,
+			    "No" ,
+			    "Si"
+			)
+			```
+		lineageTag: 4e68674c-1e36-4698-8ef3-b2d8a2074795
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column JERARQUIA
+		dataType: string
+		lineageTag: a0a0ae74-c0a6-4151-aac4-be399204f607
+		summarizeBy: none
+		sourceColumn: JERARQUIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: 963d3708-f185-4263-89bf-9d7a4ae8df6b
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILOCOLOR
+		dataType: string
+		lineageTag: afd820b7-80cc-44e0-8b6e-ddf63ecf304a
+		summarizeBy: none
+		sourceColumn: ESTILOCOLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: f8aa3b40-3633-4133-a640-8c9f6274c754
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: 371c388a-c122-4f6a-9514-b74ff0f2e57a
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALU
+		dataType: string
+		lineageTag: d6e5e7fa-73c2-4341-9466-9480405d420e
+		summarizeBy: none
+		sourceColumn: ALU
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIODO_ESTADISTICO
+		dataType: string
+		lineageTag: 08420ce1-a6ed-40ac-8953-9591f67bc6b2
+		summarizeBy: none
+		sourceColumn: PERIODO_ESTADISTICO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANO_PE
+		dataType: string
+		lineageTag: afe342ca-b498-41e7-8061-78b074ebac93
+		summarizeBy: none
+		sourceColumn: ANO_PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column UN_NEGOCIO =
+			VAR _codMarca = Contenedores[MARCA]
+			RETURN
+			    CALCULATE (
+			        MIN ( Articulos[SK_UNIDADNEGOCIO] ),
+			        Articulos[BV_MARCA] = _codMarca
+			    )
+		lineageTag: 9b5d7843-afe2-4d2e-b48d-ba5952393b20
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD_PARES
+		dataType: double
+		lineageTag: 0e96bee1-98ac-4030-a390-ef43693dac8a
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_PARES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Contenedores = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source =
+				let
+				    Contenedores = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "#(lf) WITH Import AS (#(lf)    SELECT#(lf)        EKKO.UNSEZ AS CONTENEDOR,#(lf)        EKPO.MATNR AS ARTICULO,#(lf)        EKPO.TXZ01 AS Descripcion,#(lf)        SUM(#(lf)            CASE #(lf)                WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack' THEN #(lf)                    CAST(SUBSTRING_REGEXPR('(\\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER) #(lf)                ELSE 1 #(lf)            END * EKPO.MENGE#(lf)        ) AS CANTIDAD_PARES,#(lf)        MIN(EKKO.AEDAT) AS fImport,#(lf)        EKKO.BSART,#(lf)        EKKO.RESWK,#(lf)        EKPO.WERKS,#(lf)        EKKO.LOEKZ AS BorradoImport#(lf)    FROM#(lf)        SAP_ECC.EKPO EKPO#(lf)    LEFT JOIN SAP_ECC.EKKO EKKO ON#(lf)        EKPO.EBELN = EKKO.EBELN#(lf)    WHERE#(lf)        EKKO.AEDAT >= TO_NUMBER(TO_CHAR(ADD_MONTHS(CURRENT_DATE, -4), 'YYYYMMDD'))#(lf)        AND BSART IN ('ZIMP')#(lf)        --AND UNSEZ = 'EGHU9315362'#(lf)    GROUP BY #(lf)        EKKO.UNSEZ,#(lf)        EKPO.MATNR,#(lf)        EKPO.TXZ01,#(lf)        EKKO.BSART,#(lf)        RESWK,#(lf)        WERKS,#(lf)        EKKO.LOEKZ#(lf)),#(lf)Traslados AS (#(lf)    SELECT#(lf)        EKKO.UNSEZ AS CONTENEDOR,#(lf)        EKPO.MATNR AS ARTICULO,#(lf)        SUM(#(lf)            CASE #(lf)                WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack' THEN #(lf)                    CAST(SUBSTRING_REGEXPR('(\\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER) #(lf)                ELSE 1 #(lf)            END * EKPO.MENGE#(lf)        ) AS CANTIDAD_PARES,#(lf)        EKKO.BSART AS MOV_EKKO,#(lf)        EKKO.RESWK,#(lf)        EKPO.WERKS,#(lf)        EKKO.LOEKZ AS BorradoTraslado#(lf)    FROM#(lf)        SAP_ECC.EKPO EKPO#(lf)    LEFT JOIN SAP_ECC.EKKO EKKO ON#(lf)        EKPO.EBELN = EKKO.EBELN#(lf)    LEFT JOIN SAP_ECC.MARA MARA ON#(lf)        EKPO.MATNR = MARA.MATNR#(lf)    WHERE#(lf)        BSART IN ('ZUB')#(lf)        AND RESWK = '8010'#(lf)    GROUP BY#(lf)        EKKO.UNSEZ,#(lf)        EKPO.MATNR,#(lf)        EKKO.BSART,#(lf)        RESWK,#(lf)        WERKS,#(lf)        EKKO.LOEKZ#(lf)),#(lf)Contenedores AS (#(lf)    SELECT#(lf)        t.*,#(lf)        i.Descripcion,#(lf)        i.fImport,#(lf)        i.BorradoImport#(lf)    FROM#(lf)        Import i#(lf)    INNER JOIN Traslados t#(lf)    ON#(lf)        i.Contenedor = t.Contenedor#(lf)        AND i.Articulo = t.Articulo#(lf)        AND i.WERKS = t.RESWK#(lf)),#(lf)Movimientos AS (#(lf)    SELECT#(lf)        IDNLF AS CONTENEDOR,#(lf)        MATNR,#(lf)        BSART,#(lf)        RESWK AS CentroEBAN,#(lf)        MIN(BADAT) AS fSolicitud,#(lf)        SUM(CASE#(lf)          WHEN EBAN.attyp = '11' THEN CAST(#(lf)               REPLACE(SUBSTRING(EBAN.txz01, 9, 2), '-', '') AS int#(lf)          )#(lf)       ELSE 1#(lf)     END * MENGE) AS Solicitado,#(lf)        SUM(CASE#(lf)          WHEN EBAN.attyp = '11' THEN CAST(#(lf)               REPLACE(SUBSTRING(EBAN.txz01, 9, 2), '-', '') AS int#(lf)          )#(lf)       ELSE 1#(lf)     END * MNG02) AS Confirmado#(lf)    FROM#(lf)        SAP_ECC.EBAN#(lf)    WHERE#(lf)        BSART = 'ZTRU'#(lf)        AND IDNLF != ''#(lf)        AND LOEKZ <> 'X'#(lf)    GROUP BY#(lf)        MATNR,#(lf)        BSART,#(lf)        IDNLF,#(lf)        RESWK#(lf))#(lf)SELECT#(lf)    c.*,#(lf)    m.BSART AS MOV_EBAN,#(lf)    m.CentroEBAN,#(lf)    m.fSolicitud,#(lf)    m.Solicitado,#(lf)    m.Confirmado,#(lf)    a.MATKL AS JERARQUIA,#(lf)    a.BRAND_ID AS MARCA,#(lf)    a.BISMT AS ESTILOCOLOR,#(lf)    a.GROES AS ESTILO,#(lf)    a.ZZ_DEPART AS DEPARTAMENTO,#(lf)    a.ZZ_ALU AS ALU,#(lf)    a.SAISO AS PERIODO_ESTADISTICO,#(lf)    a.SAISJ AS ANO_PE#(lf)FROM#(lf)    Contenedores c#(lf)LEFT JOIN SAP_ECC.MARA a#(lf)    ON c.ARTICULO = a.MATNR#(lf)LEFT JOIN Movimientos m#(lf)    ON #(lf)        c.Contenedor = m.Contenedor#(lf)        AND c.Articulo = m.MATNR       ", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Contenedores,{{"FIMPORT", type date}, {"FSOLICITUD", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

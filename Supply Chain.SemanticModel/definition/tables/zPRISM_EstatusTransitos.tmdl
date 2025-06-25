@@ -1,0 +1,124 @@
+table zPRISM_EstatusTransitos
+	lineageTag: 4162158a-9a47-4ff7-857d-c097bc20345e
+
+	column SBS_NO
+		dataType: double
+		lineageTag: 49ca8b19-ca2c-4008-a8f9-0a71ce09abfe
+		summarizeBy: sum
+		sourceColumn: SBS_NO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TiendaDestino
+		dataType: string
+		lineageTag: 89118f4d-4e99-4450-97de-b9d998c5387b
+		summarizeBy: none
+		sourceColumn: TiendaDestino
+
+		annotation SummarizationSetBy = Automatic
+
+	column Documento
+		dataType: double
+		lineageTag: b672c25f-8758-4f96-b2e0-6b6853a1b01b
+		summarizeBy: sum
+		sourceColumn: Documento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FechaDocumento
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7148787a-8fa0-4e3b-ab2f-c8c0bf4acfef
+		summarizeBy: none
+		sourceColumn: FechaDocumento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column PKG_NO
+		dataType: string
+		lineageTag: 2f4304ab-1178-4d88-a3ac-c04f8f76c75c
+		summarizeBy: none
+		sourceColumn: PKG_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cantidad
+		dataType: double
+		lineageTag: f290856a-a5a5-4cd9-a62d-676cfe6b48c0
+		summarizeBy: sum
+		sourceColumn: Cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Entrega
+		dataType: int64
+		formatString: 0
+		lineageTag: ec8d03d8-bc9d-45da-836a-e845b3023844
+		summarizeBy: sum
+		sourceColumn: Entrega
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodPaisOrigen
+		dataType: string
+		lineageTag: e4f84641-6635-46f6-a04c-89702dbaaf8d
+		summarizeBy: none
+		sourceColumn: CodPaisOrigen
+
+		annotation SummarizationSetBy = Automatic
+
+	column TiendaOrigen
+		dataType: string
+		lineageTag: c935e474-b954-4b8b-8a8c-3b4a30347ee8
+		summarizeBy: none
+		sourceColumn: TiendaOrigen
+
+		annotation SummarizationSetBy = Automatic
+
+	column DocTransferencia
+		dataType: int64
+		formatString: 0
+		lineageTag: 582ea8d7-d9f2-44ae-a83c-06cbc2a0bf96
+		summarizeBy: sum
+		sourceColumn: DocTransferencia
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo
+		dataType: string
+		lineageTag: e8a36fbf-1223-42e6-96c5-24bed7b89a53
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition zPRISM_EstatusTransitos = m
+		mode: import
+		queryGroup: PRISM
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_Comercial", [Query="DECLARE @InitialDate VARCHAR(10) = '2023-01-01'--format(GETDATE() , 'yyyy-MM-dd')#(lf)#(lf)DECLARE @innerSqlCmd VARCHAR(MAX) = '#(lf)SELECT #(lf)       cms.voucher.sbs_no , #(lf)       cms.store.store_code , #(lf)       cms.voucher.vou_no , #(lf)       to_char(cms.voucher.created_date ,''''YYYY-MM-DD'''') DT , #(lf)       cms.voucher.pkg_no , #(lf)       SUM(cms.vou_item.qty) qty, #(lf)       cms.vou_comment.comments#(lf)  FROM cms.voucher#(lf)  INNER JOIN cms.store#(lf)       ON cms.voucher.sbs_no = cms.store.sbs_no#(lf)          AND cms.voucher.store_no = cms.store.store_no#(lf)  INNER JOIN cms.vou_item#(lf)       ON cms.voucher.vou_sid = cms.vou_item.vou_sid#(lf)  LEFT JOIN cms.vou_comment#(lf)       ON(cms.voucher.vou_sid = cms.vou_comment.vou_sid#(lf)          AND cms.vou_comment.comment_no = 2)#(lf) WHERE 1 = 1#(lf)       AND to_char(cms.voucher.created_date ,''''YYYY-MM-DD'''') >= ''''@{InitialDate}@''''#(lf)       AND cms.voucher.vou_class <> 0#(lf)       AND cms.voucher.active = 1#(lf) GROUP BY #(lf)          cms.voucher.sbs_no , #(lf)          cms.store.store_code , #(lf)          cms.voucher.vou_no , #(lf)          cms.voucher.created_date , #(lf)          cms.voucher.pkg_no , #(lf)          cms.vou_comment.comment_no , #(lf)          cms.vou_comment.comments#(lf)'#(lf)SET @innerSqlCmd = replace(@innerSqlCmd , '@{InitialDate}@' , @InitialDate)#(lf)DECLARE @qryCmd VARCHAR(MAX) = 'SELECT * FROM OPENQUERY (PRISM,'' ' + @innerSqlCmd + ' '')'#(lf)#(lf)EXEC (@qryCmd)", CreateNavigationProperties=false]),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(Origen,{{"STORE_CODE", "TiendaDestino"}, {"VOU_NO", "Documento"}, {"DT", "FechaDocumento"}, {"QTY", "Cantidad"}, {"COMMENTS", "Entrega"}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas con nombre cambiado",{{"FechaDocumento", type date}}),
+				    #"Columna duplicada" = Table.DuplicateColumn(#"Tipo cambiado", "PKG_NO", "PKG_NO - Copia"),
+				    #"Dividir columna por posiciones" = Table.SplitColumn(#"Columna duplicada", "PKG_NO - Copia", Splitter.SplitTextByPositions({0, 3, 6}), {"CodPaisOrigen", "TiendaOrigen", "DocTransferencia"}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Dividir columna por posiciones", "Tipo", each if [Entrega] is null then "Transferencia" else "Despacho CD")
+				in
+				    #"Personalizada agregada"
+
+	annotation PBI_ResultType = Exception
+

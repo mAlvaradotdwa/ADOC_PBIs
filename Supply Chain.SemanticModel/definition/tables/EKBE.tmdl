@@ -1,0 +1,206 @@
+table EKBE
+	lineageTag: 73a5efc6-ed29-43fe-8db2-34cb0f1bdf5c
+
+	measure 'Salidas EKBE' = SUM ( EKBE[CANTIDAD_SALIDA] )
+		formatString: #,0
+		displayFolder: EKBE
+		lineageTag: 82fe8597-78b1-4fc6-846f-47689ec86bda
+
+	measure 'Entregas EKBE' = SUM ( EKBE[CANTIDAD_ENTREGA] )
+		formatString: #,0
+		displayFolder: EKBE
+		lineageTag: f2bab81f-fe06-4a14-a129-69af934bf968
+
+	measure 'Ingresos EKBE' = SUM ( EKBE[CANTIDAD_INGRESO] )
+		formatString: #,0
+		displayFolder: EKBE
+		lineageTag: 7880d383-5a64-4533-afa7-fc083ff31911
+
+	measure '% Entregas EKBE' = DIVIDE ( [Entregas EKBE], [Salidas EKBE] )
+		formatString: #,0.0 %
+		displayFolder: EKBE
+		lineageTag: 89d5bc9d-f444-4a6c-a71c-4e9391d39cf9
+
+	measure '% Ingresos EKBE' = DIVIDE ( [Ingresos EKBE], [Salidas EKBE] )
+		formatString: #,0.0 %
+		displayFolder: EKBE
+		lineageTag: b0f887d9-350d-4a3f-803b-162ae0f71dcc
+
+	column DOC_PEDIDO
+		dataType: string
+		lineageTag: 0abfa227-f0fe-4b09-9c82-8423f2e0f5e7
+		summarizeBy: none
+		sourceColumn: DOC_PEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column POS_PEDIDO
+		dataType: string
+		lineageTag: bc707363-6e39-46c2-9864-b0dcba028809
+		summarizeBy: none
+		sourceColumn: POS_PEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOC_ENTREGA
+		dataType: string
+		lineageTag: 679ccd5b-3473-4a85-9810-f71cb7b9490b
+		summarizeBy: none
+		sourceColumn: DOC_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column POS_ENTREGA
+		dataType: string
+		lineageTag: 53989cba-6d4d-4caf-893a-0fb9d925a2a4
+		summarizeBy: none
+		sourceColumn: POS_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOC_DELIVERY
+		dataType: string
+		lineageTag: 877547db-d4e4-4cf7-b592-34445ca50524
+		summarizeBy: none
+		sourceColumn: DOC_DELIVERY
+
+		annotation SummarizationSetBy = Automatic
+
+	column POS_DELIVERY
+		dataType: string
+		lineageTag: 4a3d6d80-25f9-4edc-9286-4390f932a7cf
+		summarizeBy: none
+		sourceColumn: POS_DELIVERY
+
+		annotation SummarizationSetBy = Automatic
+
+	column REF_DOC
+		dataType: string
+		lineageTag: d250cbcd-48e9-48c7-876a-a78f92827c8c
+		summarizeBy: none
+		sourceColumn: REF_DOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATNR
+		dataType: int64
+		formatString: 0
+		lineageTag: ff8786bc-3150-492c-8ab3-0246eef1f5c4
+		summarizeBy: none
+		sourceColumn: MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKTIENDA_SALIDA
+		dataType: string
+		lineageTag: 2b033325-b041-4cd8-80d7-cfe6e5883c76
+		summarizeBy: none
+		sourceColumn: SKTIENDA_SALIDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD_SALIDA
+		dataType: double
+		lineageTag: 6b34d78b-3857-486b-a5ce-10f326e49255
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_SALIDA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FECHA_SALIDA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d30845fe-8736-4770-8909-803264f22c83
+		summarizeBy: none
+		sourceColumn: FECHA_SALIDA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CANTIDAD_ENTREGA
+		dataType: double
+		lineageTag: 3a3b86b5-b35f-4e72-9ad9-57e3ac0a92ac
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SKTIENDA_INGRESO
+		dataType: string
+		lineageTag: e3e2cfc7-20f5-4afd-9faf-ff0100501822
+		summarizeBy: none
+		sourceColumn: SKTIENDA_INGRESO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD_INGRESO
+		dataType: double
+		lineageTag: 5873a00c-4e52-4db2-a545-220d1e67bf99
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_INGRESO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FECHA_INGRESO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 90784c4e-44e8-4fe8-93bc-999530df3351
+		summarizeBy: none
+		sourceColumn: FECHA_INGRESO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_PEDIDO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4c87328a-5305-4a1c-bf3f-9ec39fa7b65d
+		summarizeBy: none
+		sourceColumn: FECHA_PEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Dias_Salida = IF( not ISBLANK( [FECHA_SALIDA] ) && LEN([FECHA_SALIDA]) > 8, [FECHA_SALIDA] - EKBE[FECHA_PEDIDO] )
+		dataType: int64
+		formatString: 0
+		lineageTag: d0789a38-24ed-403e-af39-1bf9ae472074
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dias_Entrega = IF ( NOT ISBLANK([FECHA_INGRESO]) , [FECHA_INGRESO] - [FECHA_SALIDA] )
+		dataType: int64
+		formatString: 0
+		lineageTag: 18febe78-a693-4aac-9729-1dc67c3661ba
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EKBE = m
+		mode: import
+		queryGroup: 'Fuentes SAP'
+		source =
+				let
+				    Consulta2 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "WITH Salidas AS (#(lf)    SELECT#(lf)        EBELN DOC_PEDIDO ,#(lf)        EBELP POS_PEDIDO ,#(lf)        BELNR DOC_ENTREGA ,#(lf)        BUZEI POS_ENTREGA ,#(lf)        VBELN_ST DOC_DELIVERY ,#(lf)        VBELP_ST POS_DELIVERY ,#(lf)        XBLNR REF_DOC ,#(lf)        /**/#(lf)        MATNR ,#(lf)        WERKS SKTienda_Salida ,#(lf)        MENGE Cantidad_Salida ,#(lf)        BUDAT Fecha_Salida#(lf)    FROM#(lf)        SAP_ECC.EKBE#(lf)    WHERE#(lf)        VGABE = '6'#(lf)        AND BUDAT BETWEEN TO_VARCHAR(ADD_DAYS(LAST_DAY(ADD_MONTHS(CURRENT_DATE , -4)) , 1) , 'YYYYMMDD') #(lf)        AND TO_VARCHAR(LAST_DAY(CURRENT_DATE) , 'YYYYMMDD')#(lf)) ,#(lf)Entregas AS (#(lf)    SELECT#(lf)        EBELN DOC_PEDIDO ,#(lf)        EBELP POS_PEDIDO ,#(lf)        BELNR DOC_ENTREGA ,#(lf)        BUZEI POS_ENTREGA ,#(lf)        MENGE Cantidad_Entrega ,#(lf)        BUDAT Fecha_Entrega#(lf)    FROM#(lf)        SAP_ECC.EKBE#(lf)    WHERE#(lf)        VGABE = '8'#(lf)),#(lf)Ingresos AS (#(lf)    SELECT#(lf)        EBELN DOC_PEDIDO ,#(lf)        EBELP POS_PEDIDO ,#(lf)        VBELN_ST DOC_DELIVERY ,#(lf)        VBELP_ST POS_DELIVERY ,#(lf)        /**/#(lf)        WERKS SKTienda_Ingreso ,#(lf)        MATNR ,#(lf)        MENGE Cantidad_Ingreso ,#(lf)        BUDAT Fecha_Ingreso#(lf)    FROM#(lf)        SAP_ECC.EKBE#(lf)    WHERE#(lf)        VGABE = '1'#(lf))#(lf)SELECT#(lf)    s.Doc_Pedido,#(lf)    s.Pos_Pedido,#(lf)    s.Doc_Entrega,#(lf)    s.Pos_Entrega,#(lf)    s.Doc_Delivery,#(lf)    s.Pos_Delivery,#(lf)    s.Ref_Doc,#(lf)    s.MatNR,#(lf)    s.SKTienda_Salida,#(lf)    s.Cantidad_Salida,#(lf)    s.Fecha_Salida,#(lf)    e.Cantidad_Entrega,#(lf)    e.Fecha_Entrega Fecha_Pedido,#(lf)    i.SKTienda_Ingreso,#(lf)    i.Cantidad_Ingreso,#(lf)    i.Fecha_Ingreso#(lf)FROM#(lf)    Salidas s#(lf)LEFT JOIN Entregas e#(lf)    ON#(lf)    s.Doc_Pedido = e.doc_pedido#(lf)    AND s.pos_pedido = e.pos_pedido#(lf)    AND s.Doc_delivery = e.doc_entrega#(lf)    AND s.pos_delivery = '00' + e.pos_entrega#(lf)LEFT JOIN Ingresos i#(lf)        ON#(lf)        s.doc_pedido = i.doc_pedido#(lf)    AND s.pos_pedido = i.pos_pedido#(lf)    AND s.doc_delivery = i.doc_delivery#(lf)    AND s.pos_delivery = i.pos_delivery    ", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta2,{{"FECHA_INGRESO", type date}, {"FECHA_PEDIDO", type date}, {"FECHA_SALIDA", type date}, {"MATNR", Int64.Type} })
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
