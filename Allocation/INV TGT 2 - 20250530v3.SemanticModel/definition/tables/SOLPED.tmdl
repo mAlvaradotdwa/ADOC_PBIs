@@ -1,0 +1,382 @@
+table SOLPED
+	lineageTag: 4118f3c2-0714-43d3-a648-4e741fbcdec0
+
+	column 'Repartos (U)' = SOLPED[Repartos (TEST)]
+		lineageTag: 329b869f-f5ea-4833-85ad-437d82f0c498
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MARCA = IF(SOLPED[UM]="CJ",LOOKUPVALUE(IH09[Marca],IH09[GENERICO2],LEFT(SOLPED[Artículo],8)),RELATED(IH09[Marca]))
+		lineageTag: 4ca8c987-b41d-45b1-9814-6f7357f80a86
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPTO = IF(SOLPED[UM]="CJ",LOOKUPVALUE(IH09[Dep],IH09[GENERICO2],LEFT(SOLPED[Artículo],8)),RELATED(IH09[Dep]))
+		lineageTag: ce19020e-816b-40b8-869a-868ee872b7b7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO = IF(SOLPED[UM]="CJ",LOOKUPVALUE(IH09[Género],IH09[GENERICO2],LEFT(SOLPED[Artículo],8)),RELATED(IH09[Género]))
+		lineageTag: 3139fec1-fd91-4400-9004-5e26537f5c95
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORIA =
+			IF (
+			    SOLPED[UM] = "CJ",
+			    CALCULATE (
+			        FIRSTNONBLANK (
+			            IH09[Desc. Clase],
+			            TRUE ()
+			        ),
+			        IH09[GENERICO2]
+			            = EARLIER ( SOLPED[GENERICO] )
+			    ),
+			    RELATED ( IH09[Desc. Clase] )
+			)
+		lineageTag: b4d2fac0-97d7-4085-8a1a-3806bb5ddf18
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS = SWITCH(TRUE(),SOLPED[Ce.]="1010","SV",SOLPED[Ce.]="2010","GT",SOLPED[Ce.]="3010","CR",SOLPED[Ce.]="4010","HN",SOLPED[Ce.]="5010","NI",SOLPED[Ce.]="6010","PA")
+		lineageTag: 1a71983c-ee37-466a-a75d-5e2eefe3e302
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = RELATED ( 'MARCAS UNIDAD'[UNIDAD NEGOCIO] ) & SOLPED[PAIS] & SOLPED[DEPTO] & SOLPED[GENERO] & SOLPED[CATEGORIA]
+		lineageTag: 2b6e4876-3855-4d3d-be21-e8caac037020
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VALOR PROMEDIO $' =
+			
+			CALCULATE (
+			    AVERAGE ( 'INV ACTUAL'[VALOR $ PROMEDIO] ),
+			    FILTER (
+			        'INV ACTUAL',
+			        'INV ACTUAL'[KEY] = EARLIER ( 'SOLPED'[KEY] )
+			            && 'INV ACTUAL'[COD ALMACEN] = "AL01"
+			    )
+			)
+		formatString: \$#,0.00;-\$#,0.00;\$#,0.00
+		lineageTag: d5ffd9be-3dbd-4ab3-a80a-27c4d0c7a03e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'INV TRANS $' = SOLPED[Repartos (U)]*SOLPED[VALOR PROMEDIO $]
+		formatString: \$#,0.00;-\$#,0.00;\$#,0.00
+		lineageTag: 876ba457-27bd-40d8-b455-6d0a4c7cd18d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'TIPO ESTILO' = RELATED(IH09[TIPOESTILO])
+		lineageTag: 46142749-14b6-4106-bc8e-7239ef4b04be
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALDOS
+		dataType: string
+		lineageTag: fd48668f-8349-454e-adb1-4e62cbab2ef7
+		summarizeBy: none
+		sourceColumn: SALDOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERICO = LEFT(SOLPED[Artículo],8)
+		lineageTag: a1fa8103-b9b2-408e-bb21-94b4c8371817
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sol.pedido'
+		dataType: string
+		lineageTag: f3912215-193c-4c78-ade2-e930f0919ad1
+		summarizeBy: none
+		sourceColumn: Sol.pedido
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pos.'
+		dataType: string
+		lineageTag: 82a4d969-2bc6-495e-b259-b30327c93b77
+		summarizeBy: none
+		sourceColumn: Pos.
+
+		annotation SummarizationSetBy = Automatic
+
+	column CDoc
+		dataType: string
+		lineageTag: 7cfdf9ee-cafb-43d7-b82f-03d55dd02a1e
+		summarizeBy: none
+		sourceColumn: CDoc
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gcp
+		dataType: string
+		lineageTag: 18a81e1f-2245-4267-b38a-4a850667d130
+		summarizeBy: none
+		sourceColumn: Gcp
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTIMA_MODIFICACION
+		dataType: string
+		lineageTag: 04fd4726-4d63-4725-a22c-a50b2af7df4b
+		summarizeBy: none
+		sourceColumn: ULTIMA_MODIFICACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Texto breve'
+		dataType: string
+		lineageTag: 0d8ab503-e8e3-4dbf-8265-6795d8cfce0a
+		summarizeBy: none
+		sourceColumn: Texto breve
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ce.'
+		dataType: string
+		lineageTag: fa5ef6c7-cd33-479d-88ba-c73761f47185
+		summarizeBy: none
+		sourceColumn: Ce.
+
+		annotation SummarizationSetBy = Automatic
+
+	column Alm
+		dataType: string
+		lineageTag: bd7dafc5-99d7-435d-90a1-d8ede984bdbf
+		summarizeBy: none
+		sourceColumn: Alm
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRUPO_ARTICULOS
+		dataType: string
+		lineageTag: 76da984d-a54e-4a67-b29f-a1976827c710
+		summarizeBy: none
+		sourceColumn: GRUPO_ARTICULOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CeSu
+		dataType: string
+		lineageTag: 6d716517-841c-4ddd-8531-f6152cd44157
+		summarizeBy: none
+		sourceColumn: CeSu
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD_SOLICITADA
+		dataType: double
+		lineageTag: cdaf04cc-32dc-4b82-8c00-bf7320847d02
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_SOLICITADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UM
+		dataType: string
+		lineageTag: 6c5e13cb-d4d4-4339-be09-67d0b9436793
+		summarizeBy: none
+		sourceColumn: UM
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_SOLICITUD
+		dataType: string
+		lineageTag: b3fe0c4e-49ef-4752-beed-eb1bd422ff4a
+		summarizeBy: none
+		sourceColumn: FECHA_SOLICITUD
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRECIO
+		dataType: double
+		lineageTag: e6b17880-44b2-4dae-8a1e-5bc689ca0331
+		summarizeBy: sum
+		sourceColumn: PRECIO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD_CONFIRMADA
+		dataType: double
+		lineageTag: 1144764e-f13c-43a2-8ba0-5f5827e62890
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_CONFIRMADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MONEDA
+		dataType: string
+		lineageTag: 0f7e8760-0e7f-4799-af08-3c404f2398a4
+		summarizeBy: none
+		sourceColumn: MONEDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column AlmEmi
+		dataType: string
+		lineageTag: a2492dde-cad3-4ec7-b927-9dc52d8b2707
+		summarizeBy: none
+		sourceColumn: AlmEmi
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CREACION_DOCUMENTO
+		dataType: string
+		lineageTag: 78b967c1-6cf9-4ebb-881e-6870ff02cb38
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO_ZINT_ASOCIADO
+		dataType: string
+		lineageTag: 945c560d-1112-451f-bcd2-74b730894cdf
+		summarizeBy: none
+		sourceColumn: DOCUMENTO_ZINT_ASOCIADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTENEDOR_REFERENCIA
+		dataType: string
+		lineageTag: cb20d60b-7250-40e4-bcf5-6b09dd31a132
+		summarizeBy: none
+		sourceColumn: CONTENEDOR_REFERENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: c8c84968-33ce-457c-97b3-671014f5026b
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		lineageTag: 3e932902-c949-41bb-8119-cb148efc0588
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MARCA (TEST)'
+		dataType: string
+		lineageTag: 49b44155-dae3-4877-bee7-56fd1af399de
+		summarizeBy: none
+		sourceColumn: MARCA (TEST)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GENERO (TEST)'
+		dataType: string
+		lineageTag: c283771c-580b-4cad-ac09-fc915d46be83
+		summarizeBy: none
+		sourceColumn: GENERO (TEST)
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: c25f5876-094f-49df-9e3a-de0c3b2d9dc1
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Repartos (TEST)'
+		dataType: double
+		lineageTag: f43f1ea6-6958-418c-9ff9-9c8a15b30d4c
+		summarizeBy: sum
+		sourceColumn: Repartos (TEST)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD_TOTAL_CONFIRMADA
+		dataType: double
+		lineageTag: d5872ea7-c37d-49a9-96cf-8638d77be355
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_TOTAL_CONFIRMADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ESTADO_ENTREGA
+		dataType: string
+		lineageTag: 9bba8f37-cc13-4f89-8fad-5536fd09bfbb
+		summarizeBy: none
+		sourceColumn: ESTADO_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artículo
+		dataType: string
+		lineageTag: d916e6f8-fc74-4fba-9739-ca4b4c386439
+		summarizeBy: none
+		sourceColumn: Artículo
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE = RELATED(IH09[PE])
+		lineageTag: e70d5512-4f79-4483-847d-f526a01fdcb8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES_LANZ = RELATED('TABLA PE'[AÑO MES LANZAMIENTO])
+		lineageTag: feb785ee-e604-4164-86b7-feaa7116fc83
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SOLPED = m
+		mode: import
+		queryGroup: 'Server SAP (HANA)'
+		source =
+				let
+				    #"SOLPED" = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- DATA SOLPED#(lf)#(lf)SELECT #(lf)    EBAN.BANFN AS Documento,#(lf)    EBAN.BNFPO AS Posicion_Documento, #(lf)    EBAN.BSART AS Clase_Documento,#(lf)    EBAN.EKGRP AS Grupo_Compras,#(lf)    EBAN.ERDAT AS Ultima_Modificacion,#(lf)    EBAN.TXZ01 AS Descripcion,#(lf)    EBAN.MATNR AS Articulo, #(lf)    EBAN.WERKS AS Centro_Destino,#(lf)    EBAN.LGORT AS Almacen, #(lf)    EBAN.MATKL AS Grupo_Articulos, #(lf)    EBAN.RESWK AS Centro_Suministrador, #(lf)    EBAN.MENGE AS Cantidad_Solicitada,#(lf)    EBAN.MEINS AS Unidad, #(lf)    EBAN.BADAT AS Fecha_Solicitud,#(lf)    EBAN.PREIS AS Precio, #(lf)    EBAN.BSMNG AS Cantidad_Confirmada,#(lf)    EBAN.WAERS AS Moneda,#(lf)    EBAN.RESLO AS Almacen_Emisor,#(lf)    EBAN.CREATIONDATE AS Fecha_Creacion_Documento,#(lf)    EBAN.EBELN AS Documento_ZINT_Asociado,#(lf)    EBAN.IDNLF AS Contenedor_Referencia,#(lf)    MARA.GROES AS Estilo, #(lf)    MARA.FREE_CHAR AS Color, #(lf)    MARA.BRAND_ID AS Marca, #(lf)    MARA.ZZ_ART_PROV AS Genero, #(lf)    MARA.ZZ_DEPART AS Departamento,#(lf)#(lf)    -- Cantidad Total Solicitada#(lf)    CASE  #(lf)        WHEN LEFT(EBAN.TXZ01, 7) = 'Prepack'  #(lf)        THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EBAN.TXZ01 GROUP 1) AS INTEGER)  #(lf)        ELSE 1  #(lf)    END * EBAN.MENGE AS Cantidad_Total_Solicitada,#(lf)#(lf)    -- Cantidad Total Confirmada#(lf)    CASE  #(lf)        WHEN LEFT(EBAN.TXZ01, 7) = 'Prepack'  #(lf)        THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EBAN.TXZ01 GROUP 1) AS INTEGER)  #(lf)        ELSE 1  #(lf)    END * EBAN.BSMNG AS Cantidad_Total_Confirmada,#(lf)#(lf)    -- Estado de entrega#(lf)    CASE #(lf)        WHEN (#(lf)            CASE  #(lf)                WHEN LEFT(EBAN.TXZ01, 7) = 'Prepack'  #(lf)                THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EBAN.TXZ01 GROUP 1) AS INTEGER)  #(lf)                ELSE 1  #(lf)            END * EBAN.MENGE#(lf)        ) - (#(lf)            CASE  #(lf)                WHEN LEFT(EBAN.TXZ01, 7) = 'Prepack'  #(lf)                THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EBAN.TXZ01 GROUP 1) AS INTEGER)  #(lf)                ELSE 1  #(lf)            END * EBAN.BSMNG#(lf)        ) = 0#(lf)        THEN 'Entregado'#(lf)        ELSE 'Pendiente'#(lf)    END AS Estado_Entrega#(lf)#(lf)FROM SAP_ECC.EBAN#(lf)LEFT JOIN SAP_ECC.MARA  #(lf)    ON MARA.MATNR = EBAN.MATNR#(lf)#(lf)WHERE BSART IN ('ZTRU', 'ZUIN')#(lf)  AND LOEKZ <> 'X'#(lf)  -- AND EBELN = ''#(lf)  --AND BANFN IN ('4300007157', '4300007156', '4300007155', '4300006061', '4300006049', '4300006072', '4300006037', '4300005131')#(lf)  --AND EBAN.MATNR IN ('000000030084889902', '000000030084889905')", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(SOLPED,{{"POSICION_DOCUMENTO", "Pos."}, {"DOCUMENTO", "Sol.pedido"}, {"CLASE_DOCUMENTO", "CDoc"}, {"GRUPO_COMPRAS", "Gcp"}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Renamed Columns",{{"CENTRO_DESTINO", "Ce."}, {"ALMACEN", "Alm"}, {"CENTRO_SUMINISTRADOR", "CeSu"}}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Renamed Columns1",{{"ALMACEN_EMISOR", "AlmEmi"}, {"CANTIDAD_TOTAL_SOLICITADA", "Repartos (U)"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns2", "Articulo.1", each Text.TrimStart([ARTICULO],"0")),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Added Custom",{"Sol.pedido", "Pos.", "CDoc", "Gcp", "ULTIMA_MODIFICACION", "DESCRIPCION", "Ce.", "Alm", "GRUPO_ARTICULOS", "CeSu", "CANTIDAD_SOLICITADA", "UNIDAD", "FECHA_SOLICITUD", "PRECIO", "CANTIDAD_CONFIRMADA", "MONEDA", "AlmEmi", "FECHA_CREACION_DOCUMENTO", "DOCUMENTO_ZINT_ASOCIADO", "CONTENEDOR_REFERENCIA", "ESTILO", "COLOR", "MARCA", "GENERO", "DEPARTAMENTO", "Repartos (U)", "CANTIDAD_TOTAL_CONFIRMADA", "ESTADO_ENTREGA", "Articulo.1"}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Removed Other Columns",{{"Articulo.1", "Artículo"}, {"Repartos (U)", "Repartos (TEST)"}, {"MARCA", "MARCA (TEST)"}, {"GENERO", "GENERO (TEST)"}, {"DESCRIPCION", "Texto breve"}, {"UNIDAD", "UM"}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns3","CS","CJ",Replacer.ReplaceText,{"UM"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","PAA","PAR",Replacer.ReplaceText,{"UM"}),
+				    #"Added Custom1" = Table.AddColumn(#"Replaced Value1", "SALDOS", each [CANTIDAD_SOLICITADA]-[CANTIDAD_CONFIRMADA])
+				in
+				    #"Added Custom1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

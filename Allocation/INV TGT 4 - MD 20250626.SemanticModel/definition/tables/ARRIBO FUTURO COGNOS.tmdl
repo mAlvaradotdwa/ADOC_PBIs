@@ -1,0 +1,363 @@
+table 'ARRIBO FUTURO COGNOS'
+	lineageTag: 1e82047e-f4a6-4244-a03b-6e23af0f1316
+
+	column AÑO
+		dataType: string
+		lineageTag: 9821450e-57e3-4d94-838b-fb4423d52a23
+		summarizeBy: none
+		sourceColumn: AÑO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: eca2c909-7ff2-42e7-97a7-674e9fb5a08d
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: a6b92778-98d8-4ece-a329-baebf78b351b
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = IF(ISBLANK('ARRIBO FUTURO COGNOS'[DOC MK]),'ARRIBO FUTURO COGNOS'[DOC]&'ARRIBO FUTURO COGNOS'[ARTICULO],'ARRIBO FUTURO COGNOS'[DOC MK]&'ARRIBO FUTURO COGNOS'[ARTICULO])
+		lineageTag: b0d1f268-f555-4ae0-a22a-340ac59d3934
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column VERIF = ISBLANK(LOOKUPVALUE(CONTENEDORES[KEY CONTENEDORES],CONTENEDORES[KEY CONTENEDORES],'ARRIBO FUTURO COGNOS'[KEY]))
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2ac9a0b6-8939-47e7-b57f-5c10de951cb0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MARCA IH09' = 'ARRIBO FUTURO COGNOS'[MARCA]
+		lineageTag: 6361f255-e148-4986-9511-7a9a547ab7f6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MARCA BV' = IF(LOOKUPVALUE('MARCAS UNIDAD'[UNIDAD NEGOCIO],'MARCAS UNIDAD'[MARCA BV],'ARRIBO FUTURO COGNOS'[MARCA IH09])="PAR2","PAR2",'ARRIBO FUTURO COGNOS'[MARCA IH09])
+		lineageTag: b4a677e1-e8a0-430d-bf43-79280b71200a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPTO = 'ARRIBO FUTURO COGNOS'[DEPTO BV]
+		lineageTag: 00ef5787-810e-496b-8cc0-ac341946d592
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO = 'ARRIBO FUTURO COGNOS'[GENERO BV]
+		lineageTag: b6ba8b3c-bde8-4753-a7df-bd236eb91238
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORIA = 'ARRIBO FUTURO COGNOS'[CATEGORIA BV]
+		lineageTag: fa738111-e6ff-4370-b2f1-02c941d8abc9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATNR
+		dataType: string
+		lineageTag: 08acabb5-a19a-443a-aee7-3a5f8ab90648
+		summarizeBy: none
+		sourceColumn: MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FECHA ESTIMADA' = IF('ARRIBO FUTURO COGNOS'[LINEA]="Producto terminado ADOC",'ARRIBO FUTURO COGNOS'[FECHA ARRIBO],IF(OR('ARRIBO FUTURO COGNOS'[CONTINENTE ORIGEN]="Asia",'ARRIBO FUTURO COGNOS'[COD ALMACEN]="BF19"),'ARRIBO FUTURO COGNOS'[FECHA XF]+LOOKUPVALUE('LT A BFI'[BFI PA],'LT A BFI'[PAIS],RIGHT('ARRIBO FUTURO COGNOS'[PUERTO ORIGEN],2)),IF('ARRIBO FUTURO COGNOS'[COD ALMACEN]="BF17",'ARRIBO FUTURO COGNOS'[FECHA XF]+LOOKUPVALUE('LT A BFI'[BFI SV],'LT A BFI'[PAIS],RIGHT('ARRIBO FUTURO COGNOS'[PUERTO ORIGEN],2)),IF(OR('ARRIBO FUTURO COGNOS'[COD ALMACEN]="BP01",'ARRIBO FUTURO COGNOS'[COD ALMACEN]="BP10"),'ARRIBO FUTURO COGNOS'[FECHA ARRIBO]))))
+		formatString: d mmm yyyy
+		lineageTag: 9daa3367-7ca3-439f-8960-92104669d782
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: d8178a25-422a-45cc-9051-cddca00521cf
+			defaultHierarchy: LocalDateTable_7ab2858b-7423-4eb0-86ab-e6e6c39012d0.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column TEST = LEN('ARRIBO FUTURO COGNOS'[DOC MK])>0
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f6662927-75a5-4888-b24b-d4ac22afa6b7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KEY BFI' = 'ARRIBO FUTURO COGNOS'[MARCA BV]&IF(AND('ARRIBO FUTURO COGNOS'[MARCA BV]="PAR2",'ARRIBO FUTURO COGNOS'[PAIS BV]="CR"),"SV",'ARRIBO FUTURO COGNOS'[PAIS BV])&'ARRIBO FUTURO COGNOS'[DEPTO]&'ARRIBO FUTURO COGNOS'[GENERO]&'ARRIBO FUTURO COGNOS'[CATEGORIA]
+		lineageTag: 7d555a92-8c72-4092-9b00-f223d46041f5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KEY BFI MES' = 'ARRIBO FUTURO COGNOS'[KEY BFI]&YEAR('ARRIBO FUTURO COGNOS'[FECHA ESTIMADA])&FORMAT(IF(DAY('ARRIBO FUTURO COGNOS'[FECHA ESTIMADA])>10,MONTH('ARRIBO FUTURO COGNOS'[FECHA ESTIMADA])+1,MONTH('ARRIBO FUTURO COGNOS'[FECHA ESTIMADA])),"00")
+		lineageTag: 4d86cd0c-2582-4ed2-82c7-124ee5d2e2d0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INV TRANS $' = 'ARRIBO FUTURO COGNOS'[ARRIBO NETO $ ULTIMO DIA]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e0590e63-a82a-402d-b7ea-ff2d41d6a0bf
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CONTINENTE ORIGEN' = LOOKUPVALUE('LT A BFI'[CONTINENTE],'LT A BFI'[PAIS],RIGHT('ARRIBO FUTURO COGNOS'[PUERTO ORIGEN],2))
+		lineageTag: 66805986-7104-45fd-9fcc-20c2e0958695
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column LINEA
+		dataType: string
+		lineageTag: 46d2c198-7605-44c0-848a-10721742cea5
+		summarizeBy: none
+		sourceColumn: LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERICO = LEFT('ARRIBO FUTURO COGNOS'[ARTICULO],8)
+		lineageTag: d096d658-ddc2-4da7-9197-b5fba40825cc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE
+		dataType: string
+		lineageTag: a3a8a811-669d-4002-89de-8d068b8cbf44
+		summarizeBy: none
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES_LANZ = RELATED('TABLA PE'[AÑO MES LANZAMIENTO])
+		lineageTag: 8838c240-34e2-4eb2-9303-0b145182fc51
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIVISION BV'
+		dataType: string
+		lineageTag: c1eaee3d-fdff-4d1c-94c3-6d296d03dfc3
+		summarizeBy: none
+		sourceColumn: DIVISION BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COD MES'
+		dataType: string
+		lineageTag: bc275425-0160-45d5-8ed6-de75d120b269
+		summarizeBy: none
+		sourceColumn: COD MES
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: 6ac81180-596d-4c44-b706-147f018eb9c8
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TIPO ESTILO'
+		dataType: string
+		lineageTag: 58594570-7cc7-4930-a56e-1b9bb2d773ed
+		summarizeBy: none
+		sourceColumn: TIPO ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DEPTO BV'
+		dataType: string
+		lineageTag: b593bbdb-0ac0-4a7c-a86f-2b9de186dac5
+		summarizeBy: none
+		sourceColumn: DEPTO BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GENERO BV'
+		dataType: string
+		lineageTag: 8b7f1eab-c752-4f5f-be76-9096fce8a6d7
+		summarizeBy: none
+		sourceColumn: GENERO BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CATEGORIA BV'
+		dataType: string
+		lineageTag: 0dd0d577-df76-4c23-9b7e-3b7bd46c78cb
+		summarizeBy: none
+		sourceColumn: CATEGORIA BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOC
+		dataType: string
+		lineageTag: bdb5b7f1-74aa-4b0b-9829-77d096fe1e1b
+		summarizeBy: none
+		sourceColumn: DOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DOC POSICION'
+		dataType: string
+		lineageTag: 7165ab3a-42c9-4de6-97f1-9ece2174ee56
+		summarizeBy: none
+		sourceColumn: DOC POSICION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DOC MK'
+		dataType: string
+		lineageTag: ab343c0a-609a-41fe-8513-9e99839715f1
+		summarizeBy: none
+		sourceColumn: DOC MK
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ARRIBO PARES ULTIMO DIA'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b84bdc7-baef-4110-92d2-411882e82ea7
+		summarizeBy: sum
+		sourceColumn: ARRIBO PARES ULTIMO DIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PAIS BV'
+		dataType: string
+		lineageTag: 71097a10-13a0-4286-b578-28b901503290
+		summarizeBy: none
+		sourceColumn: PAIS BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FECHA DOC'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cbfb9125-c199-4e7d-aa9c-1271a3dfb2d9
+		summarizeBy: none
+		sourceColumn: FECHA DOC
+
+		variation Variation
+			isDefault
+			relationship: 91fd415f-49dd-44f6-864e-437e0b13f970
+			defaultHierarchy: LocalDateTable_b0a4aac4-961b-446a-b97f-4abf928e89b6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'FECHA XF ORIGINAL'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b050bd8a-b08d-4843-b238-79ac57150053
+		summarizeBy: none
+		sourceColumn: FECHA XF ORIGINAL
+
+		variation Variation
+			isDefault
+			relationship: 3642e365-834b-4b5a-bcb5-c00e0f53864a
+			defaultHierarchy: LocalDateTable_73c88756-7afd-4c0d-8987-00939626703e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FECHA XF'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ea0786a0-0170-4a10-80ac-8c4d88581bbc
+		summarizeBy: none
+		sourceColumn: FECHA XF
+
+		variation Variation
+			isDefault
+			relationship: 0ed7f724-bcb6-4676-ac4a-6ecaf1399889
+			defaultHierarchy: LocalDateTable_30b75170-5746-4687-94a6-435c061321fc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'FECHA ARRIBO'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d0c3401e-7fda-4adf-907d-0b07f29ffa35
+		summarizeBy: none
+		sourceColumn: FECHA ARRIBO
+
+		variation Variation
+			isDefault
+			relationship: d65fecdc-2d7e-4a09-ab71-b63d9a51456a
+			defaultHierarchy: LocalDateTable_0b8ef585-98f9-4b54-8a91-0041ecb603f0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'PUERTO ORIGEN'
+		dataType: string
+		lineageTag: a6626deb-fc88-4f6a-8482-d4ddff5f57d6
+		summarizeBy: none
+		sourceColumn: PUERTO ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COD ALMACEN'
+		dataType: string
+		lineageTag: de323438-bed0-459e-a4b6-d25590fb05b4
+		summarizeBy: none
+		sourceColumn: COD ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ARRIBO NETO $ ULTIMO DIA'
+		dataType: double
+		lineageTag: 8d3968cf-fdb8-4156-835e-084d2cc9ba52
+		summarizeBy: sum
+		sourceColumn: ARRIBO NETO $ ULTIMO DIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'ARRIBO FUTURO COGNOS' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="#(lf)select#(lf)#(tab)""DIM_PERIODO"".""ANO"" ""AÑO"" ,#(lf)#(tab)""DIM_PERIODO"".""COD_MES"" ""COD_MES"" ,#(lf)#(tab)""DIM_PAIS"".""BV_PAIS"" ""PAIS_BV"" ,#(lf)#(tab)""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" ""COD_TIPO_OPERACION"" ,#(lf)#(tab)substring(""DIM_ARTICULOSAP"".""SK_MATNR"", 1, 15) ""ARTICULO"" ,#(lf)#(tab)""DIM_TIPOESTILO"".""TIPOESTILO"" ""TIPO_ESTILO"" ,#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""CONTENEDOR"" ""CONTENEDOR"" ,#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""F_XF_ORIGINAL"" ""FECHA_XF_ORIGINAL"" ,#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""F_XF"" ""FECHA_XF"" ,#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""F_ARRIBO"" ""FECHA_ARRIBO"" ,#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""F_DOC"" ""FECHA_DOC"" ,#(lf)#(tab)""DIM_PERIODO"".""PERIODO"" ""PERIODO"" ,#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""DOC"" ""DOC1"" ,#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""DOC_POSICION"" ""DOC_POSICION1"" ,#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""DOC_MK"" ""DOC_MK1"" ,#(lf)#(tab)sum(""FAC_ARRIBOFUTUROUD"".""PARES"") ""ARRIBO_PARES_ULTIMO_DIA"" ,#(lf)#(tab)""DIM_ALMACEN"".""DIVISION"" ""DIVISION"" ,#(lf)#(tab)""DIM_ALMACEN"".""BV_DIVISION"" ""DIVISION_BV"" ,#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""PUERTO_ORIGEN"" ""PUERTO_ORIGEN"" ,#(lf)#(tab)""DIM_ALMACEN"".""SK_ALMACEN"" ""COD_ALMACEN"" ,#(lf)#(tab)""DIM_ARTICULOSAP"".""SK_MATNR"" ""MATNR"" ,#(lf)#(tab)sum(""FAC_ARRIBOFUTUROUD"".""PRECIO_VENTANETA_USD"") ""ARRIBO_NETO___ULTIMO_DIA"" ,#(lf)#(tab)""DIM_LINEA"".""LINEA"" ""LINEA"" ,#(lf)#(tab)""DIM_ARTICULOSAP"".""SK_MARCA"" ""MARCA_BV"" ,#(lf)#(tab)case#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""SK_DEPTO"" when N'C' then N'CAL'#(lf)#(tab)#(tab)when N'R' then N'ROP'#(lf)#(tab)#(tab)when N'A' then N'ACC'#(lf)#(tab)#(tab)when N'X' then N'CER'#(lf)#(tab)#(tab)else N'OTRO'#(lf)#(tab)end ""DEPTO_BV"" ,#(lf)#(tab)case#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'H' then N'HOM'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'M' then N'MUJ'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'B' then N'NNO'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'G' then N'NNA'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'I' then N'INF'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U'#(lf)#(tab)#(tab)and ""DIM_ARTICULOSAP"".""SK_DEPTO"" = N'C' then N'NNO'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U' then N'UNI'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'C' then N'CER'#(lf)#(tab)#(tab)else N'OTRO'#(lf)#(tab)end ""GENERO_BV"" ,#(lf)#(tab)case#(lf)#(tab)#(tab)when ""DIM_CATEGORIA"".""CATEGORIA"" = 'ADOCHEQ' then 'CASUAL'#(lf)#(tab)#(tab)when ""DIM_CATEGORIA"".""CATEGORIA"" = 'AGRCHVR' then 'DEPORTIVO'#(lf)#(tab)#(tab)when ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'AC' then 'ACCESORIOS'#(lf)#(tab)#(tab)when ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'PR' then 'PROMOCIONAL'#(lf)#(tab)#(tab)else isnull(""DIM_CATEGORIA"".""CATEGORIA"", 'OTRO')#(lf)#(tab)end ""CATEGORIA_BV"" ,#(lf)#(tab)""DIM_ARTICULOSAP"".""SK_COLECCION"" ""COD_TEMPORADA_SAP""#(lf)from#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_PERIODO"" ""DIM_PERIODO"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_PAIS"" ""DIM_PAIS"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_TIPOOPERACION"" ""DIM_TIPOOPERACION"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_ARTICULOSAP"" ""DIM_ARTICULOSAP"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_TIPOESTILO"" ""DIM_TIPOESTILO"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""FAC_ARRIBOFUTUROUD"" ""FAC_ARRIBOFUTUROUD"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_ALMACEN"" ""DIM_ALMACEN"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_LINEA"" ""DIM_LINEA"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_CATEGORIA"" ""DIM_CATEGORIA"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_TIENDA"" ""DIM_TIENDA""#(lf)where#(lf)#(tab)""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" in ('45ZIMPNA', '44', '46ZNACNA', 'L1-ZUB', 'L1-INV1020-03', '48ZUBNA')#(lf)#(tab)and ""DIM_PERIODO"".""PERIODO"" >= convert(datetime2, '2023-01-01 00:00:00.000000000')#(lf)#(tab)and ""DIM_ALMACEN"".""DIVISION"" in ('Retail')#(lf)#(tab)and (""DIM_TIENDA"".""SK_TIENDA"" <> '1020'#(lf)#(tab)#(tab)and ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" NOT in ('L1-INV1020-03', 'L1-INV1020')#(lf)#(tab)#(tab)#(tab)or ""DIM_TIENDA"".""SK_TIENDA"" NOT in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020'))#(lf)#(tab)and (""DIM_TIENDA"".""SK_TIENDA"" <> '1020'#(lf)#(tab)#(tab)and ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" NOT in ('L1-INV1020-03', 'L1-INV1020')#(lf)#(tab)#(tab)#(tab)or ""DIM_TIENDA"".""SK_TIENDA"" NOT in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020'))#(lf)#(tab)and ""FAC_ARRIBOFUTUROUD"".""SK_PERIODO"" = ""DIM_PERIODO"".""SK_PERIODO""#(lf)#(tab)and ""FAC_ARRIBOFUTUROUD"".""SK_ALMACEN"" = ""DIM_ALMACEN"".""SK_ALMACEN""#(lf)#(tab)and ""FAC_ARRIBOFUTUROUD"".""SK_MATNR"" = ""DIM_ARTICULOSAP"".""SK_MATNR""#(lf)#(tab)and ""DIM_ARTICULOSAP"".""SK_CATEGORIA"" = ""DIM_CATEGORIA"".""SK_CATEGORIA""#(lf)#(tab)and ""DIM_ARTICULOSAP"".""SK_LINEA"" = ""DIM_LINEA"".""SK_LINEA""#(lf)#(tab)and ""DIM_TIPOESTILO"".""SK_TIPOESTILO"" = ""DIM_ARTICULOSAP"".""SK_TIPOESTILO""#(lf)#(tab)and ""DIM_PAIS"".""SK_PAIS"" = ""FAC_ARRIBOFUTUROUD"".""SK_PAIS""#(lf)#(tab)and ""FAC_ARRIBOFUTUROUD"".""SK_TIPOOPERACION"" = ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION""#(lf)#(tab)and ""FAC_ARRIBOFUTUROUD"".""SK_TIENDA"" = ""DIM_TIENDA"".""SK_TIENDA""#(lf)group by#(lf)#(tab)""DIM_PERIODO"".""ANO"",#(lf)#(tab)""DIM_PERIODO"".""COD_MES"",#(lf)#(tab)""DIM_PAIS"".""BV_PAIS"",#(lf)#(tab)""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"",#(lf)#(tab)substring(""DIM_ARTICULOSAP"".""SK_MATNR"", 1, 15),#(lf)#(tab)""DIM_TIPOESTILO"".""TIPOESTILO"",#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""CONTENEDOR"",#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""F_XF_ORIGINAL"",#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""F_XF"",#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""F_ARRIBO"",#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""F_DOC"",#(lf)#(tab)""DIM_PERIODO"".""PERIODO"",#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""DOC"",#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""DOC_POSICION"",#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""DOC_MK"",#(lf)#(tab)""DIM_ALMACEN"".""DIVISION"",#(lf)#(tab)""DIM_ALMACEN"".""BV_DIVISION"",#(lf)#(tab)""FAC_ARRIBOFUTUROUD"".""PUERTO_ORIGEN"",#(lf)#(tab)""DIM_ALMACEN"".""SK_ALMACEN"",#(lf)#(tab)""DIM_ARTICULOSAP"".""SK_MATNR"",#(lf)#(tab)""DIM_LINEA"".""LINEA"",#(lf)#(tab)""DIM_ARTICULOSAP"".""SK_MARCA"",#(lf)#(tab)case#(lf)#(tab)#(tab)""DIM_ARTICULOSAP"".""SK_DEPTO"" when N'C' then N'CAL'#(lf)#(tab)#(tab)when N'R' then N'ROP'#(lf)#(tab)#(tab)when N'A' then N'ACC'#(lf)#(tab)#(tab)when N'X' then N'CER'#(lf)#(tab)#(tab)else N'OTRO'#(lf)#(tab)end ,#(lf)#(tab)case#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'H' then N'HOM'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'M' then N'MUJ'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'B' then N'NNO'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'G' then N'NNA'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'I' then N'INF'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U'#(lf)#(tab)#(tab)and ""DIM_ARTICULOSAP"".""SK_DEPTO"" = N'C' then N'NNO'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U' then N'UNI'#(lf)#(tab)#(tab)when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'C' then N'CER'#(lf)#(tab)#(tab)else N'OTRO'#(lf)#(tab)end ,#(lf)#(tab)case#(lf)#(tab)#(tab)when ""DIM_CATEGORIA"".""CATEGORIA"" = 'ADOCHEQ' then 'CASUAL'#(lf)#(tab)#(tab)when ""DIM_CATEGORIA"".""CATEGORIA"" = 'AGRCHVR' then 'DEPORTIVO'#(lf)#(tab)#(tab)when ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'AC' then 'ACCESORIOS'#(lf)#(tab)#(tab)when ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'PR' then 'PROMOCIONAL'#(lf)#(tab)#(tab)else isnull(""DIM_CATEGORIA"".""CATEGORIA"", 'OTRO')#(lf)#(tab)end ,#(lf)#(tab)""DIM_ARTICULOSAP"".""SK_COLECCION""", CreateNavigationProperties=false]),
+				    #"Renamed Columns1" = Table.RenameColumns(Source,{{"COD_MES", "COD MES"}, {"PAIS_BV", "PAIS BV"}, {"COD_TIPO_OPERACION", "COD TIPO OPERACION"}, {"TIPO_ESTILO", "TIPO ESTILO"}, {"FECHA_ARRIBO", "FECHA ARRIBO"}, {"FECHA_XF", "FECHA XF"}, {"FECHA_XF_ORIGINAL", "FECHA XF ORIGINAL"}, {"FECHA_DOC", "FECHA DOC"}, {"DOC_POSICION1", "DOC POSICION"}, {"DOC_MK1", "DOC MK"}, {"ARRIBO_PARES_ULTIMO_DIA", "ARRIBO PARES ULTIMO DIA"}, {"DIVISION_BV", "DIVISION BV"}, {"PUERTO_ORIGEN", "PUERTO ORIGEN"}, {"COD_ALMACEN", "COD ALMACEN"}, {"ARRIBO_NETO___ULTIMO_DIA", "ARRIBO NETO $ ULTIMO DIA"}, {"MARCA_BV", "MARCA BV"}, {"DEPTO_BV", "DEPTO BV"}, {"GENERO_BV", "GENERO BV"}, {"CATEGORIA_BV", "CATEGORIA BV"}, {"COD_TEMPORADA_SAP", "COD TEMPORADA SAP"}, {"DOC1", "DOC"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns1",{{"DOC", type text}, {"ARRIBO PARES ULTIMO DIA", Int64.Type}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [ARRIBO PARES ULTIMO DIA] > 0),
+				    #"Renamed Columns" = Table.RenameColumns(#"Filtered Rows",{{"MARCA BV", "MARCA"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"FECHA DOC", type datetime}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Changed Type1",{{"FECHA DOC", type date}, {"FECHA XF ORIGINAL", type datetime}, {"FECHA XF", type datetime}}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Changed Type2",{{"FECHA XF", type date}, {"FECHA ARRIBO", type datetime}}),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Changed Type3",{{"FECHA ARRIBO", type date}, {"ARRIBO NETO $ ULTIMO DIA", type number}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type4", "PE", each Text.Start([COD TEMPORADA SAP],4)),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Added Custom",{"DIVISION BV", "AÑO", "COD MES", "ARTICULO", "MARCA", "TIPO ESTILO", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "DOC", "DOC POSICION", "DOC MK", "ARRIBO PARES ULTIMO DIA", "PAIS BV", "CONTENEDOR", "FECHA DOC", "FECHA XF ORIGINAL", "FECHA XF", "FECHA ARRIBO", "PUERTO ORIGEN", "COD ALMACEN", "MATNR", "ARRIBO NETO $ ULTIMO DIA", "LINEA", "PE"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

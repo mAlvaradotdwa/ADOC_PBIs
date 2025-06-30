@@ -1,0 +1,63 @@
+table 'TABLA PE'
+	lineageTag: 582db3b9-dd57-4ae1-baf6-54efeb931122
+
+	column PE
+		dataType: string
+		lineageTag: 435d5184-de6a-4d00-b1e6-9cad0786895f
+		summarizeBy: none
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes lanzamiento'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4b1a76ef-7d8a-46b3-a700-9114ca63b28e
+		summarizeBy: none
+		sourceColumn: Mes lanzamiento
+
+		variation Variation
+			isDefault
+			relationship: 95104a62-6720-4626-9830-2ab030dd3630
+			defaultHierarchy: LocalDateTable_9d5e8925-803c-4efc-a12b-a8a102f54d9a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'AÑO MES LANZAMIENTO' = YEAR('TABLA PE'[Mes lanzamiento])&FORMAT(MONTH(('TABLA PE'[Mes lanzamiento])),"00")
+		dataType: int64
+		formatString: 0
+		lineageTag: d68505e7-dc58-4eb2-8dca-30d7f1ef8655
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'TABLA PE' = m
+		mode: import
+		source =
+				let
+				
+				    Origen = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/balmore_hernandez_empresasadoc_com/", [ApiVersion = 15]),
+				
+				    #"Filas filtradas1" = Table.SelectRows(Origen, each ([Name] = "Tabla Periodos Estadisticos.xlsx")),
+				
+				    #"Tabla Periodos Estadisticos xlsx_https://empresasadoc-my sharepoint com/personal/balmore_hernandez_empresasadoc_com/Documents/Documentos/10  VARIOS/" = #"Filas filtradas1"{[Name="Tabla Periodos Estadisticos.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/balmore_hernandez_empresasadoc_com/Documents/Documentos/10. VARIOS/"]}[Content],
+				
+				    #"Excel importado" = Excel.Workbook(#"Tabla Periodos Estadisticos xlsx_https://empresasadoc-my sharepoint com/personal/balmore_hernandez_empresasadoc_com/Documents/Documentos/10  VARIOS/"),
+				
+				    Hoja1_Sheet = #"Excel importado"{[Item="Hoja1",Kind="Sheet"]}[Data],
+				
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Hoja1_Sheet, [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Encabezados promovidos",{"PE", "Mes lanzamiento"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Other Columns", each ([PE] <> 9999)),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"Mes lanzamiento", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,222 @@
+table FACT_MARINETRAFFIC
+	lineageTag: ba3cbb08-f36e-455a-a9d4-d46213d60dce
+
+	column reference_number_type
+		dataType: string
+		lineageTag: 7bc8e87a-7a3a-4374-bf67-a23246d046ce
+		summarizeBy: none
+		sourceColumn: reference_number_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column reference_number
+		dataType: string
+		lineageTag: 4417da6f-b370-43b2-9c3f-dfdec5e36915
+		summarizeBy: none
+		sourceColumn: reference_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column transportation_status
+		dataType: string
+		lineageTag: cfcba9df-7f9e-4696-b57d-8614a43f3d5d
+		summarizeBy: none
+		sourceColumn: transportation_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrival_delay_days
+		dataType: int64
+		formatString: 0
+		lineageTag: b659e8ba-01b8-43ca-8260-4b265e8a8ffb
+		summarizeBy: sum
+		sourceColumn: arrival_delay_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column created
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c483b778-e4f2-4476-9319-66e933b5093f
+		summarizeBy: none
+		sourceColumn: created
+
+		variation Variation
+			isDefault
+			relationship: e5126140-cd50-4cfa-98d8-2528ca160fe3
+			defaultHierarchy: LocalDateTable_3e4bd604-d519-4082-866c-572f6528da1e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7d280aaa-5fd4-46e0-94af-9786fb0558e5
+		summarizeBy: none
+		sourceColumn: updated
+
+		variation Variation
+			isDefault
+			relationship: c7a92bba-7476-41e2-b787-27a5e8ea216e
+			defaultHierarchy: LocalDateTable_18885985-92da-4c8d-bb6e-d55e9f80864a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column container_number
+		dataType: string
+		lineageTag: 6c5b0146-7501-4a16-a4e3-8093468ac07a
+		summarizeBy: none
+		sourceColumn: container_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipment_id
+		dataType: string
+		lineageTag: deaa760e-d961-435c-951a-ecf6eb46e450
+		summarizeBy: none
+		sourceColumn: shipment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column loading_actual_port
+		dataType: string
+		lineageTag: b4ecc9cf-ddf8-49d2-900c-a4ce1e9432d6
+		summarizeBy: none
+		sourceColumn: loading_actual_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column loading_departure_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9b94cfb0-0a5d-4844-b534-ee1f4fb0897c
+		summarizeBy: none
+		sourceColumn: loading_departure_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 3e7c446b-d1dc-4e84-9cae-db3eaf341b0a
+			defaultHierarchy: LocalDateTable_1a5d19c0-d1af-48e4-95e0-dec4aa9dd58f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_load_dep_timestamp
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a0453cb-9bc1-4598-b823-f084ffb0a5c8
+		summarizeBy: sum
+		sourceColumn: offset_load_dep_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_planned_port
+		dataType: string
+		lineageTag: d97d6735-e01e-4ba4-87e6-706aab8e255c
+		summarizeBy: none
+		sourceColumn: discharge_planned_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_planned_arrival_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 42e37426-1011-4de4-b8b3-ae02f7e80e3d
+		summarizeBy: none
+		sourceColumn: discharge_planned_arrival_timestamp
+
+		variation Variation
+			isDefault
+			relationship: 59f58db3-a94a-42c0-8473-46819f435d38
+			defaultHierarchy: LocalDateTable_dc60d361-b394-4f37-b932-1e47f084fdb0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_dis_plan_arr_timestamp
+		dataType: int64
+		formatString: 0
+		lineageTag: ecfe2600-bbd8-422e-9d43-72919db5e9c1
+		summarizeBy: sum
+		sourceColumn: offset_dis_plan_arr_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_actual_port
+		dataType: string
+		lineageTag: 13d9b568-8cae-4f9a-bf4e-6460edafb24e
+		summarizeBy: none
+		sourceColumn: discharge_actual_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_actual_arrival_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ab6d5867-ced5-4ce6-b167-224b3f900d6e
+		summarizeBy: none
+		sourceColumn: discharge_actual_arrival_timestamp
+
+		variation Variation
+			isDefault
+			relationship: de4149c5-0e29-48d5-92d5-84eb1cffb5db
+			defaultHierarchy: LocalDateTable_be704c16-eb6c-4553-abe9-d624401fdc57.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_dis_act_arr_timestamp
+		dataType: int64
+		formatString: 0
+		lineageTag: d555da4d-c7be-4006-afa6-b070174660e4
+		summarizeBy: sum
+		sourceColumn: offset_dis_act_arr_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3a4ae0ef-2e9d-4f00-93e0-a656c6784164
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		variation Variation
+			isDefault
+			relationship: ae826c80-a46c-4694-85b7-e5c423e72f83
+			defaultHierarchy: LocalDateTable_59613475-63ae-49fe-9218-f07f96a3ccbf.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETA_Marin_Traffic
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: db4deac8-60cb-4636-8dc6-0daef92bf244
+		summarizeBy: none
+		sourceColumn: ETA_Marin_Traffic
+
+		variation Variation
+			isDefault
+			relationship: 898dea7f-5d61-46d0-a01d-9df04d968e68
+			defaultHierarchy: LocalDateTable_9322e42b-7cbd-47c0-ba57-97e3752746d3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETA_Local_Time_Offset
+		dataType: int64
+		formatString: 0
+		lineageTag: ecb8239a-2019-4d39-a640-47f2a29dfb32
+		summarizeBy: sum
+		sourceColumn: ETA_Local_Time_Offset
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_MARINETRAFFIC = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="WITH PortDetails AS (#(lf)    SELECT #(lf)        a_inner.shipment_id,#(lf)        b.name AS loading_actual_port,#(lf)        a_inner.departure_timestamp AS loading_departure_timestamp,#(lf)        a_inner.local_time_offset as offset_load_dep_timestamp,#(lf)        ROW_NUMBER() OVER (PARTITION BY a_inner.shipment_id ORDER BY a_inner.departure_timestamp) AS rn#(lf)    FROM openquery(MYSQL, 'SELECT * FROM adminecommerce_marinetraffic.`shipment_ports`') a_inner#(lf)    LEFT JOIN openquery(MYSQL, 'SELECT * FROM adminecommerce_marinetraffic.`ports`') b ON a_inner.port_id = b.id#(lf)    WHERE a_inner.port_type = 'loading' #(lf)      AND a_inner.departure_status = 'actual'#(lf)),#(lf)DischargePlannedDetails AS (#(lf)    SELECT #(lf)        a_inner.shipment_id,#(lf)        b.name AS discharge_planned_port,#(lf)        a_inner.arrival_timestamp AS discharge_planned_arrival_timestamp,#(lf)        a_inner.local_time_offset as offset_dis_plan_arr_timestamp,#(lf)        ROW_NUMBER() OVER (PARTITION BY a_inner.shipment_id ORDER BY a_inner.arrival_timestamp) AS rn#(lf)    FROM openquery(MYSQL, 'SELECT * FROM adminecommerce_marinetraffic.`shipment_ports`') a_inner#(lf)    LEFT JOIN openquery(MYSQL, 'SELECT * FROM adminecommerce_marinetraffic.`ports`') b ON a_inner.port_id = b.id#(lf)    WHERE a_inner.port_type = 'discharge' #(lf)      AND a_inner.arrival_status = 'planned'#(lf)),#(lf)DischargeActualDetails AS (#(lf)    SELECT #(lf)        a_inner.shipment_id,#(lf)        b.name AS discharge_actual_port,#(lf)        a_inner.arrival_timestamp AS discharge_actual_arrival_timestamp,#(lf)        a_inner.local_time_offset as offset_dis_act_arr_timestamp,#(lf)        ROW_NUMBER() OVER (PARTITION BY a_inner.shipment_id ORDER BY a_inner.arrival_timestamp) AS rn#(lf)    FROM openquery(MYSQL, 'SELECT * FROM adminecommerce_marinetraffic.`shipment_ports`') a_inner#(lf)    LEFT JOIN openquery(MYSQL, 'SELECT * FROM adminecommerce_marinetraffic.`ports`') b ON a_inner.port_id = b.id#(lf)    WHERE a_inner.port_type = 'discharge' #(lf)      AND a_inner.arrival_status = 'actual'#(lf))#(lf)SELECT #(lf)    d.reference_number_type,#(lf)    d.reference_number,#(lf)    d.transportation_status,#(lf)    d.arrival_delay_days,#(lf)    d.created,#(lf)    d.updated,#(lf)    e.number AS container_number,#(lf)    a.shipment_id,#(lf)    pd.loading_actual_port,#(lf)    pd.loading_departure_timestamp,#(lf)    pd.offset_load_dep_timestamp,#(lf)    dpd.discharge_planned_port,#(lf)    dpd.discharge_planned_arrival_timestamp,#(lf)    dpd.offset_dis_plan_arr_timestamp,#(lf)    dad.discharge_actual_port,#(lf)    dad.discharge_actual_arrival_timestamp,#(lf)    dad.offset_dis_act_arr_timestamp,#(lf)    MAX(a.updated) AS last_updated,#(lf)    max(b.arrival_timestamp) as ETA_Marin_Traffic,#(lf)    b.local_time_offset ETA_Local_Time_Offset#(lf)FROM #(lf)    openquery(MYSQL, 'SELECT * FROM adminecommerce_marinetraffic.`shipment_ports`') a#(lf)    LEFT JOIN openquery(MYSQL, 'SELECT * FROM adminecommerce_marinetraffic.`shipments`') d ON a.shipment_id = d.id#(lf)    LEFT JOIN openquery(MYSQL, 'SELECT * FROM adminecommerce_marinetraffic.`containers`') e ON a.shipment_id = e.shipment_id#(lf)    LEFT JOIN PortDetails pd ON a.shipment_id = pd.shipment_id AND pd.rn = 1#(lf)    LEFT JOIN DischargePlannedDetails dpd ON a.shipment_id = dpd.shipment_id AND dpd.rn = 1#(lf)    LEFT JOIN DischargeActualDetails dad ON a.shipment_id = dad.shipment_id AND dad.rn = 1#(lf)    left join openquery(MYSQL, 'SELECT * FROM adminecommerce_marinetraffic.`port_of_discharge`') b on a.shipment_id = b.shipment_id#(lf)--WHERE #(lf)  --  d.id = '01j47rqhk6558jfscbyvd54vet'#(lf)GROUP BY #(lf)    d.reference_number_type, d.reference_number, d.transportation_status, d.arrival_delay_days, #(lf)   d.created, d.updated, e.number, a.shipment_id, pd.loading_actual_port, pd.loading_departure_timestamp, pd.offset_load_dep_timestamp,#(lf)  dpd.discharge_planned_port, dpd.discharge_planned_arrival_timestamp, dpd.offset_dis_plan_arr_timestamp,#(lf) dad.discharge_actual_port, dad.discharge_actual_arrival_timestamp, dad.offset_dis_act_arr_timestamp, b.local_time_offset"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

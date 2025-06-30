@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "f9f3b3f534f020c1085e",
+  "displayName": "PROYECCION TARGETS",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

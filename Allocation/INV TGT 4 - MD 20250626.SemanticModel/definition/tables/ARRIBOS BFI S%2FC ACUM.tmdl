@@ -1,0 +1,37 @@
+table 'ARRIBOS BFI S/C ACUM'
+	lineageTag: c74734bf-ba54-4d42-8ff9-f41050315eb1
+
+	column KEY
+		lineageTag: 8d5bd2a0-bd96-4918-8f78-1b3648b39964
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: INV TGT[KEY]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AÑO MES'
+		formatString: 0
+		lineageTag: aa8ab1cf-15ed-4b02-bcfe-474bde2e7168
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: INV TGT[AÑO MES]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ARRIBANDO A BFI S/C (ACUM)'
+		formatString: \$#,0.00;-\$#,0.00;\$#,0.00
+		lineageTag: dc9eace8-c2b0-4647-acbd-601a57d12020
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: INV TGT[ARRIBANDO A BFI S/C (ACUM)]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	partition 'ARRIBOS BFI S/C ACUM' = calculated
+		mode: import
+		source = SUMMARIZECOLUMNS('INV TGT'[KEY],'INV TGT'[AÑO MES],'INV TGT'[ARRIBANDO A BFI S/C (ACUM)])
+
+	annotation PBI_Id = 23dbb9b95b7e4b40b428f4327421490f
+

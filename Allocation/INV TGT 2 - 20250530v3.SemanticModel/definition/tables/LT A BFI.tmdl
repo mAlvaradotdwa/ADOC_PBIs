@@ -1,0 +1,52 @@
+table 'LT A BFI'
+	lineageTag: 95b1848b-dd7b-4a9a-9ee5-8449c9d839e6
+
+	column CONTINENTE
+		dataType: string
+		lineageTag: 269e5016-d144-4976-ade0-03fc8ec09316
+		summarizeBy: none
+		sourceColumn: CONTINENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS
+		dataType: string
+		lineageTag: 724a5d89-7eb5-4ad6-ad92-7ace8ee95d3e
+		summarizeBy: none
+		sourceColumn: PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BFI SV'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a911e07-3f03-4140-854e-dd79c1f00c8b
+		summarizeBy: sum
+		sourceColumn: BFI SV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BFI PA'
+		dataType: int64
+		formatString: 0
+		lineageTag: a8b879b5-69f7-4618-9a6d-267de72ce75f
+		summarizeBy: sum
+		sourceColumn: BFI PA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'LT A BFI' = m
+		mode: import
+		queryGroup: 'Server Dev (20)'
+		source =
+				let
+				    Origen = Sql.Database(srvDev, "ADO_SupplyChain"),
+				    tbl = Origen{[Schema="dbo",Item="DIM_LEADTIME_A_BFI"]}[Data],
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(tbl,{{"SK_PAIS", "PAIS"}, {"LT_BFI_SV", "BFI SV"}, {"LT_BFI_PA", "BFI PA"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

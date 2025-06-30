@@ -1,0 +1,314 @@
+relationship d7f56edc-f911-4562-8ad1-854c3c83803f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ZINT.'Creado el'
+	toColumn: LocalDateTable_5e74f1ad-6afd-4fa4-a546-a4199d02c232.Date
+
+relationship bdbc8114-4926-4a0a-af96-39f10e45f9a5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTENEDORES.'ETA COMPUESTO'
+	toColumn: LocalDateTable_fd6157e8-d270-49a1-92bd-075feacb31f6.Date
+
+relationship 833ff187-435a-4b7c-ae20-d5c906b6f00f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Index Oficial'.FECHA
+	toColumn: LocalDateTable_1dea24c5-562e-45e4-9442-134edbe6df57.Date
+
+relationship 73ff95b5-557b-4136-a60b-8dd43987972d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: '% VENTA RESTANTE'.FECHA
+	toColumn: LocalDateTable_b812e92e-a3c3-42f0-ad75-eefa94afe268.Date
+
+relationship 5ae17dd9-afd9-4e54-a859-4174f2b3b10b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ZINT.EKPO-FECHA_EXP
+	toColumn: LocalDateTable_5d9fad79-4dda-476e-ac58-0e5f002d4ab9.Date
+
+relationship 973282c0-caaa-4c38-acbb-36c733cafa29
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ZINT.EKPO-FECHA_LIQ
+	toColumn: LocalDateTable_184cab53-c57e-410f-9fe6-4bff343e6448.Date
+
+relationship d8178a25-422a-45cc-9051-cddca00521cf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'ARRIBO FUTURO COGNOS'.'FECHA ESTIMADA'
+	toColumn: LocalDateTable_7ab2858b-7423-4eb0-86ab-e6e6c39012d0.Date
+
+relationship 9206edf3-7414-4e6c-b75b-2d9f5a1dcab6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTENEDORES.EKPO[FIRST_ETA]
+	toColumn: LocalDateTable_425d4f6e-84b6-445d-8ece-1b6c57ad5311.Date
+
+relationship 5d682b4f-6858-44df-ba08-cdb179f3afb0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTENEDORES.EKPO[MAX_ETA]
+	toColumn: LocalDateTable_b92f5b66-436e-464e-8a0a-7ece34a828ce.Date
+
+relationship 62442c17-91d7-4c53-9c86-3139251f4ce5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'TRANS TDAS'.'Creado el'
+	toColumn: LocalDateTable_fdb646b1-6964-45af-bd2f-b4504772bc11.Date
+
+relationship AutoDetected_112fb572-6341-46cd-92ff-d5c164e816cb
+	fromColumn: 'INV ACTUAL'.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship AutoDetected_a7752eed-7d74-4935-9e74-9d4ff8f90a9f
+	fromColumn: 'INV ACTUAL (BFI)'.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship AutoDetected_93a74ac9-2ead-4b23-9483-d2d755649999
+	fromColumn: 'ARRIBO FUTURO COGNOS'.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship e103dacd-83cb-4597-f13a-8f86d7d167a2
+	fromColumn: CONTENEDORES.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship 41d09433-935c-1045-5fc5-d0a414bfce0e
+	fromColumn: SOLPED.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship b881e526-e6de-e55c-e29b-e7f8ed3b8f08
+	fromColumn: ZINT.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship 95104a62-6720-4626-9830-2ab030dd3630
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'TABLA PE'.'Mes lanzamiento'
+	toColumn: LocalDateTable_9d5e8925-803c-4efc-a12b-a8a102f54d9a.Date
+
+relationship 27994d1d-2867-a4e0-78df-42f7f9068202
+	fromColumn: 'TRANS TDAS'.Artículo
+	toColumn: IH09.'Artículo SAP'
+
+relationship 5961fdc4-1d69-70a6-3e8d-9f25387ab04e
+	fromColumn: ZINT.Artículo
+	toColumn: IH09.'Artículo SAP'
+
+relationship 820c46e5-bf77-e5c7-dd24-c8baadd550d2
+	fromColumn: SOLPED.Artículo
+	toColumn: IH09.'Artículo SAP'
+
+relationship 7ab6a32c-2f25-5bd1-b888-859b4b7c3fbc
+	fromColumn: SOLPED.'MARCA (TEST)'
+	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
+
+relationship 96ff2146-dc97-cf2e-0c65-755b13bcb084
+	fromColumn: CONTENEDORES.GENERICO
+	toColumn: IH09.'Artículo SAP'
+
+relationship e5126140-cd50-4cfa-98d8-2528ca160fe3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FACT_MARINETRAFFIC.created
+	toColumn: LocalDateTable_3e4bd604-d519-4082-866c-572f6528da1e.Date
+
+relationship c7a92bba-7476-41e2-b787-27a5e8ea216e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FACT_MARINETRAFFIC.updated
+	toColumn: LocalDateTable_18885985-92da-4c8d-bb6e-d55e9f80864a.Date
+
+relationship 3e7c446b-d1dc-4e84-9cae-db3eaf341b0a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FACT_MARINETRAFFIC.loading_departure_timestamp
+	toColumn: LocalDateTable_1a5d19c0-d1af-48e4-95e0-dec4aa9dd58f.Date
+
+relationship 59f58db3-a94a-42c0-8473-46819f435d38
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FACT_MARINETRAFFIC.discharge_planned_arrival_timestamp
+	toColumn: LocalDateTable_dc60d361-b394-4f37-b932-1e47f084fdb0.Date
+
+relationship de4149c5-0e29-48d5-92d5-84eb1cffb5db
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FACT_MARINETRAFFIC.discharge_actual_arrival_timestamp
+	toColumn: LocalDateTable_be704c16-eb6c-4553-abe9-d624401fdc57.Date
+
+relationship ae826c80-a46c-4694-85b7-e5c423e72f83
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FACT_MARINETRAFFIC.last_updated
+	toColumn: LocalDateTable_59613475-63ae-49fe-9218-f07f96a3ccbf.Date
+
+relationship 898dea7f-5d61-46d0-a01d-9df04d968e68
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FACT_MARINETRAFFIC.ETA_Marin_Traffic
+	toColumn: LocalDateTable_9322e42b-7cbd-47c0-ba57-97e3752746d3.Date
+
+relationship 6d1dd6a8-f962-4c8b-9267-ae27f823641c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_ETA.FIRST_ETA
+	toColumn: LocalDateTable_1762c38b-412a-4ada-a1a8-b04bec088b0c.Date
+
+relationship 58ac7569-13e6-41ca-b49e-6a40359c3886
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_ETA.MAX_ETA
+	toColumn: LocalDateTable_2fd7d88a-5507-4b62-9a41-377d9e35810b.Date
+
+relationship f98160e4-8c69-4c94-957f-2f965868213c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.FECHA_CREACION
+	toColumn: LocalDateTable_56b44f3f-d21a-407d-8302-ae5fdd3a3a96.Date
+
+relationship 6f169584-a803-4162-95ca-ce46ef557735
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.FECHA_CREACION2
+	toColumn: LocalDateTable_42d1dfeb-3ba9-4ea9-8002-4b72a9aeb050.Date
+
+relationship 54ee1548-9da0-4b95-a635-3042d42b4053
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.XFACTORY_ACTUALIZADO
+	toColumn: LocalDateTable_d064045c-3a76-4bf8-95d1-410f6173d0f9.Date
+
+relationship ebd2982f-1a20-4532-899a-9aeae1821e16
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.XFACTORY_ORIGINAL
+	toColumn: LocalDateTable_f2925c76-9309-46d5-9802-a4ba67573b45.Date
+
+relationship a8bad5e8-8f7f-4ab2-86b3-85ad2356a679
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.XFACTORY_REQUERIDA
+	toColumn: LocalDateTable_16d033ab-8c89-48e9-8102-57586a5f691f.Date
+
+relationship 8176b2e9-882c-4ed7-9517-d369f75463f0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.FECHA_EKKO
+	toColumn: LocalDateTable_3ef0da5a-e561-4abd-99a8-7a5b46bd01a7.Date
+
+relationship 65464b86-7119-43db-bff3-36efd2fbf2a3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.FECHA_DESPACHO_FINAL
+	toColumn: LocalDateTable_ff50be4d-ab91-4301-8731-57c8c0db6b26.Date
+
+relationship 3a98ee93-64f1-41aa-9689-7a910659d3da
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.FECHA_DESPACHO_INICIAL
+	toColumn: LocalDateTable_af18fd7e-7f63-44fb-9c52-0f90eaa53c91.Date
+
+relationship 589dc162-df25-4827-bc03-0fa2d86f0c35
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.CARGO_READY_DATE
+	toColumn: LocalDateTable_d5debd18-81b9-4ecd-b3c6-a02977be5c0d.Date
+
+relationship 0736789f-70a7-470d-a4bd-c3028b728d7d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.FECHA_ARRIVO_CFS
+	toColumn: LocalDateTable_edf129a5-0a74-43db-8cea-f7ad93ec7fd0.Date
+
+relationship 6c1bd551-da51-4827-9f91-cb11bcbf1423
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.ETD
+	toColumn: LocalDateTable_894e36be-a10f-49ea-bbef-7a2d6da303be.Date
+
+relationship a4132cb5-a558-4c4e-9b0b-872350ab3e14
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.ATD
+	toColumn: LocalDateTable_2e4b5dfc-d7cd-43e4-9055-e2c1819357cc.Date
+
+relationship 5ef08643-83d4-43d9-9e2e-380b06be15dc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.ETA
+	toColumn: LocalDateTable_fb188d82-d58e-4742-a88d-0f99ef08d2d6.Date
+
+relationship eeb7bd22-4905-48d3-bce0-818366e27baf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.FECHA_LIBERACION
+	toColumn: LocalDateTable_35ac7c69-d0db-4a06-87b0-c9aeec618aed.Date
+
+relationship 3cac6488-c496-4c74-9852-908606240d7b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.FECHA_CREACION3
+	toColumn: LocalDateTable_b1b2482b-adee-4753-8ff6-ebbb833e946a.Date
+
+relationship d648191a-e781-4a95-a97a-0de396b0ed00
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.FECHA_CREACION_FINAL
+	toColumn: LocalDateTable_013e02ff-dbe2-4d84-a5a2-af14d16c3ed4.Date
+
+relationship 6c0e629c-55b5-466b-8f90-11f98775bd80
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.created
+	toColumn: LocalDateTable_b787d2ad-cada-4bbd-94b2-48d6fc7c6479.Date
+
+relationship bfbe7c31-979b-428c-9be0-bde92d1e50df
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.updated
+	toColumn: LocalDateTable_f085555f-8265-4aa8-9615-db80f06bff9a.Date
+
+relationship 49e9fba4-8339-4a71-9068-43b9242726ed
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.loading_departure_timestamp
+	toColumn: LocalDateTable_70b28644-6d13-4bc5-907d-f40b924c2c95.Date
+
+relationship 6af4f343-b0ea-4295-88af-657efe786402
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.discharge_planned_arrival_timestamp
+	toColumn: LocalDateTable_c8af92d8-d191-4917-b2b8-7a9848d16f4e.Date
+
+relationship 5878409b-5c5a-4fea-b1ef-b311afd30a48
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.discharge_actual_arrival_timestamp
+	toColumn: LocalDateTable_6eea63cd-1f41-4dd9-9e5d-e056fcc79f5f.Date
+
+relationship fa21cc74-3304-4932-af15-be245b4ccf88
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.last_updated
+	toColumn: LocalDateTable_3242ee2c-8e8d-4b17-ab38-05d221cddf4e.Date
+
+relationship 5d84b57d-7c1b-4a4a-86b5-618fff90e628
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.ETA_Marin_Traffic
+	toColumn: LocalDateTable_5873f115-4518-461a-958e-1901d61b0f7a.Date
+
+relationship ea8c1863-d238-48ac-9993-33a26bfaf179
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.FIRST_ETA
+	toColumn: LocalDateTable_305c751f-a336-46b1-8bf8-145bd85eef65.Date
+
+relationship 00332f7d-1e4b-463e-9742-49275d66267d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'MKS (2)'.MAX_ETA
+	toColumn: LocalDateTable_dbe52591-251c-4db9-8baa-74e75f666973.Date
+
+relationship AutoDetected_95903090-1f35-4818-8de8-5fb8fa56ad14
+	fromColumn: 'MKS (2)'.PE
+	toColumn: 'TABLA PE'.PE
+
+relationship AutoDetected_fd8c1ca0-9ed8-4b40-a30b-cae86b68daf8
+	fromColumn: 'MKS (2)'.shipment_id
+	toColumn: DIM_ETA.shipment_id
+
+relationship AutoDetected_8270723f-7ed9-48e6-8ca7-9c0b66da1824
+	fromColumn: FACT_MARINETRAFFIC.shipment_id
+	toColumn: DIM_ETA.shipment_id
+
+relationship 91fd415f-49dd-44f6-864e-437e0b13f970
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'ARRIBO FUTURO COGNOS'.'FECHA DOC'
+	toColumn: LocalDateTable_b0a4aac4-961b-446a-b97f-4abf928e89b6.Date
+
+relationship 3642e365-834b-4b5a-bcb5-c00e0f53864a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'ARRIBO FUTURO COGNOS'.'FECHA XF ORIGINAL'
+	toColumn: LocalDateTable_73c88756-7afd-4c0d-8987-00939626703e.Date
+
+relationship 0ed7f724-bcb6-4676-ac4a-6ecaf1399889
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'ARRIBO FUTURO COGNOS'.'FECHA XF'
+	toColumn: LocalDateTable_30b75170-5746-4687-94a6-435c061321fc.Date
+
+relationship d65fecdc-2d7e-4a09-ab71-b63d9a51456a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'ARRIBO FUTURO COGNOS'.'FECHA ARRIBO'
+	toColumn: LocalDateTable_0b8ef585-98f9-4b54-8a91-0041ecb603f0.Date
+
+relationship AutoDetected_8b496fc1-6d3e-435e-aaa8-8e7897339291
+	fromColumn: 'INV ACTUAL'.'MARCA BV'
+	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
+
+relationship AutoDetected_81bd8ded-8531-4802-bda5-68b4be247ad1
+	fromColumn: 'INV ACTUAL (BFI)'.'MARCA BV'
+	toColumn: 'MARCAS UNIDAD'.'MARCA BV'
+
+relationship 8b1bb368-6500-488a-9e4b-95248cd54b67
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Index Oficial'.PERIODO
+	toColumn: LocalDateTable_038256ed-1153-4d8f-a59f-847a2dac72bd.Date
+

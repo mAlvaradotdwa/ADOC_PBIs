@@ -1,0 +1,266 @@
+table CONTENEDORES
+	lineageTag: 6c24cbbf-aaea-4cba-9bec-71c1c088c77f
+
+	column DEPTO = RELATED(IH09[Dep])
+		lineageTag: 6c6dd9eb-a8d6-4662-8cc7-5cc65220d8a2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO = RELATED(IH09[Género])
+		lineageTag: ab407f19-4f5c-45b7-9cf6-326681692323
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORIA = RELATED(IH09[Desc. Clase])
+		lineageTag: b9c5156a-feca-401b-90f6-a7a820835208
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TIPO ESTILO' = RELATED(IH09[TIPOESTILO])
+		lineageTag: f485a915-72be-48a3-ac81-9642ed3b70e7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KEY CONTENEDORES' = CONTENEDORES[EKPO[DOCUMENTO]]]&CONTENEDORES[EKPO[Articulo_GenericoF]]]
+		lineageTag: 40b89ab0-d613-4afc-9013-bd035d0280de
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ETA COMPUESTO' = CONTENEDORES[EKPO[MAX_ETA]]].[Date]
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 47117da0-9759-4fd1-9b91-776c260f0af8
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: bdbc8114-4926-4a0a-af96-39f10e45f9a5
+			defaultHierarchy: LocalDateTable_fd6157e8-d270-49a1-92bd-075feacb31f6.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column KEY = CONTENEDORES[MARCA BV]&CONTENEDORES[PAIS DESTINO]&CONTENEDORES[DEPTO]&CONTENEDORES[GENERO]&CONTENEDORES[CATEGORIA]
+		lineageTag: 07a4af45-e4c5-4be7-887a-e10936ae2a3d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VALOR PROMEDIO $' =
+			
+			CALCULATE(
+			    AVERAGE('INV ACTUAL'[VALOR $ PROMEDIO]),
+			    FILTER(
+			        'INV ACTUAL',
+			        'INV ACTUAL'[KEY] = EARLIER('CONTENEDORES'[KEY]) &&
+			        'INV ACTUAL'[COD ALMACEN] = "AL01"
+			    )
+			)
+		formatString: \$#,0.###############;-\$#,0.###############;\$#,0.###############
+		lineageTag: 7929e9a1-6017-4524-8915-bbc13a115826
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'INV TRANS $' = CONTENEDORES[VALOR PROMEDIO $]*CONTENEDORES[[Pares]]]
+		formatString: \$#,0;-\$#,0;\$#,0
+		lineageTag: d85d8ea0-9b54-42ed-bdd6-1c00c99023a8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'KEY BFI' = CONTENEDORES[MARCA BV]&"BFI"&CONTENEDORES[DEPTO]&CONTENEDORES[GENERO]&CONTENEDORES[CATEGORIA]
+		lineageTag: 407f11f3-f1a4-4f0b-b6eb-4da009975ff8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KEY BFI MES' = CONTENEDORES[KEY]&YEAR(CONTENEDORES[ETA COMPUESTO])&FORMAT(IF(DAY(CONTENEDORES[ETA COMPUESTO])>10,MONTH(CONTENEDORES[ETA COMPUESTO])+1,MONTH(CONTENEDORES[ETA COMPUESTO])),"00")
+		lineageTag: 4e37f503-7a12-47d8-802a-dba716189330
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MARCA BV' = LOOKUPVALUE('MARCAS UNIDAD'[UNIDAD NEGOCIO],'MARCAS UNIDAD'[MARCA BV],CONTENEDORES[Marca])
+		lineageTag: 5396f081-0ed2-4f1e-822c-6047eaac57cb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PAIS DESTINO' = LOOKUPVALUE('MKS (2)'[País],'MKS (2)'[DOCUMENTO],CONTENEDORES[EKPO[DOCUMENTO]]])
+		lineageTag: d2732e1f-d033-4e06-bd50-d6d7d04ddab3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ALMACEN DESTINO' =
+			IF(ISBLANK(LOOKUPVALUE('ARRIBO FUTURO COGNOS'[COD ALMACEN],'ARRIBO FUTURO COGNOS'[DOC],CONTENEDORES[EKPO[DOCUMENTO]]])),
+			
+			CALCULATE (
+			    FIRSTNONBLANK ( 'ARRIBO FUTURO COGNOS'[COD ALMACEN], 1 ),
+			    FILTER ( ALL ( 'ARRIBO FUTURO COGNOS' ), 'ARRIBO FUTURO COGNOS'[DOC MK] = CONTENEDORES[EKPO[DOCUMENTO]]])
+			),
+			
+			LOOKUPVALUE('ARRIBO FUTURO COGNOS'[COD ALMACEN],'ARRIBO FUTURO COGNOS'[DOC],CONTENEDORES[EKPO[DOCUMENTO]]]))
+		lineageTag: c0664a47-8b26-4204-98ce-acc9aa1a8b38
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERICO = CONTENEDORES[EKPO[Articulo_GenericoF]]]
+		lineageTag: 83da0383-c7a4-40a9-8f0c-58769a3eeb05
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[CONTENEDOR]
+		dataType: string
+		lineageTag: fdd3bb6f-f203-4d76-a086-d0ed26e8a176
+		summarizeBy: none
+		sourceColumn: EKPO[CONTENEDOR]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[Articulo_GenericoF]
+		dataType: string
+		lineageTag: f98b27b2-100d-4616-a048-3740aea11869
+		summarizeBy: none
+		sourceColumn: EKPO[Articulo_GenericoF]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[DOCUMENTO]
+		dataType: string
+		lineageTag: b8f62915-87a3-46be-aa9c-cc787a15a984
+		summarizeBy: none
+		sourceColumn: EKPO[DOCUMENTO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[ESTILO_COLOR]
+		dataType: string
+		lineageTag: f58e3efa-6d98-4952-94e5-c8feaf31d7f6
+		summarizeBy: none
+		sourceColumn: EKPO[ESTILO_COLOR]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[FIRST_ETA]
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b1a283aa-7006-4c14-83e7-4f90881719c7
+		summarizeBy: none
+		sourceColumn: EKPO[FIRST_ETA]
+
+		variation Variation
+			isDefault
+			relationship: 9206edf3-7414-4e6c-b75b-2d9f5a1dcab6
+			defaultHierarchy: LocalDateTable_425d4f6e-84b6-445d-8ece-1b6c57ad5311.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EKPO[MAX_ETA]
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d436aba3-37b9-427b-8fb1-4be2c83b046a
+		summarizeBy: none
+		sourceColumn: EKPO[MAX_ETA]
+
+		variation Variation
+			isDefault
+			relationship: 5d682b4f-6858-44df-ba08-cdb179f3afb0
+			defaultHierarchy: LocalDateTable_b92f5b66-436e-464e-8a0a-7ece34a828ce.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EKPO[DIAS_DIFF]
+		dataType: string
+		lineageTag: 8bcbce06-0a00-4a13-8a04-fdbf085211e6
+		summarizeBy: none
+		sourceColumn: EKPO[DIAS_DIFF]
+
+		annotation SummarizationSetBy = Automatic
+
+	column [Pares]
+		dataType: int64
+		formatString: 0
+		lineageTag: b6e7a4a3-5b20-480d-a902-f77b512a997a
+		summarizeBy: sum
+		sourceColumn: [Pares]
+
+		annotation SummarizationSetBy = Automatic
+
+	column [Monto]
+		dataType: decimal
+		formatString: \$#,0.###############;-\$#,0.###############;\$#,0.###############
+		lineageTag: 2b5d0d92-a969-4592-9190-a31ffa990d3d
+		summarizeBy: sum
+		sourceColumn: [Monto]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column Marca = ```
+			RELATED(IH09[BV_MARCA]) 
+			```
+		lineageTag: 1785f6a8-b6e5-41b2-9a5a-ae474702042b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column POR_ARRIBAR
+		dataType: string
+		lineageTag: 9c2a3d7b-2dfd-4947-b4a3-42edaf7bb131
+		summarizeBy: none
+		sourceColumn: POR_ARRIBAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE = RELATED(IH09[PE])
+		lineageTag: 67b9e0ef-9fa8-44d7-8a77-0e65356d71c8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES_LANZ = RELATED('TABLA PE'[AÑO MES LANZAMIENTO])
+		lineageTag: f3f18d5a-9fa1-4dbd-ba44-98ac421d9508
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CONTENEDORES = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\mdaboub\OneDrive - Empresas ADOC, S.A. de C.V\Escritorio\TGT INVENTARIO CONTINGENCIA\Documentos SOP.csv"),[Delimiter=","]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"EKPO[FIRST_ETA]", type datetime}, {"EKPO[MAX_ETA]", type datetime}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Changed Type",{{"EKPO[FIRST_ETA]", type date}, {"EKPO[MAX_ETA]", type date}, {"[Monto]", Currency.Type}, {"[Pares]", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type1", "POR_ARRIBAR", each [#"EKPO[FIRST_ETA]"] >= Date.From(DateTime.LocalNow())),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([POR_ARRIBAR] = true))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
