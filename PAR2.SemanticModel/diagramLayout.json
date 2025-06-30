@@ -217,15 +217,6 @@
         },
         {
           "location": {},
-          "nodeIndex": "FACT_INVENTARIOUD",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {},
           "nodeIndex": "ArticulosPais",
           "nodeLineageTag": "5d013774-c742-45d3-90b1-34e690fa5005",
           "size": {
