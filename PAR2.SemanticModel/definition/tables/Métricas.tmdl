@@ -406,6 +406,279 @@ table Métricas
 		displayFolder: Precios Unitarios
 		lineageTag: 73676980-736e-4ede-8219-1ee435d6c1ab
 
+	measure 'Inventario 8010' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS ( CONTAINSSTRING ( Almacenes[SK_ALMACEN], "BF" ) ),
+			    KEEPFILTERS ( Inventarios[SK_Tienda] = "8010" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas\BFI
+		lineageTag: 328b5fcd-4c3d-41ad-a0ab-a9f0970464af
+
+	measure 'Inventario 8020' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS ( CONTAINSSTRING ( Almacenes[SK_ALMACEN], "BF" ) ),
+			    KEEPFILTERS ( Inventarios[SK_Tienda] = "8020" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas\BFI
+		lineageTag: 1ad55c16-52d8-4b3d-b687-e364efce86d7
+
+	measure 'Inventario PA20' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS ( CONTAINSSTRING ( Almacenes[SK_ALMACEN], "BF" ) ),
+			    KEEPFILTERS ( Inventarios[SK_Tienda] = "PA20" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas\BFI
+		lineageTag: bdcfca49-9397-4d47-bb07-679d0db0fa3f
+
+	measure 'Inventario Bodegas SV' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS (
+			        NOT CONTAINSSTRING ( Almacenes[SK_ALMACEN], "BF" )
+			            && NOT Almacenes[SK_ALMACEN] = "BP10"
+			    ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "SV" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas\Bodegas
+		lineageTag: 548bb013-f4b9-4202-b2b5-858f8f401039
+
+	measure 'Inventario Bodegas GT' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS (
+			        NOT CONTAINSSTRING ( Almacenes[SK_ALMACEN], "BF" )
+			            && NOT Almacenes[SK_ALMACEN] = "BP10"
+			    ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "GT" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas\Bodegas
+		lineageTag: 0f4e0b82-5791-4559-9bf4-6e77b612d992
+
+	measure 'Inventario Bodegas CR' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS (
+			        NOT CONTAINSSTRING ( Almacenes[SK_ALMACEN], "BF" )
+			            && NOT Almacenes[SK_ALMACEN] = "BP10"
+			    ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "CR" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas\Bodegas
+		lineageTag: 61329ca2-4b50-4665-8758-bb5dbc68a417
+
+	measure 'Inventario Bodegas HN' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS (
+			        NOT CONTAINSSTRING ( Almacenes[SK_ALMACEN], "BF" )
+			            && NOT Almacenes[SK_ALMACEN] = "BP10"
+			    ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "HN" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas\Bodegas
+		lineageTag: 67406284-6841-4064-aa73-4ff58c43dcd2
+
+	measure 'Inventario Bodegas NI' =
+			CALCULATE (
+			    [Inventario Bodega],
+			    KEEPFILTERS (
+			        NOT CONTAINSSTRING ( Almacenes[SK_ALMACEN], "BF" )
+			            && NOT Almacenes[SK_ALMACEN] = "BP10"
+			    ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "NI" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\Inventario Bodegas\Bodegas
+		lineageTag: 0b3629cf-7497-422c-8718-70c61fdb0d34
+
+	measure 'Ex. TDA SV' =
+			CALCULATE (
+			    [Inventario],
+			    KEEPFILTERS ( Almacenes[SK_ALMACEN] = "AL01" ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "SV" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\TDA Paises
+		lineageTag: efb79131-8294-489b-b322-1c93d7e5f8fa
+
+	measure 'Ex. TDA GT' =
+			CALCULATE (
+			    [Inventario],
+			    KEEPFILTERS ( Almacenes[SK_ALMACEN] = "AL01" ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "GT" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\TDA Paises
+		lineageTag: 75386ec2-b873-4e5c-8872-81abc19764d8
+
+	measure 'Ex. TDA HN' =
+			CALCULATE (
+			    [Inventario],
+			    KEEPFILTERS ( Almacenes[SK_ALMACEN] = "AL01" ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "HN" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\TDA Paises
+		lineageTag: b26f909d-b3cd-4252-879b-bcc823777458
+
+	measure 'Ex. TDA NI' =
+			CALCULATE (
+			    [Inventario],
+			    KEEPFILTERS ( Almacenes[SK_ALMACEN] = "AL01" ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "NI" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\TDA Paises
+		lineageTag: 0a6ad777-7a93-4b82-92b4-59510528d774
+
+	measure 'Ex. TDA CR' =
+			CALCULATE (
+			    [Inventario],
+			    KEEPFILTERS ( Almacenes[SK_ALMACEN] = "AL01" ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "CR" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\TDA Paises
+		lineageTag: 6fffc402-ad84-4ebe-8257-68765e5137f0
+
+	measure 'Ex. TDA PA' =
+			CALCULATE (
+			    [Inventario],
+			    KEEPFILTERS ( Almacenes[SK_ALMACEN] = "AL01" ),
+			    KEEPFILTERS ( Pais[BV_PAIS] = "PA" )
+			)
+		formatString: #,0
+		displayFolder: Métricas Inventario\TDA Paises
+		lineageTag: df650599-bd63-48d5-9a65-23bc41c70a85
+
+	measure 'Primera Fecha' = MIN ( ArticulosPais[PrimeraFecha] )
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas
+		lineageTag: c262cd6b-b04d-44ad-a889-bbfc82ce8016
+
+	measure 'Ultima Fecha' = MAX ( ArticulosPais[PrimeraFecha] )
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas
+		lineageTag: 1edd48fe-bc65-46f2-abbe-7f89891592c0
+
+	measure 'Primera Fecha SV' =
+			CALCULATE (
+			    [Primera Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "SV" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: 6c86ee52-65ee-486a-a94e-56b603229fd9
+
+	measure 'Ultima Fecha SV' =
+			CALCULATE (
+			    [Ultima Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "SV" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: cfcb84b0-6718-4f2e-a219-bf23205e51c8
+
+	measure 'Primera Fecha HN' =
+			CALCULATE (
+			    [Primera Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "HN" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: 563b5538-f353-4ff3-ad9f-f8ab06ab78af
+
+	measure 'Ultima Fecha HN' =
+			CALCULATE (
+			    [Ultima Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "HN" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: d49843f9-3789-41b4-a286-f8bc582d8e06
+
+	measure 'Primera Fecha NI' =
+			CALCULATE (
+			    [Primera Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "NI" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: 31af4231-b297-4f4b-b892-c2d63d8155e2
+
+	measure 'Ultima Fecha NI' =
+			CALCULATE (
+			    [Ultima Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "NI" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: 500f8ae7-91b6-4d4c-a4f1-c130f40d642b
+
+	measure 'Primera Fecha GT' =
+			CALCULATE (
+			    [Primera Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "GT" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: 3afaaf53-7b31-4249-b3fa-c01ee9a07cbb
+
+	measure 'Ultima Fecha GT' =
+			CALCULATE (
+			    [Ultima Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "GT" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: fdba7cf2-6410-4758-840f-68dd0930f1df
+
+	measure 'Primera Fecha CR' =
+			CALCULATE (
+			    [Primera Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "CR" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: a616f986-0bda-466f-9cfc-fca2f7d23dd7
+
+	measure 'Ultima Fecha CR' =
+			CALCULATE (
+			    [Ultima Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "CR" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: 12a44cd3-206a-49d7-bb1c-9c1b053e3876
+
+	measure 'Primera Fecha PA' =
+			CALCULATE (
+			    [Primera Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "PA" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: 60fdc352-270a-44a7-8fec-844dc2f11e15
+
+	measure 'Ultima Fecha PA' =
+			CALCULATE (
+			    [Ultima Fecha],
+			    KEEPFILTERS ( Pais[BV_Pais] = "PA" )
+			)
+		formatString: yyyy-MM-dd
+		displayFolder: Métrias Comerciales\Fechas\Paises
+		lineageTag: 694b9afd-e7ee-4d6d-a214-cd31ecbf55d9
+
 	column Value
 		isHidden
 		lineageTag: d4fdf9b7-3933-4949-89ba-53aad45b77f3

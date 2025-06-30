@@ -69,3 +69,11 @@ relationship a7a688a9-8757-beed-508f-2019e3adbf9a
 	fromColumn: ArriboFuturo.'PAIS BV'
 	toColumn: Pais.BV_PAIS
 
+relationship AutoDetected_fb1c8c46-9a0e-4272-9fe3-8f93380b82e1
+	fromColumn: ArticulosPais.SK_ARTICULO
+	toColumn: Articulos.SK_ARTICULO
+
+relationship AutoDetected_3e867051-e6e4-4a66-a09b-ad4c283592f6
+	fromColumn: ArticulosPais.SK_PAIS
+	toColumn: Pais.SK_PAIS
+

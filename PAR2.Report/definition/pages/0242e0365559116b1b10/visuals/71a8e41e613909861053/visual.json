@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "71a8e41e613909861053",
   "position": {
     "x": 8,
@@ -990,6 +990,48 @@
                       "Entity": "Métricas"
                     }
                   },
+                  "Property": "Inventario 8010"
+                }
+              },
+              "queryRef": "Métricas.Inventario 8010",
+              "nativeQueryRef": "Inventario 8010"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario 8020"
+                }
+              },
+              "queryRef": "Métricas.Inventario 8020",
+              "nativeQueryRef": "Inventario 8020"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario PA20"
+                }
+              },
+              "queryRef": "Métricas.Inventario PA20",
+              "nativeQueryRef": "Inventario PA20"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
                   "Property": "Inventario BP10"
                 }
               },
@@ -1018,6 +1060,62 @@
                       "Entity": "Métricas"
                     }
                   },
+                  "Property": "Inventario Bodegas CR"
+                }
+              },
+              "queryRef": "Métricas.Inventario Bodegas CR",
+              "nativeQueryRef": "Inventario Bodegas CR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario Bodegas GT"
+                }
+              },
+              "queryRef": "Métricas.Inventario Bodegas GT",
+              "nativeQueryRef": "Inventario Bodegas GT"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario Bodegas HN"
+                }
+              },
+              "queryRef": "Métricas.Inventario Bodegas HN",
+              "nativeQueryRef": "Inventario Bodegas HN"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Inventario Bodegas NI"
+                }
+              },
+              "queryRef": "Métricas.Inventario Bodegas NI",
+              "nativeQueryRef": "Inventario Bodegas NI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
                   "Property": "Inventario Sala"
                 }
               },
@@ -1033,11 +1131,249 @@
                       "Entity": "Métricas"
                     }
                   },
+                  "Property": "Ex. TDA CR"
+                }
+              },
+              "queryRef": "Métricas.Ex. TDA CR",
+              "nativeQueryRef": "Ex. TDA CR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ex. TDA GT"
+                }
+              },
+              "queryRef": "Métricas.Ex. TDA GT",
+              "nativeQueryRef": "Ex. TDA GT"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ex. TDA HN"
+                }
+              },
+              "queryRef": "Métricas.Ex. TDA HN",
+              "nativeQueryRef": "Ex. TDA HN"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ex. TDA NI"
+                }
+              },
+              "queryRef": "Métricas.Ex. TDA NI",
+              "nativeQueryRef": "Ex. TDA NI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ex. TDA PA"
+                }
+              },
+              "queryRef": "Métricas.Ex. TDA PA",
+              "nativeQueryRef": "Ex. TDA PA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ex. TDA SV"
+                }
+              },
+              "queryRef": "Métricas.Ex. TDA SV",
+              "nativeQueryRef": "Ex. TDA SV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
                   "Property": "Inventario Transitos"
                 }
               },
               "queryRef": "Métricas.Inventario Transitos",
               "nativeQueryRef": "Inventario Transitos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha CR"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha CR",
+              "nativeQueryRef": "Primera Fecha CR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha GT"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha GT",
+              "nativeQueryRef": "Primera Fecha GT"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha HN"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha HN",
+              "nativeQueryRef": "Primera Fecha HN"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha NI"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha NI",
+              "nativeQueryRef": "Primera Fecha NI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha PA"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha PA",
+              "nativeQueryRef": "Primera Fecha PA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha SV"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha SV",
+              "nativeQueryRef": "Primera Fecha SV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha CR"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha CR",
+              "nativeQueryRef": "Ultima Fecha CR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha GT"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha GT",
+              "nativeQueryRef": "Ultima Fecha GT"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha HN"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha HN",
+              "nativeQueryRef": "Ultima Fecha HN"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha NI"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha NI",
+              "nativeQueryRef": "Ultima Fecha NI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha PA"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha PA",
+              "nativeQueryRef": "Ultima Fecha PA"
             }
           ]
         }
@@ -2149,6 +2485,62 @@
           "properties": {},
           "selector": {
             "metadata": "Métricas.Inventario BP10"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "91.70429119542328D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Inventario Bodegas CR"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.47861157583083D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Inventario Bodegas GT"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.7010037317624D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Inventario Bodegas HN"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "83.72372306010669D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Inventario Bodegas NI"
           }
         }
       ],

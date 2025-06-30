@@ -51,8 +51,6 @@ table ArticuloProveedor
 				in
 				    Origen
 
-	changedProperty = Name
-
 	annotation PBI_NavigationStepName = Navegación
 
 	annotation PBI_ResultType = Table

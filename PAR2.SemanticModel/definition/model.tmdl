@@ -24,9 +24,9 @@ queryGroup Sharepoint
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBIDesktopVersion = 2.143.878.0 (25.05)+b20aa3b866ec1b70879135a4e60e4b1301c75b21
+annotation PBIDesktopVersion = 2.144.878.0 (25.06)+9cca29236de5114792f4d7188221f91ad4a5cc50
 
-annotation PBI_QueryOrder = ["Articulos","Precios","srvCOGNOS","dbCOGNOS","Imagenes","Precio_FOB","srvSAP","Ventas","Inventarios","Pais","Almacenes","Fecha","REF_PROVEEDOR","PeriodosEstadisticos","ArriboFuturo","ArticuloProveedor","FACT_INVENTARIOUD"]
+annotation PBI_QueryOrder = ["Articulos","Precios","srvCOGNOS","dbCOGNOS","Imagenes","Precio_FOB","srvSAP","Ventas","Inventarios","Pais","Almacenes","Fecha","REF_PROVEEDOR","PeriodosEstadisticos","ArriboFuturo","ArticuloProveedor","FACT_INVENTARIOUD","ArticulosPais"]
 
 annotation PBI_ProTooling = ["DaxQueryView_Desktop","TMDLView_Desktop","DevMode"]
 
@@ -49,6 +49,7 @@ ref table Parámetro
 ref table 'Parámetro Ctvs'
 ref table ArticuloProveedor
 ref table FACT_INVENTARIOUD
+ref table ArticulosPais
 
 ref cultureInfo es-ES
 
