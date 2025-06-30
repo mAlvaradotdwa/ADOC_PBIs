@@ -1,0 +1,146 @@
+table IH09
+	lineageTag: 0cb25326-a42d-4326-8a5e-f67aed0b5b7c
+
+	column ALU
+		dataType: string
+		lineageTag: cb875b61-2aff-4070-964d-77377f2b1415
+		summarizeBy: none
+		sourceColumn: ALU
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERICO2 = LEFT(IH09[SK_ART],8)
+		lineageTag: 10690135-091d-433f-93d4-a6d3902524fb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MATNR
+		dataType: string
+		lineageTag: 0dc024ac-e8e8-449c-ac47-828c395c2901
+		summarizeBy: none
+		sourceColumn: SK_MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Artículo SAP'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e331b58-6078-4819-b702-54e8ccc1c94a
+		summarizeBy: none
+		sourceColumn: Artículo SAP
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ART
+		dataType: int64
+		formatString: 0
+		lineageTag: ec50f479-612b-497e-8203-a9c028856dfb
+		summarizeBy: sum
+		sourceColumn: SK_ART
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_COLECCION
+		dataType: string
+		lineageTag: fdfa3270-a6e9-407c-88cf-06bd07b95c78
+		summarizeBy: none
+		sourceColumn: SK_COLECCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Desc. Clase'
+		dataType: string
+		lineageTag: f98f0ff5-aca8-4dbd-ab14-0763962561c5
+		summarizeBy: none
+		sourceColumn: Desc. Clase
+
+		annotation SummarizationSetBy = Automatic
+
+	column Género
+		dataType: string
+		lineageTag: 705ec76c-2e87-4e4d-be67-2b64dd8fcbe6
+		summarizeBy: none
+		sourceColumn: Género
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dep
+		dataType: string
+		lineageTag: 8b19249a-1208-4a4b-affe-3a6eed4221a8
+		summarizeBy: none
+		sourceColumn: Dep
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: 85acbcc2-0cb1-42df-8532-9e89a9a83f77
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: bdd1360b-0ce4-4c63-a6c3-6764b754b2d2
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MARCA
+		dataType: string
+		lineageTag: 2f618acb-a038-41c9-95a3-a5e3e395ba79
+		summarizeBy: none
+		sourceColumn: SK_MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_MARCA
+		dataType: string
+		lineageTag: 16d6d0ea-0111-4e4a-a716-2774427e4016
+		summarizeBy: none
+		sourceColumn: BV_MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPOESTILO
+		dataType: string
+		lineageTag: 6a553b97-d6c7-4fa7-be6a-70090254f65e
+		summarizeBy: none
+		sourceColumn: TIPOESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column JERARQUIA
+		dataType: string
+		lineageTag: ac2fce5d-73c9-4473-b3fb-a77c3db0f516
+		summarizeBy: none
+		sourceColumn: JERARQUIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE
+		dataType: string
+		lineageTag: 9a32ae50-4d5c-4db3-9764-51f4e9ff6891
+		summarizeBy: none
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition IH09 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT#(lf)#(tab)SK_MATNR ,#(lf)#(tab)MATNR = TRY_CAST( SK_MATNR AS BIGINT ) ,#(lf)#(tab)SK_ARTICULO = TRY_CAST( SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)SK_COLECCION ,#(lf)#(tab)ALU ,#(lf)#(tab)BV_CATEGORIA ,#(lf)#(tab)BV_GENERO ,#(lf)#(tab)BV_DEPTO ,#(lf)#(tab)ESTILO ,#(lf)#(tab)MARCA ,#(lf)#(tab)SK_MARCA,#(lf)#(tab)BV_MARCA,#(lf)#(tab)TIPOESTILO ,#(lf)#(tab)JERARQUIA#(lf)FROM DIM_ARTICULOSAP#(lf)WHERE ISNUMERIC( SK_MATNR ) = 1", CreateNavigationProperties=false]),
+				    #"Duplicados quitados" = Table.Distinct(Source, {"SK_MATNR"}),
+				    #"Added Custom" = Table.AddColumn(#"Duplicados quitados", "PE", each Text.Start([SK_COLECCION],4)),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom",{{"BV_CATEGORIA", "Desc. Clase"}, {"SK_ARTICULO", "SK_ART"}, {"MATNR", "Artículo SAP"}, {"BV_DEPTO", "Dep"}, {"BV_GENERO", "Género"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

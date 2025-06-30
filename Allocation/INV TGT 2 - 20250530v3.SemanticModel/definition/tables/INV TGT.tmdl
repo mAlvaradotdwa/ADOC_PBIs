@@ -1,0 +1,359 @@
+table 'INV TGT'
+	lineageTag: 15ef91ff-9225-4e04-94ad-257ebd981be2
+
+	measure '% EN TDAS' = CALCULATE(SUM('INV TGT'[INV EN TDAS])/SUM('INV TGT'[INVENTARIO $]))
+		formatString: #,0.00\ %;-#,0.00\ %;#,0.00\ %
+		lineageTag: 27f32112-4289-4a01-b995-8946dd9eb9f9
+
+	measure '% EN TDAS_+_TRANS' = CALCULATE((SUM('INV TGT'[INV EN TDAS])+SUM('INV TGT'[INV TRANS TDAS]))/SUM('INV TGT'[INVENTARIO $]))
+		formatString: #,0.00\ %;-#,0.00\ %;#,0.00\ %
+		lineageTag: b3be8c66-e10a-46ba-bd97-4db7b7d3beef
+
+	measure '% EN BP' = CALCULATE(SUM('INV TGT'[INV EN BP])/SUM('INV TGT'[INVENTARIO $]))
+		formatString: #,0.00\ %;-#,0.00\ %;#,0.00\ %
+		lineageTag: 565442f6-1c79-404c-bbf0-c9b1cdb9a1a2
+
+	measure '% TRANS A BP' = CALCULATE((SUM('INV TGT'[INV TRANS A BP C/CONT])+SUM('INV TGT'[INV TRANS A BP S/CONT]))/SUM('INV TGT'[INVENTARIO $]))
+		formatString: #,0.00\ %;-#,0.00\ %;#,0.00\ %
+		lineageTag: f61556ba-22c9-439c-b793-45050ab4b632
+
+	measure '% EN BFI' = CALCULATE(SUM('INV TGT'[INV EN BFI])/SUM('INV TGT'[INVENTARIO $]))
+		formatString: #,0.00\ %;-#,0.00\ %;#,0.00\ %
+		lineageTag: 1adca61c-d068-4fad-8615-fa96c033c2d7
+
+	measure '% ARRIBANDO A BFI' = CALCULATE(SUM('INV TGT'[ARRIBANDO A BFI])/SUM('INV TGT'[INVENTARIO $]))
+		formatString: #,0.00\ %;-#,0.00\ %;#,0.00\ %
+		lineageTag: 3da4ed35-5653-40f4-8365-65c7b2692ab7
+
+	measure '% EN CADENA' =
+			CALCULATE((SUM('INV TGT'[INV EN TDAS])+SUM('INV TGT'[INV TRANS TDAS])+SUM('INV TGT'[INV EN BP])+ SUM('INV TGT'[INV TRANS A BP C/CONT])+SUM('INV TGT'[INV TRANS A BP S/CONT])+SUM('INV TGT'[INV EN BFI])+ SUM('INV TGT'[ARRIBO A BFI ACUMULADO])-SUM('INV TGT'[VENTA_MKD]))
+			/SUM('INV TGT'[INVENTARIO $]))
+		formatString: #,0\ %;-#,0\ %;#,0\ %
+		lineageTag: 763635fc-fef8-48ad-88fe-08f1daf94bcb
+
+	measure 'INV PROYECTADO' = CALCULATE(SUM('INV TGT'[INV EN TDAS])+SUM('INV TGT'[INV TRANS TDAS])+SUM('INV TGT'[INV EN BP])+ SUM('INV TGT'[INV TRANS A BP C/CONT])+SUM('INV TGT'[INV TRANS A BP S/CONT])+SUM('INV TGT'[INV EN BFI])+ SUM('INV TGT'[ARRIBO A BFI ACUMULADO])-SUM('INV TGT'[VENTA_MKD]))
+		formatString: \$#,0;-\$#,0;\$#,0
+		lineageTag: b649be8b-f0eb-4770-b91c-f29b28ada7ce
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	measure '% TDAS' = IFERROR(IF(MAX('INV TGT'[AÑO MES])>VALUE(YEAR(TODAY())&FORMAT(MONTH(TODAY()),"00")),"-",CALCULATE((SUM('INV TGT'[INV EN TDAS]))/CALCULATE(SUM('INV TGT'[INVENTARIO $])+SUM('INV TGT'[VTA_MKD_MES])))),0)
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: a5dea286-b67c-4071-8c13-deccb3968621
+
+	measure '% EN CADENA (COMPLETO)' =
+			IFERROR(CALCULATE((SUM('INV TGT'[INV EN TDAS])+SUM('INV TGT'[INV TRANS TDAS])+SUM('INV TGT'[INV EN BP])+ SUM('INV TGT'[INV TRANS A BP C/CONT])+SUM('INV TGT'[INV TRANS A BP S/CONT])+SUM('INV TGT'[INV EN BFI])+ SUM('INV TGT'[ARRIBO A BFI ACUMULADO])+SUM('INV TGT'[ARRIBO A BFI S/C ACUMULADO]))
+			/(SUM('INV TGT'[INVENTARIO $])+SUM('INV TGT'[VENTA_MKD]))),0)
+		formatString: #,0\ %;-#,0\ %;#,0\ %
+		lineageTag: 8b69b318-7f16-489d-b92f-d1fb0e7311d4
+
+	measure 'INV PROYECTADO (COMPLETO)' = CALCULATE(SUM('INV TGT'[INV EN TDAS])+SUM('INV TGT'[INV TRANS TDAS])+SUM('INV TGT'[INV EN BP])+ SUM('INV TGT'[INV TRANS A BP C/CONT])+SUM('INV TGT'[INV TRANS A BP S/CONT])+SUM('INV TGT'[INV EN BFI])+ SUM('INV TGT'[ARRIBO A BFI ACUMULADO])+SUM('INV TGT'[ARRIBO A BFI S/C ACUMULADO])-SUM('INV TGT'[VENTA_MKD]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: da7e19f4-4e97-4f60-b22d-ff32cb127742
+
+	measure '% INV PAIS' = (SUM('INV TGT'[INV EN TDAS])+SUM('INV TGT'[INV TRANS TDAS])+SUM('INV TGT'[INV EN BP])+ SUM('INV TGT'[INV TRANS A BP C/CONT])+SUM('INV TGT'[INV TRANS A BP S/CONT])-SUM('INV TGT'[VENTA_MKD]))/SUM('INV TGT'[INVENTARIO $])
+		formatString: #,0\ %;-#,0\ %;#,0\ %
+		lineageTag: 5a1c5eeb-9603-4528-bd9a-96c7e88aeb82
+
+	measure '% EN CADENA (COMPROMETIDO)' =
+			IF(MAX('INV TGT'[AÑO MES])>VALUE(YEAR(TODAY())&FORMAT(MONTH(TODAY()),"00")),"-",IFERROR(CALCULATE((SUM('INV TGT'[INV EN TDAS])+SUM('INV TGT'[INV TRANS TDAS])+SUM('INV TGT'[INV EN BP])+ SUM('INV TGT'[INV TRANS A BP C/CONT])+SUM('INV TGT'[INV TRANS A BP S/CONT]))
+			/(SUM('INV TGT'[INVENTARIO $])+SUM('INV TGT'[VENTA_MKD]))),0))
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: f22110b1-e125-4b7e-8fd8-0e83a233b0a7
+
+	column MARCA
+		dataType: string
+		lineageTag: 7f67e63c-7ebd-43bc-b4e7-ad5bba7797c7
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PAIS BV'
+		dataType: string
+		lineageTag: d2292b5d-a50b-4d88-85c0-638ead28f1ed
+		summarizeBy: none
+		sourceColumn: PAIS BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DEPTO BV'
+		dataType: string
+		lineageTag: bbc983ba-447d-4f2f-b950-c1d85154d9f8
+		summarizeBy: none
+		sourceColumn: DEPTO BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GENERO BV'
+		dataType: string
+		lineageTag: 7891b36b-b366-499d-b92c-24637e607f29
+		summarizeBy: none
+		sourceColumn: GENERO BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CATEGORIA BV'
+		dataType: string
+		lineageTag: 28a98faa-d149-47ff-aab1-3c4d8f571064
+		summarizeBy: none
+		sourceColumn: CATEGORIA BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column METRICA
+		dataType: string
+		lineageTag: bc9172d7-2f9c-426b-9399-2571cfa4a3e6
+		summarizeBy: none
+		sourceColumn: METRICA
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = 'INV TGT'[MARCA]&'INV TGT'[PAIS BV]&'INV TGT'[DEPTO BV]&'INV TGT'[GENERO BV]&'INV TGT'[CATEGORIA BV]
+		lineageTag: e467a7bd-fcc5-435f-a169-b4ac8d565d28
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INV EN TDAS' = CALCULATE(SUM('INV ACTUAL'[EXISTENCIA NETA $ ULTIMO DIA]),'INV ACTUAL'[COD ALMACEN]="AL01",'INV ACTUAL'[TIPO ESTILO]<>"NOS",'INV ACTUAL'[KEY]=EARLIER('INV TGT'[KEY]))
+		formatString: \$#,0;-\$#,0;\$#,0
+		lineageTag: 6536e910-e8bb-45f8-91bc-a77fd669de28
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'INV EN BP' = CALCULATE(SUM('INV ACTUAL'[EXISTENCIA DISPONIBLE $]),'INV ACTUAL'[KEY]=EARLIER('INV TGT'[KEY]),'INV ACTUAL'[COD ALMACEN] = "BP01", 'INV ACTUAL'[TIPO ESTILO]<>"NOS",'INV ACTUAL'[MES_LANZ]<=EARLIER('INV TGT'[AÑO MES]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: aabc4f0c-fa8e-4005-88fb-6e053c1de5df
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AÑO MES'
+		dataType: int64
+		formatString: 0
+		lineageTag: bf40a99c-5e6c-40a0-9b47-d60db5515e27
+		summarizeBy: none
+		sourceColumn: AÑO MES
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INVENTARIO $'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 6bf50037-c6d6-4b1c-9194-034ec6db0067
+		summarizeBy: sum
+		sourceColumn: INVENTARIO $
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'INV TRANS TDAS' = CALCULATE(SUM('TRANS TDAS'[INV TRANS $]),'TRANS TDAS'[KEY]=EARLIER('INV TGT'[KEY]),'TRANS TDAS'[TIPO ESTILO]<>"NOS")
+		formatString: \$#,0;-\$#,0;\$#,0
+		lineageTag: 8344e5a0-1c45-4bd4-a65b-aa0aec0ab444
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'INV TRANS A BP C/CONT' = CALCULATE(SUM('ZINT'[INV TRANS $]),'ZINT'[KEY]=EARLIER('INV TGT'[KEY]), ZINT[TIPO ESTILO]<>"NOS",ZINT[CON CONTENEDOR]="SI",ZINT[INGRESADO]="NO",ZINT[MES_LANZ]<=EARLIER('INV TGT'[AÑO MES]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: aa1b29cc-46f1-42c3-8cf9-16b110c36db4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INV EN BFI' = CALCULATE(SUM('INV ACTUAL (BFI)'[ARRIBO NETO $ ULTIMO DIA]),'INV ACTUAL (BFI)'[KEY]=EARLIER('INV TGT'[KEY BFI]),'INV ACTUAL (BFI)'[TIPO ESTILO]<>"NOS",'INV ACTUAL (BFI)'[MES_LANZ]<=EARLIER('INV TGT'[AÑO MES]))*'INV TGT'[PROPORCION COMPRAS CAT]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: a00baf49-145e-466f-bde4-d1839cd46783
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KEY BFI' =
+			IF('INV TGT'[MARCA]="CAT", 'INV TGT'[MARCA]&"SV"&'INV TGT'[DEPTO BV]&'INV TGT'[GENERO BV]&'INV TGT'[CATEGORIA BV],
+			'INV TGT'[MARCA]&'INV TGT'[PAIS BV]&'INV TGT'[DEPTO BV]&'INV TGT'[GENERO BV]&'INV TGT'[CATEGORIA BV])
+		lineageTag: 756bd5a1-d6d1-4ca5-aa37-cd16385b91ec
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INV TRANS A BP S/CONT' =
+			CALCULATE (
+			    SUM ( 'ZINT'[INV TRANS $] ),
+			    'ZINT'[KEY] = EARLIER ( 'INV TGT'[KEY] ),
+			    ZINT[TIPO ESTILO] <> "NOS",
+			    ZINT[CON CONTENEDOR] = "NO",
+			    ZINT[INGRESADO] = "NO",
+			    ZINT[MES_LANZ]
+			        <= EARLIER ( 'INV TGT'[AÑO MES] )
+			)
+			    + CALCULATE (
+			        SUM ( 'SOLPED'[INV TRANS $] ),
+			        'SOLPED'[KEY]
+			            = EARLIER ( 'INV TGT'[KEY] ),
+			        SOLPED[TIPO ESTILO] <> "NOS",
+			        SOLPED[CDoc] <> "ZTRU",
+			        SOLPED[MES_LANZ]
+			            <= EARLIER ( 'INV TGT'[AÑO MES] ),
+			        ISBLANK ( SOLPED[DOCUMENTO_ZINT_ASOCIADO] )
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: ae29b694-70e4-4a17-9b7d-e423ea841c34
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ARRIBANDO A BFI' =
+			CALCULATE (
+			    SUM ( 'CONTENEDORES'[INV TRANS $] ),
+			    'CONTENEDORES'[KEY]
+			        = EARLIER ( 'INV TGT'[KEY BFI] ),
+			    CONTENEDORES[TIPO ESTILO] <> "NOS",
+			    CONTENEDORES[MES_LANZ]
+			        <= EARLIER ( 'INV TGT'[AÑO MES] )
+			) * 'INV TGT'[PROPORCION COMPRAS CAT]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 7c6f800f-b15e-4564-9dc6-5c6c2dae858b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KEY BFI MES' = 'INV TGT'[KEY BFI]&'INV TGT'[AÑO MES]
+		lineageTag: 9f19f49d-8ac5-4fd0-9b57-c29bb502fa63
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENTA_MKD = CALCULATE(SUM('VTA MKD TGT'[VENTAMKD]),'VTA MKD TGT'[KEY]=EARLIER('INV TGT'[KEY]),'VTA MKD TGT'[AÑO MES]<= EARLIER('INV TGT'[AÑO MES]))
+		formatString: \$#,0;-\$#,0;\$#,0
+		lineageTag: 944baa29-8020-4462-974e-06fa1234cbc6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'ARRIBO A BFI ACUMULADO' =
+			/*CALCULATE (
+			    SUM ( 'ARRIBOS BFI ACUM'[ARRIBANDO A BFI] ),
+			    'ARRIBOS BFI ACUM'[KEY]
+			        = EARLIER ( 'INV TGT'[KEY] ),
+			    'ARRIBOS BFI ACUM'[AÑO MES]
+			        <= EARLIER ( 'INV TGT'[AÑO MES] )
+			)*/
+			
+			CALCULATE (
+			    SUM ( 'CONTENEDORES'[INV TRANS $] ),
+			    'CONTENEDORES'[KEY]
+			        = EARLIER ( 'INV TGT'[KEY BFI] ),
+			    CONTENEDORES[TIPO ESTILO] <> "NOS",
+			    CONTENEDORES[MES_LANZ]
+			        <= EARLIER ( 'INV TGT'[AÑO MES] )
+			) * 'INV TGT'[PROPORCION COMPRAS CAT]
+		formatString: \$#,0;-\$#,0;\$#,0
+		lineageTag: 81ebb40d-9824-4c3c-8292-4d13cc701898
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column VTA_MKD_MES = CALCULATE(SUM('VTA MKD TGT'[VENTAMKD]),'VTA MKD TGT'[KEY]=EARLIER('INV TGT'[KEY]),'VTA MKD TGT'[AÑO MES]= EARLIER('INV TGT'[AÑO MES]))
+		formatString: \$#,0;-\$#,0;\$#,0
+		lineageTag: a27e6628-1445-4da8-ba67-b9f96b4cacad
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'ARRIBANDO A BFI S/C' =
+			CALCULATE (
+			    SUM ( 'ARRIBO FUTURO COGNOS'[INV TRANS $] ),
+			    'ARRIBO FUTURO COGNOS'[KEY BFI MES]
+			        = EARLIER ( 'INV TGT'[KEY BFI MES] ),
+			    'ARRIBO FUTURO COGNOS'[TIPO ESTILO] <> "NOS",
+			    'ARRIBO FUTURO COGNOS'[VERIF] = TRUE
+			) * 'INV TGT'[PROPORCION COMPRAS CAT]
+		formatString: \$#,0;-\$#,0;\$#,0
+		lineageTag: a82fbe99-9265-4520-a06a-9ba36c3f6511
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'ARRIBO A BFI S/C ACUMULADO' = CALCULATE(SUM('ARRIBOS BFI S/C ACUM'[ARRIBANDO A BFI S/C]),'ARRIBOS BFI S/C ACUM'[KEY]=EARLIER('INV TGT'[KEY]),'ARRIBOS BFI S/C ACUM'[AÑO MES]<=EARLIER('INV TGT'[AÑO MES]))
+		dataType: double
+		formatString: \$#,0;-\$#,0;\$#,0
+		lineageTag: e684e1ad-3fb0-4c12-99ef-5bc67c08c75c
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'PROPORCION COMPRAS CAT' = IF('INV TGT'[MARCA]="CAT",LOOKUPVALUE('PARA COMPRAS CAT'[PROPORCION],'PARA COMPRAS CAT'[KEY PROP CAT],'INV TGT'[KEY]&'INV TGT'[AÑO MES]),1)
+		formatString: 0.00
+		lineageTag: e3de8874-f146-403f-9f8c-34001042deff
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURRENT
+		dataType: int64
+		formatString: 0
+		lineageTag: 9aeff4ba-8277-41ab-8090-6271e3c04b94
+		summarizeBy: sum
+		sourceColumn: CURRENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FILTRO TIMELINE'
+		dataType: string
+		lineageTag: 776b35eb-3b94-4ea7-b2ff-8306d4776d3c
+		summarizeBy: none
+		sourceColumn: FILTRO TIMELINE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'INV TGT' = m
+		mode: import
+		queryGroup: 'Archivos Sharepoint'
+		source =
+				let
+				    Source = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/", [ApiVersion = 15]),
+				    Work_Sheet = Table.SelectRows(Source, each ([Folder Path] = "https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/Documents/TEMP_Sharepoint/Allocation/")),
+				    Personalizado1 = #"Work_Sheet"{[Name="INVENTARIO TARGET.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/Documents/TEMP_Sharepoint/Allocation/"]}[Content],
+				    Personalizado2 = Excel.Workbook(Personalizado1),
+				    Personalizado3 = Personalizado2{[Item="Work",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Personalizado3, [PromoteAllScalars=true]),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"MARCA", "PAIS BV", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "METRICA", "202501", "202502", "202503", "202504", "202505", "202506", "202507", "202508", "202509", "202510", "202511", "202512", "202601", "202602", "202603", "202604", "202605", "202606", "202607", "202608", "202609", "202610", "202611", "202612"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Removed Other Columns", each ([METRICA] = "INV$ TGT" or [METRICA] = "INV$ TGT MAX")),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Filtered Rows1", {"MARCA", "PAIS BV", "DEPTO BV", "GENERO BV", "CATEGORIA BV", "METRICA"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "AÑO MES"}, {"Value", "INVENTARIO $"}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each true),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Filtered Rows",{{"AÑO MES", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type1", "CURRENT", each Number.ToText(Date.Year(Date.From(DateTime.LocalNow())))
+				
+				&
+				
+				Text.PadStart(
+				Number.ToText(Date.Month(Date.From(DateTime.LocalNow()))),2,"0")),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"CURRENT", Int64.Type}}),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type2", "FILTRO TIMELINE", each [AÑO MES]>=[CURRENT]),
+				    #"Filtered Rows2" = Table.SelectRows(#"Added Custom1", each ([FILTRO TIMELINE] = true) and ([PAIS BV] <> "BFI") and ([MARCA] <> "DIN") )
+				in
+				    #"Filtered Rows2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

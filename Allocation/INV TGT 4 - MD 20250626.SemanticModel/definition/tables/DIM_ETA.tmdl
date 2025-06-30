@@ -1,0 +1,74 @@
+table DIM_ETA
+	lineageTag: 030768a0-a4b5-4766-8f60-48927dcbb2b1
+
+	column shipment_id
+		dataType: string
+		lineageTag: 67648712-e63f-4896-bf39-f6a8b9c6e78c
+		summarizeBy: none
+		sourceColumn: shipment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIRST_ETA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 260f7baa-47f5-48d3-8dd0-5800a77f0fff
+		summarizeBy: none
+		sourceColumn: FIRST_ETA
+
+		variation Variation
+			isDefault
+			relationship: 6d1dd6a8-f962-4c8b-9267-ae27f823641c
+			defaultHierarchy: LocalDateTable_1762c38b-412a-4ada-a1a8-b04bec088b0c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MAX_ETA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b9e93eb4-f970-4589-ac7a-74c2d36e3edf
+		summarizeBy: none
+		sourceColumn: MAX_ETA
+
+		variation Variation
+			isDefault
+			relationship: 58ac7569-13e6-41ca-b49e-6a40359c3886
+			defaultHierarchy: LocalDateTable_2fd7d88a-5507-4b62-9a41-377d9e35810b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CAMBIOS
+		dataType: int64
+		formatString: 0
+		lineageTag: e4953cb5-9af6-41c4-bf7a-10df4865cf91
+		summarizeBy: sum
+		sourceColumn: CAMBIOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIAS_DIFF
+		dataType: int64
+		formatString: 0
+		lineageTag: da4e3beb-c026-4049-b4ae-6072f8264c52
+		summarizeBy: sum
+		sourceColumn: DIAS_DIFF
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_ETA = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from openquery(MYSQL, 'SELECT a.shipment_id, min(CAST(a.arrival_timestamp AS DATE)) FIRST_ETA, max(CAST(a.arrival_timestamp AS DATE)) MAX_ETA, #(lf)count(DISTINCT(CAST(a.arrival_timestamp AS DATE)))-1 CAMBIOS, datediff(max(CAST(a.arrival_timestamp AS DATE)),min(CAST(a.arrival_timestamp AS DATE))) DIAS_DIFF#(lf)FROM adminecommerce_marinetraffic.`port_of_discharge` a#(lf)GROUP BY 1#(lf)')"]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"FIRST_ETA", type date}, {"MAX_ETA", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

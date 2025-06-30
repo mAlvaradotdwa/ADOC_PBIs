@@ -1,0 +1,49 @@
+table 'LT A BFI'
+	lineageTag: 95b1848b-dd7b-4a9a-9ee5-8449c9d839e6
+
+	column CONTINENTE
+		dataType: string
+		lineageTag: 269e5016-d144-4976-ade0-03fc8ec09316
+		summarizeBy: none
+		sourceColumn: CONTINENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS
+		dataType: string
+		lineageTag: b21706c3-4d21-4587-ac8f-c83b32768b13
+		summarizeBy: none
+		sourceColumn: PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BFI SV'
+		dataType: string
+		lineageTag: 0e906209-ba9b-4ce0-a8ea-9d0e67de6e15
+		summarizeBy: none
+		sourceColumn: BFI SV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BFI PA'
+		dataType: string
+		lineageTag: ab9dbbc9-8652-42e8-8cca-e9b5a0fe909d
+		summarizeBy: none
+		sourceColumn: BFI PA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'LT A BFI' = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\mdaboub\OneDrive - Empresas ADOC, S.A. de C.V\Escritorio\TGT INVENTARIO CONTINGENCIA\LT A BFI.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true])
+				in
+				    #"Promoted Headers"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

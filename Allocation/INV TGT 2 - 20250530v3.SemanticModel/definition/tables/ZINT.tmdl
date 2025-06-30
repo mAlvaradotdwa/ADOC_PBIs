@@ -1,0 +1,477 @@
+table ZINT
+	lineageTag: 242db06c-0b55-46a7-a6c9-28eb6a0f0a52
+
+	column 'Doc.compr.'
+		dataType: string
+		lineageTag: 54c4ff17-27c4-4d45-9802-41b32c70d56d
+		summarizeBy: none
+		sourceColumn: Doc.compr.
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artículo
+		dataType: string
+		lineageTag: fe74897b-a146-4365-b7bd-1f658c09d03f
+		summarizeBy: none
+		sourceColumn: Artículo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cantidad reparto'
+		dataType: int64
+		formatString: 0
+		lineageTag: 22b9cf44-6288-4098-878b-dc9fe11dcebc
+		summarizeBy: sum
+		sourceColumn: Cantidad reparto
+
+		annotation SummarizationSetBy = Automatic
+
+	column UMP
+		dataType: string
+		lineageTag: 882c271a-b397-4c37-a0c7-ab08d5d3109c
+		summarizeBy: none
+		sourceColumn: UMP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cantidad salida'
+		dataType: int64
+		formatString: 0
+		lineageTag: a43daf19-9914-42de-b6e4-862c25bb3476
+		summarizeBy: sum
+		sourceColumn: Cantidad salida
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cl.'
+		dataType: string
+		lineageTag: f14b0889-1622-49ec-aeeb-11e8b4b8f580
+		summarizeBy: none
+		sourceColumn: Cl.
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Creado el'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 15e0c5b9-dfd7-4489-96cf-8788efeecb23
+		summarizeBy: none
+		sourceColumn: Creado el
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Creado por'
+		dataType: string
+		lineageTag: f14c5c01-9e2a-48fe-b00e-651463114c6b
+		summarizeBy: none
+		sourceColumn: Creado por
+
+		annotation SummarizationSetBy = Automatic
+
+	column CeSu
+		dataType: string
+		lineageTag: d9614cc1-ebe0-4233-bd85-41b67f697c6f
+		summarizeBy: none
+		sourceColumn: CeSu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Texto breve'
+		dataType: string
+		lineageTag: b0f3a920-d86a-4e45-bb22-50fa917f0f52
+		summarizeBy: none
+		sourceColumn: Texto breve
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ce.'
+		dataType: string
+		lineageTag: f93beaef-9b24-4fd0-bb53-8f74d7c9806d
+		summarizeBy: none
+		sourceColumn: Ce.
+
+		annotation SummarizationSetBy = Automatic
+
+	column TpMt
+		dataType: string
+		lineageTag: d6154934-266d-4aca-b329-ab409d170f99
+		summarizeBy: none
+		sourceColumn: TpMt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Denom. Estilo'
+		dataType: string
+		lineageTag: e087269a-6e21-4c80-bcc7-a1f7cac89a78
+		summarizeBy: none
+		sourceColumn: Denom. Estilo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mat.gral.conf.'
+		dataType: string
+		lineageTag: 43e3a564-c491-44a8-a574-93df243058ba
+		summarizeBy: none
+		sourceColumn: Mat.gral.conf.
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: 265abeda-e667-4adf-8d95-0a4af8eedacf
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tam.1'
+		dataType: string
+		lineageTag: 866a3324-7b32-4662-86fd-b64a20410ffc
+		summarizeBy: none
+		sourceColumn: Tam.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: d6c91c84-e323-4835-8ed8-a30af586a084
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column Genero
+		dataType: string
+		lineageTag: dfe23d02-bf71-4b18-9536-9da41698a9b2
+		summarizeBy: none
+		sourceColumn: Genero
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre 1'
+		dataType: string
+		lineageTag: 37622645-4f48-426e-bd03-b3b8fdaa3326
+		summarizeBy: none
+		sourceColumn: Nombre 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ps
+		dataType: string
+		lineageTag: 5548a037-e254-4007-b305-e324f5b8f1f2
+		summarizeBy: none
+		sourceColumn: Ps
+
+		annotation SummarizationSetBy = Automatic
+
+	column B
+		dataType: string
+		lineageTag: 562bd8e0-af35-4e46-91be-2753ef8594fd
+		summarizeBy: none
+		sourceColumn: B
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		dataType: string
+		lineageTag: d7d76373-e816-4818-8856-3f8391b01216
+		summarizeBy: none
+		sourceColumn: Departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Caráct.01'
+		dataType: string
+		lineageTag: b150b32f-123e-4c07-9e11-ed6c004b9d44
+		summarizeBy: none
+		sourceColumn: Caráct.01
+
+		annotation SummarizationSetBy = Automatic
+
+	column Vendedor/a
+		dataType: string
+		lineageTag: 1aca448d-c22e-402d-92b0-1002be280bb5
+		summarizeBy: none
+		sourceColumn: Vendedor/a
+
+		annotation SummarizationSetBy = Automatic
+
+	column AlmEmi
+		dataType: string
+		lineageTag: 9f30a408-00b5-418d-946f-9673e469092d
+		summarizeBy: none
+		sourceColumn: AlmEmi
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm.'
+		dataType: string
+		lineageTag: 1177b49a-9c76-49bb-81a7-085bb4e02865
+		summarizeBy: none
+		sourceColumn: Alm.
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: 77405ec2-f5ec-49ee-be92-0a7b11001014
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: string
+		lineageTag: e7664ef9-a8e4-4572-a06d-f2ceb776a8da
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nro Expediente'
+		dataType: string
+		lineageTag: 0243aec1-18d7-40d9-b68b-b31b748cc409
+		summarizeBy: none
+		sourceColumn: Nro Expediente
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO-FECHA_EXP
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 069f94ad-694d-409b-a3ac-b3072e20ee9d
+		summarizeBy: none
+		sourceColumn: EKPO-FECHA_EXP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EKPO-FECHA_LIQ
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bcf45c5a-6739-48fa-88fe-d8bc12e5d10d
+		summarizeBy: none
+		sourceColumn: EKPO-FECHA_LIQ
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Lote
+		dataType: string
+		lineageTag: b6689fbf-5790-495c-9e5b-0246dc009dc8
+		summarizeBy: none
+		sourceColumn: Lote
+
+		annotation SummarizationSetBy = Automatic
+
+	column GCp
+		dataType: string
+		lineageTag: 18bb2a3a-c425-4313-839d-10db3bdbcbdb
+		summarizeBy: none
+		sourceColumn: GCp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Código EAN/UPC'
+		dataType: string
+		lineageTag: 6e4ff81d-17be-4bb9-8129-2d189c32a908
+		summarizeBy: none
+		sourceColumn: Código EAN/UPC
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lib
+		dataType: string
+		lineageTag: 18724dbd-b6de-41ed-82bb-9fb20d2bfb47
+		summarizeBy: none
+		sourceColumn: Lib
+
+		annotation SummarizationSetBy = Automatic
+
+	column EFi
+		dataType: string
+		lineageTag: 6cd52320-a464-4948-a7d3-bd63485161f9
+		summarizeBy: none
+		sourceColumn: EFi
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Repartos (U)' = IF(left(ZINT[Texto breve],7) = "Prepack",trim(MID(ZINT[Texto breve],9,find("-",ZINT[Texto breve])-9))*ZINT[Cantidad reparto],ZINT[Cantidad reparto])
+		formatString: 0
+		lineageTag: 3721d51a-a5b6-4741-94df-9d027270e3f3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column INGRESADO =
+			IF (
+			    OR (
+			        AND (
+			            ZINT[Cantidad reparto] > 0,
+			            ZINT[Cantidad reparto] = ZINT[Ingresada]
+			        ),
+			        ZINT[EKPO-FECHA_LIQ] > 0
+			    ),
+			    "SI",
+			    "NO"
+			)
+		lineageTag: cfd8d6dd-ce24-4ae8-8f0e-29443d276e90
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CON CONTENEDOR' = IF(ZINT[CONTENEDOR]="","NO","SI")
+		lineageTag: 2f2fa585-30b0-4578-ab13-ec072341bfca
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LEAD TIME' = IF(ZINT[INGRESADO]="SI",ZINT[EKPO-FECHA_LIQ]-ZINT[EKPO-FECHA_EXP] , TODAY() - ZINT[EKPO-FECHA_EXP])
+		dataType: int64
+		formatString: 0
+		lineageTag: 6821cb27-5fef-435c-99f9-4a61c673cc5c
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column LT_Crecion_ZINT = IF(ZINT[INGRESADO]="SI",IF(ISBLANK(ZINT[EKPO-FECHA_LIQ]),0,ZINT[EKPO-FECHA_LIQ]-ZINT[Creado el]), TODAY() - ZINT[Creado el])
+		lineageTag: 7ee87949-9630-405d-82f4-92b09642f0a7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CATEGORIA = RELATED(IH09[Desc. Clase])
+		lineageTag: 591543c8-f490-4554-93c1-2207ac58684a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY = ZINT[MARCA BV]&ZINT[Ps]&ZINT[Departamento]&ZINT[Genero]&ZINT[CATEGORIA]
+		lineageTag: 819e186a-a650-4bbc-bd9f-c0cc438bb6c4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VALOR PROMEDIO $' =
+			
+			CALCULATE(
+			    AVERAGE('INV ACTUAL'[VALOR $ PROMEDIO]),
+			    FILTER(
+			        'INV ACTUAL',
+			        'INV ACTUAL'[KEY] = EARLIER('ZINT'[KEY]) &&
+			        'INV ACTUAL'[COD ALMACEN] = "AL01"
+			    )
+			)
+		formatString: \$#,0.00;-\$#,0.00;\$#,0.00
+		lineageTag: ad8d64b7-4bdf-47f0-a30c-33f3f32f638d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'INV TRANS $' = ZINT[Repartos (U)]*ZINT[VALOR PROMEDIO $]
+		formatString: \$#,0.00;-\$#,0.00;\$#,0.00
+		lineageTag: f4b8b2ee-1775-47bc-a418-dadc3af38c5d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-SV"}
+
+	column 'TIPO ESTILO' = RELATED(IH09[TIPOESTILO])
+		lineageTag: ee4cdd8f-8f8a-4afd-a445-f1f41a437b7e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MARCA BV' = IF(LOOKUPVALUE('MARCAS UNIDAD'[UNIDAD NEGOCIO],'MARCAS UNIDAD'[MARCA BV],'ZINT'[Marca])="PAR2","PAR2",ZINT[Marca])
+		lineageTag: a930ec32-fe11-49f2-921c-986e7ae35c26
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERICO = LEFT(ZINT[Artículo],8)
+		lineageTag: 7e426337-86cc-463f-b2bb-c511fdeb4375
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ' Pos.'
+		dataType: string
+		lineageTag: 9f88c1e8-87e2-4352-96a4-c580ce9e3921
+		summarizeBy: none
+		sourceColumn: " Pos."
+
+		annotation SummarizationSetBy = Automatic
+
+	column Entregas
+		dataType: int64
+		formatString: 0
+		lineageTag: f01314a2-7e37-4aa7-948e-b36a0d9883ad
+		summarizeBy: sum
+		sourceColumn: Entregas
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ingresada
+		dataType: int64
+		formatString: 0
+		lineageTag: 26fd3316-2e31-4773-bc2a-a9ca055b7a39
+		summarizeBy: sum
+		sourceColumn: Ingresada
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDADREPARTO_TOTAL
+		dataType: double
+		lineageTag: bf7f3309-52a4-4d26-a8aa-e9e1986ca084
+		summarizeBy: sum
+		sourceColumn: CANTIDADREPARTO_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PE = RELATED(IH09[PE])
+		lineageTag: beb51df4-3518-4787-9738-154ecf8c24d3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES_LANZ = RELATED('TABLA PE'[AÑO MES LANZAMIENTO])
+		lineageTag: 8a0ba815-8854-4bb8-852c-468d68f401a1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ZINT = m
+		mode: import
+		queryGroup: 'Server SAP (HANA)'
+		source =
+				let
+				    #"ZINTS" = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- DATA EXPORTACIÓN BFI-CD --- #(lf)SELECT #(lf)       EKPO.EBELN                 ""Doc.compr."",  #(lf)       EKPO.EBELP                 "" Pos."",  #(lf)       EKPO.MATNR                 ""Artículo"",  #(lf)       EKPO.MENGE                 ""Cantidad reparto"",  #(lf)       EKPO.MEINS                 ""UMP"",  #(lf)       EKET.GLMNG                 ""Entregas"",  #(lf)       EKET.WAMNG                 ""Cantidad salida"",  #(lf)       EKET.WEMNG                 ""Ingresada"",  #(lf)       EKKO.BSART                 ""Cl."",  #(lf)       EKKO.AEDAT                 ""Creado el"",  #(lf)       EKKO.ERNAM                 ""Creado por"",  #(lf)       EKKO.RESWK                 ""CeSu"",  #(lf)       EKPO.TXZ01                 ""Texto breve"",  #(lf)       EKPO.WERKS                 ""Ce."",  #(lf)       MARA.MTART                 ""TpMt"",  #(lf)       MARA.GROES                 ""Denom. Estilo"",  #(lf)       MARA.SATNR                 ""Mat.gral.conf."",  #(lf)       MARA.FREE_CHAR             ""Color"",  #(lf)       MARA.SIZE1                 ""Tam.1"",  #(lf)       MARA.BRAND_ID              ""Marca"",  #(lf)       MARA.ZZ_ART_PROV           ""Genero"",  #(lf)       T001W.NAME1                ""Nombre 1"",  #(lf)       T001W.LAND1                ""Ps"",  #(lf)       EKPO.LOEKZ                 ""B"",  #(lf)       MARA.ZZ_DEPART             ""Departamento"",  #(lf)       EKKO.ZZ_TIPO_FLETE         ""Caráct.01"",  #(lf)       EKKO.VERKF                 ""Vendedor/a"",  #(lf)       EKPO.RESLO                 ""AlmEmi"",  #(lf)       EKPO.LGORT                 ""Alm."",  #(lf)       ZMM_EXPED_CONTS.CONTENEDOR ""CONTENEDOR"",  #(lf)       EKKO.UNSEZ                 ""NUESTRA REF"",#(lf)       EKKO.ZZF_DESPACHO          ""Fecha"",  #(lf)       EKPO.LBELN                 ""Nro Expediente"",  -- Se mantiene solo EKPO.LBELN  #(lf)       EKPO.FECHA_EXP             ""EKPO-FECHA_EXP"",  #(lf)       EKPO.FECHA_LIQ             ""EKPO-FECHA_LIQ"",  #(lf)       EKET.CHARG                 ""Lote"",    #(lf)       EKKO.EKGRP                 ""GCp"",  #(lf)       MARA.EAN11                 ""Código EAN/UPC"",  #(lf)       EKKO.FRGKE                 ""Lib"",  #(lf)       EKPO.ELIKZ                 ""EFi"",  #(lf)       CASE  #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack'  #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER)  #(lf)            ELSE 1  #(lf)     END * EKPO.MENGE             CantidadReparto_total  #(lf)FROM SAP_ECC.EKPO  #(lf)LEFT JOIN SAP_ECC.EKKO  #(lf)       ON EKPO.EBELN = EKKO.EBELN  #(lf)LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_CONTS#(lf)       ON ZMM_EXPED_CONTS.LBELN = EKPO.LBELN       #(lf)LEFT JOIN SAP_ECC.EKET  #(lf)       ON EKET.EBELN = EKPO.EBELN  #(lf)          AND EKET.EBELP = EKPO.EBELP  #(lf)LEFT JOIN SAP_ECC.MARA  #(lf)       ON MARA.MATNR = EKPO.MATNR  #(lf)LEFT JOIN SAP_ECC.T001W  #(lf)       ON T001W.WERKS = EKPO.WERKS  #(lf)WHERE  #(lf)   EKKO.AEDAT BETWEEN TO_VARCHAR(TO_DATE(YEAR(CURRENT_DATE) || '0101'), 'YYYYMMDD')#(lf)                  AND TO_VARCHAR(CURRENT_DATE, 'YYYYMMDD')#(lf)    AND EKPO.LOEKZ <> 'L'  #(lf)    AND MARA.MTART IN ('MODE', 'ZMOD')  #(lf)    AND EKKO.BSART IN ('ZINT', 'ZTRU', 'ZUIN')  #(lf)    AND EKKO.RESWK IN ('8010', '8020', '1010', '1020','2010', '3010', '3030', '4010', '5010', '5030','PA20')  #(lf)    --AND EKPO.EBELN = '4700183877'  #(lf)    AND EKPO.MEINS <> 'CS'#(lf)    --AND EKPO.MATNR IN ('000000030060626902', '000000030060626001', '000000030060626002', '000000030060626003', '000000030060626004', '000000030060626005')#(lf)", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(ZINTS,{{"Cantidad reparto", Int64.Type}, {"Entregas", Int64.Type}, {"Cantidad salida", Int64.Type}, {"Ingresada", Int64.Type}, {"Creado el", type date}, {"EKPO-FECHA_EXP", type date}, {"EKPO-FECHA_LIQ", type date}, {"Artículo", Int64.Type}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Changed Type",{{"Artículo", type text}, {"Mat.gral.conf.", Int64.Type}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Changed Type1",{{"Mat.gral.conf.", type text}}),
+				    Personalizado1 = Table.RenameColumns(#"Changed Type2",{{"CONTENEDOR", "_CONTENEDOR_"}}),
+				    Personalizado2 = Table.ReplaceValue(#"Personalizado1",null,"",Replacer.ReplaceValue,{"_CONTENEDOR_"}),
+				    Personalizado3 = Table.AddColumn(#"Personalizado2", "CONTENEDOR", each if Text.Trim([_CONTENEDOR_]) <> ""then [_CONTENEDOR_] else [NUESTRA REF]),
+				    Personalizado4 = Table.SelectColumns(#"Personalizado3",{"Doc.compr.", " Pos.", "Artículo", "Cantidad reparto", "UMP", "Entregas", "Cantidad salida", "Ingresada", "Cl.", "Creado el", "Creado por", "CeSu", "Texto breve", "Ce.", "TpMt", "Denom. Estilo", "Mat.gral.conf.", "Color", "Tam.1", "Marca", "Genero", "Nombre 1", "Ps", "B", "Departamento", "Caráct.01", "Vendedor/a", "AlmEmi", "Alm.", "Fecha", "Nro Expediente", "EKPO-FECHA_EXP", "EKPO-FECHA_LIQ", "Lote", "GCp", "Código EAN/UPC", "Lib", "EFi", "CANTIDADREPARTO_TOTAL", "CONTENEDOR"})
+				in
+				    Personalizado4
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

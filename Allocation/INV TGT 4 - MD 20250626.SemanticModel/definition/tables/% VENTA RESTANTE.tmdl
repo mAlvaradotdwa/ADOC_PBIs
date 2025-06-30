@@ -1,0 +1,65 @@
+table '% VENTA RESTANTE'
+	lineageTag: 810c0c40-ff00-43c4-a864-304d3517d71e
+
+	column 'PAIS BV'
+		lineageTag: c666f61e-b224-45d3-b756-1ede7a1d8536
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Index Oficial[PAIS BV]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES
+		lineageTag: 9dbefe36-db97-4a96-abae-84c16c689cac
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Index Oficial[MES]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA
+		formatString: d mmm yyyy
+		lineageTag: 330861e1-9659-42e8-8fc0-62241e4a8396
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Index Oficial[FECHA]
+
+		variation Variation
+			isDefault
+			relationship: 73ff95b5-557b-4136-a60b-8dd43987972d
+			defaultHierarchy: LocalDateTable_b812e92e-a3c3-42f0-ad75-eefa94afe268.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'VENTA RESTANTE %' = CALCULATE(SUM('Index Oficial'[INDEX VTA]),'Index Oficial'[PAIS BV]=EARLIER('% VENTA RESTANTE'[PAIS BV]),'Index Oficial'[MES]=EARLIER('% VENTA RESTANTE'[MES]),'Index Oficial'[FECHA]>=EARLIER('% VENTA RESTANTE'[FECHA]))
+		lineageTag: a5febfe3-776a-4907-ae3e-8243c832b829
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AÑO
+		lineageTag: 4a14d14d-31e8-4b80-a4a4-ddc2961b1480
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Index Oficial[AÑO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS_FECHA = '% VENTA RESTANTE'[PAIS BV]&VALUE('% VENTA RESTANTE'[FECHA])
+		lineageTag: 6321b57b-27a5-4ebb-bdeb-44f24cb9499e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '% VENTA RESTANTE' = calculated
+		mode: import
+		source = SUMMARIZECOLUMNS('Index Oficial'[PAIS BV],'Index Oficial'[AÑO],'Index Oficial'[MES],'Index Oficial'[FECHA])
+
+	annotation PBI_Id = 5b58bce55ef941b6bc3a5e69d9163077
+

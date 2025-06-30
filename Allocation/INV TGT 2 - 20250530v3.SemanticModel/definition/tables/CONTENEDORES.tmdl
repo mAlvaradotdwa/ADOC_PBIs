@@ -1,0 +1,263 @@
+table CONTENEDORES
+	lineageTag: 398cc3a0-2014-48f7-9fb9-43faa506a8cf
+
+	column 'KEY CONTENEDORES' = [EKPO[DOCUMENTO]]] & [EKPO[Articulo_GenericoF]]]
+		lineageTag: 50b45e69-6ece-45a8-a645-4cd763969598
+		summarizeBy: none
+
+	column 'ETA COMPUESTO' = [EKPO[MAX_ETA]]]
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 37aa447d-16cb-4d0f-a647-3258d5e57327
+		summarizeBy: none
+
+		changedProperty = DataType
+
+	column KEY = [MARCA BV] & [PAIS DESTINO] & [DEPTO] & [GENERO] & [CATEGORIA]
+		lineageTag: 2bc41463-79b5-44c3-b9b2-07938295357a
+		summarizeBy: none
+
+	column 'VALOR PROMEDIO $' =
+			
+			CALCULATE(
+			    AVERAGE('INV ACTUAL'[VALOR $ PROMEDIO]),
+			    FILTER(
+			        'INV ACTUAL',
+			        'INV ACTUAL'[KEY] = EARLIER('CONTENEDORES'[KEY]) &&
+			        'INV ACTUAL'[COD ALMACEN] = "AL01"
+			    )
+			)
+		formatString: \$#,0.###############;-\$#,0.###############;\$#,0.###############
+		lineageTag: a4aadd89-4f7b-487c-9d5b-c22892dd2de5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INV TRANS $' = [VALOR PROMEDIO $] * [[Pares]]]
+		formatString: \$#,0;-\$#,0;\$#,0
+		lineageTag: bed69ff3-74d2-420e-bbc2-b911f3e8a3f8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KEY BFI' = [MARCA BV] & "BFI" & [DEPTO] & [GENERO] & [CATEGORIA]
+		lineageTag: eefe1ff4-9ad6-4c2c-a5f4-283f4fa7af79
+		summarizeBy: none
+
+	column 'KEY BFI MES' =
+			[KEY]
+			    & YEAR ( [ETA COMPUESTO] )
+			    & FORMAT (
+			        IF (
+			            DAY ( [ETA COMPUESTO] ) > 10,
+			            MONTH ( [ETA COMPUESTO] ) + 1,
+			            MONTH ( [ETA COMPUESTO] )
+			        ),
+			        "00"
+			    )
+		lineageTag: 8ce68d46-da45-4fa9-b3c6-8b6a435e910d
+		summarizeBy: none
+
+	column 'MARCA BV' =
+			LOOKUPVALUE (
+			    'MARCAS UNIDAD'[UNIDAD NEGOCIO],
+			    'MARCAS UNIDAD'[MARCA BV], [Marca]
+			)
+		lineageTag: 38ed5d13-5497-4f00-be0e-b9adc7da6cda
+		summarizeBy: none
+
+	column 'PAIS DESTINO' =
+			LOOKUPVALUE (
+			    'MKS (2)'[País],
+			    'MKS (2)'[DOCUMENTO], [EKPO[DOCUMENTO]]]
+			)
+		lineageTag: 73df722b-ef6f-4a53-8c2f-2e23d06aaba0
+		summarizeBy: none
+
+	column 'ALMACEN DESTINO' =
+			IF (
+			    ISBLANK (
+			        LOOKUPVALUE (
+			            'ARRIBO FUTURO COGNOS'[COD ALMACEN],
+			            'ARRIBO FUTURO COGNOS'[DOC], [EKPO[DOCUMENTO]]]
+			        )
+			    ),
+			    CALCULATE (
+			        FIRSTNONBLANK (
+			            'ARRIBO FUTURO COGNOS'[COD ALMACEN],
+			            1
+			        ),
+			        FILTER (
+			            ALL ( 'ARRIBO FUTURO COGNOS' ),
+			            'ARRIBO FUTURO COGNOS'[DOC MK] = [EKPO[DOCUMENTO]]]
+			        )
+			    ),
+			    LOOKUPVALUE (
+			        'ARRIBO FUTURO COGNOS'[COD ALMACEN],
+			        'ARRIBO FUTURO COGNOS'[DOC], [EKPO[DOCUMENTO]]]
+			    )
+			)
+		lineageTag: 2e5db532-da46-4f15-a3f7-ee5faf568db4
+		summarizeBy: none
+
+	column EKPO[CONTENEDOR]
+		dataType: string
+		lineageTag: cd60dc00-6638-46bf-90f3-d673088e44f0
+		summarizeBy: none
+		sourceColumn: EKPO[CONTENEDOR]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[Articulo_GenericoF]
+		dataType: string
+		lineageTag: aebe8869-cd7a-4830-9e77-02c447344185
+		summarizeBy: none
+		sourceColumn: EKPO[Articulo_GenericoF]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[DOCUMENTO]
+		dataType: string
+		lineageTag: a51d28f0-82a4-40e8-b8aa-76537178dfa6
+		summarizeBy: none
+		sourceColumn: EKPO[DOCUMENTO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[ESTILO_COLOR]
+		dataType: string
+		lineageTag: dea3ced1-a998-41b6-be64-af93101ebf9a
+		summarizeBy: none
+		sourceColumn: EKPO[ESTILO_COLOR]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[FIRST_ETA]
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b4b635db-1929-4ff2-9e7a-fc633b424872
+		summarizeBy: none
+		sourceColumn: EKPO[FIRST_ETA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[MAX_ETA]
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5ab8c661-13b7-4e4a-88ff-6b7f266d40e1
+		summarizeBy: none
+		sourceColumn: EKPO[MAX_ETA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EKPO[DIAS_DIFF]
+		dataType: int64
+		formatString: 0
+		lineageTag: a910369b-f10e-46df-9a74-bd737d11491f
+		summarizeBy: sum
+		sourceColumn: EKPO[DIAS_DIFF]
+
+		annotation SummarizationSetBy = Automatic
+
+	column [Pares]
+		dataType: int64
+		formatString: 0
+		lineageTag: acba143d-ccea-48aa-a47d-30680a072a12
+		summarizeBy: sum
+		sourceColumn: [Pares]
+
+		annotation SummarizationSetBy = Automatic
+
+	column [Monto]
+		dataType: double
+		lineageTag: 035766d3-edf3-42b8-884b-f354884c80b8
+		summarizeBy: sum
+		sourceColumn: [Monto]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PE = RELATED(IH09[PE])
+		lineageTag: 915d637b-a813-44d2-88fb-2325c047b266
+		summarizeBy: none
+
+	column MES_LANZ = RELATED('TABLA PE'[AÑO MES LANZAMIENTO])
+		lineageTag: 52bfdd76-9942-46b5-a970-d4ecdb8df519
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPTO
+		dataType: string
+		lineageTag: 7b5c2605-7f18-4179-9acd-0b6a35c35c2e
+		summarizeBy: none
+		sourceColumn: DEPTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO
+		dataType: string
+		lineageTag: 5fbdeade-4b40-4686-ab2f-6eb33da190a8
+		summarizeBy: none
+		sourceColumn: GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORIA
+		dataType: string
+		lineageTag: 1016342d-b0a2-44e1-91cc-608401690d47
+		summarizeBy: none
+		sourceColumn: CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TIPO ESTILO'
+		dataType: string
+		lineageTag: 3cb868e5-4630-4f9a-802c-f1f7f194e207
+		summarizeBy: none
+		sourceColumn: TIPO ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: 1b20a7a5-6c70-4186-8ddb-81b6c44bbfb2
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERICO
+		dataType: string
+		lineageTag: 19965ae2-24b2-4a62-8b22-77d5f0a2d8ce
+		summarizeBy: none
+		sourceColumn: GENERICO
+
+		annotation SummarizationSetBy = Automatic
+
+	column [POR_ARRIBAR]
+		dataType: int64
+		formatString: 0
+		lineageTag: 35e2f965-0ea7-41df-a180-8035a62473c3
+		summarizeBy: sum
+		sourceColumn: [POR_ARRIBAR]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CONTENEDORES = m
+		mode: import
+		queryGroup: 'Conexiones a PowerBI'
+		source = ```
+				let
+				    #"Contenedores desde EKPO" = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Data%20Mining%20%26%20BI", "Seguimiento Mercadería", [Query="EVALUATE#(lf)SUMMARIZECOLUMNS (#(lf)    EKPO[DEPARTAMENTO],#(lf)    EKPO[GENERO],#(lf)    EKPO[BV_CATEGORIA],#(lf)    EKPO[Tipo_Estilo],#(lf)    EKPO[MARCA],#(lf)    EKPO[Articulo_GenericoF],#(lf)    // EKPO[Pais Destino2],#(lf)    EKPO[CONTENEDOR],#(lf)    EKPO[DOCUMENTO],#(lf)    EKPO[FIRST_ETA],#(lf)    EKPO[MAX_ETA],#(lf)    EKPO[CANTIDAD_PARES],#(lf)    EKPO[PRECIOVENTA_USD],#(lf)    //#(lf)    //EKPO[PE] ,#(lf)    EKPO[Articulo_Generico],#(lf)    // EKPO[ALMACEN],#(lf)    EKPO[ESTILO_COLOR],#(lf)    EKPO[DIAS_DIFF],#(lf)    FILTER ( EKPO, EKPO[Estatus MK] = ""Pendiente"" && LEN ( EKPO[CONTENEDOR] ) > 4 ),#(lf)    ""POR_ARRIBAR"", 0#(lf))", Implementation="2.0"]),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Contenedores desde EKPO",{ { "EKPO[DEPARTAMENTO]" , "DEPTO" }  , { "EKPO[GENERO]" , "GENERO" }  , { "EKPO[BV_CATEGORIA]" , "CATEGORIA" }  , { "EKPO[Tipo_Estilo]" , "TIPO ESTILO" }  , { "EKPO[CONTENEDOR]" , "EKPO[CONTENEDOR]" }  , { "EKPO[Articulo_GenericoF]" , "EKPO[Articulo_GenericoF]" }  , { "EKPO[DOCUMENTO]" , "EKPO[DOCUMENTO]" }  , { "EKPO[FIRST_ETA]" , "EKPO[FIRST_ETA]" }  , { "EKPO[MAX_ETA]" , "EKPO[MAX_ETA]" }  , { "EKPO[CANTIDAD_PARES]" , "[Pares]" }  , { "EKPO[PRECIOVENTA_USD]" , "[Monto]" }  , { "EKPO[MARCA]" , "Marca" }  , { "EKPO[Articulo_Generico]" , "GENERICO" }  , { "EKPO[ESTILO_COLOR]" , "EKPO[ESTILO_COLOR]" }  , { "EKPO[DIAS_DIFF]" , "EKPO[DIAS_DIFF]" } 
+				 })
+				in
+				    #"Columnas con nombre cambiado"
+				```
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

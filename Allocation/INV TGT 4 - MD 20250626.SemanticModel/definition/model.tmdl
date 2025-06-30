@@ -1,0 +1,92 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-SV
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["IH09","ZINT","TRANS TDAS","INV ACTUAL","INV TGT","CONTENEDORES","MARCAS UNIDAD","INV ACTUAL (BFI)","VTA MKD TGT","Index Oficial","ARRIBO FUTURO COGNOS","LT A BFI","PARA COMPRAS CAT","SOLPED","MKS (2)","TABLA PE","FACT_MARINETRAFFIC","DIM_ETA"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.144.878.0 (25.06)+9cca29236de5114792f4d7188221f91ad4a5cc50
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table IH09
+ref table DateTableTemplate_fa643c9f-efc8-4627-8846-9411a6cdf25a
+ref table ZINT
+ref table LocalDateTable_5e74f1ad-6afd-4fa4-a546-a4199d02c232
+ref table 'TRANS TDAS'
+ref table 'INV ACTUAL'
+ref table 'INV TGT'
+ref table CONTENEDORES
+ref table 'MARCAS UNIDAD'
+ref table 'INV ACTUAL (BFI)'
+ref table 'VTA MKD TGT'
+ref table 'ARRIBOS BFI ACUM'
+ref table LocalDateTable_fd6157e8-d270-49a1-92bd-075feacb31f6
+ref table 'Index Oficial'
+ref table LocalDateTable_1dea24c5-562e-45e4-9442-134edbe6df57
+ref table '% VENTA RESTANTE'
+ref table LocalDateTable_b812e92e-a3c3-42f0-ad75-eefa94afe268
+ref table 'ARRIBO FUTURO COGNOS'
+ref table 'LT A BFI'
+ref table 'ARRIBOS BFI S/C ACUM'
+ref table 'PARA COMPRAS CAT'
+ref table LocalDateTable_5d9fad79-4dda-476e-ac58-0e5f002d4ab9
+ref table LocalDateTable_184cab53-c57e-410f-9fe6-4bff343e6448
+ref table LocalDateTable_7ab2858b-7423-4eb0-86ab-e6e6c39012d0
+ref table SOLPED
+ref table LocalDateTable_425d4f6e-84b6-445d-8ece-1b6c57ad5311
+ref table LocalDateTable_b92f5b66-436e-464e-8a0a-7ece34a828ce
+ref table 'MKS (2)'
+ref table LocalDateTable_fdb646b1-6964-45af-bd2f-b4504772bc11
+ref table 'TABLA PE'
+ref table LocalDateTable_9d5e8925-803c-4efc-a12b-a8a102f54d9a
+ref table FACT_MARINETRAFFIC
+ref table LocalDateTable_3e4bd604-d519-4082-866c-572f6528da1e
+ref table LocalDateTable_18885985-92da-4c8d-bb6e-d55e9f80864a
+ref table LocalDateTable_1a5d19c0-d1af-48e4-95e0-dec4aa9dd58f
+ref table LocalDateTable_dc60d361-b394-4f37-b932-1e47f084fdb0
+ref table LocalDateTable_be704c16-eb6c-4553-abe9-d624401fdc57
+ref table LocalDateTable_59613475-63ae-49fe-9218-f07f96a3ccbf
+ref table LocalDateTable_9322e42b-7cbd-47c0-ba57-97e3752746d3
+ref table DIM_ETA
+ref table LocalDateTable_1762c38b-412a-4ada-a1a8-b04bec088b0c
+ref table LocalDateTable_2fd7d88a-5507-4b62-9a41-377d9e35810b
+ref table LocalDateTable_56b44f3f-d21a-407d-8302-ae5fdd3a3a96
+ref table LocalDateTable_42d1dfeb-3ba9-4ea9-8002-4b72a9aeb050
+ref table LocalDateTable_d064045c-3a76-4bf8-95d1-410f6173d0f9
+ref table LocalDateTable_f2925c76-9309-46d5-9802-a4ba67573b45
+ref table LocalDateTable_16d033ab-8c89-48e9-8102-57586a5f691f
+ref table LocalDateTable_3ef0da5a-e561-4abd-99a8-7a5b46bd01a7
+ref table LocalDateTable_ff50be4d-ab91-4301-8731-57c8c0db6b26
+ref table LocalDateTable_af18fd7e-7f63-44fb-9c52-0f90eaa53c91
+ref table LocalDateTable_d5debd18-81b9-4ecd-b3c6-a02977be5c0d
+ref table LocalDateTable_edf129a5-0a74-43db-8cea-f7ad93ec7fd0
+ref table LocalDateTable_894e36be-a10f-49ea-bbef-7a2d6da303be
+ref table LocalDateTable_2e4b5dfc-d7cd-43e4-9055-e2c1819357cc
+ref table LocalDateTable_fb188d82-d58e-4742-a88d-0f99ef08d2d6
+ref table LocalDateTable_35ac7c69-d0db-4a06-87b0-c9aeec618aed
+ref table LocalDateTable_b1b2482b-adee-4753-8ff6-ebbb833e946a
+ref table LocalDateTable_013e02ff-dbe2-4d84-a5a2-af14d16c3ed4
+ref table LocalDateTable_b787d2ad-cada-4bbd-94b2-48d6fc7c6479
+ref table LocalDateTable_f085555f-8265-4aa8-9615-db80f06bff9a
+ref table LocalDateTable_70b28644-6d13-4bc5-907d-f40b924c2c95
+ref table LocalDateTable_c8af92d8-d191-4917-b2b8-7a9848d16f4e
+ref table LocalDateTable_6eea63cd-1f41-4dd9-9e5d-e056fcc79f5f
+ref table LocalDateTable_3242ee2c-8e8d-4b17-ab38-05d221cddf4e
+ref table LocalDateTable_5873f115-4518-461a-958e-1901d61b0f7a
+ref table LocalDateTable_305c751f-a336-46b1-8bf8-145bd85eef65
+ref table LocalDateTable_dbe52591-251c-4db9-8baa-74e75f666973
+ref table LocalDateTable_b0a4aac4-961b-446a-b97f-4abf928e89b6
+ref table LocalDateTable_73c88756-7afd-4c0d-8987-00939626703e
+ref table LocalDateTable_30b75170-5746-4687-94a6-435c061321fc
+ref table LocalDateTable_0b8ef585-98f9-4b54-8a91-0041ecb603f0
+ref table LocalDateTable_038256ed-1153-4d8f-a59f-847a2dac72bd
+
+ref cultureInfo en-US
+

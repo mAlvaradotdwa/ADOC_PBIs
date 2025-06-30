@@ -1,0 +1,292 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 2711,
+        "y": 342
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 848,
+            "y": 474.5
+          },
+          "nodeIndex": "IH09",
+          "nodeLineageTag": "0cb25326-a42d-4326-8a5e-f67aed0b5b7c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 60,
+            "y": 37.5
+          },
+          "nodeIndex": "ZINT",
+          "nodeLineageTag": "242db06c-0b55-46a7-a6c9-28eb6a0f0a52",
+          "size": {
+            "height": 300,
+            "width": 236
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 37.5
+          },
+          "nodeIndex": "INV ACTUAL",
+          "nodeLineageTag": "2eb77427-871d-4d84-8650-f53775c99941",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 37.5
+          },
+          "nodeIndex": "INV TGT",
+          "nodeLineageTag": "15ef91ff-9225-4e04-94ad-257ebd981be2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 575,
+            "y": 37.5
+          },
+          "nodeIndex": "TRANS TDAS",
+          "nodeLineageTag": "7fa4e3a7-8bd9-494a-9b2c-482224726d61",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 1340,
+            "y": 487
+          },
+          "nodeIndex": "CONTENEDORES",
+          "nodeLineageTag": "6c24cbbf-aaea-4cba-9bec-71c1c088c77f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 414,
+            "y": 504
+          },
+          "nodeIndex": "MARCAS UNIDAD",
+          "nodeLineageTag": "a4fc80d6-4d2f-4b5a-9086-81a1dd883958",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 1648,
+            "y": 273
+          },
+          "nodeIndex": "INV ACTUAL (BFI)",
+          "nodeLineageTag": "1c9eedd7-eee0-4856-bac5-a2ae3e4e3fa8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1872,
+            "y": 287
+          },
+          "nodeIndex": "VTA MKD TGT",
+          "nodeLineageTag": "a2b111b2-3701-4806-8e8c-7cd891cd4aed",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 2096,
+            "y": 323
+          },
+          "nodeIndex": "ARRIBOS BFI ACUM",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 2544,
+            "y": 273
+          },
+          "nodeIndex": "Index Oficial",
+          "nodeLineageTag": "750d4074-460d-4625-bd66-edc0b21ea4f4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 2768,
+            "y": 323
+          },
+          "nodeIndex": "% VENTA RESTANTE",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 354,
+            "y": 738
+          },
+          "nodeIndex": "ARRIBO FUTURO COGNOS",
+          "nodeLineageTag": "1e82047e-f4a6-4244-a03b-6e23af0f1316",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 2992,
+            "y": 449.75
+          },
+          "nodeIndex": "LT A BFI",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 3216,
+            "y": 437.75
+          },
+          "nodeIndex": "ARRIBOS BFI S/C ACUM",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 3664,
+            "y": 401.75
+          },
+          "nodeIndex": "PARA COMPRAS CAT",
+          "nodeLineageTag": "7550f617-56ce-4f73-9315-abda7788d6eb",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 861,
+            "y": 37.5
+          },
+          "nodeIndex": "SOLPED",
+          "nodeLineageTag": "4118f3c2-0714-43d3-a648-4e741fbcdec0",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 3888,
+            "y": 473.75
+          },
+          "nodeIndex": "MKS (2)",
+          "nodeLineageTag": "380c100d-8b04-4434-a418-aae6f29c548f",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1778,
+            "y": 645.75
+          },
+          "nodeIndex": "TABLA PE",
+          "nodeLineageTag": "582db3b9-dd57-4ae1-baf6-54efeb931122",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 2,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 4446,
+            "y": 387.75
+          },
+          "nodeIndex": "DIM_ETA",
+          "nodeLineageTag": "030768a0-a4b5-4766-8f60-48927dcbb2b1",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4162,
+            "y": 337.75
+          },
+          "nodeIndex": "FACT_MARINETRAFFIC",
+          "nodeLineageTag": "ba3cbb08-f36e-455a-a9d4-d46213d60dce",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

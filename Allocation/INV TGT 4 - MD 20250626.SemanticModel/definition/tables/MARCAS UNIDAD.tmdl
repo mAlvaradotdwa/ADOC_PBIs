@@ -1,0 +1,34 @@
+table 'MARCAS UNIDAD'
+	lineageTag: a4fc80d6-4d2f-4b5a-9086-81a1dd883958
+
+	column 'MARCA BV'
+		dataType: string
+		lineageTag: 9afdeb81-b273-4671-bd77-063f2d94595f
+		summarizeBy: none
+		sourceColumn: MARCA BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UNIDAD NEGOCIO'
+		dataType: string
+		lineageTag: 037ba969-f2f3-402d-b438-fb1b3cff351f
+		summarizeBy: none
+		sourceColumn: UNIDAD NEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'MARCAS UNIDAD' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\mdaboub\OneDrive - Empresas ADOC, S.A. de C.V\Escritorio\TGT INVENTARIO CONTINGENCIA\MARCAS UNIDAD.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"MARCA BV", type text}, {"UNIDAD NEGOCIO", type text}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

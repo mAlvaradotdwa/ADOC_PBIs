@@ -1,0 +1,1941 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "ba164d6299e663a6503a",
+  "position": {
+    "x": 1.206440633590784,
+    "y": 205.09490771043329,
+    "z": 0,
+    "height": 515.15015054326477,
+    "width": 1278.8270716062311,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "INV TGT"
+                    }
+                  },
+                  "Property": "AÑO MES"
+                }
+              },
+              "queryRef": "INV TGT.AÑO MES",
+              "nativeQueryRef": "AÑO MES",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "INV TGT"
+                    }
+                  },
+                  "Property": "PAIS BV"
+                }
+              },
+              "queryRef": "INV TGT.PAIS BV",
+              "nativeQueryRef": "PAIS BV",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "INV TGT"
+                    }
+                  },
+                  "Property": "KEY"
+                }
+              },
+              "queryRef": "INV TGT.KEY",
+              "nativeQueryRef": "KEY",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "INVENTARIO $"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Min(INV TGT.INVENTARIO $)",
+              "nativeQueryRef": "INVENTARIO TARGET $",
+              "displayName": "INVENTARIO TARGET $"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "INV TGT"
+                    }
+                  },
+                  "Property": "% EN CADENA (COMPLETO)"
+                }
+              },
+              "queryRef": "INV TGT.% EN CADENA (COMPLETO)",
+              "nativeQueryRef": "% EN CADENA (COMPLETO)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "INV TGT"
+                    }
+                  },
+                  "Property": "% EN CADENA (COMPROMETIDO)"
+                }
+              },
+              "queryRef": "INV TGT.% EN CADENA (COMPROMETIDO)",
+              "nativeQueryRef": "% EN CADENA (COMPROMETIDO)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "INV TGT"
+                    }
+                  },
+                  "Property": "% TDAS"
+                }
+              },
+              "queryRef": "INV TGT.% TDAS",
+              "nativeQueryRef": "% TDAS"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "VTA_MKD_MES"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.VTA_MKD_MES)",
+              "nativeQueryRef": "Sum of VTA_MKD_MES"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "INV EN TDAS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.INV EN TDAS)",
+              "nativeQueryRef": "Sum of INV EN TDAS"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "INV TRANS TDAS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.INV TRANS TDAS)",
+              "nativeQueryRef": "Sum of INV TRANS TDAS"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "INV EN BP"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.INV EN BP)",
+              "nativeQueryRef": "Sum of INV EN BP"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "INV TRANS A BP C/CONT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.INV TRANS A BP C/CONT)",
+              "nativeQueryRef": "Sum of INV TRANS A BP C/CONT"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "INV TRANS A BP S/CONT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.INV TRANS A BP S/CONT)",
+              "nativeQueryRef": "Sum of INV TRANS A BP S/CONT"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "INV EN BFI"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.INV EN BFI)",
+              "nativeQueryRef": "Sum of INV EN BFI"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "ARRIBO A BFI ACUMULADO"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.ARRIBO A BFI ACUMULADO)",
+              "nativeQueryRef": "Sum of ARRIBO A BFI ACUMULADO"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "VENTA_MKD"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.VENTA_MKD)",
+              "nativeQueryRef": "Sum of VENTA_MKD"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "ARRIBANDO A BFI S/C"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.ARRIBANDO A BFI S/C)",
+              "nativeQueryRef": "Sum of ARRIBANDO A BFI S/C"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "INV TGT"
+                        }
+                      },
+                      "Property": "ARRIBO A BFI S/C ACUMULADO"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(INV TGT.ARRIBO A BFI S/C ACUMULADO)",
+              "nativeQueryRef": "Sum of ARRIBO A BFI S/C ACUMULADO"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "AÑO MES"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "PAIS BV"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "INV TGT.AÑO MES"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "INV TGT"
+                    }
+                  },
+                  "Property": "AÑO MES"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "INV TGT.PAIS BV"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "INV TGT"
+                    }
+                  },
+                  "Property": "PAIS BV"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "INV TGT.KEY"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "202502L"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "202503L"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "202504L"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.15525031043826D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "INV TGT"
+                          }
+                        },
+                        "Property": "MARCA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ADO'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(INV TGT.INVENTARIO $)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.60033407898239D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "INV TGT"
+                          }
+                        },
+                        "Property": "MARCA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ADO'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Sum(INV TGT.INV EN TDAS)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "90.43933326513526D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "INV TGT"
+                          }
+                        },
+                        "Property": "MARCA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ADO'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Sum(INV TGT.INV TRANS TDAS)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.25186542741197D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "INV TGT"
+                          }
+                        },
+                        "Property": "MARCA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ADO'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Sum(INV TGT.INV EN BP)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124.16848158197337D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "INV TGT"
+                          }
+                        },
+                        "Property": "MARCA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ADO'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Sum(INV TGT.INV TRANS A BP C/CONT)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "144.88443740497803D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "INV TGT"
+                          }
+                        },
+                        "Property": "MARCA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ADO'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Sum(INV TGT.INV TRANS A BP S/CONT)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.21966830528174D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "INV TGT"
+                          }
+                        },
+                        "Property": "MARCA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ADO'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Sum(INV TGT.INV EN BFI)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.56815398301114D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "INV TGT"
+                          }
+                        },
+                        "Property": "MARCA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ADO'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Sum(INV TGT.ARRIBANDO A BFI)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "114.83328713082417D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "INV TGT"
+                          }
+                        },
+                        "Property": "MARCA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'ADO'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Sum(INV TGT.ARRIBO A BFI ACUMULADO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "134.64378874970927D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(INV TGT.INVENTARIO $)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "113.93004982990314D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV EN TDAS)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.58619873509002D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV TRANS TDAS)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "121.89316229595744D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV EN BP)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "154.24577345179924D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV TRANS A BP C/CONT)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.68651578533695D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV TRANS A BP S/CONT)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106.69565643514785D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV EN BFI)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "156.89268026644834D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.ARRIBANDO A BFI)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "155.9175990503057D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.ARRIBO A BFI ACUMULADO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.13539879231277D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.VENTA_MKD)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.60666100503215D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "INV TGT.% EN CADENA (COMPLETO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "138.36168607959675D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.VTA_MKD_MES)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "165.61356136244785D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.ARRIBANDO A BFI S/C)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "208.6589800917472D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.ARRIBO A BFI S/C ACUMULADO)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "166.61899919441595D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "INV TGT.% EN CADENA (COMPROMETIDO)"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(INV TGT.INVENTARIO $)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.VTA_MKD_MES)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV EN TDAS)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV TRANS TDAS)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV EN BP)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV TRANS A BP C/CONT)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV TRANS A BP S/CONT)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.INV EN BFI)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.ARRIBANDO A BFI)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.ARRIBO A BFI ACUMULADO)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(INV TGT.VENTA_MKD)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "INV TGT.% TDAS"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "INV TGT.% EN CADENA (COMPLETO)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 8,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "INV TGT.% EN CADENA (COMPROMETIDO)"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1580b0a2a8a5b6c60bfb",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "INV TGT"
+              }
+            },
+            "Property": "% EN CADENA (COMPLETO)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "faaf259436c4ae7abc93",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "INV TGT"
+              }
+            },
+            "Property": "AÑO MES"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "acbf65f51a08d5879f7b",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "INV TGT"
+              }
+            },
+            "Property": "% TDAS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ca2972f04a3a6856172c",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "INV TGT"
+              }
+            },
+            "Property": "AÑO MES"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "8f2807d644ba1b40ae84",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "INV TGT"
+              }
+            },
+            "Property": "INV PROYECTADO (COMPLETO)"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "87ddf2ef6fa3ddca9eae",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "INV TGT"
+              }
+            },
+            "Property": "KEY"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1b89890a230417dd16c5",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "INV TGT"
+              }
+            },
+            "Property": "PAIS BV"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "064a33065d14b91ad2e4",
+        "ordinal": 7,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "ARRIBANDO A BFI"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "bddb6c71224c07fae09a",
+        "ordinal": 8,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "ARRIBANDO A BFI S/C"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "21e69de4330b2c697d57",
+        "ordinal": 9,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "ARRIBO A BFI ACUMULADO"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "0dd91800d210f58f457a",
+        "ordinal": 10,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "ARRIBO A BFI S/C ACUMULADO"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bfae36a4acfbf45dadc6",
+        "ordinal": 11,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "INV EN BFI"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b6e2c7c5a5f7111ef8b6",
+        "ordinal": 12,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "INV EN BP"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "01ef51015cf8f94735f4",
+        "ordinal": 13,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "INV EN TDAS"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "44f0a5ad0e1fe050d0aa",
+        "ordinal": 14,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "INV TRANS A BP C/CONT"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1144c4ea262849a04fcd",
+        "ordinal": 15,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "INV TRANS A BP S/CONT"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6f84fdeda3f2fb48e24d",
+        "ordinal": 16,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "INV TRANS TDAS"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7d44d15acb5619eb963c",
+        "ordinal": 17,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "INVENTARIO $"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a922260945c1a43d873c",
+        "ordinal": 18,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "VENTA_MKD"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "84324209ff29254e02b6",
+        "ordinal": 19,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "INV TGT"
+                  }
+                },
+                "Property": "VTA_MKD_MES"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}
