@@ -256,6 +256,174 @@
                       "Entity": "Métricas"
                     }
                   },
+                  "Property": "Primera Fecha CR"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha CR",
+              "nativeQueryRef": "Primera Fecha CR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha GT"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha GT",
+              "nativeQueryRef": "Primera Fecha GT"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha HN"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha HN",
+              "nativeQueryRef": "Primera Fecha HN"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha NI"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha NI",
+              "nativeQueryRef": "Primera Fecha NI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha PA"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha PA",
+              "nativeQueryRef": "Primera Fecha PA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Primera Fecha SV"
+                }
+              },
+              "queryRef": "Métricas.Primera Fecha SV",
+              "nativeQueryRef": "Primera Fecha SV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha CR"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha CR",
+              "nativeQueryRef": "Ultima Fecha CR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha GT"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha GT",
+              "nativeQueryRef": "Ultima Fecha GT"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha HN"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha HN",
+              "nativeQueryRef": "Ultima Fecha HN"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha NI"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha NI",
+              "nativeQueryRef": "Ultima Fecha NI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha PA"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha PA",
+              "nativeQueryRef": "Ultima Fecha PA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Ultima Fecha SV"
+                }
+              },
+              "queryRef": "Métricas.Ultima Fecha SV",
+              "nativeQueryRef": "Ultima Fecha SV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
                   "Property": "Sell Out"
                 }
               },
@@ -1220,160 +1388,6 @@
               },
               "queryRef": "Métricas.Inventario Transitos",
               "nativeQueryRef": "Inventario Transitos"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Primera Fecha CR"
-                }
-              },
-              "queryRef": "Métricas.Primera Fecha CR",
-              "nativeQueryRef": "Primera Fecha CR"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Primera Fecha GT"
-                }
-              },
-              "queryRef": "Métricas.Primera Fecha GT",
-              "nativeQueryRef": "Primera Fecha GT"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Primera Fecha HN"
-                }
-              },
-              "queryRef": "Métricas.Primera Fecha HN",
-              "nativeQueryRef": "Primera Fecha HN"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Primera Fecha NI"
-                }
-              },
-              "queryRef": "Métricas.Primera Fecha NI",
-              "nativeQueryRef": "Primera Fecha NI"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Primera Fecha PA"
-                }
-              },
-              "queryRef": "Métricas.Primera Fecha PA",
-              "nativeQueryRef": "Primera Fecha PA"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Primera Fecha SV"
-                }
-              },
-              "queryRef": "Métricas.Primera Fecha SV",
-              "nativeQueryRef": "Primera Fecha SV"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Ultima Fecha CR"
-                }
-              },
-              "queryRef": "Métricas.Ultima Fecha CR",
-              "nativeQueryRef": "Ultima Fecha CR"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Ultima Fecha GT"
-                }
-              },
-              "queryRef": "Métricas.Ultima Fecha GT",
-              "nativeQueryRef": "Ultima Fecha GT"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Ultima Fecha HN"
-                }
-              },
-              "queryRef": "Métricas.Ultima Fecha HN",
-              "nativeQueryRef": "Ultima Fecha HN"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Ultima Fecha NI"
-                }
-              },
-              "queryRef": "Métricas.Ultima Fecha NI",
-              "nativeQueryRef": "Ultima Fecha NI"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "Ultima Fecha PA"
-                }
-              },
-              "queryRef": "Métricas.Ultima Fecha PA",
-              "nativeQueryRef": "Ultima Fecha PA"
             }
           ]
         }
