@@ -1,0 +1,23 @@
+table DIM_DOC
+	lineageTag: b8121ea2-ec5f-4aa6-abb1-6358eda76302
+
+	column DOC
+		dataType: string
+		lineageTag: 1e94a789-c804-485a-8c29-580fe1b91714
+		summarizeBy: none
+		sourceColumn: DOC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_DOC = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT fa.DOC FROM DM_COMERCIAL.dbo.FAC_ARRIBOFUTUROM fa #(lf)where fa.SK_PERIODO >= '20230101' and fa.DOC_STATUS_ULTIMO = 'MK'#(lf)group by fa.DOC "])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

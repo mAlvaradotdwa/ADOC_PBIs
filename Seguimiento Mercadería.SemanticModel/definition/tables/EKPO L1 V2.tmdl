@@ -1,0 +1,382 @@
+table 'EKPO L1 V2'
+	lineageTag: a1db1e76-3f00-4839-94bb-ae76fdce80de
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 16fba2f7-ec25-4a70-b1e7-59711c7ab36d
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO_DISTRIBUCION
+		dataType: string
+		lineageTag: b5d48099-ec47-4300-b984-7b7028e3e3d8
+		summarizeBy: none
+		sourceColumn: CENTRO_DISTRIBUCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: e0718c48-beef-472d-b7f4-d99ddb6a7e41
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD
+		dataType: double
+		lineageTag: b3c2eb34-74b5-41a1-852b-266c7f4185bd
+		summarizeBy: sum
+		sourceColumn: CANTIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: e465e69e-2439-4a2b-8760-7ed811a2c762
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: fbedc9b3-ab03-4b63-a88a-16f5e3dcf231
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_MATERIAL
+		dataType: string
+		lineageTag: f9cab0b9-508c-4bb6-a4a0-f65a0734e7fa
+		summarizeBy: none
+		sourceColumn: TIPO_MATERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_ENTREGA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 062cd126-1a4e-4373-9ba4-d6d1c11c4c97
+		summarizeBy: none
+		sourceColumn: FECHA_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PE
+		dataType: string
+		lineageTag: 3fbf6bf6-21da-4007-9618-46e089289c66
+		summarizeBy: none
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANO_PE
+		dataType: string
+		lineageTag: 07ece62f-f732-4de0-82bd-5ee45077969b
+		summarizeBy: none
+		sourceColumn: ANO_PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CREACION_EKKO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8602d06b-5f40-44b4-b390-017c5089b0ce
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION_EKKO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column GRUPO_COMPRAS
+		dataType: string
+		lineageTag: 0b691ac5-d044-40dd-8316-850e9ba828dd
+		summarizeBy: none
+		sourceColumn: GRUPO_COMPRAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASE_DOCUMENTO
+		dataType: string
+		lineageTag: ba3f1ecb-0dcb-4a79-a522-bb8969ed06cd
+		summarizeBy: none
+		sourceColumn: CLASE_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO_DESTINO
+		dataType: string
+		lineageTag: 4470a4e4-d8f7-4bb8-9667-cf781df72bf9
+		summarizeBy: none
+		sourceColumn: CENTRO_DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: e9d25758-a4d7-4c35-a506-c86c80ce8923
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		lineageTag: ace8d4a0-9ccb-49d5-8efc-41105f51922f
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: c254f066-9b1c-4e70-8294-9cdcb60b4f45
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO
+		dataType: string
+		lineageTag: eefb31ec-5333-413c-9868-cd03cd0a2a66
+		summarizeBy: none
+		sourceColumn: GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: 88fa6e75-27ef-4419-b4c3-8f2975c5d58d
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE2
+		dataType: string
+		lineageTag: 543c0b7e-1f0d-4569-937b-0f0c109dfce2
+		summarizeBy: none
+		sourceColumn: PE2
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE_ANO2
+		dataType: string
+		lineageTag: a52908fc-889b-46a1-8699-cc07413c5bbd
+		summarizeBy: none
+		sourceColumn: PE_ANO2
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDOR
+		dataType: string
+		lineageTag: 2a489383-8069-47eb-9c33-4514e20a3b85
+		summarizeBy: none
+		sourceColumn: VENDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOCIEDAD
+		dataType: string
+		lineageTag: 03bf10db-72c7-499c-a3c8-88359c4f251c
+		summarizeBy: none
+		sourceColumn: SOCIEDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSICION
+		dataType: string
+		lineageTag: a01feb0d-0669-4fdb-be83-e8f769699dbd
+		summarizeBy: none
+		sourceColumn: POSICION
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estatus_Documento = ```
+			
+			VAR _documento = 'EKPO L1 V2'[DOCUMENTO]  -- Obtiene el valor de DOCUMENTO en EKPO L1 V2
+			
+			VAR _clasificacion = 
+			    CALCULATE(
+			        FIRSTNONBLANK('EKPO L1'[Estatus_Documento], 1),  -- Extrae el valor de Estatus_Documento de EKPO L1
+			        'EKPO L1'[DOCUMENTO] = _documento  -- Relaciona ambas tablas por DOCUMENTO
+			    )
+			
+			RETURN
+			    IF(
+			        ISBLANK(_clasificacion),  -- Si no se encuentra clasificación
+			        "Pendiente",  -- Devuelve "Pendiente" si no hay valor
+			        _clasificacion  -- Si se encuentra, devuelve la clasificación
+			    )
+			```
+		lineageTag: 49d1418d-f278-484b-b036-c9c536d97d06
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Articulo_GenericoF = MID('EKPO L1 V2'[ARTICULO],FIND("0000000",'EKPO L1 V2'[ARTICULO])+7,8)
+		lineageTag: a54f79f3-c17a-400c-a4a1-1a8ef1575219
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha_Conciliacion = ```
+			
+			IF(
+			    'EKPO L1 V2'[Estatus_Documento] = "Entregado", 
+			    'EKPO L1 V2'[FECHA_ENTREGA],
+			    EOMONTH('EKPO L1 V2'[FECHA_ENTREGA], 0) + 1
+			)
+			```
+		formatString: Short Date
+		lineageTag: 27447876-13d2-4618-8296-a30dde9008f5
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Pais_Destino = RELATED ( DIM_BODEGA[SK_PAIS] )
+		lineageTag: f9f87e27-fe4f-4dc1-98ab-649b408c2ffc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRECIOVENTA_USD =
+			
+			CALCULATE(
+			    FIRSTNONBLANK('Precio Venta'[PrecioVentaUSD], 1),
+			    FILTER(
+			        ALL('Precio Venta'),
+			        'Precio Venta'[Articulo_GenericoF] = 'EKPO L1 V2'[Articulo_GenericoF] &&
+			        'Precio Venta'[VKORG] = 'EKPO L1 V2'[Pais_Destino]
+			    )
+			) * 'EKPO L1 V2'[CANTIDAD]
+			//LOOKUPVALUE(FACT_ARRIBOSFUTURO[PRECIO_VENTANETA_USD],FACT_ARRIBOSFUTURO[DOC],FACT_TUNGYA[DOC_COMPRA],FACT_ARRIBOSFUTURO[ARTICULO],FACT_TUNGYA[ARTICULO])))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ed550b83-bc31-4848-ba68-74dfba8fcd0b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	column SOCIEDAD_CORRECTA
+		dataType: string
+		lineageTag: c3984117-22a7-47d2-975f-d4f50b93dc1f
+		summarizeBy: none
+		sourceColumn: SOCIEDAD_CORRECTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstDateSale = RELATED(FACT_PRIMERAVENTA_ARTICULO[date_firstsale])
+		lineageTag: f6fe93fb-bc9a-43ee-a4ed-34baa07e146c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado_Articulo = ```
+			
+			VAR _Articulo = 'EKPO L1 V2'[Articulo_GenericoF]
+			
+			-- Fechas de creación para el mismo artículo genérico
+			VAR _MinFecha = 
+			    CALCULATE(
+			        MIN('EKPO L1 V2'[FECHA_CREACION_EKKO]),
+			        ALLEXCEPT('EKPO L1 V2', 'EKPO L1 V2'[Articulo_GenericoF])
+			    )
+			
+			VAR _MaxFecha = 
+			    CALCULATE(
+			        MAX('EKPO L1 V2'[FECHA_CREACION_EKKO]),
+			        ALLEXCEPT('EKPO L1 V2', 'EKPO L1 V2'[Articulo_GenericoF])
+			    )
+			
+			-- Diferencia en meses entre fechas
+			VAR _MesesDiff = DATEDIFF(_MinFecha, _MaxFecha, MONTH)
+			
+			-- Lógica final
+			RETURN
+			    IF(
+			        _MesesDiff > 1,
+			        "Recompra",
+			        IF(
+			            ISBLANK('EKPO L1 V2'[FirstDateSale]),
+			            "Nuevo",
+			            IF(
+			                'EKPO L1 V2'[FirstDateSale] <= 'EKPO L1 V2'[FECHA_CREACION_EKKO],
+			                "Recompra",
+			                "Nuevo"
+			            )
+			        )
+			    )
+			```
+		lineageTag: 540e89bc-c627-48f2-8ec8-efde37939b3e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: 3033f3f3-3704-4da6-a335-d18bcc5f8c95
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS
+		dataType: string
+		lineageTag: 24b2daba-b552-48bf-b7fb-f337bde26590
+		summarizeBy: none
+		sourceColumn: BV_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPOESTILO
+		dataType: string
+		lineageTag: 8654b367-cf2c-4147-8705-31b6d1c344a6
+		summarizeBy: none
+		sourceColumn: TIPOESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_CATEGORIA
+		dataType: string
+		lineageTag: 5b7e7695-706a-4e03-aaf1-445e5c267f25
+		summarizeBy: none
+		sourceColumn: BV_CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'EKPO L1 V2' = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "#(lf)SELECT #(lf)    EKPO.MATNR AS Articulo,#(lf)    EKPO.WERKS AS Centro_Distribucion,#(lf)    EKPO.LGORT AS Almacen, #(lf)    EKPO.MENGE AS Cantidad, -- Se usa la cantidad de EKPO en lugar de MSEG#(lf)    EKPO.TXZ01 AS Descripcion,#(lf)    EKPO.EBELN AS Documento,#(lf)    EKPO.EBELP AS Posicion, -- Agregado para identificar posiciones únicas#(lf)    EKPO.MTART AS Tipo_Material,#(lf)    EKPO.SAISO AS PE,#(lf)    EKPO.SAISO AS Ano_PE,#(lf)    EKKO.BEDAT AS Fecha_Creacion_EKKO,#(lf)    EKKO.EKGRP AS Grupo_Compras,#(lf)    EKKO.BSART AS Clase_Documento,#(lf)    EKET.EINDT AS Fecha_Entrega, -- Se eliminó el COALESCE#(lf)    EKKO.ZZ_CENTRO_D AS Centro_Destino,#(lf)    EKKO.VERKF AS Vendor,#(lf)    EKKO.BUKRS AS Sociedad,#(lf)    EKKO.RESWK AS Sociedad_Correcta,#(lf)    MARA.GROES AS ESTILO,#(lf)    MARA.FREE_CHAR AS COLOR,#(lf)    MARA.BRAND_ID AS MARCA,#(lf)    MARA.ZZ_ART_PROV AS GENERO,#(lf)    MARA.ZZ_DEPART AS DEPARTAMENTO,#(lf)    MARA.SAISO AS PE2,#(lf)    MARA.SAISJ AS PE_ANO2#(lf)FROM SAP_ECC.EKPO#(lf)LEFT JOIN SAP_ECC.EKKO #(lf)    ON EKPO.EBELN = EKKO.EBELN#(lf)LEFT JOIN SAP_ECC.MARA #(lf)    ON EKPO.MATNR = MARA.MATNR #(lf)LEFT JOIN SAP_ECC.EKET #(lf)    ON EKPO.EBELN = EKET.EBELN  #(lf)    AND EKPO.EBELP = EKET.EBELP -- Se mantiene esta condición para evitar duplicaciones#(lf)--WHERE EKKO.BSART IN ('ZUB', 'ZUB1')#(lf)--AND EKKO.BUKRS = '1000'#(tab)#(lf)WHERE EKPO.LOEKZ <> 'L'#(lf)AND EKKO.RESWK IN ('1000', '1020')#(lf)AND EKKO.BEDAT >= ADD_MONTHS(CURRENT_DATE, -24) #(lf)--AND EKPO.EBELN = '4801820562'#(lf)-- AND EKPO.MATNR = '000000010013616001'#(lf)--AND EKPO.WERKS = '1020'#(lf)--AND EKPO.LGORT = 'BP02'", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"FECHA_CREACION_EKKO", type date}, {"FECHA_ENTREGA", type date}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Tipo cambiado", {"CENTRO_DESTINO"}, DIM_BODEGA, {"SK_TIENDA"}, "DIM_BODEGA", JoinKind.LeftOuter),
+				    #"Se expandió DIM_BODEGA" = Table.ExpandTableColumn(#"Consultas combinadas", "DIM_BODEGA", {"SK_PAIS"}, {"SK_PAIS"}),
+				    #"Consultas combinadas1" = Table.NestedJoin(#"Se expandió DIM_BODEGA", {"SK_PAIS"}, DIM_PAIS, {"SK_PAIS"}, "DIM_PAIS", JoinKind.LeftOuter),
+				    #"Se expandió DIM_PAIS" = Table.ExpandTableColumn(#"Consultas combinadas1", "DIM_PAIS", {"BV_PAIS"}, {"BV_PAIS"}),
+				    #"Consultas combinadas2" = Table.NestedJoin(#"Se expandió DIM_PAIS", {"ARTICULO"}, DIM_ARTICULOS, {"SK_MATNR"}, "DIM_ARTICULOS", JoinKind.LeftOuter),
+				    #"Se expandió DIM_ARTICULOS" = Table.ExpandTableColumn(#"Consultas combinadas2", "DIM_ARTICULOS", {"TIPOESTILO"}, {"TIPOESTILO"}),
+				    #"Consultas combinadas3" = Table.NestedJoin(#"Se expandió DIM_ARTICULOS", {"ARTICULO"}, DIM_ARTICULOS, {"SK_MATNR"}, "DIM_ARTICULOS", JoinKind.LeftOuter),
+				    #"Se expandió DIM_ARTICULOS1" = Table.ExpandTableColumn(#"Consultas combinadas3", "DIM_ARTICULOS", {"BV_CATEGORIA"}, {"BV_CATEGORIA"})
+				in
+				    #"Se expandió DIM_ARTICULOS1"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

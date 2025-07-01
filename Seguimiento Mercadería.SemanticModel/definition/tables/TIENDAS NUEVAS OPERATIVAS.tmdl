@@ -1,0 +1,90 @@
+table 'TIENDAS NUEVAS OPERATIVAS'
+	lineageTag: 3a58f6fe-185a-4f2c-bca3-59bf8c16bf6d
+
+	column AÑO
+		dataType: string
+		lineageTag: 22c7947a-0192-4be3-aa8e-7b1e55d415a4
+		summarizeBy: none
+		sourceColumn: AÑO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS_BV
+		dataType: string
+		lineageTag: f6477261-fc93-438e-b59c-ce6f9ca42c1f
+		summarizeBy: none
+		sourceColumn: PAIS_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_ALMACEN
+		dataType: string
+		lineageTag: c28ce376-d39f-490b-86ed-58065f2d831a
+		summarizeBy: none
+		sourceColumn: COD_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORMATO_BV
+		dataType: string
+		lineageTag: 076d9830-1506-4190-afec-58dc0e0b8bfb
+		summarizeBy: none
+		sourceColumn: FORMATO_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIENDA
+		dataType: string
+		lineageTag: 73ecdf1c-40d7-4bd2-8722-2211fe815988
+		summarizeBy: none
+		sourceColumn: TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARES_VENTA
+		dataType: double
+		lineageTag: a197a199-a99d-40ae-96d6-32473e947d69
+		summarizeBy: sum
+		sourceColumn: PARES_VENTA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DIVISION_BV
+		dataType: string
+		lineageTag: 0e2345c3-e45e-4f55-8ad3-a2ba18e4b53c
+		summarizeBy: none
+		sourceColumn: DIVISION_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIODO
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f8be8af8-49e5-4b79-8a4f-98056e9fb2b8
+		summarizeBy: none
+		sourceColumn: PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_TIENDA
+		dataType: string
+		lineageTag: 1378e45b-83fc-450c-ab91-ea900c4ba442
+		summarizeBy: none
+		sourceColumn: COD_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'TIENDAS NUEVAS OPERATIVAS' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="#(lf)select#(lf)#(tab)""DIM_PERIODO"".""ANO"" ""AÑO"" ,#(lf)#(tab)""DIM_PAIS"".""BV_PAIS"" ""PAIS_BV"" ,#(lf)#(tab)""DIM_ALMACEN"".""SK_ALMACEN"" ""COD_ALMACEN"" ,#(lf)#(tab)""DIM_TIENDA"".""BV_FORMATO"" ""FORMATO_BV"" ,#(lf)#(tab)""DIM_TIENDA"".""TIENDA"" ""TIENDA"" ,#(lf)#(tab)sum(isnull(""FAC_VENTA"".""PARES"", 0)) ""PARES_VENTA"" ,#(lf)#(tab)""DIM_ALMACEN"".""BV_DIVISION"" ""DIVISION_BV"" ,#(lf)#(tab)""DIM_PERIODO"".""PERIODO"" ""PERIODO"" ,#(lf)#(tab)""DIM_TIENDA"".""SK_TIENDA_SAP"" ""COD_TIENDA""#(lf)from#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_PERIODO"" ""DIM_PERIODO"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_PAIS"" ""DIM_PAIS"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_ALMACEN"" ""DIM_ALMACEN"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_TIENDA"" ""DIM_TIENDA"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""FAC_VENTA"" ""FAC_VENTA"",#(lf)#(tab)""DM_COMERCIAL"".""dbo"".""DIM_ARTICULOSAP"" ""DIM_ARTICULOSAP""#(lf)where#(lf)#(tab)""DIM_ARTICULOSAP"".""SK_DEPTO"" in (N'A', N'C', N'R')#(lf)#(tab)and ""DIM_ARTICULOSAP"".""SK_CATEGORIA"" NOT in (N'PR', N'G4')#(lf)#(tab)and ""DIM_ALMACEN"".""SK_ALMACEN"" = 'AL01'#(lf)#(tab)and ""DIM_ALMACEN"".""BV_DIVISION"" in ('DET')#(lf)#(tab)and ""DIM_PERIODO"".""PERIODO"" >= convert(datetime, convert( char(8), current_timestamp, 112 ), 112) - 31#(lf)#(tab)and ""DIM_TIENDA"".""SK_TIENDA"" NOT in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020')#(lf)#(tab)and ""DIM_TIENDA"".""SK_TIENDA"" NOT in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020')#(lf)#(tab)and ""DIM_PERIODO"".""SK_PERIODO"" = ""FAC_VENTA"".""SK_PERIODO""#(lf)#(tab)and ""FAC_VENTA"".""SK_PAIS"" = ""DIM_PAIS"".""SK_PAIS""#(lf)#(tab)and ""DIM_ARTICULOSAP"".""SK_MATNR"" = ""FAC_VENTA"".""SK_MATNR""#(lf)#(tab)and ""DIM_TIENDA"".""SK_TIENDA"" = ""FAC_VENTA"".""SK_TIENDA""#(lf)#(tab)and ""FAC_VENTA"".""SK_ALMACEN"" = ""DIM_ALMACEN"".""SK_ALMACEN""#(lf)group by#(lf)#(tab)""DIM_PERIODO"".""ANO"",#(lf)#(tab)""DIM_PAIS"".""BV_PAIS"",#(lf)#(tab)""DIM_ALMACEN"".""SK_ALMACEN"",#(lf)#(tab)""DIM_TIENDA"".""BV_FORMATO"",#(lf)#(tab)""DIM_TIENDA"".""TIENDA"",#(lf)#(tab)""DIM_ALMACEN"".""BV_DIVISION"",#(lf)#(tab)""DIM_PERIODO"".""PERIODO"",#(lf)#(tab)""DIM_TIENDA"".""SK_TIENDA_SAP"""])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

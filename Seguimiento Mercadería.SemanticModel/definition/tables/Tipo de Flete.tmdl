@@ -1,0 +1,30 @@
+table 'Tipo de Flete'
+	lineageTag: a25689a0-ac72-4751-a14b-6b029195826d
+
+	column 'Tipo de Flete'
+		dataType: string
+		lineageTag: 5b564d28-87e5-436d-8103-19267e01dee1
+		summarizeBy: none
+		sourceColumn: Tipo de Flete
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nombre
+		dataType: string
+		lineageTag: 04510ba7-a60f-40b6-abba-b092da53d228
+		summarizeBy: none
+		sourceColumn: Nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Tipo de Flete' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUfJNLMosyczNV4rViVYyAgo4phalQnjGQF5IalFRanFJUapSbCwA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t, Columna2 = _t]),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(Origen,{{"Columna1", "Tipo de Flete"}, {"Columna2", "Nombre"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_ResultType = Table
+

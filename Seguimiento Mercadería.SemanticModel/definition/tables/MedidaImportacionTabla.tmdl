@@ -1,0 +1,51 @@
+table MedidaImportacionTabla
+	lineageTag: c53b6529-d044-4f1e-ab48-f483cd3b5849
+
+	column 'Medida Importación'
+		lineageTag: d0767f0d-3c3b-4081-9d9b-d35200f29324
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Medida Importación]
+		sortByColumn: Orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden
+		formatString: 0
+		lineageTag: 613dbe48-d5ff-4dc6-95b4-42440ee528fc
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orden]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MedidaImportacionTabla = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    DATATABLE(
+				        "Medida Importación", STRING,
+				        {
+				            {"Cumplimiento MK"},
+				            --{"Tránsito CFS"},
+				            {"Consolidación"},
+				            {"Tránsito Import"},
+				            {"Tránsito BFI"},
+				            {"Tránsito Total"}
+				        }
+				    ),
+				    "Orden",
+				    SWITCH(
+				        [Medida Importación],
+				        "Cumplimiento MK", 1,
+				        --"Tránsito CFS", 2,
+				        "Consolidación", 3,
+				        "Tránsito Import", 4,
+				        "Tránsito BFI", 5,
+				        "Tránsito Total", 6
+				    )
+				)
+
+	annotation PBI_Id = 481394d4ea2f4d0d87ee0503240e4393
+

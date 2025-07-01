@@ -1,0 +1,110 @@
+{
+  "name": "City Park 2",
+  "dataColors": [
+    "#F1F501",
+    "#000000",
+    "#ECC846",
+    "#CD4C46",
+    "#71AFE2",
+    "#8D6FD1",
+    "#EE9E64",
+    "#95DABB"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#070f25",
+  "tableAccent": "#0F1934",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "show": true,
+            "radius": 10
+          }
+        ],
+        "outspacePane": [
+          {
+            "checkboxAndApplyColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ],
+        "filterCard": [
+          {
+            "$id": "Applied",
+            "backgroundColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "visualHeader": [
+          {
+            "foreground": {
+              "solid": {
+                "color": "#000000"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#3E4644"
+              }
+            },
+            "transparency": 100
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#3E4644"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "lineClusteredColumnComboChart": {
+      "*": {
+        "lineStyles": [
+          {
+            "showMarker": true,
+            "markerShape": "circle",
+            "markerSize": 35
+          }
+        ]
+      }
+    }
+  },
+  "textClasses": {
+    "label": {
+      "fontSize": 9
+    },
+    "title": {
+      "fontSize": 10
+    }
+  },
+  "foregroundNeutralSecondary": "#000000"
+}

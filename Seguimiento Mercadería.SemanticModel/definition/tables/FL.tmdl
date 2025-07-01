@@ -1,0 +1,59 @@
+table FL
+	lineageTag: ad8cd2b2-6835-458e-8334-be1e95ba09dd
+
+	column DOCUMENTO_45
+		dataType: string
+		lineageTag: 63ce2f62-7970-4d2e-ba0d-ad906dbddffd
+		summarizeBy: none
+		sourceColumn: DOCUMENTO_45
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO_44
+		dataType: string
+		lineageTag: 310e5a3c-b6fe-4905-8d31-5fb506b3e991
+		summarizeBy: none
+		sourceColumn: DOCUMENTO_44
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 7756720a-342f-4366-983f-f0291f8f23d5
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: 3fd5053a-bd65-4e9b-be2d-91b90a49b870
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_LIQUIDACION
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 683c48d0-1aa9-411d-908d-103dfd8acc93
+		summarizeBy: none
+		sourceColumn: FECHA_LIQUIDACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition FL = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), " SELECT #(lf)EKPO.EBELN AS DOCUMENTO_45,#(lf)EKPO.KONNR AS DOCUMENTO_44,#(lf)EKPO.MATNR AS Articulo,#(lf)EKPO.TXZ01 AS Descripcion, #(lf)EKPO.FECHA_LIQ AS Fecha_Liquidacion#(lf)FROM SAP_ECC.EKPO#(lf)WHERE LOEKZ<>'L'#(lf)AND EKPO.EBELN LIKE '45%'#(lf)AND EKPO.FECHA_LIQ >= '20230101'", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"FECHA_LIQUIDACION", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

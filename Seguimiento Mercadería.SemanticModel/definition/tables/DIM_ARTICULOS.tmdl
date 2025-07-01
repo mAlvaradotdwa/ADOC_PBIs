@@ -1,0 +1,353 @@
+table DIM_ARTICULOS
+	lineageTag: d4736719-8ee3-4585-9eef-9de1cbbde666
+
+	column SK_MATNR
+		dataType: string
+		lineageTag: 6cd73177-8004-4c1c-83bd-041d7458be47
+		summarizeBy: none
+		sourceColumn: SK_MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALU
+		dataType: string
+		lineageTag: e6709614-8358-4068-b63d-7acd7cf46d6c
+		summarizeBy: none
+		sourceColumn: ALU
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ESTATUS
+		dataType: string
+		lineageTag: 5cd473e6-926c-4c4a-9e69-eecc621810a4
+		summarizeBy: none
+		sourceColumn: SK_ESTATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOESTILO
+		dataType: string
+		lineageTag: c5c1e8cc-abaa-44bd-b8c2-1977aedcf83b
+		summarizeBy: none
+		sourceColumn: SK_TIPOESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MARCA
+		dataType: string
+		lineageTag: 860c2014-8e1f-4871-b9cc-dcdcc6fa8da4
+		summarizeBy: none
+		sourceColumn: SK_MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_DEPTO
+		dataType: string
+		lineageTag: ce9a0e35-3832-4347-a0c1-7a04f45a9e47
+		summarizeBy: none
+		sourceColumn: SK_DEPTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_GENERO
+		dataType: string
+		lineageTag: 2629063a-9a6b-47c4-ae02-b62bd5748fb4
+		summarizeBy: none
+		sourceColumn: SK_GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_CATEGORIA
+		dataType: string
+		lineageTag: a02e6063-a74a-46e6-b44f-c7bbaaaa9e6d
+		summarizeBy: none
+		sourceColumn: SK_CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_SUBCATEGORIA
+		dataType: string
+		lineageTag: 5598495c-51fb-4e23-8c7a-2746fe23acfc
+		summarizeBy: none
+		sourceColumn: SK_SUBCATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_COLECCION
+		dataType: string
+		lineageTag: 86a872d7-9b5a-45f4-aa26-5ff4b99ca87b
+		summarizeBy: none
+		sourceColumn: SK_COLECCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_LINEA
+		dataType: string
+		lineageTag: 8b7edcdc-7890-495f-8053-f8716329243e
+		summarizeBy: none
+		sourceColumn: SK_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_CLASE
+		dataType: string
+		lineageTag: 52d05392-0132-4151-b547-1c3abd742bb7
+		summarizeBy: none
+		sourceColumn: SK_CLASE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: ddcf2e62-7df2-48ab-aefd-b84f73331eea
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		lineageTag: e4571980-c654-4b02-9c04-6aedf0362b63
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TALLA
+		dataType: string
+		lineageTag: ec606e35-5e40-400b-9b14-3b649702929b
+		summarizeBy: none
+		sourceColumn: TALLA
+
+		annotation SummarizationSetBy = Automatic
+
+	column JERARQUIA
+		dataType: string
+		lineageTag: 27174da0-9ec1-4538-9a34-7dc7b930dfa7
+		summarizeBy: none
+		sourceColumn: JERARQUIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CREAARTICULO
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a17a7c3c-06ee-49b2-95a3-a7638626e2ad
+		summarizeBy: none
+		sourceColumn: FECHA_CREAARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTL_PROFORMA
+		dataType: string
+		lineageTag: 2ee53bce-5f52-4471-9dc8-b6509e8b2cf7
+		summarizeBy: none
+		sourceColumn: CTL_PROFORMA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATNR_BORRADO
+		dataType: string
+		lineageTag: 08c335ef-f181-47df-8b67-a1c1a971303b
+		summarizeBy: none
+		sourceColumn: MATNR_BORRADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ARTICULO
+		dataType: string
+		lineageTag: c569f05f-c337-425b-ae5b-8b2fec63079f
+		summarizeBy: none
+		sourceColumn: SK_ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_MATNR
+		dataType: string
+		lineageTag: da799448-a7ec-459b-9de4-5b8677fc4ead
+		summarizeBy: none
+		sourceColumn: BV_MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_ESTATUS
+		dataType: string
+		lineageTag: 35980761-7ca5-446d-a035-0fc2049e984f
+		summarizeBy: none
+		sourceColumn: BV_ESTATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_MARCA
+		dataType: string
+		lineageTag: fc6cfb03-ecfb-47b4-90ea-9a72a37ae981
+		summarizeBy: none
+		sourceColumn: BV_MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_DEPTO
+		dataType: string
+		lineageTag: f4f2d527-4105-4d9d-a2bc-0018ffafe3db
+		summarizeBy: none
+		sourceColumn: BV_DEPTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_GENERO
+		dataType: string
+		lineageTag: 8427ab25-7724-4170-808e-53376ba70f9e
+		summarizeBy: none
+		sourceColumn: BV_GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_CATEGORIA
+		dataType: string
+		lineageTag: a17db493-badc-4085-beac-a68dfb84e26e
+		summarizeBy: none
+		sourceColumn: BV_CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_SUBCATEGORIA
+		dataType: string
+		lineageTag: 320b15bf-52fe-4969-ae2a-84cb2ab3be7e
+		summarizeBy: none
+		sourceColumn: BV_SUBCATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_LINEA
+		dataType: string
+		lineageTag: c911efa3-87ee-4605-99f7-d83e72d49b8b
+		summarizeBy: none
+		sourceColumn: BV_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_ESTILO_COLOR
+		dataType: string
+		lineageTag: 96fa9441-82da-4637-9a77-f1df4565495d
+		summarizeBy: none
+		sourceColumn: BV_ESTILO_COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_JERARQUIA
+		dataType: string
+		lineageTag: 526d9302-f2cb-43ed-899f-5aa427d2a1b5
+		summarizeBy: none
+		sourceColumn: BV_JERARQUIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASE
+		dataType: string
+		lineageTag: fa42b98a-4961-4a6d-bf93-383c1898bf51
+		summarizeBy: none
+		sourceColumn: CLASE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPOESTILO
+		dataType: string
+		lineageTag: 970553c7-45c2-44ec-8892-7b7249d4c338
+		summarizeBy: none
+		sourceColumn: TIPOESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MARCAH
+		dataType: string
+		lineageTag: 19b76cc4-c647-41b3-ac22-52723717ac4f
+		summarizeBy: none
+		sourceColumn: SK_MARCAH
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCAH
+		dataType: string
+		lineageTag: c76d36c8-871b-4a44-8bd9-e2e840a0d4b6
+		summarizeBy: none
+		sourceColumn: MARCAH
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: e4f36f6a-658e-43bf-ba57-aaf0e86021e9
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_UNIDADNEGOCIO
+		dataType: string
+		lineageTag: c9c645ce-112d-42a6-af59-1de2ba35a0b7
+		summarizeBy: none
+		sourceColumn: SK_UNIDADNEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BASICO_ACTIVO
+		dataType: string
+		lineageTag: 7fe5c6ee-8842-4eed-b8ed-2497037491d7
+		summarizeBy: none
+		sourceColumn: BASICO_ACTIVO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLANTA_FAB
+		dataType: string
+		lineageTag: c6b3e544-0593-45e7-8660-34760aa98b77
+		summarizeBy: none
+		sourceColumn: PLANTA_FAB
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAMBIO_STATUS
+		dataType: int64
+		formatString: 0
+		lineageTag: 3225efc8-3562-4a0e-98d9-21ad00f2a0eb
+		summarizeBy: sum
+		sourceColumn: CAMBIO_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ATRIBUTO
+		dataType: string
+		lineageTag: c2606ada-0f6f-4c12-bb47-c0319e0c502d
+		summarizeBy: none
+		sourceColumn: SK_ATRIBUTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_ATRIBUTO
+		dataType: string
+		lineageTag: 07b2c96a-657b-4439-92e5-5a079a56d584
+		summarizeBy: none
+		sourceColumn: BV_ATRIBUTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ART_PROVEEDOR
+		dataType: string
+		lineageTag: 47208a19-99c3-4ff7-a225-aedf977d31a5
+		summarizeBy: none
+		sourceColumn: ART_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_ARTICULOS = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from DIM_ARTICULOSAP where TIPOESTILO is not null and MATNR_BORRADO = ''"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

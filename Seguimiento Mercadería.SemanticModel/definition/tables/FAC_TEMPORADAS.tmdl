@@ -1,0 +1,143 @@
+table FAC_TEMPORADAS
+	lineageTag: e9a6b2c2-cab4-4d7c-9ad4-5025842f0a48
+
+	column Articulo
+		dataType: string
+		lineageTag: 4478ee1b-75e8-4591-b444-6e10717fdfd5
+		summarizeBy: none
+		sourceColumn: Articulo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estilo
+		dataType: string
+		lineageTag: c5a7627e-d079-48b7-8fba-30f24bd0f47b
+		summarizeBy: none
+		sourceColumn: Estilo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: 9b3a6e54-a254-494e-ac0b-b220956449be
+		summarizeBy: none
+		sourceColumn: Color
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Genero
+		dataType: string
+		lineageTag: fe44ad3d-50f5-4601-a393-4a9ed6d330bf
+		summarizeBy: none
+		sourceColumn: Genero
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		dataType: string
+		lineageTag: 6f483f4b-190d-4db0-94a8-454075fa76f7
+		summarizeBy: none
+		sourceColumn: Departamento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Campaña
+		dataType: string
+		lineageTag: 9c5da149-22c2-4449-9fcb-43a485c8f004
+		summarizeBy: none
+		sourceColumn: Campaña
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Linea
+		dataType: string
+		lineageTag: 02700e74-f03e-499d-acb5-08a5e21c46da
+		summarizeBy: none
+		sourceColumn: Linea
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: 036f1f31-2bac-478d-858e-6536540a36a4
+		summarizeBy: none
+		sourceColumn: Marca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Proyecto
+		dataType: string
+		lineageTag: 7437ce90-d519-49d3-bea1-4c8ef81bea80
+		summarizeBy: none
+		sourceColumn: Proyecto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Lanzamiento'
+		dataType: string
+		lineageTag: 856ce5a4-83c2-47e8-ba5d-a380c36a64f7
+		summarizeBy: none
+		sourceColumn: Fecha Lanzamiento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Tienda'
+		dataType: string
+		lineageTag: e701d147-93c2-4837-afc8-190e0cf6b2a5
+		summarizeBy: none
+		sourceColumn: Fecha Tienda
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Planograma
+		dataType: string
+		lineageTag: a24aa793-5c08-4b51-9377-5f99a2c42579
+		summarizeBy: none
+		sourceColumn: Planograma
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FAC_TEMPORADAS = m
+		mode: import
+		source =
+				let
+				    Origen = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/luis_menendez_empresasadoc_com", [ApiVersion = 15]),
+				    #"Filas filtradas1" = Table.SelectRows(Origen, each ([Extension] = ".xlsx")),
+				    #"Filas filtradas" = Table.SelectRows(#"Filas filtradas1", each ([Name] = "Barrido Inicial Estilo Color S&OP.xlsx")),
+				    #"Barrido Inicial Estilo Color S&OP xlsx_https://empresasadoc-my sharepoint com/personal/luis_menendez_empresasadoc_com/Documents/" = #"Filas filtradas"{[Name="Barrido Inicial Estilo Color S&OP.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/luis_menendez_empresasadoc_com/Documents/"]}[Content],
+				    #"Libro de Excel importado" = Excel.Workbook(#"Barrido Inicial Estilo Color S&OP xlsx_https://empresasadoc-my sharepoint com/personal/luis_menendez_empresasadoc_com/Documents/"),
+				    Query1_Sheet = #"Libro de Excel importado"{[Item="Query1",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Query1_Sheet, [PromoteAllScalars=true])
+				in
+				    #"Encabezados promovidos"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

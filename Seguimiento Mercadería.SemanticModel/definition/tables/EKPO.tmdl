@@ -1,0 +1,1654 @@
+table EKPO
+	lineageTag: 0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: 1cdec282-0fb7-4567-8f75-fa512b1f3978
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: fc22e0cb-790b-48a5-ac9a-49326e4922e7
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: d3cdcef5-f28c-4f93-8e58-762a65c9472e
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE
+		dataType: string
+		lineageTag: 22a0cdfc-510d-4cf2-97b3-f6b91c5370b0
+		summarizeBy: none
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANO_PE
+		dataType: string
+		lineageTag: 9ff0f11c-ee5c-4b39-932b-d6456acc87a5
+		summarizeBy: none
+		sourceColumn: ANO_PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CREACION
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 28a3c586-47e9-418a-8bb0-2475205b9aee
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column XFACTORY_ORIGINAL
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: dc464452-0a7c-4bbe-8d63-d196e8dd7dd9
+		summarizeBy: none
+		sourceColumn: XFACTORY_ORIGINAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ENTIDAD_CD
+		dataType: string
+		lineageTag: 6e0801b7-28c0-4b4c-b5ff-79ce1452876a
+		summarizeBy: none
+		sourceColumn: ENTIDAD_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_SOLICITANTE
+		dataType: string
+		lineageTag: eeb17d17-3ff0-43b0-913e-ef0c1b5cc1c0
+		summarizeBy: none
+		sourceColumn: ENTIDAD_SOLICITANTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD
+		dataType: double
+		formatString: 0
+		lineageTag: 6bc8cfe4-ab0d-4b59-8a4a-e5a540c7b968
+		summarizeBy: sum
+		sourceColumn: CANTIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column Articulo_Generico = MID(EKPO[ARTICULO],FIND("0000000",EKPO[ARTICULO])+7,8)
+		lineageTag: c6bcad8a-0aff-4813-90ed-346e5fd35254
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_DOCUMENTO
+		dataType: string
+		lineageTag: d270a907-6d96-481f-949f-cd626a912d41
+		summarizeBy: none
+		sourceColumn: TIPO_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMERO_PROVEEDOR
+		dataType: string
+		lineageTag: ce367be7-2064-45a4-88f6-9445b43cb66b
+		summarizeBy: none
+		sourceColumn: NUMERO_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCOTERM
+		dataType: string
+		lineageTag: 8ba1ece3-b6a8-4384-bfc5-b3118100cc58
+		summarizeBy: none
+		sourceColumn: INCOTERM
+
+		annotation SummarizationSetBy = Automatic
+
+	column PUERTO_ORIGEN
+		dataType: string
+		lineageTag: 4b305bbb-db74-4e57-8e97-bb8c92f2f4e4
+		summarizeBy: none
+		sourceColumn: PUERTO_ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_DESPACHO_FINAL
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 62ca4baf-2ce3-4438-9f13-27e79ac9b705
+		summarizeBy: none
+		sourceColumn: FECHA_DESPACHO_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_DESPACHO_INICIAL
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 4aebbf8c-9dcd-4916-bbe3-63ed56ca43d2
+		summarizeBy: none
+		sourceColumn: FECHA_DESPACHO_INICIAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TIPO_DE_FLETE
+		dataType: string
+		lineageTag: 6b4d128a-4e31-44d9-8642-b75644b87866
+		summarizeBy: none
+		sourceColumn: TIPO_DE_FLETE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PUERTO_ORIGEN2
+		dataType: string
+		lineageTag: e849711c-e3a0-4fe6-850e-7b0e05bb9ee0
+		summarizeBy: none
+		sourceColumn: PUERTO_ORIGEN2
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_COMPRA
+		dataType: string
+		lineageTag: 8aedbe67-5bba-470b-9420-3933f0f409ab
+		summarizeBy: none
+		sourceColumn: ENTIDAD_COMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_SOLICITANTE2
+		dataType: string
+		lineageTag: d6a4d9df-b9e6-45de-bf1f-9507211d2aa4
+		summarizeBy: none
+		sourceColumn: ENTIDAD_SOLICITANTE2
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_CD2
+		dataType: string
+		lineageTag: 64eccfa6-722b-49ea-bf8b-3e965d87d4de
+		summarizeBy: none
+		sourceColumn: ENTIDAD_CD2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD_PARES
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c407fa5-2487-4508-9b08-9deb11b64388
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_PARES
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CARGO_READY_DATE
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8160f4d5-843d-44a6-b857-6a37184ab0d5
+		summarizeBy: none
+		sourceColumn: CARGO_READY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_ARRIVO_CFS
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 97423d0c-cc42-4af0-9983-9739473558e2
+		summarizeBy: none
+		sourceColumn: FECHA_ARRIVO_CFS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETD
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 99adf3b7-c6d9-41b2-8560-4a2669075119
+		summarizeBy: none
+		sourceColumn: ETD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ATD
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 0120ae17-e354-43c6-87de-d11a6529c566
+		summarizeBy: none
+		sourceColumn: ATD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 3b2ff022-1a0f-4a6c-a288-d8b77b018903
+		summarizeBy: none
+		sourceColumn: ETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MODALIDAD_DESPACHO
+		dataType: string
+		lineageTag: af2be6c6-8bf5-4d91-998e-e1c7fb178bff
+		summarizeBy: none
+		sourceColumn: MODALIDAD_DESPACHO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMERO_PUERTO
+		dataType: string
+		lineageTag: 4aa2e7fc-9567-4ee2-a410-dbc4484b5597
+		summarizeBy: none
+		sourceColumn: NUMERO_PUERTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS_ORIGEN
+		dataType: string
+		lineageTag: 986f0437-de45-4de7-b802-20d319e5767a
+		summarizeBy: none
+		sourceColumn: PAIS_ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: 224c6509-0352-41c3-85c6-e6135a31077d
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CREACION2
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: e153cce0-ed7d-40aa-a430-1806dfd5319c
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_LIBERACION
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: fb38086b-e560-475d-a51a-10ee6d047d3c
+		summarizeBy: none
+		sourceColumn: FECHA_LIBERACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Tiempo_Liberacion = ```
+			
+			VAR _fecha_creacion_final = EKPO[FECHA_CREACION_FINAL]
+			VAR _fecha_liberacion = EKPO[FECHA_LIBERACION]
+			
+			RETURN
+			    IF(
+			        NOT(ISBLANK(_fecha_creacion_final)) && 
+			        NOT(ISBLANK(_fecha_liberacion)),
+			        DATEDIFF(
+			            _fecha_creacion_final,
+			            _fecha_liberacion,
+			            DAY
+			        ) * DIVIDE(_fecha_creacion_final, _fecha_creacion_final) * DIVIDE(_fecha_liberacion, _fecha_liberacion),
+			        BLANK()
+			    )
+			```
+		formatString: 0
+		lineageTag: 3b28655a-ee93-4883-8257-6c42b70c8f30
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tiempo_Fabricacion = ```
+			
+			VAR _fecha_creacion_final = EKPO[FECHA_CREACION_FINAL]
+			VAR _cargo_ready_date = EKPO[CARGO_READY_DATE]
+			
+			RETURN
+			    IF(
+			        NOT(ISBLANK(_fecha_creacion_final)) && 
+			        NOT(ISBLANK(_cargo_ready_date)),
+			        DATEDIFF(
+			            _fecha_creacion_final,
+			            _cargo_ready_date,
+			            DAY
+			        ) * DIVIDE(_fecha_creacion_final, _fecha_creacion_final) * DIVIDE(_cargo_ready_date, _cargo_ready_date),
+			        BLANK()
+			    )
+			```
+		formatString: 0
+		lineageTag: dd3a1d44-eb1c-4de3-9624-83a6dca0356c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column AÑO_MK = YEAR(EKPO[FECHA_CREACION3])
+		formatString: 0
+		lineageTag: ff99330a-8490-402d-a184-cd6dfd1f4763
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Articulo_GenericoF = MID(EKPO[ARTICULO],FIND("0000000",EKPO[ARTICULO])+7,8)
+		lineageTag: 8a7ae3ec-12f5-4994-ad64-43bea3d8cb2a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRECIOVENTA_USD =
+			
+			CALCULATE(
+			    FIRSTNONBLANK('Precio Venta'[PrecioVentaUSD], 1),
+			    FILTER(
+			        ALL('Precio Venta'),
+			        'Precio Venta'[Articulo_GenericoF] = EKPO[Articulo_GenericoF] &&
+			        'Precio Venta'[VKORG] = EKPO[Pais_Destino]
+			    )
+			) * EKPO[CANTIDAD_PARES]
+			//LOOKUPVALUE(FACT_ARRIBOSFUTURO[PRECIO_VENTANETA_USD],FACT_ARRIBOSFUTURO[DOC],FACT_TUNGYA[DOC_COMPRA],FACT_ARRIBOSFUTURO[ARTICULO],FACT_TUNGYA[ARTICULO])))
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 6464aa0a-2f65-418d-83ab-724b21151aee
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	column Tipo_Estilo = RELATED ( 'DIM_ARTICULOS'[TIPOESTILO] )
+		lineageTag: 1bec45c2-99b5-4611-bad0-908e7dd666f4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado_Articulo = ```
+			
+			VAR _Articulo = EKPO[Articulo_GenericoF]
+			
+			-- Fechas de creación para el mismo artículo genérico
+			VAR _MinFecha = 
+			    CALCULATE(
+			        MIN(EKPO[FECHA_CREACION_FINAL]),
+			        ALLEXCEPT(EKPO, EKPO[Articulo_GenericoF])
+			    )
+			
+			VAR _MaxFecha = 
+			    CALCULATE(
+			        MAX(EKPO[FECHA_CREACION_FINAL]),
+			        ALLEXCEPT(EKPO, EKPO[Articulo_GenericoF])
+			    )
+			
+			-- Diferencia en meses entre fechas
+			VAR _MesesDiff = DATEDIFF(_MinFecha, _MaxFecha, MONTH)
+			
+			-- Lógica final
+			RETURN
+			    IF(
+			        _MesesDiff > 1,
+			        "Recompra",
+			        IF(
+			            ISBLANK(EKPO[FirstDateSale]),
+			            "Nuevo",
+			            IF(
+			                EKPO[FirstDateSale] <= EKPO[FECHA_CREACION_FINAL],
+			                "Recompra",
+			                "Nuevo"
+			            )
+			        )
+			    )
+			```
+		lineageTag: 0818d0d1-928f-4c34-b7eb-01ee68ac85e4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: 771e5988-db9d-4689-9737-4b98d580d481
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		lineageTag: 902dfd6a-0167-4515-b31e-0d325bcec735
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO_COLOR
+		dataType: string
+		lineageTag: 87fad30f-3e69-47fe-899c-7d41d9c62a04
+		summarizeBy: none
+		sourceColumn: ESTILO_COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: d24b4f84-ee07-4696-ac14-525165416271
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO
+		dataType: string
+		lineageTag: 503c4a3f-b556-4a57-8240-8d1c7f7e809a
+		summarizeBy: none
+		sourceColumn: GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: 0c21008a-1647-4135-a8b9-9ac8491f7a84
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD
+		dataType: string
+		lineageTag: e2e916b6-3b6f-4734-af12-52a943fe4fbd
+		summarizeBy: none
+		sourceColumn: UNIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transito_Importación = ```
+			IF (
+			    (NOT(ISBLANK(EKPO[ETA])) && (NOT(ISBLANK(EKPO[ATD])) || NOT(ISBLANK(EKPO[ETD])))),
+			    DATEDIFF(
+			        IF(NOT(ISBLANK(EKPO[ATD])), EKPO[ATD], EKPO[ETD]),
+			        EKPO[ETA],
+			        DAY
+			    ),
+			    BLANK()
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 9b3b399c-8401-4110-95eb-4a441de1fa37
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nombre_Puerto = RELATED(PUERTO_ORIGEN[Port Name SAP])
+		lineageTag: 13c3697a-2fb1-4baf-9694-78aaaff3935a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pais_OrigenF = RELATED(PUERTO_ORIGEN[Name Country])
+		lineageTag: 54093584-d455-4979-a9ea-82869fe6b4f2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Linea = RELATED ( PUERTO_ORIGEN[Tipo Linea] )
+		lineageTag: 9208d310-b828-4fbc-bb12-59a963da6c32
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transito_CFS = ```
+			
+			VAR _fecha_arrivo_cfs = EKPO[FECHA_ARRIVO_CFS]
+			VAR _cargo_ready_date = EKPO[CARGO_READY_DATE]
+			
+			RETURN
+			    IF(
+			        AND(
+			            EKPO[Tipo_Linea] = "L7",
+			            EKPO[Pais_OrigenF] = "China"
+			        ) && 
+			        NOT(ISBLANK(_fecha_arrivo_cfs)) && 
+			        NOT(ISBLANK(_cargo_ready_date)),
+			        DATEDIFF(
+			            _cargo_ready_date,
+			            _fecha_arrivo_cfs,
+			            DAY
+			        ) * DIVIDE(_cargo_ready_date, _cargo_ready_date) * DIVIDE(_fecha_arrivo_cfs, _fecha_arrivo_cfs),
+			        BLANK()
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 54382a7a-8c8e-41fb-8972-2279d0d2a2d6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tiempo_Consolidación = ```
+			
+			VAR _atd = EKPO[ATD]
+			VAR _etd = EKPO[ETD]
+			VAR _fecha_arrivo_cfs = EKPO[FECHA_ARRIVO_CFS]
+			VAR _fecha_referencia = IF(NOT(ISBLANK(_atd)), _atd, _etd)
+			VAR _cargo_ready_date = EKPO[CARGO_READY_DATE]
+			RETURN
+			    IF(
+			        AND(
+			            EKPO[Tipo_Linea] = "L7",
+			            EKPO[Pais_OrigenF] = "China"
+			        ) && 
+			        (NOT(ISBLANK(_atd)) || NOT(ISBLANK(_etd))) &&
+			        NOT(ISBLANK(_fecha_arrivo_cfs)),
+			        DATEDIFF(
+			            _fecha_arrivo_cfs,
+			            _fecha_referencia,
+			            DAY
+			        ) * DIVIDE(_fecha_arrivo_cfs, _fecha_arrivo_cfs) * DIVIDE(_fecha_referencia, _fecha_referencia),
+			        DATEDIFF(
+			            _cargo_ready_date,
+			            _fecha_referencia,
+			            DAY
+			        ) * DIVIDE(_cargo_ready_date,_cargo_ready_date) * DIVIDE(_fecha_referencia,_fecha_referencia)
+			    )
+			
+			
+			```
+		lineageTag: bb82f7ff-6bfc-4f1a-902f-11eb232d2db0
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Transito_BFI =
+			
+			VAR _eta = [ETA]
+			VAR _etaMT = [MAX_ETA]
+			VAR _fl = [Fecha_Final_Liq]
+			RETURN
+			    IF(
+			        ISBLANK(EKPO[reference_number]),
+			        ( _fl - _eta )
+			            * DIVIDE ( _fl, _fl )
+			            * DIVIDE ( _eta, _eta ),
+			        ( _fl - _etaMT )
+			            * DIVIDE ( _fl, _fl )
+			            * DIVIDE ( _etaMT, _etaMT )
+			    )
+		formatString: 0
+		lineageTag: 6b57bd0c-e9d4-4734-a3c6-1bfa11485e3d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CREACION3
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: ae1f8fa8-a686-4bd4-ad32-1742d3c24e82
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_CREACION_FINAL
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9a359c2b-d135-4910-800d-cd67ddd7acbd
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Fecha = [Fecha_Final_Liq]
+		formatString: Short Date
+		lineageTag: 6be97843-cf92-491e-826e-73fe0235d266
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Margen_Cumplimiento_Pedido =
+			
+			VAR _fecha_creacion_final = EKPO[FECHA_CREACION_FINAL]
+			VAR _xfactory_original = EKPO[XFACTORY_ORIGINAL]
+			
+			RETURN
+			    IF(
+			        ISBLANK(_fecha_creacion_final) || ISBLANK(_xfactory_original),
+			        BLANK(),
+			        (_xfactory_original - _fecha_creacion_final) * DIVIDE(_xfactory_original, _xfactory_original) * DIVIDE(_fecha_creacion_final, _fecha_creacion_final)
+			    )
+		dataType: int64
+		formatString: 0
+		lineageTag: bb32e0e5-24c8-4e8b-8bf2-656e23e339ba
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Modalidad Despacho' =
+			IF (
+			    'EKPO'[MODALIDAD_DESPACHO] = "",
+			    0,
+			    INT ( 'EKPO'[MODALIDAD_DESPACHO] )
+			)
+		lineageTag: b4de8834-79c1-4da8-9a10-c29cbd45d142
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transito = ```
+			
+			VAR _eta = [ETA]
+			VAR _etd = [ATD]
+			VAR _etaMT = [MAX_ETA]
+			VAR _etdMT = [loading_departure_timestamp]
+			RETURN
+			    IF(
+			        ISBLANK(EKPO[reference_number]), 
+			        ( _eta - _etd )
+			            * DIVIDE ( _eta, _eta )
+			            * DIVIDE ( _etd, _etd ), 
+			        ( _etaMT - _etdMT )
+			            * DIVIDE ( _etaMT, _etaMT )
+			            * DIVIDE ( _etdMT, _etdMT )
+			    )
+			```
+		dataType: int64
+		formatString: 0
+		lineageTag: b2727508-f2d2-4aea-a077-9f9aae107387
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estatus MK' =
+			
+			IF(EKPO[AÑO_MK]=2023,"Entregado",
+			SWITCH (
+			    TRUE (),
+			    NOT ISBLANK ( [Fecha_Final_Liq] )
+			        && [Fecha_Final_Liq] <= TODAY (), "Entregado",
+			    "Pendiente"
+			))
+		lineageTag: d71601d0-f9e2-42af-85e7-560f132119fe
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Numero_Puerto_Final =
+			IF(
+			    NOT(ISBLANK(EKPO[PUERTO_ORIGEN2])),
+			    EKPO[PUERTO_ORIGEN2],
+			    EKPO[NUMERO_PUERTO]
+			)
+		lineageTag: f5a8753f-c494-4184-9097-bd0d0edffc84
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_EKKO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8c7d1c82-9093-4a8e-a919-3b41a8616a0d
+		summarizeBy: none
+		sourceColumn: FECHA_EKKO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Temporada = RELATED(TEMPORADA[Temporada])
+		lineageTag: 790e4f85-206c-440d-b75f-a5023b1749e0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año PE' = RELATED(TEMPORADA[Año])
+		lineageTag: 2eef82b7-15bf-4782-bc82-dab95c0dea94
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column '1er Mes' = RELATED(TEMPORADA[1er Mes Nombre])
+		lineageTag: 1c0f9591-c11f-40f5-b02d-c9c611a3380d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Flete = RELATED('Tipo de Flete'[Nombre])
+		lineageTag: a0fe9bf0-9485-4beb-ae2f-ff2c970ec1a3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column XFACTORY_DATE = COALESCE ( EKPO[XFACTORY_ORIGINAL], EKPO[XFACTORY_ACTUALIZADO] )
+		formatString: Short Date
+		lineageTag: 4750df2b-67a3-4c6d-8002-c1bea8b95256
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Tiempo_XFactory =
+			IF (
+			    ISBLANK ( EKPO[CARGO_READY_DATE] ) || ISBLANK ( EKPO[XFACTORY_DATE] ),
+			    BLANK (),
+			    EKPO[CARGO_READY_DATE] - EKPO[XFACTORY_DATE]
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: a9d6386e-fb71-4cfd-b887-b5026eff43a9
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha PE' = ```
+			
+			VAR _mes = RELATED( TEMPORADA[1er Mes] )
+			VAR _yr = RELATED( TEMPORADA[Año] ) 
+			VAR _anyo = IF ( _yr = "" , BLANK() , INT( _yr ) )
+			RETURN IF ( not ISBLANK(_mes) && not ISBLANK( _anyo ) , DATE( _anyo , _mes , 1 ) , BLANK() )
+			```
+		formatString: Short Date
+		lineageTag: aa891766-4985-407c-a17f-799a949a4527
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Tiempo_PE =
+			IF (
+			    ISBLANK ( EKPO[FECHA_LIQUIDACION_FINAL] ) || ISBLANK ( EKPO[FECHA PE] ),
+			    BLANK (),
+			    INT ( EKPO[FECHA PE] - EKPO[FECHA_LIQUIDACION_FINAL] )
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: 1745ac0d-17ae-49f4-8f89-baf497ebb25d
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_LIQUIDACION_FINAL = 'EKPO'[Fecha_Final_Liq]
+		lineageTag: 576bfa32-9375-4a18-b27e-fcf8d4fd8c4a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lead_Time =
+			IF (
+			    NOT (
+			        ISBLANK ( EKPO[FECHA_CREACION_FINAL] )
+			    )
+			        && NOT (
+			            ISBLANK ( EKPO[FECHA_LIQUIDACION_FINAL] )
+			        ),
+			    DATEDIFF (
+			        EKPO[FECHA_CREACION_FINAL],
+			        EKPO[FECHA_LIQUIDACION_FINAL],
+			        DAY
+			    ),
+			    BLANK ()
+			)
+		formatString: 0
+		lineageTag: fc8649b2-783e-4612-853b-eea2b6c7a77c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_LIQUIDACION_ESTIMADA = ```
+			
+			VAR EstatusLimpio = LOWER(TRIM('EKPO'[Estatus MK]))
+			VAR FechaFinal = 'EKPO'[FECHA_LIQUIDACION_FINAL]
+			VAR MaxETA = 'EKPO'[MAX_ETA]
+			VAR FechaETD = 'EKPO'[ETD]
+			VAR Xfactory = 'EKPO'[XFACTORY_ACTUALIZADO]
+			VAR FechaCreacion = 'EKPO'[FECHA_CREACION_FINAL]
+			
+			VAR SLA_PROD = COALESCE('EKPO'[SLA_PRODUCCION], 0)
+			VAR SLA_CONS = COALESCE('EKPO'[SLA_CONSOLIDACION], 0)
+			VAR SLA_MAR = COALESCE('EKPO'[SLA_MARITIMO], 0)
+			VAR SLA_BFI = COALESCE('EKPO'[SLA_BFI], 0)
+			
+			VAR Hoy = TODAY()
+			
+			RETURN
+			IF(
+			    EstatusLimpio = "pendiente",
+			    
+			    // Lógica jerárquica
+			    SWITCH(TRUE(),
+			        NOT(ISBLANK(FechaFinal)), FechaFinal,
+			        NOT(ISBLANK(MaxETA)), MaxETA + SLA_BFI,
+			        NOT(ISBLANK(FechaETD)), FechaETD + SLA_MAR + SLA_BFI,
+			        NOT(ISBLANK(Xfactory)) && Xfactory >= (Hoy - 90), Xfactory + SLA_CONS + SLA_MAR + SLA_BFI,
+			        NOT(ISBLANK(Xfactory)) && Xfactory < (Hoy - 90), FechaCreacion + SLA_CONS + SLA_MAR + SLA_BFI,
+			        FechaCreacion + SLA_PROD + SLA_CONS + SLA_MAR + SLA_BFI
+			    ),
+			    
+			    FechaFinal
+			)
+			```
+		formatString: Short Date
+		lineageTag: 2aa9bc6b-273d-47f2-ab9f-07248bd7e5e1
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column TiempoLiquidacionEstimado = ```
+			VAR _pais = EKPO[Pais_OrigenF]
+			VAR _fcre = EKPO[FECHA_CREACION_FINAL]
+			VAR _prov = EKPO[NUMERO_PROVEEDOR]
+			VAR _val =
+			    CALCULATE (
+			        [Tiempo Creacion a BFI Ponderado],
+			        REMOVEFILTERS (),
+			        EKPO[Pais_OrigenF] = _pais,
+			        EKPO[FECHA_CREACION_FINAL] > _fcre - 365,
+			        EKPO[FECHA_CREACION_FINAL] <= _fcre 
+			        
+			    )
+			RETURN
+			    INT( _val )
+			```
+		formatString: 0
+		lineageTag: 434ec5f2-f59f-4444-b7a9-36e623c085fd
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstDateSale = RELATED(FACT_PRIMERAVENTA_ARTICULO[date_firstsale])
+		formatString: Short Date
+		lineageTag: 9971b985-e0b3-4958-b705-f10960fa2a61
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: 9c807578-9624-4905-9dc9-3f9cd8dfcb86
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_RECEPCION_BFI
+		dataType: string
+		lineageTag: c0bb08cd-62a5-431e-b6b7-524f99be48f6
+		summarizeBy: none
+		sourceColumn: FECHA_RECEPCION_BFI
+
+		annotation SummarizationSetBy = Automatic
+
+	column XFACTORY_ACTUALIZADO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 5bc5a308-b78e-4777-81e4-b4273b3bec4f
+		summarizeBy: none
+		sourceColumn: XFACTORY_ACTUALIZADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column XFACTORY_REQUERIDA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8e5a7be3-86af-4457-976d-a96d4430cddf
+		summarizeBy: none
+		sourceColumn: XFACTORY_REQUERIDA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column reference_number
+		dataType: string
+		lineageTag: fa62cb46-11da-4453-8c41-3cf2f4423ec3
+		summarizeBy: none
+		sourceColumn: reference_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column transportation_status
+		dataType: string
+		lineageTag: ab095ed1-9d02-44fc-9cb0-317dcd34e5bd
+		summarizeBy: none
+		sourceColumn: transportation_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrival_delay_days
+		dataType: double
+		formatString: 0
+		lineageTag: 5753bde2-0af7-4762-9883-a4428cb9ea83
+		summarizeBy: sum
+		sourceColumn: arrival_delay_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column created
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 938d046c-c5f7-4f78-85f5-cfef3f2340cf
+		summarizeBy: none
+		sourceColumn: created
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3e034627-f634-43e3-bb26-537366133698
+		summarizeBy: none
+		sourceColumn: updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipment_id
+		dataType: string
+		lineageTag: b05f30eb-511f-4385-9567-d58bcd829cb5
+		summarizeBy: none
+		sourceColumn: shipment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column loading_actual_port
+		dataType: string
+		lineageTag: b24f3c40-ec1c-4b0e-9dae-dce5d1c65d1d
+		summarizeBy: none
+		sourceColumn: loading_actual_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column loading_departure_timestamp
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 57eee285-22a6-40a9-a772-3387ef942e27
+		summarizeBy: none
+		sourceColumn: loading_departure_timestamp
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column offset_load_dep_timestamp
+		dataType: double
+		formatString: 0
+		lineageTag: 81b46956-0de9-4a9e-91cd-a6b033bcb6ac
+		summarizeBy: sum
+		sourceColumn: offset_load_dep_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_planned_port
+		dataType: string
+		lineageTag: 3cdcce64-4fb7-4c5c-8f9a-a23372c040a9
+		summarizeBy: none
+		sourceColumn: discharge_planned_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_planned_arrival_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f22a9e70-176b-4299-8568-25882642eb04
+		summarizeBy: none
+		sourceColumn: discharge_planned_arrival_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_dis_plan_arr_timestamp
+		dataType: double
+		formatString: 0
+		lineageTag: 92219cf6-48a1-432d-8631-3a285dce0c52
+		summarizeBy: sum
+		sourceColumn: offset_dis_plan_arr_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_actual_port
+		dataType: string
+		lineageTag: 413e56dd-5b99-45e5-a314-05c5183702e8
+		summarizeBy: none
+		sourceColumn: discharge_actual_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_actual_arrival_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: faa0da44-dda5-4025-af60-f4eccaedc920
+		summarizeBy: none
+		sourceColumn: discharge_actual_arrival_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_dis_act_arr_timestamp
+		dataType: double
+		formatString: 0
+		lineageTag: c0daa181-9bdc-4169-b50f-7f0b942055b1
+		summarizeBy: sum
+		sourceColumn: offset_dis_act_arr_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_updated
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: e62a12b5-e120-473b-ac2b-463d902cfc29
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETA_Marin_Traffic
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 290c984e-d766-475a-80e3-989f731b34c7
+		summarizeBy: none
+		sourceColumn: ETA_Marin_Traffic
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETA_Local_Time_Offset
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fa94179-bb5f-4540-9525-2f500cd6343e
+		summarizeBy: sum
+		sourceColumn: ETA_Local_Time_Offset
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIRST_ETA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 84150db7-c52e-4c88-a573-38128f22a411
+		summarizeBy: none
+		sourceColumn: FIRST_ETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MAX_ETA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 61c96af0-5636-4ba7-a5b6-7fda0c207712
+		summarizeBy: none
+		sourceColumn: MAX_ETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CAMBIOS
+		dataType: int64
+		formatString: 0
+		lineageTag: d2b53d8e-99f3-4cef-8498-2f2545247c28
+		summarizeBy: sum
+		sourceColumn: CAMBIOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIAS_DIFF
+		dataType: int64
+		formatString: 0
+		lineageTag: def213eb-f508-467b-b163-6cbbb3e69ae8
+		summarizeBy: sum
+		sourceColumn: DIAS_DIFF
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha_Liquidacion_ZUB = ```
+			
+			VAR _clasificacion = EKPO[Clasificacion_Documento]
+			VAR _conte = EKPO[CONTENEDOR]
+			
+			VAR FechaZUB = 
+			    CALCULATE(
+			        MIN('FL (2)'[FECHA_LIQUIDACION]),
+			        'FL (2)'[CONTENEDOR] = _conte,
+			        'FL (2)'[CLASE_DE_DOCUMENTO] = "ZUB"
+			    )
+			
+			VAR FechaZINT = 
+			    CALCULATE(
+			        MIN('FL (2)'[FECHA_LIQUIDACION]),
+			        'FL (2)'[CONTENEDOR] = _conte,
+			        'FL (2)'[CLASE_DE_DOCUMENTO] = "ZINT"
+			    )
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        _clasificacion = "ZIMP", EKPO[FECHA_LIQUIDACION_FL],
+			        _clasificacion = "ZIMP + ZUB", FechaZUB,
+			        _clasificacion = "ZIMP + ZINT", FechaZINT,
+			        BLANK()
+			    )
+			```
+		formatString: Short Date
+		lineageTag: 5d0ae259-d556-461b-b561-e7dd17e2161b
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Fecha_Final_Liq =
+			
+			IF(
+			    ISBLANK(EKPO[Clasificacion_Documento]) && EKPO[FECHA_LIQUIDACION_FL] < TODAY()-3,
+			    EKPO[FECHA_LIQUIDACION_FL],
+			    IF(
+			        EKPO[Clasificacion_Documento] = "ZIMP",
+			        EKPO[FECHA_LIQUIDACION_FL],
+			        IF(
+			            EKPO[Clasificacion_Documento] = "ZIMP + ZUB" || EKPO[Clasificacion_Documento] = "ZIMP + ZINT",
+			            EKPO[Fecha_Liquidacion_ZUB],
+			            BLANK()
+			        )
+			  ))
+		formatString: Short Date
+		lineageTag: 0e9c2f36-adf4-4948-8c13-be5d8b58bab0
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Promedio Tránsito a BFI por País Origen' = ```
+			
+			VAR _paisorigen = EKPO[Pais_OrigenF] -- Captura el país de origen en el contexto actual
+			VAR _promedioPais = 
+			    ROUND(
+			        AVERAGEX(
+			            FILTER(
+			                EKPO,
+			                EKPO[Pais_OrigenF] = _paisorigen &&
+			                NOT(ISBLANK(EKPO[Transito_BFI])) &&
+			                EKPO[Transito_BFI] > 0
+			            ),
+			            EKPO[Transito_BFI]
+			        ), 2
+			    )
+			VAR _promedioGlobal = 
+			    ROUND(
+			        AVERAGEX(
+			            FILTER(
+			                EKPO,
+			                NOT(ISBLANK(EKPO[Transito_BFI])) &&
+			                EKPO[Transito_BFI] > 0
+			            ),
+			            EKPO[Transito_BFI]
+			        ), 2
+			    )
+			RETURN
+			    IF(
+			        _promedioPais > 0,
+			        _promedioPais,
+			        _promedioGlobal
+			    )
+			
+			```
+		lineageTag: f02feca1-2f0f-47ef-991d-fefbc19de6fb
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Fecha Liquidación Proyectada' = if(not(isblank(EKPO[MAX_ETA])),dateadd(EKPO[MAX_ETA],7,DAY))
+		formatString: Short Date
+		lineageTag: ec0541c5-4821-4cf7-b6aa-b72f5227b3c4
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Tránsito BFI New' =
+			if(
+			    isblank(EKPO[CONTENEDOR]),EKPO[Promedio Tránsito a BFI por País Origen],
+			    if(not(isblank(EKPO[MAX_ETA])),7,EKPO[Transito_BFI]))
+		lineageTag: 65a4012c-5650-4b17-9f55-ca45c88eb582
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FECHA_LIQUIDACION_FL =
+			VAR _doc = EKPO[DOCUMENTO]
+			VAR _mat = EKPO[ARTICULO]
+			VAR _val =
+			    CALCULATE (
+			        MIN ( FL[FECHA_LIQUIDACION] ),
+			        FL[DOCUMENTO_44] = _doc,
+			        FL[ARTICULO] = _mat
+			    )
+			RETURN
+			    _val
+		formatString: Short Date
+		lineageTag: 984f7e61-e4c4-47e0-bac8-d3ccae1d2980
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Clasificacion_Documento = ```
+			
+			IF(
+			    LEN(EKPO[CONTENEDOR]) = 0,
+			    BLANK(),
+			    
+			    VAR ContenedorActual = EKPO[CONTENEDOR]
+			
+			    VAR ZIMPFechaLiquidacion = 
+			        CALCULATE(
+			            MAX('FL (TRACING)'[FECHA_LIQUIDACION]),
+			            'FL (TRACING)'[CLASE_DOC] = "ZIMP",
+			            'FL (TRACING)'[NUESTRA_REFERENCIA] = ContenedorActual
+			        )
+			
+			    VAR ZUBFechaCreacion = 
+			        CALCULATE(
+			            MAX('FL (TRACING)'[CREADO_EL]),
+			            'FL (TRACING)'[CLASE_DOC] = "ZUB",
+			            'FL (TRACING)'[NUESTRA_REFERENCIA] = ContenedorActual
+			        )
+			
+			    VAR ZINTFechaCreacion = 
+			        CALCULATE(
+			            MAX('FL (TRACING)'[CREADO_EL]),
+			            'FL (TRACING)'[CLASE_DOC] = "ZINT",
+			            'FL (TRACING)'[NUESTRA_REFERENCIA] = ContenedorActual
+			        )
+			
+			    VAR FechaDiferencia = 
+			        IF(
+			            NOT ISBLANK(ZUBFechaCreacion),
+			            DATEDIFF(ZIMPFechaLiquidacion, ZUBFechaCreacion, DAY),
+			            BLANK()
+			        )
+			
+			    RETURN
+			        IF(
+			            ISBLANK(ZUBFechaCreacion) || FechaDiferencia > 3,
+			            IF(NOT ISBLANK(ZINTFechaCreacion), "ZIMP + ZINT", "ZIMP"),
+			            IF(NOT ISBLANK(ZINTFechaCreacion), "ZIMP + ZUB + ZINT", "ZIMP + ZUB")
+			        )
+			)
+			```
+		lineageTag: 669c617a-4e43-40a8-b605-3d53186f7b31
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETA_MarineTraffic = ```
+			
+			IF(
+			    EKPO[Estatus MK] = "Entregado", 
+			    EKPO[Fecha_Final_Liq] - EKPO[SLA_BFI],
+			    COALESCE(EKPO[MAX_ETA], EKPO[FECHA_LIQUIDACION_ESTIMADA]-4)
+			)
+			```
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 91d8adbd-02b0-452f-bd45-dc5541e5c283
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ETA_MarineTraffic_BFI =
+			IF (
+			    NOT ISBLANK ( 'EKPO'[ETA_MarineTraffic] ),
+			    'EKPO'[ETA_MarineTraffic] + EKPO[SLA_BFI]
+			)
+		formatString: Short Date
+		lineageTag: 923389f4-9e1d-4a36-b8db-7c3809989b23
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Fecha_Conciliacion =
+			VAR _eBFI = EKPO[ETA_MarineTraffic_BFI]
+			VAR _offset =
+			    IF ( DAY ( _ebfi ) > 10, 1, 0 )
+			VAR _fechaConcilia =
+			    IF (
+			        NOT ISBLANK ( _eBFI ),
+			        DATE ( YEAR ( _eBFI ), MONTH ( _eBFI ) + _offset, 1 )
+			    )
+			RETURN
+			    _fechaConcilia
+		formatString: Short Date
+		lineageTag: 33f9ce47-e81d-4c17-a752-b436459a19eb
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Nombre_Proveedor = RELATED(DIM_PROVEEDOR[PROVEEDOR])
+		lineageTag: 06f58234-2490-485e-85d1-ff045c60b9fb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transito_MT =
+			IF(
+			    ISBLANK(EKPO[MAX_ETA]) || ISBLANK(EKPO[loading_departure_timestamp]),
+			    BLANK(),
+			    EKPO[MAX_ETA] - EKPO[loading_departure_timestamp]
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: 52e43257-21fe-4d82-bf0b-222724a9a9de
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Días SAP vs Puerto Origen' = DATEDIFF(EKPO[MAX_ETA],EKPO[Fecha_Final_Liq],day)
+		formatString: 0
+		lineageTag: 34b2af7e-8e07-4c19-a96b-b4a836008738
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLA_Produccion = 90
+		formatString: 0
+		lineageTag: 75875db2-25a5-4eec-bbc1-d491f150c13d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLA_BFI = 13
+		formatString: 0
+		lineageTag: 4b57ae69-62f6-48ed-8933-12b064e278c5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLA_Consolidacion = 15
+		formatString: 0
+		lineageTag: 3fee84ea-9892-4a5c-9856-4299feb099ac
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLA_Maritimo = ```
+			
+			VAR EsAereo = SEARCH("Aereo", EKPO[Tipo_Flete], 1, 0) > 0
+			RETURN 
+			    IF(
+			        EsAereo, 
+			        LOOKUPVALUE(SLA_Maritimo[Tiempo],SLA_Maritimo[Modalidad],EKPO[Tipo_Flete]), 
+			        LOOKUPVALUE(SLA_Maritimo[Tiempo], SLA_Maritimo[Pais], EKPO[Pais_OrigenF])
+			    )
+			```
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a3720fb-012b-4410-9370-715c8c3258a8
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cump_Prod = if(EKPO[Margen_Cumplimiento_Pedido]=blank(),blank(),if(EKPO[Margen_Cumplimiento_Pedido]>=EKPO[SLA_Produccion],1,0))
+		formatString: 0
+		lineageTag: c87bef70-a776-46ec-adee-8ac9829b9a3f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Consolidacion_Total = IF(EKPO[Tiempo_Consolidación]+EKPO[Transito_CFS]<0,0,EKPO[Tiempo_Consolidación]+EKPO[Transito_CFS])
+		lineageTag: ede91dad-7a2c-49c7-b95d-7b20380e7a1c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Cump_Consolidacion = if(EKPO[Consolidacion_Total]=blank(),blank(),if(EKPO[Consolidacion_Total]<=EKPO[SLA_Consolidacion],1,0))
+		formatString: 0
+		lineageTag: d109510b-ad18-40e5-8e8a-fc76de1791d0
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cump_Tránsito = if(EKPO[Transito]=blank(),blank(),if(EKPO[Transito]<=EKPO[SLA_Maritimo],1,0))
+		formatString: 0
+		lineageTag: 9ad34066-0359-44a9-a312-a9a2af0b2c32
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cump_TránsitoBFI = if(EKPO[Transito_BFI]=blank(),blank(),if(EKPO[Transito_BFI]<=EKPO[SLA_BFI],1,0))
+		formatString: 0
+		lineageTag: e683e40e-1079-4dc4-83aa-529fdc0295ec
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SLA_TOTAL = EKPO[SLA_Produccion]+EKPO[SLA_Consolidacion]+EKPO[SLA_Maritimo]+EKPO[SLA_BFI]
+		formatString: 0
+		lineageTag: 7c6ee7fa-a118-4a7f-bdea-e5bdb05e430b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transito_Total = EKPO[Margen_Cumplimiento_Pedido]+EKPO[Consolidacion_Total]+EKPO[Transito]+EKPO[Transito_BFI]
+		lineageTag: 0b18409c-09b7-46c0-8445-cc888566604a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Cump_TT = if(EKPO[Transito_Total]=blank(),blank(),if(EKPO[Transito_Total]<=EKPO[SLA_TOTAL],0,1))
+		formatString: 0
+		lineageTag: cf4b976e-6c5d-4001-a461-8ce70493bc4f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICADOR_DE_LIBERACION
+		dataType: string
+		lineageTag: 833c6a18-b8f1-4363-9f60-d90d8df2aeed
+		summarizeBy: none
+		sourceColumn: INDICADOR_DE_LIBERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRUPO_DE_LIBERACION
+		dataType: string
+		lineageTag: a31025ea-6575-471c-b7a1-80231cec146c
+		summarizeBy: none
+		sourceColumn: GRUPO_DE_LIBERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTRATEGIA_LIBERACION
+		dataType: string
+		lineageTag: 4b813fe8-17eb-4e09-9c2f-3bfc7930ad18
+		summarizeBy: none
+		sourceColumn: ESTRATEGIA_LIBERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha_OTB = EKPO[Fecha_Conciliacion]
+		formatString: Short Date
+		lineageTag: 442e4892-094a-4ec4-8695-e4265bdb4956
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column gate_out_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 812990b4-bb29-4364-99bb-16d636acf062
+		summarizeBy: none
+		sourceColumn: gate_out_datetime
+
+		annotation SummarizationSetBy = Automatic
+
+	column AñoMes = FORMAT(EKPO[ETA_MarineTraffic_BFI], "YYYY-MM")  -- Ej: 2025-12
+		dataType: dateTime
+		formatString: mmmm "de" yyyy
+		lineageTag: 78686f28-5ebf-4349-8376-78d3c98c1c67
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Pais_Destino = RELATED ( DIM_BODEGA[SK_PAIS] )
+		lineageTag: 786bf999-1923-4378-82c9-7e063241375a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pais Destino2' = RELATED(DIM_PAIS[BV_PAIS])
+		lineageTag: de05f87e-9d95-4d81-ad25-75856b8cd0e1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_CATEGORIA
+		dataType: string
+		lineageTag: 0c6dea33-f9e9-4559-9962-cdeef36a1b36
+		summarizeBy: none
+		sourceColumn: BV_CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE_MARA
+		dataType: string
+		lineageTag: 52e08f03-c0c7-4f4e-84ab-3e3b68b367fa
+		summarizeBy: none
+		sourceColumn: PE_MARA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE_ANO_MARA
+		dataType: string
+		lineageTag: db462360-9ff7-4110-a87c-d96af75c33c4
+		summarizeBy: none
+		sourceColumn: PE_ANO_MARA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EKPO = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "WITH NAST_RANKED AS (#(lf)    SELECT #(lf)        OBJKY, #(lf)        DATVR,#(lf)        ROW_NUMBER() OVER (PARTITION BY OBJKY ORDER BY DATVR ASC) AS rn#(lf)    FROM SAP_ECC.NAST#(lf)    WHERE VSTAT = '1'#(lf)),#(lf)NAST_RANKED_ERDAT AS (#(lf)    SELECT #(lf)        OBJKY, #(lf)        ERDAT,#(lf)        ROW_NUMBER() OVER (PARTITION BY OBJKY ORDER BY ERDAT ASC) AS rn2#(lf)    FROM SAP_ECC.NAST#(lf)    WHERE NACHA = '1'#(lf)),#(lf)FINAL_DATA AS (#(lf)    SELECT #(lf)        EKKO.BSART AS Tipo_Documento,  #(lf)        EKPO.EBELN AS Documento,#(lf)        EKKO.FRGKE AS Indicador_de_Liberacion,#(lf)        EKKO.FRGGR AS Grupo_de_Liberacion,#(lf)        EKKO.FRGSX AS Estrategia_Liberacion,#(lf)        EKPO.MATNR AS Articulo,#(lf)        EKPO.TXZ01 AS Descripcion, #(lf)        EKPO.KTMNG AS Cantidad,#(lf)        EKPO.LGORT AS Almacen,#(lf)        CASE #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack' #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER) #(lf)            ELSE 1 #(lf)        END * EKPO.KTMNG AS Cantidad_Pares,#(lf)        EKPO.SAISO AS PE,#(lf)        EKPO.SAISO AS Ano_PE,#(lf)        EKPO.AEDAT AS Fecha_Creacion,#(lf)        EKPO.CREATIONDATE AS Fecha_Creacion2,#(lf)        EKPO.ZFACTORY AS XFactory_Actualizado, #(lf)        EKPO.ZFACTORYO AS XFactory_Original,#(lf)        EKPO.WERKS AS Entidad_CD,#(lf)        EKPO.BUKRS AS Entidad_Solicitante,#(lf)        EKKO.ZZF_DESPACHO AS XFactory_Requerida,#(lf)        EKKO.AEDAT AS Fecha_EKKO,#(lf)        EKKO.LIFNR AS Numero_Proveedor, #(lf)        EKKO.INCO1 AS Incoterm,#(lf)        EKKO.INCO2 AS Puerto_Origen,#(lf)        EKKO.ZZF_DESPACHO AS Fecha_Despacho_Final,#(lf)        EKKO.ZZF_DESPINI AS Fecha_Despacho_Inicial,#(lf)        EKKO.ZZ_TIPO_FLETE AS Tipo_de_Flete,#(lf)        EKKO.ZZ_ZPORT AS Puerto_Origen2,#(lf)        EKKO.BUKRS AS Entidad_Compra,#(lf)        EKKO.EKORG AS Entidad_Solicitante2,#(lf)        EKKO.ZZ_CENTRO_D AS Entidad_CD2,#(lf)        ZT.CARGO_READY_DATE AS Cargo_Ready_Date,#(lf)        ZT.DATE_ARRIVAL AS Fecha_Arrivo_CFS,#(lf)        ZT.ETD AS ETD,#(lf)        ZT.ATD AS ATD,#(lf)        ZT.ETA AS ETA, #(lf)        ZT.LINE_CONTAINER AS Modalidad_Despacho,#(lf)        ZT.PORT AS Numero_Puerto,#(lf)        ZT.LAND1 AS Pais_Origen,#(lf)        CASE WHEN ZT.CONTAINER IS NULL OR ZT.CONTAINER = '' THEN '' ELSE ZT.CONTAINER END AS Contenedor,#(lf)        NAST.DATVR AS Fecha_Liberacion,#(lf)        MARA.GROES AS ESTILO,#(lf)        MARA.FREE_CHAR AS COLOR,#(lf)        MARA.BISMT AS ESTILO_COLOR,#(lf)        MARA.BRAND_ID AS MARCA,#(lf)        MARA.ZZ_ART_PROV AS GENERO,#(lf)        MARA.ZZ_DEPART AS DEPARTAMENTO,#(lf)        MARA.SAISO AS PE_MARA,#(lf)        MARA.SAISJ AS PE_ANO_MARA,#(lf)        MARA.MEINS AS UNIDAD,#(lf)        (SELECT MIN(EKPO2.FECHA_LIQ)#(lf)         FROM SAP_ECC.ZTUNGYA_MK_UPD ZT2#(lf)         JOIN SAP_ECC.EKKO EKKO2 ON ZT2.CONTAINER = EKKO2.UNSEZ#(lf)         JOIN SAP_ECC.EKPO EKPO2 ON EKKO2.EBELN = EKPO2.EBELN#(lf)         WHERE ZT2.CONTAINER = ZT.CONTAINER#(lf)           AND EKKO2.LOEKZ <> 'L'#(lf)           AND EKPO2.LOEKZ <> 'L'#(lf)           AND EKKO2.EBELN LIKE '45%') AS Fecha_Recepcion_BFI,#(lf)        NAST2.ERDAT AS Fecha_Creacion3,#(lf)        LEAST(EKPO.AEDAT, EKPO.CREATIONDATE, NAST2.ERDAT) AS Fecha_Creacion_Final#(lf)    FROM SAP_ECC.EKPO EKPO#(lf)    LEFT JOIN SAP_ECC.EKKO EKKO ON EKPO.EBELN = EKKO.EBELN #(lf)    LEFT JOIN SAP_ECC.ZTUNGYA_MK_UPD ZT ON EKPO.EBELN = ZT.EBELN AND ZT.MATNR = EKPO.MATNR#(lf)    LEFT JOIN (#(lf)        SELECT OBJKY, MAX(DATVR) AS DATVR#(lf)        FROM SAP_ECC.NAST#(lf)        WHERE VSTAT = '1'#(lf)        GROUP BY OBJKY#(lf)    ) NAST ON EKPO.EBELN = NAST.OBJKY #(lf)    LEFT JOIN (#(lf)        SELECT OBJKY, MIN(ERDAT) AS ERDAT#(lf)        FROM SAP_ECC.NAST#(lf)        WHERE NACHA = '1'#(lf)        GROUP BY OBJKY#(lf)    ) NAST2 ON EKPO.EBELN = NAST2.OBJKY #(lf)    LEFT JOIN SAP_ECC.MARA MARA ON EKPO.MATNR = MARA.MATNR    #(lf)    WHERE EKPO.LOEKZ <> 'L'#(lf)      AND EKPO.EBELN LIKE '44%'#(lf)      --AND EKPO.EBELN IN ('4400051437') #(lf)      --AND EKPO.MATNR IN ('000000030066924003') #(lf))#(lf)SELECT DISTINCT *#(lf)FROM FINAL_DATA#(lf)WHERE Fecha_Creacion_Final >= '20230101'", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"FECHA_CREACION", type date}, {"XFACTORY_ORIGINAL", type date}, {"FECHA_DESPACHO_FINAL", type date}, {"FECHA_DESPACHO_INICIAL", type date}, {"CARGO_READY_DATE", type date}, {"FECHA_ARRIVO_CFS", type date}, {"ETD", type date}, {"ATD", type date}, {"ETA", type date}, {"FECHA_CREACION2", type date}, {"FECHA_LIBERACION", type date}, {"FECHA_CREACION3", type date}, {"FECHA_CREACION_FINAL", type date}, {"FECHA_EKKO", type date}, {"XFACTORY_ACTUALIZADO", type date}, {"XFACTORY_REQUERIDA", type date}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Tipo cambiado", {"CONTENEDOR"}, FACT_MARINETRAFFIC, {"container_number"}, "FACT_MARINETRAFFIC", JoinKind.LeftOuter),
+				    #"Se expandió FACT_MARINETRAFFIC" = Table.ExpandTableColumn(#"Consultas combinadas", "FACT_MARINETRAFFIC", {"reference_number", "transportation_status", "arrival_delay_days", "created", "updated", "shipment_id", "loading_actual_port", "loading_departure_timestamp", "offset_load_dep_timestamp", "discharge_planned_port", "discharge_planned_arrival_timestamp", "offset_dis_plan_arr_timestamp", "discharge_actual_port", "discharge_actual_arrival_timestamp", "offset_dis_act_arr_timestamp", "gate_out_datetime", "last_updated", "ETA_Marin_Traffic", "ETA_Local_Time_Offset"}, {"reference_number", "transportation_status", "arrival_delay_days", "created", "updated", "shipment_id", "loading_actual_port", "loading_departure_timestamp", "offset_load_dep_timestamp", "discharge_planned_port", "discharge_planned_arrival_timestamp", "offset_dis_plan_arr_timestamp", "discharge_actual_port", "discharge_actual_arrival_timestamp", "offset_dis_act_arr_timestamp", "gate_out_datetime", "last_updated", "ETA_Marin_Traffic", "ETA_Local_Time_Offset"}),
+				    #"Consultas combinadas1" = Table.NestedJoin(#"Se expandió FACT_MARINETRAFFIC", {"shipment_id"}, DIM_ETA, {"shipment_id"}, "DIM_ETA", JoinKind.LeftOuter),
+				    #"Se expandió DIM_ETA" = Table.ExpandTableColumn(#"Consultas combinadas1", "DIM_ETA", {"FIRST_ETA", "MAX_ETA", "CAMBIOS", "DIAS_DIFF"}, {"FIRST_ETA", "MAX_ETA", "CAMBIOS", "DIAS_DIFF"}),
+				    #"Consultas combinadas2" = Table.NestedJoin(#"Se expandió DIM_ETA", {"ARTICULO"}, DIM_ARTICULOS, {"SK_MATNR"}, "DIM_ARTICULOS", JoinKind.LeftOuter),
+				    #"Se expandió DIM_ARTICULOS" = Table.ExpandTableColumn(#"Consultas combinadas2", "DIM_ARTICULOS", {"BV_CATEGORIA"}, {"BV_CATEGORIA"})
+				in
+				    #"Se expandió DIM_ARTICULOS"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
