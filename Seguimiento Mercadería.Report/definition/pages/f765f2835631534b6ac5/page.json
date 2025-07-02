@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "f765f2835631534b6ac5",
+  "displayName": "Seguimiento PE 2",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "2ffe5b3970773b094423",
+      "target": "25c2000f3042679c95c0",
+      "type": "HighlightFilter"
+    },
+    {
+      "source": "25c2000f3042679c95c0",
+      "target": "2ffe5b3970773b094423",
+      "type": "HighlightFilter"
+    }
+  ]
+}

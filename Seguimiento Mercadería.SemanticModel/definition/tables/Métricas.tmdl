@@ -903,6 +903,283 @@ table Métricas
 		displayFolder: Pares
 		lineageTag: 70494fd1-1ac4-4b83-8fe6-c8711f7863d0
 
+	measure _baseParesCampañas = ```
+			SUM ( 'Tabla_Campaña'[Cantidad] ) 
+			```
+		isHidden
+		displayFolder: Campañas
+		lineageTag: c83286dc-55d7-43b7-bf00-0b40f4e50bef
+
+	measure 'Pares Import' =
+			CALCULATE (
+			    [_baseParesCampañas],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Origen] = "Importación" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Importación a BFI
+		lineageTag: 850951fa-1869-41a5-b88a-f4850d85f012
+
+	measure 'Pares Fabricación L1' =
+			CALCULATE (
+			    [_baseParesCampañas],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Origen] = "L1" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Fabricación L1
+		lineageTag: 7349e977-82c1-4488-ac0d-2cb76dc11640
+
+	measure 'Pares SOLPED' =
+			CALCULATE (
+			    [_baseParesCampañas],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Origen] = "SOLPED" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\SOLPED
+		lineageTag: 9c37718b-c583-4c17-8f8e-3ea176c8a648
+
+	measure 'Pares CD' =
+			CALCULATE (
+			    [_baseParesCampañas],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Origen] = "Exportación" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\CD
+		lineageTag: 91d9bd57-3a54-4933-92e4-30eddfe15091
+
+	measure 'Pares Tienda' =
+			CALCULATE (
+			    [_baseParesCampañas],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Origen] = "Tienda" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Tienda
+		lineageTag: 91093376-3cc5-4ae3-9158-19f3f08ab2fa
+
+	measure 'Entregado Import' =
+			CALCULATE (
+			    [Pares Import],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Entregado" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Importación a BFI
+		lineageTag: b567ea18-d766-40bb-b1aa-d82ee07b9ef7
+
+	measure 'Pendiente Import' =
+			CALCULATE (
+			    [Pares Import],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Pendiente" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Importación a BFI
+		lineageTag: b061fb74-db81-474a-956a-78076032bb21
+
+	measure '% Entregado Import' =
+			DIVIDE (
+			    [Entregado Import],
+			    [Pares Import]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Importación a BFI
+		lineageTag: 7e74210f-ed27-4a0b-b9d7-c265354a5648
+
+	measure '% Pendiente Import' =
+			DIVIDE (
+			    [Pendiente Import],
+			    [Pares Import]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Importación a BFI
+		lineageTag: aeccb7eb-7642-46c6-b9eb-b091b40a069d
+
+	measure 'Entregado Fabricación L1' =
+			CALCULATE (
+			    [Pares Fabricación L1],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Entregado" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Fabricación L1
+		lineageTag: 303e3fc3-49dc-4d8e-9770-00f351947b12
+
+	measure '% Entregado Fabricación L1' =
+			DIVIDE (
+			    [Entregado Fabricación L1],
+			    [Pares Fabricación L1]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Fabricación L1
+		lineageTag: f4a461eb-697f-4abd-878f-13263d5b296b
+
+	measure 'Pendiente Fabricación L1' =
+			CALCULATE (
+			    [Pares Fabricación L1],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Pendiente" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Fabricación L1
+		lineageTag: 4abcb593-31d2-4a5c-ab5a-ffbd7cb58750
+
+	measure '% Pendiente Fabricación L1' =
+			DIVIDE (
+			    [Pendiente Fabricación L1],
+			    [Pares Fabricación L1]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Fabricación L1
+		lineageTag: eab142ad-fa72-49ba-ae35-973a6d5ab190
+
+	measure 'Entregado SOLPED' =
+			CALCULATE (
+			    [Pares SOLPED],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Entregado" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\SOLPED
+		lineageTag: fd47cfec-6208-4544-9218-89723d491144
+
+	measure '% Entregado SOLPED' =
+			DIVIDE (
+			    [Entregado SOLPED],
+			    [Pares SOLPED]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\SOLPED
+		lineageTag: de5752ae-070f-47a6-b226-3269474f1718
+
+	measure 'Pendiente SOLPED' =
+			CALCULATE (
+			    [Pares SOLPED],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Pendiente" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\SOLPED
+		lineageTag: 8224a191-0408-483c-88eb-0fa3d45f7c52
+
+	measure '% Pendiente SOLPED' =
+			DIVIDE (
+			    [Pendiente SOLPED],
+			    [Pares SOLPED]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\SOLPED
+		lineageTag: f9a2f116-7b1f-40e0-bee3-029cf84e5ca4
+
+	measure 'Entregado Tienda' =
+			CALCULATE (
+			    [Pares Tienda],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Entregado" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Tienda
+		lineageTag: 1ba488f9-a579-402a-b179-a06126a384f6
+
+	measure '% Entregado Tienda' =
+			DIVIDE (
+			    [Entregado Tienda],
+			    [Pares Tienda]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Tienda
+		lineageTag: d7432e69-2c03-4b2c-b2cc-5d1be89b3aaf
+
+	measure 'Pendiente Tienda' =
+			CALCULATE (
+			    [Pares Tienda],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Pendiente" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Tienda
+		lineageTag: 59d1ca30-7859-4964-875a-fb81bf3bdc1a
+
+	measure '% Pendiente Tienda' =
+			DIVIDE (
+			    [Pendiente Tienda],
+			    [Pares Tienda]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Tienda
+		lineageTag: 6adb2f00-1894-41c0-96af-156235e672ad
+
+	measure 'Entregado CD' =
+			CALCULATE (
+			    [Pares CD],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Entregado" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\CD
+		lineageTag: e75e30f5-6d6a-4913-8dd3-a17d7d20a654
+
+	measure '% Entregado CD' =
+			DIVIDE (
+			    [Entregado CD],
+			    [Pares CD]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\CD
+		lineageTag: aac3d8c5-560c-41a8-9d91-9d55d7d65ff0
+
+	measure 'Pendiente CD' =
+			CALCULATE (
+			    [Pares CD],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Pendiente" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\CD
+		lineageTag: 8f0962e1-aebe-44e2-8920-6d5ebb470487
+
+	measure '% Pendiente CD' =
+			DIVIDE (
+			    [Pendiente CD],
+			    [Pares CD]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\CD
+		lineageTag: 10f43f83-1adc-44d0-b4c5-8d28256b79fd
+
+	measure inventario =
+			CALCULATE (
+			    SUM ( 'FACT_INVENTARIOUD'[PARES] ),
+			    'FACT_INVENTARIOUD'[SK_TIPOOPERACION] = "INVENTARIO"
+			)
+		formatString: #,0
+		displayFolder: Inventario
+		lineageTag: 073f3090-d980-4871-b1f8-df2bf3d2bc86
+
+	measure 'Inventario BFI' =
+			CALCULATE (
+			    [inventario],
+			    CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "BF"
+			    )
+			)
+		formatString: #,0
+		displayFolder: Inventario
+		lineageTag: b6402bab-ad9b-4675-9c00-bc9c4312f544
+
+	measure 'Inventario CD' =
+			CALCULATE (
+			    [inventario],
+			    CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "BP"
+			    )
+			)
+		formatString: #,0
+		displayFolder: Inventario
+		lineageTag: bc97f252-1b10-42de-a7f2-9e3b5d907002
+
+	measure 'Inventario Tiendas' =
+			CALCULATE (
+			    [inventario],
+			    CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "AL"
+			    )
+			)
+		formatString: #,0
+		displayFolder: Inventario
+		lineageTag: 1c6d09c3-0db3-4fe0-a6ad-4170a1413028
+
 	column Value
 		isHidden
 		lineageTag: 6f34ce85-c6e8-4092-bcb8-0f79e4e3fd24

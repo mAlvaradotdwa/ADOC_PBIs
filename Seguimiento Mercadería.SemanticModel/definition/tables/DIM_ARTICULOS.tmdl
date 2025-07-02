@@ -339,6 +339,20 @@ table DIM_ARTICULOS
 
 		annotation SummarizationSetBy = Automatic
 
+	column PE = LEFT( [SK_COLECCION] , 4 )
+		lineageTag: 17f2ca77-115f-42fc-80d9-506c3af31adc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERICO =
+			MID (
+			    DIM_ARTICULOS[SK_ARTICULO],
+			    FIND ( "0000000", DIM_ARTICULOS[SK_ARTICULO] ) + 7,
+			    8
+			)
+		lineageTag: db8d9f85-831e-4faa-9d4c-9dbde4b164f1
+
 	partition DIM_ARTICULOS = m
 		mode: import
 		source =
