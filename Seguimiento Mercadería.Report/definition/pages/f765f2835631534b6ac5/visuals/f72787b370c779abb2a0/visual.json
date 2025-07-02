@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "25c2000f3042679c95c0",
+  "name": "f72787b370c779abb2a0",
   "position": {
-    "x": 8,
+    "x": 600,
     "y": 136,
-    "z": 19000,
+    "z": 20001,
     "height": 200,
-    "width": 288,
-    "tabOrder": 19000
+    "width": 304,
+    "tabOrder": 20001
   },
   "visual": {
     "visualType": "barChart",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Procesos"
+                      "Entity": "DIM_PAIS"
                     }
                   },
-                  "Property": "Descripción Proceso"
+                  "Property": "BV_PAIS"
                 }
               },
-              "queryRef": "Procesos.Descripción Proceso",
-              "nativeQueryRef": "Descripción Proceso",
+              "queryRef": "DIM_PAIS.BV_PAIS",
+              "nativeQueryRef": "BV_PAIS",
               "active": true
             }
           ]
@@ -39,14 +39,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Tabla_Campaña"
+                      "Entity": "EKPO_CD-TIENDA"
                     }
                   },
-                  "Property": "Estatus"
+                  "Property": "Período OnTime"
                 }
               },
-              "queryRef": "Tabla_Campaña.Estatus",
-              "nativeQueryRef": "Estatus"
+              "queryRef": "EKPO_CD-TIENDA.Período OnTime",
+              "nativeQueryRef": "Período OnTime"
             }
           ]
         },
@@ -54,28 +54,76 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Tabla_Campaña"
-                        }
-                      },
-                      "Property": "Cantidad"
+                    "SourceRef": {
+                      "Entity": "Métricas"
                     }
                   },
-                  "Function": 0
+                  "Property": "_baseEntregado"
                 }
               },
-              "queryRef": "Sum(Tabla_Campaña.Cantidad)",
-              "nativeQueryRef": "Suma de Cantidad"
+              "queryRef": "Métricas._baseEntregado",
+              "nativeQueryRef": "_baseEntregado"
             }
           ]
         }
       }
     },
     "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "maxMarginFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "50L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'LeftCenter'"
+                }
+              }
+            }
+          }
+        }
+      ],
       "labels": [
         {
           "properties": {
@@ -85,18 +133,21 @@
                   "Value": "true"
                 }
               }
-            }
-          }
-        },
-        {
-          "properties": {
+            },
+            "enableValueDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "detailColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 1,
-                      "Percent": 0
+                      "Percent": 0.2
                     }
                   }
                 }
@@ -108,16 +159,22 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 1,
-                      "Percent": 0
+                      "Percent": 0.2
                     }
                   }
                 }
               }
-            },
-            "labelDisplayUnits": {
+            }
+          }
+        }
+      ],
+      "totals": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "true"
                 }
               }
             },
@@ -125,6 +182,23 @@
               "expr": {
                 "Literal": {
                   "Value": "2L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#76DB8C'"
+                    }
+                  }
                 }
               }
             }
@@ -139,15 +213,15 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Tabla_Campaña"
+                            "Entity": "EKPO_CD-TIENDA"
                           }
                         },
-                        "Property": "Estatus"
+                        "Property": "Período OnTime"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Entregado'"
+                        "Value": "'A Tiempo'"
                       }
                     }
                   }
@@ -155,9 +229,7 @@
               }
             ]
           }
-        }
-      ],
-      "dataPoint": [
+        },
         {
           "properties": {
             "fill": {
@@ -183,15 +255,15 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Tabla_Campaña"
+                            "Entity": "EKPO_CD-TIENDA"
                           }
                         },
-                        "Property": "Estatus"
+                        "Property": "Período OnTime"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Entregado'"
+                        "Value": "'Retraso menos de 1 semana'"
                       }
                     }
                   }
@@ -207,8 +279,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.2
+                      "ColorId": 8,
+                      "Percent": 0
                     }
                   }
                 }
@@ -225,15 +297,57 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Entity": "Tabla_Campaña"
+                            "Entity": "EKPO_CD-TIENDA"
                           }
                         },
-                        "Property": "Estatus"
+                        "Property": "Período OnTime"
                       }
                     },
                     "Right": {
                       "Literal": {
-                        "Value": "'Pendiente'"
+                        "Value": "'Retraso menos de 1 mes'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "EKPO_CD-TIENDA"
+                          }
+                        },
+                        "Property": "Período OnTime"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'más de 30 días de retraso'"
                       }
                     }
                   }
@@ -242,84 +356,16 @@
             ]
           }
         }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "maxMarginFactor": {
-              "expr": {
-                "Literal": {
-                  "Value": "50L"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
       ]
     },
     "visualContainerObjects": {
       "title": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pares por Estatus'"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
+                  "Value": "'Pares por Tiempo de Entrega a Tiendas'"
                 }
               }
             }

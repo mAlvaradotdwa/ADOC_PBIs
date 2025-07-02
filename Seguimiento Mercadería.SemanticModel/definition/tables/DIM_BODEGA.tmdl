@@ -268,7 +268,7 @@ table DIM_BODEGA
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT * FROM DM_COMERCIAL.dbo.DIM_TIENDA dt WHERE dt.BV_FORMATO in ('BOD','BFI') and ESTATUS_TIENDA = 'Abierta'#(lf)and dt.TIENDAH in ('CD BOD','BFI','BOD 3PL')#(lf)order by dt.SK_TIENDA asc"])
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT#(lf)    *#(lf)FROM DM_COMERCIAL.dbo.DIM_TIENDA dt#(lf)WHERE dt.BV_FORMATO IN ('BOD' , 'BFI')#(lf)    --AND ESTATUS_TIENDA = 'Abierta'#(lf)    AND dt.TIENDAH IN ('CD BOD' , 'BFI' , 'BOD 3PL')#(lf)ORDER BY#(lf)    dt.SK_TIENDA ASC", CreateNavigationProperties=false])
 				in
 				    Origen
 

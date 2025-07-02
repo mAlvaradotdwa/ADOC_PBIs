@@ -226,6 +226,16 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Línea": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -252,6 +262,16 @@ cultureInfo es-SV
 			        },
 			        {
 			          "Subcategoria": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Sub Categoría": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -328,6 +348,16 @@ cultureInfo es-SV
 			        },
 			        {
 			          "Genero": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Género": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -858,6 +888,9 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "sk marca": {
@@ -2600,6 +2633,16 @@ cultureInfo es-SV
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Atributo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -6201,9 +6244,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "marca": {
@@ -23479,9 +23519,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "marca": {
@@ -31014,6 +31051,16 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Marca": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -34126,9 +34173,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "marca": {
@@ -34585,9 +34629,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "marca": {
@@ -34896,6 +34937,16 @@ cultureInfo es-SV
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Estado Artículo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -40078,9 +40129,68 @@ cultureInfo es-SV
 			          }
 			        }
 			      ]
+			    },
+			    "dim_articulo.generico": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_ARTICULOS",
+			          "ConceptualProperty": "GENERICO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "generico": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Artículo Genérico": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "fecha_creación_MK_fecha_AMD_has_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Creación MK"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_creación_MK.fecha_AMD": {
+			          "Target": {
+			            "Entity": "fecha_creación_MK.fecha_AMD"
+			          }
+			        },
+			        "fecha_creación_MK.fecha_AMD.año": {
+			          "Target": {
+			            "Entity": "fecha_creación_MK.fecha_AMD.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_creación_MK.fecha_AMD"
+			            },
+			            "Object": {
+			              "Role": "fecha_creación_MK.fecha_AMD.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_AMD_have_años"
+			        }
+			      ]
+			    },
 			    "fecha_arribo_futuro_fecha_semana_semana_año_has_fecha_arribo_futuro_fecha_semana_día_me": {
 			      "Binding": {
 			        "ConceptualEntity": "Fecha Arribo Futuro"
@@ -40539,7 +40649,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_años"
+			          "ID": "fecha_AMD_have_años1"
 			        }
 			      ]
 			    },
@@ -41001,7 +41111,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_años1"
+			          "ID": "fecha_AMD_have_años2"
 			        }
 			      ]
 			    },
@@ -41259,52 +41369,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_articulos_have_tabla_conciliacions"
-			        }
-			      ]
-			    },
-			    "tabla_conciliacion_has_dim_marcas_2": {
-			      "Binding": {
-			        "ConceptualEntity": "Tabla_Conciliacion"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "tabla_conciliacion": {
-			          "Target": {
-			            "Entity": "tabla_conciliacion"
-			          }
-			        },
-			        "dim_marcas_2": {
-			          "Target": {
-			            "Entity": "dim_marcas_2"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "tabla_conciliacion"
-			            },
-			            "Object": {
-			              "Role": "dim_marcas_2"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "tabla_conciliacions_have_dim_marcas_2"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marcas_2"
-			            },
-			            "Object": {
-			              "Role": "tabla_conciliacion"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_tabla_conciliacions"
 			        }
 			      ]
 			    },
@@ -41799,52 +41863,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "ekpo_bfi_cd_have_ekpo_cd_tiendas"
-			        }
-			      ]
-			    },
-			    "ekpo_bfi_cd_has_dim_marcas_2": {
-			      "Binding": {
-			        "ConceptualEntity": "EKPO_BFI-CD"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "ekpo_bfi_cd": {
-			          "Target": {
-			            "Entity": "ekpo_bfi_cd"
-			          }
-			        },
-			        "dim_marcas_2": {
-			          "Target": {
-			            "Entity": "dim_marcas_2"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "ekpo_bfi_cd"
-			            },
-			            "Object": {
-			              "Role": "dim_marcas_2"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "ekpo_bfi_cd_have_dim_marcas_2"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marcas_2"
-			            },
-			            "Object": {
-			              "Role": "ekpo_bfi_cd"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_ekpo_bfi_cd"
 			        }
 			      ]
 			    },
@@ -43026,6 +43044,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_articulos_have_EKPO_solpeds"
+			        }
+			      ]
+			    },
+			    "dim_articulo_has_generico": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ARTICULOS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_articulo": {
+			          "Target": {
+			            "Entity": "dim_articulo"
+			          }
+			        },
+			        "dim_articulo.generico": {
+			          "Target": {
+			            "Entity": "dim_articulo.generico"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_articulo"
+			            },
+			            "Object": {
+			              "Role": "dim_articulo.generico"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_articulos_have_genericos"
 			        }
 			      ]
 			    },
@@ -49240,6 +49291,39 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
+			    "tabla_campaña_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "tabla_campaña.marca": {
+			          "Target": {
+			            "Entity": "tabla_campaña.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "tabla_campaña.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_marcas"
+			        }
+			      ]
+			    },
 			    "tabla_campaña_has_color": {
 			      "Binding": {
 			        "ConceptualEntity": "Tabla_Campaña"
@@ -49765,6 +49849,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "tabla_conciliacions_have_generos"
+			        }
+			      ]
+			    },
+			    "tabla_conciliacion_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Conciliacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_conciliacion": {
+			          "Target": {
+			            "Entity": "tabla_conciliacion"
+			          }
+			        },
+			        "tabla_conciliacion.marca": {
+			          "Target": {
+			            "Entity": "tabla_conciliacion.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_conciliacion"
+			            },
+			            "Object": {
+			              "Role": "tabla_conciliacion.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_conciliacions_have_marcas"
 			        }
 			      ]
 			    },
@@ -61534,6 +61651,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "ekpo_bfi_cd_have_tiendas"
+			        }
+			      ]
+			    },
+			    "ekpo_bfi_cd_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO_BFI-CD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo_bfi_cd": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd"
+			          }
+			        },
+			        "ekpo_bfi_cd.marca": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo_bfi_cd"
+			            },
+			            "Object": {
+			              "Role": "ekpo_bfi_cd.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpo_bfi_cd_have_marcas"
 			        }
 			      ]
 			    },
@@ -74961,6 +75111,39 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
+			    "ekpo_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo": {
+			          "Target": {
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "ekpo.marca": {
+			          "Target": {
+			            "Entity": "ekpo.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "ekpo.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_marcas"
+			        }
+			      ]
+			    },
 			    "ekpo_has_estilo_color": {
 			      "Binding": {
 			        "ConceptualEntity": "EKPO"
@@ -81390,39 +81573,6 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "dim_articulo_has_sk_marca": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_ARTICULOS"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_articulo": {
-			          "Target": {
-			            "Entity": "dim_articulo"
-			          }
-			        },
-			        "dim_articulo.sk_marca": {
-			          "Target": {
-			            "Entity": "dim_articulo.sk_marca"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_articulo"
-			            },
-			            "Object": {
-			              "Role": "dim_articulo.sk_marca"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_articulos_have_sk_marcas"
-			        }
-			      ]
-			    },
 			    "dim_articulo_has_sk_depto": {
 			      "Binding": {
 			        "ConceptualEntity": "DIM_ARTICULOS"
@@ -82791,39 +82941,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "ekpos_are_readied_on_cargo_ready_dates"
-			        }
-			      ]
-			    },
-			    "fecha_creación_MK_fecha_AMD_has_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Creación MK"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_creación_MK.fecha_AMD": {
-			          "Target": {
-			            "Entity": "fecha_creación_MK.fecha_AMD"
-			          }
-			        },
-			        "fecha_creación_MK.fecha_AMD.año": {
-			          "Target": {
-			            "Entity": "fecha_creación_MK.fecha_AMD.año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_creación_MK.fecha_AMD"
-			            },
-			            "Object": {
-			              "Role": "fecha_creación_MK.fecha_AMD.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_años2"
 			        }
 			      ]
 			    },

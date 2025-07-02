@@ -257,6 +257,7 @@ relationship 86c69fd4-1c65-9dfd-c8ed-5233fcc63426
 	toColumn: DIM_ARTICULOS.SK_MATNR
 
 relationship 535c2530-69f8-d382-7796-8a533127cdd7
+	isActive: false
 	toCardinality: many
 	fromColumn: EKPO_BFI-CD.CONTENEDOR
 	toColumn: EKPO_CD-TIENDA.CONTENEDOR_REFERENCIA
@@ -312,4 +313,17 @@ relationship 3532abfb-367f-37a8-352d-61ecd2ed1d47
 relationship d790b8b8-bd9b-e8e6-aad4-9e838c940e49
 	fromColumn: DIM_ARTICULOS.SK_MARCA
 	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 1c31302b-734d-aef3-7b25-c1606f3ad176
+	fromColumn: DIM_ARTICULOS.PE
+	toColumn: 'Períodos Estadísticos'.PE
+
+relationship 11a623fd-100b-2ef2-4d0d-34a70350bb85
+	fromColumn: EKPO_CD-TIENDA.ARTICULO
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 6086d892-a927-18c6-1d0e-68b2bebbeb2e
+	toCardinality: many
+	fromColumn: EKPO_CD-TIENDA.PAIS
+	toColumn: DIM_PAIS.BV_PAIS
 

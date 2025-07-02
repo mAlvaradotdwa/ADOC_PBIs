@@ -238,7 +238,7 @@ table EKPO_CD-TIENDA
 
 	column FECHA_DOCUMENTO_MATERIAL
 		dataType: dateTime
-		formatString: Short Date
+		formatString: yyyy-mm-dd
 		lineageTag: fc1538b0-21a1-4a78-a76f-3a61c4a5fa0c
 		summarizeBy: none
 		sourceColumn: FECHA_DOCUMENTO_MATERIAL
@@ -246,6 +246,8 @@ table EKPO_CD-TIENDA
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column DIA_INGRESO_DOCUMENTO
 		dataType: dateTime
@@ -437,6 +439,80 @@ table EKPO_CD-TIENDA
 			```
 		lineageTag: d4b585d3-6a0c-4082-b857-6024f609b862
 		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnTime =
+			
+			VAR _fechaInicio =
+			    RELATED ( 'Períodos Estadísticos'[Mes lanzamiento] )
+			VAR _fechaFin =
+			    IF (
+			        'EKPO_CD-TIENDA'[Estado_Documento] = "Entregado",
+			        [FECHA_DOCUMENTO_MATERIAL],
+			        TODAY ()
+			    )
+			RETURN
+			    INT( _fechaFin - _fechaInicio )
+		formatString: 0
+		lineageTag: 87343e25-dfbd-4c58-84bb-0a5df39f3b6c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Período OnTime' =
+			VAR _dias = 'EKPO_CD-TIENDA'[OnTime]
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        _dias <= [Días previo a ingreso], "A Tiempo",
+			        _dias < 0, "Ajustado",
+			        _dias <= 7, "Retraso menos de 1 semana",
+			        _dias <= 30, "Retraso menos de 1 mes",
+			        "más de 30 días de retraso"
+			    )
+		lineageTag: 2e28a0a1-c6c3-4fb4-a0dd-0bdd76a26763
+		summarizeBy: none
+		sortByColumn: IDPeriodoOnTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDPeriodoOnTime =
+			VAR _dias = 'EKPO_CD-TIENDA'[OnTime]
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        _dias <= [Días previo a ingreso], 0,
+			        _dias < 0, 1,
+			        _dias <= 7, 2,
+			        _dias <= 30, 3,
+			        4
+			    )
+		lineageTag: 28c8d35a-8c89-48ce-95b4-d04fd848df68
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estatus OnTime' =
+			IF (
+			    'EKPO_CD-TIENDA'[OnTime] < 0,
+			    "A Tiempo",
+			    "Atrasado"
+			)
+		lineageTag: 1e63e5a9-488a-48e7-bc2d-73b011e93694
+		summarizeBy: none
+		sortByColumn: IDEstatusOnTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDEstatusOnTime =
+			IF (
+			    'EKPO_CD-TIENDA'[OnTime] < 0,
+			    1,
+			    2
+			)
+		lineageTag: a239711d-245e-4dab-8909-45c3a2679c95
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 

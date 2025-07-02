@@ -1180,6 +1180,64 @@ table Métricas
 		displayFolder: Inventario
 		lineageTag: 1c6d09c3-0db3-4fe0-a6ad-4170a1413028
 
+	measure 'Días previo a ingreso' = 3
+		displayFolder: Control
+		lineageTag: fa7f4ff7-ffbb-41fb-bbb9-8ed095a07bcf
+
+	measure 'Entregado OnTime' =
+			CALCULATE (
+			    [_baseEntregado],
+			    KEEPFILTERS ( 'EKPO_CD-TIENDA'[Estatus OnTime] = "A Tiempo" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Tienda\OnTime
+		lineageTag: 8a01bcef-1c7d-4432-999a-292480e2fece
+
+	measure 'Entregado Atrasado' =
+			CALCULATE (
+			    [_baseEntregado],
+			    KEEPFILTERS ( 'EKPO_CD-TIENDA'[Estatus OnTime] <> "A Tiempo" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Tienda\OnTime
+		lineageTag: b8f606ad-abcd-490e-ba98-a0c542c0d42c
+
+	measure '% Entregado OnTime' =
+			DIVIDE (
+			    [Entregado OnTime],
+			    [Entregado OnTime] + [Entregado Atrasado]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Tienda\OnTime
+		lineageTag: 1c42bbb9-973d-47fa-8871-a90c98e60b2e
+
+	measure _baseEntregado =
+			CALCULATE (
+			    SUM ( 'EKPO_CD-TIENDA'[CANTIDAD_MOVIMIENTO] ),
+			    KEEPFILTERS ( 'EKPO_CD-TIENDA'[Estado_Documento] = "Entregado" )
+			)
+		formatString: #,0
+		isHidden
+		displayFolder: Campañas\Tienda\OnTime
+		lineageTag: 1324816e-a098-4c09-8769-31cd5f64fc59
+
+	measure 'Participación Entregas' =
+			VAR _base =
+			    CALCULATE (
+			        [_baseEntregado],
+			        REMOVEFILTERS ( 'EKPO_CD-TIENDA'[Estatus OnTime] ),
+			        REMOVEFILTERS ( 'EKPO_CD-TIENDA'[Período OnTime] ),
+			        REMOVEFILTERS ( 'EKPO_CD-TIENDA'[IDPeriodoOnTime] ),
+			        REMOVEFILTERS ( 'EKPO_CD-TIENDA'[IDEstatusOnTime] )
+			    )
+			VAR _val =
+			    DIVIDE ( [_baseEntregado], _base )
+			RETURN
+			    _val
+		formatString: #,0.00 %
+		displayFolder: Campañas\Tienda\OnTime
+		lineageTag: 4a118994-f6b9-42cd-bacb-9e757fc5a2df
+
 	column Value
 		isHidden
 		lineageTag: 6f34ce85-c6e8-4092-bcb8-0f79e4e3fd24

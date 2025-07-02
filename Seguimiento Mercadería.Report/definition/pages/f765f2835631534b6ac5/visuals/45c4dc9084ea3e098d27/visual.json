@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "45c4dc9084ea3e098d27",
   "position": {
-    "x": 0,
-    "y": 432,
+    "x": 8,
+    "y": 344,
     "z": 17000,
-    "height": 288,
-    "width": 1280,
+    "height": 368,
+    "width": 1264,
     "tabOrder": 17000
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Values": {
+        "Rows": {
           "projections": [
             {
               "field": {
@@ -28,6 +28,7 @@
               },
               "queryRef": "DIM_ARTICULOS.PE",
               "nativeQueryRef": "Período Estadístico",
+              "active": true,
               "displayName": "Período Estadístico"
             },
             {
@@ -43,6 +44,7 @@
               },
               "queryRef": "DIM_ARTICULOS.SK_UNIDADNEGOCIO",
               "nativeQueryRef": "Un. Negocio",
+              "active": true,
               "displayName": "Un. Negocio"
             },
             {
@@ -58,6 +60,7 @@
               },
               "queryRef": "DIM_ARTICULOS.BV_MARCA",
               "nativeQueryRef": "Marca",
+              "active": true,
               "displayName": "Marca"
             },
             {
@@ -73,6 +76,7 @@
               },
               "queryRef": "DIM_ARTICULOS.BV_GENERO",
               "nativeQueryRef": "BV_GENERO",
+              "active": true,
               "displayName": "Genero"
             },
             {
@@ -88,6 +92,7 @@
               },
               "queryRef": "DIM_ARTICULOS.ESTILO",
               "nativeQueryRef": "Estilo",
+              "active": true,
               "displayName": "Estilo"
             },
             {
@@ -103,8 +108,13 @@
               },
               "queryRef": "DIM_ARTICULOS.COLOR",
               "nativeQueryRef": "Color",
+              "active": true,
               "displayName": "Color"
-            },
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
             {
               "field": {
                 "Measure": {
@@ -360,11 +370,98 @@
               },
               "queryRef": "Métricas.Inventario Tiendas",
               "nativeQueryRef": "Inventario Tiendas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Entregado OnTime"
+                }
+              },
+              "queryRef": "Métricas.Entregado OnTime",
+              "nativeQueryRef": "Entregado OnTime"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Entregado Atrasado"
+                }
+              },
+              "queryRef": "Métricas.Entregado Atrasado",
+              "nativeQueryRef": "Entregado Atrasado"
             }
           ]
         }
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "DIM_ARTICULOS.PE"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "PE"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_ARTICULOS.SK_UNIDADNEGOCIO"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_ARTICULOS.BV_MARCA"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_ARTICULOS.BV_GENERO"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_ARTICULOS.ESTILO"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_ARTICULOS.COLOR"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "objects": {
       "grid": [
         {
@@ -437,9 +534,51 @@
           }
         }
       ],
+      "subTotals": [
+        {
+          "properties": {
+            "perRowLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "rowSubtotalsPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top'"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
       "general": [
         {
-          "properties": {}
+          "properties": {
+            "layout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Compact'"
+                }
+              }
+            }
+          }
         }
       ],
       "columnWidth": [
@@ -455,6 +594,19 @@
           },
           "selector": {
             "metadata": "Tabla_Campaña.Color"
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "repeatRowHeaders": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]
@@ -541,345 +693,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "76deef355abc27e05c26",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "PE"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "dd6be72e326602daaa4c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "SK_UNIDADNEGOCIO"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6083525b451c00295c09",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "BV_MARCA"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b3e486d0815ecad9c744",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "BV_GENERO"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "10871beab9ab044c00ba",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "ESTILO"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b15e01e7b037a5545cc0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "COLOR"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "4ca54665629c3ce0630a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Pares Import"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "bffc3f6de00bb5b650e2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "% Entregado Import"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8f2f78fb10789130792c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "% Pendiente Import"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "c4804bd0b0da45026356",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario BFI"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b35f7e0253b27a3101d0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Pares Fabricación L1"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3e7df26a02000c700a25",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "% Entregado Fabricación L1"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "30a73d8d07e472bea00d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "% Pendiente Fabricación L1"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1cff994f504d5c570064",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Pares SOLPED"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "13f187c77e88d32b82bb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "% Entregado SOLPED"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "7f446ce6e05e1425a2cc",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "% Pendiente SOLPED"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a87ca917801ce1211e07",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Pares CD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "410a57f54085a0214601",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "% Entregado CD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3b815b9410ab941846b3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "% Pendiente CD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3349d530aba507a03897",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario CD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f85268842370c77be320",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Pares Tienda"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d3984810c43a274e1720",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "% Entregado Tienda"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "af04e21e0c980aee09b8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "% Pendiente Tienda"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "61f536d7646944997083",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario Tiendas"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
