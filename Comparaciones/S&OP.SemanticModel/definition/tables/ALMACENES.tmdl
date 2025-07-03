@@ -33,12 +33,21 @@ table ALMACENES
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Tipo Bodega'
+		dataType: string
+		lineageTag: 689d41e9-f5b2-40a6-a347-236e31607ee3
+		summarizeBy: none
+		sourceColumn: Tipo Bodega
+
+		annotation SummarizationSetBy = Automatic
+
 	partition ALMACENES = m
 		mode: import
 		source =
 				let
-				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("lVjdbtowGH0Vi+uJYTsJ9DLQdqoEEyqs21T1wgtumy7EKIFqfa49wl5stvPj/DjJlysHfHTy+ZzzGZvHx8mKTyefJn50VMNXcfyVcPmwD09i8vTpcYJneCY/L7czrAZx4C8MXfMziyKFK57qUGKgG/YhEi7kF/qpAaSa4l1EaJuER56wTkqnRF7zZx6cLyIV+qvyQx3vVqtNefCaobOnOtSTwz0/sYQF4b+/MVrPlRKf/QZMfbt8uOuscNGkwTaabMgKu/lzEskZrfwuTqwoNheenhOW9kuJleb+gUcsPosUXd/sO0lpwVAUoCu1cTpNTnTzo5PWrYE3/s8OUq+Jy0ht0LmWNOXJO0OnRBwuwVlYRVXar1gUHtihPq9WtvumsztboC078YgnoYrZ7nIM41AqKxpYJaR7hVYilnMR2h9Y2gdXai7m6OYQPofoA+15ohuoE680nc/RA38Ng0sk7Nxa+LUuZYbRdZieeBzwRGlfPmdQAu9OAu1OUunOOiciXazaCTmTZ0r2gIg7sXkCG1hLCVqIrT+0JJ09CcsYqkwEvn0R6PZF2tvXRS0B4fYGRkZuYKS2geX7VdrYusjAnkSgDUQGGiifzxuoEtNWZkmt1co+kw0hgVY4ySKOq5lGD3u/lXEKt5BCLaQjLKQjLaQQC+mAhRRqIR2wkIItpJknUAslnI6CU7iLFOoiHekMhThDB5wp5q9Ugt8u6Zmn6PtmVxOdYhNvebZiAY/RFx7LdEWtgDvwgDvQgDsjAu6MDLgDCbgzEHAHnEtn3NbiwtV0oWq6I9R0R6rpQtR0B9R0wWq6Y9UEt60LbVsDhKg5rsVdSIu7Ay1u5hcD891bgAePoQeNoTciht7IGHqQGHoDMfTAMfTGxXCRv/i2quaKvbG0UYEBVrTchsHvMH6paWmAWsswkWLo9RYGGoA+gybiKJTWLOJ2lJJNV1SeQtsYdfXJi+lBzSsFlTD7IlU+6XatglXK0Sa8qqCMFi2cHjTOqGF9rbZOAdUZvvO1+jRRoPpeSyu4PiMwyAh9F1je3pVXlt3Un3auxMvBebsVYEtO9EGsyrucrrt5Fw3eHGzj1XvIerO/32+27Wt7idNXnQLXvF0bFG5UuZ7uOqskpFplAbWx0oK1iKXEtlkxtEUxtEWxtUXtbAPpwIA2xeAGJNXtqCJ39iNgx9bVzpDV1RY4f2I7yJv5pRzuYnmCDPRKD8KGyu7jtm4iUJsI1CYCsYmAbCIAmwjUpq2PwTYZbL9NBnelB/QQJucLiyz/PRio3VEz3+doicqH8oW6+tYq4ME02KEVF7js1CF/Q1jMjs0Dh4EBhOmPupnvF4YAhXn6Dw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t, Columna2 = _t, Columna3 = _t, Columna4 = _t]),
-				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/luis_menendez_empresasadoc_com/Documents/Attachments/Datos%20Almacenes%20(1).xlsb"), null, true),
+				    Almacenes1 = Origen{[Name="Almacenes"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Almacenes1, [PromoteAllScalars=true]),
 				    Personalizado1 = #"Encabezados promovidos",
 				    #"Filas filtradas" = Table.SelectRows(Personalizado1, each ([Tipo] = "Detalle" or [Tipo] = "Mayor"))
 				in

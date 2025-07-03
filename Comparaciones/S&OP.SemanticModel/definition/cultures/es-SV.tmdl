@@ -226,6 +226,16 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Línea": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -252,6 +262,16 @@ cultureInfo es-SV
 			        },
 			        {
 			          "Subcategoria": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Sub Categoría": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -335,6 +355,16 @@ cultureInfo es-SV
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Género": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -390,6 +420,16 @@ cultureInfo es-SV
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Marca": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -848,6 +888,9 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "sk marca": {
@@ -2366,6 +2409,16 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Un. Negocio": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -2580,6 +2633,16 @@ cultureInfo es-SV
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Atributo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -6181,9 +6244,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "marca": {
@@ -23459,9 +23519,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "marca": {
@@ -30994,6 +31051,16 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Marca": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -34106,9 +34173,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "marca": {
@@ -34565,9 +34629,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "marca": {
@@ -34664,6 +34725,9 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "origen": {
@@ -34873,6 +34937,16 @@ cultureInfo es-SV
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Estado Artículo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -37044,6 +37118,9 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "sk matnr": {
@@ -38070,7 +38147,7 @@ cultureInfo es-SV
 			          }
 			        },
 			        {
-			          "Periodo Estadistico": {
+			          "PE": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -38080,7 +38157,7 @@ cultureInfo es-SV
 			          }
 			        },
 			        {
-			          "PE": {
+			          "Periodo Estadistico": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -38445,6 +38522,1636 @@ cultureInfo es-SV
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_articulo.pe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_ARTICULOS",
+			          "ConceptualProperty": "PE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pe": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Período Estadístico": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entity__baseParesCampañas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "_baseParesCampañas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_baseParesCampañas": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pares_import": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Pares Import"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pares import": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pares introduction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "pares importation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "pares ingress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "pares significance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "pares importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "pares consequence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "pares solemnity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "pares seriousness": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "pares weight": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "pares meaning": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "Importación a BFI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pares_fabricación_L1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Pares Fabricación L1"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pares fabricación L1": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Fabricación L1": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pares_SOLPED": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Pares SOLPED"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pares SOLPED": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pares_CD": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Pares CD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pares CD": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pares album": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "pares disk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "pares disc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "pares recording": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pares_tienda": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Pares Tienda"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pares tienda": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entregado_import": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Entregado Import"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "entregado import": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "entregado introduction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "entregado importation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "entregado ingress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "entregado significance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "entregado importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "entregado consequence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "entregado solemnity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "entregado seriousness": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "entregado weight": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "entregado meaning": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pendiente_import": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Pendiente Import"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pendiente import": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pendiente introduction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "pendiente importation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "pendiente ingress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "pendiente significance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "pendiente importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "pendiente consequence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "pendiente solemnity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "pendiente seriousness": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "pendiente weight": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "pendiente meaning": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entregado_import1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "% Entregado Import"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% entregado import": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage entregado import": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct entregado import": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "% entregado introduction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "% entregado importation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "% entregado ingress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "% entregado significance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "% entregado importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "% entregado consequence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "% entregado solemnity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "% entregado seriousness": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "% Ent.": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pendiente_import1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "% Pendiente Import"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% pendiente import": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage pendiente import": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct pendiente import": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "% pendiente introduction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "% pendiente importation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "% pendiente ingress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "% pendiente significance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "% pendiente importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "% pendiente consequence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "% pendiente solemnity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "% pendiente seriousness": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "% Pend.": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entregado_fabricación_L1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Entregado Fabricación L1"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "entregado fabricación L1": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entregado_fabricación_L11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "% Entregado Fabricación L1"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% entregado fabricación L1": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage entregado fabricación l1": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "pct entregado fabricación l1": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pendiente_fabricación_L1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Pendiente Fabricación L1"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pendiente fabricación L1": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pendiente_fabricación_L11": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "% Pendiente Fabricación L1"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% pendiente fabricación L1": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage pendiente fabricación l1": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "pct pendiente fabricación l1": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entregado_SOLPED": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Entregado SOLPED"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "entregado SOLPED": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entregado_SOLPED1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "% Entregado SOLPED"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% entregado SOLPED": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage entregado solped": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct entregado solped": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pendiente_SOLPED": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Pendiente SOLPED"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pendiente SOLPED": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pendiente_SOLPED1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "% Pendiente SOLPED"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% pendiente SOLPED": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage pendiente solped": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct pendiente solped": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entregado_tienda": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Entregado Tienda"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "entregado tienda": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entregado_tienda1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "% Entregado Tienda"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% entregado tienda": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage entregado tienda": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct entregado tienda": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pendiente_tienda": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Pendiente Tienda"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pendiente tienda": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pendiente_tienda1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "% Pendiente Tienda"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% pendiente tienda": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage pendiente tienda": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct pendiente tienda": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entregado_CD": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Entregado CD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "entregado CD": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "entregado album": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "entregado disk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "entregado disc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "entregado recording": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.entregado_CD1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "% Entregado CD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% entregado CD": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage entregado cd": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct entregado cd": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "% entregado album": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "% entregado disk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "% entregado disc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "% entregado recording": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pendiente_CD": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Pendiente CD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pendiente CD": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pendiente album": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "pendiente disk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "pendiente disc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "pendiente recording": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.pendiente_CD1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "% Pendiente CD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% pendiente CD": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage pendiente cd": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct pendiente cd": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "% pendiente album": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "% pendiente disk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "% pendiente disc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "% pendiente recording": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "ekpo_cd_tienda.articulo_generico_F": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "EKPO_CD-TIENDA",
+			          "ConceptualProperty": "Articulo_GenericoF"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "articulo generico F": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Articulo_GenericoF": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.inventario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "inventario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventario": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.inventario_BFI": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Inventario BFI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventario BFI": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.inventario_CD": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Inventario CD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventario CD": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "inventario album": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "inventario disk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "inventario disc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "inventario recording": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.inventario_tiendas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Inventario Tiendas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventario tiendas": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "almacene.tipo_bodega": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ALMACENES",
+			          "ConceptualProperty": "Tipo Bodega"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo bodega": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "proceso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Procesos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "proceso": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "proceso.id_proceso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Procesos",
+			          "ConceptualProperty": "idProceso"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id proceso": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "idProceso": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification proceso": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity proceso": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier proceso": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential proceso": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "proceso.proceso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Procesos",
+			          "ConceptualProperty": "Proceso"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "proceso": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "proceso name": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "proceso.descripción_proceso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Procesos",
+			          "ConceptualProperty": "Descripción Proceso"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "descripción proceso": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_articulo.generico": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_ARTICULOS",
+			          "ConceptualProperty": "GENERICO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "generico": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Artículo Genérico": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -39408,6 +41115,52 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
+			    "fact_inventarioud_has_dim_articulo": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "dim_articulo": {
+			          "Target": {
+			            "Entity": "dim_articulo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "dim_articulo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_dim_articulos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_articulo"
+			            },
+			            "Object": {
+			              "Role": "fact_inventarioud"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_articulos_have_fact_inventariouds"
+			        }
+			      ]
+			    },
 			    "preparaciones_cd_tracing_has_dim_marcas_2": {
 			      "Binding": {
 			        "ConceptualEntity": "PREPARACIONES CD (TRACING)"
@@ -39451,6 +41204,59 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_marcas_2_have_preparaciones_cd_tracing"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_proceso": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "proceso": {
+			          "Target": {
+			            "Entity": "proceso"
+			          },
+			          "Nouns": [
+			            {
+			              "origen": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "proceso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_procesos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "proceso"
+			            },
+			            "Object": {
+			              "Role": "tabla_campaña"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "procesos_have_tabla_campañas"
 			        }
 			      ]
 			    },
@@ -39563,52 +41369,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_articulos_have_tabla_conciliacions"
-			        }
-			      ]
-			    },
-			    "tabla_conciliacion_has_dim_marcas_2": {
-			      "Binding": {
-			        "ConceptualEntity": "Tabla_Conciliacion"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "tabla_conciliacion": {
-			          "Target": {
-			            "Entity": "tabla_conciliacion"
-			          }
-			        },
-			        "dim_marcas_2": {
-			          "Target": {
-			            "Entity": "dim_marcas_2"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "tabla_conciliacion"
-			            },
-			            "Object": {
-			              "Role": "dim_marcas_2"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "tabla_conciliacions_have_dim_marcas_2"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marcas_2"
-			            },
-			            "Object": {
-			              "Role": "tabla_conciliacion"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_tabla_conciliacions"
 			        }
 			      ]
 			    },
@@ -40103,52 +41863,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "ekpo_bfi_cd_have_ekpo_cd_tiendas"
-			        }
-			      ]
-			    },
-			    "ekpo_bfi_cd_has_dim_marcas_2": {
-			      "Binding": {
-			        "ConceptualEntity": "EKPO_BFI-CD"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "ekpo_bfi_cd": {
-			          "Target": {
-			            "Entity": "ekpo_bfi_cd"
-			          }
-			        },
-			        "dim_marcas_2": {
-			          "Target": {
-			            "Entity": "dim_marcas_2"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "ekpo_bfi_cd"
-			            },
-			            "Object": {
-			              "Role": "dim_marcas_2"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "ekpo_bfi_cd_have_dim_marcas_2"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marcas_2"
-			            },
-			            "Object": {
-			              "Role": "ekpo_bfi_cd"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_ekpo_bfi_cd"
 			        }
 			      ]
 			    },
@@ -41330,6 +43044,1207 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_articulos_have_EKPO_solpeds"
+			        }
+			      ]
+			    },
+			    "dim_articulo_has_generico": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ARTICULOS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_articulo": {
+			          "Target": {
+			            "Entity": "dim_articulo"
+			          }
+			        },
+			        "dim_articulo.generico": {
+			          "Target": {
+			            "Entity": "dim_articulo.generico"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_articulo"
+			            },
+			            "Object": {
+			              "Role": "dim_articulo.generico"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_articulos_have_genericos"
+			        }
+			      ]
+			    },
+			    "proceso_has_descripción_proceso": {
+			      "Binding": {
+			        "ConceptualEntity": "Procesos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "proceso": {
+			          "Target": {
+			            "Entity": "proceso"
+			          }
+			        },
+			        "proceso.descripción_proceso": {
+			          "Target": {
+			            "Entity": "proceso.descripción_proceso"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "proceso"
+			            },
+			            "Object": {
+			              "Role": "proceso.descripción_proceso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "procesos_have_descripción_procesos"
+			        }
+			      ]
+			    },
+			    "proceso_has_proceso": {
+			      "Binding": {
+			        "ConceptualEntity": "Procesos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "proceso": {
+			          "Target": {
+			            "Entity": "proceso"
+			          }
+			        },
+			        "proceso.proceso": {
+			          "Target": {
+			            "Entity": "proceso.proceso"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "proceso"
+			            },
+			            "Object": {
+			              "Role": "proceso.proceso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "procesos_have_procesos"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "proceso"
+			            },
+			            "Name": {
+			              "Role": "proceso.proceso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "procesos_are_names_IDs_of_procesos"
+			        }
+			      ]
+			    },
+			    "proceso_has_id_proceso": {
+			      "Binding": {
+			        "ConceptualEntity": "Procesos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "proceso": {
+			          "Target": {
+			            "Entity": "proceso"
+			          }
+			        },
+			        "proceso.id_proceso": {
+			          "Target": {
+			            "Entity": "proceso.id_proceso"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "proceso"
+			            },
+			            "Object": {
+			              "Role": "proceso.id_proceso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "procesos_have_id_procesos"
+			        }
+			      ]
+			    },
+			    "almacene_has_tipo_bodega": {
+			      "Binding": {
+			        "ConceptualEntity": "ALMACENES"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "almacene": {
+			          "Target": {
+			            "Entity": "almacene"
+			          }
+			        },
+			        "almacene.tipo_bodega": {
+			          "Target": {
+			            "Entity": "almacene.tipo_bodega"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "almacene"
+			            },
+			            "Object": {
+			              "Role": "almacene.tipo_bodega"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "almacenes_have_tipo_bodegas"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_métrica_inventario_tiendas": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "métrica.inventario_tiendas": {
+			          "Target": {
+			            "Entity": "métrica.inventario_tiendas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "métrica.inventario_tiendas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_inventario_tiendas"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_métrica_inventario_CD": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "métrica.inventario_CD": {
+			          "Target": {
+			            "Entity": "métrica.inventario_CD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "métrica.inventario_CD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_inventario_CD"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_métrica_inventario_BFI": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "métrica.inventario_BFI": {
+			          "Target": {
+			            "Entity": "métrica.inventario_BFI"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "métrica.inventario_BFI"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_inventario_BFI"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_métrica_inventario": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "métrica.inventario": {
+			          "Target": {
+			            "Entity": "métrica.inventario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "métrica.inventario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_inventario"
+			        }
+			      ]
+			    },
+			    "ekpo_cd_tienda_has_articulo_generico_F": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO_CD-TIENDA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo_cd_tienda": {
+			          "Target": {
+			            "Entity": "ekpo_cd_tienda"
+			          }
+			        },
+			        "ekpo_cd_tienda.articulo_generico_F": {
+			          "Target": {
+			            "Entity": "ekpo_cd_tienda.articulo_generico_F"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo_cd_tienda"
+			            },
+			            "Object": {
+			              "Role": "ekpo_cd_tienda.articulo_generico_F"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpo_cd_tiendas_have_articulo_generico_F"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pendiente_CD1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pendiente_CD1": {
+			          "Target": {
+			            "Entity": "métrica.pendiente_CD1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pendiente_CD1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have__pendiente_CD"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pendiente_CD": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pendiente_CD": {
+			          "Target": {
+			            "Entity": "métrica.pendiente_CD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pendiente_CD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_pendiente_CD"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_entregado_CD1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.entregado_CD1": {
+			          "Target": {
+			            "Entity": "métrica.entregado_CD1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.entregado_CD1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have__entregado_CD"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_entregado_CD": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.entregado_CD": {
+			          "Target": {
+			            "Entity": "métrica.entregado_CD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.entregado_CD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_entregado_CD"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pendiente_tienda1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pendiente_tienda1": {
+			          "Target": {
+			            "Entity": "métrica.pendiente_tienda1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pendiente_tienda1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have__pendiente_tienda"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pendiente_tienda": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pendiente_tienda": {
+			          "Target": {
+			            "Entity": "métrica.pendiente_tienda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pendiente_tienda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_pendiente_tienda"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_entregado_tienda1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.entregado_tienda1": {
+			          "Target": {
+			            "Entity": "métrica.entregado_tienda1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.entregado_tienda1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have__entregado_tienda"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_entregado_tienda": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.entregado_tienda": {
+			          "Target": {
+			            "Entity": "métrica.entregado_tienda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.entregado_tienda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_entregado_tienda"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pendiente_SOLPED1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pendiente_SOLPED1": {
+			          "Target": {
+			            "Entity": "métrica.pendiente_SOLPED1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pendiente_SOLPED1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have__pendiente_SOLPED"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pendiente_SOLPED": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pendiente_SOLPED": {
+			          "Target": {
+			            "Entity": "métrica.pendiente_SOLPED"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pendiente_SOLPED"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_pendiente_SOLPED"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_entregado_SOLPED1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.entregado_SOLPED1": {
+			          "Target": {
+			            "Entity": "métrica.entregado_SOLPED1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.entregado_SOLPED1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have__entregado_SOLPED"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_entregado_SOLPED": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.entregado_SOLPED": {
+			          "Target": {
+			            "Entity": "métrica.entregado_SOLPED"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.entregado_SOLPED"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_entregado_SOLPED"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pendiente_fabricación_L11": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pendiente_fabricación_L11": {
+			          "Target": {
+			            "Entity": "métrica.pendiente_fabricación_L11"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pendiente_fabricación_L11"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have__pendiente_fabricación_L1"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pendiente_fabricación_L1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pendiente_fabricación_L1": {
+			          "Target": {
+			            "Entity": "métrica.pendiente_fabricación_L1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pendiente_fabricación_L1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_pendiente_fabricación_L1"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_entregado_fabricación_L11": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.entregado_fabricación_L11": {
+			          "Target": {
+			            "Entity": "métrica.entregado_fabricación_L11"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.entregado_fabricación_L11"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have__entregado_fabricación_L1"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_entregado_fabricación_L1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.entregado_fabricación_L1": {
+			          "Target": {
+			            "Entity": "métrica.entregado_fabricación_L1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.entregado_fabricación_L1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_entregado_fabricación_L1"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pendiente_import1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pendiente_import1": {
+			          "Target": {
+			            "Entity": "métrica.pendiente_import1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pendiente_import1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have__pendiente_import"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_entregado_import1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.entregado_import1": {
+			          "Target": {
+			            "Entity": "métrica.entregado_import1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.entregado_import1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have__entregado_import"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pendiente_import": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pendiente_import": {
+			          "Target": {
+			            "Entity": "métrica.pendiente_import"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pendiente_import"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_pendiente_import"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_entregado_import": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.entregado_import": {
+			          "Target": {
+			            "Entity": "métrica.entregado_import"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.entregado_import"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_entregado_import"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pares_tienda": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pares_tienda": {
+			          "Target": {
+			            "Entity": "métrica.pares_tienda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pares_tienda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_pares_tienda"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pares_CD": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pares_CD": {
+			          "Target": {
+			            "Entity": "métrica.pares_CD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pares_CD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_pares_CD"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pares_SOLPED": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pares_SOLPED": {
+			          "Target": {
+			            "Entity": "métrica.pares_SOLPED"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pares_SOLPED"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_pares_SOLPED"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pares_fabricación_L1": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pares_fabricación_L1": {
+			          "Target": {
+			            "Entity": "métrica.pares_fabricación_L1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pares_fabricación_L1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_pares_fabricación_L1"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_métrica_pares_import": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "métrica.pares_import": {
+			          "Target": {
+			            "Entity": "métrica.pares_import"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "métrica.pares_import"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_pares_import"
+			        }
+			      ]
+			    },
+			    "dim_articulo_has_pe": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ARTICULOS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_articulo": {
+			          "Target": {
+			            "Entity": "dim_articulo"
+			          }
+			        },
+			        "dim_articulo.pe": {
+			          "Target": {
+			            "Entity": "dim_articulo.pe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_articulo"
+			            },
+			            "Object": {
+			              "Role": "dim_articulo.pe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_articulos_have_pe"
 			        }
 			      ]
 			    },
@@ -43139,39 +46054,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_inventariouds_have_sk_divisions"
-			        }
-			      ]
-			    },
-			    "fact_inventarioud_has_sk_matnr": {
-			      "Binding": {
-			        "ConceptualEntity": "FACT_INVENTARIOUD"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_inventarioud": {
-			          "Target": {
-			            "Entity": "fact_inventarioud"
-			          }
-			        },
-			        "fact_inventarioud.sk_matnr": {
-			          "Target": {
-			            "Entity": "fact_inventarioud.sk_matnr"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_inventarioud"
-			            },
-			            "Object": {
-			              "Role": "fact_inventarioud.sk_matnr"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_inventariouds_have_sk_matnrs"
 			        }
 			      ]
 			    },
@@ -46244,39 +49126,6 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "tabla_campaña_has_origen": {
-			      "Binding": {
-			        "ConceptualEntity": "Tabla_Campaña"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "tabla_campaña": {
-			          "Target": {
-			            "Entity": "tabla_campaña"
-			          }
-			        },
-			        "tabla_campaña.origen": {
-			          "Target": {
-			            "Entity": "tabla_campaña.origen"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "tabla_campaña"
-			            },
-			            "Object": {
-			              "Role": "tabla_campaña.origen"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "tabla_campañas_have_origen"
-			        }
-			      ]
-			    },
 			    "tabla_campaña_has_precio_venta_USD": {
 			      "Binding": {
 			        "ConceptualEntity": "Tabla_Campaña"
@@ -46439,6 +49288,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "tabla_campañas_have_generos"
+			        }
+			      ]
+			    },
+			    "tabla_campaña_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Campaña"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_campaña": {
+			          "Target": {
+			            "Entity": "tabla_campaña"
+			          }
+			        },
+			        "tabla_campaña.marca": {
+			          "Target": {
+			            "Entity": "tabla_campaña.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_campaña"
+			            },
+			            "Object": {
+			              "Role": "tabla_campaña.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_campañas_have_marcas"
 			        }
 			      ]
 			    },
@@ -46967,6 +49849,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "tabla_conciliacions_have_generos"
+			        }
+			      ]
+			    },
+			    "tabla_conciliacion_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "Tabla_Conciliacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tabla_conciliacion": {
+			          "Target": {
+			            "Entity": "tabla_conciliacion"
+			          }
+			        },
+			        "tabla_conciliacion.marca": {
+			          "Target": {
+			            "Entity": "tabla_conciliacion.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tabla_conciliacion"
+			            },
+			            "Object": {
+			              "Role": "tabla_conciliacion.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tabla_conciliacions_have_marcas"
 			        }
 			      ]
 			    },
@@ -58736,6 +61651,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "ekpo_bfi_cd_have_tiendas"
+			        }
+			      ]
+			    },
+			    "ekpo_bfi_cd_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO_BFI-CD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo_bfi_cd": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd"
+			          }
+			        },
+			        "ekpo_bfi_cd.marca": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo_bfi_cd"
+			            },
+			            "Object": {
+			              "Role": "ekpo_bfi_cd.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpo_bfi_cd_have_marcas"
 			        }
 			      ]
 			    },
@@ -72163,6 +75111,39 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
+			    "ekpo_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo": {
+			          "Target": {
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "ekpo.marca": {
+			          "Target": {
+			            "Entity": "ekpo.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "ekpo.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_marcas"
+			        }
+			      ]
+			    },
 			    "ekpo_has_estilo_color": {
 			      "Binding": {
 			        "ConceptualEntity": "EKPO"
@@ -78589,39 +81570,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_articulos_have_sk_tipoestilos"
-			        }
-			      ]
-			    },
-			    "dim_articulo_has_sk_marca": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_ARTICULOS"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_articulo": {
-			          "Target": {
-			            "Entity": "dim_articulo"
-			          }
-			        },
-			        "dim_articulo.sk_marca": {
-			          "Target": {
-			            "Entity": "dim_articulo.sk_marca"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_articulo"
-			            },
-			            "Object": {
-			              "Role": "dim_articulo.sk_marca"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_articulos_have_sk_marcas"
 			        }
 			      ]
 			    },

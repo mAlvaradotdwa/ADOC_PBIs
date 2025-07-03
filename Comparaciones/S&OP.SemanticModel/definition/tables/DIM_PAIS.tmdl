@@ -21,7 +21,7 @@ table DIM_PAIS
 		dataType: int64
 		formatString: 0
 		lineageTag: 616edf89-21f3-4762-a7eb-3c4ec204acb7
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: SK_PAIS_RPRO
 
 		annotation SummarizationSetBy = Automatic
@@ -45,7 +45,7 @@ table DIM_PAIS
 	column TASAIVA
 		dataType: double
 		lineageTag: e59a7269-a280-44bd-9666-35c3eb955d9e
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: TASAIVA
 
 		annotation SummarizationSetBy = Automatic
@@ -56,7 +56,7 @@ table DIM_PAIS
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from DIM_PAIS where BV_PAIS not in ('BFI')"])
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from DIM_PAIS --where BV_PAISnot in ('BFI')", CreateNavigationProperties=false])
 				in
 				    Origen
 

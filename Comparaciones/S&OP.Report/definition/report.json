@@ -7,8 +7,8 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "City_Park_228652336432295034.json",
-      "reportVersionAtImport": "5.61",
+      "name": "City_Park_29647535077915157.json",
+      "reportVersionAtImport": "5.65",
       "type": "RegisteredResources"
     }
   },
@@ -57,14 +57,14 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "City_Park_228652336432295034.json",
-          "path": "City_Park_228652336432295034.json",
-          "type": "Image"
-        },
-        {
           "name": "LogoBlancopng9377879119367811.png",
           "path": "LogoBlancopng9377879119367811.png",
           "type": "Image"
+        },
+        {
+          "name": "City_Park_29647535077915157.json",
+          "path": "City_Park_29647535077915157.json",
+          "type": "CustomTheme"
         }
       ]
     }
@@ -74,6 +74,7 @@
     "defaultFilterActionIsDataFilter": true,
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
     "useDefaultAggregateDisplayName": true,
     "queryLimitOption": "None",
     "customMemoryLimit": "1048576",

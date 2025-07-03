@@ -119,6 +119,7 @@ relationship 8eb4fa76-ce0e-e7e9-619b-b2b021c10aa9
 	toColumn: 'Fecha Conciliación OTB'.Fecha
 
 relationship 1f8712ea-9193-4178-eaee-582df5276b45
+	isActive: false
 	fromColumn: EKPO.MARCA
 	toColumn: 'DIM_MARCAS (2)'.MARCA
 
@@ -128,6 +129,7 @@ relationship 816166a3-6546-8088-429d-1b7dad646154
 	toColumn: 'DIM_MARCAS (2)'.MARCA
 
 relationship b79ca559-23a7-c8f9-5027-71b507a6169f
+	isActive: false
 	fromColumn: EKPO_BFI-CD.MARCA
 	toColumn: 'DIM_MARCAS (2)'.MARCA
 
@@ -246,6 +248,7 @@ relationship d7a1a6bd-d125-a20a-3b9b-ed1d4e24a853
 	toColumn: 'DIM_MARCAS (2)'.MARCA
 
 relationship d245d09f-ae8f-6396-7f9d-69182398426b
+	isActive: false
 	fromColumn: Tabla_Conciliacion.Marca
 	toColumn: 'DIM_MARCAS (2)'.MARCA
 
@@ -254,6 +257,7 @@ relationship 86c69fd4-1c65-9dfd-c8ed-5233fcc63426
 	toColumn: DIM_ARTICULOS.SK_MATNR
 
 relationship 535c2530-69f8-d382-7796-8a533127cdd7
+	isActive: false
 	toCardinality: many
 	fromColumn: EKPO_BFI-CD.CONTENEDOR
 	toColumn: EKPO_CD-TIENDA.CONTENEDOR_REFERENCIA
@@ -294,6 +298,44 @@ relationship 2e7e29a5-5ab8-4231-43ee-42339fa3625e
 	toColumn: FAC_TEMPORADAS.Estilo
 
 relationship 470caf1c-0b89-1850-33b3-eac29c1d19d0
+	isActive: false
 	fromColumn: Tabla_Campaña.Marca
 	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 6db6375b-f7b1-8583-5420-2fa32807d811
+	fromColumn: Tabla_Campaña.Origen
+	toColumn: Procesos.Proceso
+
+relationship 3532abfb-367f-37a8-352d-61ecd2ed1d47
+	fromColumn: FACT_INVENTARIOUD.SK_MATNR
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship d790b8b8-bd9b-e8e6-aad4-9e838c940e49
+	fromColumn: DIM_ARTICULOS.SK_MARCA
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 1c31302b-734d-aef3-7b25-c1606f3ad176
+	fromColumn: DIM_ARTICULOS.PE
+	toColumn: 'Períodos Estadísticos'.PE
+
+relationship 11a623fd-100b-2ef2-4d0d-34a70350bb85
+	fromColumn: EKPO_CD-TIENDA.ARTICULO
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 6086d892-a927-18c6-1d0e-68b2bebbeb2e
+	toCardinality: many
+	fromColumn: EKPO_CD-TIENDA.PAIS
+	toColumn: DIM_PAIS.BV_PAIS
+
+relationship 6ad03065-3d51-4f2a-19b9-0506d368cf53
+	fromColumn: VENTAS.SK_MATNR
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 1f91c1ff-fbef-010c-2387-9436c9b937d5
+	fromColumn: VENTAS.SK_PAIS
+	toColumn: DIM_PAIS.SK_PAIS
+
+relationship 790d8d4a-bfd2-9e0f-e078-884ae5cff01d
+	fromColumn: FACT_INVENTARIOUD.SK_TIENDA
+	toColumn: DIM_BODEGA.SK_TIENDA
 
