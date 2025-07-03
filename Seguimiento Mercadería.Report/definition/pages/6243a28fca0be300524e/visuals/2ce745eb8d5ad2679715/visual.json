@@ -1,0 +1,317 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "2ce745eb8d5ad2679715",
+  "position": {
+    "x": 242.60111022997623,
+    "y": 127.898493259318,
+    "z": 1000,
+    "height": 579.60348929421093,
+    "width": 1029.2783505154639,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TEMPORADA"
+                    }
+                  },
+                  "Property": "Temporada"
+                }
+              },
+              "queryRef": "TEMPORADA.Temporada",
+              "nativeQueryRef": "Temporada",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TEMPORADA"
+                    }
+                  },
+                  "Property": "Tipo PE"
+                }
+              },
+              "queryRef": "TEMPORADA.Tipo PE",
+              "nativeQueryRef": "Tipo PE",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TEMPORADA"
+                    }
+                  },
+                  "Property": "Variante"
+                }
+              },
+              "queryRef": "TEMPORADA.Variante",
+              "nativeQueryRef": "Variante",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Cumplimiento XFACTORY"
+                }
+              },
+              "queryRef": "Métricas.Cumplimiento XFACTORY",
+              "nativeQueryRef": "Cumplimiento XFACTORY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Documentos"
+                }
+              },
+              "queryRef": "Métricas.Documentos",
+              "nativeQueryRef": "Documentos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito CFS"
+                }
+              },
+              "queryRef": "Métricas.Tránsito CFS",
+              "nativeQueryRef": "Tránsito CFS"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Consolidación"
+                }
+              },
+              "queryRef": "Métricas.Consolidación",
+              "nativeQueryRef": "Consolidación"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito"
+                }
+              },
+              "queryRef": "Métricas.Tránsito",
+              "nativeQueryRef": "Tránsito Import",
+              "displayName": "Tránsito Import"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito BFI"
+                }
+              },
+              "queryRef": "Métricas.Tránsito BFI",
+              "nativeQueryRef": "Tránsito BFI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito Total"
+                }
+              },
+              "queryRef": "Métricas.Tránsito Total",
+              "nativeQueryRef": "Tránsito Total"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tiempo Creacion a BFI"
+                }
+              },
+              "queryRef": "Métricas.Tiempo Creacion a BFI",
+              "nativeQueryRef": "Tiempo Creacion a BFI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tiempo Creacion a BFI Ponderado"
+                }
+              },
+              "queryRef": "Métricas.Tiempo Creacion a BFI Ponderado",
+              "nativeQueryRef": "Tiempo Creacion a BFI Ponderado"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Métricas"
+                  }
+                },
+                "Property": "Cumplimiento XFACTORY"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "TEMPORADA.Temporada"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TEMPORADA"
+                    }
+                  },
+                  "Property": "Temporada"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TEMPORADA.Tipo PE"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TEMPORADA"
+                    }
+                  },
+                  "Property": "Tipo PE"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TEMPORADA.Variante"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Tiempo Creacion a BFI Ponderado"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.14113308964436D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Cumplimiento XFACTORY"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "90.42743483579335D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Tiempo Creacion a BFI"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

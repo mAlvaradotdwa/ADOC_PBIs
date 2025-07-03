@@ -1,0 +1,341 @@
+relationship 98202633-2092-3f99-e563-f6ae2e6e347c
+	fromColumn: DIM_BODEGA.SK_PAIS
+	toColumn: DIM_PAIS.SK_PAIS
+
+relationship 4f4b4616-0ccc-9320-bc8d-4097946a6e2c
+	fromColumn: DIM_ARTICULOS.SK_ARTICULO
+	toColumn: FACT_PRIMERAVENTA_ARTICULO.SK_ARTICULO
+
+relationship 88b4344e-31be-9008-e13b-20ea3644fa80
+	fromColumn: EKPO.PE
+	toColumn: TEMPORADA.PE
+
+relationship 0fbd9676-8564-e355-e8cc-9ffea5915026
+	fromColumn: EKPO.ARTICULO
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 3d178f88-97a4-e89a-ff3a-91f663922502
+	fromColumn: EKPO.DOCUMENTO
+	toColumn: NAST.OBJKY
+
+relationship fd91a2b6-54dd-eddf-f2db-17294a59a4c8
+	fromColumn: EKPO.DOCUMENTO
+	toColumn: DIM_DOC.DOC
+
+relationship 5bd116f4-8b9b-b58c-de54-bd57b69c07b4
+	fromColumn: EKPO.NUMERO_PROVEEDOR
+	toColumn: DIM_PROVEEDOR.SK_PROVEEDOR
+
+relationship 3602d804-9fac-ca93-b031-c02767fd95c4
+	fromColumn: EKPO.GENERO
+	toColumn: DIM_GENERO.GENERO
+
+relationship 8c7f7749-bab7-2657-9f9d-12a7ad7453fd
+	fromColumn: EKPO.DEPARTAMENTO
+	toColumn: DIM_DEPTO.DEPARTAMENTO
+
+relationship 858e08a6-e11d-d11d-ed4f-7ccd5365b241
+	fromColumn: EKPO.Fecha
+	toColumn: 'Fecha Liquidación'.Fecha
+
+relationship b6323e52-f8bb-5940-5fbe-0c154b025931
+	fromColumn: EKPO.Numero_Puerto_Final
+	toColumn: PUERTO_ORIGEN.Code
+
+relationship 6cf80765-0a90-3418-d8a7-c6b344d030a8
+	fromColumn: TEMPORADA.'1er Mes'
+	toColumn: Meses.Numero
+
+relationship 095eb0ce-9d8d-cced-fc8d-2772b723e387
+	fromColumn: EKPO.TIPO_DE_FLETE
+	toColumn: 'Tipo de Flete'.'Tipo de Flete'
+
+relationship ea2e272f-acdb-49ff-0d5b-9f92697de588
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: FL.DOCUMENTO_44
+	toColumn: EKPO.DOCUMENTO
+
+relationship 6d4f4d84-cdcc-c1d4-c50c-2ca4b9004e29
+	fromColumn: EKPO.FECHA_LIQUIDACION_ESTIMADA
+	toColumn: 'Fecha Arribo Futuro'.Fecha
+
+relationship 4274aa5f-1e69-32f9-d31a-3fe184646fd6
+	fromColumn: EKPO.FECHA_CREACION_FINAL
+	toColumn: 'Fecha Creación MK'.Fecha
+
+relationship 5c864d5f-f48c-fdc8-2dcd-7cb1019e1d73
+	fromColumn: EKPO.Pais_OrigenF
+	toColumn: SLA_Maritimo.Pais
+
+relationship fe730b7b-0654-5bb6-853d-23f681701544
+	fromColumn: EKPO_BFI-CD.ARTICULO
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 088d7137-df1e-0193-ef94-9e58303b5c58
+	fromColumn: EKPO_BFI-CD.DEPARTAMENTO
+	toColumn: DIM_DEPTO.DEPARTAMENTO
+
+relationship bbf97e95-0e5a-5fd5-9994-33484b0ca726
+	fromColumn: EKPO_BFI-CD.GENERO
+	toColumn: DIM_GENERO.GENERO
+
+relationship 08e23f22-b68d-0330-c3fd-7db68909f194
+	fromColumn: EKPO_BFI-CD.FECHA_LIQUIDACION
+	toColumn: 'Fecha Liquidación ZINT'.Fecha
+
+relationship eb7f1beb-1391-8fda-3d0b-b6ad2f4133ff
+	fromColumn: 'EKPO L1'.ARTICULO
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 5ca137bd-9f1f-2de0-8ff4-8732d9cf8956
+	fromColumn: 'EKPO L1'.FECHA_CONTABILIZACION
+	toColumn: 'Fecha Liquidación L1'.Fecha
+
+relationship 024c8b71-aba6-f44a-1062-b3e56a6b0aa0
+	fromColumn: 'EKPO L1'.GENERO
+	toColumn: DIM_GENERO.GENERO
+
+relationship 88814992-64d7-36fe-fbbe-ac44df987b31
+	fromColumn: 'EKPO L1'.DEPARTAMENTO
+	toColumn: DIM_DEPTO.DEPARTAMENTO
+
+relationship d517a84e-682c-48b7-9efc-5a4a25dddf85
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'EKPO L1 V2'.DOCUMENTO
+	toColumn: 'EKPO L1'.DOCUMENTO
+
+relationship 780aecff-8649-13a7-8df4-8d58c5a3e9d3
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: FAC_TEMPORADAS.Articulo
+	toColumn: 'EKPO L1 V2'.Articulo_GenericoF
+
+relationship 8eb4fa76-ce0e-e7e9-619b-b2b021c10aa9
+	fromColumn: EKPO.Fecha_OTB
+	toColumn: 'Fecha Conciliación OTB'.Fecha
+
+relationship 1f8712ea-9193-4178-eaee-582df5276b45
+	isActive: false
+	fromColumn: EKPO.MARCA
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 816166a3-6546-8088-429d-1b7dad646154
+	isActive: false
+	fromColumn: 'EKPO L1'.MARCA
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship b79ca559-23a7-c8f9-5027-71b507a6169f
+	isActive: false
+	fromColumn: EKPO_BFI-CD.MARCA
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 317dcec9-5e7e-228a-833d-5bb5c8c58a46
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: DIM_ARTICULOS.BV_MATNR
+	toColumn: 'EKPO Solped'.ARTICULO
+
+relationship a697378f-77ff-0b98-7a27-f08532239b84
+	fromColumn: 'EKPO L1 V2'.ARTICULO
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 1241c6ad-6fe5-b532-8427-98c4563d79ab
+	fromColumn: EKPO.ENTIDAD_CD2
+	toColumn: DIM_BODEGA.SK_TIENDA
+
+relationship b186bed2-94ce-3777-dcbc-df9fe76ebc9c
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'Precio Venta'.VKORG
+	toColumn: DIM_BODEGA.SK_PAIS
+
+relationship dcab2156-9130-1363-6522-ee99b7af9466
+	fromColumn: 'EKPO L1'.CENTRO_DESTINO
+	toColumn: DIM_BODEGA.SK_TIENDA
+
+relationship 00b76ba6-c099-a44a-4790-a26285578d97
+	fromColumn: 'EKPO L1 V2'.CENTRO_DESTINO
+	toColumn: DIM_BODEGA.SK_TIENDA
+
+relationship 3b486609-d52d-f907-4ca1-d486b2fbaf21
+	fromColumn: 'Precio Venta'.VKORG
+	toColumn: DIM_TasaCambio.SK_PAIS
+
+relationship f8d1e2e6-e684-7aa2-608b-01be560ba58d
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: DIM_PAIS.SK_PAIS
+	toColumn: DIM_TasaCambio.SK_PAIS
+
+relationship c888f5c7-21d4-5d63-0494-10ecd0744da2
+	isActive: false
+	fromColumn: DIM_BODEGA.SK_PAIS
+	toColumn: DIM_TasaCambio.SK_PAIS
+
+relationship 14e3565a-76cf-fa6d-3fde-c377cfd8d0e2
+	fromColumn: EKPO_CD-TIENDA.PAIS
+	toColumn: SLA_Maritimo.Pais
+
+relationship e208f3a2-d013-8a3a-73de-c37dd8733e85
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: DIM_MARCAS.MARCA
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 939cbe1f-ace3-38f1-1e4b-bfb8ec342c18
+	isActive: false
+	fromColumn: 'EKPO L1 V2'.MARCA
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship fe815b42-37ff-8620-6a85-2f0a5eb391e4
+	fromColumn: 'FL (TRACING)'.MARCA
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 6d658db4-15ed-059e-d2be-1002f11556e6
+	isActive: false
+	fromColumn: FAC_TEMPORADAS.Departamento
+	toColumn: DIM_DEPTO.DEPARTAMENTO
+
+relationship 0f147a5f-c2c8-b889-895c-9fd9e7f9430e
+	isActive: false
+	fromColumn: 'EKPO L1 V2'.DEPARTAMENTO
+	toColumn: DIM_DEPTO.DEPARTAMENTO
+
+relationship 068e98ef-e6a4-a340-8716-d28f4d4bb0b0
+	fromColumn: 'FL (TRACING)'.DEPARTAMENTO
+	toColumn: DIM_DEPTO.DEPARTAMENTO
+
+relationship 475474ca-8708-1d37-bdff-1cc7158f0d23
+	isActive: false
+	fromColumn: 'EKPO L1 V2'.GENERO
+	toColumn: DIM_GENERO.GENERO
+
+relationship 541bacf2-cd04-a97b-a395-38c59490845b
+	fromColumn: 'EKPO L1'.PE
+	toColumn: TEMPORADA.PE
+
+relationship ff944e02-a9c2-6345-fe18-ccd69a85ab11
+	isActive: false
+	fromColumn: 'EKPO L1 V2'.PE
+	toColumn: TEMPORADA.PE
+
+relationship 1f64ec79-6483-8ff3-80ea-db0f70e27ae0
+	fromColumn: EKPO.shipment_id
+	toColumn: DIM_ETA.shipment_id
+
+relationship 2ace0e31-b127-c042-b951-6e79bdad406c
+	fromColumn: FACT_MARINETRAFFIC.shipment_id
+	toColumn: DIM_ETA.shipment_id
+
+relationship 52f34d93-70af-6146-50ff-acc77739bf2c
+	fromColumn: DIM_TasaCambio.SK_PERIODO
+	toColumn: LastRefresh.SK_PERIODO
+
+relationship b454d682-cf83-0ac9-9d65-19f448ac0f54
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: DIM_PROVEEDOR.'DIM_PROVEEDOR_EKKO.LIFNR'
+	toColumn: DIM_PROVEEDOR_EKKO.LIFNR
+
+relationship d7a1a6bd-d125-a20a-3b9b-ed1d4e24a853
+	fromColumn: 'PREPARACIONES CD (TRACING)'.MARCA
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship d245d09f-ae8f-6396-7f9d-69182398426b
+	isActive: false
+	fromColumn: Tabla_Conciliacion.Marca
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 86c69fd4-1c65-9dfd-c8ed-5233fcc63426
+	fromColumn: Tabla_Conciliacion.Articulo
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 535c2530-69f8-d382-7796-8a533127cdd7
+	isActive: false
+	toCardinality: many
+	fromColumn: EKPO_BFI-CD.CONTENEDOR
+	toColumn: EKPO_CD-TIENDA.CONTENEDOR_REFERENCIA
+
+relationship 9b2897a9-2b64-6d18-aa82-6a7450f7c029
+	toCardinality: many
+	fromColumn: EKPO.ALMACEN
+	toColumn: ALMACENES.'Alm.'
+
+relationship e938f94b-46bc-e2f8-6ea5-1f1776908610
+	toCardinality: many
+	fromColumn: 'EKPO L1'.ALMACEN
+	toColumn: ALMACENES.'Alm.'
+
+relationship 40f3cdea-560a-64f5-fc84-1f8bd52475f4
+	isActive: false
+	toCardinality: many
+	fromColumn: 'EKPO L1 V2'.ALMACEN
+	toColumn: ALMACENES.'Alm.'
+
+relationship f5527249-b03d-4b92-c5bc-e91d37cc9618
+	toCardinality: many
+	fromColumn: EKPO_BFI-CD.ALMACEN
+	toColumn: ALMACENES.'Alm.'
+
+relationship e3efa585-ad98-b99e-4f16-fee5df2e1479
+	toCardinality: many
+	fromColumn: Tabla_Campaña.Articulo
+	toColumn: EKPO.ARTICULO
+
+relationship 56847c0c-edbd-124d-584c-1947caae17bf
+	fromColumn: Tabla_Campaña.Articulo
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 2e7e29a5-5ab8-4231-43ee-42339fa3625e
+	toCardinality: many
+	fromColumn: Tabla_Campaña.Estilo
+	toColumn: FAC_TEMPORADAS.Estilo
+
+relationship 470caf1c-0b89-1850-33b3-eac29c1d19d0
+	isActive: false
+	fromColumn: Tabla_Campaña.Marca
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 6db6375b-f7b1-8583-5420-2fa32807d811
+	fromColumn: Tabla_Campaña.Origen
+	toColumn: Procesos.Proceso
+
+relationship 3532abfb-367f-37a8-352d-61ecd2ed1d47
+	fromColumn: FACT_INVENTARIOUD.SK_MATNR
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship d790b8b8-bd9b-e8e6-aad4-9e838c940e49
+	fromColumn: DIM_ARTICULOS.SK_MARCA
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 1c31302b-734d-aef3-7b25-c1606f3ad176
+	fromColumn: DIM_ARTICULOS.PE
+	toColumn: 'Períodos Estadísticos'.PE
+
+relationship 11a623fd-100b-2ef2-4d0d-34a70350bb85
+	fromColumn: EKPO_CD-TIENDA.ARTICULO
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 6086d892-a927-18c6-1d0e-68b2bebbeb2e
+	toCardinality: many
+	fromColumn: EKPO_CD-TIENDA.PAIS
+	toColumn: DIM_PAIS.BV_PAIS
+
+relationship 6ad03065-3d51-4f2a-19b9-0506d368cf53
+	fromColumn: VENTAS.SK_MATNR
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 1f91c1ff-fbef-010c-2387-9436c9b937d5
+	fromColumn: VENTAS.SK_PAIS
+	toColumn: DIM_PAIS.SK_PAIS
+
+relationship 790d8d4a-bfd2-9e0f-e078-884ae5cff01d
+	fromColumn: FACT_INVENTARIOUD.SK_TIENDA
+	toColumn: DIM_BODEGA.SK_TIENDA
+

@@ -1,0 +1,200 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "627e10be00f0438beb64",
+  "position": {
+    "x": 938,
+    "y": 472,
+    "z": 20000,
+    "height": 247,
+    "width": 334,
+    "tabOrder": 20000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO"
+                    }
+                  },
+                  "Property": "AñoMes"
+                }
+              },
+              "queryRef": "EKPO.AñoMes",
+              "nativeQueryRef": "AñoMes",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO"
+                    }
+                  },
+                  "Property": "ETA_MarineTraffic_BFI"
+                }
+              },
+              "queryRef": "EKPO.ETA_MarineTraffic_BFI",
+              "nativeQueryRef": "ETA_MarineTraffic_BFI",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Cantidad Contenedores"
+                }
+              },
+              "queryRef": "Métricas.Cantidad Contenedores",
+              "nativeQueryRef": "Cantidad Contenedores"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "EKPO"
+                  }
+                },
+                "Property": "AñoMes"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "EKPO"
+                  }
+                },
+                "Property": "ETA_MarineTraffic_BFI"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "EKPO.AñoMes"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO"
+                    }
+                  },
+                  "Property": "AñoMes"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "EKPO.ETA_MarineTraffic_BFI"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Métricas"
+                            }
+                          },
+                          "Property": "Cantidad Contenedores"
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#FFFFFF'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#FC0C00'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Métricas.Cantidad Contenedores"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

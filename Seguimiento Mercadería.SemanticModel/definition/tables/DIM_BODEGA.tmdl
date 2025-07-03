@@ -1,0 +1,278 @@
+table DIM_BODEGA
+	lineageTag: a61e0ad2-f2d9-4e8f-a51b-3aa45c13fdde
+
+	column SK_TIENDA
+		dataType: string
+		lineageTag: af5f2c2f-db48-490e-9887-79451deffc45
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA_RPRO
+		dataType: int64
+		formatString: 0
+		lineageTag: 45198546-af6a-46fb-9181-54ff3fc7fcda
+		summarizeBy: sum
+		sourceColumn: SK_TIENDA_RPRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: 6f8d5fde-0a6f-43c1-8c3e-b86756be8bee
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIENDAH
+		dataType: string
+		lineageTag: f5d1eb95-2fdf-4921-a397-85ab7e2dbe42
+		summarizeBy: none
+		sourceColumn: TIENDAH
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIENDA
+		dataType: string
+		lineageTag: c3469b6d-6aa6-4c9c-8b30-ce2f693e7794
+		summarizeBy: none
+		sourceColumn: TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: 8102667d-fd0e-48dd-8b6a-416d536c0bf3
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_TIENDAMES
+		dataType: string
+		lineageTag: 561e61ec-4c04-468f-9c6f-acee85c30a31
+		summarizeBy: none
+		sourceColumn: TIPO_TIENDAMES
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_TIENDAACUM
+		dataType: string
+		lineageTag: c17104b4-7979-4b8d-ab2c-c24605c41bae
+		summarizeBy: none
+		sourceColumn: TIPO_TIENDAACUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTATUS_TIENDA
+		dataType: string
+		lineageTag: a2be81d5-1fb9-4a7d-8567-f65440f46a70
+		summarizeBy: none
+		sourceColumn: ESTATUS_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_FORMATOH
+		dataType: string
+		lineageTag: 9716b198-b30c-4dd7-8005-ee839f06b4f6
+		summarizeBy: none
+		sourceColumn: SK_FORMATOH
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_FORMATO
+		dataType: string
+		lineageTag: a176fdcb-d92b-4795-aca3-8b493dc900ea
+		summarizeBy: none
+		sourceColumn: SK_FORMATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESPONSABLEZONA
+		dataType: string
+		lineageTag: f347b4bd-14ad-4675-abca-08d93d3052f2
+		summarizeBy: none
+		sourceColumn: RESPONSABLEZONA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MALL_STREET
+		dataType: string
+		lineageTag: 7fc70366-c3a0-4e58-b8e8-491c93e0ea03
+		summarizeBy: none
+		sourceColumn: MALL_STREET
+
+		annotation SummarizationSetBy = Automatic
+
+	column UBICACION
+		dataType: string
+		lineageTag: fc2baaee-c9a4-4ed1-8ba2-489dab1db879
+		summarizeBy: none
+		sourceColumn: UBICACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_APERTURA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d62c1708-cab7-4f75-b948-980e5a5e5c56
+		summarizeBy: none
+		sourceColumn: FECHA_APERTURA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CIERRE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 823877c7-2ac1-45ca-ae90-bf5e844e70cd
+		summarizeBy: none
+		sourceColumn: FECHA_CIERRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MTS2_SALA
+		dataType: double
+		lineageTag: a3f91782-d586-4ea5-88db-071e75f77ce7
+		summarizeBy: sum
+		sourceColumn: MTS2_SALA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MTS2_BODEGA
+		dataType: double
+		lineageTag: a9da0518-6d0d-4290-85d1-05af3506a97a
+		summarizeBy: sum
+		sourceColumn: MTS2_BODEGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MTS2_TOTAL
+		dataType: double
+		lineageTag: b585ab12-140c-40ea-8868-9a71682ae64c
+		summarizeBy: sum
+		sourceColumn: MTS2_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAPACIDAD_SALA
+		dataType: double
+		lineageTag: 3a34b1a8-9045-47dd-8688-db029b0ebc2a
+		summarizeBy: sum
+		sourceColumn: CAPACIDAD_SALA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAPACIDAD_BODEGA
+		dataType: double
+		lineageTag: 97583641-b78c-46b1-bfc3-71904bf2e6e5
+		summarizeBy: sum
+		sourceColumn: CAPACIDAD_BODEGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAPACIDAD_TOTAL
+		dataType: double
+		lineageTag: 7f009b74-fe30-4ce0-84ef-35bdcee74714
+		summarizeBy: sum
+		sourceColumn: CAPACIDAD_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SK_TIENDA_SAP
+		dataType: string
+		lineageTag: ed8d086b-f8d0-48c9-866e-7d60521eece9
+		summarizeBy: none
+		sourceColumn: SK_TIENDA_SAP
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS_TIENDA
+		dataType: string
+		lineageTag: 59244aa6-c403-4600-8070-857bc5b39213
+		summarizeBy: none
+		sourceColumn: BV_PAIS_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_FORMATO
+		dataType: string
+		lineageTag: a287ed15-1ad0-4bc4-a2ab-c45ff9f25725
+		summarizeBy: none
+		sourceColumn: BV_FORMATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_FORMATOH
+		dataType: string
+		lineageTag: a6500cc4-00e1-45c1-86d1-b620cbc39cc9
+		summarizeBy: none
+		sourceColumn: BV_FORMATOH
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORMATO
+		dataType: string
+		lineageTag: b86bb2d3-0abe-4bc8-8f63-b9af95c9ffad
+		summarizeBy: none
+		sourceColumn: FORMATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORMATOH
+		dataType: string
+		lineageTag: f49ad2a5-167c-4886-9be1-57587e971c0c
+		summarizeBy: none
+		sourceColumn: FORMATOH
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZONA
+		dataType: string
+		lineageTag: e93f3d6d-dfc5-4eb1-b69a-33913a366c6c
+		summarizeBy: none
+		sourceColumn: ZONA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIER
+		dataType: string
+		lineageTag: 835beae2-3ce4-4c31-b9be-34042ab891ac
+		summarizeBy: none
+		sourceColumn: TIER
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_TIENDA_108
+		dataType: string
+		lineageTag: 3b11b8e4-40e1-4b53-8234-b8d5751e5d31
+		summarizeBy: none
+		sourceColumn: TIPO_TIENDA_108
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_BODEGA = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT#(lf)    *#(lf)FROM DM_COMERCIAL.dbo.DIM_TIENDA dt#(lf)-- WHERE dt.BV_FORMATO IN ('BOD' , 'BFI')#(lf)    --AND ESTATUS_TIENDA = 'Abierta'#(lf)    -- AND dt.TIENDAH IN ('CD BOD' , 'BFI' , 'BOD 3PL')#(lf)ORDER BY#(lf)    dt.SK_TIENDA ASC", CreateNavigationProperties=false])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

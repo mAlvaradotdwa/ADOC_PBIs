@@ -1,0 +1,97 @@
+table FACT_ARRIBOSFUTURO
+	lineageTag: 58ef52e9-2c8a-4607-9393-681c0fcbbe0b
+
+	column ARTICULO = RIGHT(FACT_ARRIBOSFUTURO[Articulo_Generico],8)
+		lineageTag: 4131f4cb-3250-41e6-bc41-148ed63687d5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Articulo_MATNR
+		dataType: string
+		lineageTag: 8aef54a8-4c49-44cb-8172-bbe56a6819de
+		summarizeBy: none
+		sourceColumn: Articulo_MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column Articulo_Generico
+		dataType: string
+		lineageTag: 2492e046-192f-44fd-b7b0-cd29efdcf2f5
+		summarizeBy: none
+		sourceColumn: Articulo_Generico
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pais
+		dataType: string
+		lineageTag: 19c6853d-8f39-4079-add8-f96c84a84bc2
+		summarizeBy: none
+		sourceColumn: Pais
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo_Material
+		dataType: string
+		lineageTag: 3a2adc88-5dc1-403d-9a46-c681a72b97b0
+		summarizeBy: none
+		sourceColumn: Tipo_Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column Documento
+		dataType: string
+		lineageTag: e846a0e7-e217-4d8f-bba5-012c25565ddb
+		summarizeBy: none
+		sourceColumn: Documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Posicion_Documento
+		dataType: string
+		lineageTag: a977dd0c-398d-4610-b287-2dfc9e0f542c
+		summarizeBy: none
+		sourceColumn: Posicion_Documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Almacen
+		dataType: string
+		lineageTag: 9b8b3465-f11b-4eab-a6ff-2fc133209318
+		summarizeBy: none
+		sourceColumn: Almacen
+
+		annotation SummarizationSetBy = Automatic
+
+	column Precio_Local
+		dataType: double
+		lineageTag: be533160-7d01-4955-b30b-b88031f7a1a7
+		summarizeBy: sum
+		sourceColumn: Precio_Local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Precio_Venta
+		dataType: double
+		lineageTag: 6c0d64af-af97-4637-bdf9-27fa4f0d346f
+		summarizeBy: sum
+		sourceColumn: Precio_Venta
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FACT_ARRIBOSFUTURO = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query=" SELECT #(lf) SK_MATNR AS Articulo_MATNR,#(lf) SK_ARTICULO AS Articulo_Generico,#(lf) SK_PAIS AS Pais,#(lf) SK_LINEA AS Tipo_Material,#(lf) DOC AS Documento,#(lf) DOC_POSICION AS Posicion_Documento,#(lf) SK_ALMACEN AS Almacen, #(lf) PRECIO_LISTA_LOCAL AS Precio_Local,#(lf) PRECIO_LISTA_USD AS Precio_Venta#(lf) #(lf) FROM DM_COMERCIAL.dbo.FAC_ARRIBOFUTUROM  #(lf) WHERE DOC_STATUS_ULTIMO = 'MK'#(lf) --AND DOC = '4400056910'#(lf) --AND SK_ARTICULO = '000000000030055701'#(lf) ORDER BY #(lf) #(tab)SK_ARTICULO"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

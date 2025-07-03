@@ -1,0 +1,45 @@
+table DIM_MARCAS
+	lineageTag: 68579c87-353a-400d-a9ba-bff6979cfe4e
+
+	column SK_MARCA
+		dataType: string
+		lineageTag: cc2ec83b-4432-41d0-9c26-1ca934d5a670
+		summarizeBy: none
+		sourceColumn: SK_MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: d3df9946-11fa-42d1-ad6a-f02a74315247
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_UNIDADNEGOCIO
+		dataType: string
+		lineageTag: 698cf19f-2f8a-4a5e-8dd0-d07bd15a43ec
+		summarizeBy: none
+		sourceColumn: SK_UNIDADNEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Un. Negocio' = IF(AND(DIM_MARCAS[SK_UNIDADNEGOCIO]="UN HPU",DIM_MARCAS[SK_MARCA]="CAT"),"CAT",SWITCH(DIM_MARCAS[SK_UNIDADNEGOCIO],"UN OUTDOOR","TNF",DIM_MARCAS[SK_UNIDADNEGOCIO]))
+		lineageTag: fe5d9739-a0dc-4772-a87c-035f41bc32ed
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_MARCAS = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT * FROM DM_COMERCIAL.dbo.DIM_MARCA dm WHERE dm.SK_UNIDADNEGOCIO in ('UN PAR2','UN ADOC','UN HPU','UN OUTDOOR')#(lf)AND dm.SK_MARCA NOT IN ('CAR','BRI','CSH','SKE','SFT','REF','PIL','NIP')#(lf)ORDER BY SK_MARCA ASC"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

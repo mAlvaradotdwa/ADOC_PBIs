@@ -1,0 +1,42 @@
+table Procesos
+	lineageTag: e89fccc3-a6bc-4462-a7d5-7517fa2fbd3b
+
+	column idProceso
+		dataType: string
+		lineageTag: 27ffb1cc-f7bf-4e96-a238-35519a199457
+		summarizeBy: none
+		sourceColumn: idProceso
+
+		annotation SummarizationSetBy = Automatic
+
+	column Proceso
+		dataType: string
+		lineageTag: d74521a8-1b0d-4eba-a21d-b6a129b3b2e6
+		summarizeBy: none
+		sourceColumn: Proceso
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Descripción Proceso'
+		dataType: string
+		lineageTag: 5e57cb27-b5fc-48b1-9d3e-8c1109d99fc4
+		summarizeBy: none
+		sourceColumn: Descripción Proceso
+		sortByColumn: idProceso
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Procesos = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUfLMLcgvKklMzjy8OQ+Nq5Co4OTmqRSrE61kBJTyASl3S0wqykyGygNFQJLGQPHg/JyC1BQQw98nwNUFLG4C5LpWoBjvDJExBTJDMlPzUhIRjNhYAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [idProceso = _t, Proceso = _t, #"Descripción Proceso" = _t])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

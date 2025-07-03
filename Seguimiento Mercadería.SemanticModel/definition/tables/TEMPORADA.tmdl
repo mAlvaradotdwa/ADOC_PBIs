@@ -1,0 +1,77 @@
+table TEMPORADA
+	lineageTag: 486ff539-9b2e-4e67-9630-780a115ee9d4
+
+	column 'Tipo PE'
+		dataType: string
+		lineageTag: b4b11dcf-91cc-40a5-8ed7-eb637f811309
+		summarizeBy: none
+		sourceColumn: Tipo PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: string
+		lineageTag: e0e9ec92-d21f-455e-8eb0-fd3e79a4f233
+		summarizeBy: none
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column Variante
+		dataType: string
+		lineageTag: 9a0280f8-d44b-4f80-a0fa-1f0ff1c377d6
+		summarizeBy: none
+		sourceColumn: Variante
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE
+		dataType: string
+		lineageTag: 767a7d7e-3314-4994-9cc4-5719be72cc8c
+		summarizeBy: none
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column '1er Mes'
+		dataType: string
+		lineageTag: 305e367d-2cd4-436d-8a3d-7d5b8c3c4602
+		summarizeBy: none
+		sourceColumn: 1er Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Duración
+		dataType: string
+		lineageTag: ec690fb3-6ac6-40a5-85a6-c5c64223bebb
+		summarizeBy: none
+		sourceColumn: Duración
+
+		annotation SummarizationSetBy = Automatic
+
+	column Temporada
+		dataType: string
+		lineageTag: cf378a06-4af8-40aa-b228-6fdfe8a982a4
+		summarizeBy: none
+		sourceColumn: Temporada
+
+		annotation SummarizationSetBy = Automatic
+
+	column '1er Mes Nombre' = RELATED ( 'Meses'[Mes] )
+		lineageTag: 1835062c-452e-44e2-8b14-d33c74c7a322
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TEMPORADA = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("lZrBbttWEEV/JdA6C/GRlMxljGzbLpJdkIWRGoWB1Abi9Mu67S4/1uE9HEpyZN5JEJiMefgymrnvhJby6dPu9u754cvT7u2O31P8ikPHn5aLn99+2r17/Ofua3yr7bubOOxn6Ga/X9iuxZePvcjf7h+fL9gOtsvTDbSBtjyd0e462oP2ebqBDqBDnm6gI+iYpxvoAfSQpzParqNH0GOebqA3oOvpBjqBTnm6gXbMi0MO7dV5MTAObmIdI+PQLuHbh79/GjBrt1y2bdMsrkOfdPcqTSR0GD1NKnQ4Jt1epQmGDpOnyQaHFy/z47fgn79/u8gyXemzK73BaYsOQ+Ld6zh90eGYeHsdpzEc9pfVfLgXfn+2Cyj9kKUfNmEK1+GYcFZy9xiyefjx7+NZwllch/HlC73Gsz6HF408E9g8QG2CyQssd1awTmCZi0CdwKaltkCdwKZlyIE6gU1LmwJ1ApuW7gfqBDYtwwrUCWxGb0CdwFZrTVZgUwaxm7zAphx9wFZgU04+4ILANGDWLghMNIsXBCaaSBQEJppUFAQmmmAUBKarZKMkMGWZrlQEJpy2VAQmnL5UBCacxhQEpl1A6V5ggim8JDDFmsVLAhPP+lcF9vsfH97crRJr8wvTs1rbr49s5xZ7d4nudWp91xII1vhOaAM1vms5hUCN74QOoMZ3QkdQ4zuhB1DjO6FHUOM7oTegxneMC9T4rq2Oi1A43wEzMOs7YEZW8B0DZm3vO2gW976DJhLed9CkwvsOmmB430GTjYrvyDJdKfgOnLYUfAdOXwq+A6cx3nfsAkq3vgOm8IrvSDiLV3wHz/oV381X8V3nfDdfIrved2uuO+u7zEWgznf5UgJ1vuuWTATqfJddDdT5LicbqPNdl/ups76bv89PcdZ3Xe67zvquy9y2zvtudVzA1nfr5AMu+I5l9aXgO11l8YLvRBOJgu9Ek4qC70QTjILvRJONku+UZbpS8Z0u05aK74TTl4rvhNOYgu+0Cyjd+04XKbzkOyWcxUu+E8/6Fd/NCL5rJ9/d7K75bkb51/fkuzPyYkvkDgjW+S4lF6jz3Zr/Zn2XmQjU+a7lPmnWd20ZVqDOdznbQJ3vZpT3oazvWu67Zn3XMreted+tSQnY+m51XMAF3xFG4QXfsS60951AIlHwnWhSUfCdaIJR8J1oslHynV4bXan4TjhtqfhOOH2p+E44jSn4TruA0r3vBFP4IQs/nAq/AlP2Ics+k+MVmKIPa9FndfykRm0e6i6pVDylX1Xp7ccPJ/DIwsf1YWC4AN/cPnx9ePzrx39nxR9Z+5iqOBvQC0vPV7B0f/WplE9Q3ry/f/7y9Pj9IW788+nsTt62ntZPScbTne8u/xJ+XvLPs6neYJ3fcwMH6vyeUg/U+b1fOhyo8/vqhd76vV8SFKjze8YzUOf3GWUE1u8aF6jze5+RD39Yv/cZ34Ct3/ucfMAFv/NYJbzgd3Y3tPc7aYD2fhdIKgp+F00wCn4XTTZKfleA6UrF78JpS8XvwulLxe/CaUzB79oFlO79LpjCvd8FU7b3u2CKrvldm4e6S34XT+nbflepLFz1u25h7YLf57Xw+/CLftedfNB48vv19ytmlHe4vN/Tp8FmAoYNlAer1e/D7rpeM9SBpt+30AE0T7fQETT9voUeQNPvw+66Xld/DKvft1BGsPp9C2XOq9+3UPw+nPy+NQSMNJz8vgkzspPfz+N8aT5+DhZe8DsPZNDe72xvaO93AgHt/S6QYBT8LppslPyuLNOVit+F05aK33WZvlT8LpzGFPyuXUDp3u+CKdz7XRcp2/tdMEXX/K7NQ90lv4un9G2/K0ssXPW7bmHtgt8VPz4f/UW/607+a4jz+4zymYT3ez4EB+v8nlsyUOf3HEigzu9p6UCd31PqgTq/j0uCAnV+H5ehBer8PqOMwPp99cxo/T5m5Nvo/T5mfAO2fh9z8gEX/M5busILfucNEWjvdx6vob3fkTW09zuZgPZ+F0g2Sn5XlulKxe/CaUvF78LpS8XvwmlMwe/aBZTu/S6Ywr3fBVO297tgiq75XUOk7pLfxVP6tt+111m46nfdwto/+f3z/w==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Tipo PE" = _t, Año = _t, Variante = _t, PE = _t, #"1er Mes" = _t, Duración = _t, Temporada = _t])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,51 @@
+table Tiempos
+	lineageTag: 7b98d45c-8b9b-4685-ab53-01bdfbda09a5
+
+	column Tiempos
+		lineageTag: a9f89c91-2a87-46d6-b549-06f270a15e0f
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Tiempos Orden'
+
+		relatedColumnDetails
+			groupByColumn: 'Tiempos Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tiempos Campos'
+		isHidden
+		lineageTag: ac2aa098-6266-4e68-9766-8c648ffd88fe
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Tiempos Orden'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tiempos Orden'
+		isHidden
+		formatString: 0
+		lineageTag: 12e736e3-875f-4bef-a029-a5e5b087f445
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Tiempos = calculated
+		mode: import
+		source =
+				{
+				    ("Tránsito CFS", NAMEOF('Métricas'[Tránsito CFS]), 0),
+				    ("Consolidación", NAMEOF('Métricas'[Consolidación]), 1),
+				    ("Tránsito Importación", NAMEOF('Métricas'[Tránsito]), 2),
+				    ("Tránsito BFI", NAMEOF('Métricas'[Tránsito BFI]), 3),
+				    ("Tránsito Total", NAMEOF('Métricas'[Tránsito Total]), 4)
+				}
+
+	annotation PBI_Id = f19dd9c939b2419d8d8b251e3372a13b
+

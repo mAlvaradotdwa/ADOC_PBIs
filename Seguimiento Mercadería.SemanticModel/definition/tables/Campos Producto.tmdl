@@ -1,0 +1,117 @@
+table 'Campos Producto'
+	lineageTag: 804a7aa0-5519-40db-966d-d556c5cbdc8b
+
+	measure 'Cantidad de Cambios en ETA' = ```
+			
+			VAR _tablaPorContenedor = 
+			    SUMMARIZE(
+			        EKPO,
+			        EKPO[CONTENEDOR],
+			        "CambiosPorContenedor", AVERAGE(EKPO[CAMBIOS])
+			    )
+			RETURN
+			SUMX(
+			    _tablaPorContenedor,
+			    [CambiosPorContenedor]
+			)
+			```
+		formatString: 0
+		lineageTag: f79189a8-0ea0-4340-9748-915d411f97a2
+
+	measure 'Contenedores con Cambios en ETA' =
+			
+			var _contenedor=calculate(DISTINCTCOUNT(EKPO[CONTENEDOR]),EKPO[DIAS_DIFF]>0)
+			return
+			_contenedor
+		formatString: 0
+		lineageTag: 2968a53a-1076-44df-a0a4-15545fa64473
+
+	measure 'Días Promedio Diff ETAs' =
+			
+			var _diasdiff = calculate(average(EKPO[DIAS_DIFF]),EKPO[DIAS_DIFF]>0)
+			return
+			_diasdiff
+		formatString: 0.0
+		lineageTag: fc1be71b-83e1-4581-a739-ae8e17b1b46a
+
+	measure 'Días Diff por Cambio ETA' = ```
+			
+			VAR _tablaFiltrada = 
+			    SUMMARIZECOLUMNS(
+			        EKPO[CONTENEDOR],
+			        FILTER(EKPO, EKPO[DIAS_DIFF] > 0 && EKPO[Estatus MK] = "Pendiente"),
+			        "CantidadContenedor", DISTINCTCOUNT(EKPO[CONTENEDOR]),
+			        "DiasDiffporCambio", MAX(EKPO[DIAS_DIFF])
+			    )
+			VAR _totalDiasDiff = SUMX(_tablaFiltrada, [DiasDiffporCambio])
+			VAR _cantidadContenedores = COUNTROWS(_tablaFiltrada)
+			RETURN
+			DIVIDE(_totalDiasDiff, _cantidadContenedores, 0) -- Calcula el promedio, evitando división por 0
+			```
+		formatString: 0.0
+		lineageTag: 1d1d6c6b-98b9-4a08-a78d-6390b90e448f
+
+	measure DocumentosConCambios =
+			
+			var _documento=calculate(DISTINCTCOUNT(EKPO[DOCUMENTO]),EKPO[DIAS_DIFF]>0)
+			return
+			_documento
+		formatString: 0
+		lineageTag: dc78d697-c338-4699-a192-d709736559e0
+
+	measure 'Total Productos' =
+			
+			var _totalproducto = calculate(SUM(EKPO[CANTIDAD_PARES]),EKPO[DIAS_DIFF]>0)
+			return
+			_totalproducto
+		formatString: #,0
+		lineageTag: 5e15bb94-0e5e-455d-8cd9-2c42b002c3cd
+
+	measure 'Total Monto Retail' =
+			
+			var _monto = calculate(SUM(EKPO[PRECIOVENTA_USD]),EKPO[DIAS_DIFF]>0)
+			return
+			_monto
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 16046d14-b5c3-4ab0-99f0-aff2ebc78b92
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	column Value1
+		lineageTag: 78f8a23d-8125-4c3e-b25f-ff5d31a73253
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value2
+		lineageTag: a43f1d56-b570-4606-bed8-2a5ed2aff063
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value3
+		lineageTag: 8fea80a5-d65f-4230-8344-a562459b0c0c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'New Calculated Table' = calculated
+		mode: import
+		source =
+				{
+				    ("Un. Negocio", NAMEOF('DIM_MARCAS'[Un. Negocio]), 0),
+				    ("Marca", NAMEOF('DIM_MARCAS'[MARCA]), 1),
+				    ("Departamento", NAMEOF('DIM_DEPTO'[Departamento]), 2),
+				    ("Categoría", NAMEOF('DIM_ARTICULOS'[BV_CATEGORIA]), 3),
+				    ("Sub Categoría", NAMEOF('DIM_ARTICULOS'[BV_SUBCATEGORIA]), 4),
+				    ("Clase", NAMEOF('DIM_ARTICULOS'[Clase]), 5),
+				    ("Tipo Estilo", NAMEOF('DIM_ARTICULOS'[TIPOESTILO]), 6),
+				    ("Genero", NAMEOF('DIM_GENERO'[Genero]), 7)
+				}
+
