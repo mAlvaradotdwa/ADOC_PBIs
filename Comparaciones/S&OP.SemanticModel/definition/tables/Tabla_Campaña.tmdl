@@ -1,0 +1,525 @@
+table Tabla_Campaña
+	lineageTag: 95a57fa4-1e44-469b-a1cb-bdd7812b3d0c
+
+	column Articulo
+		lineageTag: 0f9d0966-8ca4-4720-a0f1-7952962255e4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Articulo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Documento'
+		formatString: Short Date
+		lineageTag: 5bcb47ee-db41-4c5f-b62b-4e5e909b67c8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fecha Documento]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Documento
+		lineageTag: ceb850ea-bdd7-446e-a848-aeaf723d692b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Documento]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cantidad
+		lineageTag: d3c1a520-0b82-430f-9927-05b29a5986c6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Cantidad]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Estilo
+		lineageTag: 899dc542-b2df-4a8e-96ce-b0864fccfe05
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Estilo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		lineageTag: f2b93821-fe9e-4b81-bccd-b4b80a830e88
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Color]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		lineageTag: 43a90898-54e1-49e1-97c0-23b3327aedcf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Marca]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Genero
+		lineageTag: 6d94d609-d7e8-4dec-a8cd-59120f1cc15b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Genero]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		lineageTag: 0153684b-21d5-4f6a-ac8c-f5e2f2fda2dc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Departamento]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Articulo Generico'
+		lineageTag: 65055edb-d38a-4631-a9ee-a79dc35bb45c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Articulo Generico]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pais Destino'
+		lineageTag: e8110dda-5e4a-4217-980b-577cf1583bf9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Pais Destino]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Precio Venta USD'
+		lineageTag: d1aff42d-219d-4a4c-b682-7b137797a407
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Precio Venta USD]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Origen
+		lineageTag: a28ba7f6-7f54-479c-8ef2-db09ce9426ee
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Origen]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contenedor
+		lineageTag: 51c03e4d-b0a8-4185-9a4b-b044effa114c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Contenedor]
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE
+		lineageTag: 83e939af-52df-452f-b028-ceb13c806b7e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [PE]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año PE'
+		lineageTag: a0105c16-0cef-458b-9ed3-c4ffbbcc81c8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Año PE]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estatus
+		lineageTag: c6993bab-9a37-4e7f-a759-2ed58ce2e2d7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Estatus]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MAX ETA'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: f53e146f-d008-4f0d-8291-2b933a539d2c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MAX ETA]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'ETA MarineTraffic BFI'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9b24b06b-d3df-4d50-9a63-061c45428c7f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ETA MarineTraffic BFI]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fecha Entrega'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: ceeb2977-297c-4977-9eb5-c58a063c8ad5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fecha Entrega]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Campaña =
+			
+			LOOKUPVALUE(
+			    FAC_TEMPORADAS[Campaña],       -- Valor que quieres traer
+			    FAC_TEMPORADAS[Articulo],      -- Columna de búsqueda en la tabla origen
+			    'Tabla_Campaña'[Articulo Generico] -- Valor en la tabla destino
+			)
+		lineageTag: 5faadfd8-6290-47f0-8099-2d06e8c62cc3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado_Articulo = ```
+			
+			VAR _Origen = 'Tabla_Campaña'[Origen]
+			VAR _Articulo = 'Tabla_Campaña'[Articulo Generico]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    -- Caso 1: Origen = L1 → buscar en EKPO L1 V2
+			    _Origen = "L1",
+			        CALCULATE(
+			            FIRSTNONBLANK('EKPO L1 V2'[Estado_Articulo], 1),
+			            FILTER('EKPO L1 V2', 'EKPO L1 V2'[Articulo_GenericoF] = _Articulo)
+			        ),
+			
+			    -- Caso 2: Origen = Importación → buscar en EKPO
+			    _Origen = "Importación",
+			        CALCULATE(
+			            FIRSTNONBLANK(EKPO[Estado_Articulo], 1),
+			            FILTER(EKPO, EKPO[Articulo_Genericof] = _Articulo)
+			        ),
+			
+			    -- Caso 3, 4 y 5: Exportación, Solped o Tienda → buscar en EKPO L1 V2, si no encuentra buscar en EKPO
+			    _Origen IN {"Exportación", "Solped", "Tienda"},
+			        VAR Estado_L1 = 
+			            CALCULATE(
+			                FIRSTNONBLANK('EKPO L1 V2'[Estado_Articulo], 1),
+			                FILTER('EKPO L1 V2', 'EKPO L1 V2'[Articulo_GenericoF] = _Articulo)
+			            )
+			        RETURN
+			            IF(
+			                NOT ISBLANK(Estado_L1),
+			                Estado_L1,
+			                CALCULATE(
+			                    FIRSTNONBLANK(EKPO[Estado_Articulo], 1),
+			                    FILTER(EKPO, EKPO[Articulo_Genericof] = _Articulo)
+			                )
+			            )
+			)
+			```
+		lineageTag: 11bdd28d-e178-4427-bfda-d78cd0d315d2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Entrega2' =
+			
+			SWITCH(
+			    TRUE(),
+			    'Tabla_Campaña'[Origen] = "Importación", 'Tabla_Campaña'[ETA MarineTraffic BFI],
+			    'Tabla_Campaña'[Origen] = "Importación L1", 'Tabla_Campaña'[Fecha Entrega],
+			    BLANK()
+			)
+		formatString: Short Date
+		lineageTag: 537c4bdb-d0ef-49c0-b51f-d26712e61a40
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'PE MARA'
+		lineageTag: 2e8566e5-f5b0-4d30-9a70-48e8fccd405c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [PE MARA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año PE MARA'
+		lineageTag: f7a0ea4a-3999-41a0-b5a3-0cc842a9efde
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Año PE MARA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descripcion
+		lineageTag: adfd0715-339f-499b-8dc7-a4089f5e3a91
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Descripcion]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Expediente'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: c897c853-3793-4ec4-9e4b-207105d3bffb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fecha Expediente]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fecha Liquidacion'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: e62d7e0b-9911-4bed-9f49-d91ef0fee0f7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fecha Liquidacion]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'SLA TOTAL'
+		formatString: 0
+		lineageTag: 56378b07-7a0a-4c11-921b-597409484927
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [SLA TOTAL]
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrecioVenta_USD_Articulo = ```
+			
+			VAR _Origen = 'Tabla_Campaña'[Origen]
+			VAR _Articulo = 'Tabla_Campaña'[Articulo Generico]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    -- Caso 1: L1 → buscar en EKPO L1 V2
+			    _Origen = "L1",
+			        CALCULATE(
+			            FIRSTNONBLANK('EKPO L1 V2'[PRECIOVENTA_USD], 1),
+			            FILTER('EKPO L1 V2', 'EKPO L1 V2'[Articulo_GenericoF] = _Articulo)
+			        ),
+			
+			    -- Caso 2: Importación → buscar en EKPO
+			    _Origen = "Importación",
+			        CALCULATE(
+			            FIRSTNONBLANK(EKPO[PRECIOVENTA_USD], 1),
+			            FILTER(EKPO, EKPO[Articulo_Genericof] = _Articulo)
+			        ),
+			
+			    -- Casos 3, 4 y 5: Exportación, Solped o Tienda → buscar en EKPO L1 V2 y si no, en EKPO
+			    _Origen IN {"Exportación", "Solped", "Tienda"},
+			        VAR Precio_L1 = 
+			            CALCULATE(
+			                FIRSTNONBLANK('EKPO L1 V2'[PRECIOVENTA_USD], 1),
+			                FILTER('EKPO L1 V2', 'EKPO L1 V2'[Articulo_GenericoF] = _Articulo)
+			            )
+			        RETURN
+			            IF(
+			                NOT ISBLANK(Precio_L1),
+			                Precio_L1,
+			                CALCULATE(
+			                    FIRSTNONBLANK(EKPO[PRECIOVENTA_USD], 1),
+			                    FILTER(EKPO, EKPO[Articulo_Genericof] = _Articulo)
+			                )
+			            )
+			)
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: a7745dab-b23d-4099-92b7-9323ae99253a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	partition Tabla_Campaña = calculated
+		mode: import
+		source =
+				
+				UNION(
+				    // Tabla 1: EKPO
+				    SELECTCOLUMNS(
+				        'EKPO',
+				        "Articulo", [ARTICULO],
+				        "Descripcion", [DESCRIPCION],
+				        "Fecha Documento", [FECHA_CREACION_FINAL],
+				        "Fecha Expediente", BLANK(),
+				        "Documento", [DOCUMENTO],
+				        "Cantidad", [CANTIDAD_PARES],
+				        "Estilo", [ESTILO],
+				        "Color", [COLOR],
+				        "Marca", [MARCA],
+				        "Genero", [GENERO],
+				        "Departamento", [DEPARTAMENTO],
+				        "Articulo Generico", [ARTICULO_GENERICOF],
+				        "Pais Destino", [Pais Destino2],
+				        "Precio Venta USD", [PRECIOVENTA_USD],
+				        "Origen", "Importación",
+				        "Contenedor", [CONTENEDOR],
+				        "PE", [PE],
+				        "Año PE", [ANO_PE],
+				        "PE MARA", [PE_MARA],
+				        "Año PE MARA", [PE_ANO_MARA],
+				        "Estatus", [Estatus MK],
+				        "MAX ETA", [MAX_ETA],
+				        "ETA MarineTraffic BFI", [ETA_MARINETRAFFIC_BFI],
+				        "Fecha Entrega", BLANK(),
+				        "Fecha Liquidacion", [Fecha_Final_Liq],
+				        "SLA TOTAL", [SLA_TOTAL]
+				    ),
+				
+				    // Tabla 2: EKPO L1 V2
+				    SELECTCOLUMNS(
+				        'EKPO L1 V2',
+				        "Articulo", [ARTICULO],
+				        "Descripcion", [DESCRIPCION],
+				        "Fecha Documento", [FECHA_CREACION_EKKO],
+				        "Fecha Expediente", BLANK(),
+				        "Documento", [DOCUMENTO],
+				        "Cantidad", [CANTIDAD],
+				        "Estilo", [ESTILO],
+				        "Color", [COLOR],
+				        "Marca", [MARCA],
+				        "Genero", [GENERO],
+				        "Departamento", [DEPARTAMENTO],
+				        "Articulo Generico", [ARTICULO_GENERICOF],
+				        "Pais Destino", [BV_PAIS],
+				        "Precio Venta USD", [PRECIOVENTA_USD],
+				        "Origen", "L1",
+				        "Contenedor", BLANK(),
+				        "PE", [PE],
+				        "Año PE", [ANO_PE],
+				        "PE MARA", [PE2],
+				        "Año PE MARA", [ANO_PE],
+				        "Estatus", [ESTATUS_DOCUMENTO],
+				        "MAX ETA", BLANK(),
+				        "ETA MarineTraffic BFI", BLANK(),
+				        "Fecha Entrega", [FECHA_ENTREGA],
+				        "Fecha Liquidacion", BLANK(),
+				        "SLA TOTAL", BLANK()
+				    ),
+				
+				    // Tabla 3: EKPO Solped
+				    SELECTCOLUMNS(
+				        'EKPO Solped',
+				        "Articulo", [ARTICULO],
+				        "Descripcion", [DESCRIPCION],
+				        "Fecha Documento", [FECHA_CREACION_DOCUMENTO],
+				        "Fecha Expediente", BLANK(),
+				        "Documento", [DOCUMENTO],
+				        "Cantidad", [CANTIDAD_TOTAL_SOLICITADA],
+				        "Estilo", [ESTILO],
+				        "Color", [COLOR],
+				        "Marca", [MARCA],
+				        "Genero", [GENERO],
+				        "Departamento", [DEPARTAMENTO],
+				        "Articulo Generico", [ARTICULO_GENERICOF],
+				        "Pais Destino", [BV_PAIS],
+				        "Precio Venta USD", BLANK(),
+				        "Origen", "Solped",
+				        "Contenedor", BLANK(),
+				        "PE", [PE],
+				        "Año PE", [PE_ANO_MARA],
+				        "PE MARA", [PE_MARA],
+				        "Año PE MARA", BLANK(),
+				        "Estatus", [ESTADO_ENTREGA],
+				        "MAX ETA", BLANK(),
+				        "ETA MarineTraffic BFI", BLANK(),
+				        "Fecha Entrega", BLANK(),
+				        "Fecha Liquidacion", BLANK(),
+				        "SLA TOTAL", BLANK()
+				    ),
+				
+				    // Tabla 4: EKPO_BFI-CD
+				    SELECTCOLUMNS(
+				        'EKPO_BFI-CD',
+				        "Articulo", [ARTICULO],
+				        "Descripcion", [TEXTO_BREVE],
+				        "Fecha Documento", [CREADO_EL],
+				        "Fecha Expediente", [FECHA_EXPEDIENTE],
+				        "Documento", [DOC_COMPRA],
+				        "Cantidad", [CANTIDADREPARTO_TOTAL],
+				        "Estilo", [ESTILO],
+				        "Color", [COLOR],
+				        "Marca", [MARCA],
+				        "Genero", [GENERO],
+				        "Departamento", [DEPARTAMENTO],
+				        "Articulo Generico", [ARTICULO_GENERICOF],
+				        "Pais Destino", [PAIS],
+				        "Precio Venta USD", BLANK(),
+				        "Origen", "Exportación",
+				        "Contenedor", [CONTENEDOR],
+				        "PE", [PE],
+				        "Año PE", [ANO_PE],
+				        "PE MARA", [PE_MARA],
+				        "Año PE MARA", [PE_ANO_MARA],
+				        "Estatus", [Estatus_ZINT],
+				        "MAX ETA", BLANK(),
+				        "ETA MarineTraffic BFI", BLANK(),
+				        "Fecha Entrega", [Proyección_IngresoCD],
+				        "Fecha Liquidacion", [FECHA_LIQUIDACION],
+				        "SLA TOTAL", [SLA_BFI-CD]
+				    ),
+				
+				    // Tabla 5: EKPO_CD-TIENDA
+				    SELECTCOLUMNS(
+				        'EKPO_CD-TIENDA',
+				        "Articulo", [ARTICULO],
+				        "Descripcion", [DESCRIPCION],
+				        "Fecha Documento", [FECHA_DOCUMENTO_COMPRA],
+				        "Fecha Expediente", BLANK(),
+				        "Documento", [DOCUMENTO],
+				        "Cantidad", [CANTIDAD_PEDIDO],
+				        "Estilo", [ESTILO],
+				        "Color", [COLOR],
+				        "Marca", [MARCA],
+				        "Genero", [GENERO],
+				        "Departamento", [DEPARTAMENTO],
+				        "Articulo Generico", [Articulo_GenericoF],
+				        "Pais Destino", [PAIS],
+				        "Precio Venta USD", BLANK(),
+				        "Origen", "Tienda",
+				        "Contenedor", BLANK(),
+				        "PE", [PE],
+				        "Año PE", [PE_ANO_MARA],
+				        "PE MARA", [PE_MARA],
+				        "Año PE MARA", [PE_ANO_MARA],
+				        "Estatus", [Estado_Documento],
+				        "MAX ETA", BLANK(),
+				        "ETA MarineTraffic BFI", BLANK(),
+				        "Fecha Entrega", [FECHA_TIENDA],
+				        "Fecha Liquidacion", [FECHA_DOCUMENTO_MATERIAL],
+				        "SLA TOTAL", [SLA]
+				    )
+				)
+
+	annotation PBI_Id = 9acdc52a3c164a25b416f479fcc96dc9
+

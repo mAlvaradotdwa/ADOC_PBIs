@@ -1,0 +1,517 @@
+table 'Fecha Conciliación OTB'
+	lineageTag: 58bb4095-32a3-4cd1-8994-dfe07fefb0f3
+
+	column Fecha
+		formatString: General Date
+		lineageTag: d425e1a1-9219-4e54-87c2-17098056cc9b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fecha]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDFecha
+		isHidden
+		formatString: 0
+		lineageTag: 80fc5f02-79b3-415e-b509-4c3448630f31
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IDFecha]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		formatString: 0
+		lineageTag: f179afd8-551c-475e-837a-a52f39d4eb1f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Año]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumTrimestre
+		formatString: 0
+		lineageTag: 5de7e8a3-f363-438a-9aab-12dc7cc1c1ba
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumTrimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumCuatrimestre
+		formatString: 0
+		lineageTag: 028f66c9-7cf1-42af-b7d4-10e724b2f062
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumCuatrimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumMes
+		formatString: 0
+		lineageTag: 3c7721a5-66b4-483d-8018-ad319a6bace1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Mes'
+		lineageTag: 68ca5c04-ed9e-4cae-99f4-b9da51b84eee
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nombre Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Mes Corto'
+		lineageTag: 88798bc4-172b-45b3-8eed-990dee590b43
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nombre Mes Corto]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumDia
+		formatString: 0
+		lineageTag: 2b8eef39-ddc8-48fc-9655-7242798f9326
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumDia]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumSemana
+		formatString: 0
+		lineageTag: a5be31a4-0f51-4556-b884-cdca69c895db
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumSemana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumDiaSemana
+		formatString: 0
+		lineageTag: bdab1187-4e6b-49bc-8898-6c7fd1528742
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumDiaSemana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Día'
+		lineageTag: d611f64c-7c19-41e9-902b-c003d373651d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nombre Día]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDAñoMes
+		isHidden
+		formatString: 0
+		lineageTag: b19c96ed-72e7-4c69-823d-3efb0580fc0c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IDAñoMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumAñoMes
+		formatString: 0
+		lineageTag: 8ea38e40-f62a-46a0-a66f-a4bd8c72547a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumAñoMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Año'
+		dataType: dateTime
+		formatString: mmmm "de" yyyy
+		lineageTag: 554b96b2-3535-4e23-8dcc-321f6a0d3370
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mes Año]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column IDAñoTrimestre
+		isHidden
+		formatString: 0
+		lineageTag: 18db854e-66db-43dc-a989-056efccdb4fa
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IDAñoTrimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumAñoTrimestre
+		formatString: 0
+		lineageTag: 6939b504-693e-4b04-b4e6-bdbd1ca53958
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumAñoTrimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trimestre Año'
+		lineageTag: d669d8d5-9ada-4f01-9c0e-c7c1c08e6721
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trimestre Año]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDAñoCuatrimestre
+		isHidden
+		formatString: 0
+		lineageTag: 70e8a7c5-6325-47fd-91a0-107adb28995a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IDAñoCuatrimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumAñoCuatrimestre
+		formatString: 0
+		lineageTag: c9a550c7-d00d-4a63-ad89-f8cb3d705a4d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumAñoCuatrimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cuatrimestre Año'
+		lineageTag: ecf2866a-4622-4c9f-86de-10c2484cb9e2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Cuatrimestre Año]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDAñoSemestre
+		isHidden
+		formatString: 0
+		lineageTag: 42bf131c-c6c3-4870-a0e4-3122572d8e25
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IDAñoSemestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumAñoSemestre
+		formatString: 0
+		lineageTag: 71457eb0-7921-48ee-949b-18bd3e36a85a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumAñoSemestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semestre Año'
+		lineageTag: 5c68d264-982a-44ec-b900-189570ceb08a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Semestre Año]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumAñoSemana
+		formatString: 0
+		lineageTag: 31f5cc75-e553-4440-ba0a-628d202a04f2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumAñoSemana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana Año'
+		lineageTag: 412b0bd4-61a6-48ef-bb86-1e3b9671bada
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Semana Año]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana
+		lineageTag: fd1c7b3b-d87d-494b-b86f-13ec93817bb4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDMesDia
+		isHidden
+		lineageTag: a9eb2898-3a41-4038-852e-ef92c5ccd3bc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IDMesDia]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Día Mes'
+		lineageTag: cefc0026-6445-4bbb-92f8-e2761fb556e9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Día Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumDiaAño
+		formatString: 0
+		lineageTag: f325c4fa-5a95-4a2d-95d6-f1198dafa5fa
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NumDiaAño]
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgrupacionDiaSemana
+		lineageTag: 7d6550fb-6e52-44a6-bbbd-94d08119ab0f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [AgrupacionDiaSemana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiasConVenta
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e523f5a0-41a6-43bc-a296-a23d43eb7670
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DiasConVenta]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Offset
+		formatString: 0
+		lineageTag: f543a0de-a41c-4fe7-9a1b-4384eadaa049
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Offset]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrendAxis
+		formatString: 0
+		lineageTag: 59e8c023-9339-4388-9c02-dfb77853be9e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [TrendAxis]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Last22Weeks
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: af6ca45d-6077-4dd4-97e6-79412544c476
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Last22Weeks]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Last53Weeks
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 836d67c3-ff18-479e-a63c-ea7b3ee0ab4b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Last53Weeks]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'es Semana Actual ?'
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c3fe1efe-8067-4079-94da-a1bdf6499851
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [es Semana Actual ?]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'es Semana Anterior ?'
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c9063fb3-1761-4354-b396-d5f7e4ef5e36
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [es Semana Anterior ?]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'es Dia Actual ?'
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a854e419-e17c-49a4-9a04-9b3538851d91
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [es Dia Actual ?]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'es Ayer ?'
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7458fcf9-f04f-4f43-8a48-4f343a0442ef
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [es Ayer ?]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'es Mes Anterior ?'
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0580a137-35dc-49d9-97eb-0b2c9264c25d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [es Mes Anterior ?]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fecha Conciliación OTB' = calculated
+		mode: import
+		source =
+				
+				/* Regional Configuration */
+				VAR _language = "ES-SV"
+				VAR _StartOfWeek = 1
+				VAR _UTCOffset = 0.25
+				
+				/* Internal Configuration */
+				VAR _today =
+				    TRUNC ( UTCNOW () - _UTCOffset )
+				VAR _iniYear = YEAR ( MIN ( EKPO[Fecha_Conciliacion] ) )  -- Cambio aquí
+				VAR _endYear =
+				    YEAR ( MAX( EKPO[Fecha_Conciliacion] ) )  -- Cambio aquí
+				VAR _LastDayWithSales =
+				    MAXX ( { MAX ( EKPO[Fecha_Conciliacion] ) }, [Value] )  -- Cambio aquí
+				VAR _currentMonthID =
+				    (
+				        ( YEAR ( _LastDayWithSales ) - 2000 ) * 12
+				    )
+				        + MONTH ( _LastDayWithSales )
+				VAR _Dates =
+				    ADDCOLUMNS (
+				        SELECTCOLUMNS (
+				            CALENDAR ( DATE ( _iniYear, 1, 1 ), DATE ( _endYear, 12, 31 ) ),
+				            "Fecha", [Date]
+				        ),
+				        "IDFecha", INT ( FORMAT ( [Fecha], "yyyyMMdd" ) ),
+				        "Año", YEAR ( [Fecha] ),
+				        "NumTrimestre",
+				            INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 3 ) + 1 ),
+				        "NumCuatrimestre",
+				            INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 4 ) + 1 ),
+				        "NumMes", MONTH ( [Fecha] ),
+				        "Nombre Mes", FORMAT ( [Fecha], "MMMM", _language ),
+				        "Nombre Mes Corto", FORMAT ( [Fecha], "MMM.", _language ),
+				        "NumDia", DAY ( [Fecha] ),
+				        "NumSemana", WEEKNUM ( [Fecha], _StartOfWeek ),
+				        "NumDiaSemana", WEEKDAY ( [Fecha], _StartOfWeek ),
+				        "Nombre Día", FORMAT ( [Fecha], "dddd", _language ),
+				        "IDAñoMes",
+				            ( YEAR ( [Fecha] ) - 2000 ) * 12
+				                + MONTH ( [Fecha] ),
+				        "NumAñoMes", INT ( FORMAT ( [Fecha], "yyyyMM" ) ),
+				        "Mes Año", FORMAT ( [Fecha], "MMM. yyyy", _language ),
+				        "IDAñoTrimestre",
+				            ( YEAR ( [Fecha] ) - 2000 ) * 4
+				                + INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 3 ) + 1 ),
+				        "NumAñoTrimestre",
+				            ( YEAR ( [Fecha] ) * 100 )
+				                + INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 3 ) + 1 ),
+				        "Trimestre Año",
+				            "T"
+				                & INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 3 ) + 1 )
+				                & FORMAT ( [Fecha], " yyyy" ),
+				        "IDAñoCuatrimestre",
+				            ( YEAR ( [Fecha] ) - 2000 ) * 3
+				                + INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 4 ) + 1 ),
+				        "NumAñoCuatrimestre",
+				            ( YEAR ( [Fecha] ) * 100 )
+				                + INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 4 ) + 1 ),
+				        "Cuatrimestre Año",
+				            "C"
+				                & INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 4 ) + 1 )
+				                & FORMAT ( [Fecha], " yyyy" ),
+				        "IDAñoSemestre",
+				            ( YEAR ( [Fecha] ) - 2000 ) * 2
+				                + INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 6 ) + 1 ),
+				        "NumAñoSemestre",
+				            ( YEAR ( [Fecha] ) * 100 )
+				                + INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 6 ) + 1 ),
+				        "Semestre Año",
+				            "S"
+				                & INT ( TRUNC ( ( MONTH ( [Fecha] ) - 1 ) / 6 ) + 1 )
+				                & FORMAT ( [Fecha], " yyyy" ),
+				        "NumAñoSemana",
+				            ( YEAR ( [Fecha] ) * 100 )
+				                + WEEKNUM ( [Fecha], _StartOfWeek ),
+				        "Semana Año",
+				            "Sem " & FORMAT ( WEEKNUM ( [Fecha], _StartOfWeek ), "0#" )
+				                & FORMAT ( [Fecha], " yyyy" ),
+				        "Semana", "S" & FORMAT ( WEEKNUM ( [Fecha], _StartOfWeek ), "0#" ),
+				        "IDMesDia", FORMAT ( [Fecha], "MMdd", _language ) * 1,
+				        "Día Mes", FORMAT ( [Fecha], "dd MMM.", _language ),
+				        "NumDiaAño", DATEDIFF ( DATE ( YEAR ( [Fecha] ), 1, 1 ), [Fecha], DAY ) + 1,
+				        "AgrupacionDiaSemana", IF ( WEEKDAY ( [Fecha], 2 ) IN { 5, 6, 7 }, "V - D", "L - J" )
+				    )
+				RETURN
+				    ADDCOLUMNS (
+				        _Dates,
+				        "DiasConVenta", [Fecha] <= _LastDayWithSales,
+				        "Offset", [IDAñoMes] - _currentMonthID,
+				        "TrendAxis", BLANK (),
+				        "Last22Weeks",
+				            VAR _ini53wkDate = _LastDayWithSales - ( 7 * 22 )
+				            VAR _iniWeek53 =
+				                ( YEAR ( _ini53wkDate ) * 100 )
+				                    + WEEKNUM ( _ini53wkDate, _StartOfWeek )
+				            VAR _endWeek53 =
+				                ( YEAR ( _LastDayWithSales ) * 100 )
+				                    + WEEKNUM ( _LastDayWithSales, _StartOfWeek )
+				            RETURN
+				                [NumAñoSemana] >= _iniWeek53
+				                    && [NumAñoSemana] <= _endWeek53,
+				        "Last53Weeks",
+				            VAR _ini53wkDate = _LastDayWithSales - ( 7 * 53 )
+				            VAR _iniWeek53 =
+				                ( YEAR ( _ini53wkDate ) * 100 )
+				                    + WEEKNUM ( _ini53wkDate, _StartOfWeek )
+				            VAR _endWeek53 =
+				                ( YEAR ( _LastDayWithSales ) * 100 )
+				                    + WEEKNUM ( _LastDayWithSales, _StartOfWeek )
+				            RETURN
+				                [NumAñoSemana] >= _iniWeek53
+				                    && [NumAñoSemana] <= _endWeek53,
+				        "es Semana Actual ?",
+				            VAR _eDate = _today
+				            VAR _cYear =
+				                YEAR ( _eDate )
+				            VAR _cWeek =
+				                WEEKNUM ( _eDate )
+				            VAR _yearWeek = _cYear * 100 + _cWeek
+				            RETURN
+				                [NumAñoSemana] = _yearWeek,
+				        "es Semana Anterior ?",
+				            VAR _eDate = _today - 7
+				            VAR _cYear =
+				                YEAR ( _eDate )
+				            VAR _cWeek =
+				                WEEKNUM ( _eDate )
+				            VAR _yearWeek = _cYear * 100 + _cWeek
+				            RETURN
+				                [NumAñoSemana] = _yearWeek,
+				        "es Dia Actual ?", [Fecha] = _today,
+				        "es Ayer ?",
+				            [Fecha] = _today - 1,
+				        "es Mes Anterior ?",
+				            ( [IDAñoMes] - _currentMonthID ) = -1
+				    )
+
+	annotation PBI_Id = ddb01ebb30f9493fa572665dc562aea0
+

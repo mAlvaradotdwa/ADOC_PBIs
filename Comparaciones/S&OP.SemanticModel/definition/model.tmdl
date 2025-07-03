@@ -1,0 +1,72 @@
+model Model
+	culture: es-SV
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-SV
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["FACT_TUNGYA","DIM_PAIS","DIM_BODEGA","DIM_MARCAS","DIM_DEPTO","DIM_GENERO","DIM_ARTICULOS","DIM_PROVEEDOR","PUERTO_ORIGEN","NAST","FACT_ARRIBOSFUTURO","TEMPORADA","DIM_DOC","FACT_PRIMERAVENTA_ARTICULO","EKPO","Meses","Tipo de Flete","FL","LastRefresh","FACT_MARINETRAFFIC","DIM_ETA","FL (2)","DIM_PROVEEDOR_EKKO","ALMACENES","SLA_Maritimo","FAC_TEMPORADAS","EKPO_BFI-CD","EKPO_CD-TIENDA","EKPO L1","EKPO L1 V2","FL (TRACING)","DIM_MARCAS (2)","EKPO Solped","Precio Venta","DIM_TasaCambio","PREPARACIONES CD (TRACING)","FACT_INVENTARIOUD","TIENDAS NUEVAS OPERATIVAS"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.144.878.0 (25.06)+9cca29236de5114792f4d7188221f91ad4a5cc50
+
+annotation __TEdtr = 1
+
+annotation PBI_ProTooling = ["WebModelingEdit","DaxQueryView_Desktop","DevMode"]
+
+ref table DIM_PAIS
+ref table DIM_BODEGA
+ref table DIM_MARCAS
+ref table DIM_DEPTO
+ref table DIM_GENERO
+ref table DIM_ARTICULOS
+ref table DIM_PROVEEDOR
+ref table PUERTO_ORIGEN
+ref table NAST
+ref table FACT_ARRIBOSFUTURO
+ref table TEMPORADA
+ref table DIM_DOC
+ref table FACT_PRIMERAVENTA_ARTICULO
+ref table EKPO
+ref table 'Campos Producto'
+ref table 'Fecha Liquidación'
+ref table Métricas
+ref table Tiempos
+ref table Meses
+ref table 'Tipo de Flete'
+ref table FL
+ref table 'Fecha Arribo Futuro'
+ref table LastRefresh
+ref table FACT_MARINETRAFFIC
+ref table DIM_ETA
+ref table 'FL (2)'
+ref table DIM_PROVEEDOR_EKKO
+ref table DIM_METRICA
+ref table 'Fecha Creación MK'
+ref table ALMACENES
+ref table 'Fecha Conciliación OTB'
+ref table SLA_Maritimo
+ref table FAC_TEMPORADAS
+ref table MedidaImportacionTabla
+ref table EKPO_BFI-CD
+ref table 'Fecha Liquidación ZINT'
+ref table EKPO_CD-TIENDA
+ref table 'EKPO L1'
+ref table 'Fecha Liquidación L1'
+ref table 'EKPO L1 V2'
+ref table 'FL (TRACING)'
+ref table 'DIM_MARCAS (2)'
+ref table 'EKPO Solped'
+ref table 'Precio Venta'
+ref table DIM_TasaCambio
+ref table Tabla_Conciliacion
+ref table Tabla_Campaña
+ref table 'PREPARACIONES CD (TRACING)'
+ref table FACT_INVENTARIOUD
+ref table 'TIENDAS NUEVAS OPERATIVAS'
+
+ref cultureInfo es-SV
+

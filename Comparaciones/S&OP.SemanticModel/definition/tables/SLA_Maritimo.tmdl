@@ -1,0 +1,39 @@
+table SLA_Maritimo
+	lineageTag: c8c81a8d-f464-4cab-984a-b24a8d2b81ed
+
+	column Modalidad
+		dataType: string
+		lineageTag: 7b3fcdb2-225e-400b-8904-58c776417889
+		summarizeBy: none
+		sourceColumn: Modalidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pais
+		dataType: string
+		lineageTag: 0ad3e1ac-b81a-49d2-bf59-d446171a17b2
+		summarizeBy: none
+		sourceColumn: Pais
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tiempo
+		dataType: string
+		lineageTag: fe123856-4e36-4d25-ae20-539da339d507
+		summarizeBy: none
+		sourceColumn: Tiempo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SLA_Maritimo = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("bZA5DgIxDAC/stqaghtRLggQSNBwNIjCEAss5UBOQPAk3sHHiHdpIFvZyWR8ZL/Pl8AUyLi8kY8vZCHGTi8/NH7IjjBYMDHrtf/ZCOxZg0J/iYd+os6tIik6SMQxmKN7lmxQYzmLvjSHzX+6cKzAVjBpOCVN17iIl3EStdBovmo3gSMGT7r2B5bv14NOkrUSNvEBlPPZ1pIEhVlh3i+mE2TyvmqzQWb0gVEEna1B36PEsn3CZzcIcUwNtXQVCzOcb2X1ChfIKJPIVvHm8AE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Modalidad = _t, Pais = _t, Tiempo = _t])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

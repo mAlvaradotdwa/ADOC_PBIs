@@ -1,0 +1,30 @@
+table Meses
+	lineageTag: 14144edf-b68e-43b2-8a74-030fd73aabfa
+
+	column Numero
+		dataType: string
+		lineageTag: cedf7d92-6e23-4e18-a915-637a1de09957
+		summarizeBy: none
+		sourceColumn: Numero
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: string
+		lineageTag: ec5229a3-830a-432d-a9bc-cb537b1a3490
+		summarizeBy: none
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Meses = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUXLNSy3KV4rViVYyAvLcUpOKYHxjIN83sagKwjMB8hyTijJzwDxTsFwlRMoMyPEqzcuE8MzBvBwozwKkLT2/uATCtQRyg1MLSjJTc4EWgYUMDYBi/sklpXABkLP88suQ1YDc5pKZDBOKBQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t, Columna2 = _t]),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(Origen,{{"Columna1", "Numero"}, {"Columna2", "Mes"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,64 @@
+table DIM_ETA
+	lineageTag: e55949a3-039e-4c80-8f0b-d8018ab1d18c
+
+	column shipment_id
+		dataType: string
+		lineageTag: 0501d041-b199-408e-bc7e-4099ba44c712
+		summarizeBy: none
+		sourceColumn: shipment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIRST_ETA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 55129f7c-cd79-40fe-adea-d4c1f2d968a8
+		summarizeBy: none
+		sourceColumn: FIRST_ETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MAX_ETA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 331140ab-265c-45b3-a23a-95799887edb3
+		summarizeBy: none
+		sourceColumn: MAX_ETA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CAMBIOS
+		dataType: int64
+		formatString: 0
+		lineageTag: cefafd8d-dc35-45b7-a052-c8cc83a6249f
+		summarizeBy: sum
+		sourceColumn: CAMBIOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIAS_DIFF
+		dataType: int64
+		formatString: 0
+		lineageTag: 6b7ad5c2-5854-4cc4-90c5-f1ae90951b52
+		summarizeBy: sum
+		sourceColumn: DIAS_DIFF
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_ETA = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from openquery(MYSQL, 'SELECT a.shipment_id, min(CAST(a.arrival_timestamp AS DATE)) FIRST_ETA, max(CAST(a.arrival_timestamp AS DATE)) MAX_ETA, #(lf)count(DISTINCT(CAST(a.arrival_timestamp AS DATE)))-1 CAMBIOS, datediff(max(CAST(a.arrival_timestamp AS DATE)),min(CAST(a.arrival_timestamp AS DATE))) DIAS_DIFF#(lf)FROM adminecommerce_marinetraffic.`port_of_discharge` a#(lf)GROUP BY 1#(lf)')"]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"FIRST_ETA", type date}, {"MAX_ETA", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

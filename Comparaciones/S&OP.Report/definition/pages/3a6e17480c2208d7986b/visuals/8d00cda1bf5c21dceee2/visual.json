@@ -1,0 +1,181 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "8d00cda1bf5c21dceee2",
+  "position": {
+    "x": 9.9777282850779514,
+    "y": 146.815144766147,
+    "z": 0,
+    "height": 573.00668151447667,
+    "width": 1194.4766146993318,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineClusteredColumnComboChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO_CD-TIENDA"
+                    }
+                  },
+                  "Property": "PAIS"
+                }
+              },
+              "queryRef": "EKPO_CD-TIENDA.PAIS",
+              "nativeQueryRef": "PAIS",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "EKPO_CD-TIENDA"
+                        }
+                      },
+                      "Property": "Diferencia_Dias"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(EKPO_CD-TIENDA.Diferencia_Dias)",
+              "nativeQueryRef": "Transito",
+              "displayName": "Transito"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "EKPO_CD-TIENDA"
+                        }
+                      },
+                      "Property": "SLA"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(EKPO_CD-TIENDA.SLA)",
+              "nativeQueryRef": "SLA",
+              "displayName": "SLA"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "EKPO_CD-TIENDA"
+                      }
+                    },
+                    "Property": "Diferencia_Dias"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableTitleDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "optimizeLabelDisplay": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

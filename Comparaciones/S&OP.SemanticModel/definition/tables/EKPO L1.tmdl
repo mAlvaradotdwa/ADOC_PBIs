@@ -1,0 +1,286 @@
+table 'EKPO L1'
+	lineageTag: e8c1e282-cb04-444b-85ff-23b8de4cd5ff
+
+	column TIPO_MATERIAL
+		dataType: string
+		lineageTag: dda24624-3d3a-4a08-8081-945fc68d67dd
+		summarizeBy: none
+		sourceColumn: TIPO_MATERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD_MEDIDA
+		dataType: string
+		lineageTag: dd11e035-c7c8-4fc6-933f-77de09a7bf91
+		summarizeBy: none
+		sourceColumn: UNIDAD_MEDIDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: 56ab5b6b-a38a-463f-b37d-fd41a6a5dd19
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 4f86b11e-1107-4bd2-a473-7473d51eda69
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: 9161e721-07fe-437d-b2e1-05f977084d87
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: e2bd4be0-6a7d-4180-95b9-99c1d17f80a8
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CREACION_EKKO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: e785aa2a-3f89-4564-8620-d5d8530e06ad
+		summarizeBy: none
+		sourceColumn: FECHA_CREACION_EKKO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column GRUPO_COMPRAS
+		dataType: string
+		lineageTag: f55e1b33-aa9f-47e2-8ee0-a7f9d6d6d238
+		summarizeBy: none
+		sourceColumn: GRUPO_COMPRAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASE_DOCUMENTO
+		dataType: string
+		lineageTag: 7537e9a1-e054-42e9-aa51-82babb0e4b41
+		summarizeBy: none
+		sourceColumn: CLASE_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_CONTABILIZACION
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9221fc5d-30d5-43d3-9e3d-7edf6f2c697a
+		summarizeBy: none
+		sourceColumn: FECHA_CONTABILIZACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DOCUMENTO_MATERIAL
+		dataType: string
+		lineageTag: 0a7b282c-253f-4940-a820-b4aaf062f835
+		summarizeBy: none
+		sourceColumn: DOCUMENTO_MATERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_MOVIMIENTO
+		dataType: string
+		lineageTag: 7aac9c61-347c-4a4e-8a99-1704eade64b4
+		summarizeBy: none
+		sourceColumn: TIPO_MOVIMIENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO_DISTRIBUCION
+		dataType: string
+		lineageTag: e78d44e9-7985-4b2a-9d80-c5174628e538
+		summarizeBy: none
+		sourceColumn: CENTRO_DISTRIBUCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD
+		dataType: double
+		lineageTag: 6770e4a9-3674-4139-97e4-585ea613a093
+		summarizeBy: sum
+		sourceColumn: CANTIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FECHA_ENTRADA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: f8ff4fb5-1c26-4060-a447-5c2760e1fa48
+		summarizeBy: none
+		sourceColumn: FECHA_ENTRADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Año_Documento = YEAR('EKPO L1'[FECHA_CREACION_EKKO])
+		formatString: 0
+		lineageTag: 93ab6d99-d004-4a98-bac2-9e102cb1aac9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año_Ingreso = YEAR('EKPO L1'[FECHA_ENTRADA])
+		formatString: 0
+		lineageTag: ce862438-53a6-415e-b1eb-e220f4937cc4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estatus_Documento = IF(ISBLANK('EKPO L1'[FECHA_ENTRADA]), "Pendiente", "Entregado")
+		lineageTag: bad2f3ef-8438-46d8-a6bf-c65abf28042b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANO_DOCUMENTO
+		dataType: string
+		lineageTag: 1d651a4d-2942-4353-aa77-51ac1f2067aa
+		summarizeBy: none
+		sourceColumn: ANO_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_ENTREGA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: b1bcdf10-4bbc-4bd4-bfda-558cec0ae597
+		summarizeBy: none
+		sourceColumn: FECHA_ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Año_Entrega = YEAR('EKPO L1'[FECHA_ENTREGA])
+		formatString: 0
+		lineageTag: a59a4e51-7938-42a9-b5a4-bd2bb0da4f3b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana_Entrega = WEEKNUM('EKPO L1'[FECHA_ENTREGA],2)
+		formatString: 0
+		lineageTag: e6f2e464-b42a-4661-a04a-414375acf137
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO_DESTINO
+		dataType: string
+		lineageTag: 2eadfb8c-6f0a-40c3-a4fa-e3dd6316a281
+		summarizeBy: none
+		sourceColumn: CENTRO_DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: 21850a43-44ca-4dba-99aa-e7ef7c9e48cd
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		lineageTag: 00b736d4-b5cb-4404-b81a-329731091429
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: 3c03b552-2d62-4ae8-ab1b-d65f12d962e9
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO
+		dataType: string
+		lineageTag: 683ba08b-d706-4146-a3e9-e225f4a2b10b
+		summarizeBy: none
+		sourceColumn: GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: 8a76f1b8-165e-46bf-b8b8-142a28730375
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE
+		dataType: string
+		lineageTag: 0859d8f1-2893-4620-812d-decbd4de1031
+		summarizeBy: none
+		sourceColumn: PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANO_PE
+		dataType: string
+		lineageTag: 797eec12-0f79-4173-9228-6853723f3232
+		summarizeBy: none
+		sourceColumn: ANO_PE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE2
+		dataType: string
+		lineageTag: c233e11c-4048-4efc-a39b-d91ac3d80fd8
+		summarizeBy: none
+		sourceColumn: PE2
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE_ANO2
+		dataType: string
+		lineageTag: e7a79839-2133-4261-9db4-4a7862dd73d9
+		summarizeBy: none
+		sourceColumn: PE_ANO2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pais_Destino = RELATED ( DIM_BODEGA[SK_PAIS] )
+		lineageTag: 2df5202f-3b10-4fe9-abf4-095cc69e6b87
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'EKPO L1' = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT #(lf)    MSEG.MBLNR AS Documento_Material,#(lf)    MSEG.MJAHR AS Ano_Documento, #(lf)    MSEG.BWART AS Tipo_Movimiento,#(lf)    EKPO.MATNR AS Articulo,#(lf)    EKPO.WERKS AS Centro_Distribucion,#(lf)    EKPO.LGORT AS Almacen, #(lf)    CASE #(lf)        WHEN MSEG.BWART = '101' THEN MSEG.MENGE#(lf)        WHEN MSEG.BWART IS NULL THEN EKPO.MENGE#(lf)        ELSE NULL #(lf)    END AS Cantidad,#(lf)    MSEG.MEINS AS Unidad_Medida, #(lf)    MSEG.BUDAT_MKPF AS Fecha_Contabilizacion,#(lf)    MSEG.CPUDT_MKPF AS Fecha_Entrada,#(lf)    EKPO.TXZ01 AS Descripcion,#(lf)    EKPO.EBELN AS Documento,#(lf)    EKPO.MTART AS Tipo_Material,#(lf)    EKPO.AEDAT AS Fecha_Entrega,#(lf)    EKPO.SAISO AS PE,#(lf)    EKPO.SAISO AS Ano_PE,#(lf)    EKKO.BEDAT AS Fecha_Creacion_EKKO,#(lf)    EKKO.EKGRP AS Grupo_Compras,#(lf)    EKKO.BSART AS Clase_Documento,#(lf)    EKKO.ZZ_CENTRO_D AS Centro_Destino,#(lf)    MARA.GROES AS ESTILO,#(lf)    MARA.FREE_CHAR AS COLOR,#(lf)    MARA.BRAND_ID AS MARCA,#(lf)    MARA.ZZ_ART_PROV AS GENERO,#(lf)    MARA.ZZ_DEPART AS DEPARTAMENTO,#(lf)    MARA.SAISO AS PE2,#(lf)    MARA.SAISJ AS PE_ANO2#(lf)FROM SAP_ECC.EKPO#(lf)LEFT JOIN SAP_ECC.EKKO #(lf)    ON EKPO.EBELN = EKKO.EBELN#(lf)LEFT JOIN SAP_ECC.MSEG #(lf)    ON EKPO.EBELN = MSEG.EBELN #(lf)    AND EKPO.EBELP = MSEG.EBELP -- Relación por posición para evitar duplicados#(lf)LEFT JOIN SAP_ECC.MARA #(lf)#(tab)ON EKPO.MATNR = MARA.MATNR     #(lf)WHERE EKKO.BSART = 'ZUB1'#(lf)AND EKPO.LOEKZ <> 'L'#(lf)AND EKKO.BEDAT >= ADD_MONTHS(CURRENT_DATE, -24)#(lf)--AND EKPO.EBELN = '4801794374'#(lf)--AND EKPO.MATNR = '000000010013616001'#(lf)AND (MSEG.BWART = '101' OR MSEG.BWART IS NULL)#(lf)", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"FECHA_CONTABILIZACION", type date}, {"FECHA_ENTRADA", type date}, {"FECHA_CREACION_EKKO", type date}, {"FECHA_ENTREGA", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

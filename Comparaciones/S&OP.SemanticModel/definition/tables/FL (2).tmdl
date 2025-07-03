@@ -1,0 +1,91 @@
+table 'FL (2)'
+	lineageTag: c4229b35-d0b1-4de0-855c-a7c6da4780b8
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: 0645d91b-824a-4484-bee0-bd342c9d8e42
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: 7c6e7032-5399-47d7-8577-207cd3719b5c
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO44
+		dataType: string
+		lineageTag: b0b2ff63-917c-4f01-8d2f-2749bb169a67
+		summarizeBy: none
+		sourceColumn: DOCUMENTO44
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 9b1c951c-30d5-46d4-81ac-ac4ec8bed50a
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: 0023541a-e728-4895-b05b-98087cee58d7
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_LIQUIDACION
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 119983f6-05c9-4920-a344-6c32c4f43590
+		summarizeBy: none
+		sourceColumn: FECHA_LIQUIDACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CLASE_DE_DOCUMENTO
+		dataType: string
+		lineageTag: 37a2fe6d-2a50-487d-97c1-dd5476371f50
+		summarizeBy: none
+		sourceColumn: CLASE_DE_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDEDOR_TRACING
+		dataType: string
+		lineageTag: 1581602a-59ff-4a5c-8166-d4ff11652de6
+		summarizeBy: none
+		sourceColumn: VENDEDOR_TRACING
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO45
+		dataType: string
+		lineageTag: 7b8603db-35a2-4bce-9696-d9b8fc087ba5
+		summarizeBy: none
+		sourceColumn: DOCUMENTO45
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'FL (2)' = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT #(lf)    EKKO.UNSEZ AS Contenedor,#(lf)    EKKO.EBELN AS Documento,#(lf)    EKPO.KONNR AS Documento44,#(lf)    EKPO.EXT_RFX_NUMBER AS Documento45,#(lf)    EKKO.BSART AS Clase_de_Documento,#(lf)    EKKO.VERKF AS Vendedor_Tracing,#(lf)    EKPO.MATNR AS Articulo,#(lf)    EKPO.TXZ01 AS Descripcion,#(lf)    EKPO.FECHA_LIQ AS Fecha_Liquidacion#(lf)FROM #(lf)    SAP_ECC.EKKO AS EKKO#(lf)INNER JOIN #(lf)    SAP_ECC.EKPO AS EKPO#(lf)ON #(lf)    EKKO.EBELN = EKPO.EBELN#(lf)WHERE #(lf)    EKKO.UNSEZ <> '' #(lf)    --AND EKKO.UNSEZ IN ('CBHU9137819')#(lf)    --AND EKKO.BSART IN ('ZUB')  ", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"FECHA_LIQUIDACION", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
