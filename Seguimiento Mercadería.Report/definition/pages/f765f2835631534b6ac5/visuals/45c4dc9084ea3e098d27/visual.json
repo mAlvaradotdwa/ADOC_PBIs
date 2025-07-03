@@ -60,7 +60,7 @@
               },
               "queryRef": "DIM_ARTICULOS.BV_MARCA",
               "nativeQueryRef": "Marca",
-              "active": true,
+              "active": false,
               "displayName": "Marca"
             },
             {
@@ -76,7 +76,7 @@
               },
               "queryRef": "DIM_ARTICULOS.BV_GENERO",
               "nativeQueryRef": "BV_GENERO",
-              "active": true,
+              "active": false,
               "displayName": "Genero"
             },
             {
@@ -92,7 +92,7 @@
               },
               "queryRef": "DIM_ARTICULOS.ESTILO",
               "nativeQueryRef": "Estilo",
-              "active": true,
+              "active": false,
               "displayName": "Estilo"
             },
             {
@@ -108,7 +108,7 @@
               },
               "queryRef": "DIM_ARTICULOS.COLOR",
               "nativeQueryRef": "Color",
-              "active": true,
+              "active": false,
               "displayName": "Color"
             }
           ]
@@ -398,9 +398,67 @@
               },
               "queryRef": "Métricas.Entregado Atrasado",
               "nativeQueryRef": "Entregado Atrasado"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Venta Pares"
+                }
+              },
+              "queryRef": "Métricas.Venta Pares",
+              "nativeQueryRef": "Venta Pares"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Sell Off"
+                }
+              },
+              "queryRef": "Métricas.Sell Off",
+              "nativeQueryRef": "Sell Off"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_ARTICULOS"
+                  }
+                },
+                "Property": "PE"
+              }
+            },
+            "direction": "Descending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_ARTICULOS"
+                  }
+                },
+                "Property": "SK_UNIDADNEGOCIO"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "expansionStates": [
@@ -431,24 +489,28 @@
             "queryRefs": [
               "DIM_ARTICULOS.SK_UNIDADNEGOCIO"
             ],
+            "isCollapsed": true,
             "isPinned": true
           },
           {
             "queryRefs": [
               "DIM_ARTICULOS.BV_MARCA"
             ],
+            "isCollapsed": true,
             "isPinned": true
           },
           {
             "queryRefs": [
               "DIM_ARTICULOS.BV_GENERO"
             ],
+            "isCollapsed": true,
             "isPinned": true
           },
           {
             "queryRefs": [
               "DIM_ARTICULOS.ESTILO"
             ],
+            "isCollapsed": true,
             "isPinned": true
           },
           {

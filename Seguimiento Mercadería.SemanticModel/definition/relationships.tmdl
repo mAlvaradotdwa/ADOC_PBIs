@@ -327,3 +327,15 @@ relationship 6086d892-a927-18c6-1d0e-68b2bebbeb2e
 	fromColumn: EKPO_CD-TIENDA.PAIS
 	toColumn: DIM_PAIS.BV_PAIS
 
+relationship 6ad03065-3d51-4f2a-19b9-0506d368cf53
+	fromColumn: VENTAS.SK_MATNR
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 1f91c1ff-fbef-010c-2387-9436c9b937d5
+	fromColumn: VENTAS.SK_PAIS
+	toColumn: DIM_PAIS.SK_PAIS
+
+relationship 790d8d4a-bfd2-9e0f-e078-884ae5cff01d
+	fromColumn: FACT_INVENTARIOUD.SK_TIENDA
+	toColumn: DIM_BODEGA.SK_TIENDA
+

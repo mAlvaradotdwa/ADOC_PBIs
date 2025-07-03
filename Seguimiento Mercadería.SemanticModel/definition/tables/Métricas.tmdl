@@ -1238,6 +1238,24 @@ table Métricas
 		displayFolder: Campañas\Tienda\OnTime
 		lineageTag: 4a118994-f6b9-42cd-bacb-9e757fc5a2df
 
+	measure 'Venta Pares' =
+			CALCULATE (
+			    SUM ( Ventas[Pares] ),
+			    Ventas[SK_DIVISION] IN { "10", "20" }
+			)
+		formatString: #,0
+		displayFolder: Venta
+		lineageTag: 1918ec44-ad51-4f87-8651-604c383bacf2
+
+	measure 'Sell Off' =
+			DIVIDE (
+			    [Venta Pares],
+			    [Venta Pares] + [Inventario BFI] + [Inventario CD] + [Inventario Tiendas]
+			)
+		formatString: #,0.00 %
+		displayFolder: Venta
+		lineageTag: a9c6a8bd-3434-4f5f-be84-5ec9685e955e
+
 	column Value
 		isHidden
 		lineageTag: 6f34ce85-c6e8-4092-bcb8-0f79e4e3fd24

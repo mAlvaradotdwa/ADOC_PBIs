@@ -56,7 +56,7 @@ table DIM_PAIS
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from DIM_PAIS where BV_PAIS not in ('BFI')"])
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from DIM_PAIS --where BV_PAISnot in ('BFI')", CreateNavigationProperties=false])
 				in
 				    Origen
 

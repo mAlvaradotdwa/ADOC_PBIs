@@ -665,6 +665,16 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "VENTAS",
+          "nodeLineageTag": "75e8ee0c-2119-49bc-b630-455d836e7c27",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
@@ -2153,8 +2163,89 @@
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
+    },
+    {
+      "ordinal": 13,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 705,
+            "y": 484
+          },
+          "nodeIndex": "VENTAS",
+          "nodeLineageTag": "75e8ee0c-2119-49bc-b630-455d836e7c27",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": -82,
+            "y": -35
+          },
+          "nodeIndex": "DIM_ARTICULOS",
+          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1142,
+            "y": 0
+          },
+          "nodeIndex": "DIM_PAIS",
+          "nodeLineageTag": "de7adcad-ac5c-4181-a2e9-b4438d69dea0",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 437,
+            "y": 98
+          },
+          "nodeIndex": "FACT_INVENTARIOUD",
+          "nodeLineageTag": "8501e32b-d593-4fa7-91aa-a5a4b27eb569",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 736,
+            "y": 0
+          },
+          "nodeIndex": "DIM_BODEGA",
+          "nodeLineageTag": "a61e0ad2-f2d9-4e8f-a51b-3aa45c13fdde",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Disposición 10",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Disposición 8",
+  "selectedDiagram": "Disposición 10",
   "defaultDiagram": "Todas las tablas"
 }

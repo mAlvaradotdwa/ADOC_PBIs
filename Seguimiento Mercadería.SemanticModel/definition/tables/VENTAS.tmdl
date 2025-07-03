@@ -1,0 +1,65 @@
+table VENTAS
+	lineageTag: 75e8ee0c-2119-49bc-b630-455d836e7c27
+
+	column SK_MATNR
+		dataType: string
+		lineageTag: 2c4fb710-d8cb-4f72-8f14-f7d267c582fb
+		summarizeBy: none
+		sourceColumn: SK_MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_DIVISION
+		dataType: string
+		lineageTag: 2ccb7deb-3a35-4752-b93d-9a80799f69fa
+		summarizeBy: none
+		sourceColumn: SK_DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: f08b4b4a-32c2-4738-bde1-168038648802
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOOPERACION
+		dataType: string
+		lineageTag: 776d1cc2-e904-4a68-b0ad-236ce8c91a7e
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: a4cfd97d-1779-4d06-9f55-28796445d97b
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARES
+		dataType: double
+		lineageTag: 9584f176-9e46-4c06-9d6a-06bdf9d37bb7
+		summarizeBy: sum
+		sourceColumn: PARES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition VENTAS = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT#(lf)    v.SK_MATNR ,#(lf)    v.SK_DIVISION ,#(lf)    v.SK_PAIS ,#(lf)    v.SK_TIPOOPERACION ,#(lf)    v.SK_ALMACEN ,#(lf)    PARES = SUM( v.PARES )#(lf)FROM FAC_VENTARPRO v#(lf)JOIN DIM_ARTICULOSAP a#(lf)    ON v.SK_ARTICULO = a.SK_ARTICULO#(lf)WHERE v.SK_PERIODO >= YEAR( GETDATE() ) - 1#(lf)    AND a.SK_DEPTO IN ('C' ,#(lf)    'R' ,#(lf)    'A'#(lf)    )#(lf)GROUP BY v.SK_MATNR ,#(lf)         v.SK_DIVISION ,#(lf)         v.SK_PAIS ,#(lf)         v.SK_TIPOOPERACION ,#(lf)         v.SK_ALMACEN#(lf)UNION#(lf)SELECT#(lf)    v.SK_MATNR ,#(lf)    v.SK_DIVISION ,#(lf)    v.SK_PAIS ,#(lf)    v.SK_TIPOOPERACION ,#(lf)    v.SK_ALMACEN ,#(lf)    PARES = SUM( v.PARES )#(lf)FROM FAC_VENTASAP v#(lf)JOIN DIM_ARTICULOSAP a#(lf)    ON v.SK_ARTICULO = a.SK_ARTICULO#(lf)WHERE v.SK_PERIODO >= YEAR( GETDATE() ) - 1#(lf)    AND a.SK_DEPTO IN ('C' ,#(lf)    'R' ,#(lf)    'A'#(lf)    )#(lf)GROUP BY v.SK_MATNR ,#(lf)         v.SK_DIVISION ,#(lf)         v.SK_PAIS ,#(lf)         v.SK_TIPOOPERACION ,#(lf)         v.SK_ALMACEN", CreateNavigationProperties=false])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
