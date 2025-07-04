@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "OTB DET"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "50da28d4-fe9b-4d87-a36d-4ad0b9688225"
+  }
+}

@@ -1,0 +1,36 @@
+table Actualización
+	lineageTag: 1f043b28-d6a8-4eb7-a62b-c040e748d9d5
+
+	column Fecha
+		dataType: dateTime
+		formatString: dd-mmm-yy hh:nn AM/PM
+		lineageTag: 007d992f-9224-48ed-8339-01af4f1ed3db
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition Actualización-18868190-3999-4c4b-9b7f-a80bb52a4970 = m
+		mode: import
+		queryGroup: 'Mapeados\Funciones o Variables'
+		source =
+				let
+				    Source = Fecha(),
+				    #"Converted to Table" = #table(1, {{Source}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Converted to Table",{{"Column1", "Fecha"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Fecha", type datetime}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

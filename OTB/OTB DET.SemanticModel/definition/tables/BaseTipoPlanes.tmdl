@@ -1,0 +1,257 @@
+table BaseTipoPlanes
+	lineageTag: 34942054-55eb-4234-92a4-ddd324aa8212
+
+	column Column1
+		dataType: string
+		isHidden
+		lineageTag: d0cf2f24-a373-4c40-a230-19540fe91d8c
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column División
+		dataType: string
+		isHidden
+		lineageTag: 79de938e-a9d8-488a-a779-9c46802684da
+		summarizeBy: none
+		sourceColumn: División
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidad Negocio'
+		dataType: string
+		isHidden
+		lineageTag: aa938559-c16a-4c1a-a1ed-8b0eac94003a
+		summarizeBy: none
+		sourceColumn: Unidad Negocio
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		isHidden
+		lineageTag: 848669a4-1c7d-4fb8-85d2-3b991df0f2f1
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		dataType: string
+		isHidden
+		lineageTag: 15529f3a-3822-46be-bef8-18e08b4e6520
+		summarizeBy: none
+		sourceColumn: Departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Género
+		dataType: string
+		isHidden
+		lineageTag: 6e36f60e-57dd-4ee4-bd26-b1c1b0db16a5
+		summarizeBy: none
+		sourceColumn: Género
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoría
+		dataType: string
+		isHidden
+		lineageTag: 6b53a768-0670-4711-ae7c-7fc001956b08
+		summarizeBy: none
+		sourceColumn: Categoría
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Estilo'
+		dataType: string
+		isHidden
+		lineageTag: f3d25b02-8dd8-4220-8063-219cc1ff8ca1
+		summarizeBy: none
+		sourceColumn: Tipo Estilo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c7b1610d-2dbe-41a9-a517-01cc323afa89
+		summarizeBy: sum
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9980e2f7-7fcc-47e2-b143-4298d081f5d2
+		summarizeBy: sum
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7ebc0c8d-e5c9-4547-932e-e7e41c2e0f26
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column VTA
+		dataType: double
+		lineageTag: 2dcd0892-8ad9-4cbd-893d-3aa30d71c76a
+		summarizeBy: sum
+		sourceColumn: VTA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'VTA USD'
+		dataType: double
+		lineageTag: b56851f0-3b3f-4a7d-8d32-196a21fe768d
+		summarizeBy: sum
+		sourceColumn: VTA USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'MRG USD'
+		dataType: double
+		lineageTag: 145abea7-e61b-473f-a0bb-04daa19941f6
+		summarizeBy: sum
+		sourceColumn: MRG USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'MKD USD'
+		dataType: double
+		lineageTag: a71c25eb-4af9-4fbb-8e21-9d92548325a0
+		summarizeBy: sum
+		sourceColumn: MKD USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tipo Plan'
+		dataType: string
+		lineageTag: 06c7972d-3326-47dd-855d-4c39684cb472
+		summarizeBy: none
+		sourceColumn: Tipo Plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Plan Actual'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ad9116da-66fc-4480-a622-283aa8b4f30a
+		summarizeBy: sum
+		sourceColumn: Plan Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column País
+		dataType: string
+		isHidden
+		lineageTag: f3ebff92-48aa-40f7-ab3c-1a3a9bc6883e
+		summarizeBy: none
+		sourceColumn: País
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORMATO
+		dataType: string
+		isHidden
+		lineageTag: 78ff642c-8065-4c96-9491-e9f532af5584
+		summarizeBy: none
+		sourceColumn: FORMATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orden Departamento'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f4bcbabf-edd7-4e69-b17e-81816e06a1ee
+		summarizeBy: sum
+		sourceColumn: Orden Departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orden Tipo Estilo'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: cd26385f-7f8b-4f7b-801e-487dfdbb7e0d
+		summarizeBy: sum
+		sourceColumn: Orden Tipo Estilo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 30e75ab4-cac8-46f7-9905-6c0b06cf83ab
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Key = ```
+			    BaseTipoPlanes[División] &
+			    BaseTipoPlanes[Unidad Negocio] &
+			    BaseTipoPlanes[Departamento] &
+			    BaseTipoPlanes[Marca] &
+			    BaseTipoPlanes[Género] &
+			    BaseTipoPlanes[Categoría] &
+			    BaseTipoPlanes[Tipo Estilo] & 
+			    BaseTipoPlanes[Año] & 
+			    BaseTipoPlanes[Mes] & 
+			    BaseTipoPlanes[País]
+			```
+		isHidden
+		lineageTag: f253e9b2-fd4f-4e5a-a168-fade3e367529
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BaseTipoPlanes = m
+		mode: import
+		queryGroup: 'Mapeos a carpeta de Enrique'
+		source =
+				let
+				    Origen = Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Planes_pais.xlsx"),
+				    #"Libro de Excel importado" = Excel.Workbook(Origen, null, true),
+				    Arribos_Sheet = #"Libro de Excel importado"{[Item="Planes Planner",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+				    #"Removed Columns" = Table.RemoveColumns(#"Encabezados promovidos",{"Fecha Mes"}),
+				    #"Added Custom1" = Table.AddColumn(#"Removed Columns", "Orden Departamento", each if [Departamento] = "CAL" then 1 else if [Departamento] = "ACC" then 2 else if [Departamento] = "ROP" then 3 else 99),
+				    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Orden Tipo Estilo", each if [Tipo Estilo] = "NOS" then 1 else if [Tipo Estilo] = "BASICO" then 2 else if [Tipo Estilo] = "TEMPORADA" then 3 else if [Tipo Estilo] = "MODA" then 4 else 99),
+				    #"Replaced Value" = Table.ReplaceValue(#"Added Custom2","NA",null,Replacer.ReplaceValue,{"VTA", "VTA USD", "MRG USD", "MKD USD"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"División", type text}, {"Unidad Negocio", type text}, {"Año", Int64.Type}, {"Trimestre", Int64.Type}, {"VTA USD", type number}, {"MRG USD", type number}, {"MKD USD", type number}, {"Fecha", type date}, {"Tipo Plan", type text}, {"Plan Actual", Int64.Type}, {"Departamento", type text}, {"Marca", type text}, {"Género", type text}, {"Categoría", type text}, {"Mes", Int64.Type}, {"Orden Departamento", Int64.Type}, {"Tipo Estilo", type text}, {"Orden Tipo Estilo", Int64.Type}, {"VTA", type number}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Changed Type",{"Fecha"}),
+				    #"Personalizada agregada1" = Table.AddColumn(#"Columnas quitadas", "Fecha", each Date.EndOfMonth(#date([Año], [Mes], 1))),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Personalizada agregada1",{{"Fecha", type date}})
+				in
+				    #"Tipo cambiado"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

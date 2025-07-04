@@ -1,0 +1,299 @@
+table Planes
+	lineageTag: 05c04ba4-1fcf-4e6c-b634-03ad22619169
+
+	column División
+		dataType: string
+		lineageTag: cdfb53d5-cfa3-44d0-9dc6-360d3770d16c
+		summarizeBy: none
+		sourceColumn: División
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidad Negocio'
+		dataType: string
+		lineageTag: 59a92a87-b8c7-470c-a5f8-afe5dad1a415
+		summarizeBy: none
+		sourceColumn: Unidad Negocio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: d7fab76c-a8fd-4c05-a67c-5f159be6b7f5
+		summarizeBy: none
+		sourceColumn: Marca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		dataType: string
+		lineageTag: 428e981f-ba8f-46af-aa20-5a282c46a656
+		summarizeBy: none
+		sourceColumn: Departamento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Género
+		dataType: string
+		lineageTag: f508f0ab-e807-4221-9803-abe84d362295
+		summarizeBy: none
+		sourceColumn: Género
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoría
+		dataType: string
+		lineageTag: 5857e0fa-dd1c-4019-a55e-cab7356fc77d
+		summarizeBy: none
+		sourceColumn: Categoría
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Estilo'
+		dataType: string
+		lineageTag: 5a693e49-2118-4f16-8f3d-55ce9670690e
+		summarizeBy: none
+		sourceColumn: Tipo Estilo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: 7161d018-ac3e-4313-8331-9cfcd55a14fe
+		summarizeBy: sum
+		sourceColumn: Año
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: 2437d1ed-896e-4961-82d9-03476723a9e7
+		summarizeBy: sum
+		sourceColumn: Trimestre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 55ab0dff-3618-4dd0-b02b-a5ea191c4dc5
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Venta
+		dataType: double
+		lineageTag: 2b8238a3-6772-480c-b8de-bf5c779d34f6
+		summarizeBy: sum
+		sourceColumn: Venta
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Venta USD'
+		dataType: double
+		lineageTag: 096b1d23-15f7-4c5d-bbe7-9d4063cdfe48
+		summarizeBy: sum
+		sourceColumn: Venta USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Margen USD'
+		dataType: double
+		lineageTag: 8fcbbc9a-6d21-42d2-b361-a4856795f5ef
+		summarizeBy: sum
+		sourceColumn: Margen USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Markdown USD'
+		dataType: double
+		lineageTag: 75636938-cf08-4ebd-86d1-6811a6e83813
+		summarizeBy: sum
+		sourceColumn: Markdown USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Orden Departamento'
+		dataType: int64
+		formatString: 0
+		lineageTag: 676a6795-6b56-4c6f-9b51-ba869f9f090a
+		summarizeBy: sum
+		sourceColumn: Orden Departamento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orden Tipo Estilo'
+		dataType: int64
+		formatString: 0
+		lineageTag: 60bdc014-ec7c-4d95-8e66-69e33764fd93
+		summarizeBy: sum
+		sourceColumn: Orden Tipo Estilo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fuente
+		dataType: string
+		lineageTag: b12950d4-86e4-48e2-b6c8-6271a803ddee
+		summarizeBy: none
+		sourceColumn: Fuente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bandera Plan'
+		dataType: int64
+		formatString: 0
+		lineageTag: a6aec03d-237e-41be-9904-755100b09921
+		summarizeBy: sum
+		sourceColumn: Bandera Plan
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bandera PCA Planner'
+		dataType: int64
+		formatString: 0
+		lineageTag: 74dd6d2f-77cb-4617-869d-a9ff478ae5bf
+		summarizeBy: sum
+		sourceColumn: Bandera PCA Planner
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clave = [División] & [Unidad Negocio] & [Departamento] & [Marca] & [Género] & [Categoría] & [Tipo Estilo] & [Año] & [Mes] & [País] & [FORMATO]
+		lineageTag: 3b212438-afdc-40b7-a7da-3dcc6669f1bf
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bandera PCO Final'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8acd1b67-a557-4a24-9724-d705879ddc81
+		summarizeBy: sum
+		sourceColumn: Bandera PCO Final
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bandera PCA Final'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f5e091e-99ac-4af5-86ff-9c6d5184fe4c
+		summarizeBy: sum
+		sourceColumn: Bandera PCA Final
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORMATO
+		dataType: string
+		lineageTag: 6fcd134f-0576-40af-81cb-6e6f90daff10
+		summarizeBy: none
+		sourceColumn: FORMATO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column País
+		dataType: string
+		lineageTag: 4c1e3a91-7dc2-4ad2-af94-cfea63b518c9
+		summarizeBy: none
+		sourceColumn: País
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 721d828a-ecbe-4cf4-9d38-ee0a8ab8f8b1
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Column1
+		dataType: string
+		lineageTag: 72b25d9e-a16d-41f6-83a5-b8c921c3ba5f
+		summarizeBy: none
+		sourceColumn: Column1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Planes-8a6f9337-56b3-4e43-a8f7-3dad8abe9ac5 = m
+		mode: import
+		queryGroup: 'Tablas Finales'
+		source =
+				let
+				    Origen = #"Base Planes" ,
+				    Planes = #"Base Planes",
+				    #"Filas filtradas" = Table.SelectRows(Planes, each [Bandera PCO Final] = 1 or [Bandera PCA Final] = 1),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Filas filtradas",{"Bandera Plan", "Bandera PCA Planner", "Bandera PCO Final", "Bandera PCA Final"}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Columnas quitadas","Planner","Final",Replacer.ReplaceText,{"Fuente"}),
+				    #"Consulta anexada" = Table.Combine({ Origen , #"Valor reemplazado"})
+				in
+				    #"Consulta anexada"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

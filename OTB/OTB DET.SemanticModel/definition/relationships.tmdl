@@ -1,0 +1,21 @@
+relationship 64a96f6f-5d4c-40de-a351-e6bcc4cc5d92
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'Inventario TGT'.Clave
+	toColumn: OTB.Clave
+
+relationship 6e437338-e17e-47ed-8f36-269d9826c681
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: OTB.Clave
+	toColumn: Planes.Clave
+
+relationship c12ea17f-c18a-4231-95e0-1925cd0412ba
+	fromColumn: OTB.'Fecha Mes'
+	toColumn: Calendario.Fecha
+
+relationship 2283fe28-fb70-d713-e8fe-ade2f769cdc0
+	toCardinality: many
+	fromColumn: BaseTipoPlanes.Key
+	toColumn: OTB.Clave
+

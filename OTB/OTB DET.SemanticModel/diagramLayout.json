@@ -1,0 +1,326 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1167.2890187710118,
+            "y": 167.8961265165251
+          },
+          "nodeIndex": "Actualización",
+          "nodeLineageTag": "1f043b28-d6a8-4eb7-a62b-c040e748d9d5",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 14,
+          "expandedHeight": 104
+        },
+        {
+          "location": {
+            "x": 1169.0686841666497,
+            "y": 257.28850365938649
+          },
+          "nodeIndex": "Plan Max Año",
+          "nodeLineageTag": "f2894529-a923-43b9-87db-f04c1bdd3559",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 12,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 1167.164357747939,
+            "y": 85.257473015218466
+          },
+          "nodeIndex": "Tipo OTB",
+          "nodeLineageTag": "392ef0da-93fe-4c43-8ef4-72b370174cf1",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 13,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 281.45743671326807
+          },
+          "nodeIndex": "Planes",
+          "nodeLineageTag": "05c04ba4-1fcf-4e6c-b634-03ad22619169",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 16,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Calendario",
+          "nodeLineageTag": "3fdb2fdb-9862-493e-bab5-9c296c52b7e6",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 17,
+          "expandedHeight": 296
+        },
+        {
+          "location": {
+            "x": 523.91379675917153,
+            "y": 131.18959578144569
+          },
+          "nodeIndex": "1. Medidas",
+          "nodeLineageTag": "9201665d-1ae1-41b1-9673-345be3c7900b",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 15,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 454.1798072113811
+          },
+          "nodeIndex": "Inventario TGT",
+          "nodeLineageTag": "c07536fa-ecd8-4719-88ca-617e9829162a",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 18,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1167.289018771012,
+            "y": 0
+          },
+          "nodeIndex": "OTB Max Fecha",
+          "nodeLineageTag": "984b146f-9676-4bfc-a5fb-f729686da638",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 11,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 289.31332559442609,
+            "y": 272.49795414833955
+          },
+          "nodeIndex": "OTB",
+          "nodeLineageTag": "15c42fd2-3e52-48d9-bcf1-adc3ebc5263f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 910.8870143328993,
+            "y": 0
+          },
+          "nodeIndex": "Arribos",
+          "nodeLineageTag": "c01d5483-120b-4572-9347-0035750661fa",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 2,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 910.29000647578084,
+            "y": 83.204698758261088
+          },
+          "nodeIndex": "Arribos sql original",
+          "nodeLineageTag": "0bad9412-b172-4cfa-beba-663530aba661",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 3,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 911.65479234890586,
+            "y": 169.38601988666562
+          },
+          "nodeIndex": "LAP NOS",
+          "nodeLineageTag": "984a8e7e-2f4a-4fb4-9e2c-6251d3a167e4",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 4,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 914.32777099598957,
+            "y": 346.78337122964609
+          },
+          "nodeIndex": "LAP Planner 1",
+          "nodeLineageTag": "0bf8b447-c5c2-4c66-91f8-1a835015c584",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 5,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 911.74742765145652,
+            "y": 431.65232995125638
+          },
+          "nodeIndex": "LAP Open",
+          "nodeLineageTag": "10dee0b5-002a-4673-98fc-075f5cd5ebe6",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 6,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 910.83000669655007,
+            "y": 521.15951324635137
+          },
+          "nodeIndex": "ArticuloProveedor",
+          "nodeLineageTag": "4deb0dd0-a012-4f53-abbc-aab94b58d6db",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 7,
+          "expandedHeight": 272
+        },
+        {
+          "location": {
+            "x": 912.73124835701219,
+            "y": 259.54381864138173
+          },
+          "nodeIndex": "Proveedores",
+          "nodeLineageTag": "8571d185-02ee-4201-ae18-7217bbe5a91b",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 8,
+          "expandedHeight": 200
+        },
+        {
+          "location": {
+            "x": 525.17860571272251,
+            "y": 0
+          },
+          "nodeIndex": "BaseTipoPlanes",
+          "nodeLineageTag": "34942054-55eb-4234-92a4-ddd324aa8212",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 9,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 603.2377108968368,
+            "y": 305.504861700726
+          },
+          "nodeIndex": "fact_comercial_consolidado",
+          "nodeLineageTag": "7704d895-f709-4ec9-9f48-42da90cc2593",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 10
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": true,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 53.200000762939453,
+            "y": 58.5
+          },
+          "nodeIndex": "OTB",
+          "nodeLineageTag": "15c42fd2-3e52-48d9-bcf1-adc3ebc5263f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 500.20000076293945,
+            "y": 54.5
+          },
+          "nodeIndex": "Calendario",
+          "nodeLineageTag": "3fdb2fdb-9862-493e-bab5-9c296c52b7e6",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 258,
+            "y": 425.5
+          },
+          "nodeIndex": "BaseTipoPlanes",
+          "nodeLineageTag": "34942054-55eb-4234-92a4-ddd324aa8212",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        }
+      ],
+      "name": "Disposición 1",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": true,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

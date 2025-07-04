@@ -1,0 +1,43 @@
+table 'OTB Max Fecha'
+	lineageTag: 984b146f-9676-4bfc-a5fb-f729686da638
+
+	column 'Max Fecha'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1ac40aae-3379-4f42-a2f0-51ca4706b1d9
+		summarizeBy: none
+		sourceColumn: Max Fecha
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column División
+		dataType: string
+		lineageTag: f2c24aab-c0d0-47a0-9ca1-02c4de287aec
+		summarizeBy: none
+		sourceColumn: División
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'OTB Max Fecha' = m
+		mode: import
+		queryGroup: 'Tablas Finales'
+		source =
+				let
+				    Origen = #"UltimaFecha OTB",
+				    #"Convertida en tabla" = #table(1, {{Origen}}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Convertida en tabla",{{"Column1", "Max Fecha"}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas con nombre cambiado",{{"Max Fecha", type date}}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Tipo cambiado", "División", each "DET")
+				in
+				    #"Personalizada agregada"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

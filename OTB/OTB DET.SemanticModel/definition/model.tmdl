@@ -1,0 +1,103 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-SV
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Mapeados
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup 'Mapeados\Transformaciones intermedias'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'Mapeados\Funciones o Variables'
+
+	annotation PBI_QueryGroupOrder = 3
+
+queryGroup 'Tablas Finales'
+
+	annotation PBI_QueryGroupOrder = 3
+
+queryGroup 'Mapeados\SQL Server'
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup 'Mapeo Pendiente\Otros Archivos OTB Detalle'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Mapeos a carpeta de Enrique\Archivos Datos OTB - UN'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Mapeos a carpeta de Enrique\Archivos Datos OTB - UN\Hoja LAP'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Mapeos a carpeta de Enrique\Archivos Datos OTB - UN\Hoja Arribos'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'Mapeo Pendiente'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'Mapeos a carpeta de Enrique'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Mapeo Pendiente\Bases Power BI'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'Mapeos a carpeta de Enrique\Archivos LAP\Hoja Arribos'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Mapeos a carpeta de Enrique\Archivos LAP\Hoja Pronósticos'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'Mapeos a carpeta de Enrique\Archivo Pedidos L1'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'Mapeos a carpeta de Enrique\Archivos LAP'
+
+	annotation PBI_QueryGroupOrder = 2
+
+annotation PBIDesktopVersion = 2.144.878.0 (25.06)+9cca29236de5114792f4d7188221f91ad4a5cc50
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["UltimaFecha OTB","OTB","LAP Base","Arribos Ajustados","LAP","Jerarquía Base","Plan Max Año","Planes","Plan Final","Agrupacion_Marcas","Arribos","Reservas L1","Adelantos L1","Actualización","Fecha","LAP ADOC","LAP PAR2","LAP INTER","Arribos ADOC","Arribos PAR2","Arribos INTER","LAP NOS","LAP Open","LAP Planner 1","LAP Planner 2","LAP Planner 3","LAP Planner 4","Arribos Planner 1","Arribos Planner 2","Arribos Planner 3","Arribos Planner 4","Equivalentes","Base L1","Base Planes","Inventario TGT NOS","OTB Max Fecha","Inventario TGT","EKPO import","ALMACENES","Arribos sql original","BaseTipoPlanes","ArticuloProveedor","DatosArticulos","tbl_qryCGN","fact_comercial_consolidado"]
+
+annotation __TEdtr = 1
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","TMDLView_Desktop","DevMode"]
+
+ref table Actualización
+ref table Calendario
+ref table '1. Medidas'
+ref table 'Plan Max Año'
+ref table 'Tipo OTB'
+ref table Planes
+ref table 'Inventario TGT'
+ref table OTB
+ref table 'OTB Max Fecha'
+ref table Arribos
+ref table 'Arribos sql original'
+ref table 'LAP NOS'
+ref table 'LAP Planner 1'
+ref table 'LAP Open'
+ref table BaseTipoPlanes
+ref table ArticuloProveedor
+ref table Proveedores
+ref table fact_comercial_consolidado
+
+ref cultureInfo en-US
+

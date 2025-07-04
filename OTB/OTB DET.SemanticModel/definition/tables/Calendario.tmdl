@@ -1,0 +1,84 @@
+table Calendario
+	lineageTag: 3fdb2fdb-9862-493e-bab5-9c296c52b7e6
+	dataCategory: Time
+
+	column Fecha
+		isKey
+		formatString: yyyy-mm-dd
+		lineageTag: e8acbda8-11d1-48ab-a62d-9f4979fa8f64
+		summarizeBy: none
+		sourceColumn: [Date]
+
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Año = YEAR([Fecha])
+		formatString: 0
+		lineageTag: f9cd5545-2c1d-4a28-b033-6b8c53e291d2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Día = DAY([Fecha])
+		formatString: 0
+		lineageTag: 41be047c-d911-464a-a001-48a3df45db4d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Actual' = IF([Fecha] = TODAY() - 1, 1, 0)
+		formatString: 0
+		lineageTag: d4f1b189-5f4c-43a4-88fb-aa44b9d3ae4e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes = MONTH([Fecha])
+		formatString: 0
+		lineageTag: b0072633-7b42-4c02-8eec-1149e7300c8f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana = WEEKNUM([Fecha])
+		formatString: 0
+		lineageTag: e0be96bb-a85b-40f3-85e3-23206a609521
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semestre = IF([Trimestre] <= 2, 1, 2)
+		lineageTag: 29bae260-b480-443b-86b5-8222980b5755
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre = FORMAT([Fecha], "Q") * 1
+		formatString: 0
+		lineageTag: fa0943b0-b666-4a0f-8aa4-fa7d6fa97397
+		summarizeBy: sum
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bandera Cierre' = IF(EOMONTH(Calendario[Fecha], 0) = MAX('OTB Max Fecha'[Max Fecha]), 1, IF(EOMONTH(Calendario[Fecha], 0) > MAX('OTB Max Fecha'[Max Fecha]), 2, 0))
+		formatString: 0
+		lineageTag: 70075df0-08a8-44ef-914f-bcb4e3f1a2ae
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendario-47adaadb-a6b1-4920-9e60-b3a47b193ebb = calculated
+		mode: import
+		source = CALENDAR("2020-01-01", TODAY() + 1825)
+
+	annotation PBI_Id = e97e2f766afa4f36b649e6fb4f24b5eb
+

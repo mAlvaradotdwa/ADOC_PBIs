@@ -1,0 +1,81 @@
+table ArticuloProveedor
+	lineageTag: 4deb0dd0-a012-4f53-abbc-aab94b58d6db
+
+	column Articulo
+		dataType: string
+		lineageTag: c230ee59-4776-43e7-8aa4-4a4297953728
+		summarizeBy: none
+		sourceColumn: Articulo
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodProveedor
+		dataType: string
+		lineageTag: 75c0cecc-c324-4c43-ac51-0ff44fd8c044
+		summarizeBy: none
+		sourceColumn: CodProveedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreProveedor
+		dataType: string
+		lineageTag: 9cde82b1-4e70-4802-a691-bb5cde8ec281
+		summarizeBy: none
+		sourceColumn: NombreProveedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_UNIDADNEGOCIO
+		dataType: string
+		lineageTag: 21481461-dd61-4558-aec7-a76fd1e5099d
+		summarizeBy: none
+		sourceColumn: SK_UNIDADNEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_DEPTO
+		dataType: string
+		lineageTag: 172da0e1-24eb-4545-b8c9-dbc6ec5e05be
+		summarizeBy: none
+		sourceColumn: BV_DEPTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MARCA
+		dataType: string
+		lineageTag: c1200e5e-cc36-4fc1-8862-652bf29093bf
+		summarizeBy: none
+		sourceColumn: SK_MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_GENERO
+		dataType: string
+		lineageTag: 3f259e65-e341-4475-9453-3b12bda4772d
+		summarizeBy: none
+		sourceColumn: BV_GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_CATEGORIA
+		dataType: string
+		lineageTag: 08a0d625-8855-4086-840c-db769ef45a9a
+		summarizeBy: none
+		sourceColumn: BV_CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ArticuloProveedor = m
+		mode: import
+		source =
+				let
+				    Origen = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "WITH Proveedores AS (#(lf)    SELECT#(lf)        DISTINCT #(lf)    m.SATNR AS ""Articulo"",#(lf)        FIRST_VALUE(LIFNR) OVER (#(lf)            PARTITION BY m.SATNR#(lf)        ORDER BY#(lf)            a.DATAB DESC#(lf)        ) ""CodProveedor""#(lf)    FROM#(lf)        SAP_ECC.A018 a#(lf)    INNER JOIN SAP_ECC.MARA m#(lf)ON#(lf)        a.MATNR = m.MATNR#(lf)) #(lf)SELECT #(lf)    p.*, #(lf)    l.NAME1 ""NombreProveedor""#(lf)FROM#(lf)    Proveedores p#(lf)INNER JOIN SAP_ECC.LFA1 l #(lf)ON#(lf)    p.""CodProveedor"" = l.LIFNR#(lf)", null, [EnableFolding=true]),
+				    #"Consultas combinadas" = Table.NestedJoin(Origen, {"Articulo"}, DatosArticulos, {"SK_MATNR"}, "DatosArticulos", JoinKind.LeftOuter),
+				    #"Se expandió DatosArticulos" = Table.ExpandTableColumn(#"Consultas combinadas", "DatosArticulos", {"SK_UNIDADNEGOCIO", "BV_DEPTO", "SK_MARCA", "BV_GENERO", "BV_CATEGORIA"}, {"SK_UNIDADNEGOCIO", "BV_DEPTO", "SK_MARCA", "BV_GENERO", "BV_CATEGORIA"})
+				in
+				    #"Se expandió DatosArticulos"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

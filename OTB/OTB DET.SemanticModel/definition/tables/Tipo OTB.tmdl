@@ -1,0 +1,41 @@
+table 'Tipo OTB'
+	isHidden
+	lineageTag: 392ef0da-93fe-4c43-8ef4-72b370174cf1
+
+	column Id
+		formatString: 0
+		lineageTag: d90589ec-60a9-4b5e-85bd-f82d5a023cfa
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Id]
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Métrica
+		lineageTag: ffad81e0-9dd6-40f1-920d-72efc4222de4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Métrica]
+		sortByColumn: Id
+
+		changedProperty = SortByColumn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Tipo OTB-543f87e0-800b-4131-bc51-fac5a819fd2a' = calculated
+		mode: import
+		source =
+				
+				UNION(
+				    ROW("Id",1,"Métrica","PCO/PCA"),
+				    ROW("Id",2,"Métrica","LAP")
+				    )
+
+	changedProperty = IsHidden
+
+	annotation PBI_Id = 0b8e8b9526b7426e8c7abf25be3f5e54
+

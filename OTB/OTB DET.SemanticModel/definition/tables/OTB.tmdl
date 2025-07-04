@@ -1,0 +1,636 @@
+table OTB
+	excludeFromModelRefresh
+	lineageTag: 15c42fd2-3e52-48d9-bcf1-adc3ebc5263f
+
+	measure 'Inventario USD Target_prueba' = SUM('Inventario TGT'[Inventario])
+		lineageTag: befb1aab-77f5-40c7-8e60-90e680476931
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: c69fb611-2bda-4ee8-822d-bf78fc6b56b7
+		summarizeBy: sum
+		sourceColumn: Año
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: 70eff3b8-d8f8-43ae-8d4e-10e920738565
+		summarizeBy: sum
+		sourceColumn: Trimestre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 134a5cd9-7301-401e-bc40-b1a46b538fb9
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidad Negocio'
+		dataType: string
+		lineageTag: e1f5855f-39f5-45fb-8170-9e7ae30c86b2
+		summarizeBy: none
+		sourceColumn: Unidad Negocio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Estilo'
+		dataType: string
+		lineageTag: d7686f00-9393-4350-9951-11357c1d38ef
+		summarizeBy: none
+		sourceColumn: Tipo Estilo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Venta
+		dataType: int64
+		formatString: 0
+		lineageTag: dc6f5962-845f-4aac-8b7b-0016c7bcdaff
+		summarizeBy: sum
+		sourceColumn: Venta
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Venta USD'
+		dataType: double
+		formatString: #,0
+		lineageTag: bc29f819-bec8-4e12-ba69-d15f51addf9d
+		summarizeBy: sum
+		sourceColumn: Venta USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Margen USD'
+		dataType: double
+		lineageTag: bb500ae4-4472-462e-9490-081cd73169ce
+		summarizeBy: sum
+		sourceColumn: Margen USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inventario Mes'
+		dataType: int64
+		formatString: 0
+		lineageTag: ebc5696f-26f4-497f-ab4e-c95a8643424b
+		summarizeBy: sum
+		sourceColumn: Inventario Mes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inventario USD Mes'
+		dataType: double
+		lineageTag: 7a423ea9-8841-4757-96f8-e65dfe2392e9
+		summarizeBy: sum
+		sourceColumn: Inventario USD Mes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inventario USD Liquidado'
+		dataType: double
+		lineageTag: c3a3693f-b98e-49d2-8dcd-2d91a195d0b9
+		summarizeBy: sum
+		sourceColumn: Inventario USD Liquidado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inventario USD Costo Mes'
+		dataType: double
+		lineageTag: 3a0dd9eb-f9d7-4036-888e-30234c2de40e
+		summarizeBy: sum
+		sourceColumn: Inventario USD Costo Mes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inventario USD Arribo'
+		dataType: double
+		lineageTag: 0324633f-c28b-4581-9262-58f6840d0c4d
+		summarizeBy: sum
+		sourceColumn: Inventario USD Arribo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inventario USD Costo Arribo'
+		dataType: double
+		lineageTag: 01d6c25b-61bd-496b-a572-fb0935fc68ea
+		summarizeBy: sum
+		sourceColumn: Inventario USD Costo Arribo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Fecha Mes' = DATE('OTB'[Año], ('OTB'[Mes]), 1)
+		formatString: yyyy-mm-dd
+		lineageTag: 48dc5ed4-534f-4665-be42-0975f2491be1
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Clave = [División] & [Unidad Negocio] & [Departamento] & [Marca] & [Género] & [Categoría] & [Tipo Estilo] & [Año] & [Mes] & [País]
+		lineageTag: 124f861f-3f50-46b1-8f8c-bec5605c5a13
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LINEA
+		dataType: string
+		lineageTag: fd875e35-2174-4270-8051-fde600af419d
+		summarizeBy: none
+		sourceColumn: LINEA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fuente
+		dataType: string
+		lineageTag: 22e67a30-b805-42e9-beb2-7058ff4a1a9f
+		summarizeBy: none
+		sourceColumn: Fuente
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Markdown USD'
+		dataType: double
+		lineageTag: e606c809-7a38-4d9e-8a08-b60c9a2df2d9
+		summarizeBy: sum
+		sourceColumn: Markdown USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Bandera L1'
+		dataType: int64
+		lineageTag: 31ed287a-a493-4063-ae00-d52aab18f2b8
+		summarizeBy: sum
+		sourceColumn: Bandera L1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7f759ff1-f3f7-4302-abcb-bc045fde02e8
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Bandera Plan'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f958c8c-2e5b-4965-9620-83ee9796073e
+		summarizeBy: sum
+		sourceColumn: Bandera Plan
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORMATO_TIENDA
+		dataType: string
+		lineageTag: 8ffea779-9763-4192-83dc-465eb08735ce
+		summarizeBy: none
+		sourceColumn: FORMATO_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_FECHA
+		dataType: int64
+		formatString: 0
+		lineageTag: ecdd93e2-3614-43e2-8b5f-b2f0b172ea54
+		summarizeBy: sum
+		sourceColumn: FILTRO_FECHA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIODO
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e4bff4d2-1df1-42da-aa99-f1fb1210f3bb
+		summarizeBy: none
+		sourceColumn: PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_ALMACEN
+		dataType: string
+		lineageTag: 2c29941d-07a3-4ed8-9756-364a98d531b5
+		summarizeBy: none
+		sourceColumn: COD_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_TIPO_OPERACION
+		dataType: string
+		lineageTag: 9ea26545-2992-4f1d-95ee-ed009e86c644
+		summarizeBy: none
+		sourceColumn: COD_TIPO_OPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orden Departamento'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b6bb9e9-47fa-4eef-9bc3-ce01a5015863
+		summarizeBy: sum
+		sourceColumn: Orden Departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orden Tipo Estilo'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e33287a-6f5d-4949-a06d-deba006311e5
+		summarizeBy: sum
+		sourceColumn: Orden Tipo Estilo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Inventario
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 52f81da0-93e2-47a3-b4d0-48fdca02aeec
+		summarizeBy: sum
+		sourceColumn: Inventario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column MARCA_AGRUPADA
+		dataType: string
+		lineageTag: 519183c4-64c7-4609-a901-4afd7de6e8dd
+		summarizeBy: none
+		sourceColumn: MARCA_AGRUPADA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Articulo_Generico
+		dataType: string
+		lineageTag: c4cce196-f20c-4200-b7e2-4e960ce7fa3a
+		summarizeBy: none
+		sourceColumn: Articulo_Generico
+
+		annotation SummarizationSetBy = Automatic
+
+	column Articulo_GenericoF
+		dataType: string
+		lineageTag: ddf20be8-569b-483c-a81a-d8923aa3ed77
+		summarizeBy: none
+		sourceColumn: Articulo_GenericoF
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMERO_PROVEEDOR
+		dataType: string
+		lineageTag: 8da00d2c-00df-4ee3-88ac-c81bc8896be9
+		summarizeBy: none
+		sourceColumn: NUMERO_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nombre_Proveedor
+		dataType: string
+		lineageTag: 85275f76-73cf-40bf-a8d6-5177bb129a3e
+		summarizeBy: none
+		sourceColumn: Nombre_Proveedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estado_Articulo
+		dataType: string
+		lineageTag: 7108e166-a2cd-4e13-a33e-bd83facfb3dd
+		summarizeBy: none
+		sourceColumn: Estado_Articulo
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 2cfe4493-9cc9-446e-8246-76cdd9aca609
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: bd6b5c27-2a5e-47dd-a48c-643936b3f3b8
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO_COLOR]
+		dataType: string
+		lineageTag: 48380b8a-7d28-40ff-924c-91c994d6e5c3
+		summarizeBy: none
+		sourceColumn: ESTILO_COLOR]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_DOCUMENTO
+		dataType: string
+		lineageTag: fe8315c3-79fe-42bd-8db8-518698b12c0d
+		summarizeBy: none
+		sourceColumn: TIPO_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha_Conciliacion
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: feb3d0a9-1a8f-4f32-8360-e2da82b1c8a4
+		summarizeBy: none
+		sourceColumn: Fecha_Conciliacion
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column País
+		dataType: string
+		lineageTag: 6679064a-7aaf-4a1d-9f82-efc8acb3ef91
+		summarizeBy: none
+		sourceColumn: País
+
+		annotation SummarizationSetBy = Automatic
+
+	column División
+		dataType: string
+		lineageTag: c7d13ea7-8d17-4f93-934c-302511712613
+		summarizeBy: none
+		sourceColumn: División
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		dataType: string
+		lineageTag: 502f1c2d-5f5d-47d1-97bc-f35e1abda62d
+		summarizeBy: none
+		sourceColumn: Departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: e960954f-8c01-4622-ab8d-4c0dbe6434f1
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column Género
+		dataType: string
+		lineageTag: b205e486-0af6-4211-b7c3-8b6842cfdf4f
+		summarizeBy: none
+		sourceColumn: Género
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoría
+		dataType: string
+		lineageTag: d18cd9fd-362e-4460-91b0-37aa1cb4610f
+		summarizeBy: none
+		sourceColumn: Categoría
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_ARRIBO
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b7459a21-edb4-4b82-8be5-2cc700ed0852
+		summarizeBy: none
+		sourceColumn: FECHA_ARRIBO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_ARRIBO_ACTUAL
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 893274df-465f-4d13-bf77-d3d25fff2a6d
+		summarizeBy: none
+		sourceColumn: FECHA_ARRIBO_ACTUAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Operación'
+		dataType: string
+		lineageTag: f9a0621e-f1e7-47ce-bd9d-576c2ee6c4c6
+		summarizeBy: none
+		sourceColumn: Tipo Operación
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pares Arribo'
+		dataType: double
+		lineageTag: 0619791c-bc42-449a-a1c3-16631ce90228
+		summarizeBy: sum
+		sourceColumn: Pares Arribo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column arribo$
+		dataType: double
+		lineageTag: 0388211d-9915-433b-b2f1-b8f215a3bad0
+		summarizeBy: sum
+		sourceColumn: arribo$
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Proveedor Agrupado' =
+			VAR _key = otb[Unidad Negocio] & otb[Departamento] & otb[Marca] & otb[Género] & otb[Categoría]
+			RETURN
+			    LOOKUPVALUE (
+			        Proveedores[NombreProveedor],
+			        Proveedores[art_Key], _key
+			    )
+		lineageTag: ce5a7de2-495f-4b7f-b84d-38f202141856
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition OTB = m
+		mode: import
+		queryGroup: 'Tablas Finales'
+		source =
+				let
+				    Origen = PowerPlatform.Dataflows(null),
+				    Workspaces = Origen{[Id="Workspaces"]}[Data],
+				    #"8f890102-a557-493e-b793-4bdb2c9083f5" = Workspaces{[workspaceId="8f890102-a557-493e-b793-4bdb2c9083f5"]}[Data],
+				    #"ab6a83b7-f898-40d2-a5ad-06a7c68455cb" = #"8f890102-a557-493e-b793-4bdb2c9083f5"{[dataflowId="ab6a83b7-f898-40d2-a5ad-06a7c68455cb"]}[Data],
+				    fact_comercial_consolidado_ = #"ab6a83b7-f898-40d2-a5ad-06a7c68455cb"{[entity="fact_comercial_consolidado",version=""]}[Data],
+				    #"Columnas con nombre cambiado3" = Table.RenameColumns(fact_comercial_consolidado_,{{"PAIS_BV", "PAIS"}}),
+				    #"Columnas con nombre cambiado2" = Table.RenameColumns(#"Columnas con nombre cambiado3",{{"MARCA_BV", "MARCA"}, {"GENERO_BV", "GENERO"}, {"DIVISION_BV", "DIVISION"}, {"DEPTO_BV", "DEPTO"}, {"CATEGORIA_BV", "CATEGORIA"}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Columnas con nombre cambiado2","PR2","PAR2",Replacer.ReplaceText,{"MARCA"}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Valor reemplazado", {{"PAIS", "País"}}),
+				    #"Replaced Value" = Table.ReplaceValue(
+				        #"Columnas con nombre cambiado",
+				        "NA",
+				        "",
+				        Replacer.ReplaceValue,
+				        {
+				            "PARES_VENTA",
+				            "VENTA_NETA_USD",
+				            "INVENTARIO_USD_LIQUIDADO",
+				            "COSTO_VENTA_USD",
+				            "MARGEN_VENTA_USD",
+				            "EXISTENCIA_PARES_MES",
+				            "EXISTENCIA_NETA_USD_MES",
+				            "EXISTENCIA_COSTO_USD_MES",
+				            "DISCOUNT",
+				            "BUYER",
+				            "ARRIBO_NETO_USD_MES",
+				            "ARRIBO_COSTO_USD_MES"
+				        }
+				    ),
+				    #"Added Custom" = Table.AddColumn(#"Replaced Value", "Fuente", each "OTB"),
+				    #"Changed Type" = Table.TransformColumnTypes(
+				        #"Added Custom",
+				        {
+				            {"ANIO", Int64.Type, "en-US"},
+				            {"INVENTARIO_USD_LIQUIDADO", type number},
+				            {"TRIMESTRE", Int64.Type, "en-US"},
+				            {"MES", Int64.Type, "en-US"},
+				            {"UNIDAD_NEGOCIO", type text},
+				            {"MARCA", type text},
+				            {"GENERO", type text},
+				            {"CATEGORIA", type text},
+				            {"TIPO_ESTILO", type text},
+				            {"PARES_VENTA", Int64.Type, "en-US"},
+				            {"VENTA_NETA_USD", type number, "en-US"},
+				            {"COSTO_VENTA_USD", type number, "en-US"},
+				            {"MARGEN_VENTA_USD", type number, "en-US"},
+				            {"EXISTENCIA_PARES_MES", Int64.Type, "en-US"},
+				            {"EXISTENCIA_NETA_USD_MES", type number, "en-US"},
+				            {"EXISTENCIA_COSTO_USD_MES", type number, "en-US"},
+				            {"DISCOUNT", type number, "en-US"},
+				            {"BUYER", type number, "en-US"},
+				            {"ARRIBO_NETO_USD_MES", type number},
+				            {"ARRIBO_COSTO_USD_MES", type number},
+				            {"Fuente", type text}
+				        }
+				    ),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type", "Markdown USD", each ([DISCOUNT] + [BUYER]) * -1),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom1", {{"Markdown USD", type number}}),
+				    OTB = Table.RenameColumns(
+				        #"Changed Type1",
+				        {
+				            {"UNIDAD_NEGOCIO", "Unidad Negocio"},
+				            {"ANIO", "Año"},
+				            {"MES", "Mes"},
+				            {"GENERO", "Género"},
+				            {"MARCA", "Marca"},
+				            {"TIPO_ESTILO", "Tipo Estilo"},
+				            {"PARES_VENTA", "Venta"},
+				            {"CATEGORIA", "Categoría"},
+				            {"VENTA_NETA_USD", "Venta USD"},
+				            {"EXISTENCIA_NETA_USD_MES", "Inventario USD Mes"},
+				            {"EXISTENCIA_PARES_MES", "Inventario Mes"},
+				            {"MARGEN_VENTA_USD", "Margen USD"},
+				            {"TRIMESTRE", "Trimestre"},
+				            {"DIVISION", "División"},
+				            {"DEPTO", "Departamento"},
+				            {"BUYER", "Buyer"},
+				            {"DISCOUNT", "Discount"},
+				            {"EXISTENCIA_COSTO_USD_MES", "Inventario USD Costo Mes"},
+				            {"COSTO_VENTA_USD", "Costo USD"},
+				            {"ARRIBO_NETO_USD_MES", "Inventario USD Arribo"},
+				            {"ARRIBO_COSTO_USD_MES", "Inventario USD Costo Arribo"},
+				            {"INVENTARIO_USD_LIQUIDADO", "Inventario USD Liquidado"}
+				        }
+				        ),
+				    #"Appended Query" = Table.Combine({OTB, Arribos, #"Plan Final", #"Reservas L1", #"Arribos ADOC", #"Arribos PAR2", #"Arribos INTER", LAP, #"Inventario TGT", #"LAP NOS"}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Appended Query",{"Buyer", "Discount", "Inventario Arribo", "Bandera PCA Planner", "Costo USD"}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Columnas quitadas", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+				    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"UNIDAD_NEGOCIO", "FORMATO_TIENDA", "MARCA_AGRUPADA"}, {"UNIDAD_NEGOCIO", "FORMATO_TIENDA", "MARCA_AGRUPADA"}),
+				    #"Columnas quitadas1" = Table.RemoveColumns(#"Se expandió Agrupacion_Marcas",{"Unidad Negocio"}),
+				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Columnas quitadas1",{{"UNIDAD_NEGOCIO", "Unidad Negocio"}}) ,
+				    #"Combina EKPO" = Table.Combine({#"Columnas con nombre cambiado1", #"EKPO import"}),
+				    #"Columnas quitadas2" = Table.RemoveColumns(#"Combina EKPO",{"FORMATO", "Column1"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas quitadas2",{{"Trimestre", Int64.Type}, {"País", type text}, {"Fuente", type text}, {"Orden Departamento", Int64.Type}, {"Orden Tipo Estilo", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

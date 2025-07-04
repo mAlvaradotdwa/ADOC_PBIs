@@ -1,0 +1,614 @@
+table '1. Medidas'
+	lineageTag: 9201665d-1ae1-41b1-9673-345be3c7900b
+
+	measure 'Venta USD + Plan' = [Venta USD] + CALCULATE([Venta USD Plan], 'OTB'[Bandera Plan] = 1)
+		formatString: #,0
+		lineageTag: 70dcd50a-d97a-4f8f-bbec-ac7d22c6ebee
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Markdown %' = DIVIDE([Markdown USD + Plan], ([Markdown USD + Plan] + [Venta USD + Plan]))
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: d3a70c88-3279-4d6a-8c9d-b75b4ed1fe6f
+
+		changedProperty = FormatString
+
+	measure 'Margen USD + Plan' = [Margen USD] + CALCULATE([Margen USD Plan], 'OTB'[Bandera Plan] = 1)
+		formatString: #,0
+		lineageTag: 96314ce3-c01d-4d8e-9879-4aa3b6dd7a71
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Margen %' = DIVIDE([Margen USD + Plan], [Venta USD + Plan])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9e5222f1-e6bc-4548-878d-03879464eb30
+
+		changedProperty = FormatString
+
+	measure 'OMU %' = ([Markdown %] + [Margen %]) - [Markdown %] * [Margen %]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 53ab9dad-e77d-4475-bf20-d7c7927166c4
+
+		changedProperty = FormatString
+
+	measure 'Inventario USD EOM' = ```
+			
+			VAR BOM =
+			CALCULATE(SUM('OTB'[Inventario USD Mes]) + SUM('OTB'[Inventario USD Arribo]),
+			    'Calendario'[Año] = YEAR(MAX('OTB Max Fecha'[Max Fecha])),
+			    'Calendario'[Mes] = MONTH(MAX('OTB Max Fecha'[Max Fecha])),
+			    'OTB'[Fuente] = "OTB")
+			VAR VTA = 
+			CALCULATE([Venta USD Plan],
+			    'Calendario'[Fecha] < MAX('Calendario'[Fecha]),
+			    'Calendario'[Fecha] >= MAX('OTB Max Fecha'[Max Fecha]) + 1)
+			VAR MKD = 
+			CALCULATE([Markdown USD Plan],
+			    'Calendario'[Fecha] < MAX('Calendario'[Fecha]),
+			    'Calendario'[Fecha] >= MAX('OTB Max Fecha'[Max Fecha]) + 1)
+			VAR ARR =
+			CALCULATE([Arribos Totales],
+			    'Calendario'[Fecha] < MAX('Calendario'[Fecha]),
+			    'Calendario'[Fecha] >= MAX('OTB Max Fecha'[Max Fecha]) + 1)
+			RETURN
+			IF(ISBLANK(SELECTEDVALUE('Calendario'[Mes])), BLANK(),
+			    IF(ISBLANK([Venta USD]), BOM - VTA - MKD + ARR, SUM('OTB'[Inventario USD Mes]) + SUM('OTB'[Inventario USD Arribo])))
+			```
+		formatString: #,0
+		lineageTag: a54f6355-71e7-420a-a9a1-20a9834c6007
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Inventario USD BOM' = ```
+			
+			VAR BOM =
+			CALCULATE(SUM('OTB'[Inventario USD Mes]) + SUM('OTB'[Inventario USD Arribo]),
+			    'Calendario'[Año] = YEAR(MAX('OTB Max Fecha'[Max Fecha])),
+			    'Calendario'[Mes] = MONTH(MAX('OTB Max Fecha'[Max Fecha])),
+			    'OTB'[Fuente] = "OTB")
+			VAR VTA = 
+			CALCULATE([Venta USD Plan],
+			    'Calendario'[Fecha] < MAX('Calendario'[Fecha]),
+			    'Calendario'[Fecha] >= MAX('OTB Max Fecha'[Max Fecha]) + 1) - [Venta USD Plan]
+			VAR MKD = 
+			CALCULATE([Markdown USD Plan],
+			    'Calendario'[Fecha] < MAX('Calendario'[Fecha]),
+			    'Calendario'[Fecha] >= MAX('OTB Max Fecha'[Max Fecha]) + 1) - [Markdown USD Plan]
+			VAR ARR =
+			CALCULATE([Arribos Totales],
+			    'Calendario'[Fecha] < MAX('Calendario'[Fecha]),
+			    'Calendario'[Fecha] >= MAX('OTB Max Fecha'[Max Fecha]) + 1) - [Arribos Totales]
+			RETURN
+			IF(ISBLANK(SELECTEDVALUE('Calendario'[Mes])), BLANK(),
+			    IF(ISBLANK([Venta USD]),
+			        BOM - VTA - MKD + ARR,
+			        CALCULATE([Inventario USD EOM], DATEADD('Calendario'[Fecha], -1, MONTH))))
+			```
+		formatString: #,0
+		lineageTag: 8823519f-9f93-464e-b1f2-d78c83e01625
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Venta USD PCO (Calculado)' = CALCULATE(SUM(Planes[Venta USD]), Planes[Fuente] = "PCO Sistema")
+		formatString: #,0
+		lineageTag: 6edd693c-4c5f-457e-9e86-4339e21b6551
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Venta USD PCO (Planner)' = CALCULATE(SUM(Planes[Venta USD]), Planes[Fuente] = "PCO Planner")
+		formatString: #,0
+		lineageTag: d7c67bd3-5ae2-45f4-8452-3e06fdacb1cd
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Venta USD PCA (Calculado)' = CALCULATE(SUM(Planes[Venta USD]), Planes[Fuente] = "PCA Sistema")
+		formatString: #,0
+		lineageTag: f5333cb0-21f2-4339-9d6f-29ab0ea56341
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Venta USD PCA (Planner)' = CALCULATE(SUM(Planes[Venta USD]), Planes[Fuente] = "PCA Planner")
+		formatString: #,0
+		lineageTag: 9d679a57-0255-4494-aaac-76b284de302b
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Variación Venta USD vs PCO Planner' = DIVIDE([Venta USD PCO (Planner)] - [Venta USD PCO (Calculado)], [Venta USD PCO (Calculado)])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 0213fc05-3680-4e8c-bbac-f51bff56093d
+
+		changedProperty = FormatString
+
+	measure 'Variación Venta USD vs PCA Planner' = DIVIDE([Venta USD PCA (Planner)] - [Venta USD PCA (Calculado)], [Venta USD PCA (Calculado)])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 36f578ac-c4c3-4764-a794-14fd2c087d54
+
+		changedProperty = FormatString
+
+	measure 'Variación vs PCA' = DIVIDE([Venta USD + Plan] - [Venta USD PCA (Planner)], [Venta USD PCA (Planner)])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 7a0ecdaf-67cb-4b4a-a361-94d6aaca06d5
+
+		changedProperty = FormatString
+
+	measure 'Variación vs PCO' = DIVIDE([Venta USD + Plan] - [Venta USD PCO (Planner)], [Venta USD PCO (Planner)])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 6297552f-662a-49f0-a61c-9f30335aa576
+
+		changedProperty = FormatString
+
+	measure 'Markdown USD + Plan' = [Markdown USD] + CALCULATE([Markdown USD Plan], 'OTB'[Bandera Plan] = 1)
+		formatString: #,0
+		lineageTag: 91de2956-3249-4dc5-9b53-512cf5c823ee
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Markdown USD PCO (Planner)' = CALCULATE(SUM(Planes[Markdown USD]), Planes[Fuente] = "PCO Planner")
+		formatString: #,0
+		lineageTag: 0e8cfed1-458b-422d-aed8-b99fe0f557cd
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Markdown USD PCA (Planner)' = CALCULATE(SUM(Planes[Markdown USD]), Planes[Fuente] = "PCA Planner")
+		formatString: #,0
+		lineageTag: 6ce433fb-7b4c-413e-896d-cc5837eaad6b
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Arribos L1 + Reservas + Ajustes' = [Arribos L1] + [Reservas + Ajustes L1]
+		formatString: #,0
+		lineageTag: b9afc268-ebb2-4aca-9825-93061017e5f0
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Arribos L7 + Reservas + Ajustes' = [Arribos L7] + [Reservas + Ajustes L7]
+		formatString: #,0
+		lineageTag: 47ba484e-87c2-4a5f-97e6-477519e9977a
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Arribos L3 + Reservas + Ajustes' = [Arribos L3] + [Reservas + Ajustes L3]
+		formatString: #,0
+		lineageTag: a41d7dcf-4fc4-43cb-a7ac-0c88d9bbc66e
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Arribos Totales' = [Arribos L1 + Reservas + Ajustes] + [Arribos L7 + Reservas + Ajustes] + [Arribos L3 + Reservas + Ajustes]
+		formatString: #,0
+		lineageTag: cc6e3258-bfb3-4966-aeea-a96f3ca6048c
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Inventario USD Target' =
+			
+			IF(ISBLANK(SELECTEDVALUE(Calendario[Mes])), BLANK(),
+			    CALCULATE(SUM('OTB'[Inventario]),'OTB'[Fuente]="InvTGT"))
+		formatString: #,0
+		lineageTag: e6992a3e-8dcf-4dd0-92e4-21516bb2643a
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'OTB Monto USD' = [Inventario USD Target] - [Inventario USD EOM]
+		formatString: #,0
+		lineageTag: 231c59a5-2387-45d7-85a1-88732b74b26e
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'OTB Variación %' = DIVIDE([OTB Monto USD], [Inventario USD Target])
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: 2193d697-b210-4953-88b1-d47e6f1f8c5c
+
+		changedProperty = FormatString
+
+	measure 'Cobertura Target' = ```
+			
+			VAR Inventario = [Inventario USD Target]
+			VAR Tabla1 = 
+			ADDCOLUMNS(
+			    GROUPBY(FILTER(ALL('Calendario'), ([Año] = MAX('Calendario'[Año]) && [Mes] > MAX('Calendario'[Mes])) || ([Año] > MAX('Calendario'[Año]))), [Año], [Mes]),
+			    "Fecha", EOMONTH(DATE([Año], [Mes], 1), 0))
+			VAR Tabla3 = ADDCOLUMNS(Tabla1, "Diferencia", Inventario - SUMX(FILTER(Tabla1, [Fecha] <= EARLIER([Fecha])), [Venta USD + Plan]))
+			VAR Dias = DIVIDE(
+			    MINX(FILTER(Tabla3, [Diferencia] >= 0), [Diferencia]),
+			    MINX(FILTER(Tabla3, [Diferencia] >= 0), [Diferencia]) + ABS(MAXX(FILTER(Tabla3, [Diferencia] < 0), [Diferencia])))
+			VAR Demanda = MAXX(FILTER(Tabla3, [Diferencia] = MAXX(FILTER(Tabla3, [Diferencia] < 0), [Diferencia])), [Venta USD + Plan])
+			VAR MC = IF(ISBLANK(COUNTROWS(FILTER(Tabla3, [Diferencia] >= 0)) + Dias), DIVIDE(Inventario, Demanda), COUNTROWS(FILTER(Tabla3, [Diferencia] >= 0)) + Dias)
+			RETURN IF(NOT(ISBLANK(Inventario)), MC)
+			```
+		formatString: #,0.0
+		lineageTag: 97d3a5ef-c4fe-4b84-9c00-bc3e97f431a4
+
+		changedProperty = FormatString
+
+	measure Cobertura = ```
+			
+			VAR Inventario = [Inventario USD EOM]
+			VAR Tabla1 = 
+			ADDCOLUMNS(
+			    GROUPBY(FILTER(ALL('Calendario'), ([Año] = MAX('Calendario'[Año]) && [Mes] > MAX('Calendario'[Mes])) || ([Año] > MAX('Calendario'[Año]))), [Año], [Mes]),
+			    "Fecha", EOMONTH(DATE([Año], [Mes], 1), 0))
+			VAR Tabla3 = ADDCOLUMNS(Tabla1, "Diferencia", Inventario - SUMX(FILTER(Tabla1, [Fecha] <= EARLIER([Fecha])), [Venta USD + Plan]))
+			VAR Dias = DIVIDE(
+			    MINX(FILTER(Tabla3, [Diferencia] >= 0), [Diferencia]),
+			    MINX(FILTER(Tabla3, [Diferencia] >= 0), [Diferencia]) + ABS(MAXX(FILTER(Tabla3, [Diferencia] < 0), [Diferencia])))
+			VAR Demanda = MAXX(FILTER(Tabla3, [Diferencia] = MAXX(FILTER(Tabla3, [Diferencia] < 0), [Diferencia])), [Venta USD + Plan])
+			VAR MC = IF(ISBLANK(COUNTROWS(FILTER(Tabla3, [Diferencia] >= 0)) + Dias), DIVIDE(Inventario, Demanda), COUNTROWS(FILTER(Tabla3, [Diferencia] >= 0)) + Dias)
+			RETURN IF(NOT(ISBLANK(Inventario)), MC)
+			```
+		formatString: #,0.0
+		lineageTag: b4257edb-2fab-41cd-b936-19d5f9eb38eb
+
+		changedProperty = FormatString
+
+	measure 'Markdown USD PCO (Calculado)' = CALCULATE(SUM(Planes[Markdown USD]), Planes[Fuente] = "PCO Sistema")
+		formatString: #,0
+		lineageTag: 17821953-77da-4caf-a9eb-76ff004658cf
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Markdown USD PCA (Calculado)' = CALCULATE(SUM(Planes[Markdown USD]), Planes[Fuente] = "PCA Sistema")
+		formatString: #,0
+		lineageTag: 6f066bb0-3a68-496f-a3ca-93dd0669f2a9
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Margen USD PCA (Planner)' = CALCULATE(SUM(Planes[Margen USD]), Planes[Fuente] = "PCA Planner")
+		formatString: #,0
+		lineageTag: 4a1a874d-3cf6-40ca-b4b4-7539af6e0529
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Margen USD PCA (Calculado)' = CALCULATE(SUM(Planes[Margen USD]), Planes[Fuente] = "PCA Sistema")
+		formatString: #,0
+		lineageTag: 8a570369-55fd-4a94-a7f3-d3e0a8bd0f25
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Margen USD PCO (Calculado)' = CALCULATE(SUM(Planes[Margen USD]), Planes[Fuente] = "PCO Sistema")
+		formatString: #,0
+		lineageTag: 279459c6-06f5-45cf-b75e-fc8664deccd7
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Margen USD PCO (Planner)' = CALCULATE(SUM(Planes[Margen USD]), Planes[Fuente] = "PCO Planner")
+		formatString: #,0
+		lineageTag: bcccdb81-c59b-4f89-9f3a-766c459f6e68
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Variación Markdown USD vs PCA Planner' = DIVIDE([Markdown USD PCA (Planner)] - [Markdown USD PCA (Calculado)], [Markdown USD PCA (Calculado)])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 5f116363-034f-4753-a219-a8d83b252b24
+
+		changedProperty = FormatString
+
+	measure 'Variación Markdown USD vs PCO Planner' = DIVIDE([Markdown USD PCO (Planner)] - [Markdown USD PCO (Calculado)], [Markdown USD PCO (Calculado)])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 8130b269-4a8c-4d90-bbae-252ffa66df53
+
+		changedProperty = FormatString
+
+	measure 'Venta USD' = CALCULATE(SUM('OTB'[Venta USD]), 'OTB'[Fuente] = "OTB")
+		lineageTag: ea56436a-54dd-46a8-94e4-5da173c466fc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Venta = CALCULATE(SUM('OTB'[Venta]), 'OTB'[Fuente] = "OTB")
+		lineageTag: 058edac4-1c9a-49de-ba16-67715eea94bf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Margen USD' = CALCULATE(SUM('OTB'[Margen USD]), 'OTB'[Fuente] = "OTB")
+		formatString: #,0
+		lineageTag: fae8fb9c-2cb5-4c79-84fd-641ad5fb75b1
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Markdown USD' = CALCULATE(SUM('OTB'[Markdown USD]), 'OTB'[Fuente] = "OTB")
+		lineageTag: 3db7bde5-8382-4874-bd39-d735e541cd8a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variación Margen USD vs PCA Planner' = DIVIDE([Margen USD PCA (Planner)] - [Margen USD PCA (Calculado)], [Margen USD PCA (Calculado)])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f01f4510-0472-4c32-9b1d-b17740a79d6b
+
+		changedProperty = FormatString
+
+	measure 'Variación Margen USD vs PCO Planner' = DIVIDE([Margen USD PCO (Planner)] - [Margen USD PCO (Calculado)], [Margen USD PCO (Calculado)])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: ccee8340-ab64-4de9-b190-030931f4efa3
+
+		changedProperty = FormatString
+
+	measure 'Reservas + Ajustes L1' = CALCULATE(SUM('OTB'[Inventario USD Arribo]), 'OTB'[Fuente] = "Reservas", 'OTB'[LINEA] = "LINEA 1")
+		formatString: #,0
+		lineageTag: dd775feb-765d-4d6c-909d-bd5cdfd62352
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Venta USD PCA' = CALCULATE(SUM(Planes[Venta USD]), Planes[Fuente] = "PCA Final")
+		formatString: #,0
+		lineageTag: 8783dbd9-2653-42ff-b87c-f748e2087dfc
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Venta USD PCO' = CALCULATE(SUM(Planes[Venta USD]), Planes[Fuente] = "PCO Final")
+		formatString: #,0
+		lineageTag: f09ef4eb-b03c-4810-9b40-89ad920c43d8
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Margen USD PCA' = CALCULATE(SUM(Planes[Margen USD]), Planes[Fuente] = "PCA Final")
+		formatString: #,0
+		lineageTag: 141e0f95-6f4c-4908-b4e6-19c1fabfa5f1
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Margen USD PCO' = CALCULATE(SUM(Planes[Margen USD]), Planes[Fuente] = "PCO Final")
+		formatString: #,0
+		lineageTag: 542c0919-cf75-44e6-a444-e4d5a1d3a166
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Markdown USD PCO' = CALCULATE(SUM(Planes[Markdown USD]), Planes[Fuente] = "PCO Final")
+		formatString: #,0
+		lineageTag: 48967cff-b1d7-48d4-8fab-9561b3039a45
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure ROT =
+			
+			IF(ISBLANK(SELECTEDVALUE('Calendario'[Mes])),
+			    DIVIDE([Venta USD + Plan], AVERAGEX(VALUES(Calendario[Mes]), [Inventario USD EOM])),
+			    DIVIDE([Venta USD + Plan], AVERAGEX(VALUES(Calendario[Mes]), [Inventario USD EOM])) * 12)
+		formatString: #,0.0
+		lineageTag: 5ccc8e22-4f2c-4c15-a6b1-8ab52f680b27
+
+		changedProperty = FormatString
+
+	measure 'ROT Target' =
+			
+			IF(ISBLANK(SELECTEDVALUE(Calendario[Mes])),
+			    DIVIDE([Venta USD + Plan], AVERAGEX(VALUES(Calendario[Mes]), [Inventario USD Target])),
+			    DIVIDE([Venta USD + Plan], AVERAGEX(VALUES(Calendario[Mes]), [Inventario USD Target])) * 12)
+		formatString: #,0.0
+		lineageTag: ed5d96c0-99e8-4e4a-a27c-2daa78964e96
+
+		changedProperty = FormatString
+
+	measure 'Cumple ROT' =
+			
+			IF(ABS([ROT] / [ROT Target] - 1) <= 0.1, 1,
+			IF(ABS([ROT] / [ROT Target] - 1) > 0.1 && ABS([ROT] / [ROT Target] - 1) <= 0.2, 2, 0))
+		formatString: 0
+		lineageTag: ba63f89d-046e-4a69-baba-05d887ea423c
+
+	measure 'Cumple MC' =
+			
+			IF(ABS([Cobertura] / [Cobertura Target] - 1) <= 0.1, 1,
+			IF(ABS([Cobertura] / [Cobertura Target] - 1) > 0.1 && ABS([Cobertura] / [Cobertura Target] - 1) <= 0.2, 2, 0))
+		formatString: 0
+		lineageTag: 9f30a0e7-8560-4ebb-ae69-6a047d56b98f
+
+	measure 'Venta USD Plan' =
+			
+			SWITCH(SELECTEDVALUE('Tipo OTB'[Métrica]),
+			    "PCO/PCA", CALCULATE(SUM('OTB'[Venta USD]), 'OTB'[Fuente] = "Plan Final", 'OTB'[Bandera Plan] = 1),
+			    "LAP", CALCULATE(SUM('OTB'[Venta USD]), 'OTB'[Fuente] = "LAP", 'OTB'[Bandera Plan] = 1))
+		lineageTag: 09237157-1bfc-48e0-aa4c-9b433b16567a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Markdown USD Plan' =
+			
+			SWITCH(SELECTEDVALUE('Tipo OTB'[Métrica]),
+			    "PCO/PCA", CALCULATE(SUM('OTB'[Markdown USD]), 'OTB'[Fuente] = "Plan Final", 'OTB'[Bandera Plan] = 1),
+			    "LAP", CALCULATE(SUM('OTB'[Markdown USD]), 'OTB'[Fuente] = "LAP", 'OTB'[Bandera Plan] = 1))
+		formatString: #,0
+		lineageTag: f33aad4d-6dd9-48c0-bebc-6712348298b9
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Markdown USD PCA' = CALCULATE(SUM(Planes[Markdown USD]), Planes[Fuente] = "PCA Final")
+		formatString: #,0
+		lineageTag: 06e9c5ea-d1ac-4b2d-9e08-6596e4153ebb
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Margen USD Plan' =
+			
+			SWITCH(SELECTEDVALUE('Tipo OTB'[Métrica]),
+			    "PCO/PCA", CALCULATE(SUM('OTB'[Margen USD]), 'OTB'[Fuente] = "Plan Final", 'OTB'[Bandera Plan] = 1),
+			    "LAP", CALCULATE(SUM('OTB'[Margen USD]), 'OTB'[Fuente] = "LAP", 'OTB'[Bandera Plan] = 1))
+		lineageTag: c5632a1e-7d23-4414-be27-cfd9b2fc4aed
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Venta USD LAP' = CALCULATE(SUM('OTB'[Venta USD]), 'OTB'[Fuente] = "LAP")
+		formatString: #,0
+		lineageTag: 48d20ce7-e29a-445f-bbcb-156fc06c979a
+
+		changedProperty = FormatString
+
+	measure 'Markdown USD LAP' = CALCULATE(SUM('OTB'[Markdown USD]), 'OTB'[Fuente] = "LAP")
+		formatString: #,0
+		lineageTag: 8ce8b409-fe36-4cd5-bf34-8ea32288af92
+
+		changedProperty = FormatString
+
+	measure 'Margen USD LAP' = CALCULATE(SUM('OTB'[Margen USD]), 'OTB'[Fuente] = "LAP")
+		formatString: #,0
+		lineageTag: a436c3fc-07b2-4883-a92d-26cca2d6ebc5
+
+		changedProperty = FormatString
+
+	measure 'Arribos L3' = CALCULATE(SUM('OTB'[Inventario USD Arribo]), 'OTB'[Fuente] = "Arribos", 'OTB'[LINEA] = "LINEA 3")
+		formatString: #,0
+		lineageTag: f79ae298-52fe-40e5-8bcd-dfcfcfd48cdd
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Reservas + Ajustes L3' = CALCULATE(SUM('OTB'[Inventario USD Arribo]), 'OTB'[Fuente] = "Reservas", 'OTB'[LINEA] = "LINEA 3")
+		formatString: #,0
+		lineageTag: a46f4a98-39a7-44d2-9dd5-1f70649cfcf9
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Reservas + Ajustes L7' = CALCULATE(SUM('OTB'[Inventario USD Arribo]), 'OTB'[Fuente] = "Reservas", 'OTB'[LINEA] = "LINEA 7")
+		formatString: #,0
+		lineageTag: b8954f0c-5d9f-4964-a20c-9f615f17d14c
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Arribos L1' = CALCULATE(SUM('OTB'[Inventario USD Arribo]), 'OTB'[Fuente] = "Arribos", 'OTB'[LINEA] = "LINEA 1")
+		formatString: #,0
+		lineageTag: bf9b1c21-b117-43b3-921f-2171f9e1d8fb
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Arribos L7' = CALCULATE(SUM('OTB'[Inventario USD Arribo]), 'OTB'[Fuente] = "Arribos", 'OTB'[LINEA] = "LINEA 7")
+		formatString: #,0
+		lineageTag: bc6ed1ab-7211-4f92-9075-5ae4090bee64
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure Dummy = ""
+		lineageTag: b1f97e48-6dc4-4ced-b238-d34d33b66363
+
+	measure 'Titulo OTB' =
+			
+			"Open to buy - Período: "
+			& CONCATENATEX (VALUES('Calendario'[Año]), 'Calendario'[Año], ", ")
+		lineageTag: e61bc204-d5f9-4f8b-bf83-e1b304906fdb
+
+	measure 'Inventario USD Costo' = CALCULATE(SUM('OTB'[Inventario USD Costo Mes]), 'OTB'[Fuente] = "OTB")
+		formatString: #,0
+		lineageTag: ec335555-218b-4616-b1fa-2cb5ec7dada3
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Inventario USD Costo Arribo' = CALCULATE(SUM('OTB'[Inventario USD Costo Arribo]), 'OTB'[Fuente] = "OTB")
+		formatString: #,0
+		lineageTag: ea345a21-195b-4c1d-9f44-e6e253122e74
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Inventario USD BOM Liquidado' =
+			
+			VAR Fecha = FIRSTDATE(Calendario[Fecha])
+			RETURN CALCULATE(SUM('OTB'[Inventario USD Liquidado]), REMOVEFILTERS(Calendario[Año]), REMOVEFILTERS(Calendario[Mes]), DATEADD(Fecha, -1, MONTH))
+		formatString: #,0
+		lineageTag: a4f2395a-1dce-4bab-bc86-0df7c4bbc699
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure GMROI =
+			
+			IF(ISBLANK(SELECTEDVALUE('Calendario'[Mes])),
+			    DIVIDE([Margen USD + Plan], AVERAGEX(VALUES(Calendario[Mes]), [Inventario USD EOM Costo])),
+			    DIVIDE([Margen USD + Plan], AVERAGEX(VALUES(Calendario[Mes]), [Inventario USD EOM Costo])) * 12)
+		lineageTag: a2c73686-fa52-4c5e-a77b-ed59511b179a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inventario USD EOM Costo' =
+			
+			IF(ISBLANK(SELECTEDVALUE('Calendario'[Mes])), BLANK(),
+			    IF(ISBLANK([Venta USD]), [Inventario USD EOM] * (1-CALCULATE([OMU %], REMOVEFILTERS(Calendario[Mes]))), [Inventario USD Costo]))
+		formatString: #,0
+		lineageTag: 87658e1d-d001-4b2f-9a72-14ec3f7409d2
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Id
+		formatString: 0
+		lineageTag: f92b2f6d-a812-4527-8ccc-e25f0bec6bab
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Id]
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '1. Medidas-26023dc5-8b16-4cd0-aee6-5dae18be6e0f' = calculated
+		mode: import
+		source = ROW("Id", 1)
+
+	annotation PBI_Id = dce42de2fbba476dba37df4996b0e524
+

@@ -1,0 +1,178 @@
+table 'LAP Planner 1'
+	lineageTag: 0bf8b447-c5c2-4c66-91f8-1a835015c584
+
+	column División
+		dataType: string
+		lineageTag: 5734c8d1-67a0-44fa-a229-099e3f83003e
+		summarizeBy: none
+		sourceColumn: División
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidad Negocio'
+		dataType: string
+		lineageTag: c59babe3-709a-4dec-8fd0-84ac8f716d54
+		summarizeBy: none
+		sourceColumn: Unidad Negocio
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: 14f74f8a-28c3-4ba5-84c1-55584112eaf0
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Marca Agrupada'
+		dataType: string
+		lineageTag: 92e57b5c-8caa-4848-8d81-44355b858765
+		summarizeBy: none
+		sourceColumn: Marca Agrupada
+
+		annotation SummarizationSetBy = Automatic
+
+	column País
+		dataType: string
+		lineageTag: ca3a07bf-8ba0-4292-b3e8-3efa8d18fc64
+		summarizeBy: none
+		sourceColumn: País
+
+		annotation SummarizationSetBy = Automatic
+
+	column Depto
+		dataType: string
+		lineageTag: b09d5e05-e6b8-400a-83bd-8685e0a21f4e
+		summarizeBy: none
+		sourceColumn: Depto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Género
+		dataType: string
+		lineageTag: b68db233-ab74-4153-874b-e1aeed6436be
+		summarizeBy: none
+		sourceColumn: Género
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoría
+		dataType: string
+		lineageTag: 2a94ed18-597e-4851-a8a5-98c2936a2713
+		summarizeBy: none
+		sourceColumn: Categoría
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Estilo'
+		dataType: string
+		lineageTag: b64b6066-460b-4e49-a029-81047cfee172
+		summarizeBy: none
+		sourceColumn: Tipo Estilo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artículo
+		dataType: int64
+		formatString: 0
+		lineageTag: 85dc6120-7282-4189-b670-4ffad6a6334e
+		summarizeBy: sum
+		sourceColumn: Artículo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estilo Color'
+		dataType: string
+		lineageTag: 83184c4f-8f80-40de-93fc-55e6b133cc2a
+		summarizeBy: none
+		sourceColumn: Estilo Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: ba007820-186a-4151-ab88-c290812696b6
+		summarizeBy: sum
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 11bd7ddc-d023-4fb1-a066-74544f95f090
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Venta
+		dataType: int64
+		formatString: 0
+		lineageTag: 315b6f48-b644-4562-873c-8b36f6ba5a5c
+		summarizeBy: sum
+		sourceColumn: Venta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Venta USD'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 8041df23-d079-4bf7-998a-9f109dc4877d
+		summarizeBy: sum
+		sourceColumn: Venta USD
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Margen USD'
+		dataType: double
+		lineageTag: 62270292-0859-4d34-b875-b34079506655
+		summarizeBy: sum
+		sourceColumn: Margen USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Markdown USD'
+		dataType: double
+		lineageTag: 775639d5-9a83-4a37-9018-5641df749d33
+		summarizeBy: sum
+		sourceColumn: Markdown USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tipo Pronóstico'
+		dataType: string
+		lineageTag: 95a2fa48-8e17-4f75-bde2-81b4ebc1fb51
+		summarizeBy: none
+		sourceColumn: Tipo Pronóstico
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'LAP Planner 1' = m
+		mode: import
+		queryGroup: 'Mapeos a carpeta de Enrique\Archivos LAP\Hoja Pronósticos'
+		source =
+				let
+				    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/Bases%20OTB/LAP - UN ADOC.xlsx"),
+				    Datos = Origen,
+				    #"Libro de Excel importado" = Excel.Workbook(Datos),
+				    Arribos_Sheet = #"Libro de Excel importado"{[Item="Pronóstico",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Artículo", Int64.Type}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Venta", Int64.Type}, {"Venta USD", type number}, {"Margen USD", type number}, {"Markdown USD", type number}, {"SPT", Int64.Type}, {"OSP", type number}, {"STDEV", type number}, {"Venta Bruta", type number}, {"OMU", type number}, {"MKD", type number}, {"MRG", type number}, {"2025", Int64.Type}, {"SH Formato", Int64.Type}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Tipo cambiado",{"División", "Unidad Negocio", "Marca", "Marca Agrupada", "País", "Depto", "Género", "Categoría", "Tipo Estilo", "Artículo", "Estilo Color", "Año", "Mes", "Venta", "Venta USD", "Margen USD", "Markdown USD", "Tipo Pronóstico"}),
+				    #"Filas filtradas" = Table.SelectRows(#"Removed Other Columns", each [Venta USD] <> null and [Venta USD] <> "")
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

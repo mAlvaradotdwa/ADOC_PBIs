@@ -1,0 +1,267 @@
+table fact_comercial_consolidado
+	lineageTag: 7704d895-f709-4ec9-9f48-42da90cc2593
+
+	column FILTRO_FECHA
+		dataType: int64
+		formatString: 0
+		lineageTag: c1172226-ce4e-49fd-a640-465a92d1cf49
+		summarizeBy: sum
+		sourceColumn: FILTRO_FECHA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIODO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8eece229-9d89-484c-abd4-22dd517c6065
+		summarizeBy: none
+		sourceColumn: PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ANIO
+		dataType: string
+		lineageTag: 788b79ea-a56b-46a1-a06e-89ca869851da
+		summarizeBy: none
+		sourceColumn: ANIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRIMESTRE
+		dataType: string
+		lineageTag: 1fc07ae6-fb71-4908-8d0a-a9aea29ce9b7
+		summarizeBy: none
+		sourceColumn: TRIMESTRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES
+		dataType: string
+		lineageTag: 4a6826df-e5e9-4ef7-837c-ddcf4f927dc4
+		summarizeBy: none
+		sourceColumn: MES
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS_BV
+		dataType: string
+		lineageTag: d7fb22ed-8c4c-4dee-bda1-d9c776afbb51
+		summarizeBy: none
+		sourceColumn: PAIS_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_ALMACEN
+		dataType: string
+		lineageTag: 981903ab-58d3-49ba-9290-8479134a4b50
+		summarizeBy: none
+		sourceColumn: COD_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_TIPO_OPERACION
+		dataType: string
+		lineageTag: 54eebe67-c2be-4091-88e2-3473057ed39b
+		summarizeBy: none
+		sourceColumn: COD_TIPO_OPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIVISION_BV
+		dataType: string
+		lineageTag: 3d9075d6-0357-455e-857e-e836fb47909b
+		summarizeBy: none
+		sourceColumn: DIVISION_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD_NEGOCIO
+		dataType: string
+		lineageTag: 499e6360-2353-4757-9300-608d1b167282
+		summarizeBy: none
+		sourceColumn: UNIDAD_NEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPTO_BV
+		dataType: string
+		lineageTag: 7db37e09-8b9f-4e1a-ad85-9f02d8a7ae95
+		summarizeBy: none
+		sourceColumn: DEPTO_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA_BV
+		dataType: string
+		lineageTag: c4662a19-00da-4625-9fb9-1d7e9f76f21f
+		summarizeBy: none
+		sourceColumn: MARCA_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO_BV
+		dataType: string
+		lineageTag: 80c51871-c016-4f95-a2e3-f433e6b856d5
+		summarizeBy: none
+		sourceColumn: GENERO_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORIA_BV
+		dataType: string
+		lineageTag: 711b85ae-e77b-46d6-bb17-88c35fd0b332
+		summarizeBy: none
+		sourceColumn: CATEGORIA_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_ESTILO
+		dataType: string
+		lineageTag: d0e3e519-2f6d-4a9d-9daa-110321833e86
+		summarizeBy: none
+		sourceColumn: TIPO_ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column LINEA
+		dataType: string
+		lineageTag: 7dd432ca-e8a4-4dd1-af7c-de83a65f3bb5
+		summarizeBy: none
+		sourceColumn: LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARES_VENTA
+		dataType: double
+		lineageTag: 2fb49f77-9443-44e4-bfba-c6710f8847bf
+		summarizeBy: sum
+		sourceColumn: PARES_VENTA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VENTA_NETA_USD
+		dataType: double
+		lineageTag: 03af15ca-331a-4144-bf7a-daeeff0597d4
+		summarizeBy: sum
+		sourceColumn: VENTA_NETA_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COSTO_VENTA_USD
+		dataType: double
+		lineageTag: a4cbe5e4-69a7-41d5-a5e3-f29c859fcde8
+		summarizeBy: sum
+		sourceColumn: COSTO_VENTA_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MARGEN_VENTA_USD
+		dataType: double
+		lineageTag: 37d40ac7-0040-4afa-9725-5d625e8fb7b9
+		summarizeBy: sum
+		sourceColumn: MARGEN_VENTA_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EXISTENCIA_PARES_MES
+		dataType: double
+		lineageTag: 58d9d869-aeeb-4652-8b6c-844d817a6739
+		summarizeBy: sum
+		sourceColumn: EXISTENCIA_PARES_MES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EXISTENCIA_NETA_USD_MES
+		dataType: double
+		lineageTag: e1861dff-0c61-4a41-a7d9-d8ca13f6b969
+		summarizeBy: sum
+		sourceColumn: EXISTENCIA_NETA_USD_MES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column INVENTARIO_USD_LIQUIDADO
+		dataType: double
+		lineageTag: 3b3e46bb-67c0-4c26-a429-745a91ffb681
+		summarizeBy: sum
+		sourceColumn: INVENTARIO_USD_LIQUIDADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EXISTENCIA_COSTO_USD_MES
+		dataType: double
+		lineageTag: c58a8014-6ff2-42e1-8547-5698dc03aaec
+		summarizeBy: sum
+		sourceColumn: EXISTENCIA_COSTO_USD_MES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ARRIBO_NETO_USD_MES
+		dataType: double
+		lineageTag: 67b353bc-b860-427d-ab5f-aa52e3f9c14e
+		summarizeBy: sum
+		sourceColumn: ARRIBO_NETO_USD_MES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ARRIBO_COSTO_USD_MES
+		dataType: double
+		lineageTag: cc4e9411-794c-4e4a-a95c-6332ce200087
+		summarizeBy: sum
+		sourceColumn: ARRIBO_COSTO_USD_MES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BUYER
+		dataType: double
+		lineageTag: 4a054e31-0541-410d-bd4b-fb0fb400eaa6
+		summarizeBy: sum
+		sourceColumn: BUYER
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DISCOUNT
+		dataType: double
+		lineageTag: a7625ef5-b4f4-4180-a8b7-4c56f80a3c90
+		summarizeBy: sum
+		sourceColumn: DISCOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_comercial_consolidado = m
+		mode: import
+		source =
+				let
+				    Origen = PowerPlatform.Dataflows(null),
+				    Workspaces = Origen{[Id="Workspaces"]}[Data],
+				    #"8f890102-a557-493e-b793-4bdb2c9083f5" = Workspaces{[workspaceId="8f890102-a557-493e-b793-4bdb2c9083f5"]}[Data],
+				    #"ab6a83b7-f898-40d2-a5ad-06a7c68455cb" = #"8f890102-a557-493e-b793-4bdb2c9083f5"{[dataflowId="ab6a83b7-f898-40d2-a5ad-06a7c68455cb"]}[Data],
+				    fact_comercial_consolidado_ = #"ab6a83b7-f898-40d2-a5ad-06a7c68455cb"{[entity="fact_comercial_consolidado",version=""]}[Data]
+				in
+				    fact_comercial_consolidado_
+

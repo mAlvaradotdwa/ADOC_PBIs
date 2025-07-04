@@ -1,0 +1,2193 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "OTB 3",
+  "name": "Bookmark7c9361d33ac801a6d908",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "4e52536069eb60a06333",
+      "3ee344eab32a9109900a",
+      "4ed339ae6837045411e5",
+      "8b4c3aefde996e478c12",
+      "b68c2c2f70b50c901ce2",
+      "a12a38dc8a402dddb622",
+      "85b2e99f0c05dbcaaacd",
+      "c51f431398a5020116b6",
+      "8625f03934e46440b107",
+      "7726c1af607085a09032",
+      "251084bdca6bcddd81e0",
+      "871a7730b43c61d71847",
+      "915db79e7a6d002708bb",
+      "a69ec9fab2879c9e1914",
+      "9451a9db968617bc961f",
+      "c3c6c2240b950d02a078",
+      "40561c8c503d8eb050d8",
+      "92b4734b6801a7220c49",
+      "b149fa215ad0a0489c96",
+      "88d2b77004aa768d14d0",
+      "3c2fe809680888e91c76",
+      "78cd31602d327d697b1b",
+      "c080820a642229d41420",
+      "be79a8831c350d144092",
+      "2c2812ac035d0349911a",
+      "462d45c585a9b0cb021a",
+      "9d59a217425090ce4dac",
+      "2b2210de64242a03d765",
+      "404a347b21c0c0bd6066",
+      "6f7c8388e43315936053",
+      "98724a9e545a29ce8e8a",
+      "e8779f94182385ea8cf2",
+      "925366d108628e856921",
+      "5b16d6f00c07a8593870",
+      "cbce8c05d0c3ba0c0e6b",
+      "1cb3effbede49874b063",
+      "f075dd614ec2380963ac",
+      "fee5363dc78ed24e514e",
+      "937a9a17c1ce9b7a0d83",
+      "381cb4a02566b0247d09",
+      "df5e0da907e2776806a9"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "ReportSection336449c2c2a272a5bab0",
+    "sections": {
+      "ReportSection336449c2c2a272a5bab0": {
+        "visualContainers": {
+          "1deedb400a366e520e3a": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "c080820a642229d41420": {
+            "filters": {
+              "byName": {
+                "Filter9534d8487d72fc9f7304": {
+                  "name": "Filter9534d8487d72fc9f7304",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Permisos_Paises"
+                            }
+                          },
+                          "Property": "Nombre_Completo"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "87782d70733b67d417e3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. M Assortment"
+                        }
+                      },
+                      "Property": "Dummy"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "be79a8831c350d144092": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "2c2812ac035d0349911a": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "8625f03934e46440b107": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "98724a9e545a29ce8e8a": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "c51f431398a5020116b6": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "9451a9db968617bc961f": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "925366d108628e856921": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "a69ec9fab2879c9e1914": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "5b16d6f00c07a8593870": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "85b2e99f0c05dbcaaacd": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "1cb3effbede49874b063": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "a12a38dc8a402dddb622": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "b68c2c2f70b50c901ce2": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "fee5363dc78ed24e514e": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "8b4c3aefde996e478c12": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "4ed339ae6837045411e5": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "381cb4a02566b0247d09": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "3ee344eab32a9109900a": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "df5e0da907e2776806a9": {
+            "filters": {
+              "byName": {
+                "Filter68871fab746d43e5d6ba": {
+                  "name": "Filter68871fab746d43e5d6ba",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Fecha_Actualizacion"
+                            }
+                          },
+                          "Property": "Fecha_Actualizacion"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "874de330a8d3a002c0dd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Actualización"
+                            }
+                          },
+                          "Property": "Fecha"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Actualización"
+                            }
+                          },
+                          "Property": "Fecha"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "3c44f7ba05ec2c6b8701": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "c",
+                                "Entity": "Calendario",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "c"
+                                            }
+                                          },
+                                          "Property": "Año"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "2022L"
+                                          }
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "2023L"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Año"
+                    }
+                  }
+                ]
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Calendario OTB"
+                              }
+                            },
+                            "Property": "Año"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "2022L"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "2022"
+                },
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Calendario OTB"
+                              }
+                            },
+                            "Property": "Año"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "2023L"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "2023"
+                }
+              ],
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "Calendario OTB.Año"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Calendario OTB"
+                              }
+                            },
+                            "Property": "Año"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Calendario OTB.Mes"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ]
+            }
+          },
+          "eebb65489a419c30fee6": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Tipo Estilo"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "3679fa5ab2052178c586": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Categoría"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c474e5408097d22861ae": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Género"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "2f5b310b21044c018778": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Marca"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c0c9064407057750cc47": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Departamento"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "bebc5893cba3decd4b00": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "o",
+                                "Entity": "OTB",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "o"
+                                            }
+                                          },
+                                          "Property": "Unidad Negocio"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'UN PAR2'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Unidad Negocio"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c3c6c2240b950d02a078": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Unidad Negocio"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Marca"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Departamento"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Género"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Categoría"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Tipo Estilo"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Año"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Mes"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "78cd31602d327d697b1b": {
+            "filters": {
+              "byName": {
+                "Filtera535dec9ceba850511e9": {
+                  "name": "Filtera535dec9ceba850511e9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "División"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "Filtercc075da2009721e04e0c": {
+                  "name": "Filtercc075da2009721e04e0c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "País"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "Filter0642e5a045c8b275140b": {
+                  "name": "Filter0642e5a045c8b275140b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Index OTB"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "Filterca64c8785bbfc836875d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Variación Venta USD vs PCO Planner"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filtera229918d2b1fe776fad6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Variación Venta USD vs PCA Planner"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filtera16247784abdc5155c28",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Variación vs PCA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filterc41c9b74f0d2939fe673",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Variación vs PCO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filterfdf0a31b656eeadcb9c3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Markdown USD PCO (Planner)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filteref1d6ad7ad116165d30e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Markdown USD PCA (Planner)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter73eb232ec4eb57fb9734",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Arribos L1 + Reservas + Ajustes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filterbd222caf988a9845379f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Arribos L7 + Reservas + Ajustes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter4477a85521bdc46d0346",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Arribos L3 + Reservas + Ajustes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter26145b32db9a08b6b682",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Arribos Totales"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter47fb6576ba1b304f7318",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Inventario USD Target"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter5c792362b7ad9dd19834",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "OTB Monto USD"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filterac1160aeb5642a0d611d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Cobertura Target"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter1dbefb5061494d60765e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Cobertura"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter15a2a79166cc1a2e9fad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "OTB Variación %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter9b592b8e0bc8568d934b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Markdown USD PCO (Calculado)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filterfbb2802aa00749bb5452",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Markdown USD PCA (Calculado)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter4c80bd62ae7a400a21e4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Variación Markdown USD vs PCA Planner"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter724b5198d4dd8aff9560",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Variación Markdown USD vs PCO Planner"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter97be04dc66a225389896",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Margen USD PCA (Planner)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter7e3e504dd519a1b2075f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Margen USD PCA (Calculado)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter77c7dbdc6951dc35d232",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Margen USD PCO (Planner)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filtercfb3d4fa5ea9c687c75d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Margen USD PCO (Calculado)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter7a7ae42a987c072aad33",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Variación Margen USD vs PCA Planner"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filter1736fdc9b6401780af75",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Variación Margen USD vs PCO Planner"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "Filterc0debea0c57963b448ef",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Bandera"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "64b52c0fc1b1750509b2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Reservas + Ajustes L1"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "488c22b8823c0dab5544",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Departamento"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "39aa8555ab8000d9b036",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "ROT Target"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "84c3d0054900ab1ec48a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "ROT"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0e462b24e3606219d88e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "ROT 3YPL"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5f1f8516081086084507",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "OTB Monto USD 3YPL"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7a287c10b9a9035ea0d6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "OTB Variación % 3YPL"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3557d8082ecc031b75a7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "1. Medidas"
+                        }
+                      },
+                      "Property": "Cobertura 3YPL"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Unidad Negocio"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Marca"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Departamento"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Género"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Categoría"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Tipo Estilo"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Año"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Mes"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "40561c8c503d8eb050d8": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Unidad Negocio"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Marca"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Departamento"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Género"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Tipo Estilo"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Año"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Mes"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "b149fa215ad0a0489c96": {
+            "filters": {
+              "byName": {
+                "Filtere2abb0447506ab06347b": {
+                  "name": "Filtere2abb0447506ab06347b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Género"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "Filter08063ead03b639085d13": {
+                  "name": "Filter08063ead03b639085d13",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Categoría"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "Filterb3d02ccce426722001c0": {
+                  "name": "Filterb3d02ccce426722001c0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Departamento"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "89b22aa17a33260a013c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "División"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "División"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Unidad Negocio"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Marca"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Tipo Estilo"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Año"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Mes"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "92b4734b6801a7220c49": {
+            "filters": {
+              "byName": {
+                "Filtere2abb0447506ab06347b": {
+                  "name": "Filtere2abb0447506ab06347b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Género"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                "Filter08063ead03b639085d13": {
+                  "name": "Filter08063ead03b639085d13",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Categoría"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              }
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Unidad Negocio"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Marca"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Departamento"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Tipo Estilo"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Año"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Mes"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "251084bdca6bcddd81e0": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "404a347b21c0c0bd6066": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "7726c1af607085a09032": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "915db79e7a6d002708bb": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "9d59a217425090ce4dac": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "871a7730b43c61d71847": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "88d2b77004aa768d14d0": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Unidad Negocio"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Marca"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Departamento"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Género"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Tipo Estilo"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Año"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Mes"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "3c2fe809680888e91c76": {
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Unidad Negocio"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Marca"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Departamento"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Género"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OTB"
+                        }
+                      },
+                      "Property": "Tipo Estilo"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Año"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendario"
+                        }
+                      },
+                      "Property": "Mes"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "4e52536069eb60a06333": {
+            "children": {
+              "462d45c585a9b0cb021a": {
+                "isHidden": false
+              },
+              "2b2210de64242a03d765": {
+                "isHidden": false
+              },
+              "6f7c8388e43315936053": {
+                "isHidden": false
+              },
+              "e8779f94182385ea8cf2": {
+                "isHidden": false
+              },
+              "cbce8c05d0c3ba0c0e6b": {
+                "isHidden": false
+              },
+              "f075dd614ec2380963ac": {
+                "isHidden": false
+              },
+              "937a9a17c1ce9b7a0d83": {
+                "isHidden": false
+              }
+            }
+          },
+          "dfced0b55d44085a1731": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

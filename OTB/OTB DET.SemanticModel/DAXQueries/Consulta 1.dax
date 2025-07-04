@@ -1,0 +1,7 @@
+EVALUATE SUMMARIZECOLUMNS(
+	OTB[Fuente] ,
+	Calendario[Año],
+	FILTER( OTB , OTB[Fuente] = "EKPO" ),
+	"x" , COUNTROWS( OTB ) ,
+	"pct %", DIVIDE( COUNTROWS( OTB ) , CALCULATE(  COUNTROWS( OTB ) , REMOVEFILTERS( OTB ) ) )
+) order by [x] desc 

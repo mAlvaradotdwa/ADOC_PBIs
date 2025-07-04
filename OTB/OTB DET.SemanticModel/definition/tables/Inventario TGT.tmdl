@@ -1,0 +1,179 @@
+table 'Inventario TGT'
+	lineageTag: c07536fa-ecd8-4719-88ca-617e9829162a
+
+	column Clave = [División] & [Unidad Negocio] & [Departamento] & [Marca] & [Género] & [Categoría] & [Tipo Estilo] & [Año] & [Mes] & [País]
+		lineageTag: 66d4058c-1197-4319-80d5-c215f39b886f
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column División
+		dataType: string
+		lineageTag: b2c8fb8a-5c24-4c8e-9d93-b57be0aec8cc
+		summarizeBy: none
+		sourceColumn: División
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidad Negocio'
+		dataType: string
+		lineageTag: ea2e3b8e-81e3-4e78-ab81-56ebbaa6d8ed
+		summarizeBy: none
+		sourceColumn: Unidad Negocio
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: 84cc5f65-b865-4735-a6dd-037d9df6450c
+		summarizeBy: none
+		sourceColumn: Marca
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		dataType: string
+		lineageTag: 59a87b4b-ff16-4e6d-8412-4488101ecc06
+		summarizeBy: none
+		sourceColumn: Departamento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Género
+		dataType: string
+		lineageTag: 2dda251d-bb56-4942-9588-078b66a47743
+		summarizeBy: none
+		sourceColumn: Género
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoría
+		dataType: string
+		lineageTag: 44d5f6b5-ba14-428f-b54e-dac00657357e
+		summarizeBy: none
+		sourceColumn: Categoría
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Estilo'
+		dataType: string
+		lineageTag: 4acaeaf2-e302-4ccd-8676-c87003cb2997
+		summarizeBy: none
+		sourceColumn: Tipo Estilo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ddb0718-6bb3-43e8-9b3c-f2da8c45dd8c
+		summarizeBy: sum
+		sourceColumn: Año
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 758e5074-8877-42ec-a34f-3387aeb216f1
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Inventario
+		dataType: decimal
+		lineageTag: ab14b6c1-4f73-4614-a818-064e3afb3677
+		summarizeBy: sum
+		sourceColumn: Inventario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column País
+		dataType: string
+		lineageTag: d70f8bc7-420b-45c5-95a3-7b68542ccc7c
+		summarizeBy: none
+		sourceColumn: País
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORMATO
+		dataType: string
+		lineageTag: a27db3c2-ddfe-4163-b0d4-89a42ffe761a
+		summarizeBy: none
+		sourceColumn: FORMATO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fuente
+		dataType: string
+		lineageTag: a6b6843d-ac5e-4c30-8a1f-9f6db5966488
+		summarizeBy: none
+		sourceColumn: Fuente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: string
+		lineageTag: f95a0158-96d1-4604-bb43-b64df733ed24
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Inventario TGT-1373c493-206b-408c-b89b-7b2b8f930669' = m
+		mode: import
+		queryGroup: 'Tablas Finales'
+		source =
+				let
+				    Origen = Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Inventario target/Inventario Target USD - Básico, Temporada & Moda.csv"),
+				    #"CSV importado" = Csv.Document(Origen,[Delimiter=",", Columns=37, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"CSV importado", [PromoteAllScalars=true]),
+				    #"Replaced Value" = Table.ReplaceValue(#"Encabezados promovidos", "NA", null, Replacer.ReplaceValue,{"INVENTARIO"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"DIVISION", type text}, {"UNIDAD_NEGOCIO", type text}, {"MARCA", type text}, {"DEPTO", type text}, {"GENERO", type text}, {"CATEGORIA", type text}, {"TIPO_ESTILO", type text}, {"ANIO", Int64.Type}, {"TRIMESTRE", Int64.Type}, {"MES", Int64.Type}, {"INVENTARIO", type number}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"DIVISION", "División"}, {"UNIDAD_NEGOCIO", "Unidad Negocio"}, {"MARCA", "Marca"}, {"DEPTO", "Departamento"}, {"GENERO", "Género"}, {"CATEGORIA", "Categoría"}, {"TIPO_ESTILO", "Tipo Estilo"}, {"ANIO", "Año"}, {"TRIMESTRE", "Trimestre"}, {"MES", "Mes"}, {"INVENTARIO", "Inventario"}, {"PAIS", "País"} }),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Renamed Columns", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+				    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO_TIENDA"}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Se expandió Agrupacion_Marcas",{{"FORMATO_TIENDA", "FORMATO"} }),
+				    #"Consulta anexada" = Table.Combine({#"Columnas con nombre cambiado", #"Inventario TGT NOS"}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Consulta anexada",{"Trimestre", "", "_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8", "_9", "_10", "_11", "_12", "_13", "_14", "_15", "_16", "_17", "_18", "_19", "_20", "_21", "_22", "_23", "_24"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas quitadas",{{"Año", Int64.Type}, {"Mes", Int64.Type}, {"Inventario", Currency.Type}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Tipo cambiado","CU�A","CUÑA",Replacer.ReplaceText,{"Categoría"}),
+				    #"Columnas reordenadas" = Table.ReorderColumns(#"Valor reemplazado",{"División", "Unidad Negocio", "Marca", "País", "Departamento", "Género", "Categoría", "Tipo Estilo", "Año", "Mes", "Inventario"}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Columnas reordenadas", "Fuente", each "InvTGT"),
+				    #"Personalizada agregada1" = Table.AddColumn(#"Personalizada agregada", "Trimestre", each Number.RoundDown ( ( [Mes] -1 ) / 3 , 0 ) + 1)
+				in
+				    #"Personalizada agregada1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

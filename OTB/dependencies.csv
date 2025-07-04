@@ -1,0 +1,57 @@
+object	dependency
+Reservas L1	Adelantos L1
+Reservas L1	 Equivalentes
+Reservas L1	 Jerarquía Base
+Arribos Planner 1	Agrupacion_Marcas
+Arribos Planner 2	Agrupacion_Marcas
+Arribos Planner 3	Agrupacion_Marcas
+Arribos Planner 4	Agrupacion_Marcas
+LAP ADOC	Agrupacion_Marcas
+LAP PAR2	Agrupacion_Marcas
+LAP INTER	Agrupacion_Marcas
+Arribos ADOC	Agrupacion_Marcas
+Arribos PAR2	Agrupacion_Marcas
+Arribos INTER	Agrupacion_Marcas
+LAP Base	LAP Planner 1
+LAP Base	 LAP Planner 2
+LAP Base	 LAP Planner 3
+LAP Base	 LAP Planner 4
+LAP Base	 Base L1
+Arribos Ajustados	Arribos Planner 1
+Arribos Ajustados	 Arribos Planner 2
+Arribos Ajustados	 Arribos Planner 3
+Arribos Ajustados	 Arribos Planner 4
+Arribos Ajustados	 Jerarquía Base
+LAP	LAP PAR2
+LAP	 LAP INTER
+LAP	 LAP ADOC
+Plan Final	Base Planes
+EKPO import	ALMACENES
+EKPO import	 Agrupacion_Marcas
+Jerarquía Base	Agrupacion_Marcas
+Jerarquía Base	 LAP Base
+Inventario TGT NOS	Agrupacion_Marcas
+Arribos	Agrupacion_Marcas
+Arribos	 Arribos Ajustados
+Inventario TGT	Agrupacion_Marcas
+Inventario TGT	 Inventario TGT NOS
+LAP NOS	LAP Planner 1
+LAP NOS	 LAP Planner 2
+LAP NOS	 LAP Planner 3
+LAP NOS	 LAP Planner 4
+LAP NOS	 LAP Open
+LAP Open	Agrupacion_Marcas
+OTB	Arribos
+OTB	 Plan Final
+OTB	 Reservas L1
+OTB	 Arribos ADOC
+OTB	 Arribos PAR2
+OTB	 Arribos INTER
+OTB	 LAP
+OTB	 Inventario TGT
+OTB	 LAP NOS
+OTB	 Agrupacion_Marcas
+OTB	 EKPO import
+OTB Max Fecha	UltimaFecha OTB
+Plan Max Año	Plan Final
+Planes	Base Planes

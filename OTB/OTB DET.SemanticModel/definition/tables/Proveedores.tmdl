@@ -1,0 +1,111 @@
+table Proveedores
+	lineageTag: 8571d185-02ee-4201-ae18-7217bbe5a91b
+
+	column SK_UNIDADNEGOCIO
+		lineageTag: c57c6123-9223-4eb9-b2f9-7719a50604b7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ArticuloProveedor[SK_UNIDADNEGOCIO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_DEPTO
+		lineageTag: 9df49507-131d-4deb-a255-e6351d938560
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ArticuloProveedor[BV_DEPTO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MARCA
+		lineageTag: 44db54ea-f29e-49c3-a3ac-7d6430dc6c18
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ArticuloProveedor[SK_MARCA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_GENERO
+		lineageTag: 163c1d4c-85fe-4848-a546-c3ea4ec4bbaf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ArticuloProveedor[BV_GENERO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_CATEGORIA
+		lineageTag: 63717505-43f1-4613-a247-512398b13250
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ArticuloProveedor[BV_CATEGORIA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column art_Key
+		lineageTag: 94a7b526-ce99-428b-9f00-e850b112e3d2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [art_Key]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Articulos
+		formatString: 0
+		lineageTag: 79cc166c-66f4-4bee-9e1d-e2dbd42e56e0
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Articulos]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreProveedor
+		lineageTag: fccf8c3a-c09b-4b09-9e3a-29ce78b9edcd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NombreProveedor]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Proveedores = calculated
+		mode: import
+		source =
+				
+				VAR _artProv =
+				    SUMMARIZE (
+				        ArticuloProveedor,
+				        ArticuloProveedor[SK_UNIDADNEGOCIO],
+				        ArticuloProveedor[BV_DEPTO],
+				        ArticuloProveedor[SK_MARCA],
+				        ArticuloProveedor[BV_GENERO],
+				        ArticuloProveedor[BV_CATEGORIA],
+				        ArticuloProveedor[NombreProveedor],
+				        "art_Key",
+				            ArticuloProveedor[SK_UNIDADNEGOCIO] & ArticuloProveedor[BV_DEPTO] & ArticuloProveedor[SK_MARCA] & ArticuloProveedor[BV_GENERO] & ArticuloProveedor[BV_CATEGORIA],
+				        "nr", COUNTROWS ( ArticuloProveedor )
+				    )
+				VAR _art =
+				    SUMMARIZE (
+				        ArticuloProveedor,
+				        ArticuloProveedor[SK_UNIDADNEGOCIO],
+				        ArticuloProveedor[BV_DEPTO],
+				        ArticuloProveedor[SK_MARCA],
+				        ArticuloProveedor[BV_GENERO],
+				        ArticuloProveedor[BV_CATEGORIA],
+				        "art_Key",
+				            ArticuloProveedor[SK_UNIDADNEGOCIO] & ArticuloProveedor[BV_DEPTO] & ArticuloProveedor[SK_MARCA] & ArticuloProveedor[BV_GENERO] & ArticuloProveedor[BV_CATEGORIA],
+				        "Articulos", COUNTROWS ( ArticuloProveedor )
+				    )
+				RETURN
+				    ADDCOLUMNS (
+				        _art,
+				        "NombreProveedor",
+				            VAR _sv = [art_key]
+				            RETURN
+				                MAXX (
+				                    TOPN ( 1, FILTER ( _artProv, [art_key] = _sv ), [nr], DESC ),
+				                    [NombreProveedor]
+				                )
+				    )
+
+	annotation PBI_Id = da06b180ed2348898663de533d51d824
+

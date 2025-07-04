@@ -1,0 +1,818 @@
+expression Fecha =
+		let
+		    Source = DateTimeZone.LocalNow
+		in
+		    Source
+	lineageTag: d82c434a-3e28-4bd7-8435-dcda6f19d470
+	queryGroup: 'Mapeados\Funciones o Variables'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
+expression 'UltimaFecha OTB' =
+		let
+		    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT [Max Fecha] = EOMONTH( GETDATE() - 1 , -1 )"]),
+		    #"Personalizada agregada" = Table.AddColumn(Origen, "División", each "DET"),
+		    #"Columnas reordenadas" = Table.ReorderColumns(#"Personalizada agregada",{"División", "Max Fecha"}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas reordenadas",{{"División", type text}}) ,
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Tipo cambiado",{{"Max Fecha", type date}}),
+		    #"Recuento calculado" = List.Max(#"Changed Type1"[Max Fecha])
+		in
+		    #"Recuento calculado"
+	lineageTag: 197e9658-7f47-468c-8a52-5e6883aa5dfa
+	queryGroup: 'Mapeados\Funciones o Variables'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Date
+
+expression 'Reservas L1' =
+		let
+		    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/General/Pedidos%20L1.xlsx"),
+		    Datos = Origen ,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Datos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Encabezados promovidos",{{"Tam.1", "Talla"}, {"Alm.", "Almacén"}, {"Fecha doc.", "Fecha Documento"}, {"EFi", "Entregado"}, {"Cantidad reparto", "Pedido"}, {"Ingresada", "Ingreso"}, {"Doc.compr.", "Documento"}, {"Artículo", "MATNR ANT"}, {"Mat.gral.conf.", "Artículo ANT"}, {"Cantidad reparto USD", "Pedido USD"}, {"Ingresada USD", "Ingreso USD"}, {"Estilo Color", "Estilo Color ANT"}}),
+		    #"Added Custom1" = Table.AddColumn(#"Renamed Columns", "Fuente", each "Arribos"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom1",{{"Documento", Int64.Type}, {"MATNR ANT", type text}, {"Artículo ANT", type text}, {"Marca", type text}, {"Talla", type text}, {"Almacén", type text}, {"Fecha Documento", type date}, {"Entregado", type text}, {"Pedido", Int64.Type}, {"Ingreso", Int64.Type}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Correlativo", type text}, {"País", type text}, {"División", type text}, {"Estilo Color ANT", type text}, {"Unidad Negocio", type text}, {"Pedido USD", type number}, {"Ingreso USD", type number}, {"Usuario", type text}, {"Fuente", type text}}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Texto breve", "Vendedor/a", "Entregado", "Correlativo"}),
+		    #"Errores quitados1" = Table.RemoveRowsWithErrors(#"Removed Columns"),
+		    #"Filtered Rows" = Table.SelectRows(#"Errores quitados1", each ([División] = "DET")),
+		    #"Added Custom6" = Table.AddColumn(#"Filtered Rows", "Fecha", each  Date.EndOfMonth(#date([Año], [Mes], 1))),
+		    #"Filtered Rows1" = Table.SelectRows(#"Added Custom6", each  [Fecha] > #"UltimaFecha OTB" ),
+		    #"Grouped Rows" = Table.Group(#"Filtered Rows1", {"División", "Unidad Negocio", "País", "Artículo ANT", "Estilo Color ANT", "MATNR ANT", "Talla", "Año", "Mes","Fuente"}, {{"Pedido", each List.Sum([Pedido]), type nullable number}, {"Ingreso", each List.Sum([Ingreso]), type nullable number}, {"Pedido USD", each List.Sum([Pedido USD]), type nullable number}, {"Ingreso USD", each List.Sum([Ingreso USD]), type nullable number}}),
+		    #"Appended Query" = Table.Combine({#"Grouped Rows", #"Adelantos L1"}),
+		    #"Merged Queries2" = Table.NestedJoin(#"Appended Query", {"Artículo ANT"}, Equivalentes, {"Artículo ANT"}, "Equivalentes", JoinKind.LeftOuter),
+		    #"Expanded Equivalentes" = Table.ExpandTableColumn(#"Merged Queries2", "Equivalentes", {"Artículo ACT", "Estilo Color ACT"}, {"Artículo ACT", "Estilo Color ACT"}),
+		    #"Added Conditional Column" = Table.AddColumn(#"Expanded Equivalentes", "Artículo", each if [Artículo ACT] = null then [Artículo ANT] else [Artículo ACT]),
+		    #"Added Conditional Column1" = Table.AddColumn(#"Added Conditional Column", "Estilo Color", each if [Estilo Color ACT] = null then [Estilo Color ANT] else [Estilo Color ACT]),
+		    #"Removed Columns1" = Table.RemoveColumns(#"Added Conditional Column1",{"Artículo ACT", "Estilo Color ACT", "Artículo ANT", "Estilo Color ANT", "MATNR ANT"}),
+		    #"Merged Queries1" = Table.NestedJoin(#"Removed Columns1", {"Artículo"}, #"Jerarquía Base", {"Artículo"}, "Jerarquía Base", JoinKind.LeftOuter),
+		    #"Expanded Jerarquía Base" = Table.ExpandTableColumn(#"Merged Queries1", "Jerarquía Base", {"Departamento", "Marca", "Género", "Categoría", "Tipo Estilo", "Línea", "Orden Departamento", "Orden Tipo Estilo", "Bandera L1"}, {"Departamento", "Marca", "Género", "Categoría", "Tipo Estilo", "Línea", "Orden Departamento", "Orden Tipo Estilo", "Bandera L1"}),
+		    #"Grouped Rows1" = Table.Group(#"Expanded Jerarquía Base", {"Año","Mes","División", "Unidad Negocio", "Marca", "Departamento", "Género", "Categoría", "Tipo Estilo", "Línea", "Orden Departamento", "Orden Tipo Estilo", "Bandera L1", "Fuente", "País"}, {{"Inventario Arribo", each List.Sum([Pedido]), type nullable number}, {"Inventario USD Arribo", each List.Sum([Pedido USD]), type nullable number}}),
+		    #"Added Custom" = Table.AddColumn(#"Grouped Rows1", "Fecha", each  Date.EndOfMonth(#date([Año], [Mes], 1))),
+		    #"Calculated Quarter" = Table.TransformColumns(#"Added Custom",{{"Fecha", Date.QuarterOfYear, Int64.Type}}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Calculated Quarter",{{"Fecha", "Trimestre"}, {"Línea", "LINEA"}})
+		in
+		    #"Renamed Columns1"
+	lineageTag: f10b56d7-91fa-4056-a231-7175126898b9
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivo Pedidos L1'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Equivalentes =
+		let
+		    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/General/Base Equivalentes.xlsx"),
+		    Datos = Origen ,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Datos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Encabezados promovidos",{"DIVISION", "MARCA_ACT", "DEPTO", "GENERO", "CATEGORIA", "TIPO_ESTILO_ACT", "LINEA_ACT", "PERIODO_EST_ACT", "ARTICULO_ANT", "ARTICULO_ACT", "ESTILO_COLOR_ACT", "TIPO", "ESTATUS_ACT"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"DIVISION", type text}, {"MARCA_ACT", type text}, {"DEPTO", type text}, {"GENERO", type text}, {"CATEGORIA", type text}, {"TIPO_ESTILO_ACT", type text}, {"LINEA_ACT", type text}, {"PERIODO_EST_ACT", type text}, {"ARTICULO_ANT", type text}, {"ARTICULO_ACT", type text}, {"ESTILO_COLOR_ACT", type text}, {"TIPO", Int64.Type}, {"ESTATUS_ACT", Int64.Type}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"DIVISION", "División"}, {"MARCA_ACT", "Marca ACT"}, {"DEPTO", "Depto"}, {"GENERO", "Género"}, {"CATEGORIA", "Categoría"}, {"TIPO_ESTILO_ACT", "Tipo Estilo ACT"}, {"PERIODO_EST_ACT", "Período Estadístico ACT"}, {"LINEA_ACT", "Línea ACT"}, {"ARTICULO_ANT", "Artículo ANT"}, {"ARTICULO_ACT", "Artículo ACT"}, {"ESTILO_COLOR_ACT", "Estilo Color ACT"}, {"ESTATUS_ACT", "Estatus ACT"}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each ([TIPO] <> 3)),
+		    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"TIPO"})
+		in
+		    #"Removed Columns"
+	lineageTag: 3b3b5886-a4e1-4ed1-862e-df590855d4e2
+	queryGroup: 'Mapeos a carpeta de Enrique'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Adelantos L1' =
+		let
+		    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/General/Pedidos%20L1.xlsx"),
+		    Datos = Origen ,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Flujos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Added Custom1" = Table.AddColumn(#"Encabezados promovidos", "Fuente", each "Arribos"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom1",{{"División", type text}, {"Unidad Negocio", type text}, {"Marca", type text}, {"Marca Agrupada", type text}, {"País", type text}, {"Depto", type text}, {"Género", type text}, {"Categoría", type text}, {"Tipo Estilo", type text}, {"Artículo", type text}, {"Estilo Color", type text}, {"MATNR", type text}, {"Talla", type text}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Pedido", Int64.Type}, {"Pedido USD", type number}, {"Fuente", type text}, {"Tipo", type text}}),
+		    #"Added Custom6" = Table.AddColumn( #"Changed Type", "Fecha", each Date.EndOfMonth(#date([Año], [Mes], 1)) ),
+		    #"Filtered Rows1" = Table.SelectRows(#"Added Custom6", each ([Fecha] > #"UltimaFecha OTB")),
+		    #"Grouped Rows" = Table.Group(#"Filtered Rows1", {"División", "Unidad Negocio", "País" , "Artículo", "Estilo Color", "MATNR", "Talla", "Año", "Mes", "Fuente"}, {{"Pedido", each List.Sum([Pedido]), type nullable number}, {"Pedido USD", each List.Sum([Pedido USD]), type nullable number}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Grouped Rows",{{"Estilo Color", "Estilo Color ANT"}, {"Artículo", "Artículo ANT"}, {"MATNR", "MATNR ANT"}})
+		in
+		    #"Renamed Columns"
+	lineageTag: 25631297-75db-410e-affd-142813bbedc9
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivo Pedidos L1'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'LAP Planner 2' =
+		let
+		    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/Bases%20OTB/LAP - UN CAT.xlsx"),
+		    Datos = Origen,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Pronóstico",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Artículo", Int64.Type}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Venta", Int64.Type}, {"Venta USD", type number}, {"Margen USD", type number}, {"Markdown USD", type number}, {"SPT", Int64.Type}, {"OSP", type number}, {"STDEV", type number}, {"Venta Bruta", type number}, {"OMU", type number}, {"MKD", type number}, {"MRG", type number}, {"2025", Int64.Type},{"SH Formato", Int64.Type}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Tipo cambiado",{"División", "Unidad Negocio", "Marca", "Marca Agrupada", "País", "Depto", "Género", "Categoría", "Tipo Estilo", "Artículo", "Estilo Color", "Año", "Mes", "Venta", "Venta USD", "Margen USD", "Markdown USD", "Tipo Pronóstico"}),
+		    #"Filas filtradas" = Table.SelectRows(#"Removed Other Columns", each [Venta USD] <> null and [Venta USD] <> "")
+		in
+		    #"Filas filtradas"
+	lineageTag: 577a78ff-188e-48e7-a5ea-61c6817b6939
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos LAP\Hoja Pronósticos'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'LAP Planner 3' =
+		let
+		    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/Bases%20OTB/LAP - UN HPU.xlsx"),
+		    Datos = Origen,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Pronóstico",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Artículo", Int64.Type}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Venta", Int64.Type}, {"Venta USD", type number}, {"Margen USD", type number}, {"Markdown USD", type number}, {"SPT", Int64.Type}, {"OSP", type number}, {"STDEV", type number}, {"Venta Bruta", type number}, {"OMU", type number}, {"MKD", type number}, {"MRG", type number}, {"2025", Int64.Type}, {"SH Formato", Int64.Type}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Tipo cambiado",{"División", "Unidad Negocio", "Marca", "Marca Agrupada", "País", "Depto", "Género", "Categoría", "Tipo Estilo", "Artículo", "Estilo Color", "Año", "Mes", "Venta", "Venta USD", "Margen USD", "Markdown USD", "Tipo Pronóstico"}),
+		    #"Filas filtradas" = Table.SelectRows(#"Removed Other Columns", each [Venta USD] <> null and [Venta USD] <> "")
+		in
+		    #"Filas filtradas"
+	lineageTag: fc181771-9a4d-4bf0-ae27-45db31532b83
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos LAP\Hoja Pronósticos'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'LAP Planner 4' =
+		let
+		    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/Bases%20OTB/LAP - UN PAR2.xlsx"),
+		    Datos = Origen,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Pronóstico",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Marca", type text}, {"Artículo", Int64.Type}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Venta", Int64.Type}, {"Venta USD", type number}, {"Margen USD", type number}, {"Markdown USD", type number}, {"SPT", Int64.Type}, {"OSP", type number}, {"STDEV", type number}, {"Venta Bruta", type number}, {"OMU", type number}, {"MKD", type number}, {"MRG", type number}, {"2025", Int64.Type}, {"Fecha", type date}, {"SH Formato", Int64.Type}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Tipo cambiado",{"División", "Unidad Negocio", "Marca", "Marca Agrupada", "País", "Depto", "Género", "Categoría", "Tipo Estilo", "Artículo", "Estilo Color", "Año", "Mes", "Venta", "Venta USD", "Margen USD", "Markdown USD", "Tipo Pronóstico"}),
+		    #"Filas filtradas" = Table.SelectRows(#"Removed Other Columns", each [Venta USD] <> null and [Venta USD] <> "")
+		in
+		    #"Filas filtradas"
+	lineageTag: db3a5d42-9744-4b78-83d7-8354f91e7606
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos LAP\Hoja Pronósticos'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Base L1' =
+		let
+		    Origen = Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Pedidos%20L1.xlsx"),
+		    Datos = Origen ,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Datos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Encabezados promovidos",{{"Tam.1", "Talla"}, {"Alm.", "Almacén"}, {"Fecha doc.", "Fecha Documento"}, {"EFi", "Entregado"}, {"Cantidad reparto", "Pedido"}, {"Ingresada", "Ingreso"}, {"Doc.compr.", "Documento"}, {"Artículo", "MATNR"}, {"Mat.gral.conf.", "Artículo"}, {"Cantidad reparto USD", "Pedido USD"}, {"Ingresada USD", "Ingreso USD"}, {"Estilo Color", "Estilo Color"}}),
+		    #"Added Custom1" = Table.AddColumn(#"Renamed Columns", "Fuente", each "Arribos"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom1",{{"Documento", Int64.Type}, {"MATNR", type text}, {"Artículo", type text}, {"Marca", type text}, {"Talla", type text}, {"Almacén", type text}, {"Fecha Documento", type date}, {"Entregado", type text}, {"Pedido", Int64.Type}, {"Ingreso", Int64.Type}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Correlativo", type text}, {"País", type text}, {"División", type text}, {"Estilo Color", type text}, {"Unidad Negocio", type text}, {"Pedido USD", type number}, {"Ingreso USD", type number}, {"Usuario", type text}, {"Fuente", type text}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([División] = "DET")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"Artículo", "Estilo Color"}),
+		    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+		    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "Línea", each "LINEA 1"),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"Línea", type text}, {"Artículo", Int64.Type}})
+		in
+		    #"Changed Type1"
+	lineageTag: 41e1a613-ae90-4b21-aef7-a8840b3bd930
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivo Pedidos L1'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Arribos Planner 1' =
+		let
+		    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/Bases%20OTB/LAP%20-%20UN%20ADOC.xlsx"),
+		    Datos = Origen,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Arribos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Fecha Conciliación", type date}}),
+		    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each Date.IsInCurrentMonth([Fecha Conciliación])),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Filas filtradas", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Se expandió Agrupacion_Marcas",{"División", "Unidad Negocio", "Marca", "Marca Agrupada", "País", "Depto", "Género", "Categoría", "Tipo Estilo", "Artículo", "Estilo Color", "MATNR", "Talla", "Año", "Mes", "Inventario", "Inventario USD", "MK", "Tipo Arribo", "FORMATO"})
+		in
+		    #"Removed Other Columns"
+	lineageTag: b26756f0-66bb-4d90-9280-e80e265c42a6
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos LAP\Hoja Arribos'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Arribos Planner 2' =
+		let
+		    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/Bases%20OTB/LAP - UN CAT.xlsx"),
+		    Datos = Origen,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Arribos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Fecha Conciliación", type date}}),
+		    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each Date.IsInCurrentMonth([Fecha Conciliación])),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Filas filtradas", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Se expandió Agrupacion_Marcas",{"División", "Unidad Negocio", "Marca", "Marca Agrupada", "País", "Depto", "Género", "Categoría", "Tipo Estilo", "Artículo", "Estilo Color", "MATNR", "Talla", "Año", "Mes", "Inventario", "Inventario USD", "MK", "Tipo Arribo", "FORMATO"})
+		in
+		    #"Removed Other Columns"
+	lineageTag: 12707ced-c4db-4baa-b01a-5b43673b752a
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos LAP\Hoja Arribos'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Arribos Planner 3' =
+		let
+		    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/Bases%20OTB/LAP - UN HPU.xlsx"),
+		    Datos = Origen,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Arribos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Fecha Conciliación", type date}}),
+		    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each Date.IsInCurrentMonth([Fecha Conciliación])),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Filas filtradas", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Se expandió Agrupacion_Marcas",{"División", "Unidad Negocio", "Marca", "Marca Agrupada", "País", "Depto", "Género", "Categoría", "Tipo Estilo", "Artículo", "Estilo Color", "MATNR", "Talla", "Año", "Mes", "Inventario", "Inventario USD", "MK", "Tipo Arribo", "FORMATO"})
+		in
+		    #"Removed Other Columns"
+	lineageTag: 58f6c061-fdd4-4c4c-b536-40768a7ab985
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos LAP\Hoja Arribos'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Arribos Planner 4' =
+		let
+		    Origen = Web.Contents("https://empresasadoc.sharepoint.com/sites/PlanningNOS/Documentos%20compartidos/Bases%20OTB/LAP - UN PAR2.xlsx"),
+		    Datos = Origen,
+		    #"Libro de Excel importado" = Excel.Workbook(Datos),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Arribos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Fecha conciliación", type date}}),
+		    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each Date.IsInCurrentMonth([Fecha conciliación])),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Filas filtradas", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Se expandió Agrupacion_Marcas",{"División", "Unidad Negocio", "Marca", "Marca Agrupada", "País", "Depto", "Género", "Categoría", "Tipo Estilo", "Artículo", "Estilo Color", "MATNR", "Talla", "Año", "Mes", "Inventario", "Inventario USD", "MK", "Tipo Arribo", "FORMATO"})
+		in
+		    #"Removed Other Columns"
+	lineageTag: ecf9e3bd-686f-4fa8-b78d-7d83a709beaa
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos LAP\Hoja Arribos'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'LAP ADOC' =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Pronóstico de ventas/Básico, Temporada & Moda/Datos OTB - UN ADOC.xlsx"), null, true),
+		    Arribos_Sheet = Origen{[Item="LAP",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Encabezados promovidos", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Added Custom" = Table.AddColumn(#"Se expandió Agrupacion_Marcas", "Fecha", each  Date.EndOfMonth(#date([Año], [Mes], 1))),
+		    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Bandera Plan", each Number.From( [Fecha] > #"UltimaFecha OTB" )),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom1",{{"División", type text}, {"Unidad Negocio", type text}, {"Marca", type text}, {"Departamento", type text}, {"Género", type text}, {"Categoría", type text}, {"Tipo Estilo", type text}, {"Año", Int64.Type}, {"Trimestre", Int64.Type}, {"Mes", Int64.Type}, {"Venta USD", type number}, {"Margen USD", type number}, {"Markdown USD", type number}, {"Bandera Plan", Int64.Type}, {"Fecha", type date}}),
+		    #"Uppercased Text" = Table.TransformColumns(#"Changed Type",{{"Tipo Estilo", Text.Upper, type text}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Uppercased Text", each ([Tipo Estilo] <> "NOS"))
+		in
+		    #"Filtered Rows"
+	lineageTag: 544678b4-347b-4528-988b-ddb4674f04d2
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos Datos OTB - UN\Hoja LAP'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'LAP PAR2' =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Pronóstico de ventas/Básico, Temporada & Moda/Datos OTB - UN PAR2.xlsx"), null, true),
+		    Arribos_Sheet = Origen{[Item="LAP",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Encabezados promovidos", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Added Custom" = Table.AddColumn(#"Se expandió Agrupacion_Marcas", "Fecha", each  Date.EndOfMonth(#date([Año], [Mes], 1))),
+		    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Bandera Plan", each Number.From( [Fecha] > #"UltimaFecha OTB" )),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom1",{{"División", type text}, {"Unidad Negocio", type text}, {"Marca", type text}, {"Departamento", type text}, {"Género", type text}, {"Categoría", type text}, {"Tipo Estilo", type text}, {"Año", Int64.Type}, {"Trimestre", Int64.Type}, {"Mes", Int64.Type}, {"Venta USD", type number}, {"Margen USD", type number}, {"Markdown USD", type number}, {"Bandera Plan", Int64.Type}, {"Fecha", type date}}),
+		    #"Uppercased Text" = Table.TransformColumns(#"Changed Type",{{"Tipo Estilo", Text.Upper, type text}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Uppercased Text", each ([Tipo Estilo] <> "NOS"))
+		in
+		    #"Filtered Rows"
+	lineageTag: f2b1e349-1c83-4347-9cab-eff2d3f4092a
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos Datos OTB - UN\Hoja LAP'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'LAP INTER' =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Pronóstico de ventas/Básico, Temporada & Moda/Datos OTB - UN INTER.xlsx"), null, true),
+		    Arribos_Sheet = Origen{[Item="LAP",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Encabezados promovidos", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Added Custom" = Table.AddColumn(#"Se expandió Agrupacion_Marcas", "Fecha", each  Date.EndOfMonth(#date([Año], [Mes], 1))),
+		    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Bandera Plan", each Number.From( [Fecha] > #"UltimaFecha OTB" )),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom1",{{"División", type text}, {"Unidad Negocio", type text}, {"Marca", type text}, {"Departamento", type text}, {"Género", type text}, {"Categoría", type text}, {"Tipo Estilo", type text}, {"Año", Int64.Type}, {"Trimestre", Int64.Type}, {"Mes", Int64.Type}, {"Venta USD", type number}, {"Margen USD", type number}, {"Markdown USD", type number}, {"Bandera Plan", Int64.Type}, {"Fecha", type date}}),
+		    #"Uppercased Text" = Table.TransformColumns(#"Changed Type",{{"Tipo Estilo", Text.Upper, type text}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Uppercased Text", each ([Tipo Estilo] <> "NOS"))
+		in
+		    #"Filtered Rows"
+	lineageTag: c8a85e51-a4ad-4fd1-a417-5a6cfd3b8d39
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos Datos OTB - UN\Hoja LAP'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Arribos ADOC' =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Pronóstico de ventas/Básico, Temporada & Moda/Datos OTB - UN ADOC.xlsx"), null, true),
+		    Arribos_Sheet = Origen{[Item="Arribos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Encabezados promovidos", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Added Custom1" = Table.AddColumn(#"Se expandió Agrupacion_Marcas", "Orden Departamento", each if [Departamento] = "CAL" then 1 else if [Departamento] = "ACC" then 2 else if [Departamento] = "ROP" then 3 else 99),
+		    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Orden Tipo Estilo", each if [Tipo Estilo] = "NOS" then 1 else if [Tipo Estilo] = "BASICO" then 2 else if [Tipo Estilo] = "TEMPORADA" then 3 else if [Tipo Estilo] = "MODA" then 4 else 99),
+		    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Fuente", each "Reservas"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom3",{{"División", type text}, {"Unidad Negocio", type text}, {"Marca", type text}, {"Departamento", type text}, {"Género", type text}, {"Categoría", type text}, {"Estilo Color", type text}, {"Tipo Estilo", type text}, {"Línea", type text}, {"Año", Int64.Type}, {"Trimestre", Int64.Type}, {"Mes", Int64.Type}, {"Arribo", Int64.Type}, {"Arribo USD", type number}, {"Orden Departamento", Int64.Type}, {"Orden Tipo Estilo", Int64.Type}, {"Fuente", type text}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Arribo", "INV"}, {"Arribo USD", "INV ARR"}, {"Línea", "LINEA"}}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Renamed Columns",{{"Fecha Ajuste", type date}}),
+		    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each Date.IsInCurrentMonth([Fecha Ajuste])),
+		    #"Grouped Rows" = Table.Group(#"Filas filtradas", {"División", "Unidad Negocio", "Marca", "Departamento", "Género", "Categoría", "Tipo Estilo", "LINEA", "Año", "Trimestre", "Mes", "Orden Departamento", "Orden Tipo Estilo", "Fuente", "País", "FORMATO"}, {{"Inventario Arribo", each List.Sum([INV]), type nullable number}, {"Inventario USD Arribo", each List.Sum([INV ARR]), type nullable number}}),
+		    #"Uppercased Text" = Table.TransformColumns(#"Grouped Rows",{{"Tipo Estilo", Text.Upper, type text}})
+		in
+		    #"Uppercased Text"
+	lineageTag: bf671b66-99e0-47b8-a544-afaf1b756f7d
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos Datos OTB - UN\Hoja Arribos'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Arribos PAR2' =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Pronóstico de ventas/Básico, Temporada & Moda/Datos OTB - UN PAR2.xlsx"), null, true),
+		    Arribos_Sheet = Origen{[Item="Arribos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Encabezados promovidos", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Added Custom1" = Table.AddColumn(#"Se expandió Agrupacion_Marcas", "Orden Departamento", each if [Departamento] = "CAL" then 1 else if [Departamento] = "ACC" then 2 else if [Departamento] = "ROP" then 3 else 99),
+		    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Orden Tipo Estilo", each if [Tipo Estilo] = "NOS" then 1 else if [Tipo Estilo] = "BASICO" then 2 else if [Tipo Estilo] = "TEMPORADA" then 3 else if [Tipo Estilo] = "MODA" then 4 else 99),
+		    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Fuente", each "Reservas"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom3",{{"División", type text}, {"Unidad Negocio", type text}, {"Marca", type text}, {"Departamento", type text}, {"Género", type text}, {"Categoría", type text}, {"Estilo Color", type text}, {"Tipo Estilo", type text}, {"Línea", type text}, {"Año", Int64.Type}, {"Trimestre", Int64.Type}, {"Mes", Int64.Type}, {"Arribo", Int64.Type}, {"Arribo USD", type number}, {"Orden Departamento", Int64.Type}, {"Orden Tipo Estilo", Int64.Type}, {"Fuente", type text}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Arribo", "INV"}, {"Arribo USD", "INV ARR"}, {"Línea", "LINEA"}}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Renamed Columns",{{"Fecha Ajuste", type date}}),
+		    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each Date.IsInCurrentMonth([Fecha Ajuste])),
+		    #"Grouped Rows" = Table.Group(#"Filas filtradas", {"División", "Unidad Negocio", "Marca", "Departamento", "Género", "Categoría", "Tipo Estilo", "LINEA", "Año", "Trimestre", "Mes", "Orden Departamento", "Orden Tipo Estilo", "Fuente", "País" , "FORMATO"}, {{"Inventario Arribo", each List.Sum([INV]), type nullable number}, {"Inventario USD Arribo", each List.Sum([INV ARR]), type nullable number}}),
+		    #"Uppercased Text" = Table.TransformColumns(#"Grouped Rows",{{"Tipo Estilo", Text.Upper, type text}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Uppercased Text", each ([Tipo Estilo] <> "NOS"))
+		in
+		    #"Filtered Rows"
+	lineageTag: 7b118078-aca2-4173-a72f-b40e5ea6aab8
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos Datos OTB - UN\Hoja Arribos'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Arribos INTER' =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Pronóstico de ventas/Básico, Temporada & Moda/Datos OTB - UN INTER.xlsx"), null, true),
+		    Arribos_Sheet = Origen{[Item="Arribos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Encabezados promovidos", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Added Custom1" = Table.AddColumn(#"Se expandió Agrupacion_Marcas", "Orden Departamento", each if [Departamento] = "CAL" then 1 else if [Departamento] = "ACC" then 2 else if [Departamento] = "ROP" then 3 else 99),
+		    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Orden Tipo Estilo", each if [Tipo Estilo] = "NOS" then 1 else if [Tipo Estilo] = "BASICO" then 2 else if [Tipo Estilo] = "TEMPORADA" then 3 else if [Tipo Estilo] = "MODA" then 4 else 99),
+		    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Fuente", each "Reservas"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom3",{{"División", type text}, {"Unidad Negocio", type text}, {"Marca", type text}, {"Departamento", type text}, {"Género", type text}, {"Categoría", type text}, {"Estilo Color", type text}, {"Tipo Estilo", type text}, {"Línea", type text}, {"Año", Int64.Type}, {"Trimestre", Int64.Type}, {"Mes", Int64.Type}, {"Arribo", Int64.Type}, {"Arribo USD", type number}, {"Orden Departamento", Int64.Type}, {"Orden Tipo Estilo", Int64.Type}, {"Fuente", type text}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Arribo", "INV"}, {"Arribo USD", "INV ARR"}, {"Línea", "LINEA"}}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Renamed Columns",{{"Fecha Ajuste", type date}}),
+		    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado", each Date.IsInCurrentMonth([Fecha Ajuste])),
+		    #"Grouped Rows" = Table.Group(#"Filas filtradas", {"División", "Unidad Negocio", "Marca", "Departamento", "Género", "Categoría", "Tipo Estilo", "LINEA", "Año", "Trimestre", "Mes", "Orden Departamento", "Orden Tipo Estilo", "Fuente", "País", "FORMATO"}, {{"Inventario Arribo", each List.Sum([INV]), type nullable number}, {"Inventario USD Arribo", each List.Sum([INV ARR]), type nullable number}}),
+		    #"Uppercased Text" = Table.TransformColumns(#"Grouped Rows",{{"Tipo Estilo", Text.Upper, type text}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Uppercased Text", each ([Tipo Estilo] <> "NOS"))
+		in
+		    #"Filtered Rows"
+	lineageTag: 7d9c85f5-04b4-44eb-a791-226ad94529b2
+	queryGroup: 'Mapeos a carpeta de Enrique\Archivos Datos OTB - UN\Hoja Arribos'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'LAP Base' =
+		let
+		    Source = Table.Combine({#"LAP Planner 3", #"LAP Planner 1", #"LAP Planner 2", #"LAP Planner 4"}),
+		    #"Changed Type" = Table.TransformColumnTypes(Source,{{"División", type text}, {"Unidad Negocio", type text}, {"Marca", type text}, {"Marca Agrupada", type text}, {"País", type text}, {"Depto", type text}, {"Género", type text}, {"Categoría", type text}, {"Tipo Estilo", type text}, {"Artículo", Int64.Type}, {"Estilo Color", type text}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Venta", Int64.Type}, {"Venta USD", type number}, {"Margen USD", type number}, {"Markdown USD", type number}, {"Tipo Pronóstico", type text}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Estilo Color", "ESTILO_COLOR"}, {"Artículo", "SKU"}, {"Depto", "Departamento"}}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"Marca"}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Removed Columns",{{"Marca Agrupada", "Marca"}}),
+		    #"Merged Queries" = Table.NestedJoin(#"Renamed Columns1", {"SKU"}, #"Base L1", {"Artículo"}, "Base L1", JoinKind.LeftOuter),
+		    #"Expanded Base L1" = Table.ExpandTableColumn(#"Merged Queries", "Base L1", {"Línea"}, {"Línea"}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Expanded Base L1",null,"LINEA 7",Replacer.ReplaceValue,{"Línea"})
+		in
+		    #"Replaced Value"
+	lineageTag: 637bf389-783c-4147-805f-f051190adfbd
+	queryGroup: 'Mapeados\Transformaciones intermedias'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Arribos Ajustados' =
+		let
+		    Source = Table.Combine({#"Arribos Planner 1", #"Arribos Planner 2", #"Arribos Planner 3", #"Arribos Planner 4"}),
+		    #"Added Custom" = Table.AddColumn(Source, "Fuente", each "Arribos"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Fuente", type text}, {"División", type text}, {"Unidad Negocio", type text}, {"Marca", type text}, {"Marca Agrupada", type text}, {"País", type text}, {"Depto", type text}, {"Género", type text}, {"Categoría", type text}, {"Tipo Estilo", type text}, {"Artículo", type text}, {"Estilo Color", type text}, {"MATNR", type text}, {"Talla", type text}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Inventario", type number}, {"Inventario USD", type number}, {"MK", type text}, {"Tipo Arribo", type text}}),
+		    #"Merged Queries" = Table.NestedJoin(#"Changed Type", {"Artículo"}, #"Jerarquía Base", {"Artículo"}, "Jerarquía Base", JoinKind.LeftOuter),
+		    #"Expanded Jerarquía Base" = Table.ExpandTableColumn(#"Merged Queries", "Jerarquía Base", {"Bandera L1", "Línea"}, {"Bandera L1", "Línea"}),
+		    #"Added Custom2" = Table.AddColumn(#"Expanded Jerarquía Base", "Orden Departamento", each if [Depto] = "CAL" then 1 else if [Depto] = "ACC" then 2 else if [Depto] = "ROP" then 3 else 99),
+		    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Orden Tipo Estilo", each if [Tipo Estilo] = "NOS" then 1 else if [Tipo Estilo] = "BASICO" then 2 else if [Tipo Estilo] = "TEMPORADA" then 3 else if [Tipo Estilo] = "MODA" then 4 else 99),
+		    #"Grouped Rows" = Table.Group(#"Added Custom3", {"División", "Unidad Negocio", "Marca Agrupada", "Depto", "Género", "Categoría", "Tipo Estilo", "Línea", "Orden Departamento", "Orden Tipo Estilo", "Bandera L1", "Fuente", "Año", "Mes", "País", "FORMATO"}, {{"Inventario Arribo", each List.Sum([Inventario]), type nullable number}, {"Inventario USD Arribo", each List.Sum([Inventario USD]), type nullable number}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Grouped Rows",{{"Depto", "Departamento"}, {"Marca Agrupada", "Marca"}}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Renamed Columns",null,0,Replacer.ReplaceValue,{"Bandera L1"}),
+		    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null,"LINEA 7",Replacer.ReplaceValue,{"Línea"}),
+		    #"Added Custom1" = Table.AddColumn(#"Replaced Value1", "Fecha", each  Date.EndOfMonth(#date([Año], [Mes], 1))),
+		    #"Calculated Quarter" = Table.TransformColumns(#"Added Custom1",{{"Fecha", Date.QuarterOfYear, Int64.Type}}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Calculated Quarter",{{"Fecha", "Trimestre"}, {"Línea", "LINEA"}}),
+		    #"Filas agrupadas" = Table.Group(#"Renamed Columns1", {"Año", "Mes"}, {{"arribo$", each List.Sum([Inventario USD Arribo]), type nullable number}})
+		in
+		    #"Filas agrupadas"
+	lineageTag: 4ab96589-0c63-4a75-9ba5-bae21a192ab9
+	queryGroup: 'Mapeados\Transformaciones intermedias'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression LAP =
+		let
+		    Source = Table.Combine({#"LAP PAR2", #"LAP INTER", #"LAP ADOC"}),
+		    #"Added Custom1" = Table.AddColumn(Source, "Orden Departamento", each if [Departamento] = "CAL" then 1 else if [Departamento] = "ACC" then 2 else if [Departamento] = "ROP" then 3 else 99),
+		    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Orden Tipo Estilo", each if [Tipo Estilo] = "NOS" then 1 else if [Tipo Estilo] = "BASICO" then 2 else if [Tipo Estilo] = "TEMPORADA" then 3 else if [Tipo Estilo] = "MODA" then 4 else 99),
+		    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Fuente", each "LAP"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom3",{{"Orden Departamento", Int64.Type}, {"Orden Tipo Estilo", Int64.Type}, {"Fuente", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: c356c7bd-3be9-45dc-93d6-88f7ef5a1c25
+	queryGroup: 'Mapeados\Transformaciones intermedias'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Plan Final' =
+		let
+		    Origen = #"Base Planes",
+		    #"Columnas quitadas" = Table.RemoveColumns(Origen,{"Venta", "Venta USD", "Margen USD", "Markdown USD", "Fuente", "Bandera PCO Final", "Bandera PCA Final"}),
+		    #"Catalogo" = Table.Distinct(#"Columnas quitadas") ,
+		    PCA = Table.SelectRows(Origen, each [Bandera PCA Final] = 1) ,
+		    PCO = Table.SelectRows(Origen, each [Bandera PCO Final] = 1) ,
+		    #"Merged CatalogoPCO" = Table.NestedJoin(
+		        #"Catalogo",
+		        {
+		            "División",
+		            "Unidad Negocio",
+		            "Marca",
+		            "Departamento",
+		            "Género",
+		            "Categoría",
+		            "Tipo Estilo",
+		            "Año",
+		            "Trimestre",
+		            "Mes"
+		        },
+		        #"PCO",
+		        {
+		            "División",
+		            "Unidad Negocio",
+		            "Marca",
+		            "Departamento",
+		            "Género",
+		            "Categoría",
+		            "Tipo Estilo",
+		            "Año",
+		            "Trimestre",
+		            "Mes"
+		        },
+		        "PCO",
+		        JoinKind.LeftOuter
+		    ),
+		    #"Expanded PCO" = Table.ExpandTableColumn(
+		        #"Merged CatalogoPCO",
+		        "PCO",
+		        {"Venta", "Venta USD", "Margen USD", "Markdown USD"},
+		        {"PCO Planner.Venta", "PCO Planner.Venta USD", "PCO Planner.Margen USD", "PCO Planner.Markdown USD"}
+		    ) ,
+		    #"Merged PCA" = Table.NestedJoin(
+		        #"Expanded PCO",
+		        {
+		            "División",
+		            "Unidad Negocio",
+		            "Marca",
+		            "Departamento",
+		            "Género",
+		            "Categoría",
+		            "Tipo Estilo",
+		            "Año",
+		            "Trimestre",
+		            "Mes"
+		        },
+		        #"PCA",
+		        {
+		            "División",
+		            "Unidad Negocio",
+		            "Marca",
+		            "Departamento",
+		            "Género",
+		            "Categoría",
+		            "Tipo Estilo",
+		            "Año",
+		            "Trimestre",
+		            "Mes"
+		        },
+		        "PCA",
+		        JoinKind.LeftOuter
+		    ),
+		    #"Expanded PCA" = Table.ExpandTableColumn(
+		        #"Merged PCA",
+		        "PCA",
+		        {"Venta", "Venta USD", "Margen USD", "Markdown USD"},
+		        {"PCA Planner.Venta", "PCA Planner.Venta USD", "PCA Planner.Margen USD", "PCA Planner.Markdown USD"}
+		    ),
+		    #"Added Venta" = Table.AddColumn(
+		        #"Expanded PCA",
+		        "Venta",
+		        each
+		            if [Bandera PCA Planner] = 0 then
+		                [PCA Planner.Venta]
+		            else if [PCO Planner.Venta] <> null then
+		                [PCO Planner.Venta]
+		            else if [Bandera PCA Sistema] = 0 then
+		                [Share PCA.Venta]
+		            else
+		                [Share PCO.Venta]
+		    ),
+		    #"Added Venta  USD" = Table.AddColumn(
+		        #"Added Venta",
+		        "Venta USD",
+		        each
+		            if [Bandera PCA Planner] = 0 then
+		                [PCA Planner.Venta USD]
+		            else if [PCO Planner.Venta USD] <> null then
+		                [PCO Planner.Venta USD]
+		            else if [Bandera PCA Sistema] = 0 then
+		                [Share PCA.Venta USD]
+		            else
+		                [Share PCO.Venta USD]
+		    ),
+		    #"Added Margen USD" = Table.AddColumn(
+		        #"Added Venta  USD",
+		        "Margen USD",
+		        each
+		            if [Bandera PCA Planner] = 0 then
+		                [PCA Planner.Margen USD]
+		            else if [PCO Planner.Margen USD] <> null then
+		                [PCO Planner.Margen USD]
+		            else if [Bandera PCA Sistema] = 0 then
+		                [Share PCA.Margen USD]
+		            else
+		                [Share PCO.Margen USD]
+		    ),
+		    #"Added Markdown USD" = Table.AddColumn(
+		        #"Added Margen USD",
+		        "Markdown USD",
+		        each
+		            if [Bandera PCA Planner] = 0 then
+		                [PCA Planner.Markdown USD]
+		            else if [PCO Planner.Markdown USD] <> null then
+		                [PCO Planner.Markdown USD]
+		            else if [Bandera PCA Sistema] = 0 then
+		                [Share PCA.Markdown USD]
+		            else
+		                [Share PCO.Markdown USD]
+		    ),
+		    #"Removed tempData" = Table.RemoveColumns(
+		        #"Added Markdown USD",
+		        {
+		            "PCO Planner.Venta",
+		            "PCO Planner.Venta USD",
+		            "PCO Planner.Margen USD",
+		            "PCO Planner.Markdown USD",
+		            "PCA Planner.Venta",
+		            "PCA Planner.Venta USD",
+		            "PCA Planner.Margen USD",
+		            "PCA Planner.Markdown USD"
+		        }
+		    ),
+		    #"Changed Type" = Table.TransformColumnTypes(
+		        #"Removed tempData",
+		        {
+		            {"Venta", Int64.Type},
+		            {"Venta USD", type number},
+		            {"Margen USD", type number},
+		            {"Markdown USD", type number}
+		        }
+		    ),
+		    #"Added Fuente" = Table.AddColumn(#"Changed Type", "Fuente", each "Plan Final")
+		in
+		    #"Added Fuente"
+	lineageTag: 0c48a505-08aa-4563-8bc0-9ad8ca004515
+	queryGroup: 'Mapeados\Transformaciones intermedias'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Base Planes' =
+		let
+		    Origen = Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Planes_pais.xlsx"),
+		    #"Libro de Excel importado" = Excel.Workbook(Origen, null, true),
+		    Arribos_Sheet = #"Libro de Excel importado"{[Item="Planes Planner",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(Arribos_Sheet, [PromoteAllScalars=true]),
+		    #"Removed Columns" = Table.RemoveColumns(#"Encabezados promovidos",{"Fecha Mes"}),
+		    #"Added Custom1" = Table.AddColumn(#"Removed Columns", "Orden Departamento", each if [Departamento] = "CAL" then 1 else if [Departamento] = "ACC" then 2 else if [Departamento] = "ROP" then 3 else 99),
+		    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Orden Tipo Estilo", each if [Tipo Estilo] = "NOS" then 1 else if [Tipo Estilo] = "BASICO" then 2 else if [Tipo Estilo] = "TEMPORADA" then 3 else if [Tipo Estilo] = "MODA" then 4 else 99),
+		    #"Replaced Value" = Table.ReplaceValue(#"Added Custom2","NA",null,Replacer.ReplaceValue,{"VTA", "VTA USD", "MRG USD", "MKD USD"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value",{{"División", type text}, {"Unidad Negocio", type text}, {"Año", Int64.Type}, {"Trimestre", Int64.Type}, {"VTA USD", type number}, {"MRG USD", type number}, {"MKD USD", type number}, {"Fecha", type date}, {"Tipo Plan", type text}, {"Plan Actual", Int64.Type}, {"Departamento", type text}, {"Marca", type text}, {"Género", type text}, {"Categoría", type text}, {"Mes", Int64.Type}, {"Orden Departamento", Int64.Type}, {"Tipo Estilo", type text}, {"Orden Tipo Estilo", Int64.Type}, {"VTA", type number}}),
+		    #"Columnas quitadas" = Table.RemoveColumns(#"Changed Type",{"Fecha"}),
+		    #"Personalizada agregada1" = Table.AddColumn(#"Columnas quitadas", "Fecha", each Date.EndOfMonth(#date([Año], [Mes], 1))),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Personalizada agregada1",{{"Fecha", type date}}),
+		    #"Filas filtradas1" = Table.SelectRows(#"Tipo cambiado", each [Tipo Plan] = "PCA" or [Tipo Plan] = "PCO"),
+		    #"Filas filtradas2" = Table.SelectRows(#"Filas filtradas1", each [Plan Actual] = 1),
+		    #"Personalizada agregada2" = Table.AddColumn(#"Filas filtradas2", "ufOTB", each #"UltimaFecha OTB"),
+		    #"SubSetPCA" = Table.SelectRows(#"Personalizada agregada2", each ([Tipo Plan] = "PCA")),
+		    #"ufPCA" = List.Max(#"SubSetPCA"[Fecha]),
+		    #"SubSetPCO" = Table.SelectRows(#"Personalizada agregada2", each ([Tipo Plan] = "PCO")),
+		    #"ufPCO" = List.Max(#"SubSetPCO"[Fecha]) ,
+		    #"Personalizada agregada3" = Table.AddColumn(#"Personalizada agregada2", "ufPCA", each #"ufPCA"),
+		    #"Personalizada agregada4" = Table.AddColumn(#"Personalizada agregada3", "ufPCO", each #"ufPCO"),
+		    #"Personalizada agregada5" = Table.AddColumn(#"Personalizada agregada4", "Fuente", each [Tipo Plan] & " Planner"),
+		    #"Renamed Columns" = Table.RenameColumns(
+		        #"Personalizada agregada5",
+		        {{"VTA USD", "Venta USD"}, {"MRG USD", "Margen USD"}, {"MKD USD", "Markdown USD"}, {"VTA", "Venta"}}
+		    ),
+		    #"Personalizada agregada6" = Table.AddColumn(#"Renamed Columns", "Bandera Plan", each Number.From ( [Fecha] > [ufOTB] )),
+		    #"Personalizada agregada7" = Table.AddColumn(#"Personalizada agregada6", "Bandera PCA Planner", each Number.From ( [Fecha] > [ufPCA] )),
+		    #"Personalizada agregada8" = Table.AddColumn(#"Personalizada agregada7", "Bandera PCO Final", each if [Fecha] <= [ufPCO] and [Fuente] = "PCO Sistema" then 0
+		        else if [Fuente] = "PCA Sistema" then 0
+		        else if [Fuente] = "PCA Planner" then 0
+		        else 1
+		    ),
+		    #"Personalizada agregada9" = Table.AddColumn(#"Personalizada agregada8", "Bandera PCA Final", each if [Fecha] <= [ufPCA] and [Fuente] = "PCA Sistema" then 0
+		        else if [Fuente] = "PCO Sistema" then 0
+		        else if [Fuente] = "PCO Planner" then 0
+		        else 1
+		    ),
+		    #"Columnas quitadas1" = Table.RemoveColumns(#"Personalizada agregada9",{"ufOTB", "ufPCA", "ufPCO", "Tipo Plan", "Plan Actual"}),
+		    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Columnas quitadas1",{{"Bandera Plan", Int64.Type}, {"Bandera PCA Planner", Int64.Type}, {"Bandera PCO Final", Int64.Type}, {"Bandera PCA Final", Int64.Type}})
+		in
+		    #"Tipo cambiado1"
+	lineageTag: 538bfed9-11a1-4c96-8b89-ade29838c2b8
+	queryGroup: 'Mapeos a carpeta de Enrique'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression ALMACENES =
+		let
+		    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [CreateNavigationProperties=false, Query="SELECT * FROM DIM_ALMACEN"])
+		in
+		    Origen
+	lineageTag: 8e6c8b8d-80fd-4c02-9763-b89222bb1dbc
+	queryGroup: 'Mapeados\SQL Server'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'EKPO import' =
+		let
+		    Consulta1 = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Data%20Mining%20%26%20BI", "Seguimiento Mercadería", [Query="EVALUATE SUMMARIZECOLUMNS(#(lf)#(tab)EKPO[DEPARTAMENTO],#(lf)#(tab)EKPO[MARCA],#(lf)#(tab)EKPO[GENERO] ,#(lf)#(tab)EKPO[Tipo_Estilo] ,#(lf)#(tab)EKPO[Articulo_Generico] ,#(lf)#(tab)EKPO[Articulo_GenericoF],#(lf)#(tab)EKPO[NUMERO_PROVEEDOR],#(lf)#(tab)EKPO[Nombre_Proveedor],#(lf)#(tab)EKPO[Tipo_Linea],#(lf)#(tab)EKPO[Estado_Articulo],#(lf)#(tab)EKPO[ENTIDAD_CD2],#(lf)#(tab)EKPO[ARTICULO],#(lf)#(tab)EKPO[DESCRIPCION],#(lf)#(tab)EKPO[ESTILO_COLOR],#(lf)#(tab)EKPO[TIPO_DOCUMENTO],#(lf)#(tab)EKPO[Fecha_Conciliacion],#(lf)#(tab)EKPO[CANTIDAD_PARES],#(lf)#(tab)EKPO[PRECIOVENTA_USD],#(lf)#(tab)EKPO[ALMACEN] ,#(lf)#(tab)DIM_ARTICULOS[BV_CATEGORIA]#(lf))", Implementation="2.0"]),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(Consulta1,{{"EKPO[DEPARTAMENTO]", "DEPARTAMENTO"}, {"EKPO[MARCA]", "MARCA"}, {"EKPO[GENERO]", "GENERO"}, {"EKPO[Tipo_Estilo]", "Tipo_Estilo"}, {"EKPO[Articulo_Generico]", "Articulo_Generico"}, {"EKPO[Articulo_GenericoF]", "Articulo_GenericoF"}, {"EKPO[NUMERO_PROVEEDOR]", "NUMERO_PROVEEDOR"}, {"EKPO[Nombre_Proveedor]", "Nombre_Proveedor"}, {"EKPO[Tipo_Linea]", "Tipo_Linea"}, {"EKPO[Estado_Articulo]", "Estado_Articulo"}, {"EKPO[ENTIDAD_CD2]", "ENTIDAD_CD2"}, {"EKPO[ARTICULO]", "ARTICULO"}, {"EKPO[DESCRIPCION]", "DESCRIPCION"}, {"EKPO[ESTILO_COLOR]", "ESTILO_COLOR]"}, {"EKPO[TIPO_DOCUMENTO]", "TIPO_DOCUMENTO"}, {"EKPO[Fecha_Conciliacion]", "Fecha_Conciliacion"}, {"EKPO[CANTIDAD_PARES]", "Pares Arribo"}, {"EKPO[PRECIOVENTA_USD]", "PRECIOVENTA_USD"}, {"DIM_ARTICULOS[BV_CATEGORIA]", "CATEGORIA"}}),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Columnas con nombre cambiado", {"EKPO[ALMACEN]"}, ALMACENES, {"SK_ALMACEN"}, "ALMACENES", JoinKind.LeftOuter),
+		    #"Se expandió ALMACENES" = Table.ExpandTableColumn(#"Consultas combinadas", "ALMACENES", {"BV_DIVISION"}, {"BV_DIVISION"}),
+		    #"Columnas quitadas" = Table.RemoveColumns(#"Se expandió ALMACENES",{"EKPO[ALMACEN]"}),
+		    #"Consultas combinadas1" = Table.NestedJoin(#"Columnas quitadas", {"MARCA"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas1", "Agrupacion_Marcas", {"UNIDAD_NEGOCIO", "FORMATO_TIENDA", "MARCA_AGRUPADA"}, {"UNIDAD_NEGOCIO", "FORMATO_TIENDA", "MARCA_AGRUPADA"}),
+		    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Se expandió Agrupacion_Marcas",{{ "DEPARTAMENTO" , "Departamento" } , { "MARCA" , "Marca" } , { "GENERO" , "Género" } , { "Tipo_Estilo" , "Tipo Estilo" } , { "Tipo_Linea" , "LINEA" } , { "ENTIDAD_CD2" , "País" } , { "PRECIOVENTA_USD" , "Inventario USD Arribo" } , { "CATEGORIA" , "Categoría" } , { "BV_DIVISION" , "División" } , { "UNIDAD_NEGOCIO" , "Unidad Negocio" } , { "FORMATO_TIENDA" , "FORMATO_TIENDA" } , { "MARCA_AGRUPADA" , "MARCA_AGRUPADA" }}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Columnas con nombre cambiado1", "Fuente", each "EKPO"),
+		    #"Personalizada agregada1" = Table.AddColumn(#"Personalizada agregada", "Año", each Date.Year([Fecha_Conciliacion])),
+		    #"Personalizada agregada2" = Table.AddColumn(#"Personalizada agregada1", "Trimestre", each Date.QuarterOfYear([Fecha_Conciliacion])),
+		    #"Personalizada agregada3" = Table.AddColumn(#"Personalizada agregada2", "Mes", each Date.Month([Fecha_Conciliacion])),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Personalizada agregada3",{{"Fecha_Conciliacion", type date}, {"Fuente", type text}, {"Año", Int64.Type}, {"Trimestre", Int64.Type}, {"Mes", Int64.Type}})
+		in
+		    #"Tipo cambiado"
+	lineageTag: 356b37d2-436c-4c88-8938-9283eae72b0d
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression 'Jerarquía Base' =
+		let
+		    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [CreateNavigationProperties=false, Query="WITH Arribos#(lf)AS#(lf)(#(lf)#(tab)SELECT#(lf)#(tab)#(tab)""T0"".""C0"" ""PERIODO"" ,#(lf)#(tab)#(tab)""T0"".""C1"" ""TIPO_ARRIBO"" ,#(lf)#(tab)#(tab)""T0"".""C2"" ""PAIS_BV"" ,#(lf)#(tab)#(tab)""T0"".""C3"" ""DIVISION_BV"" ,#(lf)#(tab)#(tab)""T0"".""C4"" ""UNIDAD_NEGOCIO"" ,#(lf)#(tab)#(tab)""T0"".""C5"" ""DEPTO_BV"" ,#(lf)#(tab)#(tab)""T0"".""C6"" ""MARCA_BV"" ,#(lf)#(tab)#(tab)""T0"".""C7"" ""GENERO_BV"" ,#(lf)#(tab)#(tab)""T0"".""C8"" ""CATEGORIA_BV"" ,#(lf)#(tab)#(tab)""T0"".""C9"" ""TIPO_ESTILO"" ,#(lf)#(tab)#(tab)""T0"".""C10"" ""LINEA_BV"" ,#(lf)#(tab)#(tab)""T0"".""C11"" ""ARTICULO"" ,#(lf)#(tab)#(tab)""T0"".""C12"" ""MATNR"" ,#(lf)#(tab)#(tab)""T0"".""C13"" ""TALLA"" ,#(lf)#(tab)#(tab)""T0"".""C14"" ""DOC_MK"" ,#(lf)#(tab)#(tab)""T0"".""C15"" ""DOC"" ,#(lf)#(tab)#(tab)""T0"".""C16"" ""DOC_POSICION"" ,#(lf)#(tab)#(tab)""T0"".""C17"" ""COD_PROVEEDOR"" ,#(lf)#(tab)#(tab)""T0"".""C18"" ""PROVEEDOR"" ,#(lf)#(tab)#(tab)""T0"".""C19"" ""FECHA_ARRIBO"" ,#(lf)#(tab)#(tab)""T0"".""C20"" ""FECHA_ARRIBO_ACTUAL"" ,#(lf)#(tab)#(tab)""T0"".""C21"" ""FECHA_FILTRO"" ,#(lf)#(tab)#(tab)""T0"".""C22"" ""COD_TIPO_OPERACION"" ,#(lf)#(tab)#(tab)""T0"".""C23"" ""TIPO_OPERACION"" ,#(lf)#(tab)#(tab)""T0"".""C24"" ""COD_LINEA"" ,#(lf)#(tab)#(tab)""T0"".""C25"" ""ARRIBO_PARES_DIA"" ,#(lf)#(tab)#(tab)""T0"".""C26"" ""ARRIBO_NETO_USD_DIA"" ,#(lf)#(tab)#(tab)""T0"".""C27"" ""COLOR"" ,#(lf)#(tab)#(tab)""T0"".""C28"" ""ESTILO"" ,#(lf)#(tab)#(tab)""T0"".""C29"" ""FECHA_XF_ORIGINAL"" ,#(lf)#(tab)#(tab)""T0"".""C30"" ""FECHA_XF"" ,#(lf)#(tab)#(tab)""T0"".""C31"" ""PAIS_PUERTO"" ,#(lf)#(tab)#(tab)""T0"".""C32"" ""PUERTO_ORIGEN"" ,#(lf)#(tab)#(tab)""T0"".""C33"" ""EXPEDIENTE"" ,#(lf)#(tab)#(tab)""T0"".""C34"" ""CONTENEDOR"" ,#(lf)#(tab)#(tab)""T0"".""C35"" ""LOTE"" ,#(lf)#(tab)#(tab)""T0"".""C25"" ""INVENTARIO"" ,#(lf)#(tab)#(tab)""T0"".""C36"" ""COD_ALMACEN""#(lf)#(tab)FROM (#(lf)#(tab)#(tab)SELECT#(lf)#(tab)#(tab)#(tab)CAST( ""DIM_PERIODO"".""PERIODO"" AS DATE ) ""C0"" ,#(lf)#(tab)#(tab)#(tab)CASE#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" IN ('44' , '45ZIMPNA' , '46ZNACNA' , '48ZUBNA' , 'L1-ZUB') THEN 'ARRIBO'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" IN ('47ZINTSCE' , '47ZINTSNCE' , 'L1-ZINT' , 'L1-ZINT-TRA') THEN 'ZINT'#(lf)#(tab)#(tab)#(tab)END ""C1"" ,#(lf)#(tab)#(tab)#(tab)""DIM_PAIS"".""BV_PAIS"" ""C2"" ,#(lf)#(tab)#(tab)#(tab)""DIM_ALMACEN"".""BV_DIVISION"" ""C3"" ,#(lf)#(tab)#(tab)#(tab)""DIM_MARCA"".""SK_UNIDADNEGOCIO"" ""C4"" ,#(lf)#(tab)#(tab)#(tab)CASE ""DIM_ARTICULOSAP"".""SK_DEPTO""#(lf)#(tab)#(tab)#(tab)#(tab)WHEN N'C' THEN N'CAL'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN N'R' THEN N'ROP'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN N'A' THEN N'ACC'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN N'X' THEN N'CER'#(lf)#(tab)#(tab)#(tab)#(tab)ELSE N'OTRO'#(lf)#(tab)#(tab)#(tab)END ""C5"" ,#(lf)#(tab)#(tab)#(tab)""DIM_MARCA"".""SK_MARCA"" ""C6"" ,#(lf)#(tab)#(tab)#(tab)CASE#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'H' THEN N'HOM'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'M' THEN N'MUJ'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'B' THEN N'NNO'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'G' THEN N'NNA'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'I' THEN N'INF'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)AND ""DIM_ARTICULOSAP"".""SK_DEPTO"" = N'C' THEN N'NNO'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U' THEN N'UNI'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'C' THEN N'CER'#(lf)#(tab)#(tab)#(tab)#(tab)ELSE N'OTRO'#(lf)#(tab)#(tab)#(tab)END ""C7"" ,#(lf)#(tab)#(tab)#(tab)CASE#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_CATEGORIA"".""CATEGORIA"" = 'ADOCHEQ' THEN 'CASUAL'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_CATEGORIA"".""CATEGORIA"" = 'AGRCHVR' THEN 'DEPORTIVO'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'AC' THEN 'ACCESORIOS'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'PR' THEN 'PROMOCIONAL'#(lf)#(tab)#(tab)#(tab)#(tab)ELSE ISNULL( ""DIM_CATEGORIA"".""CATEGORIA"" , 'OTRO' )#(lf)#(tab)#(tab)#(tab)END ""C8"" ,#(lf)#(tab)#(tab)#(tab)UPPER( ""DIM_TIPOESTILO"".""TIPOESTILO"" ) ""C9"" ,#(lf)#(tab)#(tab)#(tab)CASE#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""SK_LINEA"" = N'MODE' THEN N'LINEA 7'#(lf)#(tab)#(tab)#(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""SK_LINEA"" = N'ZMOD' THEN N'LINEA 1'#(lf)#(tab)#(tab)#(tab)END ""C10"" ,#(lf)#(tab)#(tab)#(tab)RIGHT( SUBSTRING( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 1 , 15 ) , 8 ) ""C11"" ,#(lf)#(tab)#(tab)#(tab)RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) ""C12"" ,#(lf)#(tab)#(tab)#(tab)""DIM_ARTICULOSAP"".""TALLA"" ""C13"" ,#(lf)#(tab)#(tab)#(tab)""FAC_ARRIBOFUTUROM"".""DOC_MK"" ""C14"" ,#(lf)#(tab)#(tab)#(tab)""FAC_ARRIBOFUTUROM"".""DOC"" ""C15"" ,#(lf)#(tab)#(tab)#(tab)""FAC_ARRIBOFUTUROM"".""DOC_POSICION"" ""C16"" ,#(lf)#(tab)#(tab)#(tab)""DIM_PROVEEDOR"".""SK_PROVEEDOR"" ""C17"" ,#(lf)#(tab)#(tab)#(tab)""DIM_PROVEEDOR"".""PROVEEDOR"" ""C18"" ,#(lf)#(tab)#(tab)#(tab)CAST( ""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" AS DATE ) ""C19"" ,#(lf)#(tab)#(tab)#(tab)CASE#(lf)#(tab)#(tab)#(tab)#(tab)WHEN CAST( ""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" AS DATE ) <= CAST( EOMONTH( GETDATE() , -1 ) AS DATE ) THEN DATEADD( DAY , 1 , CAST( EOMONTH( GETDATE() , -1 ) AS DATE ) )#(lf)#(tab)#(tab)#(tab)#(tab)ELSE CAST( ""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" AS DATE )#(lf)#(tab)#(tab)#(tab)END ""C20"" ,#(lf)#(tab)#(tab)#(tab)CAST( EOMONTH( GETDATE() , -1 ) AS DATE ) ""C21"" ,#(lf)#(tab)#(tab)#(tab)""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" ""C22"" ,#(lf)#(tab)#(tab)#(tab)""DIM_TIPOOPERACION"".""TIPO_OPERACION"" ""C23"" ,#(lf)#(tab)#(tab)#(tab)""DIM_ARTICULOSAP"".""SK_LINEA"" ""C24"" ,#(lf)#(tab)#(tab)#(tab)SUM( ""FAC_ARRIBOFUTUROM"".""PARES"" ) ""C25"" ,#(lf)#(tab)#(tab)#(tab)SUM( ""FAC_ARRIBOFUTUROM"".""PRECIO_VENTANETA_USD"" ) ""C26"" ,#(lf)#(tab)#(tab)#(tab)""DIM_ARTICULOSAP"".""COLOR"" ""C27"" ,#(lf)#(tab)#(tab)#(tab)""DIM_ARTICULOSAP"".""ESTILO"" ""C28"" ,#(lf)#(tab)#(tab)#(tab)CAST( ""FAC_ARRIBOFUTUROM"".""F_XF_ORIGINAL"" AS DATE ) ""C29"" ,#(lf)#(tab)#(tab)#(tab)CAST( ""FAC_ARRIBOFUTUROM"".""F_XF"" AS DATE ) ""C30"" ,#(lf)#(tab)#(tab)#(tab)""FAC_ARRIBOFUTUROM"".""PAIS_PUERTO"" ""C31"" ,#(lf)#(tab)#(tab)#(tab)""FAC_ARRIBOFUTUROM"".""PUERTO_ORIGEN"" ""C32"" ,#(lf)#(tab)#(tab)#(tab)""FAC_ARRIBOFUTUROM"".""EXPEDIENTE"" ""C33"" ,#(lf)#(tab)#(tab)#(tab)""FAC_ARRIBOFUTUROM"".""CONTENEDOR"" ""C34"" ,#(lf)#(tab)#(tab)#(tab)""FAC_ARRIBOFUTUROM"".""LOTE"" ""C35"" ,#(lf)#(tab)#(tab)#(tab)""DIM_ALMACEN"".""SK_ALMACEN"" ""C36""#(lf)#(tab)#(tab)FROM (((((((((""DM_COMERCIAL"".""dbo"".""FAC_ARRIBOFUTUROM"" ""FAC_ARRIBOFUTUROM""#(lf)#(tab)#(tab)INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_PERIODO"" ""DIM_PERIODO""#(lf)#(tab)#(tab)#(tab)ON ""FAC_ARRIBOFUTUROM"".""SK_PERIODO"" = ""DIM_PERIODO"".""SK_PERIODO"")#(lf)#(tab)#(tab)INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_PAIS"" ""DIM_PAIS""#(lf)#(tab)#(tab)#(tab)ON ""DIM_PAIS"".""SK_PAIS"" = ""FAC_ARRIBOFUTUROM"".""SK_PAIS"")#(lf)#(tab)#(tab)INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_ALMACEN"" ""DIM_ALMACEN""#(lf)#(tab)#(tab)#(tab)ON ""DIM_ALMACEN"".""SK_ALMACEN"" = ""FAC_ARRIBOFUTUROM"".""SK_ALMACEN"")#(lf)#(tab)#(tab)INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_ARTICULOSAP"" ""DIM_ARTICULOSAP""#(lf)#(tab)#(tab)#(tab)ON ""DIM_ARTICULOSAP"".""SK_MATNR"" = ""FAC_ARRIBOFUTUROM"".""SK_MATNR"")#(lf)#(tab)#(tab)INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_CATEGORIA"" ""DIM_CATEGORIA""#(lf)#(tab)#(tab)#(tab)ON ""DIM_ARTICULOSAP"".""SK_CATEGORIA"" = ""DIM_CATEGORIA"".""SK_CATEGORIA"")#(lf)#(tab)#(tab)INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_MARCA"" ""DIM_MARCA""#(lf)#(tab)#(tab)#(tab)ON ""DIM_MARCA"".""SK_MARCA"" = ""DIM_ARTICULOSAP"".""SK_MARCA"")#(lf)#(tab)#(tab)INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_TIPOESTILO"" ""DIM_TIPOESTILO""#(lf)#(tab)#(tab)#(tab)ON ""DIM_TIPOESTILO"".""SK_TIPOESTILO"" = ""DIM_ARTICULOSAP"".""SK_TIPOESTILO"")#(lf)#(tab)#(tab)INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_TIPOOPERACION"" ""DIM_TIPOOPERACION""#(lf)#(tab)#(tab)#(tab)ON ""FAC_ARRIBOFUTUROM"".""SK_TIPOOPERACION"" = ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"")#(lf)#(tab)#(tab)INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_TIENDA"" ""DIM_TIENDA""#(lf)#(tab)#(tab)#(tab)ON ""FAC_ARRIBOFUTUROM"".""SK_TIENDA"" = ""DIM_TIENDA"".""SK_TIENDA"")#(lf)#(tab)#(tab)LEFT OUTER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_PROVEEDOR"" ""DIM_PROVEEDOR""#(lf)#(tab)#(tab)#(tab)ON ""FAC_ARRIBOFUTUROM"".""SK_PROVEEDOR"" = ""DIM_PROVEEDOR"".""SK_PROVEEDOR""#(lf)#(tab)#(tab)WHERE ""DIM_TIENDA"".""SK_TIENDA"" <> '1020'#(lf)#(tab)#(tab)#(tab)AND CAST( ""DIM_PERIODO"".""PERIODO"" AS DATE ) = CAST( EOMONTH( GETDATE() , -1 ) AS DATE )#(lf)#(tab)#(tab)#(tab)AND ""DIM_ALMACEN"".""BV_DIVISION"" IN ('DET')#(lf)#(tab)#(tab)#(tab)AND ""DIM_MARCA"".""SK_UNIDADNEGOCIO"" NOT IN ('UN FASHION')#(lf)#(tab)#(tab)#(tab)AND ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" NOT IN ('43ZUINNS' , '45ZIMPA' , '47ZINTNS' , '48ZUBA' , 'L1-INV1020' , 'L1-INV1020-03' , 'L1-INVBP10' , 'L1-INVBP13')#(lf)#(tab)#(tab)#(tab)AND NOT (""FAC_ARRIBOFUTUROM"".""DOC"" = '4400042125'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30056966001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400042130'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070922005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400042130'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073563002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400046589'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30076331003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 7#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400046592'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073563001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400044833'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30036555002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400044833'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060100004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 4#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400044833'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060098003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400044697'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30066669001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 144#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400036191'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060423004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400028318'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30052804010'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400044387'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30043566005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 30#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400044389'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30043566005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 30#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400044388'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30043566005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 30#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400046232'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30079808003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045817'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30061785001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045818'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30028053005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045818'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30028053006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 5#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400046232'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30079808003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 24#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045818'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30054810001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400028318'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30052804010'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400028318'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30052804010'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045818'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30054791001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045817'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30054818001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045818'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30054810004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045816'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30056128001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045993'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30056776004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400046232'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30079808003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 24#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400042129'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30036555006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400028318'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30052804010'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400036191'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060423004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400039371'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070922004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400039375'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060098002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400039375'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060098001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 192#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400039375'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060100002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 26#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400039375'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060100005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400039375'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060100001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 192#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400041219'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060422003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 11#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400041219'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060422004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400042125'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30056966001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400042130'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070922005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400042130'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073563002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400043399'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30050457002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400044387'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30043566005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 30#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400044833'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060098003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400044833'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30036555002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045815'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060422005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 107#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045815'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060423002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 35#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045815'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30060423005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 38#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045816'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30056128001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045817'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30061785001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045817'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30054818001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045818'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30028053005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045818'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30028053006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 5#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045818'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30054810001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045818'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30054810004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045818'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30054791001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400046589'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30076331003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 7#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400046592'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073563001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048370'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070498006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 186#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400046841'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30065771006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400046232'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30062762003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048766'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070922006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 287#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048766'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30076331002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 327#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400038158'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070921003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 10#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400038159'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070922004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400038158'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070921002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400038159'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070921004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400047206'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30072922004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048427'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073752001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048427'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073752002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048427'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073752003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 18#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048427'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073752004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 24#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048427'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073752006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048427'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073752006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048766'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070922001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048766'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070922006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048766'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30076331004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400047092'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30055647003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400033157'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30040286004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400049294'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30071244004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400033157'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30040286004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048767'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30080781002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400050019'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30075920004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 1#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048767'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30080781005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 8#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048767'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30080781006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 4#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400049293'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070922001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400050019'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30075915003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048767'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30080783004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048767'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30080782003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 14#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400050019'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30075916006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400049293'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30070922002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048767'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30080783001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 3#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400028318'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30052804010'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400047210'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30043566001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400043694'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073124004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048767'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30080783002'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 8#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400048767'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30080782005'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 2#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400045881'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30073967006'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 12#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400047092'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30055647003'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400047096'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30058797004'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400047215'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30079807001'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6#(lf)#(tab)#(tab)#(tab)#(tab)OR ""FAC_ARRIBOFUTUROM"".""DOC"" = '4400028318'#(lf)#(tab)#(tab)#(tab)#(tab)AND RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) = '30052804010'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""FAC_ARRIBOFUTUROM"".""PARES"" = 6)#(lf)#(tab)#(tab)#(tab)AND (""DIM_TIENDA"".""SK_TIENDA"" <> '1020'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" NOT IN ('L1-INV1020-03' , 'L1-INV1020')#(lf)#(tab)#(tab)#(tab)#(tab)OR ""DIM_TIENDA"".""SK_TIENDA"" NOT IN ('0001' , '0002' , '0003' , '0004' , '0005' , '0006' , '0007' , '0008' , '0009' , '0010' , '0011' , '0012' , '0013' , '0014' , '0015' , '0016' , '0017' , '0018' , '0019' , '0020'))#(lf)#(tab)#(tab)#(tab)AND (""DIM_TIENDA"".""SK_TIENDA"" <> '1020'#(lf)#(tab)#(tab)#(tab)#(tab)AND ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" NOT IN ('L1-INV1020-03' , 'L1-INV1020')#(lf)#(tab)#(tab)#(tab)#(tab)OR ""DIM_TIENDA"".""SK_TIENDA"" NOT IN ('0001' , '0002' , '0003' , '0004' , '0005' , '0006' , '0007' , '0008' , '0009' , '0010' , '0011' , '0012' , '0013' , '0014' , '0015' , '0016' , '0017' , '0018' , '0019' , '0020'))#(lf)#(tab)#(tab)GROUP BY CAST( ""DIM_PERIODO"".""PERIODO"" AS DATE ) ,#(lf)#(tab)#(tab)#(tab)#(tab) CASE#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" IN ('44' , '45ZIMPNA' , '46ZNACNA' , '48ZUBNA' , 'L1-ZUB') THEN 'ARRIBO'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" IN ('47ZINTSCE' , '47ZINTSNCE' , 'L1-ZINT' , 'L1-ZINT-TRA') THEN 'ZINT'#(lf)#(tab)#(tab)#(tab)#(tab) END ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_PAIS"".""BV_PAIS"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_ALMACEN"".""BV_DIVISION"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_MARCA"".""SK_UNIDADNEGOCIO"" ,#(lf)#(tab)#(tab)#(tab)#(tab) CASE ""DIM_ARTICULOSAP"".""SK_DEPTO""#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN N'C' THEN N'CAL'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN N'R' THEN N'ROP'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN N'A' THEN N'ACC'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN N'X' THEN N'CER'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) ELSE N'OTRO'#(lf)#(tab)#(tab)#(tab)#(tab) END ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_MARCA"".""SK_MARCA"" ,#(lf)#(tab)#(tab)#(tab)#(tab) CASE#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'H' THEN N'HOM'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'M' THEN N'MUJ'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'B' THEN N'NNO'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'G' THEN N'NNA'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'I' THEN N'INF'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab) AND ""DIM_ARTICULOSAP"".""SK_DEPTO"" = N'C' THEN N'NNO'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U' THEN N'UNI'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'C' THEN N'CER'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) ELSE N'OTRO'#(lf)#(tab)#(tab)#(tab)#(tab) END ,#(lf)#(tab)#(tab)#(tab)#(tab) CASE#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_CATEGORIA"".""CATEGORIA"" = 'ADOCHEQ' THEN 'CASUAL'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_CATEGORIA"".""CATEGORIA"" = 'AGRCHVR' THEN 'DEPORTIVO'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'AC' THEN 'ACCESORIOS'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'PR' THEN 'PROMOCIONAL'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) ELSE ISNULL( ""DIM_CATEGORIA"".""CATEGORIA"" , 'OTRO' )#(lf)#(tab)#(tab)#(tab)#(tab) END ,#(lf)#(tab)#(tab)#(tab)#(tab) UPPER( ""DIM_TIPOESTILO"".""TIPOESTILO"" ) ,#(lf)#(tab)#(tab)#(tab)#(tab) CASE#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_ARTICULOSAP"".""SK_LINEA"" = N'MODE' THEN N'LINEA 7'#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN ""DIM_ARTICULOSAP"".""SK_LINEA"" = N'ZMOD' THEN N'LINEA 1'#(lf)#(tab)#(tab)#(tab)#(tab) END ,#(lf)#(tab)#(tab)#(tab)#(tab) RIGHT( SUBSTRING( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 1 , 15 ) , 8 ) ,#(lf)#(tab)#(tab)#(tab)#(tab) RIGHT( ""DIM_ARTICULOSAP"".""SK_MATNR"" , 11 ) ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_ARTICULOSAP"".""TALLA"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""FAC_ARRIBOFUTUROM"".""DOC_MK"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""FAC_ARRIBOFUTUROM"".""DOC"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""FAC_ARRIBOFUTUROM"".""DOC_POSICION"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_PROVEEDOR"".""SK_PROVEEDOR"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_PROVEEDOR"".""PROVEEDOR"" ,#(lf)#(tab)#(tab)#(tab)#(tab) CAST( ""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" AS DATE ) ,#(lf)#(tab)#(tab)#(tab)#(tab) CASE#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) WHEN CAST( ""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" AS DATE ) <= CAST( EOMONTH( GETDATE() , -1 ) AS DATE ) THEN DATEADD( DAY , 1 , CAST( EOMONTH( GETDATE() , -1 ) AS DATE ) )#(lf)#(tab)#(tab)#(tab)#(tab)#(tab) ELSE CAST( ""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" AS DATE )#(lf)#(tab)#(tab)#(tab)#(tab) END ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_TIPOOPERACION"".""TIPO_OPERACION"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_ARTICULOSAP"".""SK_LINEA"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_ARTICULOSAP"".""COLOR"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_ARTICULOSAP"".""ESTILO"" ,#(lf)#(tab)#(tab)#(tab)#(tab) CAST( ""FAC_ARRIBOFUTUROM"".""F_XF_ORIGINAL"" AS DATE ) ,#(lf)#(tab)#(tab)#(tab)#(tab) CAST( ""FAC_ARRIBOFUTUROM"".""F_XF"" AS DATE ) ,#(lf)#(tab)#(tab)#(tab)#(tab) ""FAC_ARRIBOFUTUROM"".""PAIS_PUERTO"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""FAC_ARRIBOFUTUROM"".""PUERTO_ORIGEN"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""FAC_ARRIBOFUTUROM"".""EXPEDIENTE"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""FAC_ARRIBOFUTUROM"".""CONTENEDOR"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""FAC_ARRIBOFUTUROM"".""LOTE"" ,#(lf)#(tab)#(tab)#(tab)#(tab) ""DIM_ALMACEN"".""SK_ALMACEN""#(lf)#(tab)) ""T0""#(lf))#(lf)SELECT #(lf)#(tab)PERIODO PERIODO ,#(lf)#(tab)TIPO_ARRIBO TIPO_ARRIBO ,#(lf)#(tab)PAIS_BV PAIS ,#(lf)#(tab)DIVISION_BV DIVISION ,#(lf)#(tab)UNIDAD_NEGOCIO UNIDAD_NEGOCIO ,#(lf)#(tab)DEPTO_BV DEPTO ,#(lf)#(tab)MARCA_BV MARCA ,#(lf)#(tab)GENERO_BV GENERO ,#(lf)#(tab)CATEGORIA_BV CATEGORIA ,#(lf)#(tab)TIPO_ESTILO TIPO_ESTILO ,#(lf)#(tab)LINEA_BV LINEA ,#(lf)#(tab)ARTICULO ARTICULO ,#(lf)#(tab)MATNR MATNR ,#(lf)#(tab)TALLA TALLA ,#(lf)#(tab)DOC_MK DOC_MK ,#(lf)#(tab)DOC DOC ,#(lf)#(tab)DOC_POSICION DOC_POSICION ,#(lf)#(tab)COD_PROVEEDOR COD_PROVEEDOR ,#(lf)#(tab)PROVEEDOR PROVEEDOR ,#(lf)#(tab)FECHA_ARRIBO FECHA_ARRIBO ,#(lf)#(tab)FECHA_ARRIBO_ACTUAL FECHA_ARRIBO_ACTUAL ,#(lf)#(tab)TIPO_OPERACION TIPO_OPERACION ,#(lf)#(tab)ARRIBO_PARES_DIA ARRIBO_PARES_DIA ,#(lf)#(tab)ARRIBO_NETO_USD_DIA ARRIBO_NETO_USD_DIA ,#(lf)#(tab)CONCAT( COLOR , '-' , ESTILO ) ESTILO_COLOR ,#(lf)#(tab)FECHA_XF_ORIGINAL FECHA_XF_ORIGINAL ,#(lf)#(tab)FECHA_XF FECHA_XF ,#(lf)#(tab)PAIS_PUERTO PAIS_PUERTO ,#(lf)#(tab)PUERTO_ORIGEN PUERTO_ORIGEN ,#(lf)#(tab)EXPEDIENTE EXPEDIENTE ,#(lf)#(tab)CONTENEDOR CONTENEDOR ,#(lf)#(tab)LOTE LOTE ,#(lf)#(tab)DOC DOC_REAL#(lf)FROM Arribos"]) ,
+		    #"Consultas combinadas" = Table.NestedJoin(Origen, {"MARCA"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Se expandió Agrupacion_Marcas",{{"DIVISION", "División"}, {"UNIDAD_NEGOCIO", "Unidad Negocio"}, {"MARCA", "Marca"}, {"PAIS", "País"}, {"DEPTO", "Departamento"}, {"GENERO", "Género"}, {"CATEGORIA", "Categoría"}, {"TIPO_ESTILO", "Tipo Estilo"}, {"TIPO_ARRIBO", "Tipo Arribo"}, {"DOC", "Documento"}, {"DOC_POSICION", "Posición"}, {"COD_PROVEEDOR", "Código Proveedor"}, {"PROVEEDOR", "Proveedor"}, {"ARRIBO_NETO_USD_DIA", "Inventario USD Arribo"}, {"LINEA", "Línea"}, {"ARRIBO_PARES_DIA", "Inventario Arribo"}, {"TIPO_OPERACION", "Tipo Operación"}, {"ARTICULO", "SKU"}}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"PERIODO", "FECHA_ARRIBO", "FECHA_ARRIBO_ACTUAL"}),
+		    #"Replaced Value" = Table.ReplaceValue(#"Removed Columns","NA","",Replacer.ReplaceText,{"Inventario USD Arribo"}),
+		    #"Appended Query" = Table.Combine({#"Replaced Value", #"LAP Base"}),
+		    #"Added Custom1" = Table.AddColumn(#"Appended Query", "Orden Departamento", each if [Departamento] = "CAL" then 1 else if [Departamento] = "ACC" then 2 else if [Departamento] = "ROP" then 3 else 99),
+		    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Orden Tipo Estilo", each if [Tipo Estilo] = "NOS" then 1 else if [Tipo Estilo] = "BASICO" then 2 else if [Tipo Estilo] = "TEMPORADA" then 3 else if [Tipo Estilo] = "MODA" then 4 else 99),
+		    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Fuente", each "Arribos"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom3",{{"Tipo Arribo", type text}, {"División", type text}, {"Unidad Negocio", type text}, {"Departamento", type text}, {"Marca", type text}, {"Género", type text}, {"Categoría", type text}, {"Tipo Estilo", type text}, {"SKU", Int64.Type}, {"MATNR", Int64.Type}, {"TALLA", type text}, {"Tipo Operación", type text}, {"Documento", Int64.Type}, {"Posición", Int64.Type}, {"Código Proveedor", type text}, {"Proveedor", type text}, {"Inventario Arribo", Int64.Type}, {"Inventario USD Arribo", type number}, {"Línea", type text}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Orden Departamento", Int64.Type}, {"Orden Tipo Estilo", Int64.Type}, {"Fuente", type text}}),
+		    #"Added Custom" = Table.AddColumn(#"Changed Type", "Bandera L1", each if [Línea] = "LINEA 1" and [Tipo Estilo] = "NOS" then 1 else 0),
+		    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([Tipo Estilo] = "NOS")),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"División", "Unidad Negocio", "Departamento", "Marca", "Género", "Categoría", "Tipo Estilo", "Línea", "SKU", "ESTILO_COLOR", "Orden Departamento", "Orden Tipo Estilo","Bandera L1"}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Removed Other Columns",{{"SKU", "Artículo"}, {"ESTILO_COLOR", "Estilo Color"}}),
+		    #"Removed Duplicates" = Table.Distinct(#"Renamed Columns1"),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Duplicates",{{"Artículo", type text}, {"Bandera L1", Int64.Type}}),
+		    #"Grouped Rows" = Table.Group(#"Changed Type1", {"División", "Unidad Negocio", "Departamento", "Marca", "Género", "Categoría", "Tipo Estilo", "Artículo", "Estilo Color", "Orden Departamento", "Orden Tipo Estilo", "Bandera L1"}, {{"Línea", each List.Min([Línea]), type nullable text}})
+		in
+		    #"Grouped Rows"
+	lineageTag: a2b5c84d-c287-4302-a90c-5cca827577e7
+	queryGroup: 'Mapeados\SQL Server'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Agrupacion_Marcas =
+		let
+		    Origen = Sql.Database("192.168.16.20", "ADO_SupplyChain"),
+		    dbo_DIM_AGRUPACION_MARCAS_OTB = Origen{[Schema="dbo",Item="DIM_AGRUPACION_MARCAS_OTB_C"]}[Data]
+		in
+		    dbo_DIM_AGRUPACION_MARCAS_OTB
+	lineageTag: a8f4d8ae-62e3-465b-bfc2-403767ba52cf
+	queryGroup: 'Mapeados\SQL Server'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Exception
+
+expression 'Inventario TGT NOS' =
+		let
+		    Origen = Web.Contents("https://empresasadoc-my.sharepoint.com/personal/enrique_rubio_empresasadoc_com/Documents/Repositorio Qlik/Qlik_Comercial/OTB/Inventario target/Inventario Target USD - NOS.csv") ,
+		    Datos = Origen,
+		    #"CSV importado" = Csv.Document(Datos,[Delimiter=",", Columns=38, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Encabezados promovidos" = Table.PromoteHeaders(#"CSV importado", [PromoteAllScalars=true]),
+		    #"Columnas quitadas" = Table.RemoveColumns(#"Encabezados promovidos",{"FORMATO", "MARCA_AGRUPADA", "_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8", "_9", "_10", "_11", "_12", "_13", "_14", "_15", "_16", "_17", "_18", "_19", ""}),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columnas quitadas",{{"UNIDAD_NEGOCIO", "Unidad Negocio"}, {"DIVISION", "División"}, {"MARCA", "Marca"}, {"PAIS", "País"}, {"DEPTO", "Departamento"}, {"GENERO", "Género"}, {"CATEGORIA", "Categoría"}, {"TIPO_ESTILO", "Tipo Estilo"}}),
+		    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas con nombre cambiado",{{"ANIO", Int64.Type}, {"MES", Int64.Type}}),
+		    #"Columnas quitadas1" = Table.RemoveColumns(#"Tipo cambiado",{"LINEA", "ARTICULO", "ESTILO_COLOR", "MATNR", "TALLA"}),
+		    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Columnas quitadas1",{{"ANIO", "Año"}, {"MES", "Mes"}, {"INVENTARIO_USD", "Inventario"}}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Columnas con nombre cambiado1", "Trimestre", each Number.RoundDown ( ( [Mes] -1 ) / 3 , 0 ) + 1),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Personalizada agregada", {"Marca"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+		    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"})
+		in
+		    #"Se expandió Agrupacion_Marcas"
+	lineageTag: 14352a30-888c-44d0-b007-2ed67274e106
+	queryGroup: 'Mapeos a carpeta de Enrique'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+
+expression DatosArticulos =
+		let
+		    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [CreateNavigationProperties=false, Query= "SELECT SK_MATNR , a.SK_UNIDADNEGOCIO, BV_DEPTO, SK_MARCA, BV_GENERO, BV_CATEGORIA FROM DIM_ARTICULOSAP a" ])
+		in
+		    Origen
+	lineageTag: 0e21eecc-982a-45b8-b011-53bec62c187a
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression tbl_qryCGN =
+		let
+		    Origen = ArticuloProveedor,
+		    #"Personalizada agregada" = Table.AddColumn(Origen, "Agrupador", each 1),
+		    #"Personalizada agregada1" = Table.AddColumn(#"Personalizada agregada", "SK_MATNR", each "'" & [Articulo] & "'"),
+		    Personalizado1 = Table.Group(#"Personalizada agregada1", {"Agrupador"}, {{"listOfMATNR", each Text.Combine([SK_MATNR],","), type text}}),
+		    #"Personalizada agregada2" = Table.AddColumn(Personalizado1, "SQLCMD0", each "SELECT SK_MATNR , a.SK_UNIDADNEGOCIO, BV_DEPTO, SK_MARCA, BV_GENERO, BV_CATEGORIA FROM DIM_ARTICULOSAP a WHERE SK_MAtNR IN ( @matnrList@ )"),
+		    #"Valor reemplazado" = Table.AddColumn(#"Personalizada agregada2","SQLCMD",  each Replacer.ReplaceText([SQLCMD0], "@matnrList@" , [listOfMATNR] )),
+		    #"Columnas quitadas" = Table.RemoveColumns(#"Valor reemplazado",{"Agrupador", "listOfMATNR", "SQLCMD0"}) ,
+		    qry = List.First (#"Columnas quitadas"[SQLCMD])
+		in
+		    qry
+	lineageTag: a183d4df-ac5d-468d-9681-6ecf85848df0
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Text
+

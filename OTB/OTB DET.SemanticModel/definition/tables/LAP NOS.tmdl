@@ -1,0 +1,158 @@
+table 'LAP NOS'
+	lineageTag: 984a8e7e-2f4a-4fb4-9e2c-6251d3a167e4
+
+	column División
+		dataType: string
+		lineageTag: 15ed0a74-f9c3-438a-822d-31defd192f8b
+		summarizeBy: none
+		sourceColumn: División
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidad Negocio'
+		dataType: string
+		lineageTag: ca41c359-3cd1-4261-88f9-a614915f7a7d
+		summarizeBy: none
+		sourceColumn: Unidad Negocio
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: dd892793-1ac9-486e-bde7-c2c3eaa98591
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		dataType: string
+		lineageTag: cb57a228-73b5-40e0-97e1-6c50b7c0bb23
+		summarizeBy: none
+		sourceColumn: Departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Género
+		dataType: string
+		lineageTag: e1821704-efd9-4bc6-9c1e-1abe5fd2b455
+		summarizeBy: none
+		sourceColumn: Género
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoría
+		dataType: string
+		lineageTag: bf0e1378-0d47-44f1-816b-339372beda86
+		summarizeBy: none
+		sourceColumn: Categoría
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Estilo'
+		dataType: string
+		lineageTag: 71c34700-1167-4bad-a118-dca4043db883
+		summarizeBy: none
+		sourceColumn: Tipo Estilo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: 0384f147-769d-4150-af19-089e701c0c4d
+		summarizeBy: sum
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: f1d855a0-ea90-44a3-a9ed-211003301863
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bandera Plan'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ab1083f-61b5-4162-838c-6d0de4e66dbb
+		summarizeBy: sum
+		sourceColumn: Bandera Plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Venta USD'
+		dataType: double
+		formatString: #,0
+		lineageTag: a815f3bd-482a-469b-acf1-6a83407ac2d5
+		summarizeBy: sum
+		sourceColumn: Venta USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Margen USD'
+		dataType: double
+		lineageTag: eff4666e-1076-4359-87d7-1d1f080afe54
+		summarizeBy: sum
+		sourceColumn: Margen USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Markdown USD'
+		dataType: double
+		lineageTag: afd21d2e-0a2c-40b9-8dea-0000e6514582
+		summarizeBy: sum
+		sourceColumn: Markdown USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: 52d77dde-8b42-4285-8089-f1806f7d831c
+		summarizeBy: sum
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fuente
+		dataType: string
+		lineageTag: 01ef829c-8100-4518-a91b-57135678c15c
+		summarizeBy: none
+		sourceColumn: Fuente
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'LAP NOS' = m
+		mode: import
+		queryGroup: 'Mapeados\Transformaciones intermedias'
+		source =
+				let
+				    Source = Table.Combine({#"LAP Planner 1", #"LAP Planner 2", #"LAP Planner 3", #"LAP Planner 4", #"LAP Open"}),
+				    #"Added Custom" = Table.AddColumn(Source, "Fecha", each  Date.EndOfMonth(#date([Año], [Mes], 1))),
+				    #"Personalizada agregada" = Table.AddColumn(#"Added Custom", "Bandera Plan", each Number.From ( [Fecha] > #"UltimaFecha OTB" )),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Personalizada agregada",{{"División", type text}, {"Unidad Negocio", type text}, {"Marca", type text}, {"País", type text}, {"Depto", type text}, {"Género", type text}, {"Categoría", type text}, {"Tipo Estilo", type text}, {"Artículo", type text}, {"Estilo Color", type text}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Venta", type number}, {"Bandera Plan", Int64.Type}, {"Marca Agrupada", type text}, {"Venta USD", type number}, {"Margen USD", type number}, {"Markdown USD", type number}, {"Tipo Pronóstico", type text}, {"Fecha", type date}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([Fecha] > #"UltimaFecha OTB")),
+				    #"Grouped Rows" = Table.Group(#"Filtered Rows", {"División", "Unidad Negocio", "Marca Agrupada", "Depto", "Género", "Categoría", "Tipo Estilo", "Año", "Mes", "Bandera Plan"}, {{"Venta USD", each List.Sum([Venta USD]), type nullable number}, {"Margen USD", each List.Sum([Margen USD]), type nullable number}, {"Markdown USD", each List.Sum([Markdown USD]), type nullable number}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Grouped Rows",{{"Marca Agrupada", "Marca"}, {"Depto", "Departamento"}}),
+				    #"Added Custom3" = Table.AddColumn(#"Renamed Columns", "Fecha", each  Date.EndOfMonth(#date([Año], [Mes], 1))),
+				    #"Calculated Quarter" = Table.TransformColumns(#"Added Custom3",{{"Fecha", Date.QuarterOfYear, Int64.Type}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Calculated Quarter",{{"Fecha", "Trimestre"}}),
+				    #"Personalizada agregada1" = Table.AddColumn(#"Renamed Columns1", "Fuente", each "LAP"),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Personalizada agregada1",{{"Fuente", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

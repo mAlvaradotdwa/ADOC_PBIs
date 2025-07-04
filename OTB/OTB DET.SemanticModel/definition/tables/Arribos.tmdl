@@ -1,0 +1,265 @@
+table Arribos
+	lineageTag: c01d5483-120b-4572-9347-0035750661fa
+
+	column División
+		dataType: string
+		lineageTag: 2970ea9f-a5c8-43c3-b370-92b30aaba28b
+		summarizeBy: none
+		sourceColumn: División
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidad Negocio'
+		dataType: string
+		lineageTag: 7d826b6d-bcfc-4435-88bd-9e79d00ac4e3
+		summarizeBy: none
+		sourceColumn: Unidad Negocio
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		dataType: string
+		lineageTag: 3e1df997-2a16-495a-bd9c-4d8d9c2c1d65
+		summarizeBy: none
+		sourceColumn: Departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		dataType: string
+		lineageTag: ac8e0003-4df1-49a5-8924-0a6eb6d33dff
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column Género
+		dataType: string
+		lineageTag: ea1f87a5-7ab3-4ad4-aa6f-76e18444fbe8
+		summarizeBy: none
+		sourceColumn: Género
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoría
+		dataType: string
+		lineageTag: 2dc1db7b-64bd-4b37-a60b-05c677cf5378
+		summarizeBy: none
+		sourceColumn: Categoría
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Estilo'
+		dataType: string
+		lineageTag: d0f65fb0-9950-45c5-8810-ffc950803f8f
+		summarizeBy: none
+		sourceColumn: Tipo Estilo
+
+		annotation SummarizationSetBy = Automatic
+
+	column LINEA
+		dataType: string
+		lineageTag: cd1a2dea-a058-4607-96b2-27bb8ac69926
+		summarizeBy: none
+		sourceColumn: LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orden Departamento'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0008ebd0-daf4-4357-afc6-465874e82149
+		summarizeBy: sum
+		sourceColumn: Orden Departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Orden Tipo Estilo'
+		dataType: int64
+		formatString: 0
+		lineageTag: ac92999c-bb51-43ac-9f1c-77c9d11abaa8
+		summarizeBy: sum
+		sourceColumn: Orden Tipo Estilo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fuente
+		dataType: string
+		lineageTag: 34cca7f6-7059-47a4-81a0-56d9a6b5b850
+		summarizeBy: none
+		sourceColumn: Fuente
+
+		annotation SummarizationSetBy = Automatic
+
+	column País
+		dataType: string
+		lineageTag: d1c99a95-7cad-4a9e-8f24-0909b46b9041
+		summarizeBy: none
+		sourceColumn: País
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORMATO
+		dataType: string
+		lineageTag: 1951f57e-b5f7-4948-9559-bf712b010ee4
+		summarizeBy: none
+		sourceColumn: FORMATO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_ARRIBO
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b4af1d5e-0549-47dd-a7ed-82c795a8d45d
+		summarizeBy: none
+		sourceColumn: FECHA_ARRIBO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_ARRIBO_ACTUAL
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d98ca31c-ec87-4839-be7e-1bb13c8ca981
+		summarizeBy: none
+		sourceColumn: FECHA_ARRIBO_ACTUAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inventario Arribo'
+		dataType: double
+		lineageTag: a1ac51de-fd5f-4bb2-950d-f7585cdc8011
+		summarizeBy: sum
+		sourceColumn: Inventario Arribo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inventario USD Arribo'
+		dataType: double
+		formatString: #,0
+		lineageTag: 3b69e27e-cfa2-43e8-9456-97c61c7a5d04
+		summarizeBy: sum
+		sourceColumn: Inventario USD Arribo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c2d927c8-f903-4e23-b52e-02d65ca557aa
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: 771729b9-e521-4532-96b2-9339d85b019a
+		summarizeBy: sum
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 80a24448-5355-46dd-8e67-982d703158a9
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fea019b-a281-4598-8a08-c9ffde1ad14c
+		summarizeBy: sum
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'año arribo' = year(Arribos[FECHA_ARRIBO])
+		formatString: 0
+		lineageTag: 2ab5d36a-c6a8-402d-9801-4f2f701ba695
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'mes arribo' = month(Arribos[FECHA_ARRIBO])
+		formatString: 0
+		lineageTag: 3f5ca44a-a5c7-40c8-a7a5-4c532b9cf547
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'año arribo actual' = year(Arribos[FECHA_ARRIBO_ACTUAL])
+		formatString: 0
+		lineageTag: 5588dcea-f05d-4b98-a951-002cdd466486
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'mes arribo actual' = month(Arribos[FECHA_ARRIBO_ACTUAL])
+		formatString: 0
+		lineageTag: e4a79bb6-dd76-4f8d-833e-80b0ce6b4939
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Operación'
+		dataType: string
+		lineageTag: 00380e3e-18d5-4bcd-9cec-ea02bdc8fdfd
+		summarizeBy: none
+		sourceColumn: Tipo Operación
+
+		annotation SummarizationSetBy = Automatic
+
+	column arribo$
+		dataType: double
+		lineageTag: 241cdd4b-9500-46b5-9fcb-bc18c2dfa1b5
+		summarizeBy: sum
+		sourceColumn: arribo$
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Arribos = m
+		mode: import
+		queryGroup: 'Mapeados\SQL Server'
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="#(lf)select ""T0"".""C0"" ""PERIODO"" , ""T0"".""C1"" ""TIPO_ARRIBO"" , ""T0"".""C2"" ""PAIS_BV"" , ""T0"".""C3"" ""DIVISION_BV"" , ""T0"".""C4"" ""UNIDAD_NEGOCIO"" , ""T0"".""C5"" ""DEPTO_BV"" , ""T0"".""C6"" ""MARCA_BV"" , ""T0"".""C7"" ""GENERO_BV"" , ""T0"".""C8"" ""CATEGORIA_BV"" , ""T0"".""C9"" ""TIPO_ESTILO"" , ""T0"".""C10"" ""LINEA_BV"" , ""T0"".""C11"" ""ARTICULO"" , ""T0"".""C12"" ""MATNR"" , ""T0"".""C13"" ""TALLA"" , ""T0"".""C14"" ""DOC_MK"" , ""T0"".""C15"" ""DOC"" , ""T0"".""C16"" ""DOC_POSICION"" , ""T0"".""C17"" ""COD_PROVEEDOR"" , ""T0"".""C18"" ""PROVEEDOR"" , ""T0"".""C19"" ""FECHA_ARRIBO"" , ""T0"".""C20"" ""FECHA_ARRIBO_ACTUAL"" , ""T0"".""C21"" ""FECHA_FILTRO"" , ""T0"".""C22"" ""COD_TIPO_OPERACION"" , ""T0"".""C23"" ""TIPO_OPERACION"" , ""T0"".""C24"" ""COD_LINEA"" , ""T0"".""C25"" ""ARRIBO_PARES_DIA"" , ""T0"".""C26"" ""ARRIBO_NETO_USD_DIA"" , ""T0"".""C27"" ""COLOR"" , ""T0"".""C28"" ""ESTILO"" , ""T0"".""C29"" ""FECHA_XF_ORIGINAL"" , ""T0"".""C30"" ""FECHA_XF"" , ""T0"".""C31"" ""PAIS_PUERTO"" , ""T0"".""C32"" ""PUERTO_ORIGEN"" , ""T0"".""C33"" ""EXPEDIENTE"" , ""T0"".""C34"" ""CONTENEDOR"" , ""T0"".""C35"" ""LOTE"" , ""T0"".""C25"" ""INVENTARIO"" , ""T0"".""C36"" ""COD_ALMACEN"" , ""T0"".""C37"" ""AÑO"" , ""T0"".""C38"" ""COD_MES"" , ""T0"".""C39"" ""COD_TRIMESTRE"" #(lf) from (#(lf)select cast(""DIM_PERIODO"".""PERIODO"" as date) ""C0"" , case  when ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" in ('44', '45ZIMPNA', '46ZNACNA', '48ZUBNA', 'L1-ZUB') then 'ARRIBO' when ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" in ('47ZINTSCE', '47ZINTSNCE', 'L1-ZINT', 'L1-ZINT-TRA') then 'ZINT' end  ""C1"" , ""DIM_PAIS"".""BV_PAIS"" ""C2"" , ""DIM_ALMACEN"".""BV_DIVISION"" ""C3"" , ""DIM_MARCA"".""SK_UNIDADNEGOCIO"" ""C4"" , case ""DIM_ARTICULOSAP"".""SK_DEPTO"" when N'C' then N'CAL' when N'R' then N'ROP' when N'A' then N'ACC' when N'X' then N'CER' else N'OTRO' end  ""C5"" , ""DIM_MARCA"".""SK_MARCA"" ""C6"" , case  when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'H' then N'HOM' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'M' then N'MUJ' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'B' then N'NNO' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'G' then N'NNA' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'I' then N'INF' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U' and ""DIM_ARTICULOSAP"".""SK_DEPTO"" = N'C' then N'NNO' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U' then N'UNI' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'C' then N'CER' else N'OTRO' end  ""C7"" , case  when ""DIM_CATEGORIA"".""CATEGORIA"" = 'ADOCHEQ' then 'CASUAL' when ""DIM_CATEGORIA"".""CATEGORIA"" = 'AGRCHVR' then 'DEPORTIVO' when ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'AC' then 'ACCESORIOS' when ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'PR' then 'PROMOCIONAL' else isnull(""DIM_CATEGORIA"".""CATEGORIA"", 'OTRO') end  ""C8"" , upper (""DIM_TIPOESTILO"".""TIPOESTILO"") ""C9"" , case  when ""DIM_ARTICULOSAP"".""SK_LINEA"" = N'MODE' then N'LINEA 7' when ""DIM_ARTICULOSAP"".""SK_LINEA"" = N'ZMOD' then N'LINEA 1' end  ""C10"" , right(substring(""DIM_ARTICULOSAP"".""SK_MATNR"",1,15), 8) ""C11"" , right(""DIM_ARTICULOSAP"".""SK_MATNR"", 11) ""C12"" , ""DIM_ARTICULOSAP"".""TALLA"" ""C13"" , ""FAC_ARRIBOFUTUROM"".""DOC_MK"" ""C14"" , ""FAC_ARRIBOFUTUROM"".""DOC"" ""C15"" , ""FAC_ARRIBOFUTUROM"".""DOC_POSICION"" ""C16"" , ""DIM_PROVEEDOR"".""SK_PROVEEDOR"" ""C17"" , ""DIM_PROVEEDOR"".""PROVEEDOR"" ""C18"" , cast(""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" as date) ""C19"" , case  when cast(""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" as date) <= cast(EOMONTH(getdate(), -1) as date) then dateadd(DAY, 1, cast(EOMONTH(getdate(), -1) as date)) else cast(""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" as date) end  ""C20"" , cast(EOMONTH(getdate(), -1) as date) ""C21"" , ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" ""C22"" , ""DIM_TIPOOPERACION"".""TIPO_OPERACION"" ""C23"" , ""DIM_ARTICULOSAP"".""SK_LINEA"" ""C24"" , sum(""FAC_ARRIBOFUTUROM"".""PARES"") ""C25"" , sum(""FAC_ARRIBOFUTUROM"".""PRECIO_VENTANETA_USD"") ""C26"" , ""DIM_ARTICULOSAP"".""COLOR"" ""C27"" , ""DIM_ARTICULOSAP"".""ESTILO"" ""C28"" , cast(""FAC_ARRIBOFUTUROM"".""F_XF_ORIGINAL"" as date) ""C29"" , cast(""FAC_ARRIBOFUTUROM"".""F_XF"" as date) ""C30"" , ""FAC_ARRIBOFUTUROM"".""PAIS_PUERTO"" ""C31"" , ""FAC_ARRIBOFUTUROM"".""PUERTO_ORIGEN"" ""C32"" , ""FAC_ARRIBOFUTUROM"".""EXPEDIENTE"" ""C33"" , ""FAC_ARRIBOFUTUROM"".""CONTENEDOR"" ""C34"" , ""FAC_ARRIBOFUTUROM"".""LOTE"" ""C35"" , ""DIM_ALMACEN"".""SK_ALMACEN"" ""C36"" , ""DIM_PERIODO"".""ANO"" ""C37"" , ""DIM_PERIODO"".""COD_MES"" ""C38"" , ""DIM_PERIODO"".""COD_TRIMESTRE"" ""C39"" #(lf) from (((((((((""DM_COMERCIAL"".""dbo"".""FAC_ARRIBOFUTUROM"" ""FAC_ARRIBOFUTUROM"" INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_PERIODO"" ""DIM_PERIODO"" on ""FAC_ARRIBOFUTUROM"".""SK_PERIODO"" = ""DIM_PERIODO"".""SK_PERIODO"") INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_PAIS"" ""DIM_PAIS"" on ""DIM_PAIS"".""SK_PAIS"" = ""FAC_ARRIBOFUTUROM"".""SK_PAIS"") INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_ALMACEN"" ""DIM_ALMACEN"" on ""DIM_ALMACEN"".""SK_ALMACEN"" = ""FAC_ARRIBOFUTUROM"".""SK_ALMACEN"") INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_ARTICULOSAP"" ""DIM_ARTICULOSAP"" on ""DIM_ARTICULOSAP"".""SK_MATNR"" = ""FAC_ARRIBOFUTUROM"".""SK_MATNR"") INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_CATEGORIA"" ""DIM_CATEGORIA"" on ""DIM_ARTICULOSAP"".""SK_CATEGORIA"" = ""DIM_CATEGORIA"".""SK_CATEGORIA"") INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_MARCA"" ""DIM_MARCA"" on ""DIM_MARCA"".""SK_MARCA"" = ""DIM_ARTICULOSAP"".""SK_MARCA"") INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_TIPOESTILO"" ""DIM_TIPOESTILO"" on ""DIM_TIPOESTILO"".""SK_TIPOESTILO"" = ""DIM_ARTICULOSAP"".""SK_TIPOESTILO"") INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_TIPOOPERACION"" ""DIM_TIPOOPERACION"" on ""FAC_ARRIBOFUTUROM"".""SK_TIPOOPERACION"" = ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"") INNER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_TIENDA"" ""DIM_TIENDA"" on ""FAC_ARRIBOFUTUROM"".""SK_TIENDA"" = ""DIM_TIENDA"".""SK_TIENDA"") LEFT OUTER JOIN ""DM_COMERCIAL"".""dbo"".""DIM_PROVEEDOR"" ""DIM_PROVEEDOR"" on ""FAC_ARRIBOFUTUROM"".""SK_PROVEEDOR"" = ""DIM_PROVEEDOR"".""SK_PROVEEDOR""#(lf) where ""DIM_TIENDA"".""SK_TIENDA"" <> '1020' and cast(""DIM_PERIODO"".""PERIODO"" as date) = cast(EOMONTH(getdate(), -1) as date) and ""DIM_ALMACEN"".""BV_DIVISION"" in ('DET', 'MAY') and ""DIM_MARCA"".""SK_UNIDADNEGOCIO""  NOT  in ('UN FASHION') and ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION""  NOT  in ('43ZUINNS', '45ZIMPA', '47ZINTNS', '48ZUBA', 'L1-INV1020', 'L1-INV1020-03', 'L1-INVBP10', 'L1-INVBP13') and (""DIM_TIENDA"".""SK_TIENDA"" <> '1020' and ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION""  NOT  in ('L1-INV1020-03', 'L1-INV1020') or ""DIM_TIENDA"".""SK_TIENDA""  NOT  in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020')) and (""DIM_TIENDA"".""SK_TIENDA"" <> '1020' and ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION""  NOT  in ('L1-INV1020-03', 'L1-INV1020') or ""DIM_TIENDA"".""SK_TIENDA""  NOT  in ('0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020'))#(lf) group by cast(""DIM_PERIODO"".""PERIODO"" as date), case  when ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" in ('44', '45ZIMPNA', '46ZNACNA', '48ZUBNA', 'L1-ZUB') then 'ARRIBO' when ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"" in ('47ZINTSCE', '47ZINTSNCE', 'L1-ZINT', 'L1-ZINT-TRA') then 'ZINT' end , ""DIM_PAIS"".""BV_PAIS"", ""DIM_ALMACEN"".""BV_DIVISION"", ""DIM_MARCA"".""SK_UNIDADNEGOCIO"", case ""DIM_ARTICULOSAP"".""SK_DEPTO"" when N'C' then N'CAL' when N'R' then N'ROP' when N'A' then N'ACC' when N'X' then N'CER' else N'OTRO' end , ""DIM_MARCA"".""SK_MARCA"", case  when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'H' then N'HOM' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'M' then N'MUJ' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'B' then N'NNO' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'G' then N'NNA' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'I' then N'INF' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U' and ""DIM_ARTICULOSAP"".""SK_DEPTO"" = N'C' then N'NNO' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'U' then N'UNI' when ""DIM_ARTICULOSAP"".""SK_GENERO"" = N'C' then N'CER' else N'OTRO' end , case  when ""DIM_CATEGORIA"".""CATEGORIA"" = 'ADOCHEQ' then 'CASUAL' when ""DIM_CATEGORIA"".""CATEGORIA"" = 'AGRCHVR' then 'DEPORTIVO' when ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'AC' then 'ACCESORIOS' when ""DIM_CATEGORIA"".""SK_CATEGORIA"" = 'PR' then 'PROMOCIONAL' else isnull(""DIM_CATEGORIA"".""CATEGORIA"", 'OTRO') end , upper (""DIM_TIPOESTILO"".""TIPOESTILO""), case  when ""DIM_ARTICULOSAP"".""SK_LINEA"" = N'MODE' then N'LINEA 7' when ""DIM_ARTICULOSAP"".""SK_LINEA"" = N'ZMOD' then N'LINEA 1' end , right(substring(""DIM_ARTICULOSAP"".""SK_MATNR"",1,15), 8), right(""DIM_ARTICULOSAP"".""SK_MATNR"", 11), ""DIM_ARTICULOSAP"".""TALLA"", ""FAC_ARRIBOFUTUROM"".""DOC_MK"", ""FAC_ARRIBOFUTUROM"".""DOC"", ""FAC_ARRIBOFUTUROM"".""DOC_POSICION"", ""DIM_PROVEEDOR"".""SK_PROVEEDOR"", ""DIM_PROVEEDOR"".""PROVEEDOR"", cast(""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" as date), case  when cast(""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" as date) <= cast(EOMONTH(getdate(), -1) as date) then dateadd(DAY, 1, cast(EOMONTH(getdate(), -1) as date)) else cast(""FAC_ARRIBOFUTUROM"".""F_ARRIBO"" as date) end , ""DIM_TIPOOPERACION"".""SK_TIPOOPERACION"", ""DIM_TIPOOPERACION"".""TIPO_OPERACION"", ""DIM_ARTICULOSAP"".""SK_LINEA"", ""DIM_ARTICULOSAP"".""COLOR"", ""DIM_ARTICULOSAP"".""ESTILO"", cast(""FAC_ARRIBOFUTUROM"".""F_XF_ORIGINAL"" as date), cast(""FAC_ARRIBOFUTUROM"".""F_XF"" as date), ""FAC_ARRIBOFUTUROM"".""PAIS_PUERTO"", ""FAC_ARRIBOFUTUROM"".""PUERTO_ORIGEN"", ""FAC_ARRIBOFUTUROM"".""EXPEDIENTE"", ""FAC_ARRIBOFUTUROM"".""CONTENEDOR"", ""FAC_ARRIBOFUTUROM"".""LOTE"", ""DIM_ALMACEN"".""SK_ALMACEN"", ""DIM_PERIODO"".""ANO"", ""DIM_PERIODO"".""COD_MES"", ""DIM_PERIODO"".""COD_TRIMESTRE"") ""T0""", CreateNavigationProperties=false]),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(Origen,{{"DEPTO_BV", "DEPTO"}, {"MARCA_BV", "MARCA"}, {"GENERO_BV", "GENERO"}, {"CATEGORIA_BV", "CATEGORIA"}, {"LINEA_BV", "LINEA"}, {"PAIS_BV", "PAIS"}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Columnas con nombre cambiado", {"MARCA"}, Agrupacion_Marcas, {"MARCA"}, "Agrupacion_Marcas", JoinKind.LeftOuter),
+				    #"Se expandió Agrupacion_Marcas" = Table.ExpandTableColumn(#"Consultas combinadas", "Agrupacion_Marcas", {"FORMATO_TIENDA"}, {"FORMATO"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Se expandió Agrupacion_Marcas",{{"DIVISION_BV", "División"}, {"UNIDAD_NEGOCIO", "Unidad Negocio"}, {"MARCA", "Marca"}, {"PAIS", "País"}, {"DEPTO", "Departamento"}, {"GENERO", "Género"}, {"CATEGORIA", "Categoría"}, {"TIPO_ESTILO", "Tipo Estilo"}, {"TIPO_ARRIBO", "Tipo Arribo"}, {"DOC", "Documento"}, {"DOC_POSICION", "Posición"}, {"COD_PROVEEDOR", "Código Proveedor"}, {"PROVEEDOR", "Proveedor"}, {"ARRIBO_NETO_USD_DIA", "Inventario USD Arribo"}, {"ARRIBO_PARES_DIA", "Inventario Arribo"}, {"TIPO_OPERACION", "Tipo Operación"}, {"ARTICULO", "SKU"}, {"PERIODO", "Fecha"} , {"AÑO","Año"}, {"COD_MES", "Mes"}, {"COD_TRIMESTRE", "Trimestre"}}),
+				    #"Added Custom1" = Table.AddColumn(#"Renamed Columns", "Orden Departamento", each if [Departamento] = "CAL" then 1 else if [Departamento] = "ACC" then 2 else if [Departamento] = "ROP" then 3 else 99),
+				    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "Orden Tipo Estilo", each if [Tipo Estilo] = "NOS" then 1 else if [Tipo Estilo] = "BASICO" then 2 else if [Tipo Estilo] = "TEMPORADA" then 3 else if [Tipo Estilo] = "MODA" then 4 else 99),
+				    #"Added Custom3" = Table.AddColumn(#"Added Custom2", "Fuente", each "Arribos"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom3",{{"Tipo Arribo", type text}, {"División", type text}, {"Unidad Negocio", type text}, {"Departamento", type text}, {"Marca", type text}, {"Género", type text}, {"Categoría", type text}, {"Tipo Estilo", type text}, {"SKU", Int64.Type}, {"MATNR", Int64.Type}, {"TALLA", type text}, {"Tipo Operación", type text}, {"Documento", Int64.Type}, {"Posición", Int64.Type}, {"Código Proveedor", type text}, {"Proveedor", type text}, {"Inventario Arribo", Int64.Type}, {"Inventario USD Arribo", type number}, {"Fecha", type date}, {"LINEA", type text}, {"Año", Int64.Type}, {"Mes", Int64.Type}, {"Trimestre", Int64.Type}, {"Orden Departamento", Int64.Type}, {"Orden Tipo Estilo", Int64.Type}, {"Fuente", type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "Bandera L1", each if [LINEA] = "LINEA 1" and [Tipo Estilo] = "NOS" and [Tipo Arribo] <> "ZINT" then 1 else 0),
+				    #"Filtered Rows1" = Table.SelectRows(#"Added Custom", each ([Bandera L1] = 0)),
+				    #"Grouped Rows" = Table.Group(#"Filtered Rows1", {"División", "Unidad Negocio", "Departamento", "Marca", "Género", "Categoría", "Tipo Estilo", "LINEA", "Año", "Mes", "Trimestre", "Orden Departamento", "Orden Tipo Estilo", "Fuente", "País", "FORMATO", "FECHA_ARRIBO", "FECHA_ARRIBO_ACTUAL", "Tipo Operación"}, {{"Inventario Arribo", each List.Sum([Inventario Arribo]), type nullable number}, {"Inventario USD Arribo", each List.Sum([Inventario USD Arribo]), type nullable number}}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Grouped Rows", "Fecha", each Date.EndOfMonth(#date(Date.Year([FECHA_ARRIBO_ACTUAL]), Date.Month([FECHA_ARRIBO_ACTUAL]), 1))),
+				    #"Filas filtradas" = Table.SelectRows(#"Personalizada agregada", each [Fecha] > #"UltimaFecha OTB"),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Filas filtradas",{{"Fecha", type date}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Año", "Mes", "Trimestre"}),
+				    #"Personalizada agregada1" = Table.AddColumn(#"Columnas quitadas", "Año", each Date.Year([Fecha])),
+				    #"Personalizada agregada2" = Table.AddColumn(#"Personalizada agregada1", "Mes", each Date.Month([Fecha])),
+				    #"Personalizada agregada3" = Table.AddColumn(#"Personalizada agregada2", "Trimestre", each Date.QuarterOfYear([Fecha])),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Personalizada agregada3",{{"Trimestre", Int64.Type}, {"Mes", Int64.Type}, {"Año", Int64.Type}}),
+				    #"Consulta anexada - Arribos Ajustados" = Table.Combine({#"Tipo cambiado1", #"Arribos Ajustados"})
+				in
+				    #"Consulta anexada - Arribos Ajustados"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
