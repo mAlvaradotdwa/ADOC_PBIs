@@ -1,0 +1,106 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/2.1.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY18SU07",
+      "reportVersionAtImport": "3.15",
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Custom3931847378717832.json",
+      "reportVersionAtImport": "5.35",
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "visible": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "ChicletSlicer1448559807354",
+    "kpifree51D0292A0438427096AC459B59FEF2DE",
+    "powerKPI462CE5C2666F4EC8A8BDD7E5587320A3"
+  ],
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY18SU07",
+          "path": "BaseThemes/CY18SU07.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Logo_ADOC_240px1264245375392119.png",
+          "path": "Logo_ADOC_240px1264245375392119.png",
+          "type": "Image"
+        },
+        {
+          "name": "ADOC_black_bg9071878973176009.png",
+          "path": "ADOC_black_bg9071878973176009.png",
+          "type": "Image"
+        },
+        {
+          "name": "ADOC_dark_bg7662449642902804.png",
+          "path": "ADOC_dark_bg7662449642902804.png",
+          "type": "Image"
+        },
+        {
+          "name": "Custom3931847378717832.json",
+          "path": "Custom3931847378717832.json",
+          "type": "CustomTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true
+  },
+  "slowDataSourceSettings": {
+    "isCrossHighlightingDisabled": false,
+    "isSlicerSelectionsButtonEnabled": false,
+    "isFilterSelectionsButtonEnabled": false,
+    "isFieldWellButtonEnabled": false,
+    "isApplyAllButtonEnabled": false
+  }
+}

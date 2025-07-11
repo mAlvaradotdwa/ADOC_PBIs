@@ -1,0 +1,47 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	dataSourceDefaultMaxConnections: 20
+	sourceQueryCulture: es-MX
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errores en las consultas cargadas en 21/09/2022 04:38:37 p. m..
+queryGroup 'Errores en las consultas: 21/09/2022 04:38:37 p  m'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.144.878.0 (25.06)+9cca29236de5114792f4d7188221f91ad4a5cc50
+
+annotation PBI_QueryOrder = ["Ventas","Ventas_Mayoreo","Inventarios","Trafico_TMS","Trafico","Tiendas","Fecha","Articulos","Plan_Tiendas","Canales","PlanesConsolidados","Remuneraciones","_ref_HorariosExtendidos","vw_VentasDetalle","RangeStart","RangeEnd","getDateKey","vw_VentasMayoreo","vw_Inventarios","vw_TraficoTMS","vw_Trafico","LastRefresh","Tasa de Cambio"]
+
+annotation __TEdtr = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Fecha
+ref table Tiendas
+ref table Ventas
+ref table Articulos
+ref table Trafico
+ref table Tiempo
+ref table Inventarios
+ref table Trafico_TMS
+ref table Plan_Tiendas
+ref table Canales
+ref table Métricas
+ref table Ventas_Mayoreo
+ref table PlanesConsolidados
+ref table PlanesDiarios
+ref table 'Métricas Dinámicas'
+ref table Remuneraciones
+ref table _ref_HorariosExtendidos
+ref table LastRefresh
+ref table 'Tasa de Cambio'
+
+ref cultureInfo en-US
+

@@ -1,0 +1,73 @@
+table Remuneraciones
+	isHidden
+	lineageTag: d1fb1a6c-553b-444b-80c8-78f3c539aa79
+
+	column BV_PAIS_TIENDA
+		dataType: string
+		isHidden
+		lineageTag: 32fa7f74-89d1-4066-96d9-51ac7ada8951
+		summarizeBy: none
+		sourceColumn: BV_PAIS_TIENDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column REMUNERACION
+		dataType: double
+		isHidden
+		lineageTag: ce9f82b8-9b96-477d-abcf-1e6d86cb478a
+		summarizeBy: sum
+		sourceColumn: REMUNERACION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Anyo
+		dataType: string
+		isHidden
+		lineageTag: 2f5328c3-93fa-4b96-995a-b6d995fc0686
+		summarizeBy: none
+		sourceColumn: Anyo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 65ff99f4-7b68-4e90-9c42-90bd874a1e9a
+		summarizeBy: none
+		sourceColumn: FECHA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Remuneraciones-c4404f53-1817-40e6-8533-02d139d4866d = m
+		mode: import
+		source =
+				let
+				    Origen = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/diego_perez_empresasadoc_com", [ApiVersion = 15]),
+				    #"Filas filtradas" = Table.SelectRows(Origen, each [Folder Path] = "https://empresasadoc-my.sharepoint.com/personal/diego_perez_empresasadoc_com/Documents/Planning/GMRO/GMROL/"),
+				    #"REMUNERACIONES GMROL xlsx_https://empresasadoc-my sharepoint com/personal/diego_perez_empresasadoc_com/Documents/Planning/GMRO/GMROL/" = #"Filas filtradas"{[Name="REMUNERACIONES GMROL.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/diego_perez_empresasadoc_com/Documents/Planning/GMRO/GMROL/"]}[Content],
+				    #"Libro de Excel importado" = Excel.Workbook(#"REMUNERACIONES GMROL xlsx_https://empresasadoc-my sharepoint com/personal/diego_perez_empresasadoc_com/Documents/Planning/GMRO/GMROL/"),
+				    REMUNERACIONES_Sheet = #"Libro de Excel importado"{[Item="REMUNERACIONES",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(REMUNERACIONES_Sheet, [PromoteAllScalars=true]),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Encabezados promovidos",{{"DT", "FECHA"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Columnas con nombre cambiado",{{"BV_PAIS_TIENDA", type text}, {"REMUNERACION", type number}, {"FECHA", type date}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([REMUNERACION] <> null)),
+				    #"Rounded Off" = Table.TransformColumns(#"Filtered Rows",{{"REMUNERACION", each Number.Round(_, 4), type number}}),
+				    #"Added Custom" = Table.AddColumn(#"Rounded Off", "Anyo", each Date.Year([FECHA])),
+				    #"Filtered Rows1" = Table.SelectRows(#"Added Custom", each [Anyo] >= 2021 )
+				in
+				    #"Filtered Rows1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,60 @@
+table LastRefresh
+	isHidden
+	lineageTag: 87a226dc-d579-43a2-94b5-5fbfe595765d
+
+	refreshPolicy
+		policyType: basic
+		mode: hybrid
+		rollingWindowGranularity: year
+		rollingWindowPeriods: 2
+		incrementalGranularity: day
+		incrementalPeriods: 60
+		incrementalPeriodsOffset: -1
+		sourceExpression =
+			let
+			    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+			    dbo_vw_LastRefresh = Source{[Schema="dbo",Item="vw_LastRefresh"]}[Data],
+			    #"Filtered Rows" = Table.SelectRows(dbo_vw_LastRefresh, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd))
+			in
+			    #"Filtered Rows"
+
+	column SK_PERIODO
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 67c98fd8-0c21-4594-af5e-40e5e3aae463
+		summarizeBy: none
+		sourceColumn: SK_PERIODO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastRefresh
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: fcda6289-6230-4bba-a131-e5ac738470f9
+		summarizeBy: none
+		sourceColumn: LastRefresh
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition LastRefresh-5016a627-8115-4e14-b45d-06bfb7cfbb45 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    dbo_vw_LastRefresh = Source{[Schema="dbo",Item="vw_LastRefresh"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(dbo_vw_LastRefresh, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd))
+				in
+				    #"Filtered Rows"
+
+	changedProperty = IsHidden
+
+	annotation PBI_IsMQueryFoldable = True
+
+	annotation PBI_ResultType = Table
+

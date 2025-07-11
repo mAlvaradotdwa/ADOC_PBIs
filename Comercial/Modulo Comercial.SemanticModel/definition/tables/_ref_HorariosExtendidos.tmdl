@@ -1,0 +1,66 @@
+table _ref_HorariosExtendidos
+	isHidden
+	lineageTag: 9e6dbd38-0156-4d65-bb33-c7953c25b4e4
+
+	column Nombre
+		dataType: string
+		isHidden
+		lineageTag: 4ddd0162-5340-47b7-b339-a94ce472cd10
+		summarizeBy: none
+		sourceColumn: Nombre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 19636d23-a484-4f71-bd3a-9184f9901e50
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HoraApertura
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2791c6a0-a552-4eef-86b2-aa444532c718
+		summarizeBy: sum
+		sourceColumn: HoraApertura
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column HoraCierre
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 06f94527-26c9-449f-ac40-381d66700c64
+		summarizeBy: sum
+		sourceColumn: HoraCierre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _ref_HorariosExtendidos-d6d13f7b-836b-4e53-8e89-7d641e522589 = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("ldLNCoJAFIbhW5FZC84587+NaNkNSAvJgshVVNDdN4YOIiPzBboYzwPO+Nq2Yn+5dq/hKWohqYkXBSnjwsWbgjjVrdgN3fleHR63vvtULJnjiE1D1EwLOz7Q29b+YV3eHrt3ZP3MKL6eAWYx5jDmMRYgxhJjhDHGmMqzdQr1G00pFGDNH9bm7WKrapm4wCzGHMY8xgLEUuICI4wxxlSerVPocRSmFLpslcStnE+kN7eql4kLzGLMYcxjLEAsJS4w7IOkxAWm8mydwowjP2UzgA24Tb+D2dyqWSYuMIsxhzGPsQCxlLjACGOMMZVhpy8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Nombre = _t, Fecha = _t, HoraApertura = _t, HoraCierre = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Nombre", type text}, {"Fecha", type date}, {"HoraApertura", Int64.Type}, {"HoraCierre", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

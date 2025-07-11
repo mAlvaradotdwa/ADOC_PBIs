@@ -1,0 +1,571 @@
+table Fecha
+	lineageTag: 09f6f5e8-d858-4e4d-a913-f0e011a3cdd3
+	dataCategory: Time
+
+	column SK_PERIODO
+		dataType: int64
+		formatString: 0
+		displayFolder: Indices
+		lineageTag: 1428dd67-86ef-4a89-b077-56d1444e74e4
+		summarizeBy: none
+		sourceColumn: SK_PERIODO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		isKey
+		formatString: d "de" mmmm
+		displayFolder: Datos Generales
+		lineageTag: f6c30bc4-ae24-45f9-8491-997a57edd2a7
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		changedProperty = IsHidden
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Año
+		dataType: int64
+		formatString: 0
+		displayFolder: Datos Generales
+		lineageTag: eb63c1f1-1eb9-4e7b-8ee0-9f545d70f679
+		summarizeBy: sum
+		sourceColumn: Año
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Num. Mes'
+		dataType: int64
+		formatString: 0
+		displayFolder: Numero de
+		lineageTag: 700e382d-5973-4752-9fef-0ae743bc2482
+		summarizeBy: sum
+		sourceColumn: Num. Mes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: string
+		displayFolder: Datos Generales
+		lineageTag: cfe237ce-10cc-48b5-a7cf-8580148c17b6
+		summarizeBy: none
+		sourceColumn: Mes
+		sortByColumn: 'Num. Mes'
+
+		changedProperty = IsHidden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Num. Semestre'
+		dataType: int64
+		formatString: 0
+		displayFolder: Numero de
+		lineageTag: 415b1640-8ec7-4f7a-a915-6078ba9dd239
+		summarizeBy: sum
+		sourceColumn: Num. Semestre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semestre
+		dataType: string
+		displayFolder: Datos Generales
+		lineageTag: 6c17a35d-2f4d-4204-9545-c8210919a848
+		summarizeBy: none
+		sourceColumn: Semestre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Num. Trimestre'
+		dataType: int64
+		formatString: 0
+		displayFolder: Numero de
+		lineageTag: 4abcd3d4-d7dd-4383-8034-03db23cacf54
+		summarizeBy: sum
+		sourceColumn: Num. Trimestre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: string
+		displayFolder: Datos Generales
+		lineageTag: 7ece1c9d-c09f-4d9f-a4d5-555be338f3bc
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumAnoSemana
+		dataType: int64
+		formatString: 0
+		displayFolder: Indices
+		lineageTag: a83e6eaa-855a-40dd-bbce-d4c6163561cf
+		summarizeBy: sum
+		sourceColumn: NumAnoSemana
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana
+		dataType: string
+		displayFolder: Datos Generales
+		lineageTag: 46e453e4-8433-48c0-a26b-13df5d3f0802
+		summarizeBy: none
+		sourceColumn: Semana
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Num. dia Semana'
+		dataType: int64
+		formatString: 0
+		displayFolder: Numero de
+		lineageTag: 2df08910-dbc6-420b-b735-9a7f3a2aee6d
+		summarizeBy: sum
+		sourceColumn: Num. dia Semana
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia Semana'
+		dataType: string
+		displayFolder: Datos Generales
+		lineageTag: d1d2d51f-57ad-4dd0-9b3d-ce9585b09462
+		summarizeBy: none
+		sourceColumn: Dia Semana
+		sortByColumn: 'Num. dia Semana'
+
+		changedProperty = IsHidden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Num. dia del Mes'
+		dataType: int64
+		formatString: 0
+		displayFolder: Numero de
+		lineageTag: b368aaeb-1796-4e36-b54a-feca6bb59772
+		summarizeBy: sum
+		sourceColumn: Num. dia del Mes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIA
+		dataType: string
+		isHidden
+		displayFolder: Datos Generales
+		lineageTag: d1129d36-4233-4c55-ab96-df6e0297a65e
+		summarizeBy: none
+		sourceColumn: DIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Num. Semana'
+		dataType: int64
+		formatString: 0
+		displayFolder: Numero de
+		lineageTag: b83350cd-2680-4609-8682-060830d3d6fc
+		summarizeBy: sum
+		sourceColumn: Num. Semana
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_01
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: No Usar
+		lineageTag: 2facfdef-c742-4cdb-b548-94273291c3fd
+		summarizeBy: sum
+		sourceColumn: FILTRO_01
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_02
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: No Usar
+		lineageTag: 34ccb189-1db6-4603-83cd-bf23fff143c3
+		summarizeBy: sum
+		sourceColumn: FILTRO_02
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_03
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: No Usar
+		lineageTag: 36bb08e6-0bc2-4beb-baf4-718526bebab8
+		summarizeBy: sum
+		sourceColumn: FILTRO_03
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_04
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: No Usar
+		lineageTag: 8bd103f2-94c7-42d5-8cd5-7cff5335990d
+		summarizeBy: sum
+		sourceColumn: FILTRO_04
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_05
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: No Usar
+		lineageTag: fc4e1999-eef4-4f22-b57a-315bdc560ade
+		summarizeBy: sum
+		sourceColumn: FILTRO_05
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_06
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: No Usar
+		lineageTag: 0754cec0-6448-4862-989c-f80b2759b80f
+		summarizeBy: sum
+		sourceColumn: FILTRO_06
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_07
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: No Usar
+		lineageTag: b8e1a89e-99fe-4179-a41f-4558d15198f8
+		summarizeBy: sum
+		sourceColumn: FILTRO_07
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_08
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: No Usar
+		lineageTag: 7fb90c50-1711-4138-9054-0f96f3279954
+		summarizeBy: sum
+		sourceColumn: FILTRO_08
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_09
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: No Usar
+		lineageTag: 6163a11d-7caf-4e96-825f-22c8052ab50c
+		summarizeBy: sum
+		sourceColumn: FILTRO_09
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILTRO_10
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: No Usar
+		lineageTag: 5972020a-cecc-4e12-b421-636d2c21cce7
+		summarizeBy: sum
+		sourceColumn: FILTRO_10
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_ANO_COMER
+		dataType: string
+		isHidden
+		displayFolder: No Usar
+		lineageTag: c887fca7-b0d4-4e8e-9658-885c2761a99f
+		summarizeBy: none
+		sourceColumn: COD_ANO_COMER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_SEMESTRE_COMER
+		dataType: string
+		isHidden
+		displayFolder: No Usar
+		lineageTag: f14fb9e0-2681-4c9f-969d-c2f0cc580d20
+		summarizeBy: none
+		sourceColumn: COD_SEMESTRE_COMER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_TRIMESTRE_COMER
+		dataType: string
+		isHidden
+		displayFolder: No Usar
+		lineageTag: bc448d7b-ca4c-43e9-a074-3a2e84f21fcd
+		summarizeBy: none
+		sourceColumn: COD_TRIMESTRE_COMER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_SEMANA_COMER
+		dataType: string
+		isHidden
+		displayFolder: No Usar
+		lineageTag: 25976384-527f-409c-ade0-2e3a0f14d4c4
+		summarizeBy: none
+		sourceColumn: COD_SEMANA_COMER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_MES_COMER
+		dataType: string
+		isHidden
+		displayFolder: No Usar
+		lineageTag: 0eb0fe47-a09d-44eb-90f5-dd8b4e93ef05
+		summarizeBy: none
+		sourceColumn: COD_MES_COMER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MES_COMER
+		dataType: string
+		isHidden
+		displayFolder: No Usar
+		lineageTag: d2d20e85-d803-41fd-b037-e5dcb31100c2
+		summarizeBy: none
+		sourceColumn: MES_COMER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumAnoMes
+		dataType: int64
+		formatString: 0
+		displayFolder: Indices
+		lineageTag: 6e404ab0-31f6-41b9-995b-7c0cf2989510
+		summarizeBy: sum
+		sourceColumn: NumAnoMes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Año'
+		dataType: string
+		displayFolder: Datos Generales
+		lineageTag: cc58fbbe-908c-47ae-9dcb-b70de4cbe179
+		summarizeBy: none
+		sourceColumn: Mes Año
+		sortByColumn: NumAnoMes
+
+		changedProperty = SortByColumn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDAnoMes
+		dataType: int64
+		formatString: 0
+		displayFolder: Indices
+		lineageTag: 410309bc-bc1e-4fcf-9350-439f23984422
+		summarizeBy: sum
+		sourceColumn: IDAnoMes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumMesDia = [Num. Mes] * 100 + [Num. dia del Mes]
+		displayFolder: Indices
+		lineageTag: aee225a0-23ee-4cd9-9ea7-60bd26a3c8b3
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Dia Mes' = FORMAT([Fecha], "dd \d\e mmm.")
+		displayFolder: Datos Generales
+		lineageTag: 7cc593d6-194d-4ac3-a6d8-5c58b07644f0
+		summarizeBy: none
+		sortByColumn: 'Num. dia del Mes'
+
+		changedProperty = SortByColumn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiasConVenta = [SK_PERIODO] <= CALCULATE( MAX( Ventas[SK_PERIODO] ) , ALL() )
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: Filtros dinámicos
+		lineageTag: 4dff61b8-df3b-4b3d-94b9-8bcbd589ae4d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Offset =
+			
+			VAR _Mmid =
+			    CALCULATE ( MAX ( Fecha[IDAnoMes] ), ALL (), Fecha[Fecha] = TODAY () )
+			RETURN
+			    Fecha[IDAnoMes] - _Mmid
+		formatString: 0
+		displayFolder: Filtros dinámicos
+		lineageTag: ed77ec4c-e977-42c1-8a23-e3ca2cfef47b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column U12M = Fecha[Offset] in GENERATESERIES( -11 , 0 )
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: Filtros dinámicos
+		lineageTag: 6d4e490b-4bbe-455f-b82a-a512e409779d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Corto'
+		dataType: string
+		displayFolder: Datos Generales
+		lineageTag: 9847d34b-153e-48ec-b411-ba7076688d75
+		summarizeBy: none
+		sourceColumn: Mes Corto
+		sortByColumn: 'Num. Mes'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'es Año Actual' =
+			
+			VAR _currentYear = CALCULATE( MAX( Fecha[Año] ) , REMOVEFILTERS( Fecha ) , Fecha[DiasConVenta] = TRUE() )
+			RETURN Fecha[Año] = _currentYear
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		displayFolder: Filtros dinámicos
+		lineageTag: dbefe3a1-d1fa-4be5-b169-f1a73271c77f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Today = format(now()-time(6,0,0),"Short Date")
+		lineageTag: 26505ed1-918e-4926-9ca6-3118d7970528
+		summarizeBy: none
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Today AP' = format((now()-time(6,0,0))-364,"Short Date")
+		lineageTag: 31006964-e454-4195-bf7a-bc79cc7f6796
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Fecha Estandar'
+		lineageTag: 8fbe7e9c-7133-4237-b609-020a7945a717
+
+		level Año
+			lineageTag: 48d946ed-915b-4194-a66e-c464382ad1c5
+			column: Año
+
+		level Mes
+			lineageTag: e43f09ad-63a7-481e-a3d4-8aed91e9d027
+			column: 'Mes Año'
+
+		level Dia
+			lineageTag: e4368657-1eb4-4d0a-8d04-579351f93113
+			column: 'Dia Mes'
+
+		changedProperty = IsHidden
+
+	partition Fecha-edf6ffc2-fa68-4704-a889-9065fcf147f4 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="DECLARE @InitialDate INT = (YEAR(GETDATE()) - 1) * 10000 + 101#(lf)DECLARE @FinalYear INT = YEAR(DATEADD([dd] , 15 , GETDATE()))#(lf)--#(lf)SELECT #(lf)       *#(lf)  FROM [dbo].[DIM_PERIODO] [dim]#(lf) WHERE [dim].[SK_PERIODO] >= @InitialDate#(lf)       AND [dim].[ANO] <= @FinalYear", CreateNavigationProperties=false]),
+				    #"Extracted Date" = Table.TransformColumns(Source,{{"PERIODO", DateTime.Date, type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Extracted Date",{{"COD_SEMANA", "NumAnoSemana"}, {"SEMANA", "AnoSemana"}, {"COD_DIA_SEMANA", "NumDiaSemana"}, {"DIA_SEMANA", "Dia Semana"}, {"COD_DIA_MES", "NumDiaMes"}, {"COD_MES", "NumMes"}, {"MES", "Mes"}, {"COD_SEMESTRE", "NumSemestre"}, {"SEMESTRE", "Semestre"}, {"COD_TRIMESTRE", "NumTrimestre"}, {"TRIMESTRE", "Trimestre"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ANO", Int64.Type}, {"NumMes", Int64.Type}, {"NumSemestre", Int64.Type}, {"NumTrimestre", Int64.Type}, {"NumAnoSemana", Int64.Type}, {"NumDiaSemana", Int64.Type}, {"NumDiaMes", Int64.Type}, {"NUM_SEMANA", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "NumAnoMes", each ( [ANO] * 100) + [NumMes]),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "AnoMes", each Text.Start( Text.Lower([Mes]) , 3) & "-" & Text.End(Number.ToText([ANO]),2) ),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom1",{{"NumAnoMes", Int64.Type}, {"AnoMes", type text}}),
+				    #"Added Custom2" = Table.AddColumn(#"Changed Type1", "IDAnoMes", each ( ( [ANO] - 2000 ) * 12 ) + [NumMes]),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Added Custom2",{{"ANO", "Año"}, {"AnoMes", "Mes Año"}, {"PERIODO", "Fecha"}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Renamed Columns1",{{"IDAnoMes", Int64.Type}}),
+				    #"Added Custom3" = Table.AddColumn(#"Changed Type2", "NomMesCorto", each Text.Start( [Mes] , 3 )),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Added Custom3",{{"AnoSemana", "Semana"}, {"NumTrimestre", "Num. Trimestre"}, {"NumSemestre", "Num. Semestre"}, {"NumMes", "Num. Mes"}, {"NumDiaSemana", "Num. dia Semana"}, {"NumDiaMes", "Num. dia del Mes"}, {"NUM_SEMANA", "Num. Semana"}, {"NomMesCorto", "Mes Corto"}})
+				in
+				    #"Renamed Columns2"
+
+	annotation PBI_ResultType = Table
+

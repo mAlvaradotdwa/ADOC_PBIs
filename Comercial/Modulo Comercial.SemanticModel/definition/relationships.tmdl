@@ -1,0 +1,118 @@
+relationship 509b4f57-029b-47b3-9ab0-dda34180ee4d
+	fromColumn: Ventas.SK_PERIODO
+	toColumn: Fecha.SK_PERIODO
+
+relationship 591cc713-066f-4773-be4b-8f406ab80c42
+	fromColumn: Ventas.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 92b2f5c6-cbf0-42b0-a1dc-5daa737c7b1b
+	fromColumn: Ventas.SK_MATNR
+	toColumn: Articulos.SK_MATNR
+
+relationship b06c1450-3820-4101-9250-f44cba4b796b
+	fromColumn: Trafico.Fecha
+	toColumn: Fecha.Fecha
+
+relationship f212db75-34ad-4753-8d6a-078aef978541
+	fromColumn: Inventarios.SK_PERIODO
+	toColumn: Fecha.SK_PERIODO
+
+relationship 589c0ae2-8eee-4722-ba1e-084eb1bca9a9
+	fromColumn: Inventarios.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship dca057e3-7cc7-48fc-a0de-0a827ae6bb35
+	fromColumn: Trafico.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 0fd2ec73-23e6-4e57-abc9-4390d39d8c1f
+	fromColumn: Trafico_TMS.SK_PERIODO
+	toColumn: Fecha.SK_PERIODO
+
+relationship 1df1b4fa-503c-426c-8b66-bec818cc80d4
+	fromColumn: Plan_Tiendas.SK_PERIODO
+	toColumn: Fecha.SK_PERIODO
+
+relationship 74200fca-e546-41a9-b103-396ca9e9b3e8
+	fromColumn: Trafico_TMS.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 4f38cc58-00d1-40b5-869d-c8089713b56f
+	fromColumn: Plan_Tiendas.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 4305d37e-10aa-41b1-856b-6366d132e03e
+	fromColumn: Ventas.IDCanal
+	toColumn: Canales.IDCanal
+
+relationship e4fe93f5-ba3e-437b-b8ed-e5cf6cbb4cf7
+	fromColumn: Trafico_TMS.IDCanal
+	toColumn: Canales.IDCanal
+
+relationship 1db88938-c6d7-46f9-9031-97eeadca98ac
+	fromColumn: Plan_Tiendas.IDCanal
+	toColumn: Canales.IDCanal
+
+relationship eeaaa405-46fb-4f96-9cd3-c782654fc3e5
+	fromColumn: Inventarios.SK_MATNR_REF
+	toColumn: Articulos.SK_MATNR
+
+relationship 8e18d94d-9231-4e39-8401-b2cb9a42665b
+	fromColumn: Ventas_Mayoreo.SK_PERIODO
+	toColumn: Fecha.SK_PERIODO
+
+relationship bb8c248e-843a-406f-842c-f45d3ac970e9
+	fromColumn: Ventas_Mayoreo.SK_MATNR
+	toColumn: Articulos.SK_MATNR
+
+relationship da0bba29-a027-42f3-bd34-01bd7f30cb93
+	fromColumn: Ventas_Mayoreo.IDCanal
+	toColumn: Canales.IDCanal
+
+relationship 9ccd586e-67ea-4de1-8c6e-47be64d08f31
+	fromColumn: Ventas_Mayoreo.SK_TIENDA
+	toColumn: Tiendas.SK_TIENDA
+
+relationship 822f8db0-1d86-40b5-a0c8-da34c22d25a2
+	toCardinality: many
+	fromColumn: PlanesDiarios.BV_PAIS_TIENDA
+	toColumn: Tiendas.BV_PAIS_TIENDA
+
+relationship e5980373-c837-4bc8-9246-b2a05ea8e6b3
+	fromColumn: PlanesDiarios.Date
+	toColumn: Fecha.Fecha
+
+relationship 1717fbc0-86b7-4658-bbcd-11078ee6f51c
+	toCardinality: many
+	fromColumn: Remuneraciones.BV_PAIS_TIENDA
+	toColumn: Tiendas.BV_PAIS_TIENDA
+
+relationship 80212a14-a5ce-4d63-bd2e-280d012d7242
+	fromColumn: Trafico.IDTiempo
+	toColumn: Tiempo.IDTiempo
+
+relationship 70a597d8-18a3-4a7d-8032-b89d1344ad44
+	fromColumn: Trafico_TMS.IDTiempo
+	toColumn: Tiempo.IDTiempo
+
+relationship b08b2715-1bcc-4894-917b-b398bf7ed73c
+	fromColumn: Ventas.IDTiempo
+	toColumn: Tiempo.IDTiempo
+
+relationship bf84bbff-9014-4c23-8dd4-56ce9ddd9f35
+	fromColumn: Ventas_Mayoreo.IDTiempo
+	toColumn: Tiempo.IDTiempo
+
+relationship 5b3ce0f5-3854-48b3-8323-3545347a718d
+	fromColumn: LastRefresh.SK_PERIODO
+	toColumn: Fecha.SK_PERIODO
+
+relationship 22034524-ff5e-4813-a52f-92608ed21538
+	fromColumn: Remuneraciones.FECHA
+	toColumn: Fecha.Fecha
+
+relationship af7e2493-26a7-44ad-8f50-c2919b6b7db3
+	fromColumn: Ventas.SK_PAIS
+	toColumn: 'Tasa de Cambio'.SK_PAIS
+

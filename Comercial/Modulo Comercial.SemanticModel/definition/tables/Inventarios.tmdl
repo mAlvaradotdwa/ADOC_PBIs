@@ -1,0 +1,102 @@
+table Inventarios
+	isHidden
+	lineageTag: 4d02a2d6-e6d3-460d-8c76-65a0d52b38e6
+
+	refreshPolicy
+		policyType: basic
+		rollingWindowGranularity: year
+		rollingWindowPeriods: 2
+		incrementalGranularity: day
+		incrementalPeriods: 60
+		sourceExpression =
+			let
+			    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+			    dbo_vw_Inventarios = Source{[Schema="dbo",Item="vw_Inventarios"]}[Data],
+			    #"Filtered Rows" = Table.SelectRows(dbo_vw_Inventarios, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd))
+			in
+			    #"Filtered Rows"
+
+	column SK_PERIODO
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7f771c3e-ffc9-45e4-9316-6363f5904473
+		summarizeBy: none
+		sourceColumn: SK_PERIODO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		isHidden
+		lineageTag: 51481f01-e17a-467b-894a-c6b857cc63e9
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTO_USD
+		dataType: double
+		isHidden
+		lineageTag: 04721d61-23a1-493c-90a1-9508cd1f041b
+		summarizeBy: none
+		sourceColumn: COSTO_USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PARES
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3f6799c9-76d7-4ddd-b47a-5de0c81fd30b
+		summarizeBy: none
+		sourceColumn: PARES
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRECIO_USD
+		dataType: double
+		isHidden
+		lineageTag: cc9fa576-ffd3-4d1d-b965-bb029d307ec4
+		summarizeBy: none
+		sourceColumn: PRECIO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SK_MATNR_REF
+		dataType: string
+		isHidden
+		lineageTag: f3594242-882d-4351-b6d3-e32ccb6b932f
+		summarizeBy: none
+		sourceColumn: SK_MATNR_REF
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Inventarios-e95e0515-36e5-4e55-97aa-b1b53c696d29 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    dbo_vw_Inventarios = Source{[Schema="dbo",Item="vw_Inventarios"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(dbo_vw_Inventarios, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd))
+				in
+				    #"Filtered Rows"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_IsMQueryFoldable = True
+

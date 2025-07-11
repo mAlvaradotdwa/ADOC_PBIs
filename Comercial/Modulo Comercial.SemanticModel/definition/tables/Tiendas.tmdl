@@ -1,0 +1,174 @@
+table Tiendas
+	lineageTag: 4fa08f58-aecc-4404-bede-ed111ebdc7d0
+
+	column BV_PAIS_TIENDA
+		dataType: string
+		lineageTag: 47dce872-4685-4e2b-becc-a306109531c3
+		summarizeBy: none
+		sourceColumn: BV_PAIS_TIENDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS
+		dataType: string
+		lineageTag: cacd19c9-5d94-4f7f-84aa-cfab66ff58f2
+		summarizeBy: none
+		sourceColumn: BV_PAIS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 504525b4-4cd2-49e3-8636-a2740a039385
+		summarizeBy: sum
+		sourceColumn: SK_PAIS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_TIENDA_108
+		dataType: string
+		lineageTag: 6756e994-ce62-4271-a0f9-ed122c9090c5
+		summarizeBy: none
+		sourceColumn: TIPO_TIENDA_108
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MALL_STREET
+		dataType: string
+		lineageTag: 46af8288-c872-4519-be11-49f45c12e1c1
+		summarizeBy: none
+		sourceColumn: MALL_STREET
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column UBICACION
+		dataType: string
+		lineageTag: fb106078-fc43-4190-85d3-774091bffe01
+		summarizeBy: none
+		sourceColumn: UBICACION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MTS2_TOTAL
+		dataType: double
+		isHidden
+		lineageTag: 11569e78-26d7-4459-a10b-27ffd25b896b
+		summarizeBy: sum
+		sourceColumn: MTS2_TOTAL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FORMATO_CANAL
+		dataType: string
+		lineageTag: 3e3ef05d-3cca-43b3-8993-0b88084ad031
+		summarizeBy: none
+		sourceColumn: FORMATO_CANAL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_FORMATO
+		dataType: string
+		lineageTag: 983cc451-86cf-4642-9af2-1ba6fd20bdc2
+		summarizeBy: none
+		sourceColumn: BV_FORMATO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: int64
+		formatString: 0
+		lineageTag: a48fe972-6b2e-4942-a03b-2d511e0c5ecc
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_APERTURA
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b12842e3-f9df-4dc7-8298-d27b2e9461f1
+		summarizeBy: none
+		sourceColumn: FECHA_APERTURA
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column FECHA_CIERRE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7c11d87f-54d7-43cd-a070-0a86a4a7fe45
+		summarizeBy: none
+		sourceColumn: FECHA_CIERRE
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ZONA
+		dataType: string
+		lineageTag: d99e46e1-5d92-4b6e-84b4-38bf18b946ba
+		summarizeBy: none
+		sourceColumn: ZONA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTATUS_TIENDA
+		dataType: string
+		lineageTag: bf085869-b6c7-46b4-9bad-cdf77630858e
+		summarizeBy: none
+		sourceColumn: ESTATUS_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TiendaUbicacion
+		dataType: string
+		lineageTag: d1c5035b-f653-4737-ab41-4ef4b775cc7d
+		summarizeBy: none
+		sourceColumn: TiendaUbicacion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Tiendas-29af8bf2-f398-4b4c-bb85-310cfc76c42b = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="-- Tiendas#(lf)DECLARE @InitialDate INT = 20210101#(lf)#(lf)SELECT                   #(lf)       [a].[BV_PAIS] , #(lf)       [a].[SK_PAIS] , #(lf)       [a].[SK_TIENDA] ,#(lf)       CASE#(lf)           WHEN [a].[BV_PAIS_TIENDA] = 'SVEV1' THEN 'SVEV8'#(lf)           WHEN [a].[BV_PAIS_TIENDA] = 'SVEV2' THEN 'SVEV9'#(lf)           WHEN [a].[BV_PAIS_TIENDA] = 'SVEV4' THEN 'SVEV6'#(lf)           WHEN [a].[BV_PAIS_TIENDA] = 'SVEV5' THEN 'SVEV7'#(lf)           ELSE [a].[BV_PAIS_TIENDA]#(lf)       END [BV_PAIS_TIENDA] ,#(lf)       CASE#(lf)           WHEN [a].[BV_PAIS_TIENDA] = 'SVEV1' THEN 'SS'#(lf)           WHEN [a].[BV_PAIS_TIENDA] = 'SVEV2' THEN 'SS'#(lf)           WHEN [a].[BV_PAIS_TIENDA] = 'SVEV4' THEN 'NS'#(lf)           WHEN [a].[BV_PAIS_TIENDA] = 'SVEV5' THEN 'NS'#(lf)           ELSE [a].[TIPO_TIENDA_108]#(lf)       END [TIPO_TIENDA_108] , #(lf)       [a].[MALL_STREET] , #(lf)       [a].[UBICACION] , #(lf)       [a].[MTS2_TOTAL] , #(lf)       [a].[FORMATO_CANAL] , #(lf)       [a].[BV_FORMATO] , #(lf)       [a].[FECHA_APERTURA] , #(lf)       [a].[FECHA_CIERRE] , #(lf)       [a].[ZONA] , #(lf)       [a].[ESTATUS_TIENDA] , #(lf)       [TiendaUbicacion] = CASE#(lf)                               WHEN [a].[BV_PAIS_TIENDA] = 'SVEV1' THEN 'SVEV8'#(lf)                               WHEN [a].[BV_PAIS_TIENDA] = 'SVEV2' THEN 'SVEV9'#(lf)                               WHEN [a].[BV_PAIS_TIENDA] = 'SVEV4' THEN 'SVEV6'#(lf)                               WHEN [a].[BV_PAIS_TIENDA] = 'SVEV5' THEN 'SVEV7'#(lf)                               ELSE [a].[BV_PAIS_TIENDA]#(lf)                           END + ' - ' + [a].[UBICACION]#(lf)  FROM (#(lf)         SELECT DISTINCT #(lf)                [S1].[BV_PAIS_TIENDA] , #(lf)                [C1].[BV_PAIS] , #(lf)                [S1].[SK_PAIS] , #(lf)                [S1].[SK_TIENDA] , #(lf)                [S1].[TIPO_TIENDA_108] , #(lf)                [S1].[MALL_STREET] , #(lf)                [S1].[UBICACION] , #(lf)                [S1].[MTS2_TOTAL] , #(lf)                [s1].[FECHA_APERTURA] , #(lf)                [s1].[FECHA_CIERRE] , #(lf)                [s1].[ZONA] ,#(lf)                CASE#(lf)                    WHEN [S1].[TIENDA] LIKE '%V%' THEN 'Ecommerce'#(lf)                    ELSE [S1].[BV_FORMATO]#(lf)                END AS [FORMATO_CANAL] , #(lf)                [S1].[BV_FORMATO] , #(lf)                [S1].[ESTATUS_TIENDA]#(lf)           FROM [dbo].[DIM_TIENDA] AS [S1]#(lf)           JOIN [dbo].[DIM_PAIS] AS [C1]#(lf)                ON [C1].[SK_PAIS] = [S1].[SK_PAIS]#(lf)          WHERE [S1].[SK_TIENDA] IN (#(lf)                                      SELECT #(lf)                                             [fac].[SK_TIENDA]#(lf)                                        FROM [dbo].[FAC_VENTARPRO] [fac]#(lf)                                       WHERE [SK_PERIODO] >= @InitialDate#(lf)                                             AND [fac].[SK_ALMACEN] NOT IN#(lf)                                                                           ( 'BP05' , #(lf)                                                                             'BP08' , #(lf)                                                                             'SU01'#(lf)                                                                           )#(lf)                                    )#(lf)                OR [S1].[SK_TIENDA] IN ( '1162' , '1186' , '1191' , '1208' , '2139' , '3141' , '2161' )#(lf)       ) [a]#(lf) GROUP BY #(lf)          CASE#(lf)              WHEN [a].[BV_PAIS_TIENDA] = 'SVEV1' THEN 'SVEV8'#(lf)              WHEN [a].[BV_PAIS_TIENDA] = 'SVEV2' THEN 'SVEV9'#(lf)              WHEN [a].[BV_PAIS_TIENDA] = 'SVEV4' THEN 'SVEV6'#(lf)              WHEN [a].[BV_PAIS_TIENDA] = 'SVEV5' THEN 'SVEV7'#(lf)              ELSE [a].[BV_PAIS_TIENDA]#(lf)          END , #(lf)          [a].[BV_PAIS] , #(lf)          [a].[SK_PAIS] ,#(lf)          CASE#(lf)              WHEN [a].[BV_PAIS_TIENDA] = 'SVEV1' THEN 'SS'#(lf)              WHEN [a].[BV_PAIS_TIENDA] = 'SVEV2' THEN 'SS'#(lf)              WHEN [a].[BV_PAIS_TIENDA] = 'SVEV4' THEN 'NS'#(lf)              WHEN [a].[BV_PAIS_TIENDA] = 'SVEV5' THEN 'NS'#(lf)              ELSE [a].[TIPO_TIENDA_108]#(lf)          END , #(lf)          [a].[SK_Tienda] , #(lf)          [a].[MALL_STREET] , #(lf)          [a].[UBICACION] , #(lf)          [a].[MTS2_TOTAL] , #(lf)          [a].[FORMATO_CANAL] , #(lf)          [a].[BV_FORMATO] , #(lf)          [a].[FECHA_APERTURA] , #(lf)          [a].[FECHA_CIERRE] , #(lf)          [a].[ZONA] , #(lf)          [a].[ESTATUS_TIENDA]#(lf)UNION ALL#(lf)SELECT DISTINCT #(lf)       [C1].[BV_PAIS] , #(lf)       [S1].[SK_PAIS] , #(lf)       [S1].[SK_TIENDA] , #(lf)       [S1].[BV_PAIS_TIENDA] , #(lf)       'MAY'  [TIPO_TIENDA_108] , #(lf)       [S1].[MALL_STREET] , #(lf)       [S1].[UBICACION] , #(lf)       [S1].[MTS2_TOTAL] ,#(lf)       CASE#(lf)           WHEN [S1].[TIENDA] LIKE '%V%' THEN 'Ecommerce'#(lf)           WHEN [S1].[BV_FORMATO] = 'BOD' THEN 'MAYOREO'#(lf)           ELSE [S1].[BV_FORMATO]#(lf)       END AS [FORMATO_CANAL] , #(lf)       'MAY'  [BV_FORMATO] , #(lf)       [S1].[FECHA_APERTURA] , #(lf)       [S1].[FECHA_CIERRE] , #(lf)       [S1].[ZONA] , #(lf)       [S1].[ESTATUS_TIENDA] , #(lf)       [TiendaUbicacion] = [S1].[BV_PAIS_TIENDA] + ' - ' + [S1].[UBICACION]#(lf)  FROM [dbo].[FAC_VENTASAP] AS [V1]#(lf)  JOIN [dbo].[DIM_PERIODO] AS [T1]#(lf)       ON [T1].[SK_PERIODO] = [V1].[SK_PERIODO]#(lf)  JOIN [dbo].[DIM_TIENDA] AS [S1]#(lf)       ON [S1].[SK_TIENDA] = [V1].[SK_TIENDA]#(lf)  JOIN [dbo].[DIM_PAIS] AS [C1]#(lf)       ON [C1].[SK_PAIS] = [V1].[SK_PAIS]#(lf) WHERE [T1].[SK_PERIODO] >= @InitialDate#(lf)       AND [s1].[BV_FORMATO] IN ( 'BOD' ) #(lf)UNION#(lf)SELECT #(lf)       [C1].[BV_PAIS] , #(lf)       [S1].[SK_PAIS] , #(lf)       [S1].[SK_TIENDA] , #(lf)       [S1].[BV_PAIS_TIENDA] , #(lf)       [S1].[TIPO_TIENDA_108] , #(lf)       [S1].[MALL_STREET] , #(lf)       [S1].[UBICACION] , #(lf)       [S1].[MTS2_TOTAL] , #(lf)       [FORMATO_CANAL] = [S1].[BV_FORMATO] , #(lf)       [S1].[BV_FORMATO] , #(lf)       [S1].[FECHA_APERTURA] , #(lf)       [S1].[FECHA_CIERRE] , #(lf)       [S1].[ZONA] , #(lf)       [S1].[ESTATUS_TIENDA] , #(lf)       [TiendaUbicacion] = [S1].[BV_PAIS_TIENDA] + ' - ' + [S1].[UBICACION]#(lf)  FROM [dbo].[DIM_TIENDA] AS [S1]#(lf)  JOIN [dbo].[DIM_PAIS] AS [C1]#(lf)       ON [C1].[SK_PAIS] = [S1].[SK_PAIS]#(lf) WHERE [S1].[SK_TIENDA] IN ( '8010' )       #(lf)", CreateNavigationProperties=false]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"SK_TIENDA", Int64.Type}, {"SK_PAIS", Int64.Type}, {"FECHA_APERTURA", type date}, {"FECHA_CIERRE", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

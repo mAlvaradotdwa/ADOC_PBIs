@@ -1,0 +1,126 @@
+table PlanesDiarios
+	isHidden
+	lineageTag: c4639352-7a6f-437e-b599-b5db0fe1cff0
+
+	column KPI
+		isHidden
+		lineageTag: df21da76-37f8-458d-84c6-df4a765e61a1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: PlanesConsolidados[KPI]
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS_TIENDA
+		isHidden
+		lineageTag: 8f5930a3-9714-4b80-bdde-d92a9fa57458
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: PlanesConsolidados[BV_PAIS_TIENDA]
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plan
+		isHidden
+		lineageTag: ca428622-7ca7-45ac-8def-e8369fe831e7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: PlanesConsolidados[Plan]
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: 7ceb4b14-16d7-46c8-a5a2-afeba97fbfdf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column PlanDiario = ```
+			
+			        VAR _store = PlanesDiarios[BV_PAIS_TIENDA]
+			        VAR _date = PlanesDiarios[Date]
+			        VAR _y =
+			            YEAR ( [Date] )
+			        VAR _m =
+			            MONTH ( [Date] )
+			        VAR _nd =
+			            CALCULATE (
+			                COUNTROWS ( Fecha ),
+			                REMOVEFILTERS ( Fecha ),
+			                Fecha[Año] = _y,
+			                Fecha[Num. Mes] = _m
+			            )
+			        VAR _distVenta =
+			            CALCULATE (
+			                AVERAGE ( Plan_Tiendas[Dist_PlanVenta] ),
+			                Fecha[Fecha] = _date,
+			                Tiendas[BV_PAIS_TIENDA] = _store
+			            )
+			        VAR _ratio =
+			            SWITCH (
+			                TRUE (),
+			                [KPI] IN { "Tráfico", "Transacciones", "Unidades", "Ventas" },  _distVenta  , --IF ( ISBLANK ( _distVenta ), _nd, _distVenta ),
+			                1
+			            )
+			        RETURN
+			            _ratio * [Plan]
+			```
+		isHidden
+		lineageTag: ff61b9c1-23f9-4709-814d-fb5312c2761f
+		summarizeBy: sum
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition PlanesDiarios-5f9a49b6-6cd3-4828-9fa5-06e6104407ac = calculated
+		mode: import
+		source =
+				
+				VAR _minDate =
+				    MIN ( PlanesConsolidados[Fecha] )
+				VAR _maxDate =
+				    MAX ( PlanesConsolidados[Fecha] ) + 365
+				VAR _dts =
+				    ADDCOLUMNS (
+				        CALENDAR ( _minDate, _maxDate ),
+				        "@Ano", YEAR ( [Date] ),
+				        "@Mes", MONTH ( [Date] )
+				    )
+				RETURN
+				    SUMMARIZE (
+				        FILTER (
+				            CROSSJOIN ( PlanesConsolidados, _dts ),
+				            PlanesConsolidados[Año] = [@Ano]
+				                && PlanesConsolidados[Mes] = [@Mes]
+				        ),
+				        [KPI],
+				        [Date],
+				        [BV_PAIS_TIENDA],
+				        [Plan]
+				    )
+
+	changedProperty = IsHidden
+
+	annotation PBI_Id = 6e3c2df0420b4019b5c09ecf469a603c
+

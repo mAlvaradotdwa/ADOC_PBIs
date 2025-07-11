@@ -1,0 +1,126 @@
+table Trafico
+	isHidden
+	lineageTag: d1107c82-5a24-42a5-8ca7-34d3552a14c0
+
+	refreshPolicy
+		policyType: basic
+		rollingWindowGranularity: year
+		rollingWindowPeriods: 2
+		incrementalGranularity: day
+		incrementalPeriods: 60
+		sourceExpression =
+			let
+			    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+			    dbo_vw_Trafico = Source{[Schema="dbo",Item="vw_Trafico"]}[Data],
+			    #"Changed Type" = Table.TransformColumnTypes(dbo_vw_Trafico,{{"Fecha", type datetime}}),
+			    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [Fecha] >= (RangeStart) and [Fecha] < (RangeEnd))
+			in
+			    #"Filtered Rows"
+
+	column Sensor
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3efe5209-7177-4633-b855-21be6f9ee501
+		summarizeBy: sum
+		sourceColumn: Sensor
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: 72c3a7a7-5e54-47ba-b0ee-d9d27427f544
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Hora
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fdc31c74-8b31-4a18-9e24-5bcc64c7d98e
+		summarizeBy: sum
+		sourceColumn: Hora
+
+		annotation SummarizationSetBy = Automatic
+
+	column BloqueMinutos
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5598a42c-2219-463f-84fa-ffc2dc66d3fd
+		summarizeBy: sum
+		sourceColumn: BloqueMinutos
+
+		annotation SummarizationSetBy = Automatic
+
+	column Entradas
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: dfc0c05f-60ca-4dc9-9ecd-267be3a45d4b
+		summarizeBy: sum
+		sourceColumn: Entradas
+
+		annotation SummarizationSetBy = Automatic
+
+	column Salidas
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a90f7191-5a62-47de-96f0-8c373d18804f
+		summarizeBy: sum
+		sourceColumn: Salidas
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS_TIENDA
+		dataType: string
+		isHidden
+		lineageTag: 2482598f-1c48-4056-8de9-59c7cfcd22a5
+		summarizeBy: none
+		sourceColumn: BV_PAIS_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		isHidden
+		lineageTag: 620f4987-24a9-43a1-8e48-2596d2d7f9cc
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDTiempo
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b685f80e-1629-4b30-a92f-449f2415eb1f
+		summarizeBy: none
+		sourceColumn: IDTiempo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Trafico-4b40910d-af98-4b29-a599-d6a7cd61bb95 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    dbo_vw_Trafico = Source{[Schema="dbo",Item="vw_Trafico"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_vw_Trafico,{{"Fecha", type datetime}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [Fecha] >= (RangeStart) and [Fecha] < (RangeEnd))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_IsMQueryFoldable = True
+

@@ -1,0 +1,154 @@
+table Ventas_Mayoreo
+	isHidden
+	lineageTag: 62dd0170-651a-45b3-98e1-2b385cb8e077
+
+	refreshPolicy
+		policyType: basic
+		rollingWindowGranularity: year
+		rollingWindowPeriods: 2
+		incrementalGranularity: day
+		incrementalPeriods: 60
+		sourceExpression =
+			let
+			    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+			    dbo_vw_VentasMayoreo = Source{[Schema="dbo",Item="vw_VentasMayoreo"]}[Data],
+			    #"Filtered Rows" = Table.SelectRows(dbo_vw_VentasMayoreo, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd))
+			in
+			    #"Filtered Rows"
+
+	column SK_PERIODO
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8a53eaed-4c30-45cb-985c-a05f952169f9
+		summarizeBy: none
+		sourceColumn: SK_PERIODO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		isHidden
+		lineageTag: 291b091d-e814-4ba4-b40f-48cdcc530f8a
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MATNR
+		dataType: string
+		isHidden
+		lineageTag: 0791d802-a6c4-4ecf-9abb-237e7ab3946d
+		summarizeBy: none
+		sourceColumn: SK_MATNR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOOPERACION
+		dataType: string
+		isHidden
+		lineageTag: 016ea4b3-0c0f-4f18-b537-aa175af2a731
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDCanal
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: dd915667-fbbc-4468-bd8a-f258c4046f90
+		summarizeBy: none
+		sourceColumn: IDCanal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDTiempo
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6bcdd565-e18e-46fe-a7ca-2d395cf67c7c
+		summarizeBy: none
+		sourceColumn: IDTiempo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pares
+		dataType: double
+		isHidden
+		formatString: 0
+		lineageTag: a178cbb4-3eb7-457a-b637-97461cc202bd
+		summarizeBy: sum
+		sourceColumn: Pares
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Venta_USD
+		dataType: double
+		isHidden
+		lineageTag: 3a6b6445-1ec5-4e77-8fe7-d4a4c6bd691f
+		summarizeBy: sum
+		sourceColumn: Venta_USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Costo_USD
+		dataType: double
+		isHidden
+		lineageTag: ed459a24-05b1-4b91-96e3-2a5c244b6091
+		summarizeBy: sum
+		sourceColumn: Costo_USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Descuento_USD
+		dataType: double
+		isHidden
+		lineageTag: 67fc4706-4374-4775-9803-87adf9bdebc6
+		summarizeBy: sum
+		sourceColumn: Descuento_USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Ventas_Mayoreo-46477288-8ea9-4e5b-96a9-0313e7b513f9 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    dbo_vw_VentasMayoreo = Source{[Schema="dbo",Item="vw_VentasMayoreo"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(dbo_vw_VentasMayoreo, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd))
+				in
+				    #"Filtered Rows"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_IsMQueryFoldable = True
+

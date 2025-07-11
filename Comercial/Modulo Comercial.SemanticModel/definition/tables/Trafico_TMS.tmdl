@@ -1,0 +1,102 @@
+table Trafico_TMS
+	isHidden
+	lineageTag: 2545a5c6-0a67-4ced-930d-238c5f5fd800
+
+	refreshPolicy
+		policyType: basic
+		rollingWindowGranularity: year
+		rollingWindowPeriods: 2
+		incrementalGranularity: day
+		incrementalPeriods: 60
+		sourceExpression =
+			let
+			    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+			    dbo_vw_TraficoTMS = Source{[Schema="dbo",Item="vw_TraficoTMS"]}[Data],
+			    #"Filtered Rows" = Table.SelectRows(dbo_vw_TraficoTMS, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd))
+			in
+			    #"Filtered Rows"
+
+	column SK_PERIODO
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7a5704bd-9255-4be1-b7a4-f98de0d64363
+		summarizeBy: none
+		sourceColumn: SK_PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		isHidden
+		lineageTag: 0023d614-dba2-45eb-9a5b-54094a514e48
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOOPERACION
+		dataType: string
+		isHidden
+		lineageTag: 734ac7f3-f8be-4d71-9097-39388caa1e0a
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transacciones
+		dataType: double
+		isHidden
+		lineageTag: e646f5e5-5c0f-4b6c-812a-1b46d67d1390
+		summarizeBy: sum
+		sourceColumn: Transacciones
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Trafico
+		dataType: double
+		isHidden
+		lineageTag: 2c4f3e3f-3e2d-4a6f-9b48-b06f0541409c
+		summarizeBy: sum
+		sourceColumn: Trafico
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IDCanal
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 66d6e7c2-ad9b-4c9a-9019-fdb713ee2248
+		summarizeBy: none
+		sourceColumn: IDCanal
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDTiempo
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 975c01f5-6f79-4261-aa44-c5c411d9a838
+		summarizeBy: none
+		sourceColumn: IDTiempo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Trafico_TMS-b6a77c37-1c3f-42d5-a927-d66a695bd27e = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    dbo_vw_TraficoTMS = Source{[Schema="dbo",Item="vw_TraficoTMS"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(dbo_vw_TraficoTMS, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_IsMQueryFoldable = True
+

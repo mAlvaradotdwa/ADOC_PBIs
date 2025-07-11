@@ -1,0 +1,95 @@
+expression RangeStart = #datetime(2021, 1, 1, 0, 0, 0) meta [IsParameterQuery=true, Type="DateTime", IsParameterQueryRequired=true]
+	lineageTag: 63df0ced-2451-4cff-b755-afb3ae50af7f
+
+	annotation PBI_ResultType = DateTime
+
+	annotation PBI_NavigationStepName = Navegación
+
+expression RangeEnd = #datetime(2025, 12, 31, 0, 0, 0) meta [IsParameterQuery=true, Type="DateTime", IsParameterQueryRequired=true]
+	lineageTag: 349ddbfe-ee2c-49f5-a8e9-16107d174cf0
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = DateTime
+
+expression getDateKey =
+		let
+		    Source = (x as datetime) => Date.Year(x)*10000 + Date.Month(x)*100 + Date.Day(x)
+		in
+		    Source
+	lineageTag: e90d92ad-83b0-451a-ac72-71c4a8b9fdde
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
+expression vw_VentasDetalle =
+		let
+		    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+		    dbo_vw_VentasDetalle = Source{[Schema="dbo",Item="vw_VentasDetalle"]}[Data],
+		    #"Filtered Rows" = Table.SelectRows(dbo_vw_VentasDetalle, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd)),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"SK_PAIS", Int64.Type}, {"SK_TIENDA", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: b33740b7-a138-4a81-a614-36ecd84074d1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression vw_VentasMayoreo =
+		let
+		    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+		    dbo_vw_VentasMayoreo = Source{[Schema="dbo",Item="vw_VentasMayoreo"]}[Data],
+		    #"Filtered Rows" = Table.SelectRows(dbo_vw_VentasMayoreo, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd)),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"SK_TIENDA", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: 82292b8e-3fc0-4b10-8a57-f56304c3ef3f
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression vw_Inventarios =
+		let
+		    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+		    dbo_vw_Inventarios = Source{[Schema="dbo",Item="vw_Inventarios"]}[Data],
+		    #"Filtered Rows" = Table.SelectRows(dbo_vw_Inventarios, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd)),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"SK_TIENDA", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: 335326c0-f9ef-474e-a643-fe8d2074405a
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+
+expression vw_TraficoTMS =
+		let
+		    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+		    dbo_vw_TraficoTMS = Source{[Schema="dbo",Item="vw_TraficoTMS"]}[Data],
+		    #"Filtered Rows" = Table.SelectRows(dbo_vw_TraficoTMS, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd)),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"SK_TIENDA", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: 824ff6b2-7b6c-46fd-9cfb-a159eb06bffc
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression vw_Trafico =
+		let
+		    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+		    dbo_vw_Trafico = Source{[Schema="dbo",Item="vw_Trafico"]}[Data],
+		    #"Changed Type" = Table.TransformColumnTypes(dbo_vw_Trafico,{{"Fecha", type datetime}}),
+		    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each [Fecha] >= (RangeStart) and [Fecha] < (RangeEnd))
+		in
+		    #"Filtered Rows"
+	lineageTag: 386124ac-3c74-4291-a4c5-70097930e908
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

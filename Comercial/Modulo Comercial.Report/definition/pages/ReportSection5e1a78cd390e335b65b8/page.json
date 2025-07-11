@@ -1,0 +1,181 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection5e1a78cd390e335b65b8",
+  "displayName": "Operational Store Review",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#3B4543'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "pageRefresh": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "duration": {
+            "expr": {
+              "Literal": {
+                "Value": "'PT5M'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "faafa0d165ae62629170",
+      "target": "1d76b183396597ab3033",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1dc6b88f57c006c58173",
+      "target": "faafa0d165ae62629170",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1dc6b88f57c006c58173",
+      "target": "1d76b183396597ab3033",
+      "type": "NoFilter"
+    },
+    {
+      "source": "225e4d7334361c22e980",
+      "target": "faafa0d165ae62629170",
+      "type": "NoFilter"
+    },
+    {
+      "source": "225e4d7334361c22e980",
+      "target": "1d76b183396597ab3033",
+      "type": "NoFilter"
+    },
+    {
+      "source": "225e4d7334361c22e980",
+      "target": "1dc6b88f57c006c58173",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "871b32253326531ca147",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "faafa0d165ae62629170",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "db90459a96e72ccd7300",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "41cdcdcb0a0a9b09282c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "666b9fa8ed10285279d4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "f82b8bf98644788c8e71",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "a65cbda5b39b9d0386ca",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "5d0812fe13259553ee72",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "233697d48530a7b042cb",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "0afd13fa7200302b2317",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "275406dfd55cc043cb3c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "a152a45d351615e00512",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "7c3b9ea41b5110ac0500",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "f6cfd2adc420bd3de2b7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "03d2f6464319166b010b",
+      "target": "7ea2b2890c6075e589c7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "03d2f6464319166b010b",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "1d76b183396597ab3033",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ea2b2890c6075e589c7",
+      "target": "ccfa8bc7eaab04b228eb",
+      "type": "NoFilter"
+    },
+    {
+      "source": "03d2f6464319166b010b",
+      "target": "8268376c198070a2a963",
+      "type": "NoFilter"
+    }
+  ]
+}

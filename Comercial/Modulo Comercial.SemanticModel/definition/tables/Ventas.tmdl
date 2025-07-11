@@ -1,0 +1,178 @@
+table Ventas
+	isHidden
+	lineageTag: 67e1d0a4-c8b3-49d8-9d86-16e82d2562ad
+
+	refreshPolicy
+		policyType: basic
+		rollingWindowGranularity: year
+		rollingWindowPeriods: 2
+		incrementalGranularity: day
+		incrementalPeriods: 60
+		sourceExpression =
+			let
+			    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+			    dbo_vw_VentasDetalle = Source{[Schema="dbo",Item="vw_VentasDetalle"]}[Data],
+			    #"Filtered Rows" = Table.SelectRows(dbo_vw_VentasDetalle, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd))
+			in
+			    #"Filtered Rows"
+
+	column FACTURA_RPRO
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b78ba662-14fc-4d64-b684-757334c17126
+		summarizeBy: sum
+		sourceColumn: FACTURA_RPRO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PERIODO
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ce0fdbc9-fdef-416c-b8ca-0b8c98dc9925
+		summarizeBy: none
+		sourceColumn: SK_PERIODO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		isHidden
+		lineageTag: 3d9de592-02a0-40c1-8537-f0d49ca145c1
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		isHidden
+		lineageTag: 03ccfe7e-35f5-41d3-930c-e642c3b01789
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOOPERACION
+		dataType: string
+		isHidden
+		lineageTag: 4f11473f-1b6c-44e3-b438-92bd98b07772
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pares
+		dataType: double
+		isHidden
+		lineageTag: eca8a648-f982-4d52-a630-3d73677a6b90
+		summarizeBy: sum
+		sourceColumn: Pares
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Venta_USD
+		dataType: double
+		isHidden
+		lineageTag: 4e240ad2-e15c-4725-ab73-9611ff0e0f88
+		summarizeBy: sum
+		sourceColumn: Venta_USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Costo_USD
+		dataType: double
+		isHidden
+		lineageTag: 1b8e21fa-3b48-4dbe-8766-51f6c647a7a9
+		summarizeBy: sum
+		sourceColumn: Costo_USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Descuento_USD
+		dataType: double
+		isHidden
+		lineageTag: ec3ce55c-ec0e-41bb-8692-42ef8585605d
+		summarizeBy: sum
+		sourceColumn: Descuento_USD
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SK_MATNR
+		dataType: string
+		isHidden
+		lineageTag: 1d24968e-11ea-499c-a997-d1dfd6dba3a9
+		summarizeBy: none
+		sourceColumn: SK_MATNR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDCanal
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1cb80e1b-34f4-4101-af79-f90e3ba1499e
+		summarizeBy: none
+		sourceColumn: IDCanal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDTiempo
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 97e3f08b-a6ed-4ff3-9f85-5f69496f0370
+		summarizeBy: none
+		sourceColumn: IDTiempo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Ventas-ee21fea5-592d-4adb-a848-3d1c911db008 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL"),
+				    dbo_vw_VentasDetalle = Source{[Schema="dbo",Item="vw_VentasDetalle"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(dbo_vw_VentasDetalle, each [SK_PERIODO] >= getDateKey(RangeStart) and [SK_PERIODO] < getDateKey(RangeEnd))
+				in
+				    #"Filtered Rows"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_IsMQueryFoldable = True
+

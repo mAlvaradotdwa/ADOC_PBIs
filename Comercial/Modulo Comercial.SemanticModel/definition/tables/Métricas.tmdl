@@ -1,0 +1,4029 @@
+table Métricas
+	lineageTag: 590c8e41-6e90-42fa-becb-7898fee988a7
+
+	measure 'Trafico Prom. Ultimos 7 días' =
+			VAR _offSet = 7
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Trafico TMS] ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Promedios Diarios
+		lineageTag: 87dd3fce-fd44-4400-9e57-3f58bb033da3
+
+	measure 'Trafico Ayer' =
+			VAR _offSet = 1
+			RETURN
+			    CALCULATE (
+			        [Trafico TMS] ,
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            = TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico
+		lineageTag: ccf0fd3a-8208-492d-aba6-e8eec85c1d49
+
+	measure 'Trafico Prom. Ultimo Mes Movil' =
+			VAR _offSet = 31
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Trafico TMS] ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Promedios Diarios
+		lineageTag: 1e5d424d-d62a-4e28-a896-77d9bebce4ef
+
+	measure 'Trafico Prom. Ultimo Año Movil' =
+			VAR _offSet = 365
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Trafico TMS] ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Promedios Diarios
+		lineageTag: 20672c6a-b789-4e8b-88ca-45edf2e4642c
+
+	measure 'Conversion Ayer' =
+			VAR _offSet = 1
+			RETURN
+			    CALCULATE (
+			        [Conversion],
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            = TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion
+		lineageTag: b6ea7865-82f5-431e-951c-16db5e3e4b1b
+
+	measure 'Conversion Prom. Ultimo Año Movil' =
+			VAR _offSet = 365
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Conversion]  ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion\Promedios Diarios
+		lineageTag: 74c0825e-e772-498a-ba7b-4af773035999
+
+	measure 'Conversion Prom. Ultimo Mes Movil' =
+			VAR _offSet = 31
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Conversion]  ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion\Promedios Diarios
+		lineageTag: 2c95c71c-8dc3-4c8e-afa5-9a44d4cd3553
+
+	measure 'Conversion Prom. Ultimos 7 días' =
+			VAR _offSet = 7
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Conversion] ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion\Promedios Diarios
+		lineageTag: e8d2087c-77e7-486e-8954-8a3111078ce3
+
+	measure 'Transacciones Ayer' =
+			VAR _offSet = 1
+			RETURN
+			    CALCULATE (
+			        [Transacciones] ,
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            = TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones
+		lineageTag: 3c86f9a3-f0c0-4b39-b117-6c83424dab03
+
+	measure 'Transacciones Prom. Ultimo Año Movil' =
+			VAR _offSet = 365
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Transacciones] ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Promedios Diarios
+		lineageTag: 449385d6-0dd7-44ec-9752-175d1a4d96a6
+
+	measure 'Transacciones Prom. Ultimo Mes Movil' =
+			VAR _offSet = 31
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Transacciones] ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Promedios Diarios
+		lineageTag: f37992fc-3053-4a72-81fd-7be56322daf5
+
+	measure 'Transacciones Prom. Ultimos 7 días' =
+			VAR _offSet = 7
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Transacciones] ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Promedios Diarios
+		lineageTag: fc38a591-fa66-4ac7-9289-bee9216a4f71
+
+	measure _baseCostoVenta = SUM ( Ventas[Costo_USD] ) + SUM ( Ventas_Mayoreo[Costo_USD] )
+		displayFolder: _base\_Venta
+		lineageTag: 20c75862-cb75-48f9-947b-7a9b4c5406b7
+
+	measure _baseMetaMargen = SUM ( Plan_Tiendas[Plan_Margn] )
+		displayFolder: _base\_Meta
+		lineageTag: e0be1e87-da5b-4d58-9515-a0578aa62306
+
+	measure _baseMetaVenta = SUM ( Plan_Tiendas[Plan_Venta] )
+		displayFolder: _base\_Meta
+		lineageTag: 4acee123-258a-4d6e-b45d-53f8628180aa
+
+	measure _baseTrafico = SUM ( Trafico[Salidas] )
+		displayFolder: _base\_Trafico
+		lineageTag: f61e2eb5-97f9-48a4-83bb-70932a8b00aa
+
+	measure _baseTrafico_TMS = SUM ( Trafico_TMS[Trafico] )
+		displayFolder: _base\_Trafico
+		lineageTag: dfe97018-f52b-4c3d-84c1-674238541c15
+
+	measure _baseTransacciones = DISTINCTCOUNT ( Ventas[FACTURA_RPRO] )
+		displayFolder: _base\_Venta
+		lineageTag: 167fa4ba-d7ef-42c8-860f-ba6f63edab08
+
+	measure _baseUnidades = SUM ( ventas[Pares] ) + SUM ( Ventas_Mayoreo[Pares] )
+		displayFolder: _base\_Venta
+		lineageTag: 294dce62-3e5e-4bb7-b93c-25b62eff4cce
+
+	measure _baseVenta = SUM ( Ventas[Venta_USD] ) + SUM ( Ventas_Mayoreo[Venta_USD] )
+		displayFolder: _base\_Venta
+		lineageTag: eaebaad1-6f32-4840-9b13-2b3d773598d4
+
+	measure _baseInventarioCosto = SUM ( Inventarios[COSTO_USD] )
+		displayFolder: _base\_Inventario
+		lineageTag: 46870236-e38e-4f28-8417-6ae86fa6fbfc
+
+	measure _baseInventarioPrecio = SUM ( Inventarios[PRECIO_USD] )
+		displayFolder: _base\_Inventario
+		lineageTag: 4f0621db-c074-4ad8-b5bb-0d9833b32b52
+
+	measure _baseInventarioUn = SUM ( Inventarios[PARES] )
+		displayFolder: _base\_Inventario
+		lineageTag: f3c60e02-8a8f-4b98-a7f8-b805fcb1ded6
+
+	measure 'Trafico Hoy' = [_baseDQTrafico]
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico
+		lineageTag: 4002f979-55e3-4559-9c8e-445f1a41d997
+
+	measure _baseDQVenta = CALCULATE ( [Venta] , format(Fecha[Fecha],"Short Date") = Fecha[Today] )
+		displayFolder: _baseDirectQuery\_Venta
+		lineageTag: af05dbda-0eb1-4ff6-9971-9cfc90be93e1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _baseDQUnidades = CALCULATE ( [Unidades] ,   format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		displayFolder: _baseDirectQuery\_Venta
+		lineageTag: c5b28145-95ad-484c-9f9b-4d595528da5a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _baseDQCostoVenta = CALCULATE ( [Costo Venta] , Fecha[Fecha] = TODAY() )
+		displayFolder: _baseDirectQuery\_Venta
+		lineageTag: bb041920-9bcf-40d9-b1df-5fa14042838a
+
+	measure _baseDQTrafico = CALCULATE ( [_baseTrafico] ,  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		displayFolder: _baseDirectQuery\_TraficoDQ
+		lineageTag: 3ce209ef-b5f4-4f72-b505-8447082e1432
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _baseDQTransacciones = CALCULATE ( [Transacciones] ,  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		displayFolder: _baseDirectQuery\_Venta
+		lineageTag: 5fa18533-f83e-4fb5-8ec3-4c7833ab5468
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Transacciones Hoy' = [_baseDQTransacciones]
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones
+		lineageTag: fba64b7a-a569-482c-ac6f-f58bf053571a
+
+	measure 'Conversion Hoy' =
+			VAR _flag =
+			    DIVIDE ( [Trafico Hoy], [Trafico Hoy] )
+			RETURN
+			    ( DIVIDE ( [Transacciones Hoy], [Trafico Hoy] ) + 0 ) * _flag
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion
+		lineageTag: 50d0a607-2cd7-4a74-b59c-4583c7de0e0e
+
+	measure 'Venta Mes Actual' = CALCULATE ( [Venta], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta
+		lineageTag: 546cf9ba-3a91-4bc3-817b-fa9d8c37115b
+
+	measure 'Plan Venta Mes Actual' = CALCULATE ( [Plan Venta], Fecha[Offset] = 0 )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Plan Venta
+		lineageTag: 9e5d1356-8847-47c1-82f6-4cab01de594b
+
+	measure 'Plan Venta Hoy' = CALCULATE ( [Plan Venta],  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Plan Venta
+		lineageTag: 0b3cdfdf-0cd7-4010-8909-76012f16e0f5
+
+	measure 'Unidades Hoy' = [_baseDQUnidades]
+		formatString: #,0
+		displayFolder: Datos Operativos\Unidades
+		lineageTag: d083afd5-6cac-400e-befd-efae402c3cd8
+
+	measure 'Unidades Mes Actual' = CALCULATE ( [Unidades], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 ) + [_baseDQUnidades]
+		formatString: #,0
+		displayFolder: Datos Operativos\Unidades
+		lineageTag: c7253140-6c28-474b-b762-d10e5d1b3f5c
+
+	measure 'Venta Hoy' = [_baseDQVenta]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta
+		lineageTag: 6e35d3c9-ba69-4e50-bcd3-90137e8e1d9b
+
+	measure 'Dif. Plan Venta Hoy' = [Venta Hoy] - [Plan Venta Hoy]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\Venta\Plan Venta
+		lineageTag: 60743e6d-b31e-48d7-80e1-294a492a9ef8
+
+	measure 'Dif. Plan Venta Mes Actual' = [Venta Mes Actual] - [Plan Venta Mes Actual]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Plan Venta
+		lineageTag: fe596de6-a8df-4ad1-af07-c27588eaacb2
+
+	measure 'Alcance Plan Venta Hoy' = DIVIDE ( [Venta Hoy] , [Plan Venta Hoy] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Venta\Plan Venta
+		lineageTag: 794046c1-1698-4ad0-b541-172ca9827025
+
+	measure 'Alcance Plan Venta Mes Actual' = DIVIDE ( [Venta Mes Actual] , [Plan Venta Mes Actual] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Venta\Plan Venta
+		lineageTag: 5dbf08ca-4df0-49d0-ab1c-d28cd524ea78
+
+	measure 'Tienda Actual' = SELECTEDVALUE( Tiendas[TiendaUbicacion] )
+		displayFolder: Datos Operativos
+		lineageTag: 626af936-4c41-4894-9aed-14b07695a6e1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _basePlanDiario = SUM ( PlanesDiarios[PlanDiario] )
+		displayFolder: _base\_PlanDiario
+		lineageTag: 07aa7f05-7752-47c2-8ac5-4887b86b4772
+
+	measure _basePlanDiarioAVG = AVERAGE ( PlanesDiarios[PlanDiario] )
+		displayFolder: _base\_PlanDiario
+		lineageTag: e4890e66-6376-4988-a39c-7e80a4ae1b43
+
+	measure _baseMetaAUR = CALCULATE ( [_basePlanDiarioAVG], PlanesDiarios[KPI] = "AUR" )
+		displayFolder: _base\_Meta
+		lineageTag: 6a726987-cf94-4922-a5f4-b1bdb07b7f00
+
+	measure _baseMetaDPT = CALCULATE ( [_basePlanDiarioAVG], PlanesDiarios[KPI] = "DPT" )
+		displayFolder: _base\_Meta
+		lineageTag: 75056424-16dd-47c9-a03d-489c0d925732
+
+	measure _baseMetaTrafico = CALCULATE ( [_basePlanDiario], PlanesDiarios[KPI] = "Tráfico" )
+		displayFolder: _base\_Meta
+		lineageTag: e716cce5-adab-4219-a9f3-eae4695f96fe
+
+	measure _baseMetaTransacciones = CALCULATE ( [_basePlanDiario], PlanesDiarios[KPI] = "Transacciones" )
+		displayFolder: _base\_Meta
+		lineageTag: 4a194d2c-0c0b-4e6d-874d-4576880ac03f
+
+	measure _baseMetaUnidades = CALCULATE ( [_basePlanDiario], PlanesDiarios[KPI] = "Unidades" )
+		displayFolder: _base\_Meta
+		lineageTag: e1cbe608-14a6-4fd2-84b7-b595932f45d6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _baseMetaUPT = CALCULATE ( [_basePlanDiarioAVG], PlanesDiarios[KPI] = "UPT" )
+		displayFolder: _base\_Meta
+		lineageTag: 1c6cc4b3-58c4-4fb4-bba6-4cf2fee42c93
+
+	measure 'Alcance Plan Transacciones Hoy' = DIVIDE ( [Transacciones Hoy] , [Plan Transacciones Hoy] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Transacciones\Plan Transacciones
+		lineageTag: e10c0744-fcfb-4ac1-a8b5-6a913362ea70
+
+	measure 'Alcance Plan Transacciones Mes Actual' = DIVIDE ( [Transacciones Mes Actual] , [Plan Transacciones Mes Actual] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Transacciones\Plan Transacciones
+		lineageTag: 410216e0-8782-426c-8299-eaa4733ad62e
+
+	measure 'Dif. Plan Transacciones Hoy' = [Transacciones Hoy] - [Plan Transacciones Hoy]
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Plan Transacciones
+		lineageTag: 78c0241b-7a12-4c43-9021-b40f467b5517
+
+	measure 'Dif. Plan Transacciones Mes Actual' = [Transacciones Mes Actual] - [Plan Transacciones Mes Actual]
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Plan Transacciones
+		lineageTag: 19355f79-5d35-490f-b455-31a9e7c7d844
+
+	measure 'Plan Transacciones Hoy' = CALCULATE ( [Plan Transacciones], REMOVEFILTERS ( Fecha ),  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Plan Transacciones
+		lineageTag: 12592c55-1313-4b10-a491-8bfd3b79c185
+
+	measure 'Plan Transacciones Mes Actual' = CALCULATE ( [Plan Transacciones], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 )
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Plan Transacciones
+		lineageTag: abb4f403-dbb0-43e5-a8ea-e1911982fa7e
+
+	measure 'Transacciones Mes Actual' = CALCULATE ( [Transacciones], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 ) + [_baseDQTransacciones]
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones
+		lineageTag: 430fa9d2-c4b3-4999-85bc-dfa187645068
+
+	measure 'Alcance Plan Trafico Hoy' = DIVIDE ( [Trafico Hoy] , [Plan Trafico Hoy] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Trafico\Plan Trafico
+		lineageTag: 839f5089-6e4a-49fe-9f79-7fe84ca18bba
+
+	measure 'Alcance Plan Trafico Mes Actual' = DIVIDE ( [Trafico Mes Actual] , [Plan Trafico Mes Actual] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Trafico\Plan Trafico
+		lineageTag: 312958c7-ee14-4ed7-9148-765afeec399e
+
+	measure 'Dif. Plan Trafico Hoy' = [Trafico Hoy] - [Plan Trafico Hoy]
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Plan Trafico
+		lineageTag: e0bcb795-51ea-4699-8e3e-e48df7f8b00e
+
+	measure 'Dif. Plan Trafico Mes Actual' = [Trafico Mes Actual] - [Plan Trafico Mes Actual]
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Plan Trafico
+		lineageTag: 61770c4c-081a-433b-9ec9-1bf18f3067f1
+
+	measure 'Plan Trafico Hoy' = CALCULATE ( [Plan Trafico], REMOVEFILTERS ( Fecha ),  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Plan Trafico
+		lineageTag: d1a486b9-251d-479b-8094-613b82973c0a
+
+	measure 'Plan Trafico Mes Actual' = CALCULATE ( [Plan Trafico], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 )
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Plan Trafico
+		lineageTag: 9194ad88-04f3-488a-aa8e-c3a836bbde2d
+
+	measure 'Trafico Mes Actual' = CALCULATE ( [Trafico TMS], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 ) + [_baseDQTrafico]
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico
+		lineageTag: 0b8ac2ce-7740-4774-be7f-aa17b1193f7e
+
+	measure 'Alcance Plan Conversion Hoy' = DIVIDE ( [Dif. Plan Conversion Hoy] , [Plan Conversion Hoy] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Conversion\Plan Conversion
+		lineageTag: aab794dc-3a76-4a0c-924d-ea01461b5096
+
+	measure 'Alcance Plan Conversion Mes Actual' = DIVIDE ( [Dif. Plan Conversion Mes Actual] , [Plan Conversion Mes Actual] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Conversion\Plan Conversion
+		lineageTag: 96b0b1f9-4073-42f3-91db-dde2f0055e5b
+
+	measure 'Dif. Plan Conversion Hoy' = [Conversion Hoy] - [Plan Conversion Hoy]
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion\Plan Conversion
+		lineageTag: dd850f9d-6662-4d55-96c3-08effe1a8f1c
+
+	measure 'Dif. Plan Conversion Mes Actual' = [Conversion Mes Actual] - [Plan Conversion Mes Actual]
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion\Plan Conversion
+		lineageTag: 7794deb2-7e53-4e85-b84e-69899595698d
+
+	measure 'Plan Conversion Hoy' = CALCULATE ( [Plan Conversion], REMOVEFILTERS ( Fecha ),  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion\Plan Conversion
+		lineageTag: db846332-7c86-4c0a-b037-6410f9560849
+
+	measure 'Plan Conversion Mes Actual' = CALCULATE ( [Plan Conversion], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 )
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion\Plan Conversion
+		lineageTag: 230155e9-a782-4aeb-9c8e-c426ec638c41
+
+	measure 'Conversion Mes Actual' = ```
+			
+			DIVIDE (
+			    [Transacciones Mes Actual],
+			    [Trafico Mes Actual] 
+			)
+			```
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion
+		lineageTag: bb44013d-b2f6-4174-9ee1-3ad89a269bf2
+
+	measure 'Alcance Plan Unidades Hoy' = DIVIDE ( [Unidades Hoy] , [Plan Unidades Hoy] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Unidades\Plan Unidades
+		lineageTag: 6b0513c8-f496-4cf4-bbfc-f745767889e3
+
+	measure 'Alcance Plan Unidades Mes Actual' = DIVIDE ( [Unidades Mes Actual] , [Plan Unidades Mes Actual] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Unidades\Plan Unidades
+		lineageTag: 98d2f5ee-da5f-4194-827d-cab47c8b18ee
+
+	measure 'Dif. Plan Unidades Hoy' = [Unidades Hoy] - [Plan Unidades Hoy]
+		formatString: #,0
+		displayFolder: Datos Operativos\Unidades\Plan Unidades
+		lineageTag: 5258df84-fcce-4d7c-9753-e1d4a64e393f
+
+	measure 'Dif. Plan Unidades Mes Actual' = [Unidades Mes Actual] - [Plan Unidades Mes Actual]
+		formatString: #,0
+		displayFolder: Datos Operativos\Unidades\Plan Unidades
+		lineageTag: e6df611f-c7d1-491c-8ab9-1f94ee6e85ec
+
+	measure 'Plan Unidades Hoy' = CALCULATE ( [Plan Unidades], REMOVEFILTERS ( Fecha ),  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: #,0
+		displayFolder: Datos Operativos\Unidades\Plan Unidades
+		lineageTag: a5f351b6-fa34-4502-b4d7-842876babe05
+
+	measure 'Plan Unidades Mes Actual' = CALCULATE ( [Plan Unidades], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 )
+		formatString: #,0
+		displayFolder: Datos Operativos\Unidades\Plan Unidades
+		lineageTag: 80205429-efea-4739-960c-be46e7f70f11
+
+	measure 'AUR Hoy' = DIVIDE ( [Venta Hoy], [Unidades Hoy] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\AUR
+		lineageTag: 09037f73-cd19-48fd-ac81-0ffa61885655
+
+	measure 'AUR Mes Actual' =
+			
+			DIVIDE (
+			    CALCULATE ( [Venta], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 ) + [Venta Hoy],
+			    CALCULATE ( [Unidades], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 ) + [Unidades Hoy]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\AUR
+		lineageTag: a9dbb387-573c-4e64-a7dd-0a7655f39276
+
+	measure 'Plan AUR Hoy' = CALCULATE ( [Plan AUR], REMOVEFILTERS ( Fecha ),  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\AUR\Plan AUR
+		lineageTag: 3d31ab52-768f-40e7-9d71-412970009f7f
+
+	measure 'Plan AUR Mes Actual' = CALCULATE ( [Plan AUR], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\AUR\Plan AUR
+		lineageTag: 4d7494da-1a7b-4b8b-9026-ddc4765fbe99
+
+	measure 'DPT Hoy' = DIVIDE ( [Venta Hoy], [Transacciones Hoy] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\DPT
+		lineageTag: 186cd2db-bd3f-48b7-8de8-feeb02331d9b
+
+	measure 'DPT Mes Actual' =
+			
+			DIVIDE (
+			    CALCULATE ( [Venta], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 ) + [Venta Hoy],
+			    CALCULATE ( [Transacciones], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 ) + [Transacciones Hoy]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\DPT
+		lineageTag: bb222dc5-fbc8-49fd-8f67-bf5abc235448
+
+	measure 'Plan DPT Hoy' = CALCULATE ( [Plan DPT], REMOVEFILTERS ( Fecha ),  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\DPT\Plan DPT
+		lineageTag: ce0e6ff1-d747-45c7-a0dc-4f222be437db
+
+	measure 'Plan DPT Mes Actual' = CALCULATE ( [Plan DPT], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\DPT\Plan DPT
+		lineageTag: 1888a109-1da6-4f85-8b30-d785dc6ddd36
+
+	measure 'Plan UPT Hoy' = CALCULATE ( [Plan UPT], REMOVEFILTERS ( Fecha ),  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: #,0.0
+		displayFolder: Datos Operativos\UPT\Plan UPT
+		lineageTag: f4d3b265-1ddd-4f9b-9809-d9269a1baa6a
+
+	measure 'Plan UPT Mes Actual' = CALCULATE ( [Plan UPT], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 )
+		formatString: #,0.0
+		displayFolder: Datos Operativos\UPT\Plan UPT
+		lineageTag: 827d3cb3-407c-4984-8b67-41ce5ce397db
+
+	measure 'UPT Hoy' = DIVIDE ( [Unidades Hoy], [Transacciones Hoy])
+		formatString: #,0.0
+		displayFolder: Datos Operativos\UPT
+		lineageTag: c9992bf0-1ee4-4b35-9de8-4a1d7392f924
+
+	measure 'UPT Mes Actual' = ```
+			
+			DIVIDE (
+			    CALCULATE ( [Unidades], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 ) ,
+			    CALCULATE ( [Transacciones], REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 ) 
+			)
+			```
+		formatString: #,0.0
+		displayFolder: Datos Operativos\UPT
+		lineageTag: 3284b59f-23a6-4b2a-a067-c1ae047623da
+
+	measure 'Venta Prom. Ultimo Año Movil' =
+			VAR _offSet = 365
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Venta] ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Promedios Diarios
+		lineageTag: 8ffe5063-8565-4f47-9869-414337240552
+
+	measure 'Venta Prom. Ultimo Mes Movil' =
+			VAR _offSet = 31
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Venta] ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Promedios Diarios
+		lineageTag: 313ecb26-34d5-4fcb-8f5c-9914d60fa0cc
+
+	measure 'Venta Prom. Ultimos 7 días' =
+			VAR _offSet = 7
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Venta] ),
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            >= TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Promedios Diarios
+		lineageTag: ff15510c-3a38-49ab-af03-ae7a1e1b0e42
+
+	measure 'Venta Ayer' =
+			VAR _offSet = 1
+			RETURN
+			    CALCULATE (
+			        [Venta] ,
+			        REMOVEFILTERS ( Fecha ),
+			        KEEPFILTERS ( VALUES ( Fecha[Dia Semana] ) ),
+			        Fecha[Fecha]
+			            = TODAY () - _offSet,
+			        Fecha[Fecha] < TODAY ()
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta
+		lineageTag: 5a9d6fac-061e-460c-bb4c-361fa9159202
+
+	measure _baseLastRefresh =
+			
+			MAX ( LastRefresh[LastRefresh] )
+		formatString: dd MMM. HH:mm
+		displayFolder: _baseDirectQuery
+		lineageTag: 9291cb6d-d1d6-4bc9-8709-a6720d2f9d2e
+
+	measure _baseRemuneraciones = SUM ( Remuneraciones[REMUNERACION] )
+		displayFolder: _base\_Labor
+		lineageTag: a86e20f6-0532-4b50-8796-c6c2cc5081ff
+
+	measure 'Dias Mes Actual' = CALCULATE ( COUNTROWS ( Fecha ), REMOVEFILTERS ( Fecha ), Fecha[Offset] = 0 )
+		formatString: #,
+		displayFolder: Datos Operativos\Recuento de días
+		lineageTag: d0f56872-ce4e-4797-9998-0243e46e43bb
+
+	measure 'Dias Transcurridos' =
+			CALCULATE (
+			    COUNTROWS ( Fecha ),
+			    REMOVEFILTERS ( Fecha ),
+			    Fecha[Offset] = 0,
+			    Fecha[Fecha] <= TODAY ()
+			)
+		formatString: #,
+		displayFolder: Datos Operativos\Recuento de días
+		lineageTag: 231bdff8-ca83-420b-ac01-2fb6d4d04ec8
+
+	measure 'Avance Mes Actual' = DIVIDE ( [Dias Transcurridos], [Dias Mes Actual] )
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Recuento de días
+		lineageTag: 0a1a9bad-883d-4ca6-bc49-673c8654b1e6
+
+	measure 'Venta Acumulada Mes Actual' =
+			VAR _flag =
+			    MAX ( Fecha[Fecha] ) <= TODAY ()
+			VAR _mtdDQ =
+			    CALCULATE (
+			        [Venta],
+			        CALCULATETABLE (
+			            Fecha,
+			            DATESMTD ( Fecha[Fecha] ),
+			            Fecha[Offset] = 0,
+			            Fecha[Fecha] <= TODAY ()
+			        )
+			    )
+			RETURN
+			    _mtdDQ * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta
+		lineageTag: eb69c648-fa9c-4c2a-b525-15cb7743de5a
+
+	measure 'Plan Venta Acumulado Mes Actual' =
+			VAR _flag =
+			    MAX ( Fecha[Fecha] ) <= TODAY ()
+			RETURN
+			    CALCULATE (
+			        [Plan Venta],
+			        CALCULATETABLE (
+			            Fecha,
+			            DATESMTD ( Fecha[Fecha] ),
+			            Fecha[Offset] = 0 --,
+			            -- Fecha[Fecha] <= TODAY ()
+			        )
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Plan Venta
+		lineageTag: bef2e9cd-c962-4eb2-ac43-6964b9db3fab
+
+	measure 'Plan Unidades Acumulado Mes Actual' =
+			VAR _flag =
+			    MAX ( Fecha[Fecha] ) <= TODAY ()
+			RETURN
+			    CALCULATE (
+			        [Plan Unidades],
+			        CALCULATETABLE (
+			            Fecha,
+			            DATESMTD ( Fecha[Fecha] ),
+			            Fecha[Offset] = 0,
+			            Fecha[Fecha] <= TODAY ()
+			        )
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Unidades\Plan Unidades
+		lineageTag: c95de406-2172-4981-8dbe-909861798632
+
+	measure 'Plan Transacciones Acumulado Mes Actual' =
+			VAR _flag =
+			    MAX ( Fecha[Fecha] ) <= TODAY ()
+			RETURN
+			    CALCULATE (
+			        [Plan Transacciones],
+			        CALCULATETABLE (
+			            Fecha,
+			            DATESMTD ( Fecha[Fecha] ),
+			            Fecha[Offset] = 0,
+			            Fecha[Fecha] <= TODAY ()
+			        )
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Plan Transacciones
+		lineageTag: a2378cb0-b2ab-424e-bbf8-47a0349d9912
+
+	measure 'Plan Trafico Acumulado Mes Actual' =
+			VAR _flag =
+			    MAX ( Fecha[Fecha] ) <= TODAY ()
+			RETURN
+			    CALCULATE (
+			        [Plan Trafico],
+			        CALCULATETABLE (
+			            Fecha,
+			            DATESMTD ( Fecha[Fecha] ),
+			            Fecha[Offset] = 0,
+			            Fecha[Fecha] <= TODAY ()
+			        )
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Plan Trafico
+		lineageTag: 8b6430a3-cd55-48dc-9dc5-d71e65d53aef
+
+	measure _hayVenta = DIVIDE ( [Venta] , [Venta] )
+		formatString: #,0
+		displayFolder: _validaciones
+		lineageTag: d8878bcf-ab34-4afc-877a-86e12cd954d0
+
+	measure 'Venta Prom. Mes Anterior - mds' =
+			VAR _offSet = -1
+			VAR _curWeekDay =
+			    LOOKUPVALUE ( Fecha[Num. dia Semana], Fecha[Fecha], TODAY () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Venta] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Num. dia Semana] = _curWeekDay,
+			        Fecha[Offset] = -1
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Promedios Diarios - mismo dia semana
+		lineageTag: d8f67065-575c-4c33-a55d-6c7fd1d1ec5c
+
+	measure 'Venta Prom. Año Anterior - mds' =
+			VAR _evalYear =
+			    YEAR ( TODAY () ) - 1
+			VAR _curWeekDay =
+			    LOOKUPVALUE ( Fecha[Num. dia Semana], Fecha[Fecha], TODAY () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Venta] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Num. dia Semana] = _curWeekDay,
+			        Fecha[Año] = _evalYear
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Promedios Diarios - mismo dia semana
+		lineageTag: e8bd430b-1037-40eb-8243-212448d3b5af
+
+	measure 'Venta Prom. Semana Pasada' =
+			VAR _prevWeek =
+			    LOOKUPVALUE ( Fecha[NumAnoSemana], Fecha[Fecha], TODAY () - 7 )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Venta] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[NumAnoSemana] = _prevWeek
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Promedios Diarios
+		lineageTag: 7b6eba9b-cc7e-4528-a220-f5d3752aba02
+
+	measure 'Conversion Prom. Semana Pasada' =
+			VAR _prevWeek =
+			    LOOKUPVALUE ( Fecha[NumAnoSemana], Fecha[Fecha], TODAY () - 7 )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Conversion] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[NumAnoSemana] = _prevWeek
+			    )
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion\Promedios Diarios
+		lineageTag: 52e65ca2-c045-46c9-a610-5171254a25f4
+
+	measure 'Conversion Prom. Año Anterior - mds' =
+			VAR _evalYear =
+			    YEAR ( TODAY () ) - 1
+			VAR _curWeekDay =
+			    LOOKUPVALUE ( Fecha[Num. dia Semana], Fecha[Fecha], TODAY () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Conversion] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Num. dia Semana] = _curWeekDay,
+			        Fecha[Año] = _evalYear
+			    )
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion\Promedios Diarios - mismo dia semana
+		lineageTag: 1d295e5f-ce3c-4c12-8041-f198d1aa3005
+
+	measure 'Conversion Prom. Mes Anterior - mds' =
+			VAR _offSet = -1
+			VAR _curWeekDay =
+			    LOOKUPVALUE ( Fecha[Num. dia Semana], Fecha[Fecha], TODAY () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Conversion] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Num. dia Semana] = _curWeekDay,
+			        Fecha[Offset] = -1
+			    )
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion\Promedios Diarios - mismo dia semana
+		lineageTag: 473896ad-b40e-490a-8d57-7fb5d6ea3bc3
+
+	measure 'Transacciones Prom. Semana Pasada' =
+			VAR _prevWeek =
+			    LOOKUPVALUE ( Fecha[NumAnoSemana], Fecha[Fecha], TODAY () - 7 )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Transacciones] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[NumAnoSemana] = _prevWeek
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Promedios Diarios
+		lineageTag: eef4f95b-1ef9-49e8-9964-37f2eafb1548
+
+	measure 'Transacciones Prom. Año Anterior - mds' =
+			VAR _evalYear =
+			    YEAR ( TODAY () ) - 1
+			VAR _curWeekDay =
+			    LOOKUPVALUE ( Fecha[Num. dia Semana], Fecha[Fecha], TODAY () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Transacciones] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Num. dia Semana] = _curWeekDay,
+			        Fecha[Año] = _evalYear
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Promedios Diarios - mismo dia semana
+		lineageTag: 06cacd91-bf07-499c-93d0-6a2c5e83186f
+
+	measure 'Transacciones Prom. Mes Anterior - mds' =
+			VAR _offSet = -1
+			VAR _curWeekDay =
+			    LOOKUPVALUE ( Fecha[Num. dia Semana], Fecha[Fecha], TODAY () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Transacciones] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Num. dia Semana] = _curWeekDay,
+			        Fecha[Offset] = -1
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones\Promedios Diarios - mismo dia semana
+		lineageTag: d92c54e2-03c1-4771-932c-6c7e4d4bacb9
+
+	measure 'Trafico Prom. Semana Pasada' =
+			VAR _prevWeek =
+			    LOOKUPVALUE ( Fecha[NumAnoSemana], Fecha[Fecha], TODAY () - 7 )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Trafico TMS] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[NumAnoSemana] = _prevWeek
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Promedios Diarios
+		lineageTag: 892da224-0358-40e7-8058-c9d1d0566ec4
+
+	measure 'Trafico Prom. Año Anterior - mds' =
+			VAR _evalYear =
+			    YEAR ( TODAY () ) - 1
+			VAR _curWeekDay =
+			    LOOKUPVALUE ( Fecha[Num. dia Semana], Fecha[Fecha], TODAY () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Trafico TMS] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Num. dia Semana] = _curWeekDay,
+			        Fecha[Año] = _evalYear
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Promedios Diarios - mismo dia semana
+		lineageTag: 723b5c83-c043-4425-9f91-d27b3a685177
+
+	measure 'Trafico Prom. Mes Anterior - mds' =
+			VAR _offSet = -1
+			VAR _curWeekDay =
+			    LOOKUPVALUE ( Fecha[Num. dia Semana], Fecha[Fecha], TODAY () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Trafico TMS] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Num. dia Semana] = _curWeekDay,
+			        Fecha[Offset] = -1
+			    )
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico\Promedios Diarios - mismo dia semana
+		lineageTag: ca0bfa46-ce89-4038-8725-d207b44ea40e
+
+	/// \$#,0;(\$#,0);\$#,0
+	measure 'Venta MTD LM' =
+			CALCULATE (
+			    [Venta],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        PREVIOUSMONTH ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		isHidden
+		displayFolder: Venta Acumulada\MTD LM
+		lineageTag: 13db3ea8-ebf9-427d-b57c-6430475c7fc3
+
+	measure 'Unidades MTD LM' =
+			CALCULATE (
+			    [Unidades],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        PREVIOUSMONTH ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		isHidden
+		displayFolder: Venta Acumulada\MTD LM
+		lineageTag: 22710a09-c84d-4eed-b7b8-934711471255
+
+	measure 'Transacciones MTD LM' =
+			CALCULATE (
+			    [Transacciones],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        PREVIOUSMONTH ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		isHidden
+		displayFolder: Venta Acumulada\MTD LM
+		lineageTag: c8e7c0a1-1725-4758-a1db-2f9df0173e0a
+
+	measure 'Trafico MTD LM' =
+			CALCULATE (
+			    [Trafico],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        PREVIOUSMONTH ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		isHidden
+		displayFolder: Venta Acumulada\MTD LM
+		lineageTag: 1764f47a-f00e-4286-8441-7c5c46bd8e00
+
+	measure 'Ratio Conversion MTD LM' =
+			CALCULATE (
+			    [Conversion],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        PREVIOUSMONTH ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0 %
+		isHidden
+		displayFolder: Venta Acumulada\MTD LM
+		lineageTag: 40f79ad9-029e-4a3a-96c6-f95697c63615
+
+	/// \$#,0;(\$#,0);\$#,0
+	measure 'Margen MTD LM' =
+			CALCULATE (
+			    [Margen],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        PREVIOUSMONTH ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		isHidden
+		displayFolder: Venta Acumulada\MTD LM
+		lineageTag: 8cb742c2-6e2b-4431-987c-16493a32818f
+
+	measure 'Costo Venta MTD LM' =
+			CALCULATE (
+			    [Costo Venta],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        PREVIOUSMONTH ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		isHidden
+		displayFolder: Venta Acumulada\MTD LM
+		lineageTag: 079aa3d2-565b-4b7a-8ffb-2f8e7ca2388c
+
+	measure 'Fechas Seleccionadas MTD' =
+			VAR _firstDate =
+			    CALCULATE (
+			        MIN ( Fecha[Fecha] ),
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			VAR _lastDate =
+			    CALCULATE ( MAX ( Fecha[Fecha] ), Fecha[DiasConVenta] = TRUE () )
+			RETURN
+			    IF (
+			        ISBLANK ( _lastDate ),
+			        BLANK (),
+			        FORMAT ( _firstDate, "DD" ) & " al "
+			            & FORMAT ( _lastDate, "DD MMM. YYYY" )
+			    )
+		displayFolder: Venta Acumulada\Mes a la Fecha
+		lineageTag: 69506d48-4c7b-4f86-aa2d-0adcf8ba1b2f
+
+	measure 'Venta MTD YRA' =
+			CALCULATE (
+			    [Venta YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Venta MTD
+		lineageTag: 37766c32-7522-4056-a1d4-9c3e7b15456a
+
+	measure 'Venta MTD' =
+			CALCULATE (
+			    [Venta],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Venta MTD
+		lineageTag: 29609f58-0079-4baa-a705-62767a3ab6ae
+
+	measure 'Var Venta MTD' =
+			CALCULATE (
+			    [Var Venta],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Venta MTD
+		lineageTag: ebc0a4f1-ff29-4a06-bc98-411d713108b7
+
+	measure 'Var % Venta MTD' =
+			CALCULATE (
+			    [Var % Venta],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Venta MTD
+		lineageTag: 8110b394-59a9-4006-b7db-f3a825463dd1
+
+	measure 'Plan Venta Total Mes' =
+			CALCULATE (
+			    [Plan Venta],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ) ,
+			        Fecha[Offset] <= 0
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Venta MTD\Plan Venta MTD
+		lineageTag: 42a5ce2c-5f09-4dac-94c4-c65339d9d85c
+
+	measure 'Plan Venta MTD' =
+			CALCULATE (
+			    [Plan Venta],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Venta MTD\Plan Venta MTD
+		lineageTag: 96d24918-a6c7-47ac-a797-c7c1b507914e
+
+	measure 'Dif. Plan Venta MTD' =
+			CALCULATE (
+			    [Dif. Plan Venta],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Venta MTD\Plan Venta MTD
+		lineageTag: da663d59-275e-482a-a3a2-3e77e4741fd7
+
+	measure 'Alcance Plan Venta Total Mes' =
+			CALCULATE (
+			    [Alcance Plan Venta],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[Offset] <= 0
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Venta MTD\Plan Venta MTD
+		lineageTag: ca42f62c-115e-4d50-94cf-acca5841f2da
+
+	measure 'Alcance Plan Venta MTD' =
+			CALCULATE (
+			    [Alcance Plan Venta],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Venta MTD\Plan Venta MTD
+		lineageTag: 58d55740-8a01-4744-8e6b-9da23cd0c412
+
+	measure 'Var UPT MTD' =
+			CALCULATE (
+			    [Var UPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0
+		displayFolder: Venta Acumulada\Mes a la Fecha\UPT MTD
+		lineageTag: 80020fbe-1a03-4835-97c8-00d198a0c813
+
+	measure 'Var % UPT MTD' =
+			CALCULATE (
+			    [Var % UPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\UPT MTD
+		lineageTag: a66fc916-45f5-49c4-8ed4-11fe9d8ef000
+
+	measure 'UPT MTD YRA' =
+			CALCULATE (
+			    [UPT YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0
+		displayFolder: Venta Acumulada\Mes a la Fecha\UPT MTD
+		lineageTag: 2c491712-8fd6-4283-87c7-9401041f6065
+
+	measure 'UPT MTD' =
+			CALCULATE (
+			    [UPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0
+		displayFolder: Venta Acumulada\Mes a la Fecha\UPT MTD
+		lineageTag: 98243f64-12bc-4846-bf00-43e09408817e
+
+	measure 'Plan UPT MTD' =
+			CALCULATE (
+			    [Plan UPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0
+		displayFolder: Venta Acumulada\Mes a la Fecha\UPT MTD\Plan UPT MTD
+		lineageTag: 45a2dae9-87a1-4c29-a93f-61bedbe08af0
+
+	measure 'Dif. Plan UPT MTD' =
+			CALCULATE (
+			    [Dif. Plan UPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0
+		displayFolder: Venta Acumulada\Mes a la Fecha\UPT MTD\Plan UPT MTD
+		lineageTag: 072a2694-5733-49d2-84ad-c916f947571c
+
+	measure 'Alcance Plan UPT MTD' =
+			CALCULATE (
+			    [Alcance Plan UPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\UPT MTD\Plan UPT MTD
+		lineageTag: 6a352fca-0980-4668-9f79-54f3247578ca
+
+	measure 'Var Unidades MTD' =
+			CALCULATE (
+			    [Var Unidades],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Unidades MTD
+		lineageTag: 0be78cb5-015a-4d6d-988c-0d4cc73ce03d
+
+	measure 'Var % Unidades MTD' =
+			CALCULATE (
+			    [Var % Unidades],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Unidades MTD
+		lineageTag: 7fa0b9ba-ae4c-4614-89a3-ed8ab3608050
+
+	measure 'Unidades MTD YRA' =
+			CALCULATE (
+			    [Unidades YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Unidades MTD
+		lineageTag: 5059e54d-71eb-41e1-b2e8-372b04682f51
+
+	measure 'Unidades MTD' =
+			CALCULATE (
+			    [Unidades],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Unidades MTD
+		lineageTag: 052a4979-db59-4d9a-bc39-bb98b79c2e3d
+
+	measure 'Plan Unidades Total Mes' =
+			CALCULATE (
+			    [Plan Unidades],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[Offset] <= 0
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Unidades MTD\Plan Unidades MTD
+		lineageTag: a5f32baa-b615-491b-aca5-e29fa76b1330
+
+	measure 'Plan Unidades MTD' =
+			CALCULATE (
+			    [Plan Unidades],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Unidades MTD\Plan Unidades MTD
+		lineageTag: 6ac1eb19-c885-4f52-b83f-1471ef9572f8
+
+	measure 'Dif. Plan Unidades MTD' =
+			CALCULATE (
+			    [Dif. Plan Unidades],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Unidades MTD\Plan Unidades MTD
+		lineageTag: 7da796d3-0585-4040-b997-085c0188b844
+
+	measure 'Alcance Plan Unidades MTD' =
+			CALCULATE (
+			    [Alcance Plan Unidades],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Unidades MTD\Plan Unidades MTD
+		lineageTag: 49387c09-48a6-4bb7-ad30-05668882d328
+
+	measure 'Var Transacciones MTD' =
+			CALCULATE (
+			    [Var Transacciones],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Transacciones MTD
+		lineageTag: 2c0fa02c-4b18-4ae6-b5d1-5d837d2ae19d
+
+	measure 'Var Transacciones % MTD' =
+			CALCULATE (
+			    [Var % Transacciones],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Transacciones MTD
+		lineageTag: dbd04409-cd51-41b9-913f-c7d906ef52ef
+
+	measure 'Transacciones MTD YRA' =
+			CALCULATE (
+			    [Transacciones YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Transacciones MTD
+		lineageTag: 32dbcbe7-c982-4dbd-9f88-ccba2edd124c
+
+	measure 'Transacciones MTD' =
+			CALCULATE (
+			    [Transacciones],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Transacciones MTD
+		lineageTag: f5542e6f-cff7-42cf-8c9c-54d44fb8563f
+
+	measure 'Plan Transacciones Total Mes' =
+			CALCULATE (
+			    [Plan Transacciones],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[Offset] <= 0
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Transacciones MTD\Plan Transacciones MTD
+		lineageTag: 69f4c8df-be9b-4850-923e-e857d2f1d0a1
+
+	measure 'Plan Transacciones MTD' =
+			CALCULATE (
+			    [Plan Transacciones],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Transacciones MTD\Plan Transacciones MTD
+		lineageTag: bfe01873-c7be-4da7-9f11-b03dd2d3745f
+
+	measure 'Dif. Plan Transacciones MTD' =
+			CALCULATE (
+			    [Dif. Plan Transacciones],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Transacciones MTD\Plan Transacciones MTD
+		lineageTag: e5fda23b-9a37-4ad7-a5f1-c8d05b44138f
+
+	measure 'Alcance Plan Transacciones MTD' =
+			CALCULATE (
+			    [Alcance Plan Transacciones],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Transacciones MTD\Plan Transacciones MTD
+		lineageTag: 77302bc4-0967-4d58-833b-4edac7d02eef
+
+	measure 'Var Trafico TMS MTD' =
+			CALCULATE (
+			    [Var Trafico TMS],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico TMS MTD
+		lineageTag: e79404a7-8c51-4f02-a341-19724752747d
+
+	measure 'Var % Trafico TMS MTD' =
+			CALCULATE (
+			    [Var % Trafico TMS],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico TMS MTD
+		lineageTag: fc2aa634-a5b2-425c-b75b-a6fd662ca989
+
+	measure 'Trafico TMS MTD YRA' =
+			CALCULATE (
+			    [Trafico TMS YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico TMS MTD
+		lineageTag: 14a9213d-05e8-4857-9017-cfddfd063e93
+
+	measure 'Trafico TMS MTD' =
+			CALCULATE (
+			    [Trafico TMS],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico TMS MTD
+		lineageTag: 32a86697-bd78-43d5-bedf-8468b1d00050
+
+	measure 'Plan Trafico Total Mes' =
+			CALCULATE (
+			    [Plan Trafico],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[Offset] <= 0
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico TMS MTD\Plan Trafico TMS MTD
+		lineageTag: 6c7872c1-e1b6-4661-882c-bb4b2e5f3c59
+
+	measure 'Plan Trafico MTD' =
+			CALCULATE (
+			    [Plan Trafico],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico TMS MTD\Plan Trafico TMS MTD
+		lineageTag: 594e0262-97c7-478a-bb91-f2ac3ebc1a6e
+
+	measure 'Dif. Plan Trafico MTD' =
+			CALCULATE (
+			    [Dif. Plan Trafico],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico TMS MTD\Plan Trafico TMS MTD
+		lineageTag: a062ced6-3587-45ac-9b56-94aff012ab44
+
+	measure 'Alcance Plan Trafico MTD' =
+			CALCULATE (
+			    [Alcance Plan Trafico],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico TMS MTD\Plan Trafico TMS MTD
+		lineageTag: 1d8240d0-6eb5-4849-8fc8-f2c3629e438c
+
+	measure 'Var Trafico MTD' =
+			CALCULATE (
+			    [Var Trafico],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico MTD
+		lineageTag: ca24b900-9796-4015-a779-8129c8a5a827
+
+	measure 'Var % Trafico MTD' =
+			CALCULATE (
+			    [Var % Trafico],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico MTD
+		lineageTag: 184658fa-2237-4107-99fc-2ce0539ca9e4
+
+	measure 'Trafico MTD YRA' =
+			CALCULATE (
+			    [Trafico YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico MTD
+		lineageTag: ece3bf20-8082-4e3b-af54-771d62938843
+
+	measure 'Trafico MTD' =
+			CALCULATE (
+			    [Trafico],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Trafico MTD
+		lineageTag: cffe007f-efbb-4672-ab28-a23b6c4239e3
+
+	measure 'Var Margen MTD' =
+			CALCULATE (
+			    [Var Margen],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Margen Bruto MTD
+		lineageTag: 8b48606d-0e26-450f-bf63-e5978a1c9840
+
+	measure 'Var % Margen MTD' =
+			CALCULATE (
+			    [Var % Margen],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Margen Bruto MTD
+		lineageTag: 386cb7df-5b73-447b-83a6-5f6b42026325
+
+	measure 'Margen MTD YRA' =
+			CALCULATE (
+			    [Margen YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Margen Bruto MTD
+		lineageTag: 0549330b-d10e-43d1-a9da-81bfbf4c2a84
+
+	measure 'Margen MTD' =
+			CALCULATE (
+			    [Margen],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Margen Bruto MTD
+		lineageTag: ca1e9d19-6724-4819-aedd-4dbc23498a77
+
+	measure 'Margen % MTD YRA' =
+			CALCULATE (
+			    [% Margen YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Margen Bruto MTD
+		lineageTag: f70fd5aa-4bd8-481e-8f0f-95c76d84cce5
+
+		changedProperty = FormatString
+
+	measure 'Margen % MTD' =
+			CALCULATE (
+			    [% Margen],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Margen Bruto MTD
+		lineageTag: 94ce8fce-1937-4bfc-a9df-452cffb1eefb
+
+		changedProperty = FormatString
+
+	measure 'Plan Margen MTD' =
+			CALCULATE (
+			    [Plan Margen],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Margen Bruto MTD\Plan Margen MTD
+		lineageTag: 96f0723b-c8b0-4691-8096-e36c723ac303
+
+	measure 'Dif. Plan Margen MTD' =
+			CALCULATE (
+			    [Dif. Plan Margen],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Margen Bruto MTD\Plan Margen MTD
+		lineageTag: 0fad7f6c-5c7c-4952-93c3-f8723ad20fb8
+
+	measure 'Alcance Plan Margen MTD' =
+			CALCULATE (
+			    [Alcance Plan Margen],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Margen Bruto MTD\Plan Margen MTD
+		lineageTag: 4ce30b7d-24c2-4740-b475-93d89bdc8a16
+
+	measure 'Var DPT MTD' =
+			CALCULATE (
+			    [Var DPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Mes a la Fecha\DPT MTD
+		lineageTag: 9781d5a4-09ba-4cf3-96fb-5ab5de5aac3b
+
+	measure 'Var % DPT MTD' =
+			CALCULATE (
+			    [Var % DPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\DPT MTD
+		lineageTag: cac5d9be-2236-4fde-8857-9f628b5eb7b3
+
+	measure 'DPT MTD YRA' =
+			CALCULATE (
+			    [DPT YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Mes a la Fecha\DPT MTD
+		lineageTag: 179e6775-1106-4fec-93fe-1ff930808900
+
+	measure 'DPT MTD' =
+			CALCULATE (
+			    [DPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Mes a la Fecha\DPT MTD
+		lineageTag: 957fec1a-04ed-44ef-a2ac-032a7cdd33ca
+
+	measure 'Plan DPT MTD' =
+			CALCULATE (
+			    [Plan DPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Mes a la Fecha\DPT MTD\Plan DPT MTD
+		lineageTag: 61574fe7-468d-4d4b-9988-4201532d6542
+
+	measure 'Dif. Plan DPT MTD' =
+			CALCULATE (
+			    [Dif. Plan DPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Mes a la Fecha\DPT MTD\Plan DPT MTD
+		lineageTag: 23fd2927-6f24-4cdc-b312-856d4d32dfa1
+
+	measure 'Alcance Plan DPT MTD' =
+			CALCULATE (
+			    [Alcance Plan DPT],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\DPT MTD\Plan DPT MTD
+		lineageTag: 6b6dc148-a13b-44a8-bde2-1b214d2dbea6
+
+	measure 'Var Costo MTD' =
+			CALCULATE (
+			    [Var Costo],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Costo de Venta MTD
+		lineageTag: 3ba7d625-44ff-451e-a2ad-522be486c511
+
+	measure 'Var % Costo MTD' =
+			CALCULATE (
+			    [Var % Costo],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Costo de Venta MTD
+		lineageTag: d28db7f4-fa26-4c63-9bbb-ad94dda1c6f7
+
+	measure 'Costo MTD YRA' =
+			CALCULATE (
+			    [Costo YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Costo de Venta MTD
+		lineageTag: 79002730-e469-4cfa-a476-e2408506580d
+
+	measure 'Costo MTD' =
+			CALCULATE (
+			    [Costo Venta],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\Costo de Venta MTD
+		lineageTag: b8c524eb-7f74-4201-9300-24e09bfe56f0
+
+	measure 'Var Conversion MTD' =
+			CALCULATE (
+			    [Var Conversion],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Conversion MTD
+		lineageTag: a24a460c-0544-4a6c-b702-9abdd14a7660
+
+	measure 'Var % Conversion MTD' =
+			CALCULATE (
+			    [Var % Conversion],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Conversion MTD
+		lineageTag: 4b4274e9-b941-4f90-9d77-f8ea62118bff
+
+	measure 'Plan Conversion MTD' =
+			CALCULATE (
+			    [Plan Conversion],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Conversion MTD
+		lineageTag: 53f936e6-d910-4bdc-be7b-79d1871a1e5f
+
+	measure 'Conversion MTD YRA' =
+			CALCULATE (
+			    [Conversion YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Conversion MTD
+		lineageTag: 0703056d-15f9-4b58-b359-47bebdb392a4
+
+	measure 'Conversion MTD' =
+			CALCULATE (
+			    [Conversion],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Conversion MTD
+		lineageTag: d372b384-04b0-4771-aadf-b5211f62afd9
+
+	measure 'Alcance Plan Conversion MTD' = DIVIDE ( [Conversion MTD] , [Plan Conversion MTD] )
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\Conversion MTD
+		lineageTag: ef067cf6-3645-4d24-bdae-5b4410d4b53f
+
+	measure 'Var AUV MTD' =
+			CALCULATE (
+			    [Var AUV],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUV MTD
+		lineageTag: db53fb4d-f0ab-4991-b0a2-a8691afb0fb2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Var % AUV MTD' =
+			CALCULATE (
+			    [Var % AUV],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUV MTD
+		lineageTag: c68e8a64-afe2-4bd4-934e-c52b600b633e
+
+	measure 'AUV MTD YRA' =
+			CALCULATE (
+			    [AUV YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUV MTD
+		lineageTag: acc16af5-0061-4403-b404-61d2fe7f8a61
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AUV MTD' =
+			CALCULATE (
+			    [AUV],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUV MTD
+		lineageTag: dda14f3d-7833-41e7-8652-6fda099ef271
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Var AUR MTD' =
+			CALCULATE (
+			    [Var AUR],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUR MTD
+		lineageTag: 214d6ea4-ee59-46aa-98b6-ca6cb5eb2c4f
+
+	measure 'Var % AUR MTD' =
+			CALCULATE (
+			    [Var % AUR],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUR MTD
+		lineageTag: 325b35ed-e95c-4dbf-9441-e3338ba0945d
+
+	measure 'AUR MTD YRA' =
+			CALCULATE (
+			    [AUR YRA],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUR MTD
+		lineageTag: b6b5df84-387f-40dc-a74e-ac599c8762ba
+
+	measure 'AUR MTD' =
+			CALCULATE (
+			    [AUR],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUR MTD
+		lineageTag: c7d5a1e7-590e-447a-ae00-b23e8df48b02
+
+	measure 'Plan AUR MTD' =
+			CALCULATE (
+			    [Plan AUR],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUR MTD\Plan AUR MTD
+		lineageTag: b7cb12e5-ef93-4a8f-865d-4af7d3c1ccb7
+
+	measure 'Dif. Plan AUR MTD' =
+			CALCULATE (
+			    [Dif. Plan AUR],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUR MTD\Plan AUR MTD
+		lineageTag: 9fdb620d-b528-4361-815e-e033e797ac34
+
+	measure 'Alcance Plan AUR MTD' =
+			CALCULATE (
+			    [Alcance Plan AUR],
+			    CALCULATETABLE (
+			        DATESMTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Mes a la Fecha\AUR MTD\Plan AUR MTD
+		lineageTag: fd3c3837-1e12-4a64-be94-d5e2e52da291
+
+	measure 'Venta YTD YRA' =
+			CALCULATE (
+			    [Venta YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Venta YTD
+		lineageTag: 4c375c16-42ac-472a-b226-bfa0beea52c8
+
+	measure 'Venta YTD' =
+			CALCULATE (
+			    [Venta],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Venta YTD
+		lineageTag: 65905ff4-09c9-497b-a03f-a32683330a21
+
+	measure 'Var Venta YTD' =
+			CALCULATE (
+			    [Var Venta],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Venta YTD
+		lineageTag: e06b6b4e-bdc9-4ec0-a5a3-5339f2ea5f29
+
+	measure 'Var % Venta YTD' =
+			CALCULATE (
+			    [Var % Venta],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Venta YTD
+		lineageTag: d48b0ec5-1153-4873-b86e-a5581aa07019
+
+	measure 'Plan Venta YTD' =
+			CALCULATE (
+			    [Plan Venta],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Venta YTD\Plan Venta YTD
+		lineageTag: 6bc7a7b6-be92-41d6-b559-c4300ec4ed22
+
+	measure 'Dif. Plan Venta YTD' =
+			CALCULATE (
+			    [Dif. Plan Venta],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Venta YTD\Plan Venta YTD
+		lineageTag: c4ad5375-a741-4e82-8582-bcb53ccd2e2c
+
+	measure 'Alcance Plan Venta YTD' =
+			CALCULATE (
+			    [Alcance Plan Venta],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Venta YTD\Plan Venta YTD
+		lineageTag: 233dcaa6-c3f7-4b68-997e-82e92aa46ffd
+
+	measure 'Var UPT YTD' =
+			CALCULATE (
+			    [Var UPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0
+		displayFolder: Venta Acumulada\Año a la Fecha\UPT YTD
+		lineageTag: 1742dd11-5957-42e4-a15a-44a44b874944
+
+	measure 'Var % UPT YTD' =
+			CALCULATE (
+			    [Var % UPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\UPT YTD
+		lineageTag: 7330448c-97c0-48ea-b557-9efd6654d797
+
+	measure 'UPT YTD YRA' =
+			CALCULATE (
+			    [UPT YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0
+		displayFolder: Venta Acumulada\Año a la Fecha\UPT YTD
+		lineageTag: 80785804-8182-4609-b66e-ccfdc383d301
+
+	measure 'UPT YTD' =
+			CALCULATE (
+			    [UPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0
+		displayFolder: Venta Acumulada\Año a la Fecha\UPT YTD
+		lineageTag: baffef16-40f9-4906-a61d-c3a9d8f94d8e
+
+	measure 'Plan UPT YTD' =
+			CALCULATE (
+			    [Plan UPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0
+		displayFolder: Venta Acumulada\Año a la Fecha\UPT YTD\Plan UPT YTD
+		lineageTag: 49d75629-48c2-4a27-944a-d4f8af172b6a
+
+	measure 'Dif. Plan UPT YTD' =
+			CALCULATE (
+			    [Dif. Plan UPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0
+		displayFolder: Venta Acumulada\Año a la Fecha\UPT YTD\Plan UPT YTD
+		lineageTag: 1a323a81-f380-4e34-8fed-b187c3d534a5
+
+	measure 'Alcance Plan UPT YTD' =
+			CALCULATE (
+			    [Alcance Plan UPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\UPT YTD\Plan UPT YTD
+		lineageTag: e63288e9-a4e4-4860-aa27-dd53ab55d6b1
+
+	measure 'Var Unidades YTD' =
+			CALCULATE (
+			    [Var Unidades],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Unidades YTD
+		lineageTag: 80c27eb5-0f38-4cf0-92d2-f23d2a42b06a
+
+	measure 'Var % Unidades YTD' =
+			CALCULATE (
+			    [Var % Unidades],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Unidades YTD
+		lineageTag: aac2bdc0-cae1-455d-abec-c7a2bbf841aa
+
+	measure 'Unidades YTD YRA' =
+			CALCULATE (
+			    [Unidades YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Unidades YTD
+		lineageTag: 4df2a886-3cad-4dc5-86c0-9ea1c526532f
+
+	measure 'Unidades YTD' =
+			CALCULATE (
+			    [Unidades],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Unidades YTD
+		lineageTag: 5a35eaec-5844-4060-a3fc-65c51c6ccbba
+
+	measure 'Plan Unidades YTD' =
+			CALCULATE (
+			    [Plan Unidades],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Unidades YTD\Plan Unidades YTD
+		lineageTag: 9dac8815-05dd-4e88-be8d-460b20533c69
+
+	measure 'Dif. Plan Unidades YTD' =
+			CALCULATE (
+			    [Dif. Plan Unidades],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Unidades YTD\Plan Unidades YTD
+		lineageTag: dec2f564-2bb8-4784-b2ce-b153a007e358
+
+	measure 'Alcance Plan Unidades YTD' =
+			CALCULATE (
+			    [Alcance Plan Unidades],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Unidades YTD\Plan Unidades YTD
+		lineageTag: 6d4ca146-ed18-4bf2-bb99-cedeab433ad8
+
+	measure 'Var Transacciones YTD' =
+			CALCULATE (
+			    [Var Transacciones],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Transacciones YTD
+		lineageTag: 7a5946b6-b91f-4040-95fd-5ad70aa32d3f
+
+	measure 'Var Transacciones % YTD' =
+			CALCULATE (
+			    [Var % Transacciones],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Transacciones YTD
+		lineageTag: 5f83154b-3bbd-4bef-89d8-5672afb33417
+
+	measure 'Transacciones YTD YRA' =
+			CALCULATE (
+			    [Transacciones YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Transacciones YTD
+		lineageTag: 389a0c6c-271e-439e-94eb-9bb3d78ec485
+
+	measure 'Transacciones YTD' =
+			CALCULATE (
+			    [Transacciones],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Transacciones YTD
+		lineageTag: a25e8fe8-3eeb-49ba-ac29-bf5cd87e3b3a
+
+	measure 'Plan Transacciones YTD' =
+			CALCULATE (
+			    [Plan Transacciones],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Transacciones YTD\Plan Transacciones YTD
+		lineageTag: 883aca01-9a30-4aa4-9db2-49c035e5df22
+
+	measure 'Dif. Plan Transacciones YTD' =
+			CALCULATE (
+			    [Dif. Plan Transacciones],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Transacciones YTD\Plan Transacciones YTD
+		lineageTag: 08ae9133-0b65-4db1-9057-8deeecbb8bee
+
+	measure 'Alcance Plan Transacciones YTD' =
+			CALCULATE (
+			    [Alcance Plan Transacciones],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Transacciones YTD\Plan Transacciones YTD
+		lineageTag: 2a6606e6-42a8-4193-bbbc-4f31999b0243
+
+	measure 'Var Trafico YTD' =
+			CALCULATE (
+			    [Var Trafico],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico YTD
+		lineageTag: 56840b1d-ce81-4d52-9834-d31d91c05f04
+
+	measure 'Var % Trafico YTD' =
+			CALCULATE (
+			    [Var % Trafico],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico YTD
+		lineageTag: a8395cd4-5efc-49c7-adfb-6d4bd9f7d3f8
+
+	measure 'Trafico YTD YRA' =
+			CALCULATE (
+			    [Trafico YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico YTD
+		lineageTag: 19c094fe-bad4-46d2-832d-640199d258c8
+
+	measure 'Trafico YTD' =
+			CALCULATE (
+			    [Trafico],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico YTD
+		lineageTag: c964fb94-4ece-4835-9a62-e05aa4ad70fa
+
+	measure 'Var Trafico TMS YTD' =
+			CALCULATE (
+			    [Var Trafico TMS],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico TMS YTD
+		lineageTag: bf70e42d-7657-4e77-a9fa-7fd09c06bf0e
+
+	measure 'Var % Trafico TMS YTD' =
+			CALCULATE (
+			    [Var % Trafico TMS],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico TMS YTD
+		lineageTag: 7b553133-d1d7-4801-aaaf-911a3a894b10
+
+	measure 'Trafico TMS YTD YRA' =
+			CALCULATE (
+			    [Trafico TMS YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico TMS YTD
+		lineageTag: 49646d57-6b76-429d-9e04-cfee3f09e0f4
+
+	measure 'Trafico TMS YTD' =
+			CALCULATE (
+			    [Trafico TMS],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico TMS YTD
+		lineageTag: 65e7683d-15a3-4912-9134-72ee6545ee35
+
+	measure 'Plan Trafico YTD' =
+			CALCULATE (
+			    [Plan Trafico],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico TMS YTD\Plan Trafico TMS YTD
+		lineageTag: 536b6071-3125-4ac0-807c-a6d2f09a1d32
+
+	measure 'Dif. Plan Trafico YTD' =
+			CALCULATE (
+			    [Dif. Plan Trafico],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico TMS YTD\Plan Trafico TMS YTD
+		lineageTag: 3f6a2946-57a2-4c01-94ee-b461975efac9
+
+	measure 'Alcance Plan Trafico YTD' =
+			CALCULATE (
+			    [Alcance Plan Trafico],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Trafico TMS YTD\Plan Trafico TMS YTD
+		lineageTag: f090e0f2-4445-40a8-9266-c83e8fe81bfc
+
+	measure 'Var Margen YTD' =
+			CALCULATE (
+			    [Var Margen],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Margen Bruto YTD
+		lineageTag: e8eac21c-16db-4380-aafd-f0d27d702f12
+
+	measure 'Var % Margen YTD' =
+			CALCULATE (
+			    [Var % Margen],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Margen Bruto YTD
+		lineageTag: 364e719a-5e03-45a1-9deb-f25e77bb43f2
+
+	measure 'Margen YTD YRA' =
+			CALCULATE (
+			    [Margen YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Margen Bruto YTD
+		lineageTag: 8292f626-d0e0-449d-a499-e03a522d4c43
+
+	measure 'Margen YTD' =
+			CALCULATE (
+			    [Margen],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Margen Bruto YTD
+		lineageTag: 58747350-2be2-4648-b643-fccc044c3cf7
+
+	measure 'Margen % YTD YRA' =
+			CALCULATE (
+			    [% Margen YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Venta Acumulada\Año a la Fecha\Margen Bruto YTD
+		lineageTag: fff2a673-2677-4088-9c88-958d86576080
+
+		changedProperty = FormatString
+
+	measure 'Margen % YTD' =
+			CALCULATE (
+			    [% Margen],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Venta Acumulada\Año a la Fecha\Margen Bruto YTD
+		lineageTag: d053e91f-c42b-493a-9b05-b9925551c4e3
+
+		changedProperty = FormatString
+
+	measure 'Plan Margen YTD' =
+			CALCULATE (
+			    [Plan Margen],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Margen Bruto YTD\Plan Margen YTD
+		lineageTag: 2dd2b512-a5be-476e-82f9-86ba00451880
+
+	measure 'Dif. Plan Margen YTD' =
+			CALCULATE (
+			    [Dif. Plan Margen],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Margen Bruto YTD\Plan Margen YTD
+		lineageTag: 4e4f4449-c834-4a8a-a07c-84d38e9c8e49
+
+	measure 'Alcance Plan Margen YTD' =
+			CALCULATE (
+			    [Alcance Plan Margen],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Margen Bruto YTD\Plan Margen YTD
+		lineageTag: fdf8257a-e9f3-4e95-93c0-53c0bc4a3327
+
+	measure 'Var DPT YTD' =
+			CALCULATE (
+			    [Var DPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Año a la Fecha\DPT YTD
+		lineageTag: 852008ef-e076-4dd2-9a49-1a0b03abcbe3
+
+	measure 'Var % DPT YTD' =
+			CALCULATE (
+			    [Var % DPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\DPT YTD
+		lineageTag: a9294784-f406-422b-8ca2-c2311f8ab7dd
+
+	measure 'DPT YTD YRA' =
+			CALCULATE (
+			    [DPT YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Año a la Fecha\DPT YTD
+		lineageTag: 299ceaee-67cc-4655-ab00-bcd93a5b0eb3
+
+	measure 'DPT YTD' =
+			CALCULATE (
+			    [DPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Año a la Fecha\DPT YTD
+		lineageTag: 43882664-2a59-45c0-97a4-2959df20a461
+
+	measure 'Plan DPT YTD' =
+			CALCULATE (
+			    [Plan DPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Año a la Fecha\DPT YTD\Plan DPT YTD
+		lineageTag: 1824efd7-369e-4512-93c4-18244adc785a
+
+	measure 'Dif. Plan DPT YTD' =
+			CALCULATE (
+			    [Dif. Plan DPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Año a la Fecha\DPT YTD\Plan DPT YTD
+		lineageTag: f6b144db-ef9b-4c90-9edb-99181ffbd800
+
+	measure 'Alcance Plan DPT YTD' =
+			CALCULATE (
+			    [Alcance Plan DPT],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\DPT YTD\Plan DPT YTD
+		lineageTag: a9c47baa-8cfa-4473-a14e-53b607b96068
+
+	measure 'Var Costo YTD' =
+			CALCULATE (
+			    [Var Costo],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Costo de Venta YTD
+		lineageTag: a07a6d30-4fdd-4593-af52-ace79f6fb463
+
+	measure 'Var % Costo YTD' =
+			CALCULATE (
+			    [Var % Costo],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Costo de Venta YTD
+		lineageTag: 3553ac65-ce43-42c4-bf5f-24155a4fc5ae
+
+	measure 'Costo YTD YRA' =
+			CALCULATE (
+			    [Costo YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Costo de Venta YTD
+		lineageTag: accae842-0771-4fa0-8055-376f00169b08
+
+	measure 'Costo YTD' =
+			CALCULATE (
+			    [Costo Venta],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\Costo de Venta YTD
+		lineageTag: f6cf53ed-27e3-4061-a30a-8d0992666efe
+
+	measure 'Var Conversion YTD' =
+			CALCULATE (
+			    [Var Conversion],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Conversion YTD
+		lineageTag: 5c70cb8c-1d4f-4f6c-bd64-a65aea7d1342
+
+	measure 'Var % Conversion YTD' =
+			CALCULATE (
+			    [Var % Conversion],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Conversion YTD
+		lineageTag: dcc30bff-4c02-42f0-9dbe-2e63769513d2
+
+	measure 'Conversion YTD YRA' =
+			CALCULATE (
+			    [Conversion YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Conversion YTD
+		lineageTag: fea29ba5-61cb-4ff3-83d3-12ddd652295c
+
+	measure 'Conversion YTD' =
+			CALCULATE (
+			    [Conversion],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\Conversion YTD
+		lineageTag: f8eba4c7-3a21-4830-822b-66fd84de3875
+
+	measure 'Var AUV YTD' =
+			CALCULATE (
+			    [Var AUV],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\AUV YTD
+		lineageTag: eb2729d0-6422-4876-8741-c5146ad7828c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Var % AUV YTD' =
+			CALCULATE (
+			    [Var % AUV],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\AUV YTD
+		lineageTag: 9346f71c-211b-461a-b73e-8351fbfea9e0
+
+	measure 'AUV YTD YRA' =
+			CALCULATE (
+			    [AUV YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\AUV YTD
+		lineageTag: 4738db34-e03a-4a81-85b3-f7722357ad32
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AUV YTD' =
+			CALCULATE (
+			    [AUV],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta Acumulada\Año a la Fecha\AUV YTD
+		lineageTag: 341d4ca4-88ef-427c-9822-48ff65645019
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Var AUR YTD' =
+			CALCULATE (
+			    [Var AUR],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Año a la Fecha\AUR YTD
+		lineageTag: 4eddb985-cb40-483c-902a-67ebcb7623db
+
+	measure 'Var % AUR YTD' =
+			CALCULATE (
+			    [Var % AUR],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\AUR YTD
+		lineageTag: 54811712-9aec-4de3-9d50-65a93f1a65ce
+
+	measure 'AUR YTD YRA' =
+			CALCULATE (
+			    [AUR YRA],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Año a la Fecha\AUR YTD
+		lineageTag: 13a37994-6f4c-41ae-9954-7ad01724097d
+
+	measure 'AUR YTD' =
+			CALCULATE (
+			    [AUR],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Año a la Fecha\AUR YTD
+		lineageTag: a7e1d5f3-b70f-4f1e-afad-1907a5085883
+
+	measure 'Plan AUR YTD' =
+			CALCULATE (
+			    [Plan AUR],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Año a la Fecha\AUR YTD\Plan AUR YTD
+		lineageTag: a7e3216b-6185-4942-8abe-430c8006b1c0
+
+	measure 'Dif. Plan AUR YTD' =
+			CALCULATE (
+			    [Dif. Plan AUR],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta Acumulada\Año a la Fecha\AUR YTD\Plan AUR YTD
+		lineageTag: 9d75ff5b-4d67-4653-8e0a-2d3c0ce40807
+
+	measure 'Alcance Plan AUR YTD' =
+			CALCULATE (
+			    [Alcance Plan AUR],
+			    CALCULATETABLE (
+			        DATESYTD ( Fecha[Fecha] ),
+			        Fecha[DiasConVenta] = TRUE ()
+			    )
+			)
+		formatString: #,0.0 %
+		displayFolder: Venta Acumulada\Año a la Fecha\AUR YTD\Plan AUR YTD
+		lineageTag: 70414438-39ec-415d-8280-11be8ec84a16
+
+	measure 'Fechas Seleccionadas' = ```
+			        VAR IniD =
+			            FIRSTNONBLANK ( Fecha[Fecha], TRUE () )
+			        VAR EndD =
+			            LASTNONBLANK ( Fecha[Fecha], TRUE () )
+			        VAR totalDays =
+			            CALCULATE (
+			                DISTINCTCOUNT ( Fecha[Fecha] ),
+			                ALL ( Fecha ),
+			                Fecha[Fecha] >= IniD,
+			                Fecha[Fecha] <= EndD
+			            )
+			        VAR selectedMonths =
+			            CALCULATE ( DISTINCTCOUNT ( Fecha[NumAnoMes] ) )
+			        VAR selectedDays =
+			            CALCULATE ( DISTINCTCOUNT ( Fecha[Fecha] ) )
+			        VAR isContinuum = totalDays = selectedDays -- 
+			        VAR IniDateText =
+			            FORMAT ( IniD, "dd " ) & UPPER ( LEFT ( FORMAT ( IniD, "MMM" ), 1 ) )
+			                & RIGHT ( FORMAT ( IniD, "MMM." ), 3 )
+			                & IF ( YEAR ( IniD ) = YEAR ( EndD ), "", FORMAT ( IniD, " yyyy" ) )
+			        VAR EndDateText =
+			            FORMAT ( EndD, "dd " ) & UPPER ( LEFT ( FORMAT ( EndD, "MMM" ), 1 ) )
+			                & RIGHT ( FORMAT ( EndD, "MMM." ), 3 )
+			                & FORMAT ( EndD, " yyyy" ) /**/
+			        RETURN
+			            IF (
+			                isContinuum,
+			                IF (
+			                    selectedMonths = 1,
+			                    FORMAT ( IniD, "dd" ) & " al " & EndDateText,
+			                    IniDateText & " al " & EndDateText
+			                ),
+			                "Varias fechas seleccionadas"
+			            )
+			```
+		displayFolder: Venta
+		lineageTag: 595a7df2-9221-4f63-a5f2-4a0d1fcdb7ab
+
+	measure 'Venta YRA' =
+			CALCULATE (
+			    [Venta],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Venta
+		lineageTag: 5a2f9b27-4e28-4d84-8d3b-5b211cd47cb5
+
+	measure Venta = [_baseVenta]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Venta
+		lineageTag: faeda0e9-5f67-4cb4-8cc4-0cbef76ecd5f
+
+	measure 'Var Venta' = [Venta] - [Venta YRA]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Venta
+		lineageTag: 80707d39-795d-405d-95e3-fba76bc48eed
+
+	measure 'Var % Venta' = DIVIDE ( [Venta], [Venta YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Venta
+		lineageTag: ef20362a-1e53-4bc6-ad79-7a8d9e5e5e29
+
+	measure 'Plan Venta' = [_baseMetaVenta]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Venta\Plan Venta
+		lineageTag: b240c7a9-2c50-4f2d-8041-b87b386bb8ea
+
+	measure 'Dif. Plan Venta' = [Venta] - [Plan Venta]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Venta\Plan Venta
+		lineageTag: 902e38c0-b7ef-4fb0-a1c8-efb1f783ff25
+
+	measure 'Alcance Plan Venta' = DIVIDE ( [Venta], [Plan Venta] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Venta\Plan Venta
+		lineageTag: a05b491a-ffd0-44ce-b65e-34c0cbf62d6a
+
+	measure 'Var UPT' = [UPT] - [UPT YRA]
+		formatString: #,#0.0
+		displayFolder: Venta\UPT
+		lineageTag: f0d1f1b8-5b29-4d90-bc7a-d100bd6dc310
+
+	measure 'Var % UPT' = DIVIDE ( [UPT], [UPT YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\UPT
+		lineageTag: b829888b-b39f-4918-91a8-ac6f60a13252
+
+	measure 'UPT YRA' =
+			CALCULATE (
+			    [UPT],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: #,#0.0
+		displayFolder: Venta\UPT
+		lineageTag: 35b722cf-ebbe-4a30-a475-14108951c8ed
+
+	measure UPT = DIVIDE ( [Unidades], [Transacciones] )
+		formatString: #,#0.0
+		displayFolder: Venta\UPT
+		lineageTag: 37163538-8156-4f7a-baac-3cd75f804d28
+
+	measure 'Plan UPT' = [_baseMetaUPT]
+		formatString: #0.0
+		displayFolder: Venta\UPT\Plan UPT
+		lineageTag: c57485ad-c863-4820-8fbc-aab20ac2bce9
+
+	measure 'Dif. Plan UPT' = [UPT] - [Plan UPT]
+		formatString: #0.0
+		displayFolder: Venta\UPT\Plan UPT
+		lineageTag: f5c61083-f4a9-4902-8bdf-ec8f090ba79c
+
+	measure 'Alcance Plan UPT' = DIVIDE ( [UPT], [Plan UPT] )
+		formatString: #,0.0 %
+		displayFolder: Venta\UPT\Plan UPT
+		lineageTag: 1226fd64-68ef-46e5-b0d6-ddc4ab099bd3
+
+	measure 'Var Unidades' = [Unidades] - [Unidades YRA]
+		formatString: #,#0
+		displayFolder: Venta\Unidades
+		lineageTag: c72eb320-5c67-472b-9821-464e06bcf1ec
+
+	measure 'Var % Unidades' = DIVIDE ( [Unidades], [Unidades YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Unidades
+		lineageTag: 965aebdf-0712-476a-b33b-5122283815ff
+
+	measure 'Unidades YRA' =
+			CALCULATE (
+			    [Unidades],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta\Unidades
+		lineageTag: 555e5bb1-e980-428a-b07c-635a15ef0117
+
+	measure Unidades = [_baseUnidades]
+		formatString: #,#0
+		displayFolder: Venta\Unidades
+		lineageTag: 93ae7327-b664-4733-879f-49670165bc99
+
+	measure 'Plan Unidades' = [_baseMetaUnidades]
+		formatString: #,0
+		displayFolder: Venta\Unidades\Plan Unidades
+		lineageTag: a2c018e0-d008-4b44-b008-fd6e0d8c9b72
+
+	measure 'Dif. Plan Unidades' = [Unidades] - [Plan Unidades]
+		formatString: #,0
+		displayFolder: Venta\Unidades\Plan Unidades
+		lineageTag: e19b254d-62cd-428f-9e82-3a61e355fdd9
+
+	measure 'Alcance Plan Unidades' = DIVIDE ( [Unidades] , [Plan Unidades] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Unidades\Plan Unidades
+		lineageTag: 57ad47a0-4beb-48f1-a150-5954a050de1e
+
+	measure 'Var Transacciones' = [Transacciones] - [Transacciones YRA]
+		formatString: #,#0
+		displayFolder: Venta\Transacciones
+		lineageTag: 5e8c1595-4ddc-44fc-bd9c-1e295cf5d4fb
+
+	measure 'Var % Transacciones' = DIVIDE ( [Transacciones], [Transacciones YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Transacciones
+		lineageTag: b015b49f-4170-47ef-88ff-0c120acaecf7
+
+	measure 'Transacciones YRA' =
+			CALCULATE (
+			    [Transacciones],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta\Transacciones
+		lineageTag: 8868f9c7-f387-4f71-aedc-cfd2dd4d86d7
+
+	measure Transacciones = [_baseTransacciones]
+		formatString: #,#0
+		displayFolder: Venta\Transacciones
+		lineageTag: a96014e3-4aa3-447c-96c0-7821a02cec2c
+
+	measure 'Plan Transacciones' = [_baseMetaTransacciones]
+		formatString: #,0
+		displayFolder: Venta\Transacciones\Plan Transacciones
+		lineageTag: 5ce141c6-5270-4e0a-9a39-832ace2bddec
+
+	measure 'Dif. Plan Transacciones' = [Transacciones] - [Plan Transacciones]
+		formatString: #,0
+		displayFolder: Venta\Transacciones\Plan Transacciones
+		lineageTag: 663f541d-b6b5-47ea-a702-5d9d2f1637b4
+
+	measure 'Alcance Plan Transacciones' = DIVIDE ( [Transacciones] , [Plan Transacciones] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Transacciones\Plan Transacciones
+		lineageTag: 165dbe19-bb69-4a4f-bb86-e037ee919671
+
+	measure 'Var Trafico TMS' = [Trafico TMS] - [Trafico TMS YRA]
+		formatString: #,#0
+		displayFolder: Venta\Trafico TMS
+		lineageTag: 97724a7f-ce42-45ad-80cf-f2cda53cd7fd
+
+	measure 'Var % Trafico TMS' = DIVIDE ( [Trafico TMS], [Trafico TMS YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Trafico TMS
+		lineageTag: 2cf8de74-1f1b-4080-b3e0-4ba23678ce71
+
+	measure 'Trafico TMS YRA' =
+			CALCULATE (
+			    [Trafico TMS],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta\Trafico TMS
+		lineageTag: efacb110-3a9c-4995-9a2b-5f0537c7d870
+
+	measure 'Trafico TMS' = [_baseTrafico_TMS]
+		formatString: #,#0
+		displayFolder: Venta\Trafico TMS
+		lineageTag: 59023842-a83c-4863-a275-4e0910adaa2c
+
+	measure 'Plan Trafico' = [_baseMetaTrafico]
+		formatString: #,0
+		displayFolder: Venta\Trafico TMS\Plan Trafico TMS
+		lineageTag: 8442cb78-2978-444b-b86e-b7279c0f9c5d
+
+	measure 'Dif. Plan Trafico' = [Trafico TMS] - [Plan Trafico]
+		formatString: #,0
+		displayFolder: Venta\Trafico TMS\Plan Trafico TMS
+		lineageTag: 4560021a-ab70-4619-96b5-d9a3cf8221a8
+
+	measure 'Alcance Plan Trafico' = DIVIDE ( [Trafico TMS], [Plan Trafico] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Trafico TMS\Plan Trafico TMS
+		lineageTag: dcbeaddf-bdd7-4a84-9013-44ca17f9570b
+
+	measure 'Var Trafico' = [Trafico] - [Trafico YRA]
+		formatString: #,#0
+		displayFolder: Venta\Trafico
+		lineageTag: 0e834376-9307-4501-8b65-1b1b9f24c3cf
+
+	measure 'Var % Trafico' = DIVIDE ( [Trafico], [Trafico YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Trafico
+		lineageTag: b8d31ff1-2fd6-4fdc-8ccd-7c443da2717e
+
+	measure 'Trafico YRA' =
+			CALCULATE (
+			    [Trafico],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: #,#0
+		displayFolder: Venta\Trafico
+		lineageTag: 7144fa96-8442-4043-b272-412c9b214e91
+
+	measure Trafico = [_baseTrafico]
+		formatString: #,#0
+		displayFolder: Venta\Trafico
+		lineageTag: 1edc3090-8e91-416c-ac52-84ea0ebc28b8
+
+	measure 'Var Margen' = [Margen] - [Margen YRA]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Margen Bruto
+		lineageTag: 9cedb494-1ebc-4ab1-abb2-78b94075d903
+
+	measure 'Var % Margen' = DIVIDE ( [Margen], [Margen YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Margen Bruto
+		lineageTag: f07f312e-d0ba-4961-9f3d-c2be83824a99
+
+	measure 'Margen YRA' =
+			CALCULATE (
+			    [Margen],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Margen Bruto
+		lineageTag: 35056a17-c4d8-45d6-85ba-a71e77ce00d4
+
+	measure Margen = [Venta] - [Costo Venta]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Margen Bruto
+		lineageTag: 6231abdf-0e3e-4c9c-9ad5-b873c60c5ef7
+
+	measure '% Margen YRA' = DIVIDE ( [Margen YRA], [Venta YRA] )
+		formatString: #,#0.0 %
+		displayFolder: Venta\Margen Bruto
+		lineageTag: b8ae9f98-7e6e-424b-9888-51cad82f34e8
+
+	measure '% Margen' = DIVIDE ( [Margen], [Venta] )
+		formatString: #,#0.0 %
+		displayFolder: Venta\Margen Bruto
+		lineageTag: 454b56ff-dd09-4aa0-a0db-c0c65ab73c00
+
+	measure 'Plan Margen' = ```
+			[_baseMetaMargen]
+			
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Margen Bruto\Plan Margen
+		lineageTag: a19817a6-501d-4be1-9d00-4c6c91aedba5
+
+	measure 'Dif. Plan margen' = [Margen] - [Plan Margen]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Margen Bruto\Plan Margen
+		lineageTag: 69aa7a6c-2000-4c27-805a-1260c0d69142
+
+	measure 'Alcance Plan Margen' = DIVIDE ( [Margen], [Plan Margen] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Margen Bruto\Plan Margen
+		lineageTag: 4f7b0e43-62af-43c1-a4cb-b296dce62350
+
+	measure 'Var DPT' = [DPT] - [DPT YRA]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\DPT
+		lineageTag: 7fe77918-dc6f-43c5-801d-850b814bfc31
+
+	measure 'Var % DPT' = DIVIDE ( [DPT], [DPT YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\DPT
+		lineageTag: 3f8a58b7-08d2-4a77-9ea8-55a10f685e22
+
+	measure 'DPT YRA' =
+			CALCULATE (
+			    [DPT],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\DPT
+		lineageTag: 80cc8cc5-3b90-4c0c-b8bd-c6bfdaa5ffdb
+
+	measure DPT = DIVIDE ( [Venta], [Transacciones] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\DPT
+		lineageTag: 87fb1ae5-1851-4bc6-ac7c-68a73a254430
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Plan DPT' = [_baseMetaDPT]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\DPT\Plan DPT
+		lineageTag: 046458a0-ac41-435d-aaa8-dfec71030444
+
+	measure 'Dif. Plan DPT' = [DPT] - [Plan DPT]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\DPT\Plan DPT
+		lineageTag: ad9978c7-0cd7-489e-a197-ed33e9b8f084
+
+	measure 'Alcance Plan DPT' = DIVIDE ( [DPT] , [Plan DPT] )
+		formatString: #,0.0 %
+		displayFolder: Venta\DPT\Plan DPT
+		lineageTag: 8424aa4f-b30b-4a97-ad15-b513d5736168
+
+	measure 'Var Costo' = [Costo Venta] - [Costo YRA]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Costo de Venta
+		lineageTag: 1e68071f-ce1b-461b-bd03-2b26ab36dd55
+
+	measure 'Var % Costo' = DIVIDE ( [Costo Venta], [Costo YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Costo de Venta
+		lineageTag: ac74bfc5-0a6a-4779-b6f2-7dcf3096d069
+
+	measure 'Costo YRA' =
+			CALCULATE (
+			    [Costo Venta],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Costo de Venta
+		lineageTag: c9587d75-058a-4eac-b0ce-5e1b9c0b985b
+
+	measure 'Costo Venta' = [_baseCostoVenta]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\Costo de Venta
+		lineageTag: 1d9ac6b3-054f-4882-83d5-01844370393a
+
+		changedProperty = FormatString
+
+	measure 'Var Conversion' = [Conversion] - [Conversion YRA]
+		formatString: #0.0 %
+		displayFolder: Venta\Conversion
+		lineageTag: 158e1303-1028-44e2-9ebc-9dd5462d0b51
+
+	measure 'Var % Conversion' = DIVIDE ( [Conversion], [Conversion YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Conversion
+		lineageTag: 17bac060-86c1-4a8d-b2c0-2bab148502ff
+
+	measure 'Plan Conversion' = DIVIDE ( [Plan Transacciones], [Plan Trafico] )
+		formatString: #0.0 %
+		displayFolder: Venta\Conversion
+		lineageTag: 663ca22d-1367-4961-83ea-479149c39e18
+
+	measure 'Conversion YRA' =
+			CALCULATE (
+			    [Conversion],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: #0.0 %
+		displayFolder: Venta\Conversion
+		lineageTag: e66e7997-09be-4987-b3ca-b15cf7423908
+
+	measure Conversion = DIVIDE ( [Transacciones] , [Trafico TMS] )
+		formatString: #0.0 %
+		displayFolder: Venta\Conversion
+		lineageTag: f642d482-c536-49c4-87cb-a01e114654a6
+
+	measure 'Alcance Plan Conversion' = DIVIDE ( [Conversion] , [Plan Conversion] )
+		formatString: #,0.0 %
+		displayFolder: Venta\Conversion
+		lineageTag: 1ded8bd3-4488-4edb-aabf-5c7f34a46313
+
+	measure 'Var AUV' = [AUV] - [AUV YRA]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\AUV
+		lineageTag: 76bcd075-6e20-4f5c-897a-40c3b84d3416
+
+	measure 'Var % AUV' = DIVIDE ( [AUV], [AUV YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\AUV
+		lineageTag: 631a4a45-6059-45ea-a911-4a87d7c4cd74
+
+	measure 'AUV YRA' =
+			CALCULATE (
+			    [AUV],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\AUV
+		lineageTag: 66138344-c6c1-44e6-a199-ade7ea57ff26
+
+	measure AUV =
+			AVERAGEX (
+			    VALUES ( Tiendas[SK_TIENDA] ),
+			    AVERAGEX ( VALUES ( Fecha[SK_PERIODO] ), [Venta] )
+			) * 7
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\AUV
+		lineageTag: 03dc1a1a-8a97-4e22-abb8-9c4cadf36730
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Var AUR' = [AUR] - [AUR YRA]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\AUR
+		lineageTag: 90963323-8f82-47d7-86e2-e66dbdbb6237
+
+	measure 'Var % AUR' = DIVIDE ( [AUR], [AUR YRA] )
+		formatString: #,0.0 %
+		displayFolder: Venta\AUR
+		lineageTag: 79a7800c-5a01-47bc-9607-e21eb682d2d6
+
+	measure 'AUR YRA' =
+			CALCULATE (
+			    [AUR],
+			    ALL ( Fecha ),
+			    CALCULATETABLE (
+			        SAMEPERIODLASTYEAR ( Fecha[Fecha] )
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\AUR
+		lineageTag: b4312be7-34f1-4cc9-8b0f-9b8db8041cf8
+
+	measure AUR = DIVIDE ( [Venta], [Unidades] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\AUR
+		lineageTag: 25ddffbb-063e-4c32-ac41-619797eb27a0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Plan AUR' = [_baseMetaAUR]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\AUR\Plan AUR
+		lineageTag: fc6bd16f-5fbf-4043-bf48-90e62bcefac4
+
+	measure 'Dif. Plan AUR' = [AUR] - [Plan AUR]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\AUR\Plan AUR
+		lineageTag: ffbd908d-894b-4cf0-8790-c38fc9e7786e
+
+	measure 'Alcance Plan AUR' = DIVIDE ( [AUR] , [Plan AUR] )
+		formatString: #,0.0 %
+		displayFolder: Venta\AUR\Plan AUR
+		lineageTag: 17195deb-c212-4220-835e-573c8126f663
+
+	measure 'Tiendas Activas' =
+			VAR _iniDate =
+			    MIN ( Fecha[Fecha] )
+			VAR _endDate =
+			    MAX ( Fecha[Fecha] )
+			RETURN
+			    CALCULATE (
+			        COUNTROWS ( Tiendas ),
+			        Tiendas[FECHA_APERTURA] <= _endDate,
+			        Tiendas[FECHA_CIERRE] > _iniDate
+			            || ISBLANK ( Tiendas[FECHA_CIERRE] ) = TRUE ()
+			    )
+		formatString: #,0
+		displayFolder: Salas
+		lineageTag: 744e064c-b095-4dd1-8a11-7a8ce4db1d2d
+
+	measure 'M2 Tiendas' =
+			SUMX (
+			    FILTER (
+			        SUMMARIZE (
+			            Tiendas,
+			            Tiendas[SK_TIENDA],
+			            Tiendas[MTS2_TOTAL],
+			            "@TiendasActivas", [Tiendas Activas]
+			        ),
+			        ISBLANK ( [@TiendasActivas] ) = FALSE ()
+			    ),
+			    [MTS2_TOTAL]
+			)
+		formatString: #,0
+		displayFolder: Salas
+		lineageTag: d1bcd646-7314-4b9c-8327-f7f1d5727ce0
+
+	measure 'Venta 12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        [Venta],
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Rolling 12 Meses
+		lineageTag: c43b15a9-c582-4788-92a4-04524232b1c6
+
+	measure 'Unidades 12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        [Unidades],
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: #,0
+		displayFolder: Rolling 12 Meses
+		lineageTag: cda941ba-9425-47f9-99c1-4bd5bfc2b85d
+
+	measure 'Tiendas Activas 12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        [Tiendas Activas],
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: #,0
+		displayFolder: Rolling 12 Meses
+		lineageTag: 98952a51-639d-485f-abe5-0d927b254aae
+
+	measure 'Rotacion Retail' = DIVIDE ( [Venta 12M], [Inv. Precio Prom.12M] )
+		formatString: #0.00
+		displayFolder: Rolling 12 Meses
+		lineageTag: 500cd353-face-4fbc-ba67-2f6e0a23be38
+
+	measure Rotacion = DIVIDE ( [Costo Venta 12M], [Inv. Costo Prom.12M] )
+		formatString: #0.00
+		displayFolder: Rolling 12 Meses
+		lineageTag: f10f70b6-db78-4385-a012-3fee13e04020
+
+	measure 'Remuneraciones 12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        [_baseRemuneraciones],
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Rolling 12 Meses
+		lineageTag: 0d97f655-a417-4f24-91c6-e9c88fba6991
+
+	measure 'Margen 12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        [Margen],
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Rolling 12 Meses
+		lineageTag: 03069c39-3ee7-4086-94c0-3fd369c959c3
+
+	measure 'Margen %' = DIVIDE ( [Margen 12M], [Venta 12M] )
+		formatString: #0.0%
+		displayFolder: Rolling 12 Meses
+		lineageTag: 4da8360d-d38d-4ec4-a9bf-f1bdf7ffba05
+
+	/// #,0
+	measure 'M2 Tiendas 12M' =
+			SUMX (
+			    FILTER (
+			        SUMMARIZE (
+			            Tiendas,
+			            Tiendas[SK_TIENDA],
+			            Tiendas[MTS2_TOTAL],
+			            "@TiendasActivas", [Tiendas Activas 12M]
+			        ),
+			        ISBLANK ( [@TiendasActivas] ) = FALSE ()
+			    ),
+			    [MTS2_TOTAL]
+			)
+		displayFolder: Rolling 12 Meses
+		lineageTag: ed89728a-5be0-4aa3-8e66-78250396df2b
+
+	measure 'GMROL 12M' = DIVIDE ( [Margen 12M], [Remuneraciones 12M] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Rolling 12 Meses\ROI Rolling 12M
+		lineageTag: 7c7b5925-2581-43f2-8077-32f67d823ae4
+
+	measure 'GMROII Retail 12M' = DIVIDE ( [Margen 12M], [Inv. Costo Prom.12M] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Rolling 12 Meses\ROI Rolling 12M
+		lineageTag: f75ebb9f-f28c-4f94-8c6c-477cb0a7de46
+
+	measure 'GMROII 12M' = [Rotacion] * [Margen %]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Rolling 12 Meses\ROI Rolling 12M
+		lineageTag: 0636aec2-3845-43e2-9c9f-c3cc81c16ab6
+
+	measure 'GMROF 12M' = DIVIDE ( [Margen 12M], [M2 Tiendas 12M] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Rolling 12 Meses\ROI Rolling 12M
+		lineageTag: 20b9c065-b8d5-4352-97cb-fc182691502e
+
+	measure 'Costo Venta 12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        [Costo Venta],
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Rolling 12 Meses
+		lineageTag: 3ed108a8-b294-428a-a935-417f8bcc836a
+
+	measure 'Alcance Plan GMROL' = DIVIDE ( [GMROL 12M] , [_fixed_targetGMROL] )
+		formatString: #,0.00 %
+		displayFolder: Rolling 12 Meses\ROI Rolling 12M\Planes ROII
+		lineageTag: a1b279cd-0dea-4278-bf3b-551ac9235524
+
+	measure 'Alcance Plan GMROII' = ```
+			DIVIDE ( [GMROII 12M] , [_fixed_targetGMROII] )
+			
+			```
+		formatString: #,0.00 %
+		displayFolder: Rolling 12 Meses\ROI Rolling 12M\Planes ROII
+		lineageTag: bf952149-2ea5-4837-85c2-fed057054037
+
+	measure 'Alcance Plan GMROF' = DIVIDE ( [GMROF 12M] , [_fixed_targetGMROF] )
+		formatString: #,0.00 %
+		displayFolder: Rolling 12 Meses\ROI Rolling 12M\Planes ROII
+		lineageTag: 8ba947ed-e876-43d5-a99a-6bc278920971
+
+	measure _fixed_targetGMROL = 5.5
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Rolling 12 Meses\ROI Rolling 12M\Planes ROII
+		lineageTag: 263e23cb-a061-4574-8a84-2055f6865368
+
+	measure _fixed_targetGMROII = 1.55
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Rolling 12 Meses\ROI Rolling 12M\Planes ROII
+		lineageTag: 0ddd1c06-fe72-434e-bd57-05ff0a824055
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _fixed_targetGMROF = 1318
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Rolling 12 Meses\ROI Rolling 12M\Planes ROII
+		lineageTag: 14764a82-1a75-4308-a75f-8c38023f00ce
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inventario Un' =
+			VAR _UltimaFechaInventario =
+			    MAX ( Inventarios[SK_PERIODO] )
+			RETURN
+			    CALCULATE (
+			        [_baseInventarioUn],
+			        ALL ( Fecha ),
+			        Fecha[SK_PERIODO] = _UltimaFechaInventario
+			    )
+		formatString: #,0
+		displayFolder: Inventarios
+		lineageTag: caa64ef0-ed19-4b13-8d34-30aa77f0915b
+
+	measure 'Inventario Precio' =
+			VAR _UltimaFechaInventario =
+			    MAX ( Inventarios[SK_PERIODO] )
+			RETURN
+			    CALCULATE (
+			        [_baseInventarioPrecio],
+			        ALL ( Fecha ),
+			        Fecha[SK_PERIODO] = _UltimaFechaInventario
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Inventarios
+		lineageTag: 782363aa-8204-4e5b-a956-322f6645c174
+
+	measure 'Inventario Costo' =
+			VAR _UltimaFechaInventario =
+			    MAX ( Inventarios[SK_PERIODO] )
+			RETURN
+			    CALCULATE (
+			        [_baseInventarioCosto],
+			        ALL ( Fecha ),
+			        Fecha[SK_PERIODO] = _UltimaFechaInventario
+			    )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Inventarios
+		lineageTag: a11773d6-24f3-4bd6-8530-f05e82891513
+
+	measure 'Inv. Un Prom.12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Un] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: #,0
+		displayFolder: Inventarios\Promedio 12 Meses
+		lineageTag: 25c828ac-deef-4554-aed8-68e8b81d0a89
+
+	measure 'Inv. Precio Prom.12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Precio] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Inventarios\Promedio 12 Meses
+		lineageTag: d2ca8930-03fe-4312-93e5-5a54e169892a
+
+	measure 'Inv. Costo Prom.12M' =
+			VAR _cmid =
+			    MAX ( Fecha[Offset] )
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Costo] ),
+			        REMOVEFILTERS ( Fecha ),
+			        Fecha[Offset]
+			            IN GENERATESERIES ( _cmid - 11, _cmid )
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Inventarios\Promedio 12 Meses
+		lineageTag: 9341b9d1-f71e-4c16-96be-c1a299c6181c
+
+	measure 'Métrica Dinámica'
+		displayFolder: Dinámica
+		lineageTag: 5fdab309-1f00-4bb5-a6dc-96cd989f830b
+
+	measure 'AUR Equivalente Año Pasado' = CALCULATE ( [AUR], Fecha[Fecha] = TODAY () - 364 )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\AUR
+		lineageTag: 95b3f5ba-4db1-44b2-a9ea-2a3b62920d6c
+
+	measure 'Conversion Equivalente Año Pasado' =
+			VAR _flag =
+			    DIVIDE ( [Trafico Equivalente Año Pasado], [Trafico Equivalente Año Pasado] )
+			RETURN
+			    ( DIVIDE ( [Transacciones Equivalente Año Pasado], [Trafico Equivalente Año Pasado] ) + 0 ) * _flag
+		formatString: #,0.0 %
+		displayFolder: Datos Operativos\Conversion
+		lineageTag: 7828ce75-6d98-4441-9d22-44ac4dfa715e
+
+	measure 'DPT Equivalente Año Pasado' = CALCULATE ( [DPT], Fecha[Fecha] = TODAY () - 364 )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Datos Operativos\DPT
+		lineageTag: 96344ade-4944-4ea7-ad93-d7f3165c9d40
+
+	measure 'Trafico Equivalente Año Pasado' = CALCULATE ( [Trafico], Fecha[Fecha] = TODAY () - 364 )
+		formatString: #,0
+		displayFolder: Datos Operativos\Trafico
+		lineageTag: 110c4223-965c-4e06-a13e-6e0e1d16fc98
+
+	measure 'Transacciones Equivalente Año Pasado' = CALCULATE ( [Transacciones], Fecha[Fecha] = TODAY () - 364 )
+		formatString: #,0
+		displayFolder: Datos Operativos\Transacciones
+		lineageTag: 667a8865-3b55-4873-8e4b-d1f5f1b435ba
+
+	measure 'Unidades Equivalente Año Pasado' = CALCULATE ( [Unidades], Fecha[Fecha] = TODAY () - 364 )
+		formatString: #,0
+		displayFolder: Datos Operativos\Unidades
+		lineageTag: cdbc29da-c7d9-4ff0-b56b-c9b0317bfb05
+
+	measure 'UPT Equivalente Año Pasado' = CALCULATE ( [UPT], Fecha[Fecha] = TODAY () - 364 )
+		formatString: #,0.0
+		displayFolder: Datos Operativos\UPT
+		lineageTag: 83650a0f-2529-4b00-94ae-89dc85df1e37
+
+	measure 'Venta Equivalente Año Pasado' = CALCULATE ( [Venta], Fecha[Fecha] = (TODAY () - 364 ))
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta
+		lineageTag: 8091401d-2d1c-4734-b59e-ff4e7f9377e2
+
+	measure 'Plan Venta Mes a Hoy' = CALCULATE ( [Plan Venta], Fecha[Offset] = 0, Fecha[Fecha] <= TODAY () )
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta\Plan Venta
+		lineageTag: 41e90c23-8f97-4a78-82d2-875f82b546e0
+
+	measure 'Alcance Plan Venta Mes a Hoy' = DIVIDE ( [Venta Mes Actual] , [Plan Venta Mes a Hoy] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Venta\Plan Venta
+		lineageTag: 4edc2eaa-5fed-4495-8dcf-b53e959eec9a
+
+	measure 'Venta Acumulada Mes Año Pasado' =
+			CALCULATE (
+			    [Venta],
+			    SAMEPERIODLASTYEAR (
+			        CALCULATETABLE (
+			            DATESMTD ( Fecha[Fecha] ),
+			            Fecha[Offset] = 0,
+			            Fecha[Fecha] <= TODAY ()
+			        )
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Datos Operativos\Venta
+		lineageTag: 17035e6d-edc0-45fa-8801-fc8fd313beb6
+
+	measure 'Var % Venta Acu Año Pasado' = DIVIDE ( [Venta Mes Actual] , [Venta Acumulada Mes Año Pasado] )
+		formatString: #0.0 %
+		displayFolder: Datos Operativos\Venta
+		lineageTag: 1a2253e2-6564-49f8-ab5e-7d342a33d6c0
+
+	measure 'Plan % Margen' = DIVIDE ( [Plan Margen], [Plan Venta] )
+		formatString: #,#0.0 %
+		displayFolder: Venta\Margen Bruto\Plan Margen
+		lineageTag: c7c8d004-a62e-4e9b-9170-00d525125b11
+
+	measure 'Dif. Plan % Margen' = [% Margen] - [Plan % Margen]
+		formatString: #,#0.0 %
+		displayFolder: Venta\Margen Bruto\Plan Margen
+		lineageTag: 13812ae8-6b27-4a4c-8dd2-8b248c3c8497
+
+	measure 'Inv. Costo Prom.' =
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			VAR _offsets =
+			    SUMMARIZE ( Fecha, Fecha[Offset] )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Costo] ),
+			        REMOVEFILTERS ( Fecha ),
+			        _offsets
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		isHidden
+		displayFolder: Inventarios\Promedio Mensual
+		lineageTag: c40a49a3-0499-4a53-9852-51c26cbebf9c
+
+	measure 'Inv. Precio Prom.' =
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			VAR _offsets =
+			    SUMMARIZE ( Fecha, Fecha[Offset] )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Precio] ),
+			        REMOVEFILTERS ( Fecha ),
+			        _offsets
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: \$#,0;(\$#,0);\$#,0
+		isHidden
+		displayFolder: Inventarios\Promedio Mensual
+		lineageTag: 996616f5-e2cd-4c2d-b297-f38477dfeec8
+
+	measure 'Inv. Un Prom.' =
+			VAR _flag =
+			    LASTNONBLANK ( Fecha[DiasConVenta], TRUE () )
+			VAR _offsets =
+			    SUMMARIZE ( Fecha, Fecha[Offset] )
+			RETURN
+			    CALCULATE (
+			        AVERAGEX ( VALUES ( Fecha[Offset] ), [Inventario Un] ),
+			        REMOVEFILTERS ( Fecha ),
+			        _offsets
+			    )
+			        * DIVIDE ( _flag, _flag )
+		formatString: #,0
+		isHidden
+		displayFolder: Inventarios\Promedio Mensual
+		lineageTag: 76a4fc5a-43a3-4592-9110-44567afe0036
+
+	measure 'GMROII Retail' =
+			// DIVIDE ( [Margen], [Inv. Costo Prom.] )
+			DIVIDE ( [Margen YTD] * DIVIDE ( 365, [DiasYTD] ), [Inv. Costo Prom.] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\ROII
+		lineageTag: df8622b0-98a2-4080-a816-cd0171724d26
+
+	measure GMROL =
+			//DIVIDE ( [Margen], [Remuneraciones] )
+			DIVIDE (
+			    [Margen YTD],
+			    CALCULATE ( [Remuneraciones], DATESYTD ( Fecha[Fecha] ) )
+			)
+			    * DIVIDE ( 365, [DiasYTD] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\ROII
+		lineageTag: 855c5e8f-5f1f-4b05-9856-b846aa1b53aa
+
+	measure GMROF =
+			// DIVIDE ( [Margen], [M2 Tiendas] )
+			DIVIDE ( [Margen YTD], [M2 Tiendas] ) * DIVIDE ( 365, [DiasYTD] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\ROII
+		lineageTag: 05d5d05a-a9c7-4e5d-8669-ae48130baa9e
+
+	measure Remuneraciones = [_baseRemuneraciones]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Venta\ROII
+		lineageTag: 7fec6a4e-8079-4e43-8807-bc5e98289483
+
+	measure 'Venta AP RC' = ```
+			CALCULATE (
+			    [Venta YRA],
+			    
+			        dateadd(Fecha[Fecha],-364,DAY)
+			    )
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 2d8337b4-67f1-41d1-9577-9a25e732a5ca
+
+		changedProperty = FormatString
+
+	measure _baseDQMargen = CALCULATE ( [Margen] ,  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		lineageTag: 156816e7-effc-46b3-add7-54bb9a54ba03
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Margen Hoy' = [_baseDQMargen]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: c6a90e99-27f9-48e9-98cd-a64dd9e4b276
+
+		changedProperty = FormatString
+
+	measure 'Plan Margen Hoy' = CALCULATE ( [Plan Margen],  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: ce5226d2-863c-4df3-a249-137a9750f18e
+
+		changedProperty = FormatString
+
+	measure '% Margen Hoy' = CALCULATE ( DIVIDE ( [Margen], [Venta] ),  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 2cff4716-b39d-4d15-b4bf-397966bdd613
+
+		changedProperty = FormatString
+
+	measure 'Plan % Margen Hoy' = CALCULATE ( DIVIDE ( [Plan Margen], [Plan Venta] ),  format(Fecha[Fecha],"Short Date") = Fecha[Today])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 6c5d45b0-7150-4e40-8655-50073f2708f5
+
+		changedProperty = FormatString
+
+	measure 'Retail AP Hoy' = dateadd(Fecha[Fecha],-364,day)
+		lineageTag: 2c984a3b-ab4b-485a-a118-35f1607b64af
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Venta Equivalente Año Pasado UTC-6' = ```
+			CALCULATE ( [Venta], 
+			format(Fecha[Fecha],"Short Date") = Fecha[Today AP])
+			```
+		lineageTag: 11f1e9d0-7015-473c-9f2e-ce41723981e9
+
+		changedProperty = FormatString
+
+	measure DiasYTD =
+			
+			CALCULATE (
+			    COUNTROWS ( Fecha ),
+			    DATESYTD ( Fecha[Fecha] ),
+			    Fecha[DiasConVenta] = TRUE ()
+			)
+		formatString: #,0
+		isHidden
+		lineageTag: 66945e28-729e-4e82-975e-7b09792d6488
+
+	measure CMROI =
+			// GMROII Original = [Rotacion] * [Margen %]
+			// Rotacion = DIVIDE ( [Costo Venta 12M], [Inv. Costo Prom.12M] )
+			VAR _CostoLineal =
+			    [Costo YTD] * DIVIDE ( 365, [DiasYTD] )
+			VAR _RotacionLineal =
+			    DIVIDE ( _CostoLineal, [Inv. Costo Prom.] )
+			VAR _ROIILineal = _RotacionLineal * [Margen % YTD]
+			RETURN
+			    _ROIILineal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Venta\ROII
+		lineageTag: f319f5cb-42dc-4d04-b77e-7bb9fe77954b
+
+	column ColName
+		isHidden
+		formatString: 0
+		lineageTag: 03ddafe2-443d-4eff-bd90-a70fb8261ded
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [ColName]
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Métricas-8cbf7305-cce3-420e-9d5a-421c37078b54 = calculated
+		mode: import
+		source = DATATABLE ( "ColName", INTEGER, { { BLANK () } } )
+
+	annotation PBI_Id = 29883d5d37fe4c9ba2ecd9afcc916a52
+

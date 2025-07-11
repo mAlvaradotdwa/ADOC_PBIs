@@ -1,0 +1,330 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1090.7005494383122,
+        "y": 297.5209282281686
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 252.22287480680058,
+            "y": 0
+          },
+          "nodeIndex": "Fecha",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 504.68778979907256,
+            "y": 0
+          },
+          "nodeIndex": "Tiendas",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 490.10175855022624,
+            "y": 744.53772335716678
+          },
+          "nodeIndex": "Ventas",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 1009.29629057187,
+            "y": 0
+          },
+          "nodeIndex": "Articulos",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 740.86369408840642
+          },
+          "nodeIndex": "Trafico",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Tiempo",
+          "size": {
+            "height": 343.85965996908811,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 1221.1661304910021,
+            "y": 747.29768939350788
+          },
+          "nodeIndex": "Inventarios",
+          "size": {
+            "height": 256.18708342202905,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 978.01324656320435,
+            "y": 747.19939733415617
+          },
+          "nodeIndex": "Plan_Tiendas",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 247.49801019165182,
+            "y": 743.1086670114363
+          },
+          "nodeIndex": "Trafico_TMS",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 755.69752704791313,
+            "y": 0
+          },
+          "nodeIndex": "Canales",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 1262.1581342581133,
+            "y": 0
+          },
+          "nodeIndex": "Métricas",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 734.95704035640324,
+            "y": 745.42752113755182
+          },
+          "nodeIndex": "Ventas_Mayoreo",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 2000.8427739136714,
+            "y": 0
+          },
+          "nodeIndex": "PlanesConsolidados",
+          "size": {
+            "height": 239.57710456570473,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1511.156570640888,
+            "y": 753.035482967125
+          },
+          "nodeIndex": "PlanesDiarios",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 2000.8919619405615,
+            "y": 247.2442955332962
+          },
+          "nodeIndex": "Métricas Dinámicas",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1768.934435613354,
+            "y": 755.861132058934
+          },
+          "nodeIndex": "Remuneraciones",
+          "size": {
+            "height": 168.95389455085461,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 1752.4539527156605,
+            "y": 0
+          },
+          "nodeIndex": "_ref_HorariosExtendidos",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1419.6772778536545,
+            "y": 372.98568011880116
+          },
+          "nodeIndex": "LastRefresh",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2397.1,
+            "y": 0
+          },
+          "nodeIndex": "Tasa de Cambio",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 70.780197222561554,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 71
+          },
+          "nodeIndex": "Ventas_Mayoreo",
+          "nodeLineageTag": "62dd0170-651a-45b3-98e1-2b385cb8e077",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 291,
+            "y": 68
+          },
+          "nodeIndex": "Ventas",
+          "nodeLineageTag": "67e1d0a4-c8b3-49d8-9d86-16e82d2562ad",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 569,
+            "y": 66
+          },
+          "nodeIndex": "Trafico_TMS",
+          "nodeLineageTag": "2545a5c6-0a67-4ced-930d-238c5f5fd800",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 849,
+            "y": 68
+          },
+          "nodeIndex": "Trafico",
+          "nodeLineageTag": "d1107c82-5a24-42a5-8ca7-34d3552a14c0",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": -43,
+            "y": 418
+          },
+          "nodeIndex": "Inventarios",
+          "nodeLineageTag": "4d02a2d6-e6d3-460d-8c76-65a0d52b38e6",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Disposición 1",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Disposición 1",
+  "defaultDiagram": "Todas las tablas"
+}

@@ -1,0 +1,104 @@
+table PlanesConsolidados
+	isHidden
+	lineageTag: c55cf71e-94e6-4bf6-ab9c-ae3487db3d12
+
+	column KPI
+		dataType: string
+		isHidden
+		lineageTag: 1f96f0e1-1ec4-4213-a0be-46f04c0ad439
+		summarizeBy: none
+		sourceColumn: KPI
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS_TIENDA
+		dataType: string
+		isHidden
+		lineageTag: 23c57cb6-633a-4bfa-ad9a-80c590a879e8
+		summarizeBy: none
+		sourceColumn: BV_PAIS_TIENDA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: d7ba56ee-7f8e-4419-8eda-9ae54c38d6df
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Plan
+		dataType: double
+		isHidden
+		lineageTag: 1c932e5d-ec6e-4ea3-bec9-11fd3e4ce308
+		summarizeBy: sum
+		sourceColumn: Plan
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Año
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3fc4495d-7988-425a-9906-90971d2d877b
+		summarizeBy: sum
+		sourceColumn: Año
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c0e46edd-689e-4f7b-8923-7056fad9f479
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PlanesConsolidados-8ba31ad5-1819-482f-badf-d2bb67b2f603 = m
+		mode: import
+		source =
+				let
+				    Origen = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/diego_perez_empresasadoc_com", [ApiVersion = 15]),
+				    #"Filas filtradas" = Table.SelectRows(Origen, each ([Folder Path] = "https://empresasadoc-my.sharepoint.com/personal/diego_perez_empresasadoc_com/Documents/TDW/Planes/") and ([Name] = "Planes Consolidados.xlsx")),
+				    #"Planes Consolidados xlsx_https://empresasadoc-my sharepoint com/personal/diego_perez_empresasadoc_com/Documents/TDW/Planes/" = #"Filas filtradas"{[Name="Planes Consolidados.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/diego_perez_empresasadoc_com/Documents/TDW/Planes/"]}[Content],
+				    #"Libro de Excel importado" = Excel.Workbook(#"Planes Consolidados xlsx_https://empresasadoc-my sharepoint com/personal/diego_perez_empresasadoc_com/Documents/TDW/Planes/"),
+				    Planes_Consolidados_Table = #"Libro de Excel importado"{[Item="Planes_Consolidados",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Planes_Consolidados_Table,{{"KPI", type text}, {"País", type text}, {"Tipo", type text}, {"Formato", type text}, {"País Tienda", type text}, {"Fecha", type date}, {"Plan", type number}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"País", "Tipo", "Formato"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"País Tienda", "BV_PAIS_TIENDA"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "Año", each Date.Year([Fecha])),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Mes", each Date.Month([Fecha])),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom1",{{"Año", Int64.Type}, {"Mes", Int64.Type}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type1", each [Plan] <> 0)
+				in
+				    #"Filtered Rows"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

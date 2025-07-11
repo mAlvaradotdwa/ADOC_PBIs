@@ -1,0 +1,150 @@
+table Tiempo
+	lineageTag: bcc9526a-6411-474d-847e-51244fd5f0b7
+
+	column HoraNum
+		isHidden
+		formatString: 0
+		lineageTag: 8d3482fe-1a69-4098-827c-d7373c5abfe0
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [HoraNum]
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BloqueMinutos
+		isHidden
+		formatString: 0
+		lineageTag: c33df40e-407e-4264-b12e-ba9580f7273b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [BloqueMinutos]
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hora
+		lineageTag: bd1dba7e-01bc-430b-b178-a75c1072347a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Hora]
+		sortByColumn: HoraNum
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Minutos
+		lineageTag: d2a34611-d017-48c1-a422-3b1a4aec3dcc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Minutos]
+		sortByColumn: BloqueMinutos
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hora Minutos'
+		lineageTag: fae7d54a-7eb6-4de6-94af-0bcdd30e9fab
+		summarizeBy: none
+		sourceColumn: [BloqueHora]
+		sortByColumn: IDTiempo
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDTiempo
+		isHidden
+		formatString: 0
+		lineageTag: ccb4ce67-c15f-4892-ad83-864fe1072024
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IDTiempo]
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hora Sucursales'
+		lineageTag: 89a20be4-fcbd-40fb-8a83-40c74343d597
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Hora Sucursales]
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Tiempo Estandar'
+		lineageTag: 54be3cff-46e3-4607-a122-ba5ffad9954f
+
+		level Hora
+			lineageTag: d2c8955c-eff7-49e8-a717-30529f14a810
+			column: Hora
+
+		level Minutos
+			lineageTag: aaf0fd14-4cbb-4c98-99aa-4e3c2222b962
+			column: 'Hora Minutos'
+
+	partition Tiempo-f15b074d-32a6-4a23-95f8-242fc5d7644a = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS (
+				    CROSSJOIN (
+				        FILTER (
+				            UNION ( DATATABLE ( "HoraNum", INTEGER, { { } } ), GENERATESERIES ( 0, 23 ) ),
+				            ISBLANK ( [HoraNum] ) = FALSE ()
+				        ),
+				        FILTER (
+				            UNION (
+				                DATATABLE ( "BloqueMinutos", INTEGER, { { } } ),
+				                GENERATESERIES ( 0, 3 )
+				            ),
+				            ISBLANK ( [BloqueMinutos] ) = FALSE ()
+				        )
+				    ),
+				    "Hora", FORMAT ( [HoraNum], "00" ),
+				    "Minutos", FORMAT ( [BloqueMinutos] * 15, "00" ),
+				    "BloqueHora",
+				        FORMAT ( [HoraNum], "00" ) & ":"
+				            & FORMAT ( [BloqueMinutos] * 15, "00" ),
+				    "IDTiempo",
+				        [HoraNum] * 100 + ( [BloqueMinutos] * 15 ),
+				    "Hora Sucursales",
+				        VAR _currentDay = /*DATE(2022,12,15) --*/ TODAY ()
+				        VAR _openingDefault =
+				            LOOKUPVALUE (
+				                _ref_HorariosExtendidos[HoraApertura],
+				                _ref_HorariosExtendidos[Nombre], "Default"
+				            )
+				        VAR _ClosingDefault =
+				            LOOKUPVALUE (
+				                _ref_HorariosExtendidos[HoraCierre],
+				                _ref_HorariosExtendidos[Nombre], "Default"
+				            )
+				        VAR _openingTime =
+				            LOOKUPVALUE (
+				                _ref_HorariosExtendidos[HoraApertura],
+				                _ref_HorariosExtendidos[Fecha], _currentDay,
+				                _openingDefault
+				            )
+				        VAR _closingTime =
+				            LOOKUPVALUE (
+				                _ref_HorariosExtendidos[HoraCierre],
+				                _ref_HorariosExtendidos[Fecha], _currentDay,
+				                _closingDefault
+				            )
+				        RETURN
+				            IF (
+				                [HoraNum] >= _openingTime
+				                    && [HoraNum] <= _closingTime,
+				                FORMAT ( [HoraNum], "00" ),
+				                "Otra"
+				            )
+				)
+
+	annotation PBI_Id = fcf0a5a8caac499091cb97b186e7f19f
+

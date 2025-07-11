@@ -1,0 +1,389 @@
+table Articulos
+	lineageTag: 75e9a386-3774-43f5-af61-7284a02803c0
+
+	column SK_MATNR
+		dataType: string
+		isHidden
+		isKey
+		displayFolder: Indices
+		lineageTag: 812e77e1-842b-4200-b6a0-d0a0bf916ff6
+		summarizeBy: none
+		sourceColumn: SK_MATNR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ARTICULO
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: 4dcf2067-debf-442b-a918-a0ddcc8c1f75
+		summarizeBy: none
+		sourceColumn: SK_ARTICULO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: 223b78e3-bfa9-4501-971d-286f47f9f29b
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCAH
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: 76ebe98a-5f73-4167-adfc-94905b3e6901
+		summarizeBy: none
+		sourceColumn: MARCAH
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MARCA
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: 76e56464-a580-43e7-9694-a20ae0987ff6
+		summarizeBy: none
+		sourceColumn: SK_MARCA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_MARCA
+		dataType: string
+		displayFolder: Campos Relacionados
+		lineageTag: 907556b4-58e4-47b7-bc48-f9376fdd968c
+		summarizeBy: none
+		sourceColumn: BV_MARCA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column JERARQUIA
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: ee310f9b-dc31-4cab-a971-a6635576e94f
+		summarizeBy: none
+		sourceColumn: JERARQUIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_JERARQUIA
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: 0c42b432-0c55-4571-9eb5-f92dc5764dfd
+		summarizeBy: none
+		sourceColumn: BV_JERARQUIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_COLECCION
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: 6e2edec3-6740-4100-bb24-b5d7bfaa8e01
+		summarizeBy: none
+		sourceColumn: SK_COLECCION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_LINEA
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: 8467589b-a276-40de-9874-8eddeffc8cda
+		summarizeBy: none
+		sourceColumn: SK_LINEA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: 9923490c-d0cb-4bf4-a1af-6e502c48128c
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: 02bcc245-9c5b-46ed-bc95-1b1a1025699a
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TALLA
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: f5e5aa32-b443-403e-8066-68a3487c97a3
+		summarizeBy: none
+		sourceColumn: TALLA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ESTATUS
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: 8183a74a-bc02-47a4-bc60-bc7cebf01919
+		summarizeBy: none
+		sourceColumn: SK_ESTATUS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_DEPTO
+		dataType: string
+		displayFolder: Campos Relacionados
+		lineageTag: 7ab10ec5-5723-40f8-bee3-17a99db31a3a
+		summarizeBy: none
+		sourceColumn: BV_DEPTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_GENERO
+		dataType: string
+		displayFolder: Campos Relacionados
+		lineageTag: 3bb6b3d5-438c-4fec-95e0-df3955bc2dbe
+		summarizeBy: none
+		sourceColumn: BV_GENERO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_CATEGORIA
+		dataType: string
+		displayFolder: Campos Relacionados
+		lineageTag: 1782255f-8ca6-4b11-a269-b4c68ea29f80
+		summarizeBy: none
+		sourceColumn: BV_CATEGORIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_SUBCATEGORIA
+		dataType: string
+		displayFolder: Campos Relacionados
+		lineageTag: 7da65d7a-55c0-4aea-b30a-615f6e1d9f2c
+		summarizeBy: none
+		sourceColumn: BV_SUBCATEGORIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_ESTILO_COLOR
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: 2aea210b-f834-49ee-83c4-5dcd7c1f8e2c
+		summarizeBy: none
+		sourceColumn: BV_ESTILO_COLOR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASE
+		dataType: string
+		displayFolder: Campos Relacionados
+		lineageTag: 54728bd2-4fc8-4534-9a80-1e2b2e5e2519
+		summarizeBy: none
+		sourceColumn: CLASE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPOESTILO
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: 7ec21e74-2257-46cc-b0f8-45429b5bd3f8
+		summarizeBy: none
+		sourceColumn: TIPOESTILO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_UNIDADNEGOCIO
+		dataType: string
+		lineageTag: a3040294-9164-42e4-9650-d0691bc389e9
+		summarizeBy: none
+		sourceColumn: SK_UNIDADNEGOCIO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ATRIBUTO
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: aeee4b09-125f-46fc-83e2-838b2e046480
+		summarizeBy: none
+		sourceColumn: SK_ATRIBUTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_ATRIBUTO
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: 2a6fe818-c2e5-4a38-8e9c-a029869f4cc0
+		summarizeBy: none
+		sourceColumn: BV_ATRIBUTO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento_Corto = LEFT([BV_DEPTO],1)
+		displayFolder: Campos Relacionados
+		lineageTag: 71179445-8b06-4c32-8232-bc63b673ade7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MARCAH
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: 38fe13b2-c81d-4dcd-a727-f1e341acf4ee
+		summarizeBy: none
+		sourceColumn: SK_MARCAH
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_LINEA
+		dataType: string
+		displayFolder: Campos Relacionados
+		lineageTag: a22e9cf1-e820-465b-b079-e6693cfaf8f4
+		summarizeBy: none
+		sourceColumn: BV_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_ESTATUS
+		dataType: string
+		displayFolder: Campos No Relacionados
+		lineageTag: 81d22642-bf72-4811-afd4-dc80cf83f50f
+		summarizeBy: none
+		sourceColumn: BV_ESTATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_DEPTO
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: c62e11cc-bb67-4dc5-be0b-51b6e8e536be
+		summarizeBy: none
+		sourceColumn: SK_DEPTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_GENERO
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: c8b1f87e-9c89-4173-9487-13525e69b250
+		summarizeBy: none
+		sourceColumn: SK_GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_CATEGORIA
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: d74a0e82-6146-4092-a6f4-fc8c42b9c0ff
+		summarizeBy: none
+		sourceColumn: SK_CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_SUBCATEGORIA
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: b5cc1906-3091-41f5-a407-3fd8951c57f0
+		summarizeBy: none
+		sourceColumn: SK_SUBCATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_CLASE
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: 2799c852-d948-4c6d-9ea0-2d55cd4a3567
+		summarizeBy: none
+		sourceColumn: SK_CLASE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOESTILO
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: cc5e48db-5310-44fc-8e73-cef09dee6f17
+		summarizeBy: none
+		sourceColumn: SK_TIPOESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PROD
+		dataType: string
+		isHidden
+		displayFolder: Indices
+		lineageTag: 7d21156b-45a6-4eb0-a29c-189d420d7d47
+		summarizeBy: none
+		sourceColumn: SK_PROD
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Articulos-a1f10b21-aee3-43a6-9dfd-e18449011b34 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="-- ARTICULOS#(lf)DECLARE @InitialDate INT = (YEAR(GETDATE()) - 1) * 10000 + 101#(lf)DECLARE @Today INT = format(GETDATE() , 'yyyyMMdd') * 1#(lf)--SET @InitialDate = 20220901#(lf)--#(lf)SELECT #(lf)       [dim].[SK_MATNR] , #(lf)       [dim].[SK_ARTICULO] , #(lf)       [dim].[SK_MARCA] , #(lf)       [dim].[MARCA] , #(lf)       [dim].[SK_MARCAH] , #(lf)       [dim].[MARCAH] , #(lf)       [dim].[BV_MARCA] , #(lf)       [dim].[JERARQUIA] , #(lf)       [dim].[BV_JERARQUIA] , #(lf)       [dim].[SK_COLECCION] , #(lf)       [dim].[SK_LINEA] , #(lf)       [dim].[BV_LINEA] , #(lf)       [dim].[ESTILO] , #(lf)       [dim].[COLOR] , #(lf)       [dim].[TALLA] , #(lf)       [dim].[BV_ESTATUS] , #(lf)       [dim].[SK_ESTATUS] , #(lf)       [dim].[SK_DEPTO] , #(lf)       [dim].[BV_DEPTO] , #(lf)       [dim].[SK_GENERO] , #(lf)       [dim].[BV_GENERO] , #(lf)       [dim].[SK_CATEGORIA] , #(lf)       [dim].[BV_CATEGORIA] , #(lf)       [dim].[SK_SUBCATEGORIA] , #(lf)       [dim].[BV_SUBCATEGORIA] , #(lf)       [dim].[BV_ESTILO_COLOR] , #(lf)       [dim].[SK_CLASE] , #(lf)       [dim].[CLASE] , #(lf)       [dim].[SK_TIPOESTILO] , #(lf)       [dim].[TIPOESTILO] , #(lf)       [dim].[SK_UNIDADNEGOCIO] , #(lf)       [dim].[SK_ATRIBUTO] , #(lf)       [dim].[BV_ATRIBUTO] , #(lf)       [SK_PROD] = CONCAT([dim].[BV_MARCA] , [dim].[BV_DEPTO] , [dim].[BV_GENERO] , [dim].[BV_CATEGORIA] , [dim].[BV_SUBCATEGORIA] , [dim].[CLASE] , [dim].[BV_LINEA])#(lf)  FROM [dbo].[DIM_ARTICULOSAP] [dim]#(lf) WHERE [dim].[SK_DEPTO] IN#(lf)                           ( 'C' , #(lf)                             'R' , #(lf)                             'A'#(lf)                           ) #(lf)       --PR=Promocional, G4=Promocional   #(lf)       --AND [dim].[SK_CATEGORIA] NOT IN ( 'PR' , 'G4' )         #(lf)       AND [dim].[SK_MATNR] IN (#(lf)                                 SELECT #(lf)                                        [f].[SK_MATNR]#(lf)                                   FROM [dbo].[FAC_VENTARPRO] [f]#(lf)                                  --JOIN [DM_COMERCIAL].[dbo].[DIM_ARTICULOSAP] AS [A1]#(lf)                                  --     ON [f].[SK_MATNR] = [A1].[SK_MATNR]#(lf)                                  WHERE [f].[SK_PERIODO] >= @InitialDate#(lf)                                 --AND [f].[SK_PERIODO] < @Today#(lf)                                 --C=CAL (calzado), R=ROP (ropa), A=ACC (accesorios)#(lf)                                 --AND [A1].[SK_DEPTO] IN ( 'C' , 'R' , 'A') #(lf)                                 UNION#(lf)                                 SELECT DISTINCT #(lf)                                        [SK_MATNR_REF] = MIN([fac].[SK_MATNR])#(lf)                                   FROM [dbo].[FAC_INVENTARIOM] [fac]#(lf)                                   INNER JOIN [DIM_ARTICULOSAP] [A]#(lf)                                        ON [fac].[SK_MATNR] = [a].[SK_MATNR]#(lf)                                  WHERE [SK_PERIODO] >= @InitialDate#(lf)                                        AND [SK_PERIODO] < @Today#(lf)                                        AND [fac].[SK_ALMACEN] NOT IN#(lf)                                                                      ( 'BP05' , #(lf)                                                                        'BP08' , #(lf)                                                                        'SU01'#(lf)                                                                      )#(lf)                                        AND [A].[SK_DEPTO] IN ( 'C' , 'R' , 'A' )#(lf)                                  GROUP BY #(lf)                                           [fac].[SK_PERIODO] , #(lf)                                           [fac].[SK_TIENDA] , #(lf)                                           [A].[BV_MARCA] , #(lf)                                           [A].[BV_DEPTO] , #(lf)                                           [A].[BV_GENERO] , #(lf)                                           [A].[BV_CATEGORIA] , #(lf)                                           [A].[BV_SUBCATEGORIA] , #(lf)                                           [A].[CLASE] , #(lf)                                           [A].[BV_LINEA]#(lf) --AND [SK_PERIODO] < @Today#(lf)#(lf)                               )#(lf)", CreateNavigationProperties=false])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

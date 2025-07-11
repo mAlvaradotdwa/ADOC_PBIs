@@ -1,0 +1,47 @@
+table 'Métricas Dinámicas'
+	lineageTag: fff32f62-06c4-4544-a4d6-46bd39768f4e
+
+	calculationGroup
+
+		calculationItem Tráfico =
+				IF(
+				    SelectedMeasure() = "Métrica Dinámica" ,
+				    [Trafico Prom. Ultimo Año Movil] ,
+				    SelectedMeasure()
+				)
+
+		calculationItem Transacciones =
+				IF(
+				    SelectedMeasure() = "Métrica Dinámica" ,
+				    [Transacciones Prom. Ultimo Año Movil] ,
+				    SelectedMeasure()
+				)
+
+		calculationItem Conversión = ```
+				IF(
+				    SelectedMeasure() = "Métrica Dinámica" ,
+				    [Trafico Prom. Ultimo Año Movil] ,
+				    SelectedMeasure()
+				)
+				
+				
+				```
+
+	column Metrica
+		dataType: string
+		lineageTag: 2c83b954-362a-4cb1-8580-27b4a3394a55
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		lineageTag: ce806526-d3de-4fb7-9a57-a3f69971252a
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

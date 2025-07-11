@@ -1,0 +1,60 @@
+table 'Tasa de Cambio'
+	lineageTag: b3441e27-e864-4107-b388-4c560a6023b1
+
+	column SK_PERIODO
+		dataType: int64
+		formatString: 0
+		lineageTag: 527fc7e0-5d06-4fd7-9aa6-1cbc235d1ae8
+		summarizeBy: none
+		sourceColumn: SK_PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: 5108706a-5d74-4347-8637-0ca3db9698ec
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONEDA
+		dataType: string
+		lineageTag: 6169152b-19d2-4cd9-a97e-3b1aa6fd3e1f
+		summarizeBy: none
+		sourceColumn: MONEDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TASACAMBIO
+		dataType: double
+		lineageTag: a0f81146-5288-4dac-b82e-33ea746ee19e
+		summarizeBy: none
+		sourceColumn: TASACAMBIO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TASACAMBIOORIGINAL
+		dataType: double
+		lineageTag: 38af5a3b-2fad-4e03-9837-d33ed2ce3104
+		summarizeBy: none
+		sourceColumn: TASACAMBIOORIGINAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Tasa de Cambio-05910b67-1390-4d9e-a41b-3efc45d08f69' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select dt.SK_PERIODO , dt.SK_PAIS , dt.MONEDA ,#(lf)case when dt.MONEDA = 'GTQ' and dt.TASACAMBIO = 1 then #(lf)#(tab)(select top 1 d1.TASACAMBIO from dbo.DIM_TASACAMBIO d1 where d1.MONEDA = 'GTQ' and d1.TASACAMBIO <> 1 order by d1.SK_PERIODO desc)#(lf)#(tab)when dt.MONEDA = 'CRC' and dt.TASACAMBIO = 1 then #(lf)#(tab)(select top 1 d1.TASACAMBIO from dbo.DIM_TASACAMBIO d1 where d1.MONEDA = 'CRC' and d1.TASACAMBIO <> 1 order by d1.SK_PERIODO desc)#(lf)#(tab)when dt.MONEDA = 'HNL' and dt.TASACAMBIO = 1 then #(lf)#(tab)(select top 1 d1.TASACAMBIO from dbo.DIM_TASACAMBIO d1 where d1.MONEDA = 'HNL' and d1.TASACAMBIO <> 1 order by d1.SK_PERIODO desc)#(lf)#(tab)when dt.MONEDA = 'NIO' and dt.TASACAMBIO = 1 then #(lf)#(tab)(select top 1 d1.TASACAMBIO from dbo.DIM_TASACAMBIO d1 where d1.MONEDA = 'NIO' and d1.TASACAMBIO <> 1 order by d1.SK_PERIODO desc)#(lf)#(tab)when dt.MONEDA = 'USD' and dt.TASACAMBIO = 1 then 1#(lf)end TASACAMBIO,#(lf)dt.TASACAMBIO TASACAMBIOORIGINAL#(lf)from dbo.DIM_TASACAMBIO dt #(lf)where dt.SK_PERIODO = cast(format(getdate(),'yyyyMMdd') as int)", CreateNavigationProperties=false])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,97 @@
+table Plan_Tiendas
+	isHidden
+	lineageTag: 655523ad-4428-4ad9-8c62-966744c29b0c
+
+	column SK_PERIODO
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 674c761d-054b-41a7-a25c-ed1455b59f7f
+		summarizeBy: none
+		sourceColumn: SK_PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7f6a28ff-bae6-468a-9a94-dd64a6994b91
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plan_Venta
+		dataType: double
+		isHidden
+		lineageTag: 9c3a8e6b-ec2f-4548-b9ed-7ebac6301467
+		summarizeBy: none
+		sourceColumn: Plan_Venta
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Plan_Margn
+		dataType: double
+		isHidden
+		lineageTag: e8e9a8c7-bc7f-4c15-848f-0e955a8937db
+		summarizeBy: none
+		sourceColumn: Plan_Margn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IDCanal
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b1cca9a2-b731-4439-aa12-d5437824f7d8
+		summarizeBy: none
+		sourceColumn: IDCanal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dist_PlanVenta = ```
+			
+			        VAR _currentMonthOffset =
+			            LOOKUPVALUE ( Fecha[Offset], Fecha[SK_PERIODO], Plan_Tiendas[SK_PERIODO] )
+			        VAR __currentStoreID = Plan_Tiendas[SK_TIENDA]
+			        VAR _TotMes =
+			            SUMX (
+			                CALCULATETABLE (
+			                    Plan_Tiendas,
+			                    ALL ( Plan_Tiendas ),
+			                    Fecha[Offset] = _currentMonthOffset,
+			                    Tiendas[SK_TIENDA] = __currentStoreID
+			                ),
+			                [Plan_Venta]
+			            )
+			        RETURN
+			            DIVIDE ( [Plan_Venta], _TotMes )
+			```
+		isHidden
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 4e63202b-4f1c-47d7-8fce-8096f2bb05dc
+		summarizeBy: sum
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Plan_Tiendas-a0d38198-3f9d-45d4-8466-1967628669ee = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="DECLARE @InitialDate INT = (YEAR(GETDATE()) - 1) * 10000 + 101#(lf)DECLARE @FinalDate INT = ( YEAR(GETDATE()) * 10000 ) + 1231#(lf)--SET @InitialDate = 20220915#(lf)#(lf)SELECT #(lf)       [V1].[SK_PERIODO] , #(lf)       [V1].[SK_TIENDA] ,#(lf)       CASE#(lf)           WHEN [S1].[TIENDA] LIKE '%V1%' THEN 6 --'ADOC.com'#(lf)           WHEN [S1].[TIENDA] LIKE '%V8%' THEN 6 --'ADOC.com'#(lf)           WHEN [S1].[TIENDA] LIKE '%V2%' THEN 7 --'CAT.com'#(lf)           WHEN [S1].[TIENDA] LIKE '%V9%' THEN 5 --'CAT.com'#(lf)           WHEN [S1].[TIENDA] LIKE '%V3%' THEN 10 --'TNF.com'#(lf)           WHEN [S1].[TIENDA] LIKE '%V4%' THEN 9 --'PAR2.com'#(lf)           WHEN [S1].[TIENDA] LIKE '%V6%' THEN 9 --'PAR2.com'#(lf)           WHEN [S1].[TIENDA] LIKE '%V5%' THEN 8 --'HPU.com'#(lf)           WHEN [S1].[TIENDA] LIKE '%V7%' THEN 8 --'HPU.com'#(lf)           WHEN [S1].[TIENDA] NOT LIKE '%V%' THEN 1 --'Tiendas'#(lf)           ELSE 4#(lf)       END AS [IDCanal] , #(lf)       [Plan_Venta] = SUM([V1].[PLAN_VENTA]) , #(lf)       [Plan_Margn] = SUM([V1].[PLAN_MARGEN])#(lf)  FROM [DM_COMERCIAL].[dbo].[FAC_PLANVENTA] AS [V1]#(lf)  JOIN [DM_COMERCIAL].[dbo].[DIM_TIENDA] AS [S1]#(lf)       ON [S1].[SK_TIENDA] = [V1].[SK_TIENDA]#(lf) WHERE [V1].[SK_PERIODO] BETWEEN @InitialDate AND @FinalDate#(lf)       AND [V1].[SK_ALMACEN] = 'AL01'#(lf)#(tab)   AND ISDATE(V1.SK_PERIODO) = 1#(lf) GROUP BY #(lf)          [V1].[SK_PERIODO] , #(lf)          [V1].[SK_TIENDA] , #(lf)          [S1].[TIENDA] ", CreateNavigationProperties=false]),
+				    #"Rounded Off" = Table.TransformColumns(Source,{{"Plan_Venta", each Number.Round(_, 4), type number}, {"Plan_Margn", each Number.Round(_, 4), type number}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Rounded Off",{{"SK_TIENDA", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
