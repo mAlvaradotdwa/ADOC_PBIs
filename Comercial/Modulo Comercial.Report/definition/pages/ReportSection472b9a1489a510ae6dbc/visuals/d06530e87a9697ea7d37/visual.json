@@ -410,5 +410,37 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "dc97ea061aee05003966"
+  "parentGroupName": "dc97ea061aee05003966",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f710744a0a6b953e6a60",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Plan Conversion Hoy"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "661b02e24e82060064b8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Conversion Hoy"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

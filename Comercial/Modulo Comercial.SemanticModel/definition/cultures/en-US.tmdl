@@ -1292,16 +1292,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
-			        },
-			        {
-			          "": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -1684,16 +1674,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "Formato": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -5871,7 +5851,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Tráf": {
+			          "Hoy": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -5881,7 +5861,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Hoy": {
+			          "Tráf": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -6405,7 +6385,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Hoy": {
+			          "Vta": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -6415,7 +6395,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Vta": {
+			          "Hoy": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -6671,16 +6651,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.599
 			          }
-			        },
-			        {
-			          "": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -6796,16 +6766,6 @@ cultureInfo en-US
 			              "Agent": "OfficeThesaurus"
 			            },
 			            "Weight": 0.624
-			          }
-			        },
-			        {
-			          "": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -21115,16 +21075,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.591
 			          }
-			        },
-			        {
-			          "": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -27084,16 +27034,6 @@ cultureInfo en-US
 			          "alcance plan venta mes a hoy": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -27135,16 +27075,6 @@ cultureInfo en-US
 			        {
 			          "var % venta acu año pasado": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]

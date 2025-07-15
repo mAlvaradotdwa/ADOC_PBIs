@@ -21,7 +21,7 @@ annotation PBI_QueryOrder = ["Ventas","Ventas_Mayoreo","Inventarios","Trafico_TM
 
 annotation __TEdtr = 1
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","DaxQueryView_Desktop"]
 
 ref table Fecha
 ref table Tiendas

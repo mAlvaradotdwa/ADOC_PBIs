@@ -32,7 +32,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "false"
+                "Value": "true"
               }
             }
           },
@@ -94,7 +94,8 @@
   "settings": {
     "useStylableVisualContainerHeader": true,
     "defaultDrillFilterOtherVisuals": true,
-    "allowChangeFilterTypes": true
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true
   },
   "slowDataSourceSettings": {
     "isCrossHighlightingDisabled": false,

@@ -475,8 +475,9 @@ table Fecha
 
 	column Offset =
 			
+			VAR _lastSKDate = CALCULATE( MAX( Ventas[SK_PERIODO] ), REMOVEFILTERS() )
 			VAR _Mmid =
-			    CALCULATE ( MAX ( Fecha[IDAnoMes] ), ALL (), Fecha[Fecha] = TODAY () )
+			    CALCULATE ( MAX ( Fecha[IDAnoMes] ), ALL (), Fecha[SK_PERIODO] = _lastSKDate )
 			RETURN
 			    Fecha[IDAnoMes] - _Mmid
 		formatString: 0
@@ -517,7 +518,11 @@ table Fecha
 
 		annotation SummarizationSetBy = Automatic
 
-	column Today = format(now()-time(6,0,0),"Short Date")
+	column Today =
+			--format(now()-time(6,0,0),"Short Date")
+			VAR _lastSKDate = CALCULATE( MAX( Ventas[SK_PERIODO] ), REMOVEFILTERS() )
+			VAR _lastDate = LOOKUPVALUE( Fecha[Fecha] , Fecha[SK_PERIODO] , _lastSKDate )
+			return format(_lastDate - 1 , "short date")
 		lineageTag: 26505ed1-918e-4926-9ca6-3118d7970528
 		summarizeBy: none
 
@@ -525,7 +530,9 @@ table Fecha
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Today AP' = format((now()-time(6,0,0))-364,"Short Date")
+	column 'Today AP' =
+			-- format((now()-time(6,0,0))-364,"Short Date")
+			format( [Today] - 365 , "Short Date" )
 		lineageTag: 31006964-e454-4195-bf7a-bc79cc7f6796
 		summarizeBy: none
 
@@ -552,7 +559,7 @@ table Fecha
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="DECLARE @InitialDate INT = (YEAR(GETDATE()) - 1) * 10000 + 101#(lf)DECLARE @FinalYear INT = YEAR(DATEADD([dd] , 15 , GETDATE()))#(lf)--#(lf)SELECT #(lf)       *#(lf)  FROM [dbo].[DIM_PERIODO] [dim]#(lf) WHERE [dim].[SK_PERIODO] >= @InitialDate#(lf)       AND [dim].[ANO] <= @FinalYear", CreateNavigationProperties=false]),
+				    Source = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="DECLARE @InitialDate INT = 2020#(lf)DECLARE @FinalYear INT = YEAR(DATEADD([dd] , 15 , GETDATE()))#(lf)--#(lf)SELECT #(lf)       *#(lf)  FROM [dbo].[DIM_PERIODO] [dim]#(lf) WHERE [dim].[SK_PERIODO] >= @InitialDate#(lf)       AND [dim].[ANO] <= @FinalYear", CreateNavigationProperties=false]),
 				    #"Extracted Date" = Table.TransformColumns(Source,{{"PERIODO", DateTime.Date, type date}}),
 				    #"Renamed Columns" = Table.RenameColumns(#"Extracted Date",{{"COD_SEMANA", "NumAnoSemana"}, {"SEMANA", "AnoSemana"}, {"COD_DIA_SEMANA", "NumDiaSemana"}, {"DIA_SEMANA", "Dia Semana"}, {"COD_DIA_MES", "NumDiaMes"}, {"COD_MES", "NumMes"}, {"MES", "Mes"}, {"COD_SEMESTRE", "NumSemestre"}, {"SEMESTRE", "Semestre"}, {"COD_TRIMESTRE", "NumTrimestre"}, {"TRIMESTRE", "Trimestre"}}),
 				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ANO", Int64.Type}, {"NumMes", Int64.Type}, {"NumSemestre", Int64.Type}, {"NumTrimestre", Int64.Type}, {"NumAnoSemana", Int64.Type}, {"NumDiaSemana", Int64.Type}, {"NumDiaMes", Int64.Type}, {"NUM_SEMANA", Int64.Type}}),
@@ -568,4 +575,6 @@ table Fecha
 				    #"Renamed Columns2"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
 

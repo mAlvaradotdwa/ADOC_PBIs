@@ -389,5 +389,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2ec974637933cad79b40",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Tiempo"
+              }
+            },
+            "Property": "Hora Sucursales"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6d4b97128e863de6cc72",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Venta Equivalente Año Pasado"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1593696716dab5dac6a6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Venta Ayer"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5825555da5573aa84187",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Venta Hoy"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
