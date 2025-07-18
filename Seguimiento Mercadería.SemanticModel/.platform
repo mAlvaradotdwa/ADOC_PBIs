@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Seguimiento Mercadería"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f5b975a2-9ef9-4116-99bd-95f8eaf6f599"
+  }
+}

@@ -1,0 +1,267 @@
+table Tabla_Conciliacion
+	lineageTag: d5e41e38-62f4-4ef0-b9e2-829a7c63f156
+
+	column Cantidad
+		lineageTag: 720a12ca-b3c2-4695-80cd-ac6c60788aa8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [CANTIDAD]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Estilo
+		lineageTag: c5e1d5df-a8ff-4ea2-8e15-aa998e871231
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ESTILO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		lineageTag: 1b2dbb73-56c3-478d-b5c9-db89960032a9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [COLOR]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Marca
+		lineageTag: 8146cfdc-3ea5-41f0-90a9-df0f2442bfd9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MARCA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Genero
+		lineageTag: a0ae6e82-3c26-49cc-aae8-0b2be7cadd46
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [GENERO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Departamento
+		lineageTag: c1d80d3d-cd47-4e5e-8dd3-60c83ed67ecf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DEPARTAMENTO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pais Destino'
+		lineageTag: 7cf5b281-5a29-40ba-951d-59df470983af
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [PAIS DESTINO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo De Linea'
+		lineageTag: e1579f48-3240-474b-8e83-51e5bf46d361
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [TIPO DE LINEA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Origen
+		lineageTag: c65069e1-1e14-4c4f-ad60-befeb4334063
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Origen]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Documento
+		lineageTag: 33d61b81-4587-4f86-a454-b4bdcd5750e8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DOCUMENTO]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Documento'
+		formatString: Short Date
+		lineageTag: d87e925f-a2c7-400c-83e8-638746247dc9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fecha Documento]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Articulo Generico'
+		lineageTag: 844f35ee-4da4-4a6a-90b3-8ab6d6e91cb8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Articulo Generico]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Conciliacion'
+		formatString: mmmm "de" yyyy
+		lineageTag: 12b16111-1923-443a-a56e-d7c1917c60f8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fecha Conciliacion]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Precio Venta USD'
+		lineageTag: 9e5fe96a-fe1c-4a7c-a85a-bc8c6f962b36
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Precio Venta USD]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Articulo
+		lineageTag: 5fa10881-48d2-4fea-96ae-db86e2373564
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Articulo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estilo Color'
+		lineageTag: 97e8e3aa-0ecd-4a8c-87f8-34434c7ffd19
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Estilo Color]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Estilo'
+		lineageTag: f222fe55-5236-4fb6-9962-66413bba48e1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Tipo Estilo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estado Articulo'
+		lineageTag: 5a6c8277-f585-4761-9419-746a32e1ce74
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Estado Articulo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Almacen
+		lineageTag: ebedd3af-e607-4f72-91d9-d73132db0a87
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Almacen]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero Proveedor'
+		lineageTag: 8cd110e6-743d-413c-946a-92c8ae97ae7e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Numero Proveedor]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Proveedor'
+		lineageTag: 101b29b7-7d75-4d0d-a0e6-c4780f846920
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nombre Proveedor]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		lineageTag: 5fe725e4-0682-466a-b56c-50070016e615
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Categoria]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descripcion
+		lineageTag: 1ff5ea68-a581-4b6a-8286-f25f43bc0238
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Descripcion]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Tabla_Conciliacion = calculated
+		mode: import
+		source = ```
+				
+				UNION(
+				    SELECTCOLUMNS(
+				        FILTER(
+				            'EKPO L1 V2',
+				            'EKPO L1 V2'[ESTATUS_DOCUMENTO] = "Pendiente"
+				        ),
+				        "Almacen",'EKPO L1 V2'[ALMACEN],
+				        "Numero Proveedor", BLANK(),
+				        "Nombre Proveedor", BLANK(),        
+				        "Articulo", 'EKPO L1 V2'[ARTICULO],
+				        "Descripcion", 'EKPO L1 V2'[DESCRIPCION],
+				        "Fecha Documento", 'EKPO L1 V2'[FECHA_CREACION_EKKO],
+				        "Documento", 'EKPO L1 V2'[DOCUMENTO],
+				        "Cantidad", 'EKPO L1 V2'[CANTIDAD],
+				        "Estilo", 'EKPO L1 V2'[ESTILO],
+				        "Color", 'EKPO L1 V2'[COLOR],
+				        "Estilo Color", 'EKPO L1 V2'[ESTILO] & " - " & 'EKPO L1 V2'[COLOR],
+				        "Estado Articulo", 'EKPO L1 V2'[Estado_Articulo],
+				        "Categoria", 'EKPO L1 V2'[BV_CATEGORIA],
+				        "Marca", 'EKPO L1 V2'[MARCA],
+				        "Genero", 'EKPO L1 V2'[GENERO],
+				        "Departamento", 'EKPO L1 V2'[DEPARTAMENTO],
+				        "Articulo Generico", 'EKPO L1 V2'[ARTICULO_GENERICOF],
+				        "Tipo Estilo", 'EKPO L1 V2'[TIPOESTILO],
+				        "Fecha Conciliacion", 'EKPO L1 V2'[FECHA_CONCILIACION],
+				        "Pais Destino", 'EKPO L1 V2'[BV_PAIS],
+				        "Precio Venta USD", 'EKPO L1 V2'[PRECIOVENTA_USD],
+				        "Tipo De Linea", "L1",
+				        "Origen", "EKPO L1 V2"
+				    ),
+				    SELECTCOLUMNS(
+				        FILTER(
+				            'EKPO',
+				            'EKPO'[Estatus MK] = "Pendiente"
+				        ),
+				        "Almacen", EKPO[ALMACEN],
+				        "Numero Proveedor", EKPO[NUMERO_PROVEEDOR],
+				        "Nombre Proveedor", EKPO[Nombre_Proveedor],
+				        "Articulo",EKPO[ARTICULO],
+				        "Descripcion", EKPO[DESCRIPCION],
+				        "Fecha Documento", EKPO[FECHA_CREACION_FINAL],
+				        "Documento", EKPO[DOCUMENTO],
+				        "Cantidad", 'EKPO'[CANTIDAD],
+				        "Estilo", 'EKPO'[ESTILO],
+				        "Color", 'EKPO'[COLOR],
+				        "Estilo Color", EKPO[ESTILO] & " - " & EKPO[COLOR],
+				        "Estado Articulo", EKPO[Estado_Articulo],
+				        "Categoria", EKPO[BV_CATEGORIA],
+				        "Marca", 'EKPO'[MARCA],
+				        "Genero", 'EKPO'[GENERO],
+				        "Departamento", 'EKPO'[DEPARTAMENTO],
+				        "Articulo Generico", 'EKPO'[ARTICULO_GENERICOF],
+				        "Tipo Estilo", EKPO[Tipo_Estilo],
+				        "Fecha Conciliacion", 'EKPO'[FECHA_CONCILIACION],
+				        "Pais Destino", 'EKPO'[Pais Destino2],
+				        "Precio Venta USD", 'EKPO'[PRECIOVENTA_USD],
+				        "Tipo De Linea", 'EKPO'[Tipo_Linea],
+				        "Origen", "EKPO"
+				    )
+				)
+				```
+
+	annotation PBI_Id = fd5e035ee77748b9a25e813e31e84d51
+

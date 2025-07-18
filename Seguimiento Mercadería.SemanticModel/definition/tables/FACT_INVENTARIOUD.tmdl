@@ -1,0 +1,200 @@
+table FACT_INVENTARIOUD
+	lineageTag: 8501e32b-d593-4fa7-91aa-a5a4b27eb569
+
+	column SK_PERIODO
+		dataType: int64
+		formatString: 0
+		lineageTag: c7cd8288-a05e-4ecb-94d2-e71044221f70
+		summarizeBy: sum
+		sourceColumn: SK_PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOOPERACION
+		dataType: string
+		lineageTag: 4b9399f6-4377-4cc0-935a-4c4068cc244f
+		summarizeBy: none
+		sourceColumn: SK_TIPOOPERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_MATNR
+		dataType: string
+		lineageTag: adb968e9-2dae-4f0f-915b-4b95423e3f89
+		summarizeBy: none
+		sourceColumn: SK_MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_DIVISION
+		dataType: int64
+		formatString: 0
+		lineageTag: f9299c2f-9ef6-429f-837c-acd27c457a23
+		summarizeBy: sum
+		sourceColumn: SK_DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: d1a6dbad-0a48-482c-85b9-38a37a51e911
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIENDA
+		dataType: string
+		lineageTag: fcd7db6a-5437-4a3f-aa45-6d86a13d0d4d
+		summarizeBy: none
+		sourceColumn: SK_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ALMACEN
+		dataType: string
+		lineageTag: 07180f8a-5061-4194-959d-826ede03bfdb
+		summarizeBy: none
+		sourceColumn: SK_ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PROVEEDOR
+		dataType: string
+		lineageTag: 8f87bb3a-e1f8-4f25-a1da-337422c11568
+		summarizeBy: none
+		sourceColumn: SK_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTO_LOCAL
+		dataType: double
+		lineageTag: 97ed0e9b-d5ed-4d81-987f-9fccf900e5bd
+		summarizeBy: sum
+		sourceColumn: COSTO_LOCAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRECIO_LOCAL
+		dataType: double
+		lineageTag: 9a46160d-eaa1-468c-9dd7-76f602585e8c
+		summarizeBy: sum
+		sourceColumn: PRECIO_LOCAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COSTO_USD
+		dataType: double
+		lineageTag: 88913d09-f8cf-4cf3-98c7-2343b7289985
+		summarizeBy: sum
+		sourceColumn: COSTO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRECIO_USD
+		dataType: double
+		lineageTag: 6f449ce4-83c8-4d2d-a605-fff0f4424aaf
+		summarizeBy: sum
+		sourceColumn: PRECIO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PARES
+		dataType: int64
+		formatString: 0
+		lineageTag: 6727feb9-46b0-4e13-95f3-826a0e45262d
+		summarizeBy: sum
+		sourceColumn: PARES
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ARTICULO
+		dataType: string
+		lineageTag: 63fd4dda-10b4-401a-a9b6-65520a654a70
+		summarizeBy: none
+		sourceColumn: SK_ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESERVADO
+		dataType: int64
+		formatString: 0
+		lineageTag: e2a28717-43be-4fdf-b992-d36cad4f1926
+		summarizeBy: sum
+		sourceColumn: RESERVADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISPONIBLE
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e12d79a-18d4-492f-a837-a9ee73b78754
+		summarizeBy: sum
+		sourceColumn: DISPONIBLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_BASICO_ACTIVO
+		dataType: int64
+		formatString: 0
+		lineageTag: 85646760-56e8-434f-b0e0-17026dd92c12
+		summarizeBy: sum
+		sourceColumn: SK_BASICO_ACTIVO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ESTATUS
+		dataType: string
+		lineageTag: bd048d44-f113-480a-bc54-53a7edda7b55
+		summarizeBy: none
+		sourceColumn: SK_ESTATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPOESTILO
+		dataType: string
+		lineageTag: 035256f2-6fd8-4f0e-bb3e-1de34a832047
+		summarizeBy: none
+		sourceColumn: SK_TIPOESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_TIPO_TIENDA_108
+		dataType: int64
+		formatString: 0
+		lineageTag: 6aed7cbb-68c4-4ee1-a550-fa1158ddd672
+		summarizeBy: sum
+		sourceColumn: SK_TIPO_TIENDA_108
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo
+		dataType: string
+		lineageTag: 3a67c35d-16a4-43a1-a5b0-1a8f4370890b
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_INVENTARIOUD = m
+		mode: import
+		source =
+				let
+				    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="adoc-bi-dev"]){[Name="adoc-bi-dev"]}[Data], "SELECT *#(lf)FROM `adoc-bi-dev.CA_TEMP.FAC_INVENTARIOUD`", null, [EnableFolding=true]),
+				    #"Consultas combinadas" = Table.NestedJoin(Origen, {"SK_ALMACEN"}, ALMACENES, {"Alm."}, "ALMACENES", JoinKind.LeftOuter),
+				    #"Se expandió ALMACENES" = Table.ExpandTableColumn(#"Consultas combinadas", "ALMACENES", {"Tipo"}, {"Tipo"})
+				in
+				    #"Se expandió ALMACENES"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
