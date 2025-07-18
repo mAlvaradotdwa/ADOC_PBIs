@@ -1,0 +1,323 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "b56e4c1f2638c8b51910",
+  "position": {
+    "x": 242.60111022997623,
+    "y": 124.85329103885806,
+    "z": 2000,
+    "height": 184.74226804123711,
+    "width": 515.65424266455193,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO"
+                    }
+                  },
+                  "Property": "Tipo_Flete"
+                }
+              },
+              "queryRef": "EKPO.Tipo_Flete",
+              "nativeQueryRef": "Tipo de Flete",
+              "active": true,
+              "displayName": "Tipo de Flete"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito CFS"
+                }
+              },
+              "queryRef": "Métricas.Tránsito CFS",
+              "nativeQueryRef": "Tránsito CFS"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Consolidación"
+                }
+              },
+              "queryRef": "Métricas.Consolidación",
+              "nativeQueryRef": "Consolidación"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito"
+                }
+              },
+              "queryRef": "Métricas.Tránsito",
+              "nativeQueryRef": "Tránsito"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito BFI"
+                }
+              },
+              "queryRef": "Métricas.Tránsito BFI",
+              "nativeQueryRef": "Tránsito BFI"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Métricas"
+                  }
+                },
+                "Property": "Tránsito CFS"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "logAxisScale": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "preferredCategoryWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "maxMarginFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "40L"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EDBE31'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 6,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.Tránsito BFI"
+          }
+        }
+      ],
+      "totals": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tiempos por Tipo de Flete'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

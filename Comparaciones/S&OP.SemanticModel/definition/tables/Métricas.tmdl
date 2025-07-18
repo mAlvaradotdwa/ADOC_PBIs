@@ -1,0 +1,1271 @@
+table Métricas
+	lineageTag: 241bf572-a55d-4d3a-ab67-5cedf7d9f739
+
+	measure Documentos = DISTINCTCOUNT ( EKPO[DOCUMENTO] )
+		formatString: #,0
+		displayFolder: Documentos
+		lineageTag: 78bd173a-ca8d-4ad1-9695-b057ad27c6f7
+
+	measure Consolidación = AVERAGE ( EKPO[Consolidacion_Total] )
+		formatString: #,0.00
+		displayFolder: Tiempos
+		lineageTag: a63b1d58-ff57-4c3d-a2d7-cb69117cfa9e
+
+	measure Liberación = AVERAGE ( EKPO[Tiempo_Liberacion] )
+		formatString: #,0.00
+		displayFolder: Tiempos
+		lineageTag: a05470b4-360a-454f-aa25-47b56328748c
+
+	measure Producción = AVERAGE ( EKPO[Tiempo_Fabricacion] )
+		formatString: #,0.00
+		displayFolder: Tiempos
+		lineageTag: 2a55dea3-2112-4d41-8924-eba5545fbcca
+
+	measure Tránsito = AVERAGE ( EKPO[Transito] )
+		formatString: #,0.00
+		displayFolder: Tiempos
+		lineageTag: ace8cc97-2b03-41fc-b224-d75dc67fa47a
+
+	measure 'Tránsito BFI' = AVERAGE ( EKPO[Transito_BFI] )
+		formatString: #,0.00
+		displayFolder: Tiempos
+		lineageTag: 9b1d0435-7d85-4865-8f41-32450255b410
+
+	measure 'Tránsito CFS' = AVERAGE ( EKPO[Transito_CFS] )
+		formatString: #,0.00
+		displayFolder: Tiempos
+		lineageTag: 4fceb884-72c3-4c15-ab09-aa040d53d81c
+
+	measure Pares = SUM ( EKPO[CANTIDAD_PARES] )
+		formatString: #,0
+		displayFolder: Pares
+		lineageTag: 63561256-bfb1-4d2e-981d-6b211e2f1275
+
+	measure Monto = SUM ( EKPO[PRECIOVENTA_USD] )
+		formatString: $ #,0
+		displayFolder: Monto
+		lineageTag: be5b32a0-4521-4156-9160-4e17cf89e071
+
+	measure 'Monto LY' =
+			
+			CALCULATE (
+			    [Monto],
+			    ALL ( 'Fecha Liquidación' ),
+			    SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			)
+		formatString: #,0.00
+		displayFolder: Monto\Periodo Calendario\Monto LY
+		lineageTag: fe3ddb77-ff46-4a11-a215-a630cc94325f
+
+	measure 'Delta Monto LY' =
+			
+			DIVIDE (
+			    [Monto],
+			    [Monto LY]
+			)
+		formatString: #,0.00
+		displayFolder: Monto\Periodo Calendario\Monto LY
+		lineageTag: 91693f2a-3386-40f8-b8ae-29d5e68e2d86
+
+	measure 'Var Monto LY' =
+			
+			[Monto] - [Monto LY]
+		formatString: #,0.00
+		displayFolder: Monto\Periodo Calendario\Monto LY
+		lineageTag: 1932bc56-f0ca-4ffe-aba9-02b04d314851
+
+	measure 'Monto SDYA' =
+			
+			CALCULATE (
+			    [Monto],
+			    ALL ( 'Fecha Liquidación' ),
+			    DATEADD (
+			        'Fecha Liquidación'[Fecha],
+			        - 364,
+			        DAY
+			    )
+			)
+		formatString: #,0.00
+		displayFolder: Monto\Periodo Calendario\Monto SDYA
+		lineageTag: 07602368-2fd4-44a3-9c41-98e65bbd2960
+
+	measure 'Delta Monto SDYA' =
+			
+			DIVIDE (
+			    [Monto],
+			    [Monto SDYA]
+			)
+		formatString: #,0.00
+		displayFolder: Monto\Periodo Calendario\Monto SDYA
+		lineageTag: c4185482-6715-4bda-94e2-92b366ded2f6
+
+	measure 'Var Monto SDYA' =
+			
+			[Monto] - [Monto SDYA]
+		formatString: #,0.00
+		displayFolder: Monto\Periodo Calendario\Monto SDYA
+		lineageTag: ea0f7fc9-5aaf-40d1-9f19-fd1304f170d6
+
+	measure 'Monto MTD' =
+			
+			VAR _actual =
+			    CALCULATE (
+			        [Monto],
+			        CALCULATETABLE (
+			            DATESMTD ( 'Fecha Liquidación'[Fecha] ),
+			            'Fecha Liquidación'[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    _actual
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto MTD
+		lineageTag: 149868f4-39f3-4ebc-a588-9b98182942fa
+
+	measure 'Monto MTD LY' =
+			VAR _prev =
+			    CALCULATE (
+			        [Monto],
+			        CALCULATETABLE (
+			            DATESMTD ( 'Fecha Liquidación'[Fecha] ),
+			            SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			        )
+			    )
+			RETURN
+			    _prev
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto MTD
+		lineageTag: 6fd5a6d9-6300-48bf-a815-53e5b8d5b46c
+
+	measure 'Delta Monto MTD' =
+			
+			DIVIDE (
+			    [Monto MTD],
+			    [Monto MTD LY]
+			)
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto MTD
+		lineageTag: bdaf3f7c-c257-4637-99e4-e2955492a099
+
+	measure 'Var Monto MTD' =
+			
+			[Monto MTD] - [Monto MTD LY]
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto MTD
+		lineageTag: 30e90388-88ec-432a-824f-33e237e40838
+
+	measure 'Monto QTD' =
+			
+			VAR _actual =
+			    CALCULATE (
+			        [Monto],
+			        CALCULATETABLE (
+			            DATESQTD ( 'Fecha Liquidación'[Fecha] ),
+			            'Fecha Liquidación'[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    _actual
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto QTD
+		lineageTag: 29bbb000-8ff8-405c-958a-c3a6eb344123
+
+	measure 'Monto QTD LY' =
+			VAR _prev =
+			    CALCULATE (
+			        [Monto],
+			        CALCULATETABLE (
+			            DATESYTD ( 'Fecha Liquidación'[Fecha] ),
+			            SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			        )
+			    )
+			RETURN
+			    _prev
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto QTD
+		lineageTag: aa2ce84f-a66b-48ef-8197-df4a8a87b457
+
+	measure 'Delta Monto QTD' =
+			
+			DIVIDE (
+			    [Monto YTD],
+			    [Monto YTD LY]
+			)
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto QTD
+		lineageTag: b7cc841e-535d-4f94-8b22-b9d2a6c3330b
+
+	measure 'Var Monto QTD' =
+			
+			[Monto YTD] - [Monto YTD LY]
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto QTD
+		lineageTag: 15718e57-fcdf-4a72-9fc0-ea08e2d014a3
+
+	measure 'Monto YTD' =
+			
+			VAR _actual =
+			    CALCULATE (
+			        [Monto],
+			        CALCULATETABLE (
+			            DATESYTD ( 'Fecha Liquidación'[Fecha] ),
+			            'Fecha Liquidación'[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    _actual
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto YTD
+		lineageTag: 6498f571-f555-419e-a13a-c8c244b26e61
+
+	measure 'Monto YTD LY' =
+			VAR _prev =
+			    CALCULATE (
+			        [Monto],
+			        CALCULATETABLE (
+			            DATESYTD ( 'Fecha Liquidación'[Fecha] ),
+			            SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			        )
+			    )
+			RETURN
+			    _prev
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto YTD
+		lineageTag: 87275686-c669-4045-952d-5ebc137fb74f
+
+	measure 'Delta Monto YTD' =
+			
+			DIVIDE (
+			    [Monto YTD],
+			    [Monto YTD LY]
+			)
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto YTD
+		lineageTag: 7bf72109-131a-433e-83b5-2a1e88e65157
+
+	measure 'Var Monto YTD' =
+			
+			[Monto YTD] - [Monto YTD LY]
+		formatString: #,0.00
+		displayFolder: Monto\Periodos Acumulados\Monto YTD
+		lineageTag: 4976f1e2-9dab-4fbb-96d0-3c5a28ccdf97
+
+	measure 'Documentos LY' =
+			
+			CALCULATE (
+			    [Documentos],
+			    ALL ( 'Fecha Liquidación' ),
+			    SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			)
+		formatString: #,0.00
+		displayFolder: Documentos\Periodo Calendario\Documentos LY
+		lineageTag: b5472fe3-5ed7-49ab-86b0-6b824929d92b
+
+	measure 'Delta Documentos LY' =
+			
+			DIVIDE (
+			    [Documentos],
+			    [Documentos LY]
+			)
+		formatString: #,0.00
+		displayFolder: Documentos\Periodo Calendario\Documentos LY
+		lineageTag: d7a0ae89-6628-4087-9fe9-53b2a0645b44
+
+	measure 'Var Documentos LY' =
+			
+			[Documentos] - [Documentos LY]
+		formatString: #,0.00
+		displayFolder: Documentos\Periodo Calendario\Documentos LY
+		lineageTag: 68fd0d16-cb4e-4c63-ab3f-4dc46318554a
+
+	measure 'Documentos SDYA' =
+			
+			CALCULATE (
+			    [Documentos],
+			    ALL ( 'Fecha Liquidación' ),
+			    DATEADD (
+			        'Fecha Liquidación'[Fecha],
+			        - 364,
+			        DAY
+			    )
+			)
+		formatString: #,0.00
+		displayFolder: Documentos\Periodo Calendario\Documentos SDYA
+		lineageTag: f5762ff1-1802-4733-970c-e17061e6891a
+
+	measure 'Delta Documentos SDYA' =
+			
+			DIVIDE (
+			    [Documentos],
+			    [Documentos SDYA]
+			)
+		formatString: #,0.00
+		displayFolder: Documentos\Periodo Calendario\Documentos SDYA
+		lineageTag: e48c0905-d910-44d2-88ae-731b68b05912
+
+	measure 'Var Documentos SDYA' =
+			
+			[Documentos] - [Documentos SDYA]
+		formatString: #,0.00
+		displayFolder: Documentos\Periodo Calendario\Documentos SDYA
+		lineageTag: c315ded9-182e-44ae-be94-8e74eebebfb1
+
+	measure 'Documentos MTD' =
+			
+			VAR _actual =
+			    CALCULATE (
+			        [Documentos],
+			        CALCULATETABLE (
+			            DATESMTD ( 'Fecha Liquidación'[Fecha] ),
+			            'Fecha Liquidación'[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    _actual
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos MTD
+		lineageTag: 31ae1279-c7bf-45c7-9224-7f1e1c11411d
+
+	measure 'Documentos MTD LY' =
+			VAR _prev =
+			    CALCULATE (
+			        [Documentos],
+			        CALCULATETABLE (
+			            DATESMTD ( 'Fecha Liquidación'[Fecha] ),
+			            SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			        )
+			    )
+			RETURN
+			    _prev
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos MTD
+		lineageTag: 9c8ed208-d1d6-450c-809d-b4bb5dc4550f
+
+	measure 'Delta Documentos MTD' =
+			
+			DIVIDE (
+			    [Documentos MTD],
+			    [Documentos MTD LY]
+			)
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos MTD
+		lineageTag: 7c569ec9-5e7b-424d-b021-c8ce828671a6
+
+	measure 'Var Documentos MTD' =
+			
+			[Documentos MTD] - [Documentos MTD LY]
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos MTD
+		lineageTag: fc6ce19e-b7e6-4bf1-8d1b-171393f83de5
+
+	measure 'Documentos QTD' =
+			
+			VAR _actual =
+			    CALCULATE (
+			        [Documentos],
+			        CALCULATETABLE (
+			            DATESQTD ( 'Fecha Liquidación'[Fecha] ),
+			            'Fecha Liquidación'[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    _actual
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos QTD
+		lineageTag: 8b341f85-9516-4b58-acf1-212e0cb71021
+
+	measure 'Documentos QTD LY' =
+			VAR _prev =
+			    CALCULATE (
+			        [Documentos],
+			        CALCULATETABLE (
+			            DATESYTD ( 'Fecha Liquidación'[Fecha] ),
+			            SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			        )
+			    )
+			RETURN
+			    _prev
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos QTD
+		lineageTag: acc25fcc-a246-436b-9b2c-8e9a0b8294ff
+
+	measure 'Delta Documentos QTD' =
+			
+			DIVIDE (
+			    [Documentos YTD],
+			    [Documentos YTD LY]
+			)
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos QTD
+		lineageTag: ac9706bf-1cc5-4846-aedf-5bf7ef02f63d
+
+	measure 'Var Documentos QTD' =
+			
+			[Documentos YTD] - [Documentos YTD LY]
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos QTD
+		lineageTag: 255932da-4566-43de-b0bc-826a78460026
+
+	measure 'Documentos YTD' =
+			
+			VAR _actual =
+			    CALCULATE (
+			        [Documentos],
+			        CALCULATETABLE (
+			            DATESYTD ( 'Fecha Liquidación'[Fecha] ),
+			            'Fecha Liquidación'[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    _actual
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos YTD
+		lineageTag: 5acc0c8d-903a-4dfd-b3c7-5e0571072b69
+
+	measure 'Documentos YTD LY' =
+			VAR _prev =
+			    CALCULATE (
+			        [Documentos],
+			        CALCULATETABLE (
+			            DATESYTD ( 'Fecha Liquidación'[Fecha] ),
+			            SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			        )
+			    )
+			RETURN
+			    _prev
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos YTD
+		lineageTag: 056e46dd-084f-409a-8210-9f218c0680c2
+
+	measure 'Delta Documentos YTD' =
+			
+			DIVIDE (
+			    [Documentos YTD],
+			    [Documentos YTD LY]
+			)
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos YTD
+		lineageTag: 8425276c-ba97-4d25-8222-2306d5b9037c
+
+	measure 'Var Documentos YTD' =
+			
+			[Documentos YTD] - [Documentos YTD LY]
+		formatString: #,0.00
+		displayFolder: Documentos\Periodos Acumulados\Documentos YTD
+		lineageTag: 8767c737-1cb4-4db8-84e0-5ef19b5091a7
+
+	measure 'Pares LY' =
+			
+			CALCULATE (
+			    [Pares],
+			    ALL ( 'Fecha Liquidación' ),
+			    SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			)
+		formatString: #,0.00
+		displayFolder: Pares\Periodo Calendario\Pares LY
+		lineageTag: 5b633ccb-9102-4ed5-ac7a-ef511465a916
+
+	measure 'Delta Pares LY' =
+			
+			DIVIDE (
+			    [Pares],
+			    [Pares LY]
+			)
+		formatString: #,0.00
+		displayFolder: Pares\Periodo Calendario\Pares LY
+		lineageTag: 78ce6347-b393-480f-9509-0e0af68c5d4b
+
+	measure 'Var Pares LY' =
+			
+			[Pares] - [Pares LY]
+		formatString: #,0.00
+		displayFolder: Pares\Periodo Calendario\Pares LY
+		lineageTag: 42f2165e-bafa-45e0-b30e-ee547c038526
+
+	measure 'Pares SDYA' =
+			
+			CALCULATE (
+			    [Pares],
+			    ALL ( 'Fecha Liquidación' ),
+			    DATEADD (
+			        'Fecha Liquidación'[Fecha],
+			        - 364,
+			        DAY
+			    )
+			)
+		formatString: #,0.00
+		displayFolder: Pares\Periodo Calendario\Pares SDYA
+		lineageTag: 8c3345cf-92e4-44cb-8699-3ab3d171f9c6
+
+	measure 'Delta Pares SDYA' =
+			
+			DIVIDE (
+			    [Pares],
+			    [Pares SDYA]
+			)
+		formatString: #,0.00
+		displayFolder: Pares\Periodo Calendario\Pares SDYA
+		lineageTag: e8c0cc6a-303a-4e11-8b9d-8c248a7daf23
+
+	measure 'Var Pares SDYA' =
+			
+			[Pares] - [Pares SDYA]
+		formatString: #,0.00
+		displayFolder: Pares\Periodo Calendario\Pares SDYA
+		lineageTag: a5bb140a-d9d6-4082-adca-d52e4bd9c577
+
+	measure 'Pares MTD' =
+			
+			VAR _actual =
+			    CALCULATE (
+			        [Pares],
+			        CALCULATETABLE (
+			            DATESMTD ( 'Fecha Liquidación'[Fecha] ),
+			            'Fecha Liquidación'[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    _actual
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares MTD
+		lineageTag: f26c2f77-a570-43ff-9865-a155af748f7b
+
+	measure 'Pares MTD LY' =
+			VAR _prev =
+			    CALCULATE (
+			        [Pares],
+			        CALCULATETABLE (
+			            DATESMTD ( 'Fecha Liquidación'[Fecha] ),
+			            SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			        )
+			    )
+			RETURN
+			    _prev
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares MTD
+		lineageTag: 6a442753-6e4b-4d40-9126-a59efd6bb04a
+
+	measure 'Delta Pares MTD' =
+			
+			DIVIDE (
+			    [Pares MTD],
+			    [Pares MTD LY]
+			)
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares MTD
+		lineageTag: 379ae928-0cc0-48b0-b0bd-17c515819518
+
+	measure 'Var Pares MTD' =
+			
+			[Pares MTD] - [Pares MTD LY]
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares MTD
+		lineageTag: 1cb2209d-c2cc-4250-a896-9929c37a2b07
+
+	measure 'Pares QTD' =
+			
+			VAR _actual =
+			    CALCULATE (
+			        [Pares],
+			        CALCULATETABLE (
+			            DATESQTD ( 'Fecha Liquidación'[Fecha] ),
+			            'Fecha Liquidación'[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    _actual
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares QTD
+		lineageTag: 939bee59-e156-4bd4-926c-70812fce885e
+
+	measure 'Pares QTD LY' =
+			VAR _prev =
+			    CALCULATE (
+			        [Pares],
+			        CALCULATETABLE (
+			            DATESYTD ( 'Fecha Liquidación'[Fecha] ),
+			            SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			        )
+			    )
+			RETURN
+			    _prev
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares QTD
+		lineageTag: 69b736d5-3843-42f3-b20c-b8e6664d3d0b
+
+	measure 'Delta Pares QTD' =
+			
+			DIVIDE (
+			    [Pares YTD],
+			    [Pares YTD LY]
+			)
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares QTD
+		lineageTag: 16cae441-97d0-4cc6-a747-c0c9cf67e3d8
+
+	measure 'Var Pares QTD' =
+			
+			[Pares YTD] - [Pares YTD LY]
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares QTD
+		lineageTag: 8f8e1c3e-fc33-4765-9fee-ee55068fe103
+
+	measure 'Pares YTD' =
+			
+			VAR _actual =
+			    CALCULATE (
+			        [Pares],
+			        CALCULATETABLE (
+			            DATESYTD ( 'Fecha Liquidación'[Fecha] ),
+			            'Fecha Liquidación'[DiasConVenta] = TRUE ()
+			        )
+			    )
+			RETURN
+			    _actual
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares YTD
+		lineageTag: f00a6234-c63f-4c02-bef6-a8fbbf70372d
+
+	measure 'Pares YTD LY' =
+			VAR _prev =
+			    CALCULATE (
+			        [Pares],
+			        CALCULATETABLE (
+			            DATESYTD ( 'Fecha Liquidación'[Fecha] ),
+			            SAMEPERIODLASTYEAR ( 'Fecha Liquidación'[Fecha] )
+			        )
+			    )
+			RETURN
+			    _prev
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares YTD
+		lineageTag: 13d267aa-22c5-4e40-8fad-1ae0124076a9
+
+	measure 'Delta Pares YTD' =
+			
+			DIVIDE (
+			    [Pares YTD],
+			    [Pares YTD LY]
+			)
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares YTD
+		lineageTag: 37fd994c-0770-44c7-9c82-32ecb4c8ad29
+
+	measure 'Var Pares YTD' =
+			
+			[Pares YTD] - [Pares YTD LY]
+		formatString: #,0.00
+		displayFolder: Pares\Periodos Acumulados\Pares YTD
+		lineageTag: db4109ca-b682-463c-a186-0daa528bc54c
+
+	measure 'Tránsito Total' =
+			[Tránsito CFS] +
+			[Consolidación] +
+			[Tránsito] +
+			[Tránsito BFI]
+		formatString: #,0.00
+		displayFolder: Tiempos
+		lineageTag: 73d59521-5a2f-42d9-b9ce-626c616602ef
+
+	measure 'Cumplimiento XFACTORY' =
+			VAR _totalDocumentos =
+			    DISTINCTCOUNT ( EKPO[DOCUMENTO] )
+			VAR _XFactoryOnTime =
+			    CALCULATE ( DISTINCTCOUNT ( EKPO[DOCUMENTO] ), EKPO[Tiempo_XFactory] <= 0 )
+			RETURN
+			    DIVIDE ( _XFactoryOnTime, _totalDocumentos )
+		formatString: #,0.00 %
+		displayFolder: Documentos
+		lineageTag: a052d3c6-6148-4342-a904-506efc27b65a
+
+	measure 'Tiempo Creacion a BFI' = AVERAGE ( EKPO[Lead_Time] )
+		formatString: #,0.0
+		displayFolder: Tiempos
+		lineageTag: 66fcec85-8d5f-4a13-9b90-0da7fad423e4
+
+	measure 'Tiempo Creacion a BFI Ponderado' =
+			DIVIDE (
+			    SUMX ( EKPO, EKPO[CANTIDAD_PARES] * EKPO[Lead_Time] ),
+			    CALCULATE (
+			        SUM ( EKPO[CANTIDAD_PARES] ),
+			        NOT ISBLANK ( EKPO[Lead_Time] )
+			    )
+			)
+		formatString: #,0.0
+		displayFolder: Tiempos
+		lineageTag: c835df1c-2cc0-49e2-b8e4-fce2cc412511
+
+	measure 'Ultima Actualización' = FORMAT ( MAX ( LastRefresh[LastRefresh] ), "dd MMM yyyy HH:mm" )
+		lineageTag: 69027cc8-18da-4311-9665-37b06118b7dc
+
+	measure 'Rango de Fechas Seleccionado' = "Rango de Fechas Seleccionado: del "&min('Fecha Liquidación'[Fecha])&" al "&max('Fecha Liquidación'[Fecha])
+		lineageTag: 77431203-9cff-48d9-bbb2-b9466fc49742
+
+	measure 'Tránsito BFI New' = AVERAGE ( EKPO[Tránsito BFI New] )
+		lineageTag: d1ec0e55-5592-491f-a71f-39415c6f6e8c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Indicador =
+			switch(TRUE(),
+			VALUES(DIM_METRICA[METRICA]) = "Pares",[Pares],
+			VALUES(DIM_METRICA[METRICA]) = "Documentos",[Documentos],
+			VALUES(DIM_METRICA[METRICA]) = "Monto",[Monto],
+			blank())
+		formatString: #,0
+		lineageTag: 857acd16-0bf8-4a62-bf14-992c88c8e0fa
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Leyenda Indicador' = SELECTEDVALUE(DIM_METRICA[METRICA])
+		lineageTag: 32556f37-c0b2-4229-8b37-904e0a7fd492
+
+	measure TránsitoMT = AVERAGE ( EKPO[Transito_MT] )
+		displayFolder: Tiempos
+		lineageTag: 17bf9930-36cc-44d9-8e62-8c802c80b971
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Cumplimiento_MK = AVERAGE(EKPO[Margen_Cumplimiento_Pedido])
+		displayFolder: Tiempos
+		lineageTag: 9ac745ea-bf3c-4eba-aed2-f850fae4459e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Tránsito Total2' = ```
+			[Cumplimiento_MK] +
+			[Tránsito CFS] +
+			[Consolidación] +
+			[Tránsito] +
+			[Tránsito BFI] 
+			```
+		displayFolder: Tiempos
+		lineageTag: 1386b2e4-505a-47e2-8e2b-93c97ca5e098
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ConsolidacionKPI =
+			[Tránsito CFS] +
+			[Consolidación]
+		displayFolder: Tiempos
+		lineageTag: 7a86ca08-9297-4ba3-ac49-638547b707be
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Cump_Producción = calculate(sum(EKPO[Cump_Prod])/count(EKPO[Cump_Prod]),EKPO[Margen_Cumplimiento_Pedido]>=0)
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: e79b38f2-cffe-4de0-b625-c02c39f81dcf
+
+	measure 'Cantidad MKs' = DISTINCTCOUNT(EKPO[DOCUMENTO])
+		formatString: #,0
+		lineageTag: 7f6fe42a-0aa7-49cb-84de-b29309344f25
+
+	measure %Cump_Consolidación = calculate(sum(EKPO[Cump_Consolidacion])/count(EKPO[Cump_Consolidacion]),EKPO[Consolidacion_Total]>=0)
+		lineageTag: eb2b5cae-25d9-4864-abbc-7558d0eafd7d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Cump_Tránsito = calculate(sum(EKPO[Cump_Tránsito])/count(EKPO[Cump_Tránsito]),EKPO[Transito]>=0)
+		lineageTag: 202c237b-5ea9-43fa-8a72-b78637da54f7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Cump_TránsitoBFI = calculate(sum(EKPO[Cump_TránsitoBFI])/count(EKPO[Cump_TránsitoBFI]),EKPO[Transito_BFI]>=0)
+		lineageTag: c24ef501-be2d-4575-acb5-a005c538a6e4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Medidas Importación' =
+			switch(TRUE(),
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Cumplimiento MK",[Cumplimiento_MK],
+			--VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",'Métricas'[Tránsito CFS],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Consolidación",[Consolidación],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Import",'Métricas'[Tránsito],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito BFI",'Métricas'[Tránsito BFI],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Total",'Métricas'[Tránsito Total2],
+			blank())
+		formatString: #,0.0
+		lineageTag: 9e4714f3-efa9-4b4e-ba1b-9a84509ef4ea
+
+	measure 'Bubble Pos' = ```
+			
+			VAR _MaxValue =
+			    MAXX(
+			        ALLSELECTED(MedidaImportacionTabla),
+			        [Medidas Importación]
+			    )
+			RETURN
+			    _MaxValue * 1.7
+			
+			```
+		lineageTag: 889b77ad-a314-4052-bccc-c46b614c78cf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Y-Axis Max' = ```
+			
+			VAR _MaxValue =
+			    MAXX(
+			        ALLSELECTED(MedidaImportacionTabla),
+			        [Medidas Importación]
+			    )
+			RETURN
+			    _MaxValue * 2.2
+			
+			```
+		lineageTag: 0f9f25a6-a8b8-4ee0-89bf-cb1866c128dc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Bubble Lbl' = ```
+			
+			VAR _MaxValue =
+			    MAXX(
+			        ALLSELECTED(MedidaImportacionTabla),
+			        [Medidas Importación]
+			    )
+			RETURN
+			    _MaxValue * 1.63
+			
+			```
+		lineageTag: 591b0888-01c8-4dbf-b8dc-c1c0eef3341f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cump Medidas Importación' =
+			switch(TRUE(),
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Cumplimiento MK",'Métricas'[%Cump_Producción],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",blank(),
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Consolidación",'Métricas'[%Cump_Consolidación],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Import",'Métricas'[%Cump_Tránsito],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito BFI",'Métricas'[%Cump_TránsitoBFI],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Total",'Métricas'[%Cump_TT],
+			blank())
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 742bcac9-bbbe-4d5f-8af8-58461b5db656
+
+	measure 'Bubble Lbl CF' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    [Cump Medidas Importación] >= 1, "rgba(116, 198, 151, 1)",
+			    [Cump Medidas Importación] < 1, "rgba(232, 119, 100, 1)",
+			    "rgba(150, 150, 150, 1)"
+			)
+			
+			```
+		lineageTag: 2c8c932b-8223-4135-a790-70211cd4b6fa
+
+	measure 'Meta Cumplimiento MK' = calculate(average(EKPO[SLA_Produccion]))
+		lineageTag: 754ab7e5-b3e7-42c5-9ba5-c5c00fe62c72
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Metas Medidas Importación' =
+			switch(TRUE(),
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Cumplimiento MK",[Meta Cumplimiento MK],
+			--VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",'Métricas'[Tránsito CFS],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Consolidación",[Meta Consolidacion],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Import",[Meta Transito],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito BFI",[Meta BFI],
+			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Total",[Meta Total],
+			blank())
+		formatString: #,0.00
+		lineageTag: e296cf53-2265-43b4-98c3-bafd03b29bdd
+
+	measure %Cump_TT = calculate(sum(EKPO[Cump_TT])/count(EKPO[Cump_TT]),EKPO[Transito_Total]>=0)
+		lineageTag: 8cf3037a-bc42-41c1-af85-cce0f1d10cda
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Meta Consolidacion' = calculate(average(EKPO[SLA_Consolidacion]))
+		lineageTag: a7bf9149-9945-4d1e-9876-fa6963af2f7a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Meta Transito' = calculate(average(EKPO[SLA_Maritimo]))
+		lineageTag: 1d4b2192-4704-441c-9ea8-654a0b9a81b8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Meta BFI' = calculate(average(EKPO[SLA_BFI]))
+		lineageTag: 67bde453-755c-4df0-811c-3a90f4599e98
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Meta Total' = calculate(average(EKPO[SLA_TOTAL]))
+		lineageTag: c09ceb8b-45a6-47a4-b267-42812193fc52
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cantidad Contenedores' = DISTINCTCOUNT(EKPO[CONTENEDOR])
+		formatString: 0
+		displayFolder: Pares
+		lineageTag: 70494fd1-1ac4-4b83-8fe6-c8711f7863d0
+
+	measure _baseParesCampañas = ```
+			SUM ( 'Tabla_Campaña'[Cantidad] ) 
+			```
+		isHidden
+		displayFolder: Campañas
+		lineageTag: c83286dc-55d7-43b7-bf00-0b40f4e50bef
+
+	measure 'Pares Import' =
+			CALCULATE (
+			    [_baseParesCampañas],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Origen] = "Importación" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Importación a BFI
+		lineageTag: 850951fa-1869-41a5-b88a-f4850d85f012
+
+	measure 'Pares Fabricación L1' =
+			CALCULATE (
+			    [_baseParesCampañas],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Origen] = "L1" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Fabricación L1
+		lineageTag: 7349e977-82c1-4488-ac0d-2cb76dc11640
+
+	measure 'Pares SOLPED' =
+			CALCULATE (
+			    [_baseParesCampañas],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Origen] = "SOLPED" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\SOLPED
+		lineageTag: 9c37718b-c583-4c17-8f8e-3ea176c8a648
+
+	measure 'Pares CD' =
+			CALCULATE (
+			    [_baseParesCampañas],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Origen] = "Exportación" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\CD
+		lineageTag: 91d9bd57-3a54-4933-92e4-30eddfe15091
+
+	measure 'Pares Tienda' =
+			CALCULATE (
+			    [_baseParesCampañas],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Origen] = "Tienda" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Tienda
+		lineageTag: 91093376-3cc5-4ae3-9158-19f3f08ab2fa
+
+	measure 'Entregado Import' =
+			CALCULATE (
+			    [Pares Import],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Entregado" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Importación a BFI
+		lineageTag: b567ea18-d766-40bb-b1aa-d82ee07b9ef7
+
+	measure 'Pendiente Import' =
+			CALCULATE (
+			    [Pares Import],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Pendiente" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Importación a BFI
+		lineageTag: b061fb74-db81-474a-956a-78076032bb21
+
+	measure '% Entregado Import' =
+			DIVIDE (
+			    [Entregado Import],
+			    [Pares Import]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Importación a BFI
+		lineageTag: 7e74210f-ed27-4a0b-b9d7-c265354a5648
+
+	measure '% Pendiente Import' =
+			DIVIDE (
+			    [Pendiente Import],
+			    [Pares Import]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Importación a BFI
+		lineageTag: aeccb7eb-7642-46c6-b9eb-b091b40a069d
+
+	measure 'Entregado Fabricación L1' =
+			CALCULATE (
+			    [Pares Fabricación L1],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Entregado" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Fabricación L1
+		lineageTag: 303e3fc3-49dc-4d8e-9770-00f351947b12
+
+	measure '% Entregado Fabricación L1' =
+			DIVIDE (
+			    [Entregado Fabricación L1],
+			    [Pares Fabricación L1]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Fabricación L1
+		lineageTag: f4a461eb-697f-4abd-878f-13263d5b296b
+
+	measure 'Pendiente Fabricación L1' =
+			CALCULATE (
+			    [Pares Fabricación L1],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Pendiente" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Fabricación L1
+		lineageTag: 4abcb593-31d2-4a5c-ab5a-ffbd7cb58750
+
+	measure '% Pendiente Fabricación L1' =
+			DIVIDE (
+			    [Pendiente Fabricación L1],
+			    [Pares Fabricación L1]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Fabricación L1
+		lineageTag: eab142ad-fa72-49ba-ae35-973a6d5ab190
+
+	measure 'Entregado SOLPED' =
+			CALCULATE (
+			    [Pares SOLPED],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Entregado" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\SOLPED
+		lineageTag: fd47cfec-6208-4544-9218-89723d491144
+
+	measure '% Entregado SOLPED' =
+			DIVIDE (
+			    [Entregado SOLPED],
+			    [Pares SOLPED]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\SOLPED
+		lineageTag: de5752ae-070f-47a6-b226-3269474f1718
+
+	measure 'Pendiente SOLPED' =
+			CALCULATE (
+			    [Pares SOLPED],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Pendiente" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\SOLPED
+		lineageTag: 8224a191-0408-483c-88eb-0fa3d45f7c52
+
+	measure '% Pendiente SOLPED' =
+			DIVIDE (
+			    [Pendiente SOLPED],
+			    [Pares SOLPED]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\SOLPED
+		lineageTag: f9a2f116-7b1f-40e0-bee3-029cf84e5ca4
+
+	measure 'Entregado Tienda' =
+			CALCULATE (
+			    [Pares Tienda],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Entregado" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Tienda
+		lineageTag: 1ba488f9-a579-402a-b179-a06126a384f6
+
+	measure '% Entregado Tienda' =
+			DIVIDE (
+			    [Entregado Tienda],
+			    [Pares Tienda]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Tienda
+		lineageTag: d7432e69-2c03-4b2c-b2cc-5d1be89b3aaf
+
+	measure 'Pendiente Tienda' =
+			CALCULATE (
+			    [Pares Tienda],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Pendiente" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Tienda
+		lineageTag: 59d1ca30-7859-4964-875a-fb81bf3bdc1a
+
+	measure '% Pendiente Tienda' =
+			DIVIDE (
+			    [Pendiente Tienda],
+			    [Pares Tienda]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Tienda
+		lineageTag: 6adb2f00-1894-41c0-96af-156235e672ad
+
+	measure 'Entregado CD' =
+			CALCULATE (
+			    [Pares CD],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Entregado" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\CD
+		lineageTag: e75e30f5-6d6a-4913-8dd3-a17d7d20a654
+
+	measure '% Entregado CD' =
+			DIVIDE (
+			    [Entregado CD],
+			    [Pares CD]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\CD
+		lineageTag: aac3d8c5-560c-41a8-9d91-9d55d7d65ff0
+
+	measure 'Pendiente CD' =
+			CALCULATE (
+			    [Pares CD],
+			    KEEPFILTERS ( 'Tabla_Campaña'[Estatus] = "Pendiente" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\CD
+		lineageTag: 8f0962e1-aebe-44e2-8920-6d5ebb470487
+
+	measure '% Pendiente CD' =
+			DIVIDE (
+			    [Pendiente CD],
+			    [Pares CD]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\CD
+		lineageTag: 10f43f83-1adc-44d0-b4c5-8d28256b79fd
+
+	measure inventario =
+			CALCULATE (
+			    SUM ( 'FACT_INVENTARIOUD'[PARES] ),
+			    'FACT_INVENTARIOUD'[SK_TIPOOPERACION] = "INVENTARIO"
+			)
+		formatString: #,0
+		displayFolder: Inventario
+		lineageTag: 073f3090-d980-4871-b1f8-df2bf3d2bc86
+
+	measure 'Inventario BFI' =
+			CALCULATE (
+			    [inventario],
+			    CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "BF"
+			    )
+			)
+		formatString: #,0
+		displayFolder: Inventario
+		lineageTag: b6402bab-ad9b-4675-9c00-bc9c4312f544
+
+	measure 'Inventario CD' =
+			CALCULATE (
+			    [inventario],
+			    CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "BP"
+			    )
+			)
+		formatString: #,0
+		displayFolder: Inventario
+		lineageTag: bc97f252-1b10-42de-a7f2-9e3b5d907002
+
+	measure 'Inventario Tiendas' =
+			CALCULATE (
+			    [inventario],
+			    CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "AL"
+			    )
+			)
+		formatString: #,0
+		displayFolder: Inventario
+		lineageTag: 1c6d09c3-0db3-4fe0-a6ad-4170a1413028
+
+	measure 'Días previo a ingreso' = 3
+		displayFolder: Control
+		lineageTag: fa7f4ff7-ffbb-41fb-bbb9-8ed095a07bcf
+
+	measure 'Entregado OnTime' =
+			CALCULATE (
+			    [_baseEntregado],
+			    KEEPFILTERS ( 'EKPO_CD-TIENDA'[Estatus OnTime] = "A Tiempo" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Tienda\OnTime
+		lineageTag: 8a01bcef-1c7d-4432-999a-292480e2fece
+
+	measure 'Entregado Atrasado' =
+			CALCULATE (
+			    [_baseEntregado],
+			    KEEPFILTERS ( 'EKPO_CD-TIENDA'[Estatus OnTime] <> "A Tiempo" )
+			)
+		formatString: #,0
+		displayFolder: Campañas\Tienda\OnTime
+		lineageTag: b8f606ad-abcd-490e-ba98-a0c542c0d42c
+
+	measure '% Entregado OnTime' =
+			DIVIDE (
+			    [Entregado OnTime],
+			    [Entregado OnTime] + [Entregado Atrasado]
+			)
+		formatString: #,0.00 %
+		displayFolder: Campañas\Tienda\OnTime
+		lineageTag: 1c42bbb9-973d-47fa-8871-a90c98e60b2e
+
+	measure _baseEntregado =
+			CALCULATE (
+			    SUM ( 'EKPO_CD-TIENDA'[CANTIDAD_MOVIMIENTO] ),
+			    KEEPFILTERS ( 'EKPO_CD-TIENDA'[Estado_Documento] = "Entregado" )
+			)
+		formatString: #,0
+		isHidden
+		displayFolder: Campañas\Tienda\OnTime
+		lineageTag: 1324816e-a098-4c09-8769-31cd5f64fc59
+
+	measure 'Participación Entregas' =
+			VAR _base =
+			    CALCULATE (
+			        [_baseEntregado],
+			        REMOVEFILTERS ( 'EKPO_CD-TIENDA'[Estatus OnTime] ),
+			        REMOVEFILTERS ( 'EKPO_CD-TIENDA'[Período OnTime] ),
+			        REMOVEFILTERS ( 'EKPO_CD-TIENDA'[IDPeriodoOnTime] ),
+			        REMOVEFILTERS ( 'EKPO_CD-TIENDA'[IDEstatusOnTime] )
+			    )
+			VAR _val =
+			    DIVIDE ( [_baseEntregado], _base )
+			RETURN
+			    _val
+		formatString: #,0.00 %
+		displayFolder: Campañas\Tienda\OnTime
+		lineageTag: 4a118994-f6b9-42cd-bacb-9e757fc5a2df
+
+	measure 'Venta Pares' =
+			CALCULATE (
+			    SUM ( Ventas[Pares] ),
+			    Ventas[SK_DIVISION] IN { "10", "20" }
+			)
+		formatString: #,0
+		displayFolder: Venta
+		lineageTag: 1918ec44-ad51-4f87-8651-604c383bacf2
+
+	measure 'Sell Off' =
+			DIVIDE (
+			    [Venta Pares],
+			    [Venta Pares] + [Inventario BFI] + [Inventario CD] + [Inventario Tiendas]
+			)
+		formatString: #,0.00 %
+		displayFolder: Venta
+		lineageTag: a9c6a8bd-3434-4f5f-be84-5ec9685e955e
+
+	column Value
+		isHidden
+		lineageTag: 6f34ce85-c6e8-4092-bcb8-0f79e4e3fd24
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'New Calculated Table' = calculated
+		mode: import
+		source = { BLANK() }
+

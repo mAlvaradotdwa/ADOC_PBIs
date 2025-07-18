@@ -1,0 +1,216 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "6f07f40025a7b356ff06",
+  "position": {
+    "x": 448.71505385349843,
+    "y": 54.888691602874424,
+    "z": 17000,
+    "height": 338.93767064774954,
+    "width": 466.55387862443257,
+    "tabOrder": 17000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tabla_Campaña"
+                    }
+                  },
+                  "Property": "Pais Destino"
+                }
+              },
+              "queryRef": "Tabla_Campaña.Pais Destino",
+              "nativeQueryRef": "Pais Destino",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Tabla_Campaña"
+                        }
+                      },
+                      "Property": "Cantidad"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Tabla_Campaña.Cantidad)",
+              "nativeQueryRef": "Suma de Cantidad"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Tabla_Campaña"
+                      }
+                    },
+                    "Property": "Cantidad"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "foreground": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

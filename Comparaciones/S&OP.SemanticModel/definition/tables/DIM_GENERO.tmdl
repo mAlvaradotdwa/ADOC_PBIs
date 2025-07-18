@@ -1,0 +1,23 @@
+table DIM_GENERO
+	lineageTag: bee47d17-140c-4c34-8815-78a1bdb36b94
+
+	column GENERO
+		dataType: string
+		lineageTag: 93125378-fcc0-4ff1-bf29-5186fddf4a6d
+		summarizeBy: none
+		sourceColumn: GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_GENERO = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8vD3VYrViVby9HMD076hXmDaz88RSvuD6VA/T6XYWAA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [GENERO = _t])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

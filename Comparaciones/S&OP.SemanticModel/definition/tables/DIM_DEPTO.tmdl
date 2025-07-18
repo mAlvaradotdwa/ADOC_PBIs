@@ -1,0 +1,23 @@
+table DIM_DEPTO
+	lineageTag: ec9c1855-f761-47f6-9351-a79680edf6eb
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: a8dac7b0-28b6-4c31-acc5-10f1c5112657
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_DEPTO = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WcnR2VorViVZydvQB00H+AUqxsQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [DEPARTAMENTO = _t])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

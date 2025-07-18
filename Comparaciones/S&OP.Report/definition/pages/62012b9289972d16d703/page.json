@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "62012b9289972d16d703",
+  "displayName": "Ingreso Por Contenedor CD",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "22441f754da7586c827b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "PAIS"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "e",
+              "Entity": "EKPO_BFI-CD",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "e"
+                              }
+                            },
+                            "Property": "PAIS"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'PA'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

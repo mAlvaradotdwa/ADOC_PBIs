@@ -1,0 +1,377 @@
+table 'FL (TRACING)'
+	lineageTag: a192b59d-cdb5-4144-9117-ab6e4f961993
+
+	column DOC_COMPRA
+		dataType: string
+		lineageTag: 311f3bf8-dfef-4796-9fc7-0ea9a48f735e
+		summarizeBy: none
+		sourceColumn: DOC_COMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSICION
+		dataType: string
+		lineageTag: 06059ef9-a835-497d-b47d-f93beb231ad7
+		summarizeBy: none
+		sourceColumn: POSICION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ARTICULO
+		dataType: string
+		lineageTag: 9d569304-e3ed-415e-aafc-fd5f1b619d17
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD_REPARTO
+		dataType: double
+		lineageTag: 26e0c78d-13fb-4c95-a489-37826d126aaa
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_REPARTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNIDAD
+		dataType: string
+		lineageTag: 9720ea07-cf22-489f-9d9a-1bca8ef22dd9
+		summarizeBy: none
+		sourceColumn: UNIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTREGAS
+		dataType: double
+		lineageTag: 8bb7e6e2-6303-486d-b7c2-94315f0e5b96
+		summarizeBy: sum
+		sourceColumn: ENTREGAS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD_SALIDA
+		dataType: double
+		lineageTag: e5a9eae8-6079-455c-a79f-8e33ecb79200
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_SALIDA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANTIDAD_INGRESADA
+		dataType: double
+		lineageTag: c94f43d7-e243-4fd3-9caa-6a2e579bcd41
+		summarizeBy: sum
+		sourceColumn: CANTIDAD_INGRESADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CLASE_DOC
+		dataType: string
+		lineageTag: 6d829fff-4e73-4281-8d81-d13a84dd1a81
+		summarizeBy: none
+		sourceColumn: CLASE_DOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREADO_EL
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: a8d5393f-e093-4bf1-b374-e204b724f5a7
+		summarizeBy: none
+		sourceColumn: CREADO_EL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CREADO_POR
+		dataType: string
+		lineageTag: b8e3f534-4666-4b8e-91f7-8db6fa4d790b
+		summarizeBy: none
+		sourceColumn: CREADO_POR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO_SUMINIS
+		dataType: string
+		lineageTag: b90f45cc-486d-475f-83e3-23717ab8fe28
+		summarizeBy: none
+		sourceColumn: CENTRO_SUMINIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEXTO_BREVE
+		dataType: string
+		lineageTag: 9f6fabe3-dc20-4ed7-a71d-a73d852f28b7
+		summarizeBy: none
+		sourceColumn: TEXTO_BREVE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CENTRO
+		dataType: string
+		lineageTag: bb463f53-27b4-4cd1-846b-cb38bc67c385
+		summarizeBy: none
+		sourceColumn: CENTRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_MATERIAL
+		dataType: string
+		lineageTag: d7bd8551-9bd6-4937-b677-8c0fefd4dce5
+		summarizeBy: none
+		sourceColumn: TIPO_MATERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: f2a41519-30d4-49ae-8b8e-775745ae6a38
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAT_GRAL_CONF
+		dataType: string
+		lineageTag: b7266443-e344-441e-beff-c38bb31a049a
+		summarizeBy: none
+		sourceColumn: MAT_GRAL_CONF
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		lineageTag: 67412de1-c4e9-4f5c-8429-b004185b4f5e
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TALLA
+		dataType: string
+		lineageTag: a1872c6a-2681-43a9-b0b8-bdc14e2e68e8
+		summarizeBy: none
+		sourceColumn: TALLA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: 45625884-55c2-4929-8bb3-e5402259e8dc
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO
+		dataType: string
+		lineageTag: 3dc28e69-c748-46a9-ba8e-30dc1e58ade6
+		summarizeBy: none
+		sourceColumn: GENERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIENDA
+		dataType: string
+		lineageTag: 686efee9-37e2-4a21-a047-eff9fda4134f
+		summarizeBy: none
+		sourceColumn: TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS
+		dataType: string
+		lineageTag: be096236-ebe2-45a9-8978-1af11cbb27e5
+		summarizeBy: none
+		sourceColumn: PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICADOR_DE_BORRADO
+		dataType: string
+		lineageTag: 39ebcf3c-4911-495f-b8cc-a70fbb6bd7e3
+		summarizeBy: none
+		sourceColumn: INDICADOR_DE_BORRADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPARTAMENTO
+		dataType: string
+		lineageTag: 1e6a3990-bc83-48ad-922f-6bcf61e5c1e1
+		summarizeBy: none
+		sourceColumn: DEPARTAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_FLETE
+		dataType: string
+		lineageTag: a51213d8-55c0-4da9-89fd-92d57b9f48fd
+		summarizeBy: none
+		sourceColumn: TIPO_FLETE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDEDOR
+		dataType: string
+		lineageTag: f42c6d69-fd91-45b7-824d-98df4a5be9b6
+		summarizeBy: none
+		sourceColumn: VENDEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN_EMISOR
+		dataType: string
+		lineageTag: 5044861b-35da-4fdc-91e8-5433732b240e
+		summarizeBy: none
+		sourceColumn: ALMACEN_EMISOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN
+		dataType: string
+		lineageTag: 8e82f2b7-41e1-42df-a975-1c7014daace4
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: 1dacb442-72f2-4ea4-b0c4-917489a4cb7a
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: e055d55a-eaf2-40d3-9f39-c2feabcc9e76
+		summarizeBy: none
+		sourceColumn: FECHA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column NO_EXPEDIENTE
+		dataType: string
+		lineageTag: d91b0247-0707-4268-a618-9ca00f484566
+		summarizeBy: none
+		sourceColumn: NO_EXPEDIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_EXPEDIENTE
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 6e0b6d84-d716-420e-9252-edf3c1d47ef9
+		summarizeBy: none
+		sourceColumn: FECHA_EXPEDIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHA_LIQUIDACION
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 12d1d89c-9ef0-46df-9497-6aac76cdd696
+		summarizeBy: none
+		sourceColumn: FECHA_LIQUIDACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LOTE
+		dataType: string
+		lineageTag: 873aa6b7-5afe-4910-9323-7550c5028113
+		summarizeBy: none
+		sourceColumn: LOTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_DOCUMENTO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 540d815e-0288-4b48-be53-55018823a43c
+		summarizeBy: none
+		sourceColumn: FECHA_DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column GRUPO_DE_COMPRA
+		dataType: string
+		lineageTag: cd048d41-46fb-4f24-9992-32bd5c712c40
+		summarizeBy: none
+		sourceColumn: GRUPO_DE_COMPRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUESTRA_REFERENCIA
+		dataType: string
+		lineageTag: 0f56b912-7f53-4be1-9636-fecfa14cfa00
+		summarizeBy: none
+		sourceColumn: NUESTRA_REFERENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column UPC
+		dataType: string
+		lineageTag: 1ec2529b-fcf6-49d8-b988-41e41b582226
+		summarizeBy: none
+		sourceColumn: UPC
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDICADOR_DE_LIQUIDACION
+		dataType: string
+		lineageTag: 1dfd0c59-ce00-4753-a1dd-d060138056e8
+		summarizeBy: none
+		sourceColumn: INDICADOR_DE_LIQUIDACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTREGA_FINAL
+		dataType: string
+		lineageTag: 33813919-9501-44c4-bad0-9b040c353067
+		summarizeBy: none
+		sourceColumn: ENTREGA_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDADREPARTO_TOTAL
+		dataType: double
+		lineageTag: 969de1f3-b087-4d92-b94c-97d36308c91d
+		summarizeBy: sum
+		sourceColumn: CANTIDADREPARTO_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'FL (TRACING)' = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT #(lf)       EKPO.EBELN                 Doc_compra,  #(lf)       EKPO.EBELP                 posicion,  #(lf)       EKPO.MATNR                 articulo,  #(lf)       EKPO.MENGE                 cantidad_reparto,  #(lf)       EKPO.MEINS                 unidad,  #(lf)       EKET.GLMNG                 entregas,  #(lf)       EKET.WAMNG                 cantidad_salida,  #(lf)       EKET.WEMNG                 cantidad_ingresada,  #(lf)       EKKO.BSART                 clase_doc,  #(lf)       EKKO.AEDAT                 creado_el,  #(lf)       EKKO.ERNAM                 creado_por,  #(lf)       EKKO.RESWK                 centro_suminis,  #(lf)       EKPO.TXZ01                 Texto_breve,  #(lf)       EKPO.WERKS                 centro,  #(lf)       MARA.MTART                 tipo_material,  #(lf)       MARA.GROES                 estilo,  #(lf)       MARA.SATNR                 mat_gral_conf,  #(lf)       MARA.FREE_CHAR             color,  #(lf)       MARA.SIZE1                 talla,  #(lf)       MARA.BRAND_ID              marca,  #(lf)       MARA.ZZ_ART_PROV           genero,  #(lf)       T001W.NAME1                tienda,  #(lf)       T001W.LAND1                pais,  #(lf)       EKPO.LOEKZ                 indicador_de_borrado,  #(lf)       MARA.ZZ_DEPART             departamento,  #(lf)       EKKO.ZZ_TIPO_FLETE         tipo_flete,  #(lf)       EKKO.VERKF                 vendedor,  #(lf)       EKPO.RESLO                 almacen_emisor,  #(lf)       EKPO.LGORT                 almacen,  #(lf)       ZMM_EXPED_CONTS.CONTENEDOR contenedor,  #(lf)       EKKO.ZZF_DESPACHO          fecha,  #(lf)       EKPO.LBELN                 no_expediente,  -- Se mantiene solo EKPO.LBELN  #(lf)       EKPO.FECHA_EXP             fecha_expediente,  #(lf)       EKPO.FECHA_LIQ             fecha_liquidacion,  #(lf)       EKET.CHARG                 lote,  #(lf)       EKKO.BEDAT                 fecha_documento,  #(lf)       EKKO.EKGRP                 grupo_de_compra,#(lf)       EKKO.UNSEZ                 nuestra_referencia,  #(lf)       MARA.EAN11                 upc,  #(lf)       EKKO.FRGKE                 indicador_de_liquidacion,  #(lf)       EKPO.ELIKZ                 entrega_final,  #(lf)       CASE  #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack'  #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER)  #(lf)            ELSE 1  #(lf)     END * EKPO.MENGE             CantidadReparto_total  #(lf)FROM SAP_ECC.EKPO  #(lf)LEFT JOIN SAP_ECC.EKKO  #(lf)       ON EKPO.EBELN = EKKO.EBELN  #(lf)LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_CONTS#(lf)       ON ZMM_EXPED_CONTS.LBELN = EKPO.LBELN       #(lf)LEFT JOIN SAP_ECC.EKET  #(lf)       ON EKET.EBELN = EKPO.EBELN  #(lf)          AND EKET.EBELP = EKPO.EBELP  #(lf)LEFT JOIN SAP_ECC.MARA  #(lf)       ON MARA.MATNR = EKPO.MATNR  #(lf)LEFT JOIN SAP_ECC.T001W  #(lf)       ON T001W.WERKS = EKPO.WERKS  #(lf)WHERE  #(lf)    EKKO.AEDAT BETWEEN TO_VARCHAR(ADD_DAYS(LAST_DAY(ADD_MONTHS(CURRENT_DATE , -24)) , 1) , 'YYYYMMDD')  #(lf)                    AND TO_VARCHAR(LAST_DAY(CURRENT_DATE) , 'YYYYMMDD')  #(lf)    AND EKPO.LOEKZ <> 'L'  #(lf)    AND MARA.MTART IN ('MODE', 'ZMOD')  #(lf)    AND EKKO.BSART IN ('ZIMP', 'ZUB', 'ZINT')#(lf)    --AND EKKO.UNSEZ IN ('AWB 1ZGX0592')#(lf)    --AND EKKO.RESWK IN ('8010', '8020', '1010', '1020','2010', '3010', '3030', '4010', '5010', '5030')  #(lf)    --AND EKPO.EBELN = '4700200729'  #(lf)    --AND EKPO.MATNR = '000000010007294004'", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"CREADO_EL", type date}, {"FECHA", type date}, {"FECHA_LIQUIDACION", type date}, {"FECHA_DOCUMENTO", type date}, {"FECHA_EXPEDIENTE", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,29 @@
+table DIM_METRICA
+	lineageTag: a405f042-f501-4d8c-91eb-df77b1349c25
+
+	column METRICA
+		lineageTag: 46e06e3b-c8de-4d31-b254-0ba523bc6a38
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [METRICA]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_METRICA = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE(
+				    "METRICA", -- Nombre de la columna
+				    STRING,      -- Tipo de datos de la columna
+				    {
+				        {"Pares"},
+				        {"Documentos"},
+				        {"Monto"}
+				    }
+				)
+				
+				```
+
+	annotation PBI_Id = 4dc2ec143a2340599630541905706889
+

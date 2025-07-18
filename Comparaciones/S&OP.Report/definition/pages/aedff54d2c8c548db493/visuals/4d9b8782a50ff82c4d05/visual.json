@@ -1,0 +1,134 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "4d9b8782a50ff82c4d05",
+  "position": {
+    "x": 242.18844984802433,
+    "y": 0,
+    "z": 17000,
+    "height": 30.15197568389058,
+    "width": 1030.0303951367782,
+    "tabOrder": 17000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Rango de Fechas Seleccionado"
+                }
+              },
+              "queryRef": "Métricas.Rango de Fechas Seleccionado",
+              "nativeQueryRef": "Rango de Fechas Seleccionado"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,196 @@
+table FACT_MARINETRAFFIC
+	lineageTag: 7992a5be-ff74-40a4-abb5-412bbdfd6e4c
+
+	column reference_number_type
+		dataType: string
+		lineageTag: 9fee0604-825e-4403-89e1-bcae978225d3
+		summarizeBy: none
+		sourceColumn: reference_number_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column reference_number
+		dataType: string
+		lineageTag: 66796616-b762-45c9-96a8-10b99c589a9e
+		summarizeBy: none
+		sourceColumn: reference_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column transportation_status
+		dataType: string
+		lineageTag: 25f28833-9a87-492b-b37e-b46df649f563
+		summarizeBy: none
+		sourceColumn: transportation_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrival_delay_days
+		dataType: double
+		formatString: 0
+		lineageTag: 72cd5175-f5ea-4584-9908-305a2aa3690e
+		summarizeBy: sum
+		sourceColumn: arrival_delay_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column created
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 077b9e29-a0e0-4d4c-b636-140378898bb9
+		summarizeBy: none
+		sourceColumn: created
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d9f3606d-1c77-44d6-a8d8-5402377140ce
+		summarizeBy: none
+		sourceColumn: updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column container_number
+		dataType: string
+		lineageTag: 6a2d5eb1-48e0-43ad-b251-bca4f7febfb5
+		summarizeBy: none
+		sourceColumn: container_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipment_id
+		dataType: string
+		lineageTag: 13ddb092-6f01-4976-ab01-6027ff100cb7
+		summarizeBy: none
+		sourceColumn: shipment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column loading_actual_port
+		dataType: string
+		lineageTag: 07034888-a1e1-48c4-8135-fb556f70ddc2
+		summarizeBy: none
+		sourceColumn: loading_actual_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column loading_departure_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 851f40a7-19af-4b8b-ace6-3efb1ef47464
+		summarizeBy: none
+		sourceColumn: loading_departure_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_load_dep_timestamp
+		dataType: double
+		formatString: 0
+		lineageTag: 52fdb09a-0615-43be-bd8a-e25c2650fc44
+		summarizeBy: sum
+		sourceColumn: offset_load_dep_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_planned_port
+		dataType: string
+		lineageTag: 27510e27-2936-47ae-a49b-2c69b011151c
+		summarizeBy: none
+		sourceColumn: discharge_planned_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_planned_arrival_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bf29855e-73db-4cdf-b9df-5228adc05cf7
+		summarizeBy: none
+		sourceColumn: discharge_planned_arrival_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_dis_plan_arr_timestamp
+		dataType: double
+		formatString: 0
+		lineageTag: bcb1fbf3-f429-43e3-8f98-5f20dc81fe53
+		summarizeBy: sum
+		sourceColumn: offset_dis_plan_arr_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_actual_port
+		dataType: string
+		lineageTag: dbe286c0-e226-4f9f-93aa-980284f08c13
+		summarizeBy: none
+		sourceColumn: discharge_actual_port
+
+		annotation SummarizationSetBy = Automatic
+
+	column discharge_actual_arrival_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: abc5f6b6-1304-4383-a776-30905047704e
+		summarizeBy: none
+		sourceColumn: discharge_actual_arrival_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column offset_dis_act_arr_timestamp
+		dataType: double
+		formatString: 0
+		lineageTag: c2b4e909-1949-461c-965f-0a4941559d76
+		summarizeBy: sum
+		sourceColumn: offset_dis_act_arr_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e5aa7ed4-405a-4a46-9d3b-8ac528b11995
+		summarizeBy: none
+		sourceColumn: last_updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETA_Marin_Traffic
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 89b9ff09-2f8e-416b-a328-6414f5590568
+		summarizeBy: none
+		sourceColumn: ETA_Marin_Traffic
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETA_Local_Time_Offset
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a7d2c1f-cc53-4b7c-9c86-aaafe67cc168
+		summarizeBy: sum
+		sourceColumn: ETA_Local_Time_Offset
+
+		annotation SummarizationSetBy = Automatic
+
+	column gate_out_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3faf8b40-ddc9-4026-a6a1-03219add9b56
+		summarizeBy: none
+		sourceColumn: gate_out_datetime
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_MARINETRAFFIC = m
+		mode: import
+		source =
+				let
+				    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="adoc-bi-dev"]){[Name="adoc-bi-dev"]}[Data], "WITH ShipmentDetails AS (#(lf)  SELECT#(lf)    id,#(lf)    reference_number_type,#(lf)    reference_number,#(lf)    transportation_status,#(lf)    arrival_delay_days,#(lf)    created,#(lf)    updated,#(lf)    ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated DESC) AS rn#(lf)  FROM `adoc-bi-dev.marine_traffic.shipments`#(lf)),#(lf)ContainerNumber AS (#(lf)  SELECT#(lf)    id,#(lf)    reference_number_type,#(lf)    reference_number,#(lf)    transportation_status,#(lf)    arrival_delay_days,#(lf)    created,#(lf)    updated,#(lf)    ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated DESC) AS rn#(lf)  FROM `adoc-bi-dev.marine_traffic.shipments`#(lf)),#(lf)PortDetails AS (#(lf)  SELECT#(lf)    a_inner.shipment_id,#(lf)    b.name AS loading_actual_port,#(lf)    a_inner.departure_timestamp AS loading_departure_timestamp,#(lf)    a_inner.local_time_offset as offset_load_dep_timestamp,#(lf)    ROW_NUMBER() OVER (PARTITION BY a_inner.shipment_id ORDER BY a_inner.departure_timestamp) AS rn#(lf)  FROM `adoc-bi-dev.marine_traffic.shipment_ports` a_inner#(lf)  LEFT JOIN `adoc-bi-dev.marine_traffic.ports` b ON a_inner.port_id = b.id#(lf)  WHERE trim(a_inner.port_type) = 'loading'#(lf)  AND trim(a_inner.departure_status) = 'actual'#(lf)),#(lf)DischargePlannedDetails AS (#(lf)  SELECT#(lf)    a_inner.shipment_id,#(lf)    b.name AS discharge_planned_port,#(lf)    a_inner.arrival_timestamp AS discharge_planned_arrival_timestamp,#(lf)    a_inner.local_time_offset as offset_dis_plan_arr_timestamp,#(lf)    ROW_NUMBER() OVER (PARTITION BY a_inner.shipment_id ORDER BY a_inner.arrival_timestamp) AS rn#(lf)  FROM `adoc-bi-dev.marine_traffic.shipment_ports` a_inner#(lf)  LEFT JOIN `adoc-bi-dev.marine_traffic.ports` b ON a_inner.port_id = b.id#(lf)  WHERE trim(a_inner.port_type) = 'discharge'#(lf)  AND trim(a_inner.arrival_status) = 'planned'#(lf)),#(lf)DischargeActualDetails AS (#(lf)  SELECT#(lf)    a_inner.shipment_id,#(lf)    b.name AS discharge_actual_port,#(lf)    a_inner.arrival_timestamp AS discharge_actual_arrival_timestamp,#(lf)    a_inner.local_time_offset as offset_dis_act_arr_timestamp,#(lf)    ROW_NUMBER() OVER (PARTITION BY a_inner.shipment_id ORDER BY a_inner.arrival_timestamp) AS rn#(lf)  FROM `adoc-bi-dev.marine_traffic.shipment_ports` a_inner#(lf)  LEFT JOIN `adoc-bi-dev.marine_traffic.ports` b ON a_inner.port_id = b.id#(lf)  WHERE trim(a_inner.port_type) = 'discharge'#(lf)  AND trim(a_inner.arrival_status) = 'actual'#(lf)),#(lf)GateOutDetails AS (#(lf)  SELECT#(lf)    ee.shipment_id,#(lf)    MAX(ee.event_date_time) AS gate_out_datetime#(lf)  FROM `adoc-bi-dev.marine_traffic.equipment_events` AS ee#(lf)  WHERE ee.equipment_event_type_name = 'gate_out'#(lf)  AND ee.event_classifier_code = 'actual'#(lf)  GROUP BY ee.shipment_id#(lf)),#(lf)ShipmentPortUnique AS (#(lf)  SELECT#(lf)    a.shipment_id,#(lf)    a.port_id,#(lf)    a.updated,#(lf)    ROW_NUMBER() OVER (PARTITION BY a.shipment_id ORDER BY a.updated DESC) AS rn#(lf)  FROM `adoc-bi-dev.marine_traffic.shipment_ports` a#(lf))#(lf)SELECT#(lf)  d.reference_number_type,#(lf)  d.reference_number,#(lf)  d.transportation_status,#(lf)  d.arrival_delay_days,#(lf)  d.created,#(lf)  d.updated,#(lf)  e.number AS container_number,#(lf)  spu.shipment_id,#(lf)  pd.loading_actual_port,#(lf)  pd.loading_departure_timestamp,#(lf)  pd.offset_load_dep_timestamp,#(lf)  dpd.discharge_planned_port,#(lf)  dpd.discharge_planned_arrival_timestamp,#(lf)  dpd.offset_dis_plan_arr_timestamp,#(lf)  dad.discharge_actual_port,#(lf)  dad.discharge_actual_arrival_timestamp,#(lf)  dad.offset_dis_act_arr_timestamp,#(lf)  god.gate_out_datetime,#(lf)  spu.updated AS last_updated,#(lf)  MAX(b.arrival_timestamp) as ETA_Marin_Traffic,#(lf)  max(b.local_time_offset) ETA_Local_Time_Offset#(lf)FROM#(lf)  ShipmentPortUnique spu#(lf)LEFT JOIN ShipmentDetails d ON spu.shipment_id = d.id AND d.rn = 1#(lf)LEFT JOIN `adoc-bi-dev.marine_traffic.containers` e ON spu.shipment_id = e.shipment_id#(lf)LEFT JOIN PortDetails pd ON spu.shipment_id = pd.shipment_id AND pd.rn = 1#(lf)LEFT JOIN DischargePlannedDetails dpd ON spu.shipment_id = dpd.shipment_id AND dpd.rn = 1#(lf)LEFT JOIN DischargeActualDetails dad ON spu.shipment_id = dad.shipment_id AND dad.rn = 1#(lf)LEFT JOIN GateOutDetails god ON spu.shipment_id = god.shipment_id#(lf)LEFT JOIN `adoc-bi-dev.marine_traffic.port_of_discharge` b ON spu.shipment_id = b.shipment_id#(lf)WHERE#(lf)  --e.number = 'EGHU8282705'#(lf)  --AND #(lf)  spu.rn = 1#(lf)GROUP BY#(lf)  d.reference_number_type, d.reference_number, d.transportation_status, d.arrival_delay_days,#(lf)  d.created, d.updated, e.number, spu.shipment_id, pd.loading_actual_port, pd.loading_departure_timestamp, pd.offset_load_dep_timestamp,#(lf)  dpd.discharge_planned_port, dpd.discharge_planned_arrival_timestamp, dpd.offset_dis_plan_arr_timestamp,#(lf)  dad.discharge_actual_port, dad.discharge_actual_arrival_timestamp, dad.offset_dis_act_arr_timestamp,#(lf)  god.gate_out_datetime, spu.updated", null, [EnableFolding=true])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

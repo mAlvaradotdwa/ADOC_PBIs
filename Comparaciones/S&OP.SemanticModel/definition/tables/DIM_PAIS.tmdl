@@ -1,0 +1,66 @@
+table DIM_PAIS
+	lineageTag: de7adcad-ac5c-4181-a2e9-b4438d69dea0
+
+	column BV_PAIS
+		dataType: string
+		lineageTag: 26079dc8-8094-4ce0-b311-cf8762918a95
+		summarizeBy: none
+		sourceColumn: BV_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: 85f0a0ee-3d04-4137-a429-278bd53abaf3
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS_RPRO
+		dataType: int64
+		formatString: 0
+		lineageTag: 616edf89-21f3-4762-a7eb-3c4ec204acb7
+		summarizeBy: sum
+		sourceColumn: SK_PAIS_RPRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS
+		dataType: string
+		lineageTag: df0958ec-8d46-4ffd-97a4-43bebbe83a75
+		summarizeBy: none
+		sourceColumn: PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONEDA
+		dataType: string
+		lineageTag: 547d5bef-690e-4756-8896-8dd00691065d
+		summarizeBy: none
+		sourceColumn: MONEDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TASAIVA
+		dataType: double
+		lineageTag: e59a7269-a280-44bd-9666-35c3eb955d9e
+		summarizeBy: sum
+		sourceColumn: TASAIVA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_PAIS = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from DIM_PAIS --where BV_PAISnot in ('BFI')", CreateNavigationProperties=false])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

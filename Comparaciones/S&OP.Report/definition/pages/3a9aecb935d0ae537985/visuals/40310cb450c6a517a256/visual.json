@@ -1,0 +1,162 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "40310cb450c6a517a256",
+  "position": {
+    "x": 335,
+    "y": 392.5,
+    "z": 15000,
+    "height": 311.25,
+    "width": 310,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_MARCAS (2)"
+                    }
+                  },
+                  "Property": "Un. Negocio"
+                }
+              },
+              "queryRef": "DIM_MARCAS (2).Un. Negocio",
+              "nativeQueryRef": "Un. Negocio",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PREPARACIONES CD (TRACING)"
+                        }
+                      },
+                      "Property": "Pendiente"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(PREPARACIONES CD (TRACING).Pendiente)",
+              "nativeQueryRef": "Suma de Pendiente"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "PREPARACIONES CD (TRACING)"
+                      }
+                    },
+                    "Property": "Pendiente"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

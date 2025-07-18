@@ -1,0 +1,606 @@
+table 'Precio Venta'
+	lineageTag: c35eb2c8-19d1-498e-8a6f-9bcbfd4e1d1f
+
+	column VKORG
+		dataType: string
+		lineageTag: a904fbbc-87cc-4d04-85a8-0dbc06148f6e
+		summarizeBy: none
+		sourceColumn: VKORG
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATNR
+		dataType: string
+		lineageTag: 905b1c08-61b6-48a9-9143-4ac8365d3c1e
+		summarizeBy: none
+		sourceColumn: MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATBI
+		dataType: string
+		lineageTag: ed991d96-c73d-4fa8-a4ec-b4718da8ffb3
+		summarizeBy: none
+		sourceColumn: DATBI
+
+		annotation SummarizationSetBy = Automatic
+
+	column MANDT
+		dataType: string
+		lineageTag: e6702fbe-1c1a-43ac-aff1-af086a607dd8
+		summarizeBy: none
+		sourceColumn: MANDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column KNUMH
+		dataType: string
+		lineageTag: 5d063bc3-30f1-44e2-a86e-51f3f8616392
+		summarizeBy: none
+		sourceColumn: KNUMH
+
+		annotation SummarizationSetBy = Automatic
+
+	column KOPOS
+		dataType: string
+		lineageTag: 24908b8b-7d4e-4d0b-b1d0-57b215dddf7d
+		summarizeBy: none
+		sourceColumn: KOPOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column KAPPL
+		dataType: string
+		lineageTag: 17cf7537-04e3-450a-b4a4-acddcdd899d3
+		summarizeBy: none
+		sourceColumn: KAPPL
+
+		annotation SummarizationSetBy = Automatic
+
+	column KSCHL
+		dataType: string
+		lineageTag: c5b0b85c-b3ae-419b-942e-436f9a87eebc
+		summarizeBy: none
+		sourceColumn: KSCHL
+
+		annotation SummarizationSetBy = Automatic
+
+	column KNUMT
+		dataType: string
+		lineageTag: d8ca52a1-6547-4dbe-93b4-c5bb3b2f63f3
+		summarizeBy: none
+		sourceColumn: KNUMT
+
+		annotation SummarizationSetBy = Automatic
+
+	column STFKZ
+		dataType: string
+		lineageTag: 42dda875-b8f6-4530-82f5-c2d88f49119b
+		summarizeBy: none
+		sourceColumn: STFKZ
+
+		annotation SummarizationSetBy = Automatic
+
+	column KZBZG
+		dataType: string
+		lineageTag: eef5c6e2-e2bb-4c2c-b912-332f4479755a
+		summarizeBy: none
+		sourceColumn: KZBZG
+
+		annotation SummarizationSetBy = Automatic
+
+	column KSTBM
+		dataType: double
+		lineageTag: 8d94291d-7785-4c3c-8c24-0b109b355ac2
+		summarizeBy: sum
+		sourceColumn: KSTBM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KONMS
+		dataType: string
+		lineageTag: 32fd97c0-dddd-4a94-9bbe-568a4651596a
+		summarizeBy: none
+		sourceColumn: KONMS
+
+		annotation SummarizationSetBy = Automatic
+
+	column KSTBW
+		dataType: double
+		lineageTag: 1ede4e4d-ae06-47fe-be54-294abce2dcad
+		summarizeBy: sum
+		sourceColumn: KSTBW
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KONWS
+		dataType: string
+		lineageTag: 6f4ada05-de19-4a5f-8b07-2d77407ff4ba
+		summarizeBy: none
+		sourceColumn: KONWS
+
+		annotation SummarizationSetBy = Automatic
+
+	column KRECH
+		dataType: string
+		lineageTag: bfc91b9a-ad4d-490c-b158-84991cb5e7bf
+		summarizeBy: none
+		sourceColumn: KRECH
+
+		annotation SummarizationSetBy = Automatic
+
+	column KBETR
+		dataType: double
+		lineageTag: f8c51edd-bc64-43b3-b17d-7d4ae172e97b
+		summarizeBy: sum
+		sourceColumn: KBETR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KONWA
+		dataType: string
+		lineageTag: c002d613-a2be-4f65-b8c7-5a3fa9cae250
+		summarizeBy: none
+		sourceColumn: KONWA
+
+		annotation SummarizationSetBy = Automatic
+
+	column KPEIN
+		dataType: double
+		lineageTag: d8943292-a414-4177-9b90-555e9f210785
+		summarizeBy: sum
+		sourceColumn: KPEIN
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KMEIN
+		dataType: string
+		lineageTag: 74342a25-7611-4e6d-9bb4-56e32dc5610f
+		summarizeBy: none
+		sourceColumn: KMEIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRSCH
+		dataType: string
+		lineageTag: c2f33175-6856-453a-af15-f60a24496d04
+		summarizeBy: none
+		sourceColumn: PRSCH
+
+		annotation SummarizationSetBy = Automatic
+
+	column KUMZA
+		dataType: double
+		lineageTag: 10ce955c-d314-477e-9672-7e0d321c3a53
+		summarizeBy: sum
+		sourceColumn: KUMZA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KUMNE
+		dataType: double
+		lineageTag: e6e03b79-228c-4540-add2-686b03b0dcbc
+		summarizeBy: sum
+		sourceColumn: KUMNE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MEINS
+		dataType: string
+		lineageTag: 34a5c8d8-0dde-484a-83de-7938c9a8f56a
+		summarizeBy: none
+		sourceColumn: MEINS
+
+		annotation SummarizationSetBy = Automatic
+
+	column MXWRT
+		dataType: double
+		lineageTag: 057657ac-bd0c-4726-b68b-32425082b577
+		summarizeBy: sum
+		sourceColumn: MXWRT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GKWRT
+		dataType: double
+		lineageTag: cd41b5b9-1902-4e9f-94b7-b8f43d00eef6
+		summarizeBy: sum
+		sourceColumn: GKWRT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PKWRT
+		dataType: double
+		lineageTag: 821769c0-bd5f-4903-a379-162dff26232f
+		summarizeBy: sum
+		sourceColumn: PKWRT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FKWRT
+		dataType: double
+		lineageTag: 6a40f69f-c60b-42d6-b63b-d918c7db1180
+		summarizeBy: sum
+		sourceColumn: FKWRT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RSWRT
+		dataType: double
+		lineageTag: 27a6bd4e-b908-4b63-86e4-4d3ae5080268
+		summarizeBy: sum
+		sourceColumn: RSWRT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KWAEH
+		dataType: string
+		lineageTag: 11b327ca-4f52-45de-a9d5-6b4200ac6cdb
+		summarizeBy: none
+		sourceColumn: KWAEH
+
+		annotation SummarizationSetBy = Automatic
+
+	column UKBAS
+		dataType: double
+		lineageTag: a6b8a9b9-da35-4d50-ad5d-3da1927f3970
+		summarizeBy: sum
+		sourceColumn: UKBAS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KZNEP
+		dataType: string
+		lineageTag: 10016282-752c-49b5-9516-1e798a3e9125
+		summarizeBy: none
+		sourceColumn: KZNEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column KUNNR
+		dataType: string
+		lineageTag: 3a7e43b4-b7f4-47f8-9118-e5e1f112eb76
+		summarizeBy: none
+		sourceColumn: KUNNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column LIFNR
+		dataType: string
+		lineageTag: db066004-8f01-4602-80e2-92ab90f1bc97
+		summarizeBy: none
+		sourceColumn: LIFNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MWSK1
+		dataType: string
+		lineageTag: 6c5209e9-f7b4-41c5-95c5-51130c8faf7e
+		summarizeBy: none
+		sourceColumn: MWSK1
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOEVM_KO
+		dataType: string
+		lineageTag: 352c8751-8c02-4060-9934-10357a2925ab
+		summarizeBy: none
+		sourceColumn: LOEVM_KO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZAEHK_IND
+		dataType: string
+		lineageTag: ed9a5062-9771-4a2e-b974-267cfcbff63a
+		summarizeBy: none
+		sourceColumn: ZAEHK_IND
+
+		annotation SummarizationSetBy = Automatic
+
+	column BOMAT
+		dataType: string
+		lineageTag: 328e6c40-d832-4948-b93d-728c9bdff14e
+		summarizeBy: none
+		sourceColumn: BOMAT
+
+		annotation SummarizationSetBy = Automatic
+
+	column KBRUE
+		dataType: double
+		lineageTag: a586bdba-5b8c-479b-9db6-071164e60774
+		summarizeBy: sum
+		sourceColumn: KBRUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KSPAE
+		dataType: string
+		lineageTag: 75044690-a38f-43d3-967e-1497c42d5a35
+		summarizeBy: none
+		sourceColumn: KSPAE
+
+		annotation SummarizationSetBy = Automatic
+
+	column BOSTA
+		dataType: string
+		lineageTag: 458755fb-08b0-4b70-8428-bff48ee9ee18
+		summarizeBy: none
+		sourceColumn: BOSTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column KNUMA_PI
+		dataType: string
+		lineageTag: da98d219-5fe8-4f4d-9009-e0b81c842fc7
+		summarizeBy: none
+		sourceColumn: KNUMA_PI
+
+		annotation SummarizationSetBy = Automatic
+
+	column KNUMA_AG
+		dataType: string
+		lineageTag: 66256c7d-0a03-48ba-b8e4-e54e66244e17
+		summarizeBy: none
+		sourceColumn: KNUMA_AG
+
+		annotation SummarizationSetBy = Automatic
+
+	column KNUMA_SQ
+		dataType: string
+		lineageTag: 67949a1d-6fc5-4aaa-806e-625e3387030d
+		summarizeBy: none
+		sourceColumn: KNUMA_SQ
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALTG
+		dataType: string
+		lineageTag: 7a5daa65-cb27-4ea0-ba7d-b02314b90dad
+		summarizeBy: none
+		sourceColumn: VALTG
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALDT
+		dataType: string
+		lineageTag: 28be65dc-052e-417c-a432-257dcb0eb954
+		summarizeBy: none
+		sourceColumn: VALDT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZTERM
+		dataType: string
+		lineageTag: bf85b712-5758-44c6-90a8-59cb7ee4331b
+		summarizeBy: none
+		sourceColumn: ZTERM
+
+		annotation SummarizationSetBy = Automatic
+
+	column ANZAUF
+		dataType: string
+		lineageTag: af6fcb0c-ab15-4aae-8937-a8ad2121824a
+		summarizeBy: none
+		sourceColumn: ANZAUF
+
+		annotation SummarizationSetBy = Automatic
+
+	column MIKBAS
+		dataType: double
+		lineageTag: 479338d1-3014-436c-9990-1e19c5d2b6d8
+		summarizeBy: sum
+		sourceColumn: MIKBAS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MXKBAS
+		dataType: double
+		lineageTag: ca0c72a0-5016-4a89-a7a8-70b0d7093262
+		summarizeBy: sum
+		sourceColumn: MXKBAS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KOMXWRT
+		dataType: double
+		lineageTag: af190316-e3bb-4756-86d0-8053dbdc745e
+		summarizeBy: sum
+		sourceColumn: KOMXWRT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KLF_STG
+		dataType: string
+		lineageTag: d292c493-11b3-4a57-b404-de858fb39cdf
+		summarizeBy: none
+		sourceColumn: KLF_STG
+
+		annotation SummarizationSetBy = Automatic
+
+	column KLF_KAL
+		dataType: string
+		lineageTag: eac56837-a283-4fb4-876c-1a496164ba7f
+		summarizeBy: none
+		sourceColumn: KLF_KAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column VKKAL
+		dataType: string
+		lineageTag: 9904becc-4bf0-4d68-b026-fe317a4b83c3
+		summarizeBy: none
+		sourceColumn: VKKAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column AKTNR
+		dataType: string
+		lineageTag: e51626d2-ad70-43f9-b3f0-78bf06f4e49b
+		summarizeBy: none
+		sourceColumn: AKTNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column KNUMA_BO
+		dataType: string
+		lineageTag: 0ce3f729-c9bc-4877-89c5-94b5e473a0d0
+		summarizeBy: none
+		sourceColumn: KNUMA_BO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MWSK2
+		dataType: string
+		lineageTag: 7d1ada01-de2c-4cab-b987-28f1e9fdddde
+		summarizeBy: none
+		sourceColumn: MWSK2
+
+		annotation SummarizationSetBy = Automatic
+
+	column VERTT
+		dataType: string
+		lineageTag: 10924ab1-df56-470e-bd33-8c69025fef6d
+		summarizeBy: none
+		sourceColumn: VERTT
+
+		annotation SummarizationSetBy = Automatic
+
+	column VERTN
+		dataType: string
+		lineageTag: 7ed8f204-05da-4a79-a6b4-1a8c528bb1e3
+		summarizeBy: none
+		sourceColumn: VERTN
+
+		annotation SummarizationSetBy = Automatic
+
+	column VBEWA
+		dataType: string
+		lineageTag: 52ec6eab-befd-4884-9e50-3dfb7802e821
+		summarizeBy: none
+		sourceColumn: VBEWA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MDFLG
+		dataType: string
+		lineageTag: 52098cd0-3e88-4512-b4b1-bb8c60283fb5
+		summarizeBy: none
+		sourceColumn: MDFLG
+
+		annotation SummarizationSetBy = Automatic
+
+	column KFRST
+		dataType: string
+		lineageTag: 48cb5d17-13cc-46b0-87cb-61bee5094840
+		summarizeBy: none
+		sourceColumn: KFRST
+
+		annotation SummarizationSetBy = Automatic
+
+	column UASTA
+		dataType: string
+		lineageTag: e22fa50d-6f82-45c2-a6fb-b25fbbe352ed
+		summarizeBy: none
+		sourceColumn: UASTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column /BEV1/ECRTT
+		dataType: string
+		lineageTag: 498c7e81-5b9b-41d5-8660-effec2ba2fb4
+		summarizeBy: none
+		sourceColumn: /BEV1/ECRTT
+
+		annotation SummarizationSetBy = Automatic
+
+	column /BEV1/ECRTN
+		dataType: string
+		lineageTag: 129aa56b-9f4f-417d-bbae-a979ab636b15
+		summarizeBy: none
+		sourceColumn: /BEV1/ECRTN
+
+		annotation SummarizationSetBy = Automatic
+
+	column /BEV1/ECEWA
+		dataType: string
+		lineageTag: 07179ec5-df5f-439d-8693-54e0377fd580
+		summarizeBy: none
+		sourceColumn: /BEV1/ECEWA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZZ_ESTATUS
+		dataType: string
+		lineageTag: a3458181-a8bd-4708-966f-453c195d2aa0
+		summarizeBy: none
+		sourceColumn: ZZ_ESTATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column Articulo_GenericoF = RIGHT('Precio Venta'[MATNR],8)
+		lineageTag: ada22a83-91a3-4c02-a399-c7be30a1a50e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TC = RELATED(DIM_TasaCambio[TASACAMBIO])
+		lineageTag: c0cda8c5-b5a1-49a1-9395-febb7c86521c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PrecioVentaUSD = 'Precio Venta'[KBETR]/'Precio Venta'[TC]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c8a31a4c-00ed-4f12-96bd-10b0f7654533
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	partition 'Precio Venta' = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT #(lf)    A.VKORG,#(lf)    A.MATNR,#(lf)    A.DATBI,#(lf)    --A.KNUMH,#(lf)    K.*#(lf)FROM #(lf)    SAP_ECC.A073 A#(lf)JOIN #(lf)    SAP_ECC.KONP K ON A.KNUMH = K.KNUMH#(lf)--WHERE A.MATNR IN ('000000000030056893')#(lf)    WHERE TRIM(K.KSCHL) = 'VKP1'          -- KSCHL está en KONP#(lf)    AND TRIM(A.DATBI) = '99991231'      -- DATBI está en A073#(lf)    --AND A.VKORG IN ('5000')", null, [EnableFolding=true])
+				in
+				    Consulta1
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

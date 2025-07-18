@@ -1,0 +1,283 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "7250568009c4956121e2",
+  "position": {
+    "x": 242.55014693570084,
+    "y": 39.611598193050519,
+    "z": 18000,
+    "height": 39.878419452887542,
+    "width": 383.22188449848028,
+    "tabOrder": 18000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_METRICA"
+                    }
+                  },
+                  "Property": "METRICA"
+                }
+              },
+              "queryRef": "DIM_METRICA.METRICA",
+              "nativeQueryRef": "METRICA",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "DIM_METRICA",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "METRICA"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Pares'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "padding": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualHeader": [
+        {
+          "properties": {
+            "foreground": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "METRICA",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

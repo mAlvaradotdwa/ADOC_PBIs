@@ -1,0 +1,59 @@
+table ALMACENES
+	lineageTag: a969d932-d863-4fd9-92d1-5f6d9429c9ea
+
+	column 'Ce.'
+		dataType: string
+		lineageTag: 02de158d-efb5-412c-a821-534a5e0699d4
+		summarizeBy: none
+		sourceColumn: Ce.
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alm.'
+		dataType: string
+		lineageTag: 50a36f9a-0c6b-4f36-96eb-b9f6d127463d
+		summarizeBy: none
+		sourceColumn: Alm.
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nombre
+		dataType: string
+		lineageTag: 9397c55e-be38-462f-a8cb-909a8330d3e1
+		summarizeBy: none
+		sourceColumn: Nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo
+		dataType: string
+		lineageTag: 67ca9436-62b7-48c3-ae00-20c1440ce3da
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Bodega'
+		dataType: string
+		lineageTag: 689d41e9-f5b2-40a6-a347-236e31607ee3
+		summarizeBy: none
+		sourceColumn: Tipo Bodega
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ALMACENES = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/luis_menendez_empresasadoc_com/Documents/Attachments/Datos%20Almacenes%20(1).xlsb"), null, true),
+				    Almacenes1 = Origen{[Name="Almacenes"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Almacenes1, [PromoteAllScalars=true]),
+				    Personalizado1 = #"Encabezados promovidos",
+				    #"Filas filtradas" = Table.SelectRows(Personalizado1, each ([Tipo] = "Detalle" or [Tipo] = "Mayor"))
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

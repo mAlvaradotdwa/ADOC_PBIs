@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "25b68e7e7d822755b447",
+  "position": {
+    "x": 85.077471984455357,
+    "y": 13.722172900718606,
+    "z": 3000,
+    "height": 101.54407946531768,
+    "width": 306.00445568602493,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO_BFI-CD"
+                    }
+                  },
+                  "Property": "AÑO_ZINT"
+                }
+              },
+              "queryRef": "EKPO_BFI-CD.AÑO_ZINT",
+              "nativeQueryRef": "AÑO",
+              "active": true,
+              "displayName": "AÑO"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "slider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "e",
+                    "Entity": "EKPO_BFI-CD",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "e"
+                                }
+                              },
+                              "Property": "AÑO_ZINT"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "2025L"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

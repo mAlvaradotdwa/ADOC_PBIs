@@ -1,0 +1,323 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "6a52afb48cb82d96d391",
+  "position": {
+    "x": 242.60111022997623,
+    "y": 0,
+    "z": 0,
+    "height": 103.53687549563838,
+    "width": 1029.2783505154639,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito CFS"
+                }
+              },
+              "queryRef": "Métricas.Tránsito CFS",
+              "nativeQueryRef": "Tránsito CFS"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Consolidación"
+                }
+              },
+              "queryRef": "Métricas.Consolidación",
+              "nativeQueryRef": "Consolidación"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito"
+                }
+              },
+              "queryRef": "Métricas.Tránsito",
+              "nativeQueryRef": "Tránsito Import",
+              "displayName": "Tránsito Import"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito BFI"
+                }
+              },
+              "queryRef": "Métricas.Tránsito BFI",
+              "nativeQueryRef": "Tránsito BFI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Tránsito Total"
+                }
+              },
+              "queryRef": "Métricas.Tránsito Total",
+              "nativeQueryRef": "Tránsito Total"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Métricas"
+                  }
+                },
+                "Property": "Tránsito CFS"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "layout": [
+        {
+          "properties": {
+            "maxTiles": {
+              "expr": {
+                "Literal": {
+                  "Value": "8L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "32D"
+                }
+              }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "shapeCustomRectangle": [
+        {
+          "properties": {
+            "tileShape": {
+              "expr": {
+                "Literal": {
+                  "Value": "'rectangleRoundedByPixel'"
+                }
+              }
+            },
+            "rectangleRoundedCurveCustomStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rectangleRoundedCurve": {
+              "expr": {
+                "Literal": {
+                  "Value": "10L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "paddingSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Narrow'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "foreground": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

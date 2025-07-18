@@ -1,0 +1,337 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "fcce8a3205d66b7fd488",
+  "position": {
+    "x": 434.16108918494092,
+    "y": 83.647416413376916,
+    "z": 21000,
+    "height": 200,
+    "width": 192,
+    "tabOrder": 21000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO"
+                    }
+                  },
+                  "Property": "GENERO"
+                }
+              },
+              "queryRef": "EKPO.GENERO",
+              "nativeQueryRef": "GENERO",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Indicador"
+                }
+              },
+              "queryRef": "Métricas.Indicador",
+              "nativeQueryRef": "Indicador"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Métricas"
+                  }
+                },
+                "Property": "Indicador"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "logAxisScale": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "maxMarginFactor": {
+              "expr": {
+                "Literal": {
+                  "Value": "30L"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EDBE31'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "Leyenda Indicador"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "foreground": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'por Género'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "verticalSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

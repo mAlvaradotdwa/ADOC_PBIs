@@ -1,0 +1,50 @@
+table DIM_TasaCambio
+	lineageTag: 5542b0d2-9669-471f-a853-d5a6cbb14880
+
+	column SK_PERIODO
+		dataType: int64
+		formatString: 0
+		lineageTag: 86f91178-ee5c-456a-8df9-e15ac37e172a
+		summarizeBy: none
+		sourceColumn: SK_PERIODO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: b5dd1c1b-3fd5-4c54-8d62-a7409e32d4a2
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONEDA
+		dataType: string
+		lineageTag: c5ad2ef6-f019-4583-bc36-6e9706221ec9
+		summarizeBy: none
+		sourceColumn: MONEDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TASACAMBIO
+		dataType: double
+		lineageTag: 6e0c1b07-e7f1-4522-893f-67f2b630b000
+		summarizeBy: sum
+		sourceColumn: TASACAMBIO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_TasaCambio = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT * FROM DM_COMERCIAL.dbo.dim_tasacambio#(lf)WHERE sk_periodo = CAST(CONVERT(varchar(8), GETDATE(), 112) AS INT)"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

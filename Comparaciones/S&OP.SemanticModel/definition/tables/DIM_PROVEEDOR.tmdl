@@ -1,0 +1,42 @@
+table DIM_PROVEEDOR
+	lineageTag: d1ce2d9e-89a8-4544-9153-357cfdc92f20
+
+	column SK_PROVEEDOR
+		dataType: string
+		lineageTag: 04affda0-21c5-4965-a1f7-a1dd8539a073
+		summarizeBy: none
+		sourceColumn: SK_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROVEEDOR
+		dataType: string
+		lineageTag: 2df99a27-3568-4beb-a0fb-f921ea29b7c8
+		summarizeBy: none
+		sourceColumn: PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIM_PROVEEDOR_EKKO.LIFNR'
+		dataType: string
+		lineageTag: efc972d5-1398-47d4-ba62-28adad77d3fa
+		summarizeBy: none
+		sourceColumn: DIM_PROVEEDOR_EKKO.LIFNR
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_PROVEEDOR = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from DIM_PROVEEDOR"]),
+				    #"Consultas combinadas" = Table.NestedJoin(Origen, {"SK_PROVEEDOR"}, DIM_PROVEEDOR_EKKO, {"LIFNR"}, "DIM_PROVEEDOR_EKKO", JoinKind.LeftOuter),
+				    #"Se expandió DIM_PROVEEDOR_EKKO" = Table.ExpandTableColumn(#"Consultas combinadas", "DIM_PROVEEDOR_EKKO", {"LIFNR"}, {"DIM_PROVEEDOR_EKKO.LIFNR"}),
+				    #"Filas filtradas" = Table.SelectRows(#"Se expandió DIM_PROVEEDOR_EKKO", each [DIM_PROVEEDOR_EKKO.LIFNR] <> null and [DIM_PROVEEDOR_EKKO.LIFNR] <> "")
+				in
+				    #"Filas filtradas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

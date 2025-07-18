@@ -1,0 +1,86 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "7f62a78b2799c072d352",
+  "displayName": "Ingresos Futuros",
+  "displayOption": "FitToWidth",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cb9feb81686c5744b0e3",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fecha Arribo Futuro"
+              }
+            },
+            "Property": "Fecha"
+          }
+        },
+        "type": "RelativeDate",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "Fecha Arribo Futuro",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Between": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "f"
+                        }
+                      },
+                      "Property": "Fecha"
+                    }
+                  },
+                  "LowerBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "Now": {}
+                      },
+                      "TimeUnit": 0
+                    }
+                  },
+                  "UpperBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "DateAdd": {
+                              "Expression": {
+                                "Now": {}
+                              },
+                              "Amount": -1,
+                              "TimeUnit": 0
+                            }
+                          },
+                          "Amount": 1000,
+                          "TimeUnit": 0
+                        }
+                      },
+                      "TimeUnit": 0
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "visibility": "HiddenInViewMode"
+}

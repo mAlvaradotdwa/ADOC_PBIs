@@ -1,0 +1,239 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "c24239740e7e18d805c8",
+  "position": {
+    "x": 268.95458885408465,
+    "y": 59.005343473090008,
+    "z": 1000,
+    "height": 650.4309954940619,
+    "width": 1003.0908390425301,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fecha Liquidación L1"
+                    }
+                  },
+                  "Property": "Año"
+                }
+              },
+              "queryRef": "Fecha Liquidación L1.Año",
+              "nativeQueryRef": "Año",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fecha Liquidación L1"
+                    }
+                  },
+                  "Property": "Semana"
+                }
+              },
+              "queryRef": "Fecha Liquidación L1.Semana",
+              "nativeQueryRef": "Semana",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "BV_ESTILO_COLOR"
+                }
+              },
+              "queryRef": "DIM_ARTICULOS.BV_ESTILO_COLOR",
+              "nativeQueryRef": "Estilo Color",
+              "active": true,
+              "displayName": "Estilo Color"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "EKPO L1"
+                        }
+                      },
+                      "Property": "CANTIDAD"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(EKPO L1.CANTIDAD)",
+              "nativeQueryRef": "Suma de CANTIDAD"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "layout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tabular'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "perRowLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "perColumnLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Detalle de Artículos Recibidos'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'BoldHeader'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

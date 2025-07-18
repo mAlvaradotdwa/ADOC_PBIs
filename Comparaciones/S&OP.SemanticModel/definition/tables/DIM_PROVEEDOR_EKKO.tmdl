@@ -1,0 +1,23 @@
+table DIM_PROVEEDOR_EKKO
+	lineageTag: c9602c03-e8fe-443f-9bc2-180bf09877a5
+
+	column LIFNR
+		dataType: string
+		lineageTag: 6134208a-1a39-40d8-882a-8819d9f54c27
+		summarizeBy: none
+		sourceColumn: LIFNR
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_PROVEEDOR_EKKO = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT#(lf)#(tab)EKKO.LIFNR#(lf)FROM#(lf)#(tab)SAP_ECC.EKPO#(lf)LEFT JOIN SAP_ECC.EKKO EKKO ON#(lf)#(tab)EKPO.EBELN = EKKO.EBELN#(lf)WHERE#(lf)#(tab)EKPO.LOEKZ <> 'L'#(lf)#(tab)AND EKPO.EBELN LIKE '44%'#(lf)#(tab)AND EKKO.LIFNR IS NOT NULL#(lf)GROUP BY#(lf)#(tab)EKKO.LIFNR", null, [EnableFolding=true])
+				in
+				    Consulta1
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
