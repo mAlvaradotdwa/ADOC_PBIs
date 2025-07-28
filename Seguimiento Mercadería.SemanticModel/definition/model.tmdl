@@ -37,7 +37,7 @@ annotation PBIDesktopVersion = 2.144.878.0 (25.06)+9cca29236de5114792f4d7188221f
 
 annotation __TEdtr = 1
 
-annotation PBI_ProTooling = ["WebModelingEdit","DaxQueryView_Desktop","DevMode"]
+annotation PBI_ProTooling = ["WebModelingEdit","DaxQueryView_Desktop","DevMode","TMDLView_Desktop"]
 
 ref table DIM_PAIS
 ref table DIM_BODEGA
