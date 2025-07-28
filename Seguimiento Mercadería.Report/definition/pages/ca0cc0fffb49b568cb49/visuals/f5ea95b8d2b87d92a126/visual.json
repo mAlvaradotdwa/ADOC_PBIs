@@ -7,7 +7,7 @@
     "z": 0,
     "height": 573.00668151447667,
     "width": 1194.4766146993318,
-    "tabOrder": 0
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -44,7 +44,7 @@
                           "Entity": "EKPO_BFI-CD"
                         }
                       },
-                      "Property": "Transito"
+                      "Property": "Transito_EXP"
                     }
                   },
                   "Function": 1
@@ -89,7 +89,7 @@
                         "Entity": "EKPO_BFI-CD"
                       }
                     },
-                    "Property": "Transito"
+                    "Property": "Transito_EXP"
                   }
                 },
                 "Function": 1

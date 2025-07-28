@@ -1,13 +1,35 @@
 model Model
 	culture: es-SV
 	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
 	sourceQueryCulture: es-SV
 	dataAccessOptions
 		fastCombine
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["FACT_TUNGYA","DIM_PAIS","DIM_BODEGA","DIM_MARCAS","DIM_DEPTO","DIM_GENERO","DIM_ARTICULOS","DIM_PROVEEDOR","PUERTO_ORIGEN","NAST","FACT_ARRIBOSFUTURO","TEMPORADA","DIM_DOC","FACT_PRIMERAVENTA_ARTICULO","EKPO","Meses","Tipo de Flete","FL","LastRefresh","FACT_MARINETRAFFIC","DIM_ETA","FL (2)","DIM_PROVEEDOR_EKKO","ALMACENES","SLA_Maritimo","FAC_TEMPORADAS","EKPO_BFI-CD","EKPO_CD-TIENDA","EKPO L1","EKPO L1 V2","FL (TRACING)","DIM_MARCAS (2)","EKPO Solped","Precio Venta","DIM_TasaCambio","PREPARACIONES CD (TRACING)","FACT_INVENTARIOUD","TIENDAS NUEVAS OPERATIVAS","Procesos","Períodos Estadísticos","VENTAS"]
+queryGroup 'Transformar archivo de ALMACENES'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transformar archivo de ALMACENES\Consultas auxiliares'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Transformar archivo de ALMACENES (2)'
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup 'Transformar archivo de ALMACENES (2)\Consultas auxiliares'
+
+	annotation PBI_QueryGroupOrder = 0
+
+/// Grupo de consultas para el diagnóstico
+queryGroup Diagnóstico
+
+	annotation PBI_QueryGroupOrder = 4
+
+annotation PBI_QueryOrder = ["FACT_TUNGYA","DIM_PAIS","DIM_BODEGA","DIM_MARCAS","DIM_DEPTO","DIM_GENERO","DIM_ARTICULOS","DIM_PROVEEDOR","PUERTO_ORIGEN","NAST","FACT_ARRIBOSFUTURO","TEMPORADA","DIM_DOC","FACT_PRIMERAVENTA_ARTICULO","EKPO","Meses","Tipo de Flete","FL","LastRefresh","FACT_MARINETRAFFIC","DIM_ETA","FL (2)","DIM_PROVEEDOR_EKKO","ALMACENES","SLA_Maritimo","FAC_TEMPORADAS","EKPO_BFI-CD","EKPO_CD-TIENDA","EKPO L1","EKPO L1 V2","FL (TRACING)","DIM_MARCAS (2)","EKPO Solped","Precio Venta","DIM_TasaCambio","PREPARACIONES CD (TRACING)","FACT_INVENTARIOUD","TIENDAS NUEVAS OPERATIVAS","Procesos","Períodos Estadísticos","VENTAS","Parámetro1","Transformar archivo de ejemplo","Archivo de ejemplo","Transformar archivo","Parámetro2","Transformar archivo de ejemplo (2)","Archivo de ejemplo (2)","Transformar archivo (2)","FACT_TUNGYA_Valor reemplazado2 CRD_Counters_2025-07-09_17:13","FACT_TUNGYA_Valor reemplazado2 CRD_Detailed_2025-07-09_17:13","FACT_TUNGYA_Valor reemplazado2 CRD_Aggregated_2025-07-09_17:13"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -70,6 +92,7 @@ ref table 'TIENDAS NUEVAS OPERATIVAS'
 ref table Procesos
 ref table 'Períodos Estadísticos'
 ref table VENTAS
+ref table 'Fecha Export'
 
 ref cultureInfo es-SV
 

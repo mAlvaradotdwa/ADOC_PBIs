@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 281.3186685264825,
     "width": 1028.72038533201,
-    "tabOrder": 1000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "pivotTable",
@@ -142,13 +142,13 @@
                           "Entity": "EKPO"
                         }
                       },
-                      "Property": "MAX_ETA"
+                      "Property": "ETA_MarineTraffic"
                     }
                   },
                   "Function": 3
                 }
               },
-              "queryRef": "Min(EKPO.MAX_ETA)",
+              "queryRef": "Min(EKPO.ETA_MarineTraffic)",
               "nativeQueryRef": "ETA Más Reciente",
               "displayName": "ETA Más Reciente"
             },
@@ -434,20 +434,6 @@
           "selector": {
             "metadata": "Métricas.Indicador"
           }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "131.234039328879D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(EKPO.MAX_ETA)"
-          }
         }
       ],
       "columnFormatting": [
@@ -477,34 +463,6 @@
           },
           "selector": {
             "metadata": "Min(EKPO.FIRST_ETA)"
-          }
-        },
-        {
-          "properties": {
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Center'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(EKPO.MAX_ETA)"
           }
         },
         {

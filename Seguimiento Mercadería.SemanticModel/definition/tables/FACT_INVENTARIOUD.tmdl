@@ -176,23 +176,13 @@ table FACT_INVENTARIOUD
 
 		annotation SummarizationSetBy = Automatic
 
-	column Tipo
-		dataType: string
-		lineageTag: 3a67c35d-16a4-43a1-a5b0-1a8f4370890b
-		summarizeBy: none
-		sourceColumn: Tipo
-
-		annotation SummarizationSetBy = Automatic
-
 	partition FACT_INVENTARIOUD = m
 		mode: import
 		source =
 				let
-				    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="adoc-bi-dev"]){[Name="adoc-bi-dev"]}[Data], "SELECT *#(lf)FROM `adoc-bi-dev.CA_TEMP.FAC_INVENTARIOUD`", null, [EnableFolding=true]),
-				    #"Consultas combinadas" = Table.NestedJoin(Origen, {"SK_ALMACEN"}, ALMACENES, {"Alm."}, "ALMACENES", JoinKind.LeftOuter),
-				    #"Se expandió ALMACENES" = Table.ExpandTableColumn(#"Consultas combinadas", "ALMACENES", {"Tipo"}, {"Tipo"})
+				    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="adoc-bi-dev"]){[Name="adoc-bi-dev"]}[Data], "SELECT *#(lf)FROM `adoc-bi-dev.CA_TEMP.FAC_INVENTARIOUD`", null, [EnableFolding=true])
 				in
-				    #"Se expandió ALMACENES"
+				    Origen
 
 	annotation PBI_NavigationStepName = Navegación
 

@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 68.610864503593035,
     "width": 172.89937854905443,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "card",
@@ -296,7 +296,7 @@
                         "DateSpan": {
                           "Expression": {
                             "Literal": {
-                              "Value": "datetime'2025-06-06T00:00:00'"
+                              "Value": "datetime'2025-06-27T00:00:00'"
                             }
                           },
                           "TimeUnit": 5
@@ -321,7 +321,7 @@
                         "DateSpan": {
                           "Expression": {
                             "Literal": {
-                              "Value": "datetime'2025-06-14T00:00:00'"
+                              "Value": "datetime'2025-07-05T00:00:00'"
                             }
                           },
                           "TimeUnit": 5

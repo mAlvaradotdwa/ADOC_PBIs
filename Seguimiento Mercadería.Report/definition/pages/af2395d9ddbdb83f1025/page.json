@@ -8,7 +8,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "aa34fc4bdef9293fd93c",
+        "name": "d40328e19460a7e0a043",
         "field": {
           "Column": {
             "Expression": {
@@ -49,7 +49,7 @@
                       "Expression": {
                         "Now": {}
                       },
-                      "TimeUnit": 2
+                      "TimeUnit": 3
                     }
                   }
                 }
@@ -57,9 +57,15 @@
             }
           ]
         },
-        "howCreated": "User"
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
       }
     ]
-  },
-  "visibility": "HiddenInViewMode"
+  }
 }

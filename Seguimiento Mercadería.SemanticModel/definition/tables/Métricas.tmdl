@@ -776,14 +776,16 @@ table Métricas
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Medidas Importación' =
-			switch(TRUE(),
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Cumplimiento MK",[Cumplimiento_MK],
-			--VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",'Métricas'[Tránsito CFS],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Consolidación",[Consolidación],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Import",'Métricas'[Tránsito],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito BFI",'Métricas'[Tránsito BFI],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Total",'Métricas'[Tránsito Total2],
-			blank())
+			SWITCH (
+			    TRUE (),
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Cumplimiento MK", [Cumplimiento_MK],
+			    --VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",'Métricas'[Tránsito CFS],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Consolidación", [Consolidación],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Import", 'Métricas'[Tránsito],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito BFI", 'Métricas'[Tránsito BFI],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Total", 'Métricas'[Tránsito Total2],
+			    BLANK ()
+			)
 		formatString: #,0.0
 		lineageTag: 9e4714f3-efa9-4b4e-ba1b-9a84509ef4ea
 
@@ -833,14 +835,16 @@ table Métricas
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Cump Medidas Importación' =
-			switch(TRUE(),
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Cumplimiento MK",'Métricas'[%Cump_Producción],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",blank(),
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Consolidación",'Métricas'[%Cump_Consolidación],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Import",'Métricas'[%Cump_Tránsito],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito BFI",'Métricas'[%Cump_TránsitoBFI],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Total",'Métricas'[%Cump_TT],
-			blank())
+			SWITCH (
+			    TRUE (),
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Cumplimiento MK", 'Métricas'[%Cump_Producción],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito CFS", BLANK (),
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Consolidación", 'Métricas'[%Cump_Consolidación],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Import", 'Métricas'[%Cump_Tránsito],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito BFI", 'Métricas'[%Cump_TránsitoBFI],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Total", 'Métricas'[%Cump_TT],
+			    BLANK ()
+			)
 		formatString: 0.0\ %;-0.0\ %;0.0\ %
 		lineageTag: 742bcac9-bbbe-4d5f-8af8-58461b5db656
 
@@ -862,14 +866,16 @@ table Métricas
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Metas Medidas Importación' =
-			switch(TRUE(),
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Cumplimiento MK",[Meta Cumplimiento MK],
-			--VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",'Métricas'[Tránsito CFS],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Consolidación",[Meta Consolidacion],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Import",[Meta Transito],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito BFI",[Meta BFI],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Total",[Meta Total],
-			blank())
+			SWITCH (
+			    TRUE (),
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Cumplimiento MK", [Meta Cumplimiento MK],
+			    --VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",'Métricas'[Tránsito CFS],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Consolidación", [Meta Consolidacion],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Import", [Meta Transito],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito BFI", [Meta BFI],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Total", [Meta Total],
+			    BLANK ()
+			)
 		formatString: #,0.00
 		lineageTag: e296cf53-2265-43b4-98c3-bafd03b29bdd
 

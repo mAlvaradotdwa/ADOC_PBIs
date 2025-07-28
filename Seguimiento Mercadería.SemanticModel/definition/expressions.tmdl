@@ -23,3 +23,148 @@ expression FACT_TUNGYA =
 
 	annotation PBI_ResultType = Exception
 
+expression Parámetro1 = #"Archivo de ejemplo" meta [IsParameterQuery=true, BinaryIdentifier=#"Archivo de ejemplo", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 23700bf7-78ba-4718-98cb-8a3e6d2f337c
+	queryGroup: 'Transformar archivo de ALMACENES\Consultas auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar archivo de ejemplo' =
+		let
+		    Origen = Excel.Workbook(Parámetro1, null, true),
+		    Hoja1_Sheet = Origen{[Item="Hoja1",Kind="Sheet"]}[Data]
+		in
+		    Hoja1_Sheet
+	lineageTag: 06b442df-2741-4c81-a867-1ddad9986342
+	queryGroup: 'Transformar archivo de ALMACENES'
+
+	annotation PBI_ResultType = Table
+
+expression 'Archivo de ejemplo' =
+		let
+		    Origen = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/luis_menendez_empresasadoc_com", [ApiVersion = 15]),
+		    #"Filas filtradas" = Table.SelectRows(Origen, each ([Extension] = ".xlsx") and ([Name] = "Almacenes.xlsx")),
+		    Navegación1 = #"Filas filtradas"{0}[Content]
+		in
+		    Navegación1
+	lineageTag: 2e0f415f-121f-4b30-b93f-f63cd128d9d0
+	queryGroup: 'Transformar archivo de ALMACENES\Consultas auxiliares'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar archivo' =
+		let
+		    Origen = (Parámetro1 as binary) => let
+		    Origen = Excel.Workbook(Parámetro1, null, true),
+		    Hoja1_Sheet = Origen{[Item="Hoja1",Kind="Sheet"]}[Data]
+		in
+		    Hoja1_Sheet
+		in
+		    Origen
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transformar archivo de ejemplo""}" ]
+	lineageTag: db39c337-60dc-4c81-b294-7ae3ffd59d21
+	queryGroup: 'Transformar archivo de ALMACENES\Consultas auxiliares'
+
+	annotation PBI_ResultType = Function
+
+expression Parámetro2 = #"Archivo de ejemplo (2)" meta [IsParameterQuery=true, BinaryIdentifier=#"Archivo de ejemplo (2)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: d93d4623-27b7-46c3-a328-6627af2b70b2
+	queryGroup: 'Transformar archivo de ALMACENES (2)\Consultas auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar archivo de ejemplo (2)' =
+		let
+		    Origen = Excel.Workbook(Parámetro2, null, true),
+		    Hoja1_Sheet = Origen{[Item="Hoja1",Kind="Sheet"]}[Data]
+		in
+		    Hoja1_Sheet
+	lineageTag: 848e9bd5-a943-43c3-afe8-e5a2f540ee46
+	queryGroup: 'Transformar archivo de ALMACENES (2)'
+
+	annotation PBI_ResultType = Table
+
+expression 'Archivo de ejemplo (2)' =
+		let
+		    Origen = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/luis_menendez_empresasadoc_com", [ApiVersion = 15]),
+		    #"Filas filtradas" = Table.SelectRows(Origen, each ([Extension] = ".xlsx") and ([Name] = "Almacenes.xlsx")),
+		    Navegación1 = #"Filas filtradas"{0}[Content]
+		in
+		    Navegación1
+	lineageTag: 87d2c9b7-abb5-4f36-8ffb-c779581025a1
+	queryGroup: 'Transformar archivo de ALMACENES (2)\Consultas auxiliares'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar archivo (2)' =
+		let
+		    Origen = (Parámetro2 as binary) => let
+		    Origen = Excel.Workbook(Parámetro2, null, true),
+		    Hoja1_Sheet = Origen{[Item="Hoja1",Kind="Sheet"]}[Data]
+		in
+		    Hoja1_Sheet
+		in
+		    Origen
+	mAttributes: [ FunctionQueryBinding = "{""exemplarFormulaName"":""Transformar archivo de ejemplo (2)""}" ]
+	lineageTag: e129eca6-fa40-45bb-b33d-c4f73f27f09a
+	queryGroup: 'Transformar archivo de ALMACENES (2)\Consultas auxiliares'
+
+	annotation PBI_ResultType = Function
+
+expression 'FACT_TUNGYA_Valor reemplazado2 CRD_Counters_2025-07-09_17:13' = ```
+		let
+		    TransformCsv = (filecontents as binary) => [
+		        Source = Csv.Document(filecontents,[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		        result = Table.PromoteHeaders(Source, [PromoteAllScalars=true])
+		    ][result],
+		    CsvFiles = #table(type table[Id = text, File = text], {
+		        {"1.1", "C:\Users\luis.menendez\Microsoft\Power BI Desktop Store App\Traces\Diagnostics\EvaluationCounters_20250709T171322.875-0ee6fe7c-4aec-4f04-bb41-4b0393231286-1-001.csv"}
+		    }),
+		    GetContents = Table.AddColumn(CsvFiles, "Content", each File.Contents([File])),
+		    AddColumn = Table.AddColumn(GetContents, "Transform File", each TransformCsv([Content])),
+		    ExpandedTransformFile = Table.ExpandTableColumn(AddColumn, "Transform File", 
+		                { "Timestamp", "Processor Time (%)", "Total Processor Time", "IO Data Bytes Per Second", "Commit (bytes)", "Working Set (bytes)" },
+		                { "Timestamp", "Processor Time (%)", "Total Processor Time", "IO Data Bytes Per Second", "Commit (bytes)", "Working Set (bytes)" }),
+		    TransformedColumns = Table.TransformColumnTypes(ExpandedTransformFile,
+		        {{"Timestamp", type datetime}, {"Processor Time (%)", Percentage.Type}, {"Total Processor Time", type duration}, {"IO Data Bytes Per Second", type number}, {"Commit (bytes)", Int64.Type}, {"Working Set (bytes)", Int64.Type}}),
+		    RemovedColumns = Table.RemoveColumns(TransformedColumns, {"File", "Content"})
+		in
+		    RemovedColumns
+		```
+	lineageTag: b75d8968-292f-4d68-bead-da1431fb713c
+	queryGroup: Diagnóstico
+
+expression 'FACT_TUNGYA_Valor reemplazado2 CRD_Detailed_2025-07-09_17:13' = ```
+		let
+		    Source = Json.Document(File.Contents("C:\Users\luis.menendez\Microsoft\Power BI Desktop Store App\Traces\Diagnostics\Diagnostics_Detailed_20250709T171322.882-f692def4-710b-485d-adfc-53966194bf39.json")),
+		    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1",
+		        {"Id", "Query", "Step", "Category", "DataSourceKind", "Operation", "StartTime", "EndTime", "ExclusiveDurationPct", "ExclusiveDuration", "Resource", "DataSourceQuery", "AdditionalInfo", "RowCount", "ContentLength", "IsUserQuery", "Path", "GroupId", "PartitionKey", "Process", "ActivityId", "DataSourceOperationIds"},
+		        {"Id", "Query", "Step", "Category", "Data Source Kind", "Operation", "Start Time", "End Time", "Exclusive Duration (%)", "Exclusive Duration", "Resource", "Data Source Query", "Additional Info", "Row Count", "Content Length", "Is User Query", "Path", "Group Id", "Partition Key", "Process", "Activity Id", "Data Source Operation Identifiers"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1", 
+		        {{"Id", type text}, {"Query", type text}, {"Step", type text}, {"Category", type text}, {"Data Source Kind", type text}, {"Operation", type text}, {"Start Time", type datetime}, {"End Time", type datetime}, {"Exclusive Duration (%)", Percentage.Type}, {"Exclusive Duration", type duration}, {"Resource", type text}, {"Data Source Query", type text}, {"Additional Info", type any}, {"Row Count", Int64.Type}, {"Content Length", Int64.Type}, {"Is User Query", type logical}, {"Path", type text}, {"Group Id", type number}, {"Partition Key", type text}, {"Process", type text}, {"Activity Id", type text}, {"Data Source Operation Identifiers", type any}})
+		in
+		    #"Changed Type"
+		```
+	lineageTag: cff7861c-24ef-4d87-abb4-5c647252698d
+	queryGroup: Diagnóstico
+
+expression 'FACT_TUNGYA_Valor reemplazado2 CRD_Aggregated_2025-07-09_17:13' = ```
+		let
+		    Source = Json.Document(File.Contents("C:\Users\luis.menendez\Microsoft\Power BI Desktop Store App\Traces\Diagnostics\Diagnostics_Aggregated_20250709T171322.882-f692def4-710b-485d-adfc-53966194bf39.json")),
+		    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1",
+		        {"Id", "Query", "Step", "Category", "DataSourceKind", "Operation", "StartTime", "EndTime", "ExclusiveDurationPct", "ExclusiveDuration", "Resource", "DataSourceQuery", "AdditionalInfo", "RowCount", "ContentLength", "IsUserQuery", "Path", "GroupId", "PartitionKey"},
+		        {"Id", "Query", "Step", "Category", "Data Source Kind", "Operation", "Start Time", "End Time", "Exclusive Duration (%)", "Exclusive Duration", "Resource", "Data Source Query", "Additional Info", "Row Count", "Content Length", "Is User Query", "Path", "Group Id", "Partition Key"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1", 
+		        {{"Id", type text}, {"Query", type text}, {"Step", type text}, {"Category", type text}, {"Data Source Kind", type text}, {"Operation", type text}, {"Start Time", type datetime}, {"End Time", type datetime}, {"Exclusive Duration (%)", Percentage.Type}, {"Exclusive Duration", type duration}, {"Resource", type text}, {"Data Source Query", type text}, {"Additional Info", type any}, {"Row Count", Int64.Type}, {"Content Length", Int64.Type}, {"Is User Query", type logical}, {"Path", type text}, {"Group Id", type number}, {"Partition Key", type text}})
+		in
+		    #"Changed Type"
+		```
+	lineageTag: a0553d6f-0d7e-4e4d-9e49-c6f0ea71f6c3
+	queryGroup: Diagnóstico
+

@@ -1,0 +1,25 @@
+table 'Fecha Export'
+	lineageTag: c5b5e438-d894-4da3-8f44-38d9995e0256
+
+	calculationGroup
+
+		calculationItem 'Fecha Documento' = SELECTEDMEASURE()
+
+		calculationItem 'Fecha Expediente' =
+				CALCULATE (
+				    SELECTEDMEASURE() ,
+				    USERELATIONSHIP ( 'EKPO_BFI-CD'[FECHA_EXPEDIENTE], 'Fecha Creación MK'[Fecha] )
+				)
+
+	column 'Fecha a Mostrar'
+		dataType: string
+		lineageTag: 8b69f8b1-0d5e-47fb-a749-b26312d24a42
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		lineageTag: 199d4d6e-c0a8-4014-8c83-46d97efcc1f4
+		sourceColumn: Ordinal
+

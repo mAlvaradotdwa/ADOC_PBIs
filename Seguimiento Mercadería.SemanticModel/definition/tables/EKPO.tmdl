@@ -678,7 +678,7 @@ table EKPO
 			
 			VAR _eta = [ETA]
 			VAR _etd = [ATD]
-			VAR _etaMT = [MAX_ETA]
+			VAR _etaMT = [ETA_Marin_Traffic]
 			VAR _etdMT = [loading_departure_timestamp]
 			RETURN
 			    IF(
@@ -1363,7 +1363,7 @@ table EKPO
 			IF(
 			    EKPO[Estatus MK] = "Entregado", 
 			    EKPO[Fecha_Final_Liq] - EKPO[SLA_BFI],
-			    COALESCE(EKPO[MAX_ETA], EKPO[FECHA_LIQUIDACION_ESTIMADA]-4)
+			    COALESCE(EKPO[ETA_Marin_Traffic], EKPO[FECHA_LIQUIDACION_ESTIMADA]-4)
 			)
 			```
 		dataType: dateTime
@@ -1421,9 +1421,9 @@ table EKPO
 
 	column Transito_MT =
 			IF(
-			    ISBLANK(EKPO[MAX_ETA]) || ISBLANK(EKPO[loading_departure_timestamp]),
+			    ISBLANK(EKPO[ETA_Marin_Traffic]) || ISBLANK(EKPO[loading_departure_timestamp]),
 			    BLANK(),
-			    EKPO[MAX_ETA] - EKPO[loading_departure_timestamp]
+			    EKPO[ETA_Marin_Traffic] - EKPO[loading_departure_timestamp]
 			)
 		dataType: int64
 		formatString: 0

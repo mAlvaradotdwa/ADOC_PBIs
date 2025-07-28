@@ -360,6 +360,30 @@ table Tabla_Campaña
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
 
+	column 'Fecha Lanzamiento' =
+			
+			LOOKUPVALUE(
+			    FAC_TEMPORADAS[Fecha Lanzamiento],       -- Valor que quieres traer
+			    FAC_TEMPORADAS[Articulo],      -- Columna de búsqueda en la tabla origen
+			    'Tabla_Campaña'[Articulo Generico] -- Valor en la tabla destino
+			)
+		lineageTag: 79174823-0f12-4a45-b071-e1c406284c65
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'XFact Actualizada'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 5c12e71f-d320-470c-a41b-bf1623f5b14a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [XFact Actualizada]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition Tabla_Campaña = calculated
 		mode: import
 		source =
@@ -384,6 +408,7 @@ table Tabla_Campaña
 				        "Precio Venta USD", [PRECIOVENTA_USD],
 				        "Origen", "Importación",
 				        "Contenedor", [CONTENEDOR],
+				        "XFact Actualizada", [XFACTORY_ACTUALIZADO],
 				        "PE", [PE],
 				        "Año PE", [ANO_PE],
 				        "PE MARA", [PE_MARA],
@@ -415,6 +440,7 @@ table Tabla_Campaña
 				        "Precio Venta USD", [PRECIOVENTA_USD],
 				        "Origen", "L1",
 				        "Contenedor", BLANK(),
+				        "XFact Actualizada", BLANK(),
 				        "PE", [PE],
 				        "Año PE", [ANO_PE],
 				        "PE MARA", [PE2],
@@ -446,6 +472,7 @@ table Tabla_Campaña
 				        "Precio Venta USD", BLANK(),
 				        "Origen", "Solped",
 				        "Contenedor", BLANK(),
+				        "XFact Actualizada", BLANK(),
 				        "PE", [PE],
 				        "Año PE", [PE_ANO_MARA],
 				        "PE MARA", [PE_MARA],
@@ -477,6 +504,7 @@ table Tabla_Campaña
 				        "Precio Venta USD", BLANK(),
 				        "Origen", "Exportación",
 				        "Contenedor", [CONTENEDOR],
+				        "XFact Actualizada", BLANK(),
 				        "PE", [PE],
 				        "Año PE", [ANO_PE],
 				        "PE MARA", [PE_MARA],
@@ -508,6 +536,7 @@ table Tabla_Campaña
 				        "Precio Venta USD", BLANK(),
 				        "Origen", "Tienda",
 				        "Contenedor", BLANK(),
+				        "XFact Actualizada", BLANK(),
 				        "PE", [PE],
 				        "Año PE", [PE_ANO_MARA],
 				        "PE MARA", [PE_MARA],
