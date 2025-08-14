@@ -39851,7 +39851,7 @@ cultureInfo es-SV
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Métricas",
-			          "ConceptualProperty": "inventario"
+			          "ConceptualProperty": "Inventario"
 			        }
 			      },
 			      "State": "Generated",

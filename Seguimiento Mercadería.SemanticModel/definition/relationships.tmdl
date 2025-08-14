@@ -356,3 +356,7 @@ relationship 2e01e5ad-aa13-cc99-39d6-cacdedc1561a
 	fromColumn: EKPO_BFI-CD.FECHA_EXPEDIENTE
 	toColumn: 'Fecha Creación MK'.Fecha
 
+relationship 92eb84d4-ff4c-f457-a91d-375ca3de41b3
+	fromColumn: ALMACENES.'Ce.'
+	toColumn: DIM_BODEGA.SK_TIENDA
+

@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "8ee21efe7bbd153998df",
+  "name": "27cad0f1f5b061280048",
   "position": {
     "x": 248,
     "y": 152,
     "z": 19000,
-    "height": 280,
+    "height": 560,
     "width": 1024,
     "tabOrder": 19000
   },
@@ -38,12 +38,12 @@
                       "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "SK_UNIDADNEGOCIO"
+                  "Property": "BV_MARCA"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.SK_UNIDADNEGOCIO",
-              "nativeQueryRef": "SK_UNIDADNEGOCIO",
-              "active": false
+              "queryRef": "DIM_ARTICULOS.BV_MARCA",
+              "nativeQueryRef": "BV_MARCA",
+              "active": true
             },
             {
               "field": {
@@ -53,11 +53,11 @@
                       "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "MARCA"
+                  "Property": "DESCRIPCION"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.MARCA",
-              "nativeQueryRef": "MARCA",
+              "queryRef": "DIM_ARTICULOS.DESCRIPCION",
+              "nativeQueryRef": "DESCRIPCION",
               "active": false
             }
           ]
@@ -69,120 +69,112 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Métricas"
                     }
                   },
-                  "Property": "Documentos BFI-CD"
+                  "Property": "Inventario"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.Documentos BFI-CD",
-              "nativeQueryRef": "Documentos",
-              "displayName": "Documentos"
+              "queryRef": "Métricas.inventario",
+              "nativeQueryRef": "Inventario"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Métricas"
                     }
                   },
-                  "Property": "Pares BFI-CD"
+                  "Property": "Inventario BFI"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.Pares BFI-CD",
-              "nativeQueryRef": "Pares",
-              "displayName": "Pares"
+              "queryRef": "Métricas.Inventario BFI",
+              "nativeQueryRef": "Inventario BFI"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Métricas"
                     }
                   },
-                  "Property": "Tránsito BFI-CD"
+                  "Property": "Inventario CD"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.Tránsito BFI-CD",
-              "nativeQueryRef": "Días Tránsito",
-              "displayName": "Días Tránsito"
+              "queryRef": "Métricas.Inventario CD",
+              "nativeQueryRef": "Inventario CD"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Métricas"
                     }
                   },
-                  "Property": "SLA BFI-CD"
+                  "Property": "Inventario Tiendas"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.SLA BFI-CD",
-              "nativeQueryRef": "SLA",
-              "displayName": "SLA"
+              "queryRef": "Métricas.Inventario Tiendas",
+              "nativeQueryRef": "Inventario Tiendas"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Métricas"
                     }
                   },
-                  "Property": "Documentos OT BFI-CD"
+                  "Property": "Inventario USD"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.Documentos OT BFI-CD",
-              "nativeQueryRef": "Doc. On Time",
-              "displayName": "Doc. On Time"
+              "queryRef": "Métricas.Inventario USD",
+              "nativeQueryRef": "Inventario USD"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Métricas"
                     }
                   },
-                  "Property": "Cumplimiento Documentos BFI-CD"
+                  "Property": "Inventario USD BFI"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.Cumplimiento Documentos BFI-CD",
-              "nativeQueryRef": "% Doc. On Time",
-              "displayName": "% Doc. On Time"
+              "queryRef": "Métricas.Inventario USD BFI",
+              "nativeQueryRef": "Inventario USD BFI"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Métricas"
                     }
                   },
-                  "Property": "Pares OT BFI-CD"
+                  "Property": "Inventario USD CD"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.Pares OT BFI-CD",
-              "nativeQueryRef": "Pares On Time",
-              "displayName": "Pares On Time"
+              "queryRef": "Métricas.Inventario USD CD",
+              "nativeQueryRef": "Inventario USD CD"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Métricas"
                     }
                   },
-                  "Property": "Cumplimiento Pares BFI-CD"
+                  "Property": "Inventario USD Tiendas"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.Cumplimiento Pares BFI-CD",
-              "nativeQueryRef": "% Pares On Time",
-              "displayName": "% Pares On Time"
+              "queryRef": "Métricas.Inventario USD Tiendas",
+              "nativeQueryRef": "Inventario USD Tiendas"
             }
           ]
         }
@@ -216,23 +208,61 @@
               "DIM_PAIS.PAIS"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PAIS"
+                    }
+                  },
+                  "Property": "PAIS"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
             "queryRefs": [
-              "DIM_ARTICULOS.SK_UNIDADNEGOCIO"
+              "DIM_ARTICULOS.BV_MARCA"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "BV_MARCA"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_ARTICULOS.DESCRIPCION"
             ],
             "isCollapsed": true,
             "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "DIM_ARTICULOS.MARCA"
-            ],
-            "isCollapsed": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'BODEGA FISCAL'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
       }
     ],
     "visualContainerObjects": {

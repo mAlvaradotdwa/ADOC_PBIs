@@ -2324,7 +2324,7 @@
       "ordinal": 14,
       "scrollPosition": {
         "x": 0,
-        "y": 231
+        "y": 40
       },
       "nodes": [
         {
@@ -2482,8 +2482,75 @@
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
+    },
+    {
+      "ordinal": 15,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 360.1847511806298,
+            "y": 418
+          },
+          "nodeIndex": "FACT_INVENTARIOUD",
+          "nodeLineageTag": "8501e32b-d593-4fa7-91aa-a5a4b27eb569",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 618.36163941535983,
+            "y": -17.740116544907437
+          },
+          "nodeIndex": "DIM_ARTICULOS",
+          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334,
+            "y": 0
+          },
+          "nodeIndex": "DIM_BODEGA",
+          "nodeLineageTag": "a61e0ad2-f2d9-4e8f-a51b-3aa45c13fdde",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 37
+          },
+          "nodeIndex": "ALMACENES",
+          "nodeLineageTag": "a969d932-d863-4fd9-92d1-5f6d9429c9ea",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "INVETARIOUD",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Articulos",
+  "selectedDiagram": "INVETARIOUD",
   "defaultDiagram": "Todas las tablas"
 }
