@@ -1,0 +1,43 @@
+table ArticuloPrecios
+	lineageTag: 3cf75c17-7e92-4241-b88b-2085e28a93a9
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: b8a8ffd6-2222-49bb-86fa-366a4bdb1d55
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATNR
+		dataType: int64
+		formatString: 0
+		lineageTag: 1bbd4e8f-85ab-45db-b795-f79cecfdbb16
+		summarizeBy: sum
+		sourceColumn: MATNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRECIO_IVA
+		dataType: double
+		lineageTag: 4eb4605a-7117-4cdf-a58f-776f3e1b4230
+		summarizeBy: sum
+		sourceColumn: PRECIO_IVA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition ArticuloPrecios = m
+		mode: import
+		queryGroup: dbSAP
+		source =
+				let
+				    Precio_FOB = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation="2.0"]), "SELECT#(lf)    A.VKORG sk_pais,#(lf)    CAST( A.MATNR AS BIGINT ) MATNR,#(lf)    k.kbetr precio_iva#(lf)FROM#(lf)    SAP_ECC.A073 A#(lf)JOIN#(lf)SAP_ECC.KONP K ON#(lf)    A.KNUMH = K.KNUMH#(lf)JOIN SAP_ECC.MARA M#(lf)    ON a.MATNR = m.matnr#(lf)WHERE#(lf)    TRIM(K.KSCHL) = 'VKP0'#(lf)    AND TRIM(A.DATBI) = '99991231'#(lf)", null, [EnableFolding=true])
+				in
+				    Precio_FOB
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

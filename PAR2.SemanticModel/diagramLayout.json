@@ -224,6 +224,16 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "ArticuloPrecios",
+          "nodeLineageTag": "3cf75c17-7e92-4241-b88b-2085e28a93a9",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
