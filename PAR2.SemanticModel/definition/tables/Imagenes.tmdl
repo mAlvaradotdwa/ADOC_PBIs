@@ -1,5 +1,6 @@
 table Imagenes
 	isHidden
+	excludeFromModelRefresh
 	lineageTag: c9012b12-1bc8-4b0c-99b9-4446836789d0
 
 	column SK_ARTICULO

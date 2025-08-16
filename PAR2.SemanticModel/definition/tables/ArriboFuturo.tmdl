@@ -235,7 +235,7 @@ table ArriboFuturo
 			VAR _art = ArriboFuturo[ARTICULO]
 			RETURN
 			    CALCULATE (
-			        MAX ( ArticuloProveedor[NUMERO_PROVEEDOR] ),
+			        SELECTEDVALUE ( ArticuloProveedor[NUMERO_PROVEEDOR] ),
 			        ArticuloProveedor[DOCUMENTO] = _doc,
 			        ArticuloProveedor[SATNR] = _art
 			    )

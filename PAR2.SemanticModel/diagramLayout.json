@@ -287,7 +287,7 @@
     {
       "ordinal": 2,
       "scrollPosition": {
-        "x": 0,
+        "x": 167,
         "y": 0
       },
       "nodes": [
@@ -398,6 +398,20 @@
           },
           "zIndex": 0,
           "expandedHeight": 176
+        },
+        {
+          "location": {
+            "x": 588,
+            "y": 387
+          },
+          "nodeIndex": "ArticuloPrecios",
+          "nodeLineageTag": "3cf75c17-7e92-4241-b88b-2085e28a93a9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 152
         }
       ],
       "name": "Disposición 2",

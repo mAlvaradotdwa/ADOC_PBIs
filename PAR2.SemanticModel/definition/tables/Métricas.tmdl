@@ -373,9 +373,8 @@ table Métricas
 
 	measure 'Cod Prov.' =
 			CALCULATE (
-			    FIRSTNONBLANK (
-			        'ArriboFuturo'[COD-PRO],
-			        TRUE ()
+			    SELECTEDVALUE (
+			        'ArriboFuturo'[COD-PRO]
 			    )
 			)
 		displayFolder: Métricas Inventario
@@ -383,9 +382,8 @@ table Métricas
 
 	measure 'Nom Prov.' =
 			CALCULATE (
-			    FIRSTNONBLANK (
-			        'ArriboFuturo'[NOPRMP],
-			        TRUE ()
+			    SELECTEDVALUE (
+			        'ArriboFuturo'[NOPRMP]
 			    )
 			)
 		displayFolder: Métricas Inventario
@@ -561,12 +559,12 @@ table Métricas
 		displayFolder: Métricas Inventario\TDA Paises
 		lineageTag: df650599-bd63-48d5-9a65-23bc41c70a85
 
-	measure 'Primera Fecha' = MIN ( ArticulosPais[PrimeraFecha] )
+	measure 'Primera Fecha' = SELECTEDVALUE ( ArticulosPais[PrimeraFecha] )
 		formatString: yyyy-MM-dd
 		displayFolder: Métrias Comerciales\Fechas
 		lineageTag: c262cd6b-b04d-44ad-a889-bbfc82ce8016
 
-	measure 'Ultima Fecha' = MAX ( ArticulosPais[PrimeraFecha] )
+	measure 'Ultima Fecha' = SELECTEDVALUE ( ArticulosPais[PrimeraFecha] )
 		formatString: yyyy-MM-dd
 		displayFolder: Métrias Comerciales\Fechas
 		lineageTag: 1edd48fe-bc65-46f2-abbe-7f89891592c0
@@ -678,6 +676,120 @@ table Métricas
 		formatString: yyyy-MM-dd
 		displayFolder: Métrias Comerciales\Fechas\Paises
 		lineageTag: 694b9afd-e7ee-4d6d-a214-cd31ecbf55d9
+
+	measure 'Precio IVA SV' =
+			VAR _art =
+			    SELECTEDVALUE ( Articulos[SK_ARTICULO] )
+			VAR _pais =
+			    SELECTEDVALUE ( Pais[SK_PAIS] )
+			VAR _val =
+			    CALCULATE (
+			        MAX ( ArticuloPrecios[PRECIO_IVA] ),
+			        REMOVEFILTERS ( ArticulosPais ),
+			        ArticuloPrecios[MATNR] = _art,
+			        -- ArticuloPrecios[SK_PAIS] = _pais,
+			        KEEPFILTERS ( Pais[BV_PAIS] = "SV" )
+			    )
+			RETURN
+			    _val
+		formatString: $ #,0.00
+		displayFolder: Precios Unitarios\Con IVA
+		lineageTag: fab4efd1-4781-4004-8b14-9556cb341710
+
+	measure 'Precio IVA HN' =
+			VAR _art =
+			    SELECTEDVALUE ( Articulos[SK_ARTICULO] )
+			VAR _pais =
+			    SELECTEDVALUE ( Pais[SK_PAIS] )
+			VAR _val =
+			    CALCULATE (
+			        MAX ( ArticuloPrecios[PRECIO_IVA] ),
+			        REMOVEFILTERS ( ArticulosPais ),
+			        ArticuloPrecios[MATNR] = _art,
+			        -- ArticuloPrecios[SK_PAIS] = _pais,
+			        KEEPFILTERS ( Pais[BV_PAIS] = "HN" )
+			    )
+			RETURN
+			    _val
+		formatString: L #,0.00
+		displayFolder: Precios Unitarios\Con IVA
+		lineageTag: 410b041a-be4d-4676-ab17-8dcc5e1049a1
+
+	measure 'Precio IVA NI' =
+			VAR _art =
+			    SELECTEDVALUE ( Articulos[SK_ARTICULO] )
+			VAR _pais =
+			    SELECTEDVALUE ( Pais[SK_PAIS] )
+			VAR _val =
+			    CALCULATE (
+			        MAX ( ArticuloPrecios[PRECIO_IVA] ),
+			        REMOVEFILTERS ( ArticulosPais ),
+			        ArticuloPrecios[MATNR] = _art,
+			        -- ArticuloPrecios[SK_PAIS] = _pais,
+			        KEEPFILTERS ( Pais[BV_PAIS] = "NI" )
+			    )
+			RETURN
+			    _val
+		formatString: \C #,0.00
+		displayFolder: Precios Unitarios\Con IVA
+		lineageTag: ac08a822-a82a-48b4-a881-295a8f927282
+
+	measure 'Precio IVA GT' =
+			VAR _art =
+			    SELECTEDVALUE ( Articulos[SK_ARTICULO] )
+			VAR _pais =
+			    SELECTEDVALUE ( Pais[SK_PAIS] )
+			VAR _val =
+			    CALCULATE (
+			        MAX ( ArticuloPrecios[PRECIO_IVA] ),
+			        REMOVEFILTERS ( ArticulosPais ),
+			        ArticuloPrecios[MATNR] = _art,
+			        -- ArticuloPrecios[SK_PAIS] = _pais,
+			        KEEPFILTERS ( Pais[BV_PAIS] = "GT" )
+			    )
+			RETURN
+			    _val
+		formatString: \Q #,0.00
+		displayFolder: Precios Unitarios\Con IVA
+		lineageTag: 1bd3d469-53e1-41db-b2cf-be1903d22728
+
+	measure 'Precio IVA CR' =
+			VAR _art =
+			    SELECTEDVALUE ( Articulos[SK_ARTICULO] )
+			VAR _pais =
+			    SELECTEDVALUE ( Pais[SK_PAIS] )
+			VAR _val =
+			    CALCULATE (
+			        MAX ( ArticuloPrecios[PRECIO_IVA] ),
+			        REMOVEFILTERS ( ArticulosPais ),
+			        ArticuloPrecios[MATNR] = _art,
+			        -- ArticuloPrecios[SK_PAIS] = _pais,
+			        KEEPFILTERS ( Pais[BV_PAIS] = "CR" )
+			    )
+			RETURN
+			    _val
+		formatString: \C #,0.00
+		displayFolder: Precios Unitarios\Con IVA
+		lineageTag: 62373255-7278-48cc-920e-908ac8cf32b4
+
+	measure 'Precio IVA PA' =
+			VAR _art =
+			    SELECTEDVALUE ( Articulos[SK_ARTICULO] )
+			VAR _pais =
+			    SELECTEDVALUE ( Pais[SK_PAIS] )
+			VAR _val =
+			    CALCULATE (
+			        MAX ( ArticuloPrecios[PRECIO_IVA] ),
+			        REMOVEFILTERS ( ArticulosPais ),
+			        ArticuloPrecios[MATNR] = _art,
+			        -- ArticuloPrecios[SK_PAIS] = _pais,
+			        KEEPFILTERS ( Pais[BV_PAIS] = "PA" )
+			    )
+			RETURN
+			    _val
+		formatString: $ #,0.00
+		displayFolder: Precios Unitarios\Con IVA
+		lineageTag: d207d1e7-be95-4b0e-a82c-d41f84839afc
 
 	column Value
 		isHidden

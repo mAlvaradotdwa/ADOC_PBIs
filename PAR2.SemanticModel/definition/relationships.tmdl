@@ -81,3 +81,7 @@ relationship AutoDetected_ea27c771-0d9f-4ff5-849e-4e93d7498cbe
 	fromColumn: ArticuloPrecios.SK_PAIS
 	toColumn: Pais.SK_PAIS
 
+relationship 01a10b3f-f80b-4d0a-e6c6-c4293580cf6d
+	fromColumn: ArticuloPrecios.MATNR
+	toColumn: Articulos.SK_ARTICULO
+

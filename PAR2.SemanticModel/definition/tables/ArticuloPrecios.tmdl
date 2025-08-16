@@ -13,7 +13,7 @@ table ArticuloPrecios
 		dataType: int64
 		formatString: 0
 		lineageTag: 1bbd4e8f-85ab-45db-b795-f79cecfdbb16
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: MATNR
 
 		annotation SummarizationSetBy = Automatic
