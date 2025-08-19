@@ -1,0 +1,361 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/unappliedChanges/1.0.0/schema.json",
+  "conceptualSchemaSettings": {},
+  "queries": [
+    {
+      "name": "Articulos",
+      "lineageTag": "404b5d32-3d9e-408b-8cf4-f0dcc94836a0",
+      "queryGroupId": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\"SELECT DISTINCT#(lf)#(tab)SK_ARTICULO = TRY_CAST( a.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)BV_ESTILO_COLOR ,#(lf)#(tab)PERIODO = LEFT( SK_COLECCION , 4 ) ,#(lf)#(tab)SK_COLECCION ,#(lf)#(tab)CLASE ,#(lf)#(tab)TIPOESTILO ,#(lf)#(tab)SK_ESTATUS ,#(lf)#(tab)ALU ,#(lf)#(tab)SK_MARCA ,#(lf)#(tab)BV_SUBCATEGORIA ,#(lf)#(tab)BV_LINEA ,#(lf)#(tab)FECHA_CREAARTICULO ,#(lf)#(tab)PrimeraFecha = TRY_CAST ( CONCAT ( f.PrimeraFecha , '' ) AS DATE )#(lf)FROM dim_articulosap a#(lf)LEFT JOIN (#(lf)#(tab)SELECT#(lf)#(tab)#(tab)SK_ARTICULO ,#(lf)#(tab)#(tab)PrimeraFecha = MIN( SK_PERIODO )#(lf)#(tab)FROM FAC_VENTARPRO#(lf)#(tab)WHERE SK_DIVISION = 10#(lf)#(tab)GROUP BY SK_ARTICULO#(lf)) f#(lf)#(tab)ON a.SK_ARTICULO = f.SK_ARTICULO#(lf)WHERE SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)#(tab)AND a.SK_ARTICULO != '000000000000000000'#(lf)#(tab)AND ISNUMERIC( a.SK_ARTICULO ) = 1\", CreateNavigationProperties=false]),",
+        "    #\"Filas ordenadas\" = Table.Sort(Origen,{{\"FECHA_CREAARTICULO\", Order.Descending}}),",
+        "    #\"Duplicados quitados\" = Table.Distinct(#\"Filas ordenadas\", {\"SK_ARTICULO\"})",
+        "in",
+        "    #\"Duplicados quitados\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\\\"SELECT DISTINCT#(lf)#(tab)SK_ARTICULO = TRY_CAST( a.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)BV_ESTILO_COLOR ,#(lf)#(tab)PERIODO = LEFT( SK_COLECCION , 4 ) ,#(lf)#(tab)SK_COLECCION ,#(lf)#(tab)CLASE ,#(lf)#(tab)TIPOESTILO ,#(lf)#(tab)SK_ESTATUS ,#(lf)#(tab)ALU ,#(lf)#(tab)SK_MARCA ,#(lf)#(tab)BV_SUBCATEGORIA ,#(lf)#(tab)BV_LINEA ,#(lf)#(tab)FECHA_CREAARTICULO ,#(lf)#(tab)PrimeraFecha = TRY_CAST ( CONCAT ( f.PrimeraFecha , '' ) AS DATE )#(lf)FROM dim_articulosap a#(lf)LEFT JOIN (#(lf)#(tab)SELECT#(lf)#(tab)#(tab)SK_ARTICULO ,#(lf)#(tab)#(tab)PrimeraFecha = MIN( SK_PERIODO )#(lf)#(tab)FROM FAC_VENTARPRO#(lf)#(tab)WHERE SK_DIVISION = 10#(lf)#(tab)GROUP BY SK_ARTICULO#(lf)) f#(lf)#(tab)ON a.SK_ARTICULO = f.SK_ARTICULO#(lf)WHERE SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)#(tab)AND a.SK_ARTICULO != '000000000000000000'#(lf)#(tab)AND ISNUMERIC( a.SK_ARTICULO ) = 1\\\", CreateNavigationProperties=false]),\\n    #\\\"Filas ordenadas\\\" = Table.Sort(Origen,{{\\\"FECHA_CREAARTICULO\\\", Order.Descending}}),\\n    #\\\"Duplicados quitados\\\" = Table.Distinct(#\\\"Filas ordenadas\\\", {\\\"SK_ARTICULO\\\"})\\nin\\n    #\\\"Duplicados quitados\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "Precios",
+      "lineageTag": "e0bbb9e8-9c78-43f0-bf1f-bd290311fd15",
+      "queryGroupId": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\"SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)I.SK_PAIS ,#(lf)#(tab)COSTO_LOCAL = SUM( I.COSTO_LOCAL ) / SUM( I.PARES ) ,#(lf)#(tab)PRECIO_LOCAL = SUM( I.PRECIO_LOCAL ) / SUM( I.PARES ) ,#(lf)#(tab)COSTO_USD = SUM( I.COSTO_USD ) / SUM( I.PARES ) ,#(lf)#(tab)PRECIO_USD = SUM( I.PRECIO_USD ) / SUM( I.PARES )#(lf)FROM FAC_INVENTARIOUD I#(lf)INNER JOIN DIM_ARTICULOSAP A#(lf)#(tab)ON I.SK_MATNR = A.SK_MATNR#(lf)WHERE I.PARES > 0#(lf)#(tab)AND ISNUMERIC( I.SK_ARTICULO ) = 1#(lf)#(tab)AND A.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)#(tab)AND A.[SK_DEPTO] IN ('C' , 'R' , 'A')#(lf)GROUP BY TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)#(tab) I.SK_PAIS\", CreateNavigationProperties=false])",
+        "in",
+        "    Origen"
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\\\"SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)I.SK_PAIS ,#(lf)#(tab)COSTO_LOCAL = SUM( I.COSTO_LOCAL ) / SUM( I.PARES ) ,#(lf)#(tab)PRECIO_LOCAL = SUM( I.PRECIO_LOCAL ) / SUM( I.PARES ) ,#(lf)#(tab)COSTO_USD = SUM( I.COSTO_USD ) / SUM( I.PARES ) ,#(lf)#(tab)PRECIO_USD = SUM( I.PRECIO_USD ) / SUM( I.PARES )#(lf)FROM FAC_INVENTARIOUD I#(lf)INNER JOIN DIM_ARTICULOSAP A#(lf)#(tab)ON I.SK_MATNR = A.SK_MATNR#(lf)WHERE I.PARES > 0#(lf)#(tab)AND ISNUMERIC( I.SK_ARTICULO ) = 1#(lf)#(tab)AND A.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)#(tab)AND A.[SK_DEPTO] IN ('C' , 'R' , 'A')#(lf)GROUP BY TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)#(tab) I.SK_PAIS\\\", CreateNavigationProperties=false])\\nin\\n    Origen\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "srvCOGNOS",
+      "lineageTag": "d4d0663f-cdff-4958-849f-cef367f995fc",
+      "queryGroupId": "90cb0ca6-6682-4353-bb0a-9c68ec28a424",
+      "navigationStepName": "Navegación",
+      "text": [
+        "\"192.168.16.74\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Text",
+      "isHidden": false
+    },
+    {
+      "name": "dbCOGNOS",
+      "lineageTag": "03bdc47c-b7b9-4e01-8ac8-991a2271f113",
+      "queryGroupId": "90cb0ca6-6682-4353-bb0a-9c68ec28a424",
+      "navigationStepName": "Navegación",
+      "text": [
+        "\"DM_COMERCIAL\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Text",
+      "isHidden": false
+    },
+    {
+      "name": "Imagenes",
+      "lineageTag": "c9012b12-1bc8-4b0c-99b9-4446836789d0",
+      "queryGroupId": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "navigationStepName": "Navegación",
+      "refreshWhenRefreshingAll": false,
+      "text": [
+        "let",
+        "    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\"SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)IMAGE_URL#(lf)FROM OPENQUERY( MYSQL , '#(lf)#(tab)SELECT#(lf)#(tab)#(tab)LEFT( a.sku , 8 ) SK_ARTICULO ,#(lf)#(tab)#(tab)MAX( image_url ) IMAGE_URL#(lf)#(tab)FROM stg_descripciones a#(lf)#(tab)GROUP BY 1;#(lf)' )#(lf)WHERE image_url <> ''#(lf)#(tab)AND ISNUMERIC( SK_ARTICULO ) = 1\", CreateNavigationProperties=false])",
+        "in",
+        "    Origen"
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\\\"SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)IMAGE_URL#(lf)FROM OPENQUERY( MYSQL , '#(lf)#(tab)SELECT#(lf)#(tab)#(tab)LEFT( a.sku , 8 ) SK_ARTICULO ,#(lf)#(tab)#(tab)MAX( image_url ) IMAGE_URL#(lf)#(tab)FROM stg_descripciones a#(lf)#(tab)GROUP BY 1;#(lf)' )#(lf)WHERE image_url <> ''#(lf)#(tab)AND ISNUMERIC( SK_ARTICULO ) = 1\\\", CreateNavigationProperties=false])\\nin\\n    Origen\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "Precio_FOB",
+      "lineageTag": "403d14e1-8332-4759-a2c8-957fb690961a",
+      "queryGroupId": "3122cf55-8778-488b-9713-cfb9a6c08271",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Precio_FOB = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation=\"2.0\"]), \"/*  ZDM_INFOREP */#(lf)SELECT#(lf)    DISTINCT #(lf)    m.SATNR * 1 SK_ARTICULO ,#(lf)    -- a.MATNR,#(lf)    a.KNUMH ,#(lf)    k.KBETR PRECIO_FOB,#(lf)    -- m.BISMT ,#(lf)    m.ZZ_ALU Referencia_Proveedor#(lf)FROM#(lf)    SAP_ECC.MARA m#(lf)INNER JOIN SAP_ECC.A018 a#(lf)    ON#(lf)    m.SATNR = a.MATNR#(lf)INNER JOIN SAP_ECC.KONP k#(lf)    ON#(lf)    a.KNUMH = k.KNUMH#(lf)WHERE#(lf)    m.BRAND_ID IN (#(lf)        '501' , 'MIR' , 'KIP' , 'KIC' , 'VEL' , '4X4' , 'BRA' , 'NIP' , 'BRI' , 'PR2' , 'DIN'#(lf)    )#(lf)    -- AND m.SATNR LIKE '%30000287';\", null, [EnableFolding=true]),",
+        "    #\"Consultas combinadas\" = Table.NestedJoin(Precio_FOB, {\"SK_ARTICULO\"}, Articulos, {\"SK_ARTICULO\"}, \"Articulos\", JoinKind.LeftOuter),",
+        "    #\"Se expandió Articulos\" = Table.ExpandTableColumn(#\"Consultas combinadas\", \"Articulos\", {\"SK_ARTICULO\"}, {\"SK_ARTICULO.1\"}),",
+        "    #\"Filas filtradas\" = Table.SelectRows(#\"Se expandió Articulos\", each [SK_ARTICULO.1] <> null and [SK_ARTICULO.1] <> \"\"),",
+        "    #\"Columnas quitadas\" = Table.RemoveColumns(#\"Filas filtradas\",{\"SK_ARTICULO.1\"})",
+        "in",
+        "    #\"Columnas quitadas\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Precio_FOB = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation=\\\"2.0\\\"]), \\\"/*  ZDM_INFOREP */#(lf)SELECT#(lf)    DISTINCT #(lf)    m.SATNR * 1 SK_ARTICULO ,#(lf)    -- a.MATNR,#(lf)    a.KNUMH ,#(lf)    k.KBETR PRECIO_FOB,#(lf)    -- m.BISMT ,#(lf)    m.ZZ_ALU Referencia_Proveedor#(lf)FROM#(lf)    SAP_ECC.MARA m#(lf)INNER JOIN SAP_ECC.A018 a#(lf)    ON#(lf)    m.SATNR = a.MATNR#(lf)INNER JOIN SAP_ECC.KONP k#(lf)    ON#(lf)    a.KNUMH = k.KNUMH#(lf)WHERE#(lf)    m.BRAND_ID IN (#(lf)        '501' , 'MIR' , 'KIP' , 'KIC' , 'VEL' , '4X4' , 'BRA' , 'NIP' , 'BRI' , 'PR2' , 'DIN'#(lf)    )#(lf)    -- AND m.SATNR LIKE '%30000287';\\\", null, [EnableFolding=true]),\\n    #\\\"Consultas combinadas\\\" = Table.NestedJoin(Precio_FOB, {\\\"SK_ARTICULO\\\"}, Articulos, {\\\"SK_ARTICULO\\\"}, \\\"Articulos\\\", JoinKind.LeftOuter),\\n    #\\\"Se expandió Articulos\\\" = Table.ExpandTableColumn(#\\\"Consultas combinadas\\\", \\\"Articulos\\\", {\\\"SK_ARTICULO\\\"}, {\\\"SK_ARTICULO.1\\\"}),\\n    #\\\"Filas filtradas\\\" = Table.SelectRows(#\\\"Se expandió Articulos\\\", each [SK_ARTICULO.1] <> null and [SK_ARTICULO.1] <> \\\"\\\"),\\n    #\\\"Columnas quitadas\\\" = Table.RemoveColumns(#\\\"Filas filtradas\\\",{\\\"SK_ARTICULO.1\\\"})\\nin\\n    #\\\"Columnas quitadas\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "srvSAP",
+      "lineageTag": "172ec6d6-6ce3-4b23-b38f-db36259cdcaa",
+      "queryGroupId": "90cb0ca6-6682-4353-bb0a-9c68ec28a424",
+      "navigationStepName": "Navegación",
+      "text": [
+        "\"vhadoahpdb01.hec.empresasadoc.com:30215\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+      ],
+      "loadAsTableDisabled": true,
+      "resultType": "Text",
+      "isHidden": false
+    },
+    {
+      "name": "Ventas",
+      "lineageTag": "5799c44c-04d8-4a63-8acd-7a604a18b178",
+      "queryGroupId": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\"SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)V.SK_PAIS ,#(lf)#(tab)SK_ALMACEN ,#(lf)#(tab)Fecha = DATEFROMPARTS ( ANO , COD_MES , 1 ) ,#(lf)#(tab)[Pares] = SUM( [V].[PARES] ) ,#(lf)#(tab)[Venta_USD] = SUM( [V].[VENTANETA_USD] ) ,#(lf)#(tab)[Costo_USD] = SUM( [V].[COSTOTOTAL_USD] ) ,#(lf)#(tab)[Descuento_USD] = NULLIF( SUM( [V].[ORIG_VENTANETA_USD] - [V].[VENTANETA_USD] ) , 0 )#(lf)FROM FAC_VENTARPRO V#(lf)INNER JOIN DIM_PERIODO F#(lf)#(tab)ON V.SK_PERIODO = F.SK_PERIODO#(lf)INNER JOIN DIM_ARTICULOSAP A#(lf)#(tab)ON V.SK_MATNR = A.SK_MATNR#(lf)WHERE F.PERIODO >= DATEADD( MONTH , -12 , DATEADD( DAY , 1 , eomonth( GETDATE() ) ) )#(lf)#(tab)AND V.SK_DIVISION = 10#(lf)#(tab)AND A.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)#(tab)AND A.[SK_DEPTO] IN ('C' , 'R' , 'A')#(lf)-- AND A.SK_ARTICULO LIKE '%30074038'#(lf)GROUP BY A.SK_ARTICULO ,#(lf)#(tab)#(tab) V.SK_PAIS ,#(lf)#(tab)#(tab) SK_ALMACEN ,#(lf)#(tab)#(tab) ANO ,#(lf)#(tab)#(tab) COD_MES\", CreateNavigationProperties=false]),",
+        "    #\"Tipo cambiado\" = Table.TransformColumnTypes(Origen,{{\"Fecha\", type date}})",
+        "in",
+        "    #\"Tipo cambiado\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\\\"SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)V.SK_PAIS ,#(lf)#(tab)SK_ALMACEN ,#(lf)#(tab)Fecha = DATEFROMPARTS ( ANO , COD_MES , 1 ) ,#(lf)#(tab)[Pares] = SUM( [V].[PARES] ) ,#(lf)#(tab)[Venta_USD] = SUM( [V].[VENTANETA_USD] ) ,#(lf)#(tab)[Costo_USD] = SUM( [V].[COSTOTOTAL_USD] ) ,#(lf)#(tab)[Descuento_USD] = NULLIF( SUM( [V].[ORIG_VENTANETA_USD] - [V].[VENTANETA_USD] ) , 0 )#(lf)FROM FAC_VENTARPRO V#(lf)INNER JOIN DIM_PERIODO F#(lf)#(tab)ON V.SK_PERIODO = F.SK_PERIODO#(lf)INNER JOIN DIM_ARTICULOSAP A#(lf)#(tab)ON V.SK_MATNR = A.SK_MATNR#(lf)WHERE F.PERIODO >= DATEADD( MONTH , -12 , DATEADD( DAY , 1 , eomonth( GETDATE() ) ) )#(lf)#(tab)AND V.SK_DIVISION = 10#(lf)#(tab)AND A.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)#(tab)AND A.[SK_DEPTO] IN ('C' , 'R' , 'A')#(lf)-- AND A.SK_ARTICULO LIKE '%30074038'#(lf)GROUP BY A.SK_ARTICULO ,#(lf)#(tab)#(tab) V.SK_PAIS ,#(lf)#(tab)#(tab) SK_ALMACEN ,#(lf)#(tab)#(tab) ANO ,#(lf)#(tab)#(tab) COD_MES\\\", CreateNavigationProperties=false]),\\n    #\\\"Tipo cambiado\\\" = Table.TransformColumnTypes(Origen,{{\\\"Fecha\\\", type date}})\\nin\\n    #\\\"Tipo cambiado\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "Inventarios",
+      "lineageTag": "07a1de7b-f337-4fd8-ada7-370920fde851",
+      "queryGroupId": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "navigationStepName": "Navegación",
+      "text": [
+        "// let",
+        "//     Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\"SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)I.SK_TIPOOPERACION ,#(lf)#(tab)I.SK_PAIS ,#(lf)#(tab)I.SK_TIENDA ,#(lf)#(tab)I.SK_ALMACEN ,#(lf)#(tab)COSTOT_LOCAL = SUM( I.COSTO_LOCAL ) ,#(lf)#(tab)PRECIOT_LOCAL = SUM( I.PRECIO_LOCAL ) ,#(lf)#(tab)COSTOT_USD = SUM( I.COSTO_USD ) ,#(lf)#(tab)PRECIOT_USD = SUM( I.PRECIO_USD ) ,#(lf)#(tab)PARES = SUM( I.PARES )#(lf)FROM FAC_INVENTARIOUD I WITH (NOLOCK)#(lf)INNER JOIN DIM_ARTICULOSAP a WITH (NOLOCK)#(lf)#(tab)ON i.SK_MATNR = A.SK_MATNR#(lf)WHERE ISNUMERIC( a.SK_ARTICULO ) = 1#(lf)#(tab)--AND I.PARES> 0#(lf)#(tab)AND A.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)GROUP BY A.SK_ARTICULO ,#(lf)#(tab)#(tab) i.SK_PAIS ,#(lf)#(tab)#(tab) I.SK_TIENDA ,#(lf)#(tab)#(tab) I.SK_ALMACEN ,#(lf)#(tab)#(tab) I.SK_TIPOOPERACION\", CreateNavigationProperties=false])",
+        "// in",
+        "//     Origen",
+        "",
+        "let",
+        "    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject=\"adoc-bi-dev\", Implementation=\"2.0\"]){[Name=\"adoc-bi-dev\"]}[Data], \"SELECT#(lf)    i.SK_ARTICULO,#(lf)    I.SK_TIPOOPERACION ,#(lf)    I.SK_PAIS ,#(lf)    I.SK_TIENDA ,#(lf)    I.SK_ALMACEN ,#(lf)    SUM( I.COSTO_LOCAL ) COSTOT_LOCAL ,#(lf)    SUM( I.PRECIO_LOCAL ) PRECIOT_LOCAL ,#(lf)    SUM( I.COSTO_USD ) COSTOT_USD ,#(lf)    SUM( I.PRECIO_USD ) PRECIOT_USD ,#(lf)    SUM( I.PARES ) PARES#(lf)FROM adoc-bi-dev.CA_TEMP.FAC_INVENTARIOUD i#(lf)GROUP BY i.SK_ARTICULO ,#(lf)         i.SK_PAIS ,#(lf)         I.SK_TIENDA ,#(lf)         I.SK_ALMACEN ,#(lf)         I.SK_TIPOOPERACION\", null, [EnableFolding=true]),",
+        "    #\"Tipo cambiado\" = Table.TransformColumnTypes(Origen,{{\"SK_ARTICULO\", Int64.Type}})",
+        "in",
+        "    #\"Tipo cambiado\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"// let\\n//     Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\\\"SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)I.SK_TIPOOPERACION ,#(lf)#(tab)I.SK_PAIS ,#(lf)#(tab)I.SK_TIENDA ,#(lf)#(tab)I.SK_ALMACEN ,#(lf)#(tab)COSTOT_LOCAL = SUM( I.COSTO_LOCAL ) ,#(lf)#(tab)PRECIOT_LOCAL = SUM( I.PRECIO_LOCAL ) ,#(lf)#(tab)COSTOT_USD = SUM( I.COSTO_USD ) ,#(lf)#(tab)PRECIOT_USD = SUM( I.PRECIO_USD ) ,#(lf)#(tab)PARES = SUM( I.PARES )#(lf)FROM FAC_INVENTARIOUD I WITH (NOLOCK)#(lf)INNER JOIN DIM_ARTICULOSAP a WITH (NOLOCK)#(lf)#(tab)ON i.SK_MATNR = A.SK_MATNR#(lf)WHERE ISNUMERIC( a.SK_ARTICULO ) = 1#(lf)#(tab)--AND I.PARES> 0#(lf)#(tab)AND A.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)GROUP BY A.SK_ARTICULO ,#(lf)#(tab)#(tab) i.SK_PAIS ,#(lf)#(tab)#(tab) I.SK_TIENDA ,#(lf)#(tab)#(tab) I.SK_ALMACEN ,#(lf)#(tab)#(tab) I.SK_TIPOOPERACION\\\", CreateNavigationProperties=false])\\n// in\\n//     Origen\\n\\nlet\\n    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject=\\\"adoc-bi-dev\\\"]){[Name=\\\"adoc-bi-dev\\\"]}[Data], \\\"SELECT#(lf)    i.SK_ARTICULO,#(lf)    I.SK_TIPOOPERACION ,#(lf)    I.SK_PAIS ,#(lf)    I.SK_TIENDA ,#(lf)    I.SK_ALMACEN ,#(lf)    SUM( I.COSTO_LOCAL ) COSTOT_LOCAL ,#(lf)    SUM( I.PRECIO_LOCAL ) PRECIOT_LOCAL ,#(lf)    SUM( I.COSTO_USD ) COSTOT_USD ,#(lf)    SUM( I.PRECIO_USD ) PRECIOT_USD ,#(lf)    SUM( I.PARES ) PARES#(lf)FROM adoc-bi-dev.CA_TEMP.FAC_INVENTARIOUD i#(lf)GROUP BY i.SK_ARTICULO ,#(lf)         i.SK_PAIS ,#(lf)         I.SK_TIENDA ,#(lf)         I.SK_ALMACEN ,#(lf)         I.SK_TIPOOPERACION\\\", null, [EnableFolding=true]),\\n    #\\\"Tipo cambiado\\\" = Table.TransformColumnTypes(Origen,{{\\\"SK_ARTICULO\\\", Int64.Type}})\\nin\\n    #\\\"Tipo cambiado\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Exception",
+      "isHidden": false
+    },
+    {
+      "name": "Pais",
+      "lineageTag": "e6b430b2-866f-4eef-8d1e-f2ff45a38486",
+      "queryGroupId": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Sql.Database(srvCOGNOS, dbCOGNOS),",
+        "    dbo_DIM_PAIS = Origen{[Schema=\"dbo\",Item=\"DIM_PAIS\"]}[Data],",
+        "    #\"Filas filtradas\" = Table.SelectRows(dbo_DIM_PAIS, each ([SK_PAIS] <> \"PA01\"))",
+        "in",
+        "    #\"Filas filtradas\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Sql.Database(srvCOGNOS, dbCOGNOS),\\n    dbo_DIM_PAIS = Origen{[Schema=\\\"dbo\\\",Item=\\\"DIM_PAIS\\\"]}[Data],\\n    #\\\"Filas filtradas\\\" = Table.SelectRows(dbo_DIM_PAIS, each ([SK_PAIS] <> \\\"PA01\\\"))\\nin\\n    #\\\"Filas filtradas\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "Almacenes",
+      "lineageTag": "53bc3c21-e6ac-4502-8997-e306ea5965a1",
+      "queryGroupId": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Sql.Database(srvCOGNOS, dbCOGNOS),",
+        "    dbo_DIM_ALMACEN = Origen{[Schema=\"dbo\",Item=\"DIM_ALMACEN\"]}[Data],",
+        "    #\"Filas filtradas\" = Table.SelectRows(dbo_DIM_ALMACEN, each ([SK_ALMACEN] <> null and [SK_ALMACEN] <> \" \"))",
+        "in",
+        "    #\"Filas filtradas\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Sql.Database(srvCOGNOS, dbCOGNOS),\\n    dbo_DIM_ALMACEN = Origen{[Schema=\\\"dbo\\\",Item=\\\"DIM_ALMACEN\\\"]}[Data],\\n    #\\\"Filas filtradas\\\" = Table.SelectRows(dbo_DIM_ALMACEN, each ([SK_ALMACEN] <> null and [SK_ALMACEN] <> \\\" \\\"))\\nin\\n    #\\\"Filas filtradas\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "Fecha",
+      "lineageTag": "20eda3df-0c5e-45fb-90e5-616f31fa88f2",
+      "queryGroupId": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Source = Sql.Database(\"192.168.16.74\", \"DM_COMERCIAL\", [Query=\"DECLARE @InitialDate INT = (YEAR(GETDATE()) - 1) * 10000 + 101#(lf)DECLARE @FinalYear INT = YEAR(DATEADD([dd] , 15 , GETDATE()))#(lf)--#(lf)SELECT #(lf)       *#(lf)  FROM [dbo].[DIM_PERIODO] [dim]#(lf) WHERE [dim].[SK_PERIODO] >= @InitialDate#(lf)       AND [dim].[ANO] <= @FinalYear\", CreateNavigationProperties=false]),",
+        "    #\"Extracted Date\" = Table.TransformColumns(Source,{{\"PERIODO\", DateTime.Date, type date}}),",
+        "    #\"Renamed Columns\" = Table.RenameColumns(#\"Extracted Date\",{{\"COD_SEMANA\", \"NumAnoSemana\"}, {\"SEMANA\", \"AnoSemana\"}, {\"COD_DIA_SEMANA\", \"NumDiaSemana\"}, {\"DIA_SEMANA\", \"Dia Semana\"}, {\"COD_DIA_MES\", \"NumDiaMes\"}, {\"COD_MES\", \"NumMes\"}, {\"MES\", \"Mes\"}, {\"COD_SEMESTRE\", \"NumSemestre\"}, {\"SEMESTRE\", \"Semestre\"}, {\"COD_TRIMESTRE\", \"NumTrimestre\"}, {\"TRIMESTRE\", \"Trimestre\"}}),",
+        "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"ANO\", Int64.Type}, {\"NumMes\", Int64.Type}, {\"NumSemestre\", Int64.Type}, {\"NumTrimestre\", Int64.Type}, {\"NumAnoSemana\", Int64.Type}, {\"NumDiaSemana\", Int64.Type}, {\"NumDiaMes\", Int64.Type}, {\"NUM_SEMANA\", Int64.Type}}),",
+        "    #\"Added Custom\" = Table.AddColumn(#\"Changed Type\", \"NumAnoMes\", each ( [ANO] * 100) + [NumMes]),",
+        "    #\"Added Custom1\" = Table.AddColumn(#\"Added Custom\", \"AnoMes\", each Text.Start( Text.Lower([Mes]) , 3) & \"-\" & Text.End(Number.ToText([ANO]),2) ),",
+        "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Added Custom1\",{{\"NumAnoMes\", Int64.Type}, {\"AnoMes\", type text}}),",
+        "    #\"Added Custom2\" = Table.AddColumn(#\"Changed Type1\", \"IDAnoMes\", each ( ( [ANO] - 2000 ) * 12 ) + [NumMes]),",
+        "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Added Custom2\",{{\"ANO\", \"Año\"}, {\"AnoMes\", \"Mes Año\"}, {\"PERIODO\", \"Fecha\"}}),",
+        "    #\"Changed Type2\" = Table.TransformColumnTypes(#\"Renamed Columns1\",{{\"IDAnoMes\", Int64.Type}}),",
+        "    #\"Added Custom3\" = Table.AddColumn(#\"Changed Type2\", \"NomMesCorto\", each Text.Start( [Mes] , 3 )),",
+        "    #\"Renamed Columns2\" = Table.RenameColumns(#\"Added Custom3\",{{\"AnoSemana\", \"Semana\"}, {\"NumTrimestre\", \"Num. Trimestre\"}, {\"NumSemestre\", \"Num. Semestre\"}, {\"NumMes\", \"Num. Mes\"}, {\"NumDiaSemana\", \"Num. dia Semana\"}, {\"NumDiaMes\", \"Num. dia del Mes\"}, {\"NUM_SEMANA\", \"Num. Semana\"}, {\"NomMesCorto\", \"Mes Corto\"}})",
+        "in",
+        "    #\"Renamed Columns2\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Source = Sql.Database(\\\"192.168.16.74\\\", \\\"DM_COMERCIAL\\\", [Query=\\\"DECLARE @InitialDate INT = (YEAR(GETDATE()) - 1) * 10000 + 101#(lf)DECLARE @FinalYear INT = YEAR(DATEADD([dd] , 15 , GETDATE()))#(lf)--#(lf)SELECT #(lf)       *#(lf)  FROM [dbo].[DIM_PERIODO] [dim]#(lf) WHERE [dim].[SK_PERIODO] >= @InitialDate#(lf)       AND [dim].[ANO] <= @FinalYear\\\", CreateNavigationProperties=false]),\\n    #\\\"Extracted Date\\\" = Table.TransformColumns(Source,{{\\\"PERIODO\\\", DateTime.Date, type date}}),\\n    #\\\"Renamed Columns\\\" = Table.RenameColumns(#\\\"Extracted Date\\\",{{\\\"COD_SEMANA\\\", \\\"NumAnoSemana\\\"}, {\\\"SEMANA\\\", \\\"AnoSemana\\\"}, {\\\"COD_DIA_SEMANA\\\", \\\"NumDiaSemana\\\"}, {\\\"DIA_SEMANA\\\", \\\"Dia Semana\\\"}, {\\\"COD_DIA_MES\\\", \\\"NumDiaMes\\\"}, {\\\"COD_MES\\\", \\\"NumMes\\\"}, {\\\"MES\\\", \\\"Mes\\\"}, {\\\"COD_SEMESTRE\\\", \\\"NumSemestre\\\"}, {\\\"SEMESTRE\\\", \\\"Semestre\\\"}, {\\\"COD_TRIMESTRE\\\", \\\"NumTrimestre\\\"}, {\\\"TRIMESTRE\\\", \\\"Trimestre\\\"}}),\\n    #\\\"Changed Type\\\" = Table.TransformColumnTypes(#\\\"Renamed Columns\\\",{{\\\"ANO\\\", Int64.Type}, {\\\"NumMes\\\", Int64.Type}, {\\\"NumSemestre\\\", Int64.Type}, {\\\"NumTrimestre\\\", Int64.Type}, {\\\"NumAnoSemana\\\", Int64.Type}, {\\\"NumDiaSemana\\\", Int64.Type}, {\\\"NumDiaMes\\\", Int64.Type}, {\\\"NUM_SEMANA\\\", Int64.Type}}),\\n    #\\\"Added Custom\\\" = Table.AddColumn(#\\\"Changed Type\\\", \\\"NumAnoMes\\\", each ( [ANO] * 100) + [NumMes]),\\n    #\\\"Added Custom1\\\" = Table.AddColumn(#\\\"Added Custom\\\", \\\"AnoMes\\\", each Text.Start( Text.Lower([Mes]) , 3) & \\\"-\\\" & Text.End(Number.ToText([ANO]),2) ),\\n    #\\\"Changed Type1\\\" = Table.TransformColumnTypes(#\\\"Added Custom1\\\",{{\\\"NumAnoMes\\\", Int64.Type}, {\\\"AnoMes\\\", type text}}),\\n    #\\\"Added Custom2\\\" = Table.AddColumn(#\\\"Changed Type1\\\", \\\"IDAnoMes\\\", each ( ( [ANO] - 2000 ) * 12 ) + [NumMes]),\\n    #\\\"Renamed Columns1\\\" = Table.RenameColumns(#\\\"Added Custom2\\\",{{\\\"ANO\\\", \\\"Año\\\"}, {\\\"AnoMes\\\", \\\"Mes Año\\\"}, {\\\"PERIODO\\\", \\\"Fecha\\\"}}),\\n    #\\\"Changed Type2\\\" = Table.TransformColumnTypes(#\\\"Renamed Columns1\\\",{{\\\"IDAnoMes\\\", Int64.Type}}),\\n    #\\\"Added Custom3\\\" = Table.AddColumn(#\\\"Changed Type2\\\", \\\"NomMesCorto\\\", each Text.Start( [Mes] , 3 )),\\n    #\\\"Renamed Columns2\\\" = Table.RenameColumns(#\\\"Added Custom3\\\",{{\\\"AnoSemana\\\", \\\"Semana\\\"}, {\\\"NumTrimestre\\\", \\\"Num. Trimestre\\\"}, {\\\"NumSemestre\\\", \\\"Num. Semestre\\\"}, {\\\"NumMes\\\", \\\"Num. Mes\\\"}, {\\\"NumDiaSemana\\\", \\\"Num. dia Semana\\\"}, {\\\"NumDiaMes\\\", \\\"Num. dia del Mes\\\"}, {\\\"NUM_SEMANA\\\", \\\"Num. Semana\\\"}, {\\\"NomMesCorto\\\", \\\"Mes Corto\\\"}})\\nin\\n    #\\\"Renamed Columns2\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "REF_PROVEEDOR",
+      "lineageTag": "c6910ed9-9ca8-4f44-a371-01b66c3dcb74",
+      "queryGroupId": "3122cf55-8778-488b-9713-cfb9a6c08271",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Precio_FOB = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation=\"2.0\"]), \"SELECT  #(lf)    CAST( p.SATNR AS BIGINT ) SATNR,#(lf)    MAX ( IDNLF ) IDNLF#(lf)FROM SAP_ECC.MARA p#(lf)INNER JOIN SAP_ECC.EINA d#(lf)    ON p.MATNR = d.MATNR#(lf)WHERE IDNLF != ''#(lf)    AND SATNR != ''#(lf)GROUP BY #(lf)    CAST( p.SATNR AS BIGINT )\", null, [EnableFolding=true]),",
+        "    #\"Columnas con nombre cambiado\" = Table.RenameColumns(Precio_FOB,{{\"IDNLF\", \"Desc. Proveedor\"}})",
+        "in",
+        "    #\"Columnas con nombre cambiado\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Precio_FOB = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation=\\\"2.0\\\"]), \\\"SELECT  #(lf)    CAST( p.SATNR AS BIGINT ) SATNR,#(lf)    MAX ( IDNLF ) IDNLF#(lf)FROM SAP_ECC.MARA p#(lf)INNER JOIN SAP_ECC.EINA d#(lf)    ON p.MATNR = d.MATNR#(lf)WHERE IDNLF != ''#(lf)    AND SATNR != ''#(lf)GROUP BY #(lf)    CAST( p.SATNR AS BIGINT )\\\", null, [EnableFolding=true]),\\n    #\\\"Columnas con nombre cambiado\\\" = Table.RenameColumns(Precio_FOB,{{\\\"IDNLF\\\", \\\"Desc. Proveedor\\\"}})\\nin\\n    #\\\"Columnas con nombre cambiado\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "PeriodosEstadisticos",
+      "lineageTag": "7cb5b9ea-3458-45c3-9827-061e11cdf8fc",
+      "queryGroupId": "bce02f4b-ed32-4561-bd32-81b2302dc0c7",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Excel.Workbook(Web.Contents(\"https://empresasadoc-my.sharepoint.com/personal/balmore_hernandez_empresasadoc_com/Documents/Documentos/10.%20VARIOS/Tabla%20Periodos%20Estadisticos.xlsx\"), null, true),",
+        "    Hoja1_Sheet = Origen{[Item=\"Hoja1\",Kind=\"Sheet\"]}[Data],",
+        "    #\"Encabezados promovidos\" = Table.PromoteHeaders(Hoja1_Sheet, [PromoteAllScalars=true]),",
+        "    #\"Tipo cambiado\" = Table.TransformColumnTypes(#\"Encabezados promovidos\",{{\"Tipo PE\", type text}, {\"Año\", Int64.Type}, {\"Variante\", Int64.Type}, {\"PE\", type text}, {\"1er Mes\", Int64.Type}, {\"Duración\", Int64.Type}, {\"Mes lanzamiento\", type date}, {\"Mes ZINT\", type date}, {\"Mes MKD\", type date}, {\"Trimestre MKD\", Int64.Type}, {\"Tipo Vencimiento\", type text}, {\"Tipo Lanzamiento\", type text}, {\"Q Lanzamiento\", Int64.Type}, {\"Tipo Vencimiento2\", type text}, {\"Column16\", type any}, {\"Column17\", type any}, {\"Column18\", type any}, {\"Column19\", type any}}),",
+        "    #\"Otras columnas quitadas\" = Table.SelectColumns(#\"Tipo cambiado\",{\"Tipo Vencimiento2\", \"Q Lanzamiento\", \"Tipo Lanzamiento\", \"Tipo Vencimiento\", \"Trimestre MKD\", \"Mes MKD\", \"Mes ZINT\", \"Mes lanzamiento\", \"Duración\", \"1er Mes\", \"PE\", \"Variante\", \"Año\", \"Tipo PE\"})",
+        "in",
+        "    #\"Otras columnas quitadas\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Excel.Workbook(Web.Contents(\\\"https://empresasadoc-my.sharepoint.com/personal/balmore_hernandez_empresasadoc_com/Documents/Documentos/10.%20VARIOS/Tabla%20Periodos%20Estadisticos.xlsx\\\"), null, true),\\n    Hoja1_Sheet = Origen{[Item=\\\"Hoja1\\\",Kind=\\\"Sheet\\\"]}[Data],\\n    #\\\"Encabezados promovidos\\\" = Table.PromoteHeaders(Hoja1_Sheet, [PromoteAllScalars=true]),\\n    #\\\"Tipo cambiado\\\" = Table.TransformColumnTypes(#\\\"Encabezados promovidos\\\",{{\\\"Tipo PE\\\", type text}, {\\\"Año\\\", Int64.Type}, {\\\"Variante\\\", Int64.Type}, {\\\"PE\\\", type text}, {\\\"1er Mes\\\", Int64.Type}, {\\\"Duración\\\", Int64.Type}, {\\\"Mes lanzamiento\\\", type date}, {\\\"Mes ZINT\\\", type date}, {\\\"Mes MKD\\\", type date}, {\\\"Trimestre MKD\\\", Int64.Type}, {\\\"Tipo Vencimiento\\\", type text}, {\\\"Tipo Lanzamiento\\\", type text}, {\\\"Q Lanzamiento\\\", Int64.Type}, {\\\"Tipo Vencimiento2\\\", type text}, {\\\"Column16\\\", type any}, {\\\"Column17\\\", type any}, {\\\"Column18\\\", type any}, {\\\"Column19\\\", type any}}),\\n    #\\\"Otras columnas quitadas\\\" = Table.SelectColumns(#\\\"Tipo cambiado\\\",{\\\"Tipo Vencimiento2\\\", \\\"Q Lanzamiento\\\", \\\"Tipo Lanzamiento\\\", \\\"Tipo Vencimiento\\\", \\\"Trimestre MKD\\\", \\\"Mes MKD\\\", \\\"Mes ZINT\\\", \\\"Mes lanzamiento\\\", \\\"Duración\\\", \\\"1er Mes\\\", \\\"PE\\\", \\\"Variante\\\", \\\"Año\\\", \\\"Tipo PE\\\"})\\nin\\n    #\\\"Otras columnas quitadas\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "ArriboFuturo",
+      "lineageTag": "84f6735e-b330-41b9-aa02-d1bfdc2afa8c",
+      "queryGroupId": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\"SELECT #(lf)    DIM_PERIODO.ANO AÑO ,#(lf)    DIM_PERIODO.COD_MES [COD MES] ,#(lf)    DIM_PAIS.BV_PAIS [PAIS BV] ,#(lf)    DIM_TIPOOPERACION.SK_TIPOOPERACION COD_TIPO_OPERACION ,#(lf)    TRY_CAST(substring( DIM_ARTICULOSAP.SK_MATNR , 1 , 15 ) AS BIGINT ) [ARTICULO] ,#(lf)    DIM_TIPOESTILO.TIPOESTILO [TIPO ESTILO] ,#(lf)    FAC_ARRIBOFUTUROUD.CONTENEDOR [CONTENEDOR] ,#(lf)    FAC_ARRIBOFUTUROUD.F_XF_ORIGINAL [FECHA XF ORIGINAL] ,#(lf)    FAC_ARRIBOFUTUROUD.F_XF [FECHA XF] ,#(lf)    FAC_ARRIBOFUTUROUD.F_ARRIBO [FECHA ARRIBO],#(lf)    FAC_ARRIBOFUTUROUD.F_DOC [FECHA DOC] ,#(lf)    DIM_PERIODO.PERIODO PERIODO ,#(lf)    FAC_ARRIBOFUTUROUD.DOC [DOC] ,#(lf)    FAC_ARRIBOFUTUROUD.DOC_POSICION [DOC POSICION] ,#(lf)    FAC_ARRIBOFUTUROUD.DOC_MK [DOC MK] ,#(lf)    SUM( FAC_ARRIBOFUTUROUD.PARES ) ARRIBO_PARES_ULTIMO_DIA ,#(lf)    DIM_ALMACEN.DIVISION DIVISION ,#(lf)    DIM_ALMACEN.BV_DIVISION [DIVISION BV] ,#(lf)    FAC_ARRIBOFUTUROUD.PUERTO_ORIGEN [PUERTO ORIGEN] ,#(lf)    DIM_ALMACEN.SK_ALMACEN [COD ALMACEN] ,#(lf)    -- DIM_ARTICULOSAP.SK_MATNR [MATNR] ,#(lf)    SUM( FAC_ARRIBOFUTUROUD.PRECIO_VENTANETA_USD ) [ARRIBO NETO $ ULTIMO DIA] ,#(lf)    DIM_LINEA.LINEA [LINEA] ,#(lf)    DIM_ARTICULOSAP.SK_MARCA [MARCA] ,#(lf)    CASE DIM_ARTICULOSAP.SK_DEPTO#(lf)        WHEN N'C' THEN N'CAL'#(lf)        WHEN N'R' THEN N'ROP'#(lf)        WHEN N'A' THEN N'ACC'#(lf)        WHEN N'X' THEN N'CER'#(lf)        ELSE N'OTRO'#(lf)    END DEPTO_BV ,#(lf)    CASE#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'H' THEN N'HOM'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'M' THEN N'MUJ'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'B' THEN N'NNO'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'G' THEN N'NNA'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'I' THEN N'INF'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'U'#(lf)            AND DIM_ARTICULOSAP.SK_DEPTO = N'C' THEN N'NNO'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'U' THEN N'UNI'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'C' THEN N'CER'#(lf)        ELSE N'OTRO'#(lf)    END GENERO_BV ,#(lf)    CASE#(lf)        WHEN DIM_CATEGORIA.CATEGORIA = 'ADOCHEQ' THEN 'CASUAL'#(lf)        WHEN DIM_CATEGORIA.CATEGORIA = 'AGRCHVR' THEN 'DEPORTIVO'#(lf)        WHEN DIM_CATEGORIA.SK_CATEGORIA = 'AC' THEN 'ACCESORIOS'#(lf)        WHEN DIM_CATEGORIA.SK_CATEGORIA = 'PR' THEN 'PROMOCIONAL'#(lf)        ELSE ISNULL( DIM_CATEGORIA.CATEGORIA , 'OTRO' )#(lf)    END CATEGORIA_BV#(lf)FROM DM_COMERCIAL.dbo.FAC_ARRIBOFUTUROUD FAC_ARRIBOFUTUROUD ,#(lf)     DM_COMERCIAL.dbo.DIM_ARTICULOSAP DIM_ARTICULOSAP ,#(lf)     DM_COMERCIAL.dbo.DIM_PERIODO DIM_PERIODO ,#(lf)     DM_COMERCIAL.dbo.DIM_PAIS DIM_PAIS ,#(lf)     DM_COMERCIAL.dbo.DIM_TIPOOPERACION DIM_TIPOOPERACION ,#(lf)     DM_COMERCIAL.dbo.DIM_TIPOESTILO DIM_TIPOESTILO ,#(lf)     DM_COMERCIAL.dbo.DIM_ALMACEN DIM_ALMACEN ,#(lf)     DM_COMERCIAL.dbo.DIM_LINEA DIM_LINEA ,#(lf)     DM_COMERCIAL.dbo.DIM_CATEGORIA DIM_CATEGORIA#(lf)WHERE DIM_TIPOOPERACION.SK_TIPOOPERACION IN ('45ZIMPNA' , '44' , '46ZNACNA' , 'L1-ZUB' , 'L1-INVBP10' , 'L1-INV1020-03' , '48ZUBA')#(lf)    AND DIM_PERIODO.PERIODO >= CONVERT( DATETIME2 , '2023-01-01 00:00:00.000000000' )#(lf)    AND DIM_ALMACEN.DIVISION IN ('Retail')#(lf)    AND FAC_ARRIBOFUTUROUD.SK_PERIODO = DIM_PERIODO.SK_PERIODO#(lf)    AND FAC_ARRIBOFUTUROUD.SK_ALMACEN = DIM_ALMACEN.SK_ALMACEN#(lf)    AND FAC_ARRIBOFUTUROUD.SK_MATNR = DIM_ARTICULOSAP.SK_MATNR#(lf)    AND DIM_ARTICULOSAP.SK_CATEGORIA = DIM_CATEGORIA.SK_CATEGORIA#(lf)    AND DIM_ARTICULOSAP.SK_LINEA = DIM_LINEA.SK_LINEA#(lf)    AND DIM_TIPOESTILO.SK_TIPOESTILO = DIM_ARTICULOSAP.SK_TIPOESTILO#(lf)    AND DIM_PAIS.SK_PAIS = FAC_ARRIBOFUTUROUD.SK_PAIS#(lf)    AND FAC_ARRIBOFUTUROUD.SK_TIPOOPERACION = DIM_TIPOOPERACION.SK_TIPOOPERACION#(lf)GROUP BY DIM_PERIODO.ANO ,#(lf)         DIM_PERIODO.COD_MES ,#(lf)         DIM_PAIS.BV_PAIS ,#(lf)         DIM_TIPOOPERACION.SK_TIPOOPERACION ,#(lf)         TRY_CAST( substring( DIM_ARTICULOSAP.SK_MATNR , 1 , 15 ) AS BIGINT ) ,#(lf)         DIM_TIPOESTILO.TIPOESTILO ,#(lf)         FAC_ARRIBOFUTUROUD.CONTENEDOR ,#(lf)         FAC_ARRIBOFUTUROUD.F_XF_ORIGINAL ,#(lf)         FAC_ARRIBOFUTUROUD.F_XF ,#(lf)         FAC_ARRIBOFUTUROUD.F_ARRIBO ,#(lf)         FAC_ARRIBOFUTUROUD.F_DOC ,#(lf)         DIM_PERIODO.PERIODO ,#(lf)         FAC_ARRIBOFUTUROUD.DOC ,#(lf)         FAC_ARRIBOFUTUROUD.DOC_POSICION ,#(lf)         FAC_ARRIBOFUTUROUD.DOC_MK ,#(lf)         DIM_ALMACEN.DIVISION ,#(lf)         DIM_ALMACEN.BV_DIVISION ,#(lf)         FAC_ARRIBOFUTUROUD.PUERTO_ORIGEN ,#(lf)         DIM_ALMACEN.SK_ALMACEN ,#(lf)         -- DIM_ARTICULOSAP.SK_MATNR ,#(lf)         DIM_LINEA.LINEA ,#(lf)         DIM_ARTICULOSAP.SK_MARCA ,#(lf)         CASE DIM_ARTICULOSAP.SK_DEPTO#(lf)             WHEN N'C' THEN N'CAL'#(lf)             WHEN N'R' THEN N'ROP'#(lf)             WHEN N'A' THEN N'ACC'#(lf)             WHEN N'X' THEN N'CER'#(lf)             ELSE N'OTRO'#(lf)         END ,#(lf)         CASE#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'H' THEN N'HOM'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'M' THEN N'MUJ'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'B' THEN N'NNO'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'G' THEN N'NNA'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'I' THEN N'INF'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'U'#(lf)                 AND DIM_ARTICULOSAP.SK_DEPTO = N'C' THEN N'NNO'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'U' THEN N'UNI'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'C' THEN N'CER'#(lf)             ELSE N'OTRO'#(lf)         END ,#(lf)         CASE#(lf)             WHEN DIM_CATEGORIA.CATEGORIA = 'ADOCHEQ' THEN 'CASUAL'#(lf)             WHEN DIM_CATEGORIA.CATEGORIA = 'AGRCHVR' THEN 'DEPORTIVO'#(lf)             WHEN DIM_CATEGORIA.SK_CATEGORIA = 'AC' THEN 'ACCESORIOS'#(lf)             WHEN DIM_CATEGORIA.SK_CATEGORIA = 'PR' THEN 'PROMOCIONAL'#(lf)             ELSE ISNULL( DIM_CATEGORIA.CATEGORIA , 'OTRO' )#(lf)         END \", CreateNavigationProperties=false]),",
+        "    #\"Fecha extraída\" = Table.TransformColumns(Origen,{{\"FECHA XF ORIGINAL\", DateTime.Date, type date}, {\"FECHA XF\", DateTime.Date, type date}, {\"FECHA ARRIBO\", DateTime.Date, type date}, {\"FECHA DOC\", DateTime.Date, type date}, {\"PERIODO\", DateTime.Date, type date}})",
+        "in",
+        "    #\"Fecha extraída\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\\\"SELECT #(lf)    DIM_PERIODO.ANO AÑO ,#(lf)    DIM_PERIODO.COD_MES [COD MES] ,#(lf)    DIM_PAIS.BV_PAIS [PAIS BV] ,#(lf)    DIM_TIPOOPERACION.SK_TIPOOPERACION COD_TIPO_OPERACION ,#(lf)    TRY_CAST(substring( DIM_ARTICULOSAP.SK_MATNR , 1 , 15 ) AS BIGINT ) [ARTICULO] ,#(lf)    DIM_TIPOESTILO.TIPOESTILO [TIPO ESTILO] ,#(lf)    FAC_ARRIBOFUTUROUD.CONTENEDOR [CONTENEDOR] ,#(lf)    FAC_ARRIBOFUTUROUD.F_XF_ORIGINAL [FECHA XF ORIGINAL] ,#(lf)    FAC_ARRIBOFUTUROUD.F_XF [FECHA XF] ,#(lf)    FAC_ARRIBOFUTUROUD.F_ARRIBO [FECHA ARRIBO],#(lf)    FAC_ARRIBOFUTUROUD.F_DOC [FECHA DOC] ,#(lf)    DIM_PERIODO.PERIODO PERIODO ,#(lf)    FAC_ARRIBOFUTUROUD.DOC [DOC] ,#(lf)    FAC_ARRIBOFUTUROUD.DOC_POSICION [DOC POSICION] ,#(lf)    FAC_ARRIBOFUTUROUD.DOC_MK [DOC MK] ,#(lf)    SUM( FAC_ARRIBOFUTUROUD.PARES ) ARRIBO_PARES_ULTIMO_DIA ,#(lf)    DIM_ALMACEN.DIVISION DIVISION ,#(lf)    DIM_ALMACEN.BV_DIVISION [DIVISION BV] ,#(lf)    FAC_ARRIBOFUTUROUD.PUERTO_ORIGEN [PUERTO ORIGEN] ,#(lf)    DIM_ALMACEN.SK_ALMACEN [COD ALMACEN] ,#(lf)    -- DIM_ARTICULOSAP.SK_MATNR [MATNR] ,#(lf)    SUM( FAC_ARRIBOFUTUROUD.PRECIO_VENTANETA_USD ) [ARRIBO NETO $ ULTIMO DIA] ,#(lf)    DIM_LINEA.LINEA [LINEA] ,#(lf)    DIM_ARTICULOSAP.SK_MARCA [MARCA] ,#(lf)    CASE DIM_ARTICULOSAP.SK_DEPTO#(lf)        WHEN N'C' THEN N'CAL'#(lf)        WHEN N'R' THEN N'ROP'#(lf)        WHEN N'A' THEN N'ACC'#(lf)        WHEN N'X' THEN N'CER'#(lf)        ELSE N'OTRO'#(lf)    END DEPTO_BV ,#(lf)    CASE#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'H' THEN N'HOM'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'M' THEN N'MUJ'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'B' THEN N'NNO'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'G' THEN N'NNA'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'I' THEN N'INF'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'U'#(lf)            AND DIM_ARTICULOSAP.SK_DEPTO = N'C' THEN N'NNO'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'U' THEN N'UNI'#(lf)        WHEN DIM_ARTICULOSAP.SK_GENERO = N'C' THEN N'CER'#(lf)        ELSE N'OTRO'#(lf)    END GENERO_BV ,#(lf)    CASE#(lf)        WHEN DIM_CATEGORIA.CATEGORIA = 'ADOCHEQ' THEN 'CASUAL'#(lf)        WHEN DIM_CATEGORIA.CATEGORIA = 'AGRCHVR' THEN 'DEPORTIVO'#(lf)        WHEN DIM_CATEGORIA.SK_CATEGORIA = 'AC' THEN 'ACCESORIOS'#(lf)        WHEN DIM_CATEGORIA.SK_CATEGORIA = 'PR' THEN 'PROMOCIONAL'#(lf)        ELSE ISNULL( DIM_CATEGORIA.CATEGORIA , 'OTRO' )#(lf)    END CATEGORIA_BV#(lf)FROM DM_COMERCIAL.dbo.FAC_ARRIBOFUTUROUD FAC_ARRIBOFUTUROUD ,#(lf)     DM_COMERCIAL.dbo.DIM_ARTICULOSAP DIM_ARTICULOSAP ,#(lf)     DM_COMERCIAL.dbo.DIM_PERIODO DIM_PERIODO ,#(lf)     DM_COMERCIAL.dbo.DIM_PAIS DIM_PAIS ,#(lf)     DM_COMERCIAL.dbo.DIM_TIPOOPERACION DIM_TIPOOPERACION ,#(lf)     DM_COMERCIAL.dbo.DIM_TIPOESTILO DIM_TIPOESTILO ,#(lf)     DM_COMERCIAL.dbo.DIM_ALMACEN DIM_ALMACEN ,#(lf)     DM_COMERCIAL.dbo.DIM_LINEA DIM_LINEA ,#(lf)     DM_COMERCIAL.dbo.DIM_CATEGORIA DIM_CATEGORIA#(lf)WHERE DIM_TIPOOPERACION.SK_TIPOOPERACION IN ('45ZIMPNA' , '44' , '46ZNACNA' , 'L1-ZUB' , 'L1-INVBP10' , 'L1-INV1020-03' , '48ZUBA')#(lf)    AND DIM_PERIODO.PERIODO >= CONVERT( DATETIME2 , '2023-01-01 00:00:00.000000000' )#(lf)    AND DIM_ALMACEN.DIVISION IN ('Retail')#(lf)    AND FAC_ARRIBOFUTUROUD.SK_PERIODO = DIM_PERIODO.SK_PERIODO#(lf)    AND FAC_ARRIBOFUTUROUD.SK_ALMACEN = DIM_ALMACEN.SK_ALMACEN#(lf)    AND FAC_ARRIBOFUTUROUD.SK_MATNR = DIM_ARTICULOSAP.SK_MATNR#(lf)    AND DIM_ARTICULOSAP.SK_CATEGORIA = DIM_CATEGORIA.SK_CATEGORIA#(lf)    AND DIM_ARTICULOSAP.SK_LINEA = DIM_LINEA.SK_LINEA#(lf)    AND DIM_TIPOESTILO.SK_TIPOESTILO = DIM_ARTICULOSAP.SK_TIPOESTILO#(lf)    AND DIM_PAIS.SK_PAIS = FAC_ARRIBOFUTUROUD.SK_PAIS#(lf)    AND FAC_ARRIBOFUTUROUD.SK_TIPOOPERACION = DIM_TIPOOPERACION.SK_TIPOOPERACION#(lf)GROUP BY DIM_PERIODO.ANO ,#(lf)         DIM_PERIODO.COD_MES ,#(lf)         DIM_PAIS.BV_PAIS ,#(lf)         DIM_TIPOOPERACION.SK_TIPOOPERACION ,#(lf)         TRY_CAST( substring( DIM_ARTICULOSAP.SK_MATNR , 1 , 15 ) AS BIGINT ) ,#(lf)         DIM_TIPOESTILO.TIPOESTILO ,#(lf)         FAC_ARRIBOFUTUROUD.CONTENEDOR ,#(lf)         FAC_ARRIBOFUTUROUD.F_XF_ORIGINAL ,#(lf)         FAC_ARRIBOFUTUROUD.F_XF ,#(lf)         FAC_ARRIBOFUTUROUD.F_ARRIBO ,#(lf)         FAC_ARRIBOFUTUROUD.F_DOC ,#(lf)         DIM_PERIODO.PERIODO ,#(lf)         FAC_ARRIBOFUTUROUD.DOC ,#(lf)         FAC_ARRIBOFUTUROUD.DOC_POSICION ,#(lf)         FAC_ARRIBOFUTUROUD.DOC_MK ,#(lf)         DIM_ALMACEN.DIVISION ,#(lf)         DIM_ALMACEN.BV_DIVISION ,#(lf)         FAC_ARRIBOFUTUROUD.PUERTO_ORIGEN ,#(lf)         DIM_ALMACEN.SK_ALMACEN ,#(lf)         -- DIM_ARTICULOSAP.SK_MATNR ,#(lf)         DIM_LINEA.LINEA ,#(lf)         DIM_ARTICULOSAP.SK_MARCA ,#(lf)         CASE DIM_ARTICULOSAP.SK_DEPTO#(lf)             WHEN N'C' THEN N'CAL'#(lf)             WHEN N'R' THEN N'ROP'#(lf)             WHEN N'A' THEN N'ACC'#(lf)             WHEN N'X' THEN N'CER'#(lf)             ELSE N'OTRO'#(lf)         END ,#(lf)         CASE#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'H' THEN N'HOM'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'M' THEN N'MUJ'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'B' THEN N'NNO'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'G' THEN N'NNA'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'I' THEN N'INF'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'U'#(lf)                 AND DIM_ARTICULOSAP.SK_DEPTO = N'C' THEN N'NNO'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'U' THEN N'UNI'#(lf)             WHEN DIM_ARTICULOSAP.SK_GENERO = N'C' THEN N'CER'#(lf)             ELSE N'OTRO'#(lf)         END ,#(lf)         CASE#(lf)             WHEN DIM_CATEGORIA.CATEGORIA = 'ADOCHEQ' THEN 'CASUAL'#(lf)             WHEN DIM_CATEGORIA.CATEGORIA = 'AGRCHVR' THEN 'DEPORTIVO'#(lf)             WHEN DIM_CATEGORIA.SK_CATEGORIA = 'AC' THEN 'ACCESORIOS'#(lf)             WHEN DIM_CATEGORIA.SK_CATEGORIA = 'PR' THEN 'PROMOCIONAL'#(lf)             ELSE ISNULL( DIM_CATEGORIA.CATEGORIA , 'OTRO' )#(lf)         END \\\", CreateNavigationProperties=false]),\\n    #\\\"Fecha extraída\\\" = Table.TransformColumns(Origen,{{\\\"FECHA XF ORIGINAL\\\", DateTime.Date, type date}, {\\\"FECHA XF\\\", DateTime.Date, type date}, {\\\"FECHA ARRIBO\\\", DateTime.Date, type date}, {\\\"FECHA DOC\\\", DateTime.Date, type date}, {\\\"PERIODO\\\", DateTime.Date, type date}})\\nin\\n    #\\\"Fecha extraída\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "ArticuloProveedor",
+      "lineageTag": "4bb7c796-94b4-40a0-a0dc-6d9a94f9692c",
+      "queryGroupId": "3122cf55-8778-488b-9713-cfb9a6c08271",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation=\"2.0\"]), \"    SELECT DISTINCT #(lf)        EKKO.BSART AS Tipo_Documento,  #(lf)        EKPO.EBELN AS Documento,#(lf)        -- CAST ( EKPO.MATNR AS BIGINT ) AS MATNR,#(lf)        CAST ( SUBSTRING (EKPO.MATNR,8,8) AS BIGINT ) AS SATNR ,#(lf)        EKKO.LIFNR AS Numero_Proveedor ,#(lf)        PROV.NAME1 AS Nombre_Proveedor#(lf)    FROM SAP_ECC.EKPO EKPO#(lf)    LEFT JOIN SAP_ECC.EKKO EKKO ON EKPO.EBELN = EKKO.EBELN #(lf)    LEFT JOIN SAP_ECC.MARA MARA ON EKPO.MATNR = MARA.MATNR#(lf)    LEFT JOIN SAP_ECC.LFA1 PROV ON EKKO.LIFNR = PROV.LIFNR#(lf)    WHERE EKPO.LOEKZ <> 'L'#(lf)      AND EKPO.EBELN LIKE '44%'#(lf)      AND MARA.SATNR IS NOT NULL #(lf)\", null, [EnableFolding=true])",
+        "in",
+        "    Origen"
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation=\\\"2.0\\\"]), \\\"    SELECT DISTINCT #(lf)        EKKO.BSART AS Tipo_Documento,  #(lf)        EKPO.EBELN AS Documento,#(lf)        -- CAST ( EKPO.MATNR AS BIGINT ) AS MATNR,#(lf)        CAST ( SUBSTRING (EKPO.MATNR,8,8) AS BIGINT ) AS SATNR ,#(lf)        EKKO.LIFNR AS Numero_Proveedor ,#(lf)        PROV.NAME1 AS Nombre_Proveedor#(lf)    FROM SAP_ECC.EKPO EKPO#(lf)    LEFT JOIN SAP_ECC.EKKO EKKO ON EKPO.EBELN = EKKO.EBELN #(lf)    LEFT JOIN SAP_ECC.MARA MARA ON EKPO.MATNR = MARA.MATNR#(lf)    LEFT JOIN SAP_ECC.LFA1 PROV ON EKKO.LIFNR = PROV.LIFNR#(lf)    WHERE EKPO.LOEKZ <> 'L'#(lf)      AND EKPO.EBELN LIKE '44%'#(lf)      AND MARA.SATNR IS NOT NULL #(lf)\\\", null, [EnableFolding=true])\\nin\\n    Origen\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "ArticulosPais",
+      "lineageTag": "5d013774-c742-45d3-90b1-34e690fa5005",
+      "queryGroupId": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\"WITH Dts#(lf)AS#(lf)(#(lf)    SELECT#(lf)        t.SK_PAIS ,#(lf)        SK_ARTICULO = TRY_CAST( a.SK_ARTICULO AS BIGINT ) ,#(lf)        PrimeraFecha = MIN( SK_PERIODO ) ,#(lf)        UltimaFecha = MAX( v.SK_PERIODO )#(lf)    FROM FAC_VENTARPRO v#(lf)    INNER JOIN dim_articulosap a#(lf)        ON v.SK_MATNR = a.SK_MATNR#(lf)    INNER JOIN DIM_TIENDA t#(lf)        ON v.SK_TIENDA = t.SK_TIENDA#(lf)    WHERE v.SK_DIVISION = 10#(lf)        AND a.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)        AND a.SK_ARTICULO != '000000000000000000'#(lf)        AND ISNUMERIC( a.SK_ARTICULO ) = 1#(lf)    GROUP BY t.SK_PAIS ,#(lf)             a.SK_ARTICULO#(lf))#(lf)SELECT#(lf)    d.SK_PAIS ,#(lf)    d.SK_ARTICULO ,#(lf)    PrimeraFecha = pf.PERIODO ,#(lf)    UltimaFecha = uf.PERIODO#(lf)FROM Dts d#(lf)LEFT JOIN DIM_PERIODO pf#(lf)    ON d.PrimeraFecha = pf.SK_PERIODO#(lf)LEFT JOIN DIM_PERIODO uf#(lf)    ON d.UltimaFecha = uf.SK_PERIODO\", CreateNavigationProperties=false]),",
+        "    #\"Tipo cambiado\" = Table.TransformColumnTypes(Origen,{{\"PrimeraFecha\", type date}, {\"UltimaFecha\", type date}})",
+        "in",
+        "    #\"Tipo cambiado\""
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query=\\\"WITH Dts#(lf)AS#(lf)(#(lf)    SELECT#(lf)        t.SK_PAIS ,#(lf)        SK_ARTICULO = TRY_CAST( a.SK_ARTICULO AS BIGINT ) ,#(lf)        PrimeraFecha = MIN( SK_PERIODO ) ,#(lf)        UltimaFecha = MAX( v.SK_PERIODO )#(lf)    FROM FAC_VENTARPRO v#(lf)    INNER JOIN dim_articulosap a#(lf)        ON v.SK_MATNR = a.SK_MATNR#(lf)    INNER JOIN DIM_TIENDA t#(lf)        ON v.SK_TIENDA = t.SK_TIENDA#(lf)    WHERE v.SK_DIVISION = 10#(lf)        AND a.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)        AND a.SK_ARTICULO != '000000000000000000'#(lf)        AND ISNUMERIC( a.SK_ARTICULO ) = 1#(lf)    GROUP BY t.SK_PAIS ,#(lf)             a.SK_ARTICULO#(lf))#(lf)SELECT#(lf)    d.SK_PAIS ,#(lf)    d.SK_ARTICULO ,#(lf)    PrimeraFecha = pf.PERIODO ,#(lf)    UltimaFecha = uf.PERIODO#(lf)FROM Dts d#(lf)LEFT JOIN DIM_PERIODO pf#(lf)    ON d.PrimeraFecha = pf.SK_PERIODO#(lf)LEFT JOIN DIM_PERIODO uf#(lf)    ON d.UltimaFecha = uf.SK_PERIODO\\\", CreateNavigationProperties=false]),\\n    #\\\"Tipo cambiado\\\" = Table.TransformColumnTypes(Origen,{{\\\"PrimeraFecha\\\", type date}, {\\\"UltimaFecha\\\", type date}})\\nin\\n    #\\\"Tipo cambiado\\\"\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    },
+    {
+      "name": "ArticuloPrecios",
+      "lineageTag": "3cf75c17-7e92-4241-b88b-2085e28a93a9",
+      "queryGroupId": "3122cf55-8778-488b-9713-cfb9a6c08271",
+      "navigationStepName": "Navegación",
+      "text": [
+        "let",
+        "    Precio_FOB = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation=\"2.0\"]), \"SELECT#(lf)    A.VKORG sk_pais,#(lf)    CAST( A.MATNR AS BIGINT ) MATNR,#(lf)    k.kbetr precio_iva#(lf)FROM#(lf)    SAP_ECC.A073 A#(lf)JOIN#(lf)SAP_ECC.KONP K ON#(lf)    A.KNUMH = K.KNUMH#(lf)JOIN SAP_ECC.MARA M#(lf)    ON a.MATNR = m.matnr#(lf)WHERE#(lf)    TRIM(K.KSCHL) = 'VKP0'#(lf)    AND TRIM(A.DATBI) = '99991231'#(lf)\", null, [EnableFolding=true])",
+        "in",
+        "    Precio_FOB"
+      ],
+      "isDirectQuery": false,
+      "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n    Precio_FOB = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation=\\\"2.0\\\"]), \\\"SELECT#(lf)    A.VKORG sk_pais,#(lf)    CAST( A.MATNR AS BIGINT ) MATNR,#(lf)    k.kbetr precio_iva#(lf)FROM#(lf)    SAP_ECC.A073 A#(lf)JOIN#(lf)SAP_ECC.KONP K ON#(lf)    A.KNUMH = K.KNUMH#(lf)JOIN SAP_ECC.MARA M#(lf)    ON a.MATNR = m.matnr#(lf)WHERE#(lf)    TRIM(K.KSCHL) = 'VKP0'#(lf)    AND TRIM(A.DATBI) = '99991231'#(lf)\\\", null, [EnableFolding=true])\\nin\\n    Precio_FOB\",\"ReferencedQueriesFormulaText\":{}}",
+      "loadAsTableDisabled": false,
+      "resultType": "Table",
+      "isHidden": false
+    }
+  ],
+  "queryGroups": [
+    {
+      "name": "dbCOGNOS",
+      "id": "7b366f1d-0fff-441b-b1bf-c6d58d3be281",
+      "order": 2,
+      "description": ""
+    },
+    {
+      "name": "Parámetros",
+      "id": "90cb0ca6-6682-4353-bb0a-9c68ec28a424",
+      "order": 1,
+      "description": ""
+    },
+    {
+      "name": "dbSAP",
+      "id": "3122cf55-8778-488b-9713-cfb9a6c08271",
+      "order": 2,
+      "description": ""
+    },
+    {
+      "name": "Sharepoint",
+      "id": "bce02f4b-ed32-4561-bd32-81b2302dc0c7",
+      "order": 3,
+      "description": ""
+    }
+  ],
+  "culture": "en-US",
+  "firewallEnabled": true
+}

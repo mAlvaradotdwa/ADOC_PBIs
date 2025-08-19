@@ -24,7 +24,7 @@ queryGroup Sharepoint
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBIDesktopVersion = 2.144.878.0 (25.06)+9cca29236de5114792f4d7188221f91ad4a5cc50
+annotation PBIDesktopVersion = 2.146.705.0 (25.08)+b71502aff0a01340c88f384884ef42771068f115
 
 annotation PBI_QueryOrder = ["Articulos","Precios","srvCOGNOS","dbCOGNOS","Imagenes","Precio_FOB","srvSAP","Ventas","Inventarios","Pais","Almacenes","Fecha","REF_PROVEEDOR","PeriodosEstadisticos","ArriboFuturo","ArticuloProveedor","ArticulosPais","ArticuloPrecios"]
 
