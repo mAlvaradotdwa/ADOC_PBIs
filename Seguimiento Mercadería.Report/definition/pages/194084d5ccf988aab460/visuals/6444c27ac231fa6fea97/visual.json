@@ -7,7 +7,7 @@
     "z": 12000,
     "height": 55.440729483282681,
     "width": 183.82978723404256,
-    "tabOrder": 12000
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "slicer",
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "DIM_ARTICULOS.BV_DEPTO",
-              "nativeQueryRef": "BV_DEPTO",
-              "active": true
+              "nativeQueryRef": "Departamento",
+              "active": true,
+              "displayName": "Departamento"
             }
           ]
         }

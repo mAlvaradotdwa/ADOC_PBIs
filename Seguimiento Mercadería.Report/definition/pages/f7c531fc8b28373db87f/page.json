@@ -8,48 +8,108 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "aa34fc4bdef9293fd93c",
+        "name": "fbb0fa65c901b08edb6c",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "EKPO"
+                "Entity": "EKPO_BFI-CD"
               }
             },
-            "Property": "Fecha_Final_Liq"
+            "Property": "Estatus_ZINT"
           }
         },
-        "type": "RelativeDate",
+        "type": "Categorical",
         "filter": {
           "Version": 2,
           "From": [
             {
               "Name": "e",
-              "Entity": "EKPO",
+              "Entity": "EKPO_BFI-CD",
               "Type": 0
             }
           ],
           "Where": [
             {
               "Condition": {
-                "Comparison": {
-                  "ComparisonKind": 0,
-                  "Left": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "e"
-                        }
-                      },
-                      "Property": "Fecha_Final_Liq"
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "e"
+                          }
+                        },
+                        "Property": "Estatus_ZINT"
+                      }
                     }
-                  },
-                  "Right": {
-                    "DateSpan": {
-                      "Expression": {
-                        "Now": {}
-                      },
-                      "TimeUnit": 2
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Entregado'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "60a91c07da0d0d94606e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "PAIS"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "e",
+              "Entity": "EKPO_BFI-CD",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "e"
+                              }
+                            },
+                            "Property": "PAIS"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'PA'"
+                            }
+                          }
+                        ]
+                      ]
                     }
                   }
                 }
@@ -57,7 +117,22 @@
             }
           ]
         },
-        "howCreated": "User"
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   }

@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 56,
     "width": 120,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "EKPO_BFI-CD.DOC_COMPRA",
-              "nativeQueryRef": "DOC_COMPRA",
-              "active": true
+              "nativeQueryRef": "Documento",
+              "active": true,
+              "displayName": "Documento"
             }
           ]
         }

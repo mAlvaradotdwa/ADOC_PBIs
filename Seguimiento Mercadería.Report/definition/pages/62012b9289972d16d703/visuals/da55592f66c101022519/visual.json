@@ -7,7 +7,7 @@
     "z": 12000,
     "height": 54.888691602874424,
     "width": 183,
-    "tabOrder": 11000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "slicer",
@@ -495,11 +495,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "BV_CATEGORIA",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },

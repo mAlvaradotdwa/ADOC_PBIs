@@ -7,7 +7,7 @@
     "z": 9000,
     "height": 56.413373860182375,
     "width": 183.82978723404256,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -23,12 +23,13 @@
                       "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "ART_PROVEEDOR"
+                  "Property": "DESCRIPCION"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.ART_PROVEEDOR",
-              "nativeQueryRef": "ART_PROVEEDOR",
-              "active": true
+              "queryRef": "DIM_ARTICULOS.DESCRIPCION",
+              "nativeQueryRef": "Descripción Artículo",
+              "active": true,
+              "displayName": "Descripción Artículo"
             }
           ]
         }

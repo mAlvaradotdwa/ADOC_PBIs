@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 281.3186685264825,
     "width": 1028.72038533201,
-    "tabOrder": 0
+    "tabOrder": 20000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -43,7 +43,7 @@
               },
               "queryRef": "EKPO.CONTENEDOR",
               "nativeQueryRef": "Contenedor",
-              "active": false,
+              "active": true,
               "displayName": "Contenedor"
             },
             {
@@ -327,7 +327,20 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'China'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
       }
     ],
     "objects": {

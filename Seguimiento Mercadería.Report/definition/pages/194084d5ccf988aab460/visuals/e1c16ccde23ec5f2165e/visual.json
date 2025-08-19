@@ -7,7 +7,7 @@
     "z": 10000,
     "height": 56.413373860182375,
     "width": 183.82978723404256,
-    "tabOrder": 10000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "slicer",
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "EKPO_BFI-CD.CONTENEDOR",
-              "nativeQueryRef": "CONTENEDOR",
-              "active": true
+              "nativeQueryRef": "Contenedor",
+              "active": true,
+              "displayName": "Contenedor"
             }
           ]
         }
@@ -150,6 +151,13 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

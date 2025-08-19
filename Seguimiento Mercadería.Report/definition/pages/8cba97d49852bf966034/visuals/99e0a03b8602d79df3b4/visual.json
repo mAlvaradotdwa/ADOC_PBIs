@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 55.95628415300547,
     "width": 183.85636221701796,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -436,11 +436,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "PUERTO_ORIGEN",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

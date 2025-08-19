@@ -7,7 +7,7 @@
     "z": 10000,
     "height": 56.413373860182375,
     "width": 122.55319148936171,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO"
+                      "Entity": "Fecha Liquidación"
                     }
                   },
-                  "Property": "Pais_OrigenF"
+                  "Property": "Año"
                 }
               },
-              "queryRef": "EKPO.Pais_OrigenF",
-              "nativeQueryRef": "País Origen",
-              "active": true,
-              "displayName": "País Origen"
+              "queryRef": "Fecha Liquidación.Año",
+              "nativeQueryRef": "Año",
+              "active": true
             }
           ]
         }

@@ -1,0 +1,569 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "aae19e4547b3ed97a0ea",
+  "position": {
+    "x": 248,
+    "y": 440,
+    "z": 3000,
+    "height": 272,
+    "width": 1024,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "VID"
+                }
+              },
+              "queryRef": "LT TIENDA VID.VID",
+              "nativeQueryRef": "VID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "REFERENCIA"
+                }
+              },
+              "queryRef": "LT TIENDA VID.REFERENCIA",
+              "nativeQueryRef": "Referencia",
+              "displayName": "Referencia"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "DOCUMENTO"
+                }
+              },
+              "queryRef": "LT TIENDA VID.DOCUMENTO",
+              "nativeQueryRef": "Documento",
+              "displayName": "Documento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "CANTIDAD"
+                }
+              },
+              "queryRef": "LT TIENDA VID.CANTIDAD",
+              "nativeQueryRef": "CANTIDAD"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME_CREACION_CIERRE"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME_CREACION_CIERRE",
+              "nativeQueryRef": "LT VID",
+              "displayName": "LT VID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME_CREACION_CONTABILIZACION"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME_CREACION_CONTABILIZACION",
+              "nativeQueryRef": "LT VID-F.Contab.",
+              "displayName": "LT VID-F.Contab."
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME_DOC_CONTABILIZACION"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME_DOC_CONTABILIZACION",
+              "nativeQueryRef": "LT Documento",
+              "displayName": "LT Documento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME1_PONDERADO"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME1_PONDERADO",
+              "nativeQueryRef": "Ponderado VID",
+              "displayName": "Ponderado VID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME2_PONDERADO"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME2_PONDERADO",
+              "nativeQueryRef": "Ponderado VID+F.Contab.",
+              "displayName": "Ponderado VID+F.Contab."
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME3_PONDERADO"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME3_PONDERADO",
+              "nativeQueryRef": "Ponderado Doc",
+              "displayName": "Ponderado Doc"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.4
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.67889161453881D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Tabla_Campaña.Color"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cantidad de días Prom. por Pais'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "keepLayerOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            },
+            "foreground": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "544d2f63923ebb7dc0a9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "LT TIENDA VID"
+              }
+            },
+            "Property": "VID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d8cc95f0390595ac0560",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "LT TIENDA VID"
+              }
+            },
+            "Property": "DOCUMENTO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2b5736996eb56b1d0d87",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "LT TIENDA VID"
+              }
+            },
+            "Property": "REFERENCIA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1464f13aee969b3d4d27",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "LT TIENDA VID"
+              }
+            },
+            "Property": "LEADTIME_CREACION_CIERRE"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1d2ed1122402d0e36044",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "LT TIENDA VID"
+              }
+            },
+            "Property": "LEADTIME_CREACION_CONTABILIZACION"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a73de9d373ac34077e5d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "LT TIENDA VID"
+              }
+            },
+            "Property": "LEADTIME_DOC_CONTABILIZACION"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "27f11d8600a225204a11",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "LT TIENDA VID"
+              }
+            },
+            "Property": "LEADTIME1_PONDERADO"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d6519c3f7167c0cc0208",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "LT TIENDA VID"
+              }
+            },
+            "Property": "LEADTIME2_PONDERADO"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a100b44fa800da03403d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "LT TIENDA VID"
+              }
+            },
+            "Property": "LEADTIME3_PONDERADO"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e4dbcdf2390430c0ae33",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "LT TIENDA VID"
+              }
+            },
+            "Property": "CANTIDAD"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

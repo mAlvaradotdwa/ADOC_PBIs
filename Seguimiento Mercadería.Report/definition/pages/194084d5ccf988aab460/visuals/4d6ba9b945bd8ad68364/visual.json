@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 55.95628415300547,
     "width": 183.85636221701796,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "DIM_ARTICULOS.MARCA",
-              "nativeQueryRef": "MARCA",
-              "active": true
+              "nativeQueryRef": "Marca",
+              "active": true,
+              "displayName": "Marca"
             }
           ]
         }
@@ -436,11 +437,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "PUERTO_ORIGEN",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

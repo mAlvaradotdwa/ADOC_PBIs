@@ -694,6 +694,16 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "LT TIENDA VID",
+          "nodeLineageTag": "7a104245-d261-414b-a2fd-bb7e861439ad",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
@@ -2501,7 +2511,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
@@ -2514,7 +2524,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
@@ -2527,7 +2537,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
@@ -2540,11 +2550,11 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         }
       ],
       "name": "INVETARIOUD",
-      "zoomValue": 100,
+      "zoomValue": 50.346892102823205,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

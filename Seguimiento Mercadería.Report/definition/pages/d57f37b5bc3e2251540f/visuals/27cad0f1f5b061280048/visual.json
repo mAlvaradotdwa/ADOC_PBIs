@@ -4,10 +4,10 @@
   "position": {
     "x": 248,
     "y": 152,
-    "z": 19000,
+    "z": 7000,
     "height": 560,
     "width": 1024,
-    "tabOrder": 19000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -43,7 +43,7 @@
               },
               "queryRef": "DIM_ARTICULOS.BV_MARCA",
               "nativeQueryRef": "BV_MARCA",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -249,20 +249,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'BODEGA FISCAL'"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "visualContainerObjects": {

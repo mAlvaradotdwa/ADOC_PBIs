@@ -445,11 +445,6 @@
         }
       ]
     },
-    "syncGroup": {
-      "groupName": "DOCUMENTO",
-      "fieldChanges": true,
-      "filterChanges": true
-    },
     "drillFilterOtherVisuals": true
   }
 }

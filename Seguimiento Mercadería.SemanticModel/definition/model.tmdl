@@ -29,11 +29,11 @@ queryGroup Diagnóstico
 
 	annotation PBI_QueryGroupOrder = 4
 
-annotation PBI_QueryOrder = ["FACT_TUNGYA","DIM_PAIS","DIM_BODEGA","DIM_MARCAS","DIM_DEPTO","DIM_GENERO","DIM_ARTICULOS","DIM_PROVEEDOR","PUERTO_ORIGEN","NAST","FACT_ARRIBOSFUTURO","TEMPORADA","DIM_DOC","FACT_PRIMERAVENTA_ARTICULO","EKPO","Meses","Tipo de Flete","FL","LastRefresh","FACT_MARINETRAFFIC","DIM_ETA","FL (2)","DIM_PROVEEDOR_EKKO","ALMACENES","SLA_Maritimo","FAC_TEMPORADAS","EKPO_BFI-CD","EKPO_CD-TIENDA","EKPO L1","EKPO L1 V2","FL (TRACING)","DIM_MARCAS (2)","EKPO Solped","Precio Venta","DIM_TasaCambio","PREPARACIONES CD (TRACING)","FACT_INVENTARIOUD","TIENDAS NUEVAS OPERATIVAS","Procesos","Períodos Estadísticos","VENTAS","Parámetro1","Transformar archivo de ejemplo","Archivo de ejemplo","Transformar archivo","Parámetro2","Transformar archivo de ejemplo (2)","Archivo de ejemplo (2)","Transformar archivo (2)","FACT_TUNGYA_Valor reemplazado2 CRD_Counters_2025-07-09_17:13","FACT_TUNGYA_Valor reemplazado2 CRD_Detailed_2025-07-09_17:13","FACT_TUNGYA_Valor reemplazado2 CRD_Aggregated_2025-07-09_17:13"]
+annotation PBI_QueryOrder = ["FACT_TUNGYA","DIM_PAIS","DIM_BODEGA","DIM_MARCAS","DIM_DEPTO","DIM_GENERO","DIM_ARTICULOS","DIM_PROVEEDOR","PUERTO_ORIGEN","NAST","FACT_ARRIBOSFUTURO","TEMPORADA","DIM_DOC","FACT_PRIMERAVENTA_ARTICULO","EKPO","Meses","Tipo de Flete","FL","LastRefresh","FACT_MARINETRAFFIC","DIM_ETA","FL (2)","DIM_PROVEEDOR_EKKO","ALMACENES","SLA_Maritimo","FAC_TEMPORADAS","EKPO_BFI-CD","EKPO_CD-TIENDA","EKPO L1","EKPO L1 V2","FL (TRACING)","DIM_MARCAS (2)","EKPO Solped","Precio Venta","DIM_TasaCambio","PREPARACIONES CD (TRACING)","FACT_INVENTARIOUD","TIENDAS NUEVAS OPERATIVAS","Procesos","Períodos Estadísticos","VENTAS","Parámetro1","Transformar archivo de ejemplo","Archivo de ejemplo","Transformar archivo","Parámetro2","Transformar archivo de ejemplo (2)","Archivo de ejemplo (2)","Transformar archivo (2)","FACT_TUNGYA_Valor reemplazado2 CRD_Counters_2025-07-09_17:13","FACT_TUNGYA_Valor reemplazado2 CRD_Detailed_2025-07-09_17:13","FACT_TUNGYA_Valor reemplazado2 CRD_Aggregated_2025-07-09_17:13","LT TIENDA VID"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBIDesktopVersion = 2.144.878.0 (25.06)+9cca29236de5114792f4d7188221f91ad4a5cc50
+annotation PBIDesktopVersion = 2.146.705.0 (25.08)+b71502aff0a01340c88f384884ef42771068f115
 
 annotation __TEdtr = 1
 
@@ -93,6 +93,7 @@ ref table Procesos
 ref table 'Períodos Estadísticos'
 ref table VENTAS
 ref table 'Fecha Export'
+ref table 'LT TIENDA VID'
 
 ref cultureInfo es-SV
 

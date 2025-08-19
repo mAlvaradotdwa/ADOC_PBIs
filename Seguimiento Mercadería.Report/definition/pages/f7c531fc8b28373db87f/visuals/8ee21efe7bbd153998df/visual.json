@@ -4,10 +4,10 @@
   "position": {
     "x": 248,
     "y": 152,
-    "z": 19000,
+    "z": 18000,
     "height": 280,
     "width": 1024,
-    "tabOrder": 19000
+    "tabOrder": 17000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -216,6 +216,18 @@
               "DIM_PAIS.PAIS"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PAIS"
+                    }
+                  },
+                  "Property": "PAIS"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
@@ -223,13 +235,26 @@
               "DIM_ARTICULOS.SK_UNIDADNEGOCIO"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "SK_UNIDADNEGOCIO"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
             "queryRefs": [
               "DIM_ARTICULOS.MARCA"
             ],
-            "isCollapsed": true
+            "isCollapsed": true,
+            "isPinned": true
           }
         ],
         "root": {}
@@ -341,5 +366,163 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "de29f2176673e00c326b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_PAIS"
+              }
+            },
+            "Property": "PAIS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ae1d25e775583a381944",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "SK_UNIDADNEGOCIO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "775cb81a5049b6ae1d90",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "MARCA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "10048b6a6c4517d60c38",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "Documentos BFI-CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c8ff193a15c6aaa6528e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "Pares BFI-CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0973e1ef70b67ee106db",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "Tránsito BFI-CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "54b450109c3748569017",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "SLA BFI-CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4d186907ac30407d4805",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "Documentos OT BFI-CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cb994206769308e4e81e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "Cumplimiento Documentos BFI-CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eeef87c84ede02e7db20",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "Pares OT BFI-CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a8934b299152288a8a36",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "Cumplimiento Pares BFI-CD"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

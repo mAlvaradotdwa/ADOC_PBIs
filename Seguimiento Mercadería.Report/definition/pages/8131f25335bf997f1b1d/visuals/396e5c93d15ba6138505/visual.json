@@ -462,11 +462,6 @@
         }
       ]
     },
-    "syncGroup": {
-      "groupName": "BV_CATEGORIA",
-      "fieldChanges": true,
-      "filterChanges": true
-    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
