@@ -776,14 +776,16 @@ table Métricas
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Medidas Importación' =
-			switch(TRUE(),
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Cumplimiento MK",[Cumplimiento_MK],
-			--VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",'Métricas'[Tránsito CFS],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Consolidación",[Consolidación],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Import",'Métricas'[Tránsito],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito BFI",'Métricas'[Tránsito BFI],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Total",'Métricas'[Tránsito Total2],
-			blank())
+			SWITCH (
+			    TRUE (),
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Cumplimiento MK", [Cumplimiento_MK],
+			    --VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",'Métricas'[Tránsito CFS],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Consolidación", [Consolidación],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Import", 'Métricas'[Tránsito],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito BFI", 'Métricas'[Tránsito BFI],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Total", 'Métricas'[Tránsito Total2],
+			    BLANK ()
+			)
 		formatString: #,0.0
 		lineageTag: 9e4714f3-efa9-4b4e-ba1b-9a84509ef4ea
 
@@ -833,14 +835,16 @@ table Métricas
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Cump Medidas Importación' =
-			switch(TRUE(),
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Cumplimiento MK",'Métricas'[%Cump_Producción],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",blank(),
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Consolidación",'Métricas'[%Cump_Consolidación],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Import",'Métricas'[%Cump_Tránsito],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito BFI",'Métricas'[%Cump_TránsitoBFI],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Total",'Métricas'[%Cump_TT],
-			blank())
+			SWITCH (
+			    TRUE (),
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Cumplimiento MK", 'Métricas'[%Cump_Producción],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito CFS", BLANK (),
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Consolidación", 'Métricas'[%Cump_Consolidación],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Import", 'Métricas'[%Cump_Tránsito],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito BFI", 'Métricas'[%Cump_TránsitoBFI],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Total", 'Métricas'[%Cump_TT],
+			    BLANK ()
+			)
 		formatString: 0.0\ %;-0.0\ %;0.0\ %
 		lineageTag: 742bcac9-bbbe-4d5f-8af8-58461b5db656
 
@@ -862,14 +866,16 @@ table Métricas
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Metas Medidas Importación' =
-			switch(TRUE(),
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Cumplimiento MK",[Meta Cumplimiento MK],
-			--VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",'Métricas'[Tránsito CFS],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Consolidación",[Meta Consolidacion],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Import",[Meta Transito],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito BFI",[Meta BFI],
-			VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito Total",[Meta Total],
-			blank())
+			SWITCH (
+			    TRUE (),
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Cumplimiento MK", [Meta Cumplimiento MK],
+			    --VALUES(MedidaImportacionTabla[Medida Importación]) = "Tránsito CFS",'Métricas'[Tránsito CFS],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Consolidación", [Meta Consolidacion],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Import", [Meta Transito],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito BFI", [Meta BFI],
+			    VALUES ( MedidaImportacionTabla[Medida Importación] ) = "Tránsito Total", [Meta Total],
+			    BLANK ()
+			)
 		formatString: #,0.00
 		lineageTag: e296cf53-2265-43b4-98c3-bafd03b29bdd
 
@@ -1135,7 +1141,7 @@ table Métricas
 		displayFolder: Campañas\CD
 		lineageTag: 10f43f83-1adc-44d0-b4c5-8d28256b79fd
 
-	measure inventario =
+	measure Inventario =
 			CALCULATE (
 			    SUM ( 'FACT_INVENTARIOUD'[PARES] ),
 			    'FACT_INVENTARIOUD'[SK_TIPOOPERACION] = "INVENTARIO"
@@ -1146,7 +1152,7 @@ table Métricas
 
 	measure 'Inventario BFI' =
 			CALCULATE (
-			    [inventario],
+			    [Inventario],
 			    CONTAINSSTRING (
 			        'FACT_INVENTARIOUD'[SK_ALMACEN],
 			        "BF"
@@ -1158,7 +1164,7 @@ table Métricas
 
 	measure 'Inventario CD' =
 			CALCULATE (
-			    [inventario],
+			    [Inventario],
 			    CONTAINSSTRING (
 			        'FACT_INVENTARIOUD'[SK_ALMACEN],
 			        "BP"
@@ -1170,7 +1176,7 @@ table Métricas
 
 	measure 'Inventario Tiendas' =
 			CALCULATE (
-			    [inventario],
+			    [Inventario],
 			    CONTAINSSTRING (
 			        'FACT_INVENTARIOUD'[SK_ALMACEN],
 			        "AL"
@@ -1255,6 +1261,51 @@ table Métricas
 		formatString: #,0.00 %
 		displayFolder: Venta
 		lineageTag: a9c6a8bd-3434-4f5f-be84-5ec9685e955e
+
+	measure 'Inventario USD' =
+			CALCULATE (
+			    SUM ( 'FACT_INVENTARIOUD'[PRECIO_USD] ),
+			    'FACT_INVENTARIOUD'[SK_TIPOOPERACION] = "INVENTARIO"
+			)
+		formatString: $ #,0
+		displayFolder: Inventario USD
+		lineageTag: 6b418021-7575-4a43-b5e7-64f5112129c3
+
+	measure 'Inventario USD BFI' =
+			CALCULATE (
+			    [Inventario USD],
+			    CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "BF"
+			    )
+			)
+		formatString: $ #,0
+		displayFolder: Inventario USD
+		lineageTag: 930d00b2-ab2b-4491-bb15-e1e4503863e4
+
+	measure 'Inventario USD CD' =
+			CALCULATE (
+			    [Inventario USD],
+			    CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "BP"
+			    )
+			)
+		formatString: $ #,0
+		displayFolder: Inventario USD
+		lineageTag: 905f0027-2c89-419f-b45e-b989f78314f7
+
+	measure 'Inventario USD Tiendas' =
+			CALCULATE (
+			    [Inventario USD],
+			    CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "AL"
+			    )
+			)
+		formatString: $ #,0
+		displayFolder: Inventario USD
+		lineageTag: 03dd78a3-0245-418a-9e40-08b19c0e5c1a
 
 	column Value
 		isHidden

@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 55.259911894273131,
     "width": 183.82378854625551,
-    "tabOrder": 1000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "Un. Negocio"
+                  "Property": "SK_UNIDADNEGOCIO"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).Un. Negocio",
-              "nativeQueryRef": "Un. Negocio",
+              "queryRef": "DIM_ARTICULOS.SK_UNIDADNEGOCIO",
+              "nativeQueryRef": "SK_UNIDADNEGOCIO",
               "active": true
             },
             {
@@ -35,14 +35,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "MARCA"
+                  "Property": "BV_MARCA"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).MARCA",
-              "nativeQueryRef": "MARCA",
+              "queryRef": "DIM_ARTICULOS.BV_MARCA",
+              "nativeQueryRef": "BV_MARCA",
               "active": false
             }
           ]
@@ -161,13 +161,6 @@
       "general": [
         {
           "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "orientation": {
               "expr": {
                 "Literal": {

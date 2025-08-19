@@ -283,29 +283,6 @@ relationship f5527249-b03d-4b92-c5bc-e91d37cc9618
 	fromColumn: EKPO_BFI-CD.ALMACEN
 	toColumn: ALMACENES.'Alm.'
 
-relationship e3efa585-ad98-b99e-4f16-fee5df2e1479
-	toCardinality: many
-	fromColumn: Tabla_Campaña.Articulo
-	toColumn: EKPO.ARTICULO
-
-relationship 56847c0c-edbd-124d-584c-1947caae17bf
-	fromColumn: Tabla_Campaña.Articulo
-	toColumn: DIM_ARTICULOS.SK_MATNR
-
-relationship 2e7e29a5-5ab8-4231-43ee-42339fa3625e
-	toCardinality: many
-	fromColumn: Tabla_Campaña.Estilo
-	toColumn: FAC_TEMPORADAS.Estilo
-
-relationship 470caf1c-0b89-1850-33b3-eac29c1d19d0
-	isActive: false
-	fromColumn: Tabla_Campaña.Marca
-	toColumn: 'DIM_MARCAS (2)'.MARCA
-
-relationship 6db6375b-f7b1-8583-5420-2fa32807d811
-	fromColumn: Tabla_Campaña.Origen
-	toColumn: Procesos.Proceso
-
 relationship 3532abfb-367f-37a8-352d-61ecd2ed1d47
 	fromColumn: FACT_INVENTARIOUD.SK_MATNR
 	toColumn: DIM_ARTICULOS.SK_MATNR
@@ -337,5 +314,49 @@ relationship 1f91c1ff-fbef-010c-2387-9436c9b937d5
 
 relationship 790d8d4a-bfd2-9e0f-e078-884ae5cff01d
 	fromColumn: FACT_INVENTARIOUD.SK_TIENDA
+	toColumn: DIM_BODEGA.SK_TIENDA
+
+relationship e3efa585-ad98-b99e-4f16-fee5df2e1479
+	toCardinality: many
+	fromColumn: Tabla_Campaña.Articulo
+	toColumn: EKPO.ARTICULO
+
+relationship 56847c0c-edbd-124d-584c-1947caae17bf
+	fromColumn: Tabla_Campaña.Articulo
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 2e7e29a5-5ab8-4231-43ee-42339fa3625e
+	toCardinality: many
+	fromColumn: Tabla_Campaña.Estilo
+	toColumn: FAC_TEMPORADAS.Estilo
+
+relationship 470caf1c-0b89-1850-33b3-eac29c1d19d0
+	isActive: false
+	fromColumn: Tabla_Campaña.Marca
+	toColumn: 'DIM_MARCAS (2)'.MARCA
+
+relationship 6db6375b-f7b1-8583-5420-2fa32807d811
+	fromColumn: Tabla_Campaña.Origen
+	toColumn: Procesos.Proceso
+
+relationship db565698-ecdf-ca82-3069-30d9a4d0938d
+	fromColumn: Tabla_Campaña.'Pais Destino'
+	toColumn: DIM_PAIS.BV_PAIS
+
+relationship 57da07e8-39f5-b1a3-e075-6bb9ca0aeae9
+	fromColumn: EKPO_BFI-CD.PAIS
+	toColumn: DIM_PAIS.BV_PAIS
+
+relationship d0cdf3ec-99f3-f5bd-57e5-0280aacf6a5a
+	fromColumn: EKPO_BFI-CD.CREADO_EL
+	toColumn: 'Fecha Creación MK'.Fecha
+
+relationship 2e01e5ad-aa13-cc99-39d6-cacdedc1561a
+	isActive: false
+	fromColumn: EKPO_BFI-CD.FECHA_EXPEDIENTE
+	toColumn: 'Fecha Creación MK'.Fecha
+
+relationship 92eb84d4-ff4c-f457-a91d-375ca3de41b3
+	fromColumn: ALMACENES.'Ce.'
 	toColumn: DIM_BODEGA.SK_TIENDA
 

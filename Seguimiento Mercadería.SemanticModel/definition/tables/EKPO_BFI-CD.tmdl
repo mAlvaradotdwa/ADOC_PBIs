@@ -1,6 +1,129 @@
 table EKPO_BFI-CD
 	lineageTag: f7eec4eb-88f0-4dfe-81fc-ac0ddb207251
 
+	measure 'Pares BFI-CD' = SUM ( 'EKPO_BFI-CD'[CANTIDADREPARTO_TOTAL] )
+		formatString: #,0
+		displayFolder: BFI-CD
+		lineageTag: bb488399-b0f0-4738-ac38-b4dc5763da1b
+
+	measure 'Documentos BFI-CD' = DISTINCTCOUNT ( 'EKPO_BFI-CD'[DOC_COMPRA] )
+		formatString: #,0
+		displayFolder: BFI-CD
+		lineageTag: ec577f22-5466-452f-9af8-bf03b8af899e
+
+	measure 'Tránsito BFI-CD' =
+			VAR _fe =
+			    SELECTEDVALUE ( 'Fecha Export'[Fecha a Mostrar], "" )
+			RETURN
+			    IF (
+			        _fe = "Fecha Expediente",
+			        AVERAGE ( 'EKPO_BFI-CD'[Transito_EXP] ),
+			        AVERAGE ( 'EKPO_BFI-CD'[Transito_CRE] )
+			    )
+		formatString: #,0.0
+		displayFolder: BFI-CD
+		lineageTag: 9f39c354-b071-4904-acb2-5c7a51289f16
+
+	measure 'SLA BFI-CD' = AVERAGE ( 'EKPO_BFI-CD'[SLA_BFI-CD] )
+		formatString: #,0.0
+		displayFolder: BFI-CD
+		lineageTag: 4a160a4d-28d9-4d26-b072-82016a2c2aea
+
+	measure 'Cumplimiento Pares BFI-CD' =
+			DIVIDE (
+			    [Pares OT BFI-CD],
+			    [Pares BFI-CD]
+			)
+		formatString: #,0.0 %
+		displayFolder: BFI-CD
+		lineageTag: c77d5361-e2ac-4790-b4d8-de5237b98eef
+
+	measure 'Cumplimiento Documentos BFI-CD' =
+			DIVIDE (
+			    [Documentos OT BFI-CD],
+			    [Documentos BFI-CD]
+			)
+		formatString: #,0.0 %
+		displayFolder: BFI-CD
+		lineageTag: cb31cb33-384f-4994-a84d-aad9fb1cb98f
+
+	measure _colorGood = "#00CB18"
+		isHidden
+		displayFolder: BFI-CD
+		lineageTag: 12766e53-1bb7-4323-93fe-cc22ff304fe9
+
+	measure _colorBad = "#CD4C46"
+		isHidden
+		displayFolder: BFI-CD
+		lineageTag: 7aaa4510-f8f0-428b-8b20-5e987cbd5f51
+
+	measure _colorOK = "#ECC846"
+		isHidden
+		displayFolder: BFI-CD
+		lineageTag: 529ad999-8638-467f-a04f-9c3c7c87115f
+
+	measure 'color SLA' =
+			IF (
+			    [Tránsito BFI-CD] <= [SLA BFI-CD],
+			    [_colorOK],
+			    [_colorBad]
+			) & ""
+		isHidden
+		displayFolder: BFI-CD
+		lineageTag: cfc72606-8e19-4f0c-acdc-2ff6885d16b5
+
+	measure 'Pares OT BFI-CD' =
+			VAR _cre =
+			    CALCULATE (
+			        [Pares BFI-CD],
+			        'EKPO_BFI-CD'[Transito_CRE] <= 'EKPO_BFI-CD'[SLA_BFI-CD]
+			    )
+			VAR _exp =
+			    CALCULATE (
+			        [Pares BFI-CD],
+			        'EKPO_BFI-CD'[Transito_EXP] <= 'EKPO_BFI-CD'[SLA_BFI-CD]
+			    )
+			VAR _fe =
+			    SELECTEDVALUE (
+			        'Fecha Export'[Fecha a Mostrar],
+			        ""
+			    )
+			RETURN
+			    IF (
+			        _fe = "Fecha Expediente",
+			        _exp,
+			        _cre
+			    )
+		formatString: #,0
+		displayFolder: BFI-CD
+		lineageTag: fe2a6afc-652d-4cbc-b74e-25477861a7ed
+
+	measure 'Documentos OT BFI-CD' =
+			VAR _cre =
+			    CALCULATE (
+			        [Documentos BFI-CD],
+			        'EKPO_BFI-CD'[Transito_CRE] <= 'EKPO_BFI-CD'[SLA_BFI-CD]
+			    )
+			VAR _exp =
+			    CALCULATE (
+			        [Documentos BFI-CD],
+			        'EKPO_BFI-CD'[Transito_EXP] <= 'EKPO_BFI-CD'[SLA_BFI-CD]
+			    )
+			VAR _fe =
+			    SELECTEDVALUE (
+			        'Fecha Export'[Fecha a Mostrar],
+			        ""
+			    )
+			RETURN
+			    IF (
+			        _fe = "Fecha Expediente",
+			        _exp,
+			        _cre
+			    )
+		formatString: #,0
+		displayFolder: BFI-CD
+		lineageTag: 2a09d71c-db7e-4129-bb1c-a6da18a49d18
+
 	column DOC_COMPRA
 		dataType: string
 		lineageTag: c26dc282-c0de-42f1-a032-c7e85f701797
@@ -382,7 +505,7 @@ table EKPO_BFI-CD
 
 		annotation SummarizationSetBy = Automatic
 
-	column Transito = ```
+	column Transito_EXP = ```
 			
 			VAR _eta = 'EKPO_BFI-CD'[FECHA_LIQUIDACION]
 			VAR _etd = 'EKPO_BFI-CD'[FECHA_EXPEDIENTE]
@@ -420,27 +543,27 @@ table EKPO_BFI-CD
 
 		annotation SummarizationSetBy = Automatic
 
-	column SLA_BFI-CD = ```
-			IF(
-			    'EKPO_BFI-CD'[PAIS] = "SV", 16,
-			    IF(
-			        'EKPO_BFI-CD'[PAIS] = "GT", 17,
-			        IF(
-			            'EKPO_BFI-CD'[PAIS] = "HN", 19,
-			            IF( 
-			                'EKPO_BFI-CD'[PAIS] = "NI", 18,
-			                IF(
-			                    'EKPO_BFI-CD'[PAIS] = "CR", 19, 
-			                    BLANK()
-			                )))))
-			```
+	column SLA_BFI-CD =
+			SWITCH (
+			    'EKPO_BFI-CD'[PAIS],
+			    "SV", 16,
+			    "GT", 17,
+			    "HN", 19,
+			    "NI", 18,
+			    "CR", 19
+			)
 		formatString: 0
 		lineageTag: 9d1e80fe-9832-4e31-899d-f94e68324986
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 
-	column Proyección_IngresoCD = IF('EKPO_BFI-CD'[Estatus_ZINT] = "Pendiente", 'EKPO_BFI-CD'[FECHA_EXPEDIENTE]+'EKPO_BFI-CD'[SLA_BFI-CD], 'EKPO_BFI-CD'[FECHA_LIQUIDACION])
+	column Proyección_IngresoCD =
+			IF (
+			    'EKPO_BFI-CD'[Estatus_ZINT] = "Pendiente",
+			    'EKPO_BFI-CD'[FECHA_EXPEDIENTE] + 'EKPO_BFI-CD'[SLA_BFI-CD],
+			    'EKPO_BFI-CD'[FECHA_LIQUIDACION]
+			)
 		formatString: Short Date
 		lineageTag: 90cf8220-349c-41e3-a594-42095e36dda0
 		summarizeBy: none
@@ -452,8 +575,12 @@ table EKPO_BFI-CD
 		annotation UnderlyingDateTimeDataType = Date
 
 	column Cump_BFI-CD =
-			IF(
-			    'EKPO_BFI-CD'[Estatus_ZINT] ="Entregado" && 'EKPO_BFI-CD'[Transito] <= 'EKPO_BFI-CD'[SLA_BFI-CD], 1, 0 )
+			IF (
+			    'EKPO_BFI-CD'[Estatus_ZINT] = "Entregado"
+			        && 'EKPO_BFI-CD'[Transito_EXP] <= 'EKPO_BFI-CD'[SLA_BFI-CD],
+			    1,
+			    0
+			)
 		formatString: 0
 		lineageTag: 2a21a9e8-3a08-48a0-83e0-e7eb8ba328bd
 		summarizeBy: sum
@@ -497,6 +624,27 @@ table EKPO_BFI-CD
 		sourceColumn: ANO_PE
 
 		annotation SummarizationSetBy = Automatic
+
+	column Transito_CRE = ```
+			
+			VAR _eta = 'EKPO_BFI-CD'[FECHA_LIQUIDACION]
+			VAR _etd = 'EKPO_BFI-CD'[CREADO_EL]
+			
+			RETURN
+			    IF(
+			        'EKPO_BFI-CD'[Estatus_ZINT]="Entregado", 
+			        ( _eta - _etd )
+			            * DIVIDE ( _eta, _eta )
+			            * DIVIDE ( _etd, _etd ), 
+			BLANK()
+			    )
+			```
+		lineageTag: 80749735-0172-4c52-a86b-6106f516e3b8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition EKPO_BFI-CD = m
 		mode: import

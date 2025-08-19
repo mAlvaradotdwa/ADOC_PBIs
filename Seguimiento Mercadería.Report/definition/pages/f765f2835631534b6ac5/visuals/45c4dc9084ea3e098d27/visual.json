@@ -4,10 +4,10 @@
   "position": {
     "x": 8,
     "y": 344,
-    "z": 17000,
+    "z": 14000,
     "height": 368,
     "width": 1264,
-    "tabOrder": 17000
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -15,6 +15,22 @@
       "queryState": {
         "Rows": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PAIS"
+                    }
+                  },
+                  "Property": "BV_PAIS"
+                }
+              },
+              "queryRef": "DIM_PAIS.BV_PAIS",
+              "nativeQueryRef": "Pais Destino",
+              "active": true,
+              "displayName": "Pais Destino"
+            },
             {
               "field": {
                 "Column": {
@@ -28,7 +44,7 @@
               },
               "queryRef": "DIM_ARTICULOS.PE",
               "nativeQueryRef": "Período Estadístico",
-              "active": true,
+              "active": false,
               "displayName": "Período Estadístico"
             },
             {
@@ -44,7 +60,7 @@
               },
               "queryRef": "DIM_ARTICULOS.SK_UNIDADNEGOCIO",
               "nativeQueryRef": "Un. Negocio",
-              "active": true,
+              "active": false,
               "displayName": "Un. Negocio"
             },
             {
@@ -434,26 +450,13 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "DIM_ARTICULOS"
+                    "Entity": "Métricas"
                   }
                 },
-                "Property": "PE"
-              }
-            },
-            "direction": "Descending"
-          },
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DIM_ARTICULOS"
-                  }
-                },
-                "Property": "SK_UNIDADNEGOCIO"
+                "Property": "Inventario CD"
               }
             },
             "direction": "Descending"
@@ -469,8 +472,28 @@
         "levels": [
           {
             "queryRefs": [
+              "DIM_PAIS.BV_PAIS"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PAIS"
+                    }
+                  },
+                  "Property": "BV_PAIS"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
               "DIM_ARTICULOS.PE"
             ],
+            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -490,6 +513,18 @@
               "DIM_ARTICULOS.SK_UNIDADNEGOCIO"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "SK_UNIDADNEGOCIO"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
@@ -497,6 +532,18 @@
               "DIM_ARTICULOS.BV_MARCA"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "BV_MARCA"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
@@ -504,6 +551,18 @@
               "DIM_ARTICULOS.BV_GENERO"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "BV_GENERO"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
@@ -511,6 +570,18 @@
               "DIM_ARTICULOS.ESTILO"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "ESTILO"
+                }
+              }
+            ],
             "isPinned": true
           },
           {

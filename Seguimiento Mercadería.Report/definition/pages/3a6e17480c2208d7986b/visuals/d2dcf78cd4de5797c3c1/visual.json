@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 102.16423637759017,
     "width": 305.5103607060629,
-    "tabOrder": 1000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "slicer",
@@ -101,7 +101,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "6L"
+                                "Value": "7L"
                               }
                             }
                           ]

@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 102.91629675538954,
     "width": 142.71059816747351,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -25,7 +25,7 @@
                           "Entity": "EKPO_BFI-CD"
                         }
                       },
-                      "Property": "Transito"
+                      "Property": "Transito_EXP"
                     }
                   },
                   "Function": 1

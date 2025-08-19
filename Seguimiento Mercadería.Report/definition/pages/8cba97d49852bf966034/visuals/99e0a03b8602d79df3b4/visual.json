@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 55.95628415300547,
     "width": 183.85636221701796,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
                   "Property": "MARCA"
                 }
               },
-              "queryRef": "EKPO.MARCA",
-              "nativeQueryRef": "Marca",
-              "active": true,
-              "displayName": "Marca"
+              "queryRef": "DIM_ARTICULOS.MARCA",
+              "nativeQueryRef": "MARCA",
+              "active": true
             }
           ]
         }
@@ -151,13 +150,6 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
-                }
-              }
-            },
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }

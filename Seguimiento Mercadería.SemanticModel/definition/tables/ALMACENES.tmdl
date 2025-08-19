@@ -45,13 +45,14 @@ table ALMACENES
 		mode: import
 		source =
 				let
-				    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/luis_menendez_empresasadoc_com/Documents/Attachments/Datos%20Almacenes%20(1).xlsb"), null, true),
-				    Almacenes1 = Origen{[Name="Almacenes"]}[Data],
-				    #"Encabezados promovidos" = Table.PromoteHeaders(Almacenes1, [PromoteAllScalars=true]),
-				    Personalizado1 = #"Encabezados promovidos",
-				    #"Filas filtradas" = Table.SelectRows(Personalizado1, each ([Tipo] = "Detalle" or [Tipo] = "Mayor"))
+				    Origen = SharePoint.Files("https://empresasadoc-my.sharepoint.com/personal/luis_menendez_empresasadoc_com", [ApiVersion = 15]),
+				    #"Filas filtradas" = Table.SelectRows(Origen, each ([Extension] = ".xlsx") and ([Name] = "Almacenes.xlsx")),
+				    #"Almacenes xlsx_https://empresasadoc-my sharepoint com/personal/luis_menendez_empresasadoc_com/Documents/" = #"Filas filtradas"{[Name="Almacenes.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/luis_menendez_empresasadoc_com/Documents/"]}[Content],
+				    #"Libro de Excel importado" = Excel.Workbook(#"Almacenes xlsx_https://empresasadoc-my sharepoint com/personal/luis_menendez_empresasadoc_com/Documents/"),
+				    Hoja1_Sheet = #"Libro de Excel importado"{[Item="Hoja1",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Hoja1_Sheet, [PromoteAllScalars=true])
 				in
-				    #"Filas filtradas"
+				    #"Encabezados promovidos"
 
 	annotation PBI_NavigationStepName = Navegación
 
