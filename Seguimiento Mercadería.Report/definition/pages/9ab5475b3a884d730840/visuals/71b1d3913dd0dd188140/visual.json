@@ -1,35 +1,20 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "f190fbc8d070263a0d69",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "71b1d3913dd0dd188140",
   "position": {
     "x": 248,
-    "y": 152,
-    "z": 6000,
-    "height": 280,
-    "width": 1024,
-    "tabOrder": 6000
+    "y": 187,
+    "z": 3000,
+    "height": 525,
+    "width": 1011,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "pivotTable",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Rows": {
+        "Values": {
           "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DIM_PAIS"
-                    }
-                  },
-                  "Property": "PAIS"
-                }
-              },
-              "queryRef": "DIM_PAIS.PAIS",
-              "nativeQueryRef": "PAIS",
-              "active": true
-            },
             {
               "field": {
                 "Column": {
@@ -42,8 +27,7 @@
                 }
               },
               "queryRef": "LT TIENDA VID.VID",
-              "nativeQueryRef": "VID",
-              "active": false
+              "nativeQueryRef": "VID"
             },
             {
               "field": {
@@ -57,8 +41,8 @@
                 }
               },
               "queryRef": "LT TIENDA VID.REFERENCIA",
-              "nativeQueryRef": "REFERENCIA",
-              "active": false
+              "nativeQueryRef": "Referencia",
+              "displayName": "Referencia"
             },
             {
               "field": {
@@ -72,23 +56,8 @@
                 }
               },
               "queryRef": "LT TIENDA VID.DOCUMENTO",
-              "nativeQueryRef": "DOCUMENTO",
-              "active": false
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "LT TIENDA VID"
-                    }
-                  },
-                  "Property": "DESCRIPCIONARTICULO"
-                }
-              },
-              "queryRef": "LT TIENDA VID.DESCRIPCIONARTICULO",
-              "nativeQueryRef": "DESCRIPCIONARTICULO",
-              "active": false
+              "nativeQueryRef": "Documento",
+              "displayName": "Documento"
             },
             {
               "field": {
@@ -102,139 +71,103 @@
                 }
               },
               "queryRef": "LT TIENDA VID.CANTIDAD",
-              "nativeQueryRef": "CANTIDAD",
-              "active": false
+              "nativeQueryRef": "CANTIDAD"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME_CREACION_CIERRE"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME_CREACION_CIERRE",
+              "nativeQueryRef": "LT VID",
+              "displayName": "LT VID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME_CREACION_CONTABILIZACION"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME_CREACION_CONTABILIZACION",
+              "nativeQueryRef": "LT VID-F.Contab.",
+              "displayName": "LT VID-F.Contab."
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME_DOC_CONTABILIZACION"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME_DOC_CONTABILIZACION",
+              "nativeQueryRef": "LT Documento",
+              "displayName": "LT Documento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME1_PONDERADO"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME1_PONDERADO",
+              "nativeQueryRef": "Ponderado VID",
+              "displayName": "Ponderado VID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME2_PONDERADO"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME2_PONDERADO",
+              "nativeQueryRef": "Ponderado VID+F.Contab.",
+              "displayName": "Ponderado VID+F.Contab."
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "LEADTIME3_PONDERADO"
+                }
+              },
+              "queryRef": "LT TIENDA VID.LEADTIME3_PONDERADO",
+              "nativeQueryRef": "Ponderado Doc",
+              "displayName": "Ponderado Doc"
             }
           ]
         }
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Rows"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "DIM_PAIS.PAIS"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DIM_PAIS"
-                    }
-                  },
-                  "Property": "PAIS"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "LT TIENDA VID.VID"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "LT TIENDA VID"
-                    }
-                  },
-                  "Property": "VID"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "LT TIENDA VID.REFERENCIA"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "LT TIENDA VID"
-                    }
-                  },
-                  "Property": "REFERENCIA"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "LT TIENDA VID.DOCUMENTO"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "LT TIENDA VID"
-                    }
-                  },
-                  "Property": "DOCUMENTO"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "LT TIENDA VID.DESCRIPCIONARTICULO"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "LT TIENDA VID"
-                    }
-                  },
-                  "Property": "DESCRIPCIONARTICULO"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "LT TIENDA VID.CANTIDAD"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {}
-      }
-    ],
     "objects": {
-      "general": [
-        {
-          "properties": {
-            "layout": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Compact'"
-                }
-              }
-            }
-          }
-        }
-      ],
       "grid": [
         {
           "properties": {
@@ -300,19 +233,6 @@
                       "Percent": 0.4
                     }
                   }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "rowHeaders": [
-        {
-          "properties": {
-            "repeatRowHeaders": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
                 }
               }
             }

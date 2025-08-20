@@ -94,6 +94,7 @@ ref table 'Períodos Estadísticos'
 ref table VENTAS
 ref table 'Fecha Export'
 ref table 'LT TIENDA VID'
+ref table 'LT a Mostrar'
 
 ref cultureInfo es-SV
 

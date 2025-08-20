@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "211c0b1688a31c119740",
   "position": {
     "x": 39,
@@ -7,7 +7,7 @@
     "z": 9000,
     "height": 56,
     "width": 162,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "LT TIENDA VID"
+                      "Entity": "Fecha Liquidación"
                     }
                   },
-                  "Property": "Año Contabilización"
+                  "Property": "Año"
                 }
               },
-              "queryRef": "LT TIENDA VID.Año Contabilización",
-              "nativeQueryRef": "Año Contabilización1",
+              "queryRef": "Fecha Liquidación.Año",
+              "nativeQueryRef": "Año",
               "active": true
             }
           ]
@@ -158,8 +158,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "l",
-                    "Entity": "LT TIENDA VID",
+                    "Name": "f",
+                    "Entity": "Fecha Liquidación",
                     "Type": 0
                   }
                 ],
@@ -172,10 +172,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "l"
+                                  "Source": "f"
                                 }
                               },
-                              "Property": "Año Contabilización"
+                              "Property": "Año"
                             }
                           }
                         ],
@@ -513,5 +513,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2b5c2520a7290356c571",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fecha Liquidación"
+              }
+            },
+            "Property": "Año"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

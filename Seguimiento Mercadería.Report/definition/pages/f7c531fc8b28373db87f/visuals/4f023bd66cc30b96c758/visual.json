@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "4f023bd66cc30b96c758",
   "position": {
     "x": 248,
@@ -7,7 +7,7 @@
     "z": 15000,
     "height": 272,
     "width": 1024,
-    "tabOrder": 14000
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "tableEx",
@@ -244,107 +244,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "d25cbcc880c1832bca42",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_PAIS"
-              }
-            },
-            "Property": "PAIS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "420e5454e2d101c9ad5e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "EKPO_BFI-CD"
-              }
-            },
-            "Property": "FECHA_DOCUMENTO"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2fb3d773e61e89156786",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "EKPO_BFI-CD"
-              }
-            },
-            "Property": "FECHA_LIQUIDACION"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "7b01e1d1bdebe0c671c2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "EKPO_BFI-CD"
-              }
-            },
-            "Property": "CONTENEDOR"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d898c1d21d72b301029d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "EKPO_BFI-CD"
-              }
-            },
-            "Property": "Pares BFI-CD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "401e59d440a4a4910ea7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "EKPO_BFI-CD"
-              }
-            },
-            "Property": "Tránsito BFI-CD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d2afac39ea9adb973bcb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "EKPO_BFI-CD"
-              }
-            },
-            "Property": "Documentos BFI-CD"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

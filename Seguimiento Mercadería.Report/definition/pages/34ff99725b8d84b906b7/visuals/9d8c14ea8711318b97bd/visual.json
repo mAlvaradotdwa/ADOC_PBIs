@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "9d8c14ea8711318b97bd",
   "position": {
     "x": 39,
@@ -7,7 +7,7 @@
     "z": 10000,
     "height": 56,
     "width": 162,
-    "tabOrder": 10000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "LT TIENDA VID"
+                      "Entity": "Fecha Liquidación"
                     }
                   },
-                  "Property": "Mes Contabilización"
+                  "Property": "Mes Año"
                 }
               },
-              "queryRef": "LT TIENDA VID.Mes Contabilización",
-              "nativeQueryRef": "Mes Contabilización1",
+              "queryRef": "Fecha Liquidación.Mes Año",
+              "nativeQueryRef": "Mes Año",
               "active": true
             }
           ]
@@ -158,8 +158,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "l",
-                    "Entity": "LT TIENDA VID",
+                    "Name": "f",
+                    "Entity": "Fecha Liquidación",
                     "Type": 0
                   }
                 ],
@@ -172,10 +172,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "l"
+                                  "Source": "f"
                                 }
                               },
-                              "Property": "Mes Contabilización"
+                              "Property": "Mes Año"
                             }
                           }
                         ],
@@ -183,7 +183,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "8L"
+                                "Value": "'ago. 2025'"
                               }
                             }
                           ]
@@ -513,5 +513,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0c48db6a5bcb80208004",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fecha Liquidación"
+              }
+            },
+            "Property": "Mes Año"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

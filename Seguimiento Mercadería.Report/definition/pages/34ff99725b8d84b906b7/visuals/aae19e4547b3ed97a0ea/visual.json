@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "aae19e4547b3ed97a0ea",
   "position": {
     "x": 248,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 272,
     "width": 1024,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "tableEx",
@@ -422,148 +422,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "544d2f63923ebb7dc0a9",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "LT TIENDA VID"
-              }
-            },
-            "Property": "VID"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d8cc95f0390595ac0560",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "LT TIENDA VID"
-              }
-            },
-            "Property": "DOCUMENTO"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2b5736996eb56b1d0d87",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "LT TIENDA VID"
-              }
-            },
-            "Property": "REFERENCIA"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1464f13aee969b3d4d27",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "LT TIENDA VID"
-              }
-            },
-            "Property": "LEADTIME_CREACION_CIERRE"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1d2ed1122402d0e36044",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "LT TIENDA VID"
-              }
-            },
-            "Property": "LEADTIME_CREACION_CONTABILIZACION"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a73de9d373ac34077e5d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "LT TIENDA VID"
-              }
-            },
-            "Property": "LEADTIME_DOC_CONTABILIZACION"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "27f11d8600a225204a11",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "LT TIENDA VID"
-              }
-            },
-            "Property": "LEADTIME1_PONDERADO"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d6519c3f7167c0cc0208",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "LT TIENDA VID"
-              }
-            },
-            "Property": "LEADTIME2_PONDERADO"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a100b44fa800da03403d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "LT TIENDA VID"
-              }
-            },
-            "Property": "LEADTIME3_PONDERADO"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e4dbcdf2390430c0ae33",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "LT TIENDA VID"
-              }
-            },
-            "Property": "CANTIDAD"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
-  }
+  "isHidden": true
 }

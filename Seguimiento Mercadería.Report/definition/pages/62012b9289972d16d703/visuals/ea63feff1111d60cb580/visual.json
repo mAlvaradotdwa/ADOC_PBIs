@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "ea63feff1111d60cb580",
   "position": {
     "x": 966.66666666666663,
@@ -7,7 +7,7 @@
     "z": 15000,
     "height": 206.66666666666666,
     "width": 313.33333333333331,
-    "tabOrder": 13000
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "funnel",
@@ -241,39 +241,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "b56e1ab52b52c51db43a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_MARCAS (2)"
-              }
-            },
-            "Property": "Un. Negocio"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "89be1406439e34c82d70",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "EKPO_BFI-CD"
-                  }
-                },
-                "Property": "CANTIDADREPARTO_TOTAL"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

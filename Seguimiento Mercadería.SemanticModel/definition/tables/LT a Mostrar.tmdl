@@ -1,0 +1,50 @@
+table 'LT a Mostrar'
+	lineageTag: 256bd7d0-f36c-4233-9978-b44c9396c328
+
+	column 'LT a Mostrar'
+		lineageTag: 4f9fa395-26cb-478a-9daa-7a83e0c88d61
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'LT a Mostrar Orden'
+
+		relatedColumnDetails
+			groupByColumn: 'LT a Mostrar Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LT a Mostrar Campos'
+		isHidden
+		lineageTag: b4dfed3b-5f1b-4d50-b609-bcf06e6d333e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'LT a Mostrar Orden'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LT a Mostrar Orden'
+		isHidden
+		formatString: 0
+		lineageTag: 9c5b6072-93fa-4e70-b794-edb271f1b0de
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'LT a Mostrar' = calculated
+		mode: import
+		source =
+				{
+				    ("LT VID", NAMEOF('Métricas'[LT VID]), 0),
+				    ("LT Doc.", NAMEOF('Métricas'[LT Doc.]), 1),
+				    ("LT Pond. VID", NAMEOF('Métricas'[LT Pond. VID]), 2),
+				    ("LT Pond. Doc.", NAMEOF('Métricas'[LT Pond. Doc.]), 3)
+				}
+
+	annotation PBI_Id = 7a924b055e634b5ab51bb12f7457df9c
+
