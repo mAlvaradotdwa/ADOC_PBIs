@@ -20,14 +20,15 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Métricas"
                     }
                   },
-                  "Property": "Tránsito BFI-CD"
+                  "Property": "LT SLA"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.Tránsito BFI-CD",
-              "nativeQueryRef": "Tránsito BFI-CD"
+              "queryRef": "Métricas.LT SLA",
+              "nativeQueryRef": "LT SLA",
+              "displayName": "LT SLA"
             }
           ]
         },
@@ -57,10 +58,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "EKPO_BFI-CD"
+                    "Entity": "Métricas"
                   }
                 },
-                "Property": "Tránsito BFI-CD"
+                "Property": "LT SLA"
               }
             },
             "direction": "Descending"
@@ -256,6 +257,133 @@
             "id": "field-6c4be6a7-360c-c1ae-c753-9d97a111b52a",
             "order": 3
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "LT VID"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-37f7007b-ac38-f82a-b299-3c9be54bace0",
+            "order": 0
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-c8bf39df-ab7e-b9a7-4537-d4e3217441f4",
+            "order": 1
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "LT Doc."
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-248f8ceb-b5e8-24bc-381f-f85c60156736",
+            "order": 1
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "LT Pond. VID"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-4ef0762d-e725-decb-996b-8ff184914246",
+            "order": 2
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "LT Pond. Doc."
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-b1c9875e-a1fc-e1a2-fd1a-10732ad40de7",
+            "order": 3
+          }
         }
       ],
       "smallMultiplesLayout": [
@@ -447,6 +575,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "titleFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
             }
           },
           "selector": {
@@ -611,7 +746,14 @@
             "valueFontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "8D"
+                }
+              }
+            },
+            "valueBold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -646,6 +788,48 @@
           },
           "selector": {
             "metadata": "EKPO_BFI-CD.Tránsito BFI-CD"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-37f7007b-ac38-f82a-b299-3c9be54bace0"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-248f8ceb-b5e8-24bc-381f-f85c60156736"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-4ef0762d-e725-decb-996b-8ff184914246"
           }
         }
       ],
