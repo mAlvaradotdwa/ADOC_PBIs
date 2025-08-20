@@ -479,11 +479,6 @@
         }
       ]
     },
-    "syncGroup": {
-      "groupName": "BV_DEPTO",
-      "fieldChanges": true,
-      "filterChanges": true
-    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {

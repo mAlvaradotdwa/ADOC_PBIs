@@ -360,3 +360,15 @@ relationship 92eb84d4-ff4c-f457-a91d-375ca3de41b3
 	fromColumn: ALMACENES.'Ce.'
 	toColumn: DIM_BODEGA.SK_TIENDA
 
+relationship 85535c0f-daa3-8406-8b45-e08c7e148b89
+	fromColumn: 'LT TIENDA VID'.PAIS
+	toColumn: DIM_PAIS.SK_PAIS
+
+relationship 955a3483-c79a-96ca-138b-1f6795bf6437
+	fromColumn: 'LT TIENDA VID'.ARTICULO
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship 4395c6b0-a8f4-b0fa-9a18-3b5a9dcab58b
+	fromColumn: 'LT TIENDA VID'.FECHACONTABILIZACION
+	toColumn: 'Fecha Liquidación'.Fecha
+

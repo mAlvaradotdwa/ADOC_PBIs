@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "9107f5b29643b03c1e35",
   "position": {
     "x": 24.196778383300071,
     "y": 489.13471606657458,
     "z": 2000,
     "height": 55.259911894273131,
-    "width": 183.82378854625551,
-    "tabOrder": 2000
+    "width": 183.82378854625551
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +19,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
+                      "Entity": "DIM_MARCAS (2)"
                     }
                   },
-                  "Property": "SK_UNIDADNEGOCIO"
+                  "Property": "Un. Negocio"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.SK_UNIDADNEGOCIO",
-              "nativeQueryRef": "SK_UNIDADNEGOCIO",
+              "queryRef": "DIM_MARCAS (2).Un. Negocio",
+              "nativeQueryRef": "Un. Negocio",
               "active": true
             },
             {
@@ -35,56 +34,20 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
+                      "Entity": "DIM_MARCAS (2)"
                     }
                   },
-                  "Property": "BV_MARCA"
+                  "Property": "MARCA_AGRUPADA"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.BV_MARCA",
-              "nativeQueryRef": "BV_MARCA",
+              "queryRef": "DIM_MARCAS (2).MARCA_AGRUPADA",
+              "nativeQueryRef": "MARCA_AGRUPADA",
               "active": false
             }
           ]
         }
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Values"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "DIM_ARTICULOS.SK_UNIDADNEGOCIO"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
-                    }
-                  },
-                  "Property": "SK_UNIDADNEGOCIO"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "DIM_ARTICULOS.BV_MARCA"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {}
-      }
-    ],
     "objects": {
       "data": [
         {
@@ -487,11 +450,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "Un. Negocio",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },

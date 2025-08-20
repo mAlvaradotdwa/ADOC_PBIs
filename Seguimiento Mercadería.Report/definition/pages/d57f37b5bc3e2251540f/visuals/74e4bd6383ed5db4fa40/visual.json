@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "74e4bd6383ed5db4fa40",
   "position": {
-    "x": 24.196778383300071,
-    "y": 489.13471606657458,
+    "x": 23.75,
+    "y": 108.75,
     "z": 2000,
-    "height": 55.259911894273131,
-    "width": 183.82378854625551,
-    "tabOrder": 2000
+    "height": 55,
+    "width": 183.75
   },
   "visual": {
     "visualType": "slicer",
@@ -20,71 +19,20 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
+                      "Entity": "DIM_MARCAS (2)"
                     }
                   },
-                  "Property": "SK_UNIDADNEGOCIO"
+                  "Property": "Un. Negocio"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.SK_UNIDADNEGOCIO",
-              "nativeQueryRef": "SK_UNIDADNEGOCIO",
+              "queryRef": "DIM_MARCAS (2).Un. Negocio",
+              "nativeQueryRef": "Un. Negocio",
               "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
-                    }
-                  },
-                  "Property": "BV_MARCA"
-                }
-              },
-              "queryRef": "DIM_ARTICULOS.BV_MARCA",
-              "nativeQueryRef": "BV_MARCA",
-              "active": false
             }
           ]
         }
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Values"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "DIM_ARTICULOS.SK_UNIDADNEGOCIO"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
-                    }
-                  },
-                  "Property": "SK_UNIDADNEGOCIO"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "DIM_ARTICULOS.BV_MARCA"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {}
-      }
-    ],
     "objects": {
       "data": [
         {

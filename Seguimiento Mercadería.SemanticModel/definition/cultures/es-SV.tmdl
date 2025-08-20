@@ -269,6 +269,16 @@ cultureInfo es-SV
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Subcategoria": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -295,6 +305,16 @@ cultureInfo es-SV
 			        },
 			        {
 			          "Categoría": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Categoria": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1122,6 +1142,16 @@ cultureInfo es-SV
 			        {
 			          "pais": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "País": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -23822,6 +23852,16 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.7
 			          }
+			        },
+			        {
+			          "Fecha Liquidación": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ],
 			      "SemanticType": "Time"
@@ -23867,6 +23907,16 @@ cultureInfo es-SV
 			          "date": {
 			            "State": "Generated",
 			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "Fecha Creación": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ],
@@ -24030,16 +24080,6 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
-			        },
-			        {
-			          "AÑO": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -24093,6 +24133,16 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Año Liquidación": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -24125,7 +24175,7 @@ cultureInfo es-SV
 			          }
 			        },
 			        {
-			          "MES": {
+			          "Mes Liquidación": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -36920,6 +36970,9 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "ce.": {
@@ -40658,6 +40711,16 @@ cultureInfo es-SV
 			          "año": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Año PE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -42206,537 +42269,1044 @@ cultureInfo es-SV
 			          }
 			        }
 			      ]
+			    },
+			    "dim_articulo.descripcion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_ARTICULOS",
+			          "ConceptualProperty": "DESCRIPCION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "descripcion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Descripción Artículo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.inventario_USD": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Inventario USD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventario USD": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.inventario_USD_BFI": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Inventario USD BFI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventario USD BFI": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.inventario_USD_CD": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Inventario USD CD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventario USD CD": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "inventario usd album": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "inventario usd disk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "inventario usd disc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "inventario usd recording": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.inventario_USD_tiendas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "Inventario USD Tiendas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventario USD tiendas": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "ekpo.centro_destino_final": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "EKPO",
+			          "ConceptualProperty": "CENTRO_DESTINO_FINAL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "centro destino final": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CENTRO_DESTINO_FINAL": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "centro destino decider": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.458
+			          }
+			        }
+			      ]
+			    },
+			    "ekpo.fecha_tienda": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "EKPO",
+			          "ConceptualProperty": "FECHA_TIENDA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha tienda": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "FECHA_TIENDA": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "lt_tienda_vid.nombretienda": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "NOMBRETIENDA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nombretienda": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Tienda": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.documento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "DOCUMENTO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "documento": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.referencia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "REFERENCIA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "referencia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.leadtime_creacion_cierre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "LEADTIME_CREACION_CIERRE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "leadtime creacion cierre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "LEADTIME_CREACION_CIERRE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "LT VID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.leadtime_creacion_contabilizacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "LEADTIME_CREACION_CONTABILIZACION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "leadtime creacion contabilizacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "LEADTIME_CREACION_CONTABILIZACION": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "LT VID-F.Contab.": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.leadtime_doc_contabilizacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "LEADTIME_DOC_CONTABILIZACION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "leadtime doc contabilizacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "LEADTIME_DOC_CONTABILIZACION": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "LT Documento": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.leadtime_1_ponderado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "LEADTIME1_PONDERADO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "leadtime 1 ponderado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "LEADTIME1_PONDERADO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Ponderado VID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.leadtime_2_ponderado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "LEADTIME2_PONDERADO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "leadtime 2 ponderado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "LEADTIME2_PONDERADO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Ponderado VID+F.Contab.": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.leadtime_3_ponderado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "LEADTIME3_PONDERADO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "leadtime 3 ponderado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "LEADTIME3_PONDERADO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Ponderado Doc": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "lt tienda vid": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.vid": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "VID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vid": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.fechacreacionvid": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "FECHACREACIONVID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fechacreacionvid": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "lt_tienda_vid.fechacierrevid": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "FECHACIERREVID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fechacierrevid": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "lt_tienda_vid.articulo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "ARTICULO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "articulo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.descripcionarticulo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "DESCRIPCIONARTICULO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "descripcionarticulo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.tienda": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "TIENDA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tienda": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.cantidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "CANTIDAD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.unidadmedida": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "UNIDADMEDIDA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "unidadmedida": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.pais": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "PAIS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "pais": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.fechacontabilizacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "FECHACONTABILIZACION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fechacontabilizacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "lt_tienda_vid.fechaingreso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "FECHAINGRESO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fechaingreso": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "lt_tienda_vid.referenciamseg": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "REFERENCIAMSEG"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "referenciamseg": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.posicionreferencia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "POSICIONREFERENCIA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "posicionreferencia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.fechacreaciondocumentoekpo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "FECHACREACIONDOCUMENTOEKPO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fechacreaciondocumentoekpo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "lt_tienda_vid.fechacreaciondocumentoekko": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "FECHACREACIONDOCUMENTOEKKO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fechacreaciondocumentoekko": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "lt_tienda_vid.centrosuministrador": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "CENTROSUMINISTRADOR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "centrosuministrador": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.año_contabilización": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "Año Contabilización"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "año contabilización": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.mes_contabilización": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "Mes Contabilización"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mes contabilización": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "me contabilización": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.semana_contabilización": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "Semana Contabilización"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "semana contabilización": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.lt_vid": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "LT VID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "lt vid": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.LT_doc_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "LT Doc."
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "LT doc.": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.LT_pond__VID": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "LT Pond. VID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "LT pond. VID": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.LT_pond__doc_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "LT Pond. Doc."
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "LT pond. doc.": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.lt_sla": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "LT SLA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "lt sla": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.color_SLA_LT": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "color SLA LT"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "color SLA LT": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "LT": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "SLA LT": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "métrica.dyn_LT": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Métricas",
+			          "ConceptualProperty": "dyn_LT"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "dyn LT": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dyn_LT": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "LT_a_mostrar": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT a Mostrar"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "LT a mostrar": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "LT_a_mostrar.LT_a_mostrar": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT a Mostrar",
+			          "ConceptualProperty": "LT a Mostrar"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "LT a mostrar": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "LT a mostrar name": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "LT_a_mostrar.LT_a_mostrar_campos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT a Mostrar",
+			          "ConceptualProperty": "LT a Mostrar Campos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "LT a mostrar campos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "LT_a_mostrar.LT_a_mostrar_orden": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT a Mostrar",
+			          "ConceptualProperty": "LT a Mostrar Orden"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "LT a mostrar orden": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "fecha_arribo_futuro_fecha_semana_año_has_fecha_arribo_futuro_fecha_semana_semana_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_semana.año": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_semana.año"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_semana.semana_año": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_semana.semana_año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_semana.año"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_semana.semana_año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_have_semana_años"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_semana.semana_año"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_semana.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "semana_años_have_años"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_semana.semana_año"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_semana.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "semana_años_are_in_años1"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_semana_has_día_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_semana": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_semana"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_semana.día_me": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_semana.día_me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_semana"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_semana.día_me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_semanas_have_día_me"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_semana_has_semana_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_semana": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_semana"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_semana.semana_año": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_semana.semana_año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_semana"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_semana.semana_año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_semanas_have_semana_años"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_semana_has_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_semana": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_semana"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_semana.año": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_semana.año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_semana"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_semana.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_semanas_have_años"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_AMD_me_has_fecha_arribo_futuro_fecha_AMD_día": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_AMD.me": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_AMD.día": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.día"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_have_días"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "días_have_me"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "días_are_in_me1"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_AMD_año_has_fecha_arribo_futuro_fecha_AMD_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_AMD.año": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.año"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_AMD.me": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_have_me"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_have_años"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_are_in_años1"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_AMD_has_día": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_AMD": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_AMD.día": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.día"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_días"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_AMD_has_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_AMD": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_AMD.me": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_me"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_AMD_has_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_AMD": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_AMD.año": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_años"
-			        }
-			      ]
-			    },
-			    "fecha_liquidación_fecha_semana_semana_año_has_fecha_liquidación_fecha_semana_día_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Liquidación"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_liquidación.fecha_semana.semana_año": {
-			          "Target": {
-			            "Entity": "fecha_liquidación.fecha_semana.semana_año"
-			          }
-			        },
-			        "fecha_liquidación.fecha_semana.día_me": {
-			          "Target": {
-			            "Entity": "fecha_liquidación.fecha_semana.día_me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            },
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.día_me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "semana_años_have_día_me"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.día_me"
-			            },
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "día_me_have_semana_años"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.día_me"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "día_me_are_in_semana_años"
-			        }
-			      ]
-			    },
-			    "fecha_liquidación_fecha_semana_año_has_fecha_liquidación_fecha_semana_semana_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Liquidación"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_liquidación.fecha_semana.año": {
-			          "Target": {
-			            "Entity": "fecha_liquidación.fecha_semana.año"
-			          }
-			        },
-			        "fecha_liquidación.fecha_semana.semana_año": {
-			          "Target": {
-			            "Entity": "fecha_liquidación.fecha_semana.semana_año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.año"
-			            },
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_have_semana_años1"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            },
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "semana_años_have_años1"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "semana_años_are_in_años"
-			        }
-			      ]
-			    },
 			    "fecha_liquidación_fecha_semana_has_día_me": {
 			      "Binding": {
 			        "ConceptualEntity": "Fecha Liquidación"
@@ -42766,7 +43336,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_semanas_have_día_me1"
+			          "ID": "fecha_semanas_have_día_me"
 			        }
 			      ]
 			    },
@@ -42799,7 +43369,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_semanas_have_semana_años1"
+			          "ID": "fecha_semanas_have_semana_años"
 			        }
 			      ]
 			    },
@@ -42832,7 +43402,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_semanas_have_años1"
+			          "ID": "fecha_semanas_have_años"
 			        }
 			      ]
 			    },
@@ -42865,7 +43435,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_días1"
+			          "ID": "me_have_días"
 			        },
 			        {
 			          "Attribute": {
@@ -42878,7 +43448,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "días_have_me1"
+			          "ID": "días_have_me"
 			        },
 			        {
 			          "Preposition": {
@@ -42931,7 +43501,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_me1"
+			          "ID": "años_have_me"
 			        },
 			        {
 			          "Attribute": {
@@ -42944,7 +43514,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_años1"
+			          "ID": "me_have_años"
 			        },
 			        {
 			          "Preposition": {
@@ -42997,7 +43567,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_días1"
+			          "ID": "fecha_AMD_have_días"
 			        }
 			      ]
 			    },
@@ -43030,7 +43600,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_me1"
+			          "ID": "fecha_AMD_have_me"
 			        }
 			      ]
 			    },
@@ -43063,7 +43633,145 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_años1"
+			          "ID": "fecha_AMD_have_años"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_fecha_liquidación": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "fecha_liquidación": {
+			          "Target": {
+			            "Entity": "fecha_liquidación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "fecha_liquidación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_fecha_liquidacións"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_liquidación"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_liquidacións_have_lt_tienda_vids"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_dim_articulo": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "dim_articulo": {
+			          "Target": {
+			            "Entity": "dim_articulo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "dim_articulo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_dim_articulos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_articulo"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_articulos_have_lt_tienda_vids"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_dim_pais": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "dim_pais": {
+			          "Target": {
+			            "Entity": "dim_pais"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "dim_pais"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_dim_paises"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_pais"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_paises_have_lt_tienda_vids"
 			        }
 			      ]
 			    },
@@ -44015,59 +44723,6 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "ekpo_bfi_cd_has_dim_pais": {
-			      "Binding": {
-			        "ConceptualEntity": "EKPO_BFI-CD"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "ekpo_bfi_cd": {
-			          "Target": {
-			            "Entity": "ekpo_bfi_cd"
-			          }
-			        },
-			        "dim_pais": {
-			          "Target": {
-			            "Entity": "dim_pais"
-			          },
-			          "Nouns": [
-			            {
-			              "País": {
-			                "State": "Generated"
-			              }
-			            }
-			          ]
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "ekpo_bfi_cd"
-			            },
-			            "Object": {
-			              "Role": "dim_pais"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "ekpo_bfi_cd_have_dim_paises"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_pais"
-			            },
-			            "Object": {
-			              "Role": "ekpo_bfi_cd"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_paises_have_ekpo_bfi_cd"
-			        }
-			      ]
-			    },
 			    "ekpo_bfi_cd_has_almacene": {
 			      "Binding": {
 			        "ConceptualEntity": "EKPO_BFI-CD"
@@ -44487,59 +45142,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_etas_have_ekpos"
-			        }
-			      ]
-			    },
-			    "ekpo_has_dim_bodega": {
-			      "Binding": {
-			        "ConceptualEntity": "EKPO"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "ekpo": {
-			          "Target": {
-			            "Entity": "ekpo"
-			          }
-			        },
-			        "dim_bodega": {
-			          "Target": {
-			            "Entity": "dim_bodega"
-			          },
-			          "Nouns": [
-			            {
-			              "entidad cd 2": {
-			                "State": "Generated"
-			              }
-			            }
-			          ]
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "ekpo"
-			            },
-			            "Object": {
-			              "Role": "dim_bodega"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "ekpos_have_dim_bodegas"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_bodega"
-			            },
-			            "Object": {
-			              "Role": "ekpo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_bodegas_have_ekpos"
 			        }
 			      ]
 			    },
@@ -45277,6 +45879,1306 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
+			    "LT_a_mostrar_has_LT_a_mostrar": {
+			      "Binding": {
+			        "ConceptualEntity": "LT a Mostrar"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "LT_a_mostrar": {
+			          "Target": {
+			            "Entity": "LT_a_mostrar"
+			          }
+			        },
+			        "LT_a_mostrar.LT_a_mostrar": {
+			          "Target": {
+			            "Entity": "LT_a_mostrar.LT_a_mostrar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "LT_a_mostrar"
+			            },
+			            "Object": {
+			              "Role": "LT_a_mostrar.LT_a_mostrar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "LT_a_mostrar_have_LT_a_mostrar"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "LT_a_mostrar"
+			            },
+			            "Name": {
+			              "Role": "LT_a_mostrar.LT_a_mostrar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "LT_a_mostrar_are_names_IDs_of_LT_a_mostrar"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_métrica_lt_sla": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "métrica.lt_sla": {
+			          "Target": {
+			            "Entity": "métrica.lt_sla"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "métrica.lt_sla"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_lt_sla"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_métrica_LT_pond__doc_": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "métrica.LT_pond__doc_": {
+			          "Target": {
+			            "Entity": "métrica.LT_pond__doc_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "métrica.LT_pond__doc_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_LT_pond__doc_"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_métrica_LT_pond__VID": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "métrica.LT_pond__VID": {
+			          "Target": {
+			            "Entity": "métrica.LT_pond__VID"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "métrica.LT_pond__VID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_LT_pond__VID"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_métrica_LT_doc_": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "métrica.LT_doc_": {
+			          "Target": {
+			            "Entity": "métrica.LT_doc_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "métrica.LT_doc_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_LT_doc_"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_métrica_lt_vid": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "métrica.lt_vid": {
+			          "Target": {
+			            "Entity": "métrica.lt_vid"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "métrica.lt_vid"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_lt_vid"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_semana_contabilización": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.semana_contabilización": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.semana_contabilización"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.semana_contabilización"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_semana_contabilizacións"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_mes_contabilización": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.mes_contabilización": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.mes_contabilización"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.mes_contabilización"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_mes_contabilizacións"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_año_contabilización": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.año_contabilización": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.año_contabilización"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.año_contabilización"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_año_contabilizacións"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_centrosuministrador": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.centrosuministrador": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.centrosuministrador"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.centrosuministrador"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_centrosuministradors"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_fechacreaciondocumentoekko": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.fechacreaciondocumentoekko": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.fechacreaciondocumentoekko"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.fechacreaciondocumentoekko"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_fechacreaciondocumentoekkos"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_fechacreaciondocumentoekpo": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.fechacreaciondocumentoekpo": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.fechacreaciondocumentoekpo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.fechacreaciondocumentoekpo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_fechacreaciondocumentoekpos"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_posicionreferencia": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.posicionreferencia": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.posicionreferencia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.posicionreferencia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_posicionreferencias"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_referenciamseg": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.referenciamseg": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.referenciamseg"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.referenciamseg"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_referenciamsegs"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_fechaingreso": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.fechaingreso": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.fechaingreso"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.fechaingreso"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_fechaingresos"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_fechacontabilizacion": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.fechacontabilizacion": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.fechacontabilizacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.fechacontabilizacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_fechacontabilizacions"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_unidadmedida": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.unidadmedida": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.unidadmedida"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.unidadmedida"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_unidadmedidas"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_cantidad": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.cantidad": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.cantidad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.cantidad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_cantidads"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_tienda": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.tienda": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.tienda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.tienda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_tiendas"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_descripcionarticulo": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.descripcionarticulo": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.descripcionarticulo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.descripcionarticulo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_descripcionarticulos"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_fechacierrevid": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.fechacierrevid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.fechacierrevid"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.fechacierrevid"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_fechacierrevids"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_fechacreacionvid": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.fechacreacionvid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.fechacreacionvid"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.fechacreacionvid"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_fechacreacionvids"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_vid": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.vid"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.vid"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_vids"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_leadtime_3_ponderado": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.leadtime_3_ponderado": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.leadtime_3_ponderado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.leadtime_3_ponderado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_leadtime_3_ponderados"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_leadtime_2_ponderado": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.leadtime_2_ponderado": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.leadtime_2_ponderado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.leadtime_2_ponderado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_leadtime_2_ponderados"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_leadtime_1_ponderado": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.leadtime_1_ponderado": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.leadtime_1_ponderado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.leadtime_1_ponderado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_leadtime_1_ponderados"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_leadtime_doc_contabilizacion": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.leadtime_doc_contabilizacion": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.leadtime_doc_contabilizacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.leadtime_doc_contabilizacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_leadtime_doc_contabilizacions"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_leadtime_creacion_contabilizacion": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.leadtime_creacion_contabilizacion": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.leadtime_creacion_contabilizacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.leadtime_creacion_contabilizacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_leadtime_creacion_contabilizacions"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_leadtime_creacion_cierre": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.leadtime_creacion_cierre": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.leadtime_creacion_cierre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.leadtime_creacion_cierre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_leadtime_creacion_cierres"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_referencia": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.referencia": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.referencia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.referencia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_referencias"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_documento": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.documento": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.documento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.documento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_documentos"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_nombretienda": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.nombretienda": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.nombretienda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.nombretienda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_nombretiendas"
+			        }
+			      ]
+			    },
+			    "ekpo_has_fecha_tienda": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo": {
+			          "Target": {
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "ekpo.fecha_tienda": {
+			          "Target": {
+			            "Entity": "ekpo.fecha_tienda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "ekpo.fecha_tienda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_fecha_tiendas"
+			        }
+			      ]
+			    },
+			    "ekpo_has_centro_destino_final": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo": {
+			          "Target": {
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "ekpo.centro_destino_final": {
+			          "Target": {
+			            "Entity": "ekpo.centro_destino_final"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "ekpo.centro_destino_final"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_centro_destino_finals"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_métrica_inventario_USD_tiendas": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "métrica.inventario_USD_tiendas": {
+			          "Target": {
+			            "Entity": "métrica.inventario_USD_tiendas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "métrica.inventario_USD_tiendas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_inventario_USD_tiendas"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_métrica_inventario_USD_CD": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "métrica.inventario_USD_CD": {
+			          "Target": {
+			            "Entity": "métrica.inventario_USD_CD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "métrica.inventario_USD_CD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_inventario_USD_CD"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_métrica_inventario_USD_BFI": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "métrica.inventario_USD_BFI": {
+			          "Target": {
+			            "Entity": "métrica.inventario_USD_BFI"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "métrica.inventario_USD_BFI"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_inventario_USD_BFI"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_métrica_inventario_USD": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "métrica.inventario_USD": {
+			          "Target": {
+			            "Entity": "métrica.inventario_USD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "métrica.inventario_USD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_inventario_USD"
+			        }
+			      ]
+			    },
+			    "dim_articulo_has_descripcion": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ARTICULOS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_articulo": {
+			          "Target": {
+			            "Entity": "dim_articulo"
+			          }
+			        },
+			        "dim_articulo.descripcion": {
+			          "Target": {
+			            "Entity": "dim_articulo.descripcion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_articulo"
+			            },
+			            "Object": {
+			              "Role": "dim_articulo.descripcion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_articulos_have_descripcions"
+			        }
+			      ]
+			    },
 			    "fecha_export_has_fecha_a_mostrar": {
 			      "Binding": {
 			        "ConceptualEntity": "Fecha Export"
@@ -45307,6 +47209,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fecha_exports_have_fecha_a_mostrar"
+			        }
+			      ]
+			    },
+			    "fecha_export_has_ekpo_bfi_cd_documentos_OT_BFICD": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Export"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_export": {
+			          "Target": {
+			            "Entity": "fecha_export"
+			          }
+			        },
+			        "ekpo_bfi_cd.documentos_OT_BFICD": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd.documentos_OT_BFICD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_export"
+			            },
+			            "Object": {
+			              "Role": "ekpo_bfi_cd.documentos_OT_BFICD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_exports_have_documentos_OT_BFICD"
 			        }
 			      ]
 			    },
@@ -45343,6 +47278,39 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
+			    "fecha_export_has_ekpo_bfi_cd_pares_OT_BFICD": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Export"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_export": {
+			          "Target": {
+			            "Entity": "fecha_export"
+			          }
+			        },
+			        "ekpo_bfi_cd.pares_OT_BFICD": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd.pares_OT_BFICD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_export"
+			            },
+			            "Object": {
+			              "Role": "ekpo_bfi_cd.pares_OT_BFICD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_exports_have_pares_OT_BFICD"
+			        }
+			      ]
+			    },
 			    "ekpo_bfi_cd_has_pares_OT_BFICD": {
 			      "Binding": {
 			        "ConceptualEntity": "EKPO_BFI-CD"
@@ -45376,6 +47344,39 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
+			    "fecha_export_has_ekpo_bfi_cd_cumplimiento_documentos_BFICD": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Export"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_export": {
+			          "Target": {
+			            "Entity": "fecha_export"
+			          }
+			        },
+			        "ekpo_bfi_cd.cumplimiento_documentos_BFICD": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd.cumplimiento_documentos_BFICD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_export"
+			            },
+			            "Object": {
+			              "Role": "ekpo_bfi_cd.cumplimiento_documentos_BFICD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_exports_have_cumplimiento_documentos_BFICD"
+			        }
+			      ]
+			    },
 			    "ekpo_bfi_cd_has_cumplimiento_documentos_BFICD": {
 			      "Binding": {
 			        "ConceptualEntity": "EKPO_BFI-CD"
@@ -45406,6 +47407,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "ekpo_bfi_cd_have_cumplimiento_documentos_BFICD"
+			        }
+			      ]
+			    },
+			    "fecha_export_has_ekpo_bfi_cd_cumplimiento_pares_BFICD": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Export"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_export": {
+			          "Target": {
+			            "Entity": "fecha_export"
+			          }
+			        },
+			        "ekpo_bfi_cd.cumplimiento_pares_BFICD": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd.cumplimiento_pares_BFICD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_export"
+			            },
+			            "Object": {
+			              "Role": "ekpo_bfi_cd.cumplimiento_pares_BFICD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_exports_have_cumplimiento_pares_BFICD"
 			        }
 			      ]
 			    },
@@ -45472,6 +47506,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "ekpo_bfi_cd_have_sla_bficd"
+			        }
+			      ]
+			    },
+			    "fecha_export_has_ekpo_bfi_cd_tránsito_BFICD": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Export"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_export": {
+			          "Target": {
+			            "Entity": "fecha_export"
+			          }
+			        },
+			        "ekpo_bfi_cd.tránsito_BFICD": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd.tránsito_BFICD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_export"
+			            },
+			            "Object": {
+			              "Role": "ekpo_bfi_cd.tránsito_BFICD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_exports_have_tránsito_BFICD"
 			        }
 			      ]
 			    },
@@ -49868,39 +51935,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "almacenes_have_alm_"
-			        }
-			      ]
-			    },
-			    "almacene_has_ce_": {
-			      "Binding": {
-			        "ConceptualEntity": "ALMACENES"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "almacene": {
-			          "Target": {
-			            "Entity": "almacene"
-			          }
-			        },
-			        "almacene.ce_": {
-			          "Target": {
-			            "Entity": "almacene.ce_"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "almacene"
-			            },
-			            "Object": {
-			              "Role": "almacene.ce_"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "almacenes_have_ce_"
 			        }
 			      ]
 			    },
@@ -66128,15 +68162,15 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "métrica_has_metas_medidas_importación": {
+			    "medida_importacion_tabla_has_métrica_metas_medidas_importación": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas"
+			        "ConceptualEntity": "MedidaImportacionTabla"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métrica": {
+			        "medida_importacion_tabla": {
 			          "Target": {
-			            "Entity": "métrica"
+			            "Entity": "medida_importacion_tabla"
 			          }
 			        },
 			        "métrica.metas_medidas_importación": {
@@ -66149,7 +68183,7 @@ cultureInfo es-SV
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métrica"
+			              "Role": "medida_importacion_tabla"
 			            },
 			            "Object": {
 			              "Role": "métrica.metas_medidas_importación"
@@ -66157,7 +68191,40 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_have_metas_medidas_importación"
+			          "ID": "medida_importacion_tablas_have_metas_medidas_importación"
+			        }
+			      ]
+			    },
+			    "ekpo_has_métrica_metas_medidas_importación": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo": {
+			          "Target": {
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "métrica.metas_medidas_importación": {
+			          "Target": {
+			            "Entity": "métrica.metas_medidas_importación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "métrica.metas_medidas_importación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_metas_medidas_importación"
 			        }
 			      ]
 			    },
@@ -66194,15 +68261,15 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "métrica_has_bubble_lbl_CF": {
+			    "medida_importacion_tabla_has_métrica_bubble_lbl_CF": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas"
+			        "ConceptualEntity": "MedidaImportacionTabla"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métrica": {
+			        "medida_importacion_tabla": {
 			          "Target": {
-			            "Entity": "métrica"
+			            "Entity": "medida_importacion_tabla"
 			          }
 			        },
 			        "métrica.bubble_lbl_CF": {
@@ -66215,7 +68282,7 @@ cultureInfo es-SV
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métrica"
+			              "Role": "medida_importacion_tabla"
 			            },
 			            "Object": {
 			              "Role": "métrica.bubble_lbl_CF"
@@ -66223,19 +68290,52 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_have_bubble_lbl_CF"
+			          "ID": "medida_importacion_tablas_have_bubble_lbl_CF"
 			        }
 			      ]
 			    },
-			    "métrica_has_cump_medidas_importación": {
+			    "ekpo_has_métrica_bubble_lbl_CF": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas"
+			        "ConceptualEntity": "EKPO"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métrica": {
+			        "ekpo": {
 			          "Target": {
-			            "Entity": "métrica"
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "métrica.bubble_lbl_CF": {
+			          "Target": {
+			            "Entity": "métrica.bubble_lbl_CF"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "métrica.bubble_lbl_CF"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_bubble_lbl_CF"
+			        }
+			      ]
+			    },
+			    "medida_importacion_tabla_has_métrica_cump_medidas_importación": {
+			      "Binding": {
+			        "ConceptualEntity": "MedidaImportacionTabla"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "medida_importacion_tabla": {
+			          "Target": {
+			            "Entity": "medida_importacion_tabla"
 			          }
 			        },
 			        "métrica.cump_medidas_importación": {
@@ -66248,7 +68348,7 @@ cultureInfo es-SV
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métrica"
+			              "Role": "medida_importacion_tabla"
 			            },
 			            "Object": {
 			              "Role": "métrica.cump_medidas_importación"
@@ -66256,19 +68356,52 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_have_cump_medidas_importación"
+			          "ID": "medida_importacion_tablas_have_cump_medidas_importación"
 			        }
 			      ]
 			    },
-			    "métrica_has_bubble_lbl": {
+			    "ekpo_has_métrica_cump_medidas_importación": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas"
+			        "ConceptualEntity": "EKPO"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métrica": {
+			        "ekpo": {
 			          "Target": {
-			            "Entity": "métrica"
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "métrica.cump_medidas_importación": {
+			          "Target": {
+			            "Entity": "métrica.cump_medidas_importación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "métrica.cump_medidas_importación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_cump_medidas_importación"
+			        }
+			      ]
+			    },
+			    "medida_importacion_tabla_has_métrica_bubble_lbl": {
+			      "Binding": {
+			        "ConceptualEntity": "MedidaImportacionTabla"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "medida_importacion_tabla": {
+			          "Target": {
+			            "Entity": "medida_importacion_tabla"
 			          }
 			        },
 			        "métrica.bubble_lbl": {
@@ -66281,7 +68414,7 @@ cultureInfo es-SV
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métrica"
+			              "Role": "medida_importacion_tabla"
 			            },
 			            "Object": {
 			              "Role": "métrica.bubble_lbl"
@@ -66289,19 +68422,52 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_have_bubble_lbl"
+			          "ID": "medida_importacion_tablas_have_bubble_lbl"
 			        }
 			      ]
 			    },
-			    "métrica_has_yaxis_max": {
+			    "ekpo_has_métrica_bubble_lbl": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas"
+			        "ConceptualEntity": "EKPO"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métrica": {
+			        "ekpo": {
 			          "Target": {
-			            "Entity": "métrica"
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "métrica.bubble_lbl": {
+			          "Target": {
+			            "Entity": "métrica.bubble_lbl"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "métrica.bubble_lbl"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_bubble_lbl"
+			        }
+			      ]
+			    },
+			    "medida_importacion_tabla_has_métrica_yaxis_max": {
+			      "Binding": {
+			        "ConceptualEntity": "MedidaImportacionTabla"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "medida_importacion_tabla": {
+			          "Target": {
+			            "Entity": "medida_importacion_tabla"
 			          }
 			        },
 			        "métrica.yaxis_max": {
@@ -66314,7 +68480,7 @@ cultureInfo es-SV
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métrica"
+			              "Role": "medida_importacion_tabla"
 			            },
 			            "Object": {
 			              "Role": "métrica.yaxis_max"
@@ -66322,19 +68488,52 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_have_yaxis_max"
+			          "ID": "medida_importacion_tablas_have_yaxis_max"
 			        }
 			      ]
 			    },
-			    "métrica_has_bubble_pos": {
+			    "ekpo_has_métrica_yaxis_max": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas"
+			        "ConceptualEntity": "EKPO"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métrica": {
+			        "ekpo": {
 			          "Target": {
-			            "Entity": "métrica"
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "métrica.yaxis_max": {
+			          "Target": {
+			            "Entity": "métrica.yaxis_max"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "métrica.yaxis_max"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_yaxis_max"
+			        }
+			      ]
+			    },
+			    "medida_importacion_tabla_has_métrica_bubble_pos": {
+			      "Binding": {
+			        "ConceptualEntity": "MedidaImportacionTabla"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "medida_importacion_tabla": {
+			          "Target": {
+			            "Entity": "medida_importacion_tabla"
 			          }
 			        },
 			        "métrica.bubble_pos": {
@@ -66347,7 +68546,7 @@ cultureInfo es-SV
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métrica"
+			              "Role": "medida_importacion_tabla"
 			            },
 			            "Object": {
 			              "Role": "métrica.bubble_pos"
@@ -66355,19 +68554,52 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_have_bubble_pos"
+			          "ID": "medida_importacion_tablas_have_bubble_pos"
 			        }
 			      ]
 			    },
-			    "métrica_has_medidas_importación": {
+			    "ekpo_has_métrica_bubble_pos": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas"
+			        "ConceptualEntity": "EKPO"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métrica": {
+			        "ekpo": {
 			          "Target": {
-			            "Entity": "métrica"
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "métrica.bubble_pos": {
+			          "Target": {
+			            "Entity": "métrica.bubble_pos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "métrica.bubble_pos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_bubble_pos"
+			        }
+			      ]
+			    },
+			    "medida_importacion_tabla_has_métrica_medidas_importación": {
+			      "Binding": {
+			        "ConceptualEntity": "MedidaImportacionTabla"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "medida_importacion_tabla": {
+			          "Target": {
+			            "Entity": "medida_importacion_tabla"
 			          }
 			        },
 			        "métrica.medidas_importación": {
@@ -66380,7 +68612,7 @@ cultureInfo es-SV
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métrica"
+			              "Role": "medida_importacion_tabla"
 			            },
 			            "Object": {
 			              "Role": "métrica.medidas_importación"
@@ -66388,7 +68620,40 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_have_medidas_importación"
+			          "ID": "medida_importacion_tablas_have_medidas_importación"
+			        }
+			      ]
+			    },
+			    "ekpo_has_métrica_medidas_importación": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo": {
+			          "Target": {
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "métrica.medidas_importación": {
+			          "Target": {
+			            "Entity": "métrica.medidas_importación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "métrica.medidas_importación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_medidas_importación"
 			        }
 			      ]
 			    },
@@ -70154,15 +72419,15 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "campos_producto_has_días_diff_por_cambio_ETA": {
+			    "ekpo_has_campos_producto_días_diff_por_cambio_ETA": {
 			      "Binding": {
-			        "ConceptualEntity": "Campos Producto"
+			        "ConceptualEntity": "EKPO"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "campos_producto": {
+			        "ekpo": {
 			          "Target": {
-			            "Entity": "campos_producto"
+			            "Entity": "ekpo"
 			          }
 			        },
 			        "campos_producto.días_diff_por_cambio_ETA": {
@@ -70175,7 +72440,7 @@ cultureInfo es-SV
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "campos_producto"
+			              "Role": "ekpo"
 			            },
 			            "Object": {
 			              "Role": "campos_producto.días_diff_por_cambio_ETA"
@@ -70183,7 +72448,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "campos_productos_have_días_diff_por_cambio_ETA"
+			          "ID": "ekpos_have_días_diff_por_cambio_ETA"
 			        }
 			      ]
 			    },
@@ -70253,15 +72518,15 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "métrica_has_leyenda_indicador": {
+			    "dim_metrica_has_métrica_leyenda_indicador": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas"
+			        "ConceptualEntity": "DIM_METRICA"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métrica": {
+			        "dim_metrica": {
 			          "Target": {
-			            "Entity": "métrica"
+			            "Entity": "dim_metrica"
 			          }
 			        },
 			        "métrica.leyenda_indicador": {
@@ -70274,7 +72539,7 @@ cultureInfo es-SV
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métrica"
+			              "Role": "dim_metrica"
 			            },
 			            "Object": {
 			              "Role": "métrica.leyenda_indicador"
@@ -70282,19 +72547,19 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_have_leyenda_indicador"
+			          "ID": "dim_metricas_have_leyenda_indicador"
 			        }
 			      ]
 			    },
-			    "métrica_has_indicador": {
+			    "ekpo_has_métrica_indicador": {
 			      "Binding": {
-			        "ConceptualEntity": "Métricas"
+			        "ConceptualEntity": "EKPO"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "métrica": {
+			        "ekpo": {
 			          "Target": {
-			            "Entity": "métrica"
+			            "Entity": "ekpo"
 			          }
 			        },
 			        "métrica.indicador": {
@@ -70307,7 +72572,7 @@ cultureInfo es-SV
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "métrica"
+			              "Role": "ekpo"
 			            },
 			            "Object": {
 			              "Role": "métrica.indicador"
@@ -70315,7 +72580,40 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "métricas_have_indicador"
+			          "ID": "ekpos_have_indicador"
+			        }
+			      ]
+			    },
+			    "dim_metrica_has_métrica_indicador": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_METRICA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_metrica": {
+			          "Target": {
+			            "Entity": "dim_metrica"
+			          }
+			        },
+			        "métrica.indicador": {
+			          "Target": {
+			            "Entity": "métrica.indicador"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_metrica"
+			            },
+			            "Object": {
+			              "Role": "métrica.indicador"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_metricas_have_indicador"
 			        }
 			      ]
 			    },
@@ -86458,6 +88756,534 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "ekpos_are_readied_on_cargo_ready_dates"
+			        }
+			      ]
+			    },
+			    "fecha_liquidación_fecha_semana_año_has_fecha_liquidación_fecha_semana_semana_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Liquidación"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_liquidación.fecha_semana.año": {
+			          "Target": {
+			            "Entity": "fecha_liquidación.fecha_semana.año"
+			          }
+			        },
+			        "fecha_liquidación.fecha_semana.semana_año": {
+			          "Target": {
+			            "Entity": "fecha_liquidación.fecha_semana.semana_año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.año"
+			            },
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_semana_años"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            },
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "semana_años_have_años"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "semana_años_are_in_años"
+			        }
+			      ]
+			    },
+			    "fecha_liquidación_fecha_semana_semana_año_has_fecha_liquidación_fecha_semana_día_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Liquidación"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_liquidación.fecha_semana.semana_año": {
+			          "Target": {
+			            "Entity": "fecha_liquidación.fecha_semana.semana_año"
+			          }
+			        },
+			        "fecha_liquidación.fecha_semana.día_me": {
+			          "Target": {
+			            "Entity": "fecha_liquidación.fecha_semana.día_me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            },
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.día_me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "semana_años_have_día_me"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.día_me"
+			            },
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "día_me_have_semana_años"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.día_me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "día_me_are_in_semana_años"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_AMD_has_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_AMD": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_AMD.año": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_AMD_have_años1"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_AMD_has_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_AMD": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_AMD.me": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_AMD_have_me1"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_AMD_has_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_AMD": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_AMD.día": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_AMD_have_días1"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_AMD_año_has_fecha_arribo_futuro_fecha_AMD_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_AMD.año": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.año"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_AMD.me": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_me1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_años1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_are_in_años1"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_AMD_me_has_fecha_arribo_futuro_fecha_AMD_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_AMD.me": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_AMD.día": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_días1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_have_me1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_are_in_me1"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_semana_has_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_semana": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_semana"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_semana.año": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_semana.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_semana"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_semana.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_semanas_have_años1"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_semana_has_semana_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_semana": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_semana"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_semana.semana_año": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_semana.semana_año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_semana"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_semana.semana_año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_semanas_have_semana_años1"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_semana_has_día_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_semana": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_semana"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_semana.día_me": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_semana.día_me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_semana"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_semana.día_me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_semanas_have_día_me1"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_semana_año_has_fecha_arribo_futuro_fecha_semana_semana_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_semana.año": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_semana.año"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_semana.semana_año": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_semana.semana_año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_semana.año"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_semana.semana_año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_semana_años1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_semana.semana_año"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_semana.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "semana_años_have_años1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_semana.semana_año"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_semana.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "semana_años_are_in_años1"
 			        }
 			      ]
 			    },

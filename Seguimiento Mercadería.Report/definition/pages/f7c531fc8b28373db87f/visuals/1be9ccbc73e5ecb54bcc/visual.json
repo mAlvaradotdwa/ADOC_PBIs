@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "1be9ccbc73e5ecb54bcc",
   "position": {
     "x": 0,
@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 56,
     "width": 120,
-    "tabOrder": 7000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "EKPO_BFI-CD.DOC_COMPRA",
-              "nativeQueryRef": "DOC_COMPRA",
-              "active": true
+              "nativeQueryRef": "Documento",
+              "active": true,
+              "displayName": "Documento"
             }
           ]
         }

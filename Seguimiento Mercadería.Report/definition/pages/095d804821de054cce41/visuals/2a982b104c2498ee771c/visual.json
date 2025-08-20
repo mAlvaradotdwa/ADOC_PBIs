@@ -1,0 +1,311 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "2a982b104c2498ee771c",
+  "position": {
+    "x": 243.33333333333331,
+    "y": 178.88888888888889,
+    "z": 16000,
+    "height": 530,
+    "width": 1028.8888888888889,
+    "tabOrder": 16000
+  },
+  "visual": {
+    "visualType": "lineClusteredColumnComboChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO"
+                    }
+                  },
+                  "Property": "Pais_OrigenF"
+                }
+              },
+              "queryRef": "EKPO.Pais_OrigenF",
+              "nativeQueryRef": "País Origen ",
+              "active": true,
+              "displayName": "País Origen "
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO"
+                    }
+                  },
+                  "Property": "CONTENEDOR"
+                }
+              },
+              "queryRef": "EKPO.CONTENEDOR",
+              "nativeQueryRef": "Contenedor",
+              "active": false,
+              "displayName": "Contenedor"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO"
+                    }
+                  },
+                  "Property": "DOCUMENTO"
+                }
+              },
+              "queryRef": "EKPO.DOCUMENTO",
+              "nativeQueryRef": "Documento",
+              "active": false,
+              "displayName": "Documento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "BV_ESTILO_COLOR"
+                }
+              },
+              "queryRef": "DIM_ARTICULOS.BV_ESTILO_COLOR",
+              "nativeQueryRef": "Estilo Color",
+              "active": false,
+              "displayName": "Estilo Color"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO"
+                    }
+                  },
+                  "Property": "DESCRIPCION"
+                }
+              },
+              "queryRef": "EKPO.DESCRIPCION",
+              "nativeQueryRef": "Descripcion",
+              "active": false,
+              "displayName": "Descripcion"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "EKPO"
+                        }
+                      },
+                      "Property": "FIRST_ETA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(EKPO.FIRST_ETA)",
+              "nativeQueryRef": "Primer ETA",
+              "displayName": "Primer ETA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "EKPO"
+                        }
+                      },
+                      "Property": "ETA_MarineTraffic"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(EKPO.ETA_MarineTraffic)",
+              "nativeQueryRef": "ETA Más Reciente",
+              "displayName": "ETA Más Reciente"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "EKPO"
+                        }
+                      },
+                      "Property": "ETA_MarineTraffic_BFI"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(EKPO.ETA_MarineTraffic_BFI)",
+              "nativeQueryRef": "ETA Proyectado BFI",
+              "displayName": "ETA Proyectado BFI"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "TránsitoMT"
+                }
+              },
+              "queryRef": "Métricas.TránsitoMT",
+              "nativeQueryRef": "Tránsito",
+              "displayName": "Tránsito"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "EKPO"
+                        }
+                      },
+                      "Property": "SLA_Maritimo"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(EKPO.SLA_Maritimo)",
+              "nativeQueryRef": "SLA Maritimo",
+              "displayName": "SLA Maritimo"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "EKPO"
+                  }
+                },
+                "Property": "Pais_OrigenF"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "EKPO"
+                  }
+                },
+                "Property": "CONTENEDOR"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "EKPO"
+                  }
+                },
+                "Property": "DOCUMENTO"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_ARTICULOS"
+                  }
+                },
+                "Property": "BV_ESTILO_COLOR"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "EKPO"
+                  }
+                },
+                "Property": "DESCRIPCION"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

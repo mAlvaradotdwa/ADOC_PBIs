@@ -1307,6 +1307,59 @@ table Métricas
 		displayFolder: Inventario USD
 		lineageTag: 03dd78a3-0245-418a-9e40-08b19c0e5c1a
 
+	measure 'LT VID' = AVERAGE ( 'LT TIENDA VID'[LEADTIME_CREACION_CONTABILIZACION] )
+		formatString: #,0.00
+		displayFolder: Lead Times
+		lineageTag: 64170564-cf52-47fe-a6e2-b2f5c24c5c33
+
+	measure 'LT Doc.' = AVERAGE ( 'LT TIENDA VID'[LEADTIME_DOC_CONTABILIZACION] )
+		formatString: #,0.00
+		displayFolder: Lead Times
+		lineageTag: 98e00f02-c03a-459c-bfd8-067a25bb97a7
+
+	measure 'LT Pond. VID' = AVERAGE ( 'LT TIENDA VID'[LEADTIME2_PONDERADO] )
+		formatString: #,0.00
+		displayFolder: Lead Times
+		lineageTag: 65d51070-a84c-419f-b6ee-5018c5a37d0b
+
+	measure 'LT Pond. Doc.' = AVERAGE ( 'LT TIENDA VID'[LEADTIME3_PONDERADO] )
+		formatString: #,0.00
+		displayFolder: Lead Times
+		lineageTag: 2613ae3c-bc8e-4135-88c3-e78ce0937c4f
+
+	measure 'LT SLA' = ```
+			VAR _val = COUNTROWS ( 'LT TIENDA VID' )
+			RETURN 
+			4 * DIVIDE ( _val , _val )
+			```
+		displayFolder: Lead Times
+		lineageTag: e8660236-03cb-4892-9054-2f022eaeaf90
+
+	measure 'color SLA LT' =
+			IF (
+			    [dyn_LT] <= [LT SLA],
+			    [_colorOK],
+			    [_colorBad]
+			) & ""
+		isHidden
+		displayFolder: Lead Times
+		lineageTag: b979c486-5e7a-4831-baa0-4309cddc351b
+
+	measure dyn_LT =
+			VAR _val =
+			    SELECTEDVALUE ( 'LT a Mostrar'[LT a Mostrar Campos] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        CONTAINSSTRING ( _val, "LT VID" ), [LT VID],
+			        CONTAINSSTRING ( _val, "LT Doc." ), [LT Doc.],
+			        CONTAINSSTRING ( _val, "LT Pond. VID" ), [LT Pond. VID],
+			        CONTAINSSTRING ( _val, "LT Pond. Doc." ), [LT Pond. Doc.]
+			    )
+		isHidden
+		displayFolder: Lead Times
+		lineageTag: b84dd3a6-b869-4977-868b-d125a80e86a6
+
 	column Value
 		isHidden
 		lineageTag: 6f34ce85-c6e8-4092-bcb8-0f79e4e3fd24

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "37330603efba8f7f3105",
   "position": {
     "x": 26.978922716627636,
@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 55.95628415300547,
     "width": 183.85636221701796,
-    "tabOrder": 6000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -436,11 +436,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "PUERTO_ORIGEN",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "4f023bd66cc30b96c758",
   "position": {
     "x": 248,
     "y": 440,
-    "z": 16000,
+    "z": 15000,
     "height": 272,
     "width": 1024,
-    "tabOrder": 16000
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "tableEx",
@@ -27,21 +27,8 @@
                 }
               },
               "queryRef": "DIM_PAIS.PAIS",
-              "nativeQueryRef": "PAIS"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
-                    }
-                  },
-                  "Property": "CREADO_EL"
-                }
-              },
-              "queryRef": "EKPO_BFI-CD.CREADO_EL",
-              "nativeQueryRef": "CREADO_EL"
+              "nativeQueryRef": "País",
+              "displayName": "País"
             },
             {
               "field": {
@@ -55,7 +42,8 @@
                 }
               },
               "queryRef": "EKPO_BFI-CD.FECHA_DOCUMENTO",
-              "nativeQueryRef": "FECHA_DOCUMENTO"
+              "nativeQueryRef": "Fecha Creación",
+              "displayName": "Fecha Creación"
             },
             {
               "field": {
@@ -69,7 +57,8 @@
                 }
               },
               "queryRef": "EKPO_BFI-CD.FECHA_LIQUIDACION",
-              "nativeQueryRef": "FECHA_LIQUIDACION"
+              "nativeQueryRef": "Fecha Liquidación",
+              "displayName": "Fecha Liquidación"
             },
             {
               "field": {
@@ -83,7 +72,8 @@
                 }
               },
               "queryRef": "EKPO_BFI-CD.CONTENEDOR",
-              "nativeQueryRef": "CONTENEDOR"
+              "nativeQueryRef": "Contenedor",
+              "displayName": "Contenedor"
             },
             {
               "field": {
@@ -137,10 +127,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "DIM_PAIS"
+                    "Entity": "EKPO_BFI-CD"
                   }
                 },
-                "Property": "PAIS"
+                "Property": "CONTENEDOR"
               }
             },
             "direction": "Ascending"

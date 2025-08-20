@@ -694,6 +694,26 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "LT TIENDA VID",
+          "nodeLineageTag": "7a104245-d261-414b-a2fd-bb7e861439ad",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "LT a Mostrar",
+          "nodeLineageTag": "256bd7d0-f36c-4233-9978-b44c9396c328",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
@@ -2501,7 +2521,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
@@ -2514,7 +2534,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
@@ -2527,7 +2547,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
@@ -2540,10 +2560,81 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
         }
       ],
       "name": "INVETARIOUD",
+      "zoomValue": 50.346892102823205,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 16,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 287.33333206176758,
+            "y": 532
+          },
+          "nodeIndex": "LT TIENDA VID",
+          "nodeLineageTag": "7a104245-d261-414b-a2fd-bb7e861439ad",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 713
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "DIM_PAIS",
+          "nodeLineageTag": "de7adcad-ac5c-4181-a2e9-b4438d69dea0",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 224
+        },
+        {
+          "location": {
+            "x": 667.33333206176758,
+            "y": 0
+          },
+          "nodeIndex": "DIM_ARTICULOS",
+          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 320.33333206176758,
+            "y": 0
+          },
+          "nodeIndex": "Fecha Liquidación",
+          "nodeLineageTag": "e929c8c5-c9b8-4084-bcbb-e468f67fa02b",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        }
+      ],
+      "name": "LT",
       "zoomValue": 100,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
@@ -2551,6 +2642,6 @@
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "INVETARIOUD",
+  "selectedDiagram": "LT",
   "defaultDiagram": "Todas las tablas"
 }

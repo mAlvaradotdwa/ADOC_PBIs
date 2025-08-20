@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "8ee21efe7bbd153998df",
   "position": {
     "x": 248,
     "y": 152,
-    "z": 19000,
+    "z": 18000,
     "height": 280,
     "width": 1024,
-    "tabOrder": 19000
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -216,6 +216,18 @@
               "DIM_PAIS.PAIS"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PAIS"
+                    }
+                  },
+                  "Property": "PAIS"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
@@ -223,13 +235,26 @@
               "DIM_ARTICULOS.SK_UNIDADNEGOCIO"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "SK_UNIDADNEGOCIO"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
             "queryRefs": [
               "DIM_ARTICULOS.MARCA"
             ],
-            "isCollapsed": true
+            "isCollapsed": true,
+            "isPinned": true
           }
         ],
         "root": {}

@@ -1,0 +1,266 @@
+table 'LT TIENDA VID'
+	lineageTag: 7a104245-d261-414b-a2fd-bb7e861439ad
+
+	column REFERENCIA
+		dataType: string
+		lineageTag: 80f83361-6978-4953-b680-bb224788fa65
+		summarizeBy: none
+		sourceColumn: REFERENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column VID
+		dataType: string
+		lineageTag: a5ac0c2c-7132-499d-aa8f-78581c09ff50
+		summarizeBy: none
+		sourceColumn: VID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHACREACIONVID
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 4aee0930-d23c-4948-977c-9ff9b5b2cbd0
+		summarizeBy: none
+		sourceColumn: FECHACREACIONVID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHACIERREVID
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: a67ec612-637a-4ff5-aa44-b9c0a9a6b7c6
+		summarizeBy: none
+		sourceColumn: FECHACIERREVID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ARTICULO
+		dataType: string
+		lineageTag: f9e6339c-24fe-495c-9224-b518d8bef3c3
+		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCIONARTICULO
+		dataType: string
+		lineageTag: 594d5658-8f0d-47e2-aa0f-7af8ab6ee38c
+		summarizeBy: none
+		sourceColumn: DESCRIPCIONARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIENDA
+		dataType: string
+		lineageTag: 408c8fa8-6a23-4bf0-a75a-5f06ac926397
+		summarizeBy: none
+		sourceColumn: TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRETIENDA
+		dataType: string
+		lineageTag: 66e4e4bf-abdf-4433-a597-acd4da971c03
+		summarizeBy: none
+		sourceColumn: NOMBRETIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENTO
+		dataType: string
+		lineageTag: b3cb136b-ed9b-401c-9d49-9bdb38052a72
+		summarizeBy: none
+		sourceColumn: DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD
+		dataType: double
+		lineageTag: 6e7e8f04-368e-47ea-80f7-3d906e0e1cc4
+		summarizeBy: sum
+		sourceColumn: CANTIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNIDADMEDIDA
+		dataType: string
+		lineageTag: 6dbb4ec2-ffda-4ba0-94d2-120cd46447d0
+		summarizeBy: none
+		sourceColumn: UNIDADMEDIDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS
+		dataType: string
+		lineageTag: db18961a-7261-4f45-8749-38a1e7a9e79e
+		summarizeBy: none
+		sourceColumn: PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHACONTABILIZACION
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 22870261-fdc3-472f-83ec-7372a0899e3d
+		summarizeBy: none
+		sourceColumn: FECHACONTABILIZACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHAINGRESO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: c6621a1a-7bea-4575-9e70-a1e83dd5b2e1
+		summarizeBy: none
+		sourceColumn: FECHAINGRESO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column REFERENCIAMSEG
+		dataType: string
+		lineageTag: d3757126-61b4-4690-82da-97861049bf64
+		summarizeBy: none
+		sourceColumn: REFERENCIAMSEG
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSICIONREFERENCIA
+		dataType: string
+		lineageTag: 00a17ca9-9cde-4b53-834f-adab0e63e3a8
+		summarizeBy: none
+		sourceColumn: POSICIONREFERENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHACREACIONDOCUMENTOEKPO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 4ee9d33f-8d9b-4b44-aafb-c9eef4c6883c
+		summarizeBy: none
+		sourceColumn: FECHACREACIONDOCUMENTOEKPO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FECHACREACIONDOCUMENTOEKKO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 45c0e459-0b02-4e1b-b48b-80e0679152de
+		summarizeBy: none
+		sourceColumn: FECHACREACIONDOCUMENTOEKKO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CENTROSUMINISTRADOR
+		dataType: string
+		lineageTag: b6508475-0297-4c94-80c2-cc1e8d3e290c
+		summarizeBy: none
+		sourceColumn: CENTROSUMINISTRADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column LEADTIME_CREACION_CIERRE
+		dataType: int64
+		formatString: 0
+		lineageTag: 76ccbf1e-ccd1-4cac-b45a-49bc14d8a8ac
+		summarizeBy: sum
+		sourceColumn: LEADTIME_CREACION_CIERRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column LEADTIME_CREACION_CONTABILIZACION
+		dataType: int64
+		formatString: 0
+		lineageTag: 71523b4b-b08c-45d8-8e7e-8d28ff30fb17
+		summarizeBy: sum
+		sourceColumn: LEADTIME_CREACION_CONTABILIZACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column LEADTIME_DOC_CONTABILIZACION
+		dataType: int64
+		formatString: 0
+		lineageTag: d529e2d5-b378-47a3-a563-cb30fb58301c
+		summarizeBy: sum
+		sourceColumn: LEADTIME_DOC_CONTABILIZACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column LEADTIME1_PONDERADO
+		dataType: double
+		lineageTag: 55a5817c-fe66-45f5-a5ba-d3ea835f861b
+		summarizeBy: sum
+		sourceColumn: LEADTIME1_PONDERADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LEADTIME2_PONDERADO
+		dataType: double
+		lineageTag: a7dfe470-bd48-494d-a9e8-3b6da0129a9c
+		summarizeBy: sum
+		sourceColumn: LEADTIME2_PONDERADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LEADTIME3_PONDERADO
+		dataType: double
+		lineageTag: 20e7713f-c3f9-4815-b35e-2c96682d7b24
+		summarizeBy: sum
+		sourceColumn: LEADTIME3_PONDERADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Año Contabilización' = YEAR('LT TIENDA VID'[FECHACONTABILIZACION])
+		formatString: 0
+		lineageTag: 5788c04b-3952-41f1-8374-b51a442e6a76
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Contabilización' = MONTH('LT TIENDA VID'[FECHACONTABILIZACION])
+		formatString: 0
+		lineageTag: 9cef5210-d448-4476-9f94-234fbca5f3c9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana Contabilización' = WEEKNUM('LT TIENDA VID'[FECHACONTABILIZACION])
+		formatString: 0
+		lineageTag: aa642359-fbaa-4c3a-be01-18f3c2c00ed2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'LT TIENDA VID' = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- NUEVA DATA LT TIENDA --#(lf)SELECT #(lf)    L.VBELN         AS Referencia,#(lf)    L.TRAID         AS VID,#(lf)    L.WADAT         AS FechaCreacionVID,#(lf)    L.AEDAT         AS FechaCierreVID,#(lf)#(lf)    M.MATNR         AS Articulo,#(lf)    MAKT.MAKTX      AS DescripcionArticulo,#(lf)    M.WERKS         AS Tienda,#(lf)    T.NAME1         AS NombreTienda,#(lf)    M.EBELN         AS Documento,#(lf)    M.MENGE         AS Cantidad,#(lf)    M.MEINS         AS UnidadMedida,#(lf)    M.BUKRS         AS Pais,#(lf)    M.BUDAT_MKPF    AS FechaContabilizacion,#(lf)    M.CPUDT_MKPF    AS FechaIngreso,#(lf)    M.VBELN_IM      AS ReferenciaMSEG,#(lf)    M.VBELP_IM      AS PosicionReferencia,#(lf)#(lf)    P.CREATIONDATE  AS FechaCreacionDocumentoEKPO,#(lf)#(lf)    K.AEDAT         AS FechaCreacionDocumentoEKKO,#(lf)    K.RESWK         AS CentroSuministrador,#(lf)#(lf)    -- Lead time 1: Creación VID -> Cierre VID#(lf)    DAYS_BETWEEN(L.WADAT, L.AEDAT) AS LeadTime_Creacion_Cierre,#(lf)#(lf)    -- Lead time 2: Creación VID -> Contabilización#(lf)    DAYS_BETWEEN(L.WADAT, M.BUDAT_MKPF) AS LeadTime_Creacion_Contabilizacion,#(lf)#(lf)    -- Lead time 3: Creación Documento (EKPO) -> Contabilización#(lf)    DAYS_BETWEEN(P.CREATIONDATE, M.BUDAT_MKPF) AS LeadTime_Doc_Contabilizacion,#(lf)#(lf)    -- Ponderados por VID usando ventana#(lf)    SUM(DAYS_BETWEEN(L.WADAT, L.AEDAT) * M.MENGE) OVER (PARTITION BY L.TRAID) #(lf)    / SUM(M.MENGE) OVER (PARTITION BY L.TRAID) AS LeadTime1_Ponderado,#(lf)#(lf)    SUM(DAYS_BETWEEN(L.WADAT, M.BUDAT_MKPF) * M.MENGE) OVER (PARTITION BY L.TRAID) #(lf)    / SUM(M.MENGE) OVER (PARTITION BY L.TRAID) AS LeadTime2_Ponderado,#(lf)#(lf)    SUM(DAYS_BETWEEN(P.CREATIONDATE, M.BUDAT_MKPF) * M.MENGE) OVER (PARTITION BY L.TRAID) #(lf)    / SUM(M.MENGE) OVER (PARTITION BY L.TRAID) AS LeadTime3_Ponderado#(lf)#(lf)FROM SAP_ECC.LIKP L#(lf)INNER JOIN SAP_ECC.MSEG M #(lf)    ON M.VBELN_IM = L.VBELN#(lf)    AND M.BWART = '101'#(lf)    AND M.LGORT = 'AL01'#(lf)#(lf)INNER JOIN SAP_ECC.EKPO P#(lf)    ON P.EBELN = M.EBELN#(lf)    AND P.EBELP = M.EBELP             -- 🔹 Clave compuesta#(lf)    AND P.LOEKZ <> 'L'#(lf)    AND P.MTART IN ('MODE','ZMOD')#(lf)    --AND P.EBELN = '4801906247'#(lf)#(lf)INNER JOIN SAP_ECC.EKKO K#(lf)    ON K.EBELN = M.EBELN#(lf)    AND K.BSART IN ('UB', 'ZTR2', 'ZREP')#(lf)#(lf)LEFT JOIN SAP_ECC.T001W T#(lf)    ON M.WERKS = T.WERKS#(lf)#(lf)LEFT JOIN SAP_ECC.MAKT MAKT#(lf)    ON M.MATNR = MAKT.MATNR#(lf)    AND MAKT.SPRAS = 'S'              -- 🔹 Clave compuesta para evitar múltiples idiomas#(lf)#(lf)WHERE L.TRAID IS NOT NULL#(lf)  AND L.AEDAT >= '20240101'#(lf)  AND L.AEDAT <= CURRENT_DATE#(lf)ORDER BY M.BUDAT_MKPF DESC ", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"FECHACREACIONVID", type date}, {"FECHACIERREVID", type date}, {"FECHACONTABILIZACION", type date}, {"FECHAINGRESO", type date}, {"FECHACREACIONDOCUMENTOEKPO", type date}, {"FECHACREACIONDOCUMENTOEKKO", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

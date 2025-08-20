@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "d7e61e9059909011999c",
   "position": {
     "x": 27.066079295154186,
     "y": 487.18942731277531,
     "z": 3000,
     "height": 55.259911894273131,
-    "width": 183.82378854625551,
-    "tabOrder": 2000
+    "width": 183.82378854625551
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +19,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
+                      "Entity": "DIM_MARCAS (2)"
                     }
                   },
-                  "Property": "SK_UNIDADNEGOCIO"
+                  "Property": "Un. Negocio"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.SK_UNIDADNEGOCIO",
-              "nativeQueryRef": "SK_UNIDADNEGOCIO",
+              "queryRef": "DIM_MARCAS (2).Un. Negocio",
+              "nativeQueryRef": "Un. Negocio",
               "active": true
             },
             {
@@ -35,14 +34,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
+                      "Entity": "DIM_MARCAS (2)"
                     }
                   },
-                  "Property": "BV_MARCA"
+                  "Property": "MARCA_AGRUPADA"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.BV_MARCA",
-              "nativeQueryRef": "BV_MARCA",
+              "queryRef": "DIM_MARCAS (2).MARCA_AGRUPADA",
+              "nativeQueryRef": "MARCA_AGRUPADA",
               "active": false
             }
           ]
@@ -451,11 +450,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "Un. Negocio",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },

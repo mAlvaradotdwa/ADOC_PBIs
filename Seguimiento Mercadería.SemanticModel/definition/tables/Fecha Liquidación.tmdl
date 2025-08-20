@@ -28,7 +28,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: IDs
 		lineageTag: 056cb720-e8bf-4296-b9b1-5928ffb36e1b
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: [IDFecha]
 
 		annotation SummarizationSetBy = Automatic
@@ -37,7 +37,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: General
 		lineageTag: 711fcfcf-5715-4ef4-816a-0652b7ec7198
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Año]
 
@@ -47,7 +47,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: bb89567b-66ae-4307-89ec-89fddd5958b1
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumTrimestre]
 
@@ -57,7 +57,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: 5a9930cc-4afc-4ff9-83fa-977d9bd9d529
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumMes]
 
@@ -87,7 +87,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: e02d1460-01a1-45c6-8cd0-227dafd3d773
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumDia]
 
@@ -97,7 +97,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: 93b915d2-4a7f-457f-9f19-cb784dcba745
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumSemana]
 
@@ -107,7 +107,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: 78ab331b-d912-4c13-b058-b7ac1d367754
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumDiaSemana]
 
@@ -128,7 +128,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: IDs
 		lineageTag: aac17b79-43c7-4ca1-ae08-f44bcb785ba3
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDAñoMes]
 
@@ -138,7 +138,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: 8706cfd4-c286-4d65-81c1-f551147e51de
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumAñoMes]
 
@@ -158,7 +158,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: 64c8b150-7c12-4856-a6ec-f05c5bd81778
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumAñoTrimestre]
 
@@ -178,7 +178,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: 9a56520b-aebb-4465-b783-f9b09d1dc912
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumAñoSemestre]
 
@@ -198,7 +198,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: 0775c829-95e1-499b-aa86-5c0e04a3702c
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumAñoSemana]
 
@@ -228,7 +228,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: 68b4c5d7-fcfc-4f7c-8569-4c66b8e17db2
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumDiaAño]
 
@@ -248,7 +248,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: IDs
 		lineageTag: 168d88c5-e717-4ce6-9fc7-d7e54e03e0ef
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Offset]
 
@@ -258,7 +258,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: IDs
 		lineageTag: de1bb385-6980-472d-9171-950d1d05e955
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [TrendAxis]
 
@@ -268,7 +268,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: 5a366c98-d3e7-4b3c-ad7d-a90c68f013a7
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumCuatrimestre]
 
@@ -278,7 +278,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: Números
 		lineageTag: b520da9d-a631-4d5b-931b-b7f1fc19a3ff
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumAñoCuatrimestre]
 
@@ -328,7 +328,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: IDs
 		lineageTag: a35f610e-e320-4e60-b662-fbf1c4a84356
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDAñoTrimestre]
 
@@ -339,7 +339,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: IDs
 		lineageTag: 91399115-b3fd-410e-bc49-0eaff1f6e381
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDAñoCuatrimestre]
 
@@ -350,7 +350,7 @@ table 'Fecha Liquidación'
 		formatString: 0
 		displayFolder: IDs
 		lineageTag: c820556a-ca24-44b1-a8e2-57b771539b5c
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDAñoSemestre]
 
@@ -410,7 +410,7 @@ table 'Fecha Liquidación'
 		isHidden
 		displayFolder: IDs
 		lineageTag: 186cbb18-8598-407d-82aa-00717c5d85ae
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDMesDia]
 
