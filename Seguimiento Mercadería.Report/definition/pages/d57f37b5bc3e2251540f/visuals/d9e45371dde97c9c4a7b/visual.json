@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "d9e45371dde97c9c4a7b",
   "position": {
     "x": 25,
@@ -7,7 +7,7 @@
     "z": 14000,
     "height": 55,
     "width": 183.75,
-    "tabOrder": 12000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
+                      "Entity": "Períodos Estadísticos"
                     }
                   },
-                  "Property": "BV_ATRIBUTO"
+                  "Property": "Tipo Vencimiento2"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.BV_ATRIBUTO",
-              "nativeQueryRef": "Atributo",
+              "queryRef": "Períodos Estadísticos.Tipo Vencimiento2",
+              "nativeQueryRef": "Tipo Vencimiento",
               "active": true,
-              "displayName": "Atributo"
+              "displayName": "Tipo Vencimiento"
             }
           ]
         }

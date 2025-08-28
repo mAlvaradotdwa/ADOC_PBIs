@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "45c4dc9084ea3e098d27",
   "position": {
     "x": 8,
@@ -7,7 +7,7 @@
     "z": 14000,
     "height": 368,
     "width": 1264,
-    "tabOrder": 11000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -245,7 +245,8 @@
                 }
               },
               "queryRef": "Métricas.Pares SOLPED",
-              "nativeQueryRef": "Pares SOLPED"
+              "nativeQueryRef": "SOLPED",
+              "displayName": "SOLPED"
             },
             {
               "field": {
@@ -287,7 +288,8 @@
                 }
               },
               "queryRef": "Métricas.Pares CD",
-              "nativeQueryRef": "Pares CD"
+              "nativeQueryRef": "Solicitud CD",
+              "displayName": "Solicitud CD"
             },
             {
               "field": {
@@ -343,7 +345,8 @@
                 }
               },
               "queryRef": "Métricas.Pares Tienda",
-              "nativeQueryRef": "Pares Tienda"
+              "nativeQueryRef": "Solicitud Tienda",
+              "displayName": "Solicitud Tienda"
             },
             {
               "field": {

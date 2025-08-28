@@ -686,7 +686,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 7430.0251972953356,
+            "y": 86
+          },
           "nodeIndex": "Fecha Export",
           "nodeLineageTag": "c5b5e438-d894-4da3-8f44-38d9995e0256",
           "size": {
@@ -696,7 +699,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 6653.2841944171641,
+            "y": 0
+          },
           "nodeIndex": "LT TIENDA VID",
           "nodeLineageTag": "7a104245-d261-414b-a2fd-bb7e861439ad",
           "size": {
@@ -706,7 +712,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 7041.6546958562494,
+            "y": 74
+          },
           "nodeIndex": "LT a Mostrar",
           "nodeLineageTag": "256bd7d0-f36c-4233-9978-b44c9396c328",
           "size": {
@@ -2561,6 +2570,19 @@
             "width": 234
           },
           "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 950.473699445462,
+            "y": 703.4604078023275
+          },
+          "nodeIndex": "Períodos Estadísticos",
+          "nodeLineageTag": "46cb4b28-b8c2-4579-a75b-a4a6655c214a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "INVETARIOUD",
@@ -2642,6 +2664,6 @@
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "LT",
+  "selectedDiagram": "INVETARIOUD",
   "defaultDiagram": "Todas las tablas"
 }

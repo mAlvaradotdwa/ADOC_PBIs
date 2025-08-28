@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "23ec053c74d798b34908",
   "position": {
     "x": 39,
     "y": 251,
-    "z": 11000,
+    "z": 9000,
     "height": 56,
     "width": 162,
-    "tabOrder": 10000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -489,23 +489,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "192fa5cda48646e2e571",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fecha Liquidación"
-              }
-            },
-            "Property": "Semana Año"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

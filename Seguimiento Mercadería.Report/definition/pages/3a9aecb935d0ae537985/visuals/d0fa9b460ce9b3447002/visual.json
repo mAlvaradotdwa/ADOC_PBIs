@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "d0fa9b460ce9b3447002",
   "position": {
     "x": 730.01959831822978,
     "y": 82.333037404311639,
     "z": 7000,
     "height": 68.610864503593035,
-    "width": 172.89937854905443,
-    "tabOrder": 4000
+    "width": 172.89937854905443
   },
   "visual": {
     "visualType": "card",
@@ -296,7 +295,7 @@
                         "DateSpan": {
                           "Expression": {
                             "Literal": {
-                              "Value": "datetime'2025-08-08T00:00:00'"
+                              "Value": "datetime'2025-08-15T00:00:00'"
                             }
                           },
                           "TimeUnit": 5
@@ -321,7 +320,7 @@
                         "DateSpan": {
                           "Expression": {
                             "Literal": {
-                              "Value": "datetime'2025-08-16T00:00:00'"
+                              "Value": "datetime'2025-08-23T00:00:00'"
                             }
                           },
                           "TimeUnit": 5

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "a9fccc54987572b7a278",
   "position": {
     "x": 23.75,
@@ -7,7 +7,7 @@
     "z": 13000,
     "height": 55,
     "width": 183.75,
-    "tabOrder": 11000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
+                      "Entity": "FACT_INVENTARIOUD"
                     }
                   },
-                  "Property": "CLASE"
+                  "Property": "SK_ALMACEN"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.CLASE",
-              "nativeQueryRef": "Clase",
+              "queryRef": "FACT_INVENTARIOUD.SK_ALMACEN",
+              "nativeQueryRef": "Almacen",
               "active": true,
-              "displayName": "Clase"
+              "displayName": "Almacen"
             }
           ]
         }

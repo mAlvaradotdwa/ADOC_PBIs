@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "110578c88cb868b7ede8",
   "position": {
     "x": 23.75,
@@ -7,7 +7,7 @@
     "z": 8000,
     "height": 55,
     "width": 183.75,
-    "tabOrder": 6000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "MARCA_AGRUPADA"
+                  "Property": "BV_ESTATUS"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).MARCA_AGRUPADA",
-              "nativeQueryRef": "Marca",
+              "queryRef": "DIM_ARTICULOS.BV_ESTATUS",
+              "nativeQueryRef": "Estatus",
               "active": true,
-              "displayName": "Marca"
+              "displayName": "Estatus"
             }
           ]
         }

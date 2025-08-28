@@ -176,13 +176,55 @@ table FACT_INVENTARIOUD
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'ALMACENES.Nombre'
+		dataType: string
+		lineageTag: 5df341cc-c27d-46b6-9b5b-259656e27f40
+		summarizeBy: none
+		sourceColumn: ALMACENES.Nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ALMACENES.Tipo'
+		dataType: string
+		lineageTag: 3cee6428-1603-4b6b-9c6c-b633733a5d20
+		summarizeBy: none
+		sourceColumn: ALMACENES.Tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ALMACENES.Tipo Bodega'
+		dataType: string
+		lineageTag: a7ab5390-0fab-4ade-bff8-4d011dbb6fad
+		summarizeBy: none
+		sourceColumn: ALMACENES.Tipo Bodega
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIM_ARTICULOS.SK_COLECCION'
+		dataType: string
+		lineageTag: 3b9e5be3-6252-4269-a120-e5998428cb55
+		summarizeBy: none
+		sourceColumn: DIM_ARTICULOS.SK_COLECCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE = LEFT( [DIM_ARTICULOS.SK_COLECCION] , 4 )
+		lineageTag: 3037e33e-faa6-4011-b47a-17e508905ae9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FACT_INVENTARIOUD = m
 		mode: import
 		source =
 				let
-				    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="adoc-bi-dev"]){[Name="adoc-bi-dev"]}[Data], "SELECT *#(lf)FROM `adoc-bi-dev.CA_TEMP.FAC_INVENTARIOUD`", null, [EnableFolding=true])
+				    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="adoc-bi-dev"]){[Name="adoc-bi-dev"]}[Data], "SELECT *#(lf)FROM `adoc-bi-dev.CA_TEMP.FAC_INVENTARIOUD`", null, [EnableFolding=true]),
+				    #"Consultas combinadas" = Table.NestedJoin(Origen, {"SK_ALMACEN"}, ALMACENES, {"Alm."}, "ALMACENES", JoinKind.LeftOuter),
+				    #"Se expandió ALMACENES" = Table.ExpandTableColumn(#"Consultas combinadas", "ALMACENES", {"Nombre", "Tipo", "Tipo Bodega"}, {"ALMACENES.Nombre", "ALMACENES.Tipo", "ALMACENES.Tipo Bodega"}),
+				    #"Consultas combinadas1" = Table.NestedJoin(#"Se expandió ALMACENES", {"SK_MATNR"}, DIM_ARTICULOS, {"SK_MATNR"}, "DIM_ARTICULOS", JoinKind.LeftOuter),
+				    #"Se expandió DIM_ARTICULOS" = Table.ExpandTableColumn(#"Consultas combinadas1", "DIM_ARTICULOS", {"SK_COLECCION"}, {"DIM_ARTICULOS.SK_COLECCION"})
 				in
-				    Origen
+				    #"Se expandió DIM_ARTICULOS"
 
 	annotation PBI_NavigationStepName = Navegación
 

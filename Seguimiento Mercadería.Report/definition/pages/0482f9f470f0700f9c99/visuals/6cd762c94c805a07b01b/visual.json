@@ -23,27 +23,29 @@
                       "Entity": "DIM_MARCAS (2)"
                     }
                   },
-                  "Property": "Un. Negocio"
+                  "Property": "MARCA_AGRUPADA"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).Un. Negocio",
-              "nativeQueryRef": "Un. Negocio",
-              "active": true
+              "queryRef": "DIM_MARCAS (2).MARCA_AGRUPADA",
+              "nativeQueryRef": "Marca Agrupada",
+              "active": true,
+              "displayName": "Marca Agrupada"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "MARCA_AGRUPADA"
+                  "Property": "BV_MARCA"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).MARCA_AGRUPADA",
-              "nativeQueryRef": "MARCA_AGRUPADA",
-              "active": false
+              "queryRef": "DIM_ARTICULOS.BV_MARCA",
+              "nativeQueryRef": "Marca",
+              "active": false,
+              "displayName": "Marca"
             }
           ]
         }

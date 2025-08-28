@@ -454,6 +454,16 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Estatus": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -31091,16 +31101,6 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
-			        },
-			        {
-			          "Marca": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -37370,6 +37370,16 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Almacen": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -37644,58 +37654,6 @@ cultureInfo es-SV
 			        },
 			        {
 			          "SK_TIPO_TIENDA_108": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "ekpo.pe_mara": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "EKPO",
-			          "ConceptualProperty": "PE_MARA"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "pe mara": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "PE_MARA": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "mara": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "ekpo.pe_ano_mara": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "EKPO",
-			          "ConceptualProperty": "PE_ANO_MARA"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "pe ano mara": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "PE_ANO_MARA": {
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
@@ -38742,6 +38700,16 @@ cultureInfo es-SV
 			          "pares SOLPED": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "SOLPED": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -38798,6 +38766,16 @@ cultureInfo es-SV
 			            },
 			            "Weight": 0.485
 			          }
+			        },
+			        {
+			          "Solicitud CD": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -38813,6 +38791,16 @@ cultureInfo es-SV
 			        {
 			          "pares tienda": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Solicitud Tienda": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -40955,6 +40943,16 @@ cultureInfo es-SV
 			          "tipo Vencimiento2": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Tipo Vencimiento": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -42769,6 +42767,16 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.7
 			          }
+			        },
+			        {
+			          "F.Creación VID": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ],
 			      "SemanticType": "Time"
@@ -43017,6 +43025,16 @@ cultureInfo es-SV
 			          "date": {
 			            "State": "Generated",
 			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "F.Creación Doc.": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ],
@@ -43304,9 +43322,443 @@ cultureInfo es-SV
 			          }
 			        }
 			      ]
+			    },
+			    "fact_inventarioud.ALMACENES_nombre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INVENTARIOUD",
+			          "ConceptualProperty": "ALMACENES.Nombre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ALMACENES.nombre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ALMACENE.nombre": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inventarioud.ALMACENES_tipo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INVENTARIOUD",
+			          "ConceptualProperty": "ALMACENES.Tipo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ALMACENES.tipo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ALMACENE.tipo": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "Canal Venta": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inventarioud.ALMACENES_tipo_bodega": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INVENTARIOUD",
+			          "ConceptualProperty": "ALMACENES.Tipo Bodega"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ALMACENES.tipo bodega": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ALMACENE.tipo bodega": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inventarioud.dim_articulos_sk_coleccion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INVENTARIOUD",
+			          "ConceptualProperty": "DIM_ARTICULOS.SK_COLECCION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim_articulos.sk_coleccion": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inventarioud.pe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INVENTARIOUD",
+			          "ConceptualProperty": "PE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pe": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.almacenreceptor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "ALMACENRECEPTOR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "almacenreceptor": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Almacen": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "fecha_arribo_futuro_fecha_AMD_año_has_fecha_arribo_futuro_fecha_AMD_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_AMD.año": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.año"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_AMD.me": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_me"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_años"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_are_in_años1"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_AMD_has_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_AMD": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_AMD.día": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_AMD_have_días"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_AMD_has_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_AMD": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_AMD.me": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_AMD_have_me"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_AMD_has_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_AMD": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_AMD.año": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_AMD_have_años"
+			        }
+			      ]
+			    },
+			    "fecha_liquidación_fecha_semana_semana_año_has_fecha_liquidación_fecha_semana_día_me": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Liquidación"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_liquidación.fecha_semana.semana_año": {
+			          "Target": {
+			            "Entity": "fecha_liquidación.fecha_semana.semana_año"
+			          }
+			        },
+			        "fecha_liquidación.fecha_semana.día_me": {
+			          "Target": {
+			            "Entity": "fecha_liquidación.fecha_semana.día_me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            },
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.día_me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "semana_años_have_día_me"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.día_me"
+			            },
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "día_me_have_semana_años"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.día_me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "día_me_are_in_semana_años"
+			        }
+			      ]
+			    },
+			    "fecha_liquidación_fecha_semana_año_has_fecha_liquidación_fecha_semana_semana_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Liquidación"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_liquidación.fecha_semana.año": {
+			          "Target": {
+			            "Entity": "fecha_liquidación.fecha_semana.año"
+			          }
+			        },
+			        "fecha_liquidación.fecha_semana.semana_año": {
+			          "Target": {
+			            "Entity": "fecha_liquidación.fecha_semana.semana_año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.año"
+			            },
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_semana_años"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            },
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "semana_años_have_años"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fecha_liquidación.fecha_semana.semana_año"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fecha_liquidación.fecha_semana.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "semana_años_are_in_años"
+			        }
+			      ]
+			    },
 			    "fecha_liquidación_fecha_semana_has_día_me": {
 			      "Binding": {
 			        "ConceptualEntity": "Fecha Liquidación"
@@ -43501,7 +43953,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "años_have_me"
+			          "ID": "años_have_me1"
 			        },
 			        {
 			          "Attribute": {
@@ -43514,7 +43966,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_años"
+			          "ID": "me_have_años1"
 			        },
 			        {
 			          "Preposition": {
@@ -43567,7 +44019,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_días"
+			          "ID": "fecha_AMD_have_días1"
 			        }
 			      ]
 			    },
@@ -43600,7 +44052,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_me"
+			          "ID": "fecha_AMD_have_me1"
 			        }
 			      ]
 			    },
@@ -43633,7 +44085,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_años"
+			          "ID": "fecha_AMD_have_años1"
 			        }
 			      ]
 			    },
@@ -45876,6 +46328,204 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_articulos_have_EKPO_solpeds"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_almacenreceptor": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.almacenreceptor": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.almacenreceptor"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.almacenreceptor"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_almacenreceptors"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_pe": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "fact_inventarioud.pe": {
+			          "Target": {
+			            "Entity": "fact_inventarioud.pe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "fact_inventarioud.pe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_pe"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_dim_articulos_sk_coleccion": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "fact_inventarioud.dim_articulos_sk_coleccion": {
+			          "Target": {
+			            "Entity": "fact_inventarioud.dim_articulos_sk_coleccion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "fact_inventarioud.dim_articulos_sk_coleccion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_dim_articulos_sk_coleccions"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_ALMACENES_tipo_bodega": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "fact_inventarioud.ALMACENES_tipo_bodega": {
+			          "Target": {
+			            "Entity": "fact_inventarioud.ALMACENES_tipo_bodega"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "fact_inventarioud.ALMACENES_tipo_bodega"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_ALMACENES_tipo_bodegas"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_ALMACENES_tipo": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "fact_inventarioud.ALMACENES_tipo": {
+			          "Target": {
+			            "Entity": "fact_inventarioud.ALMACENES_tipo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "fact_inventarioud.ALMACENES_tipo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_ALMACENES_tipos"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_ALMACENES_nombre": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "fact_inventarioud.ALMACENES_nombre": {
+			          "Target": {
+			            "Entity": "fact_inventarioud.ALMACENES_nombre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "fact_inventarioud.ALMACENES_nombre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_ALMACENES_nombres"
 			        }
 			      ]
 			    },
@@ -88756,303 +89406,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "ekpos_are_readied_on_cargo_ready_dates"
-			        }
-			      ]
-			    },
-			    "fecha_liquidación_fecha_semana_año_has_fecha_liquidación_fecha_semana_semana_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Liquidación"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_liquidación.fecha_semana.año": {
-			          "Target": {
-			            "Entity": "fecha_liquidación.fecha_semana.año"
-			          }
-			        },
-			        "fecha_liquidación.fecha_semana.semana_año": {
-			          "Target": {
-			            "Entity": "fecha_liquidación.fecha_semana.semana_año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.año"
-			            },
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_have_semana_años"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            },
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "semana_años_have_años"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "semana_años_are_in_años"
-			        }
-			      ]
-			    },
-			    "fecha_liquidación_fecha_semana_semana_año_has_fecha_liquidación_fecha_semana_día_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Liquidación"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_liquidación.fecha_semana.semana_año": {
-			          "Target": {
-			            "Entity": "fecha_liquidación.fecha_semana.semana_año"
-			          }
-			        },
-			        "fecha_liquidación.fecha_semana.día_me": {
-			          "Target": {
-			            "Entity": "fecha_liquidación.fecha_semana.día_me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            },
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.día_me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "semana_años_have_día_me"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.día_me"
-			            },
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "día_me_have_semana_años"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fecha_liquidación.fecha_semana.día_me"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fecha_liquidación.fecha_semana.semana_año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "día_me_are_in_semana_años"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_AMD_has_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_AMD": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_AMD.año": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_años1"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_AMD_has_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_AMD": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_AMD.me": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_me1"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_AMD_has_día": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_AMD": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_AMD.día": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.día"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_AMD_have_días1"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_AMD_año_has_fecha_arribo_futuro_fecha_AMD_me": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_AMD.año": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.año"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_AMD.me": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "años_have_me1"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_have_años1"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_are_in_años1"
 			        }
 			      ]
 			    },
