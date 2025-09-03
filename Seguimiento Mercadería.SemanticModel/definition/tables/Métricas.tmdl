@@ -1162,14 +1162,19 @@ table Métricas
 		displayFolder: Inventario
 		lineageTag: b6402bab-ad9b-4675-9c00-bc9c4312f544
 
-	measure 'Inventario CD' =
+	measure 'Inventario CD' = ```
 			CALCULATE (
 			    [Inventario],
 			    CONTAINSSTRING (
 			        'FACT_INVENTARIOUD'[SK_ALMACEN],
 			        "BP"
-			    )
+			    ) || 
+			     CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "BS"
+			    ) 
 			)
+			```
 		formatString: #,0
 		displayFolder: Inventario
 		lineageTag: bc97f252-1b10-42de-a7f2-9e3b5d907002

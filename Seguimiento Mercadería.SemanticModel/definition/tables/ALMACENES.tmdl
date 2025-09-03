@@ -50,9 +50,10 @@ table ALMACENES
 				    #"Almacenes xlsx_https://empresasadoc-my sharepoint com/personal/luis_menendez_empresasadoc_com/Documents/" = #"Filas filtradas"{[Name="Almacenes.xlsx",#"Folder Path"="https://empresasadoc-my.sharepoint.com/personal/luis_menendez_empresasadoc_com/Documents/"]}[Content],
 				    #"Libro de Excel importado" = Excel.Workbook(#"Almacenes xlsx_https://empresasadoc-my sharepoint com/personal/luis_menendez_empresasadoc_com/Documents/"),
 				    Hoja1_Sheet = #"Libro de Excel importado"{[Item="Hoja1",Kind="Sheet"]}[Data],
-				    #"Encabezados promovidos" = Table.PromoteHeaders(Hoja1_Sheet, [PromoteAllScalars=true])
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Hoja1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Ce.", type text}})
 				in
-				    #"Encabezados promovidos"
+				    #"Tipo cambiado"
 
 	annotation PBI_NavigationStepName = Navegación
 

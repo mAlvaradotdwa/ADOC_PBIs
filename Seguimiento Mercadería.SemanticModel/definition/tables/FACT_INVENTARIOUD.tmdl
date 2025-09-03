@@ -219,7 +219,8 @@ table FACT_INVENTARIOUD
 		source =
 				let
 				    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="adoc-bi-dev"]){[Name="adoc-bi-dev"]}[Data], "SELECT *#(lf)FROM `adoc-bi-dev.CA_TEMP.FAC_INVENTARIOUD`", null, [EnableFolding=true]),
-				    #"Consultas combinadas" = Table.NestedJoin(Origen, {"SK_ALMACEN"}, ALMACENES, {"Alm."}, "ALMACENES", JoinKind.LeftOuter),
+				    #"Texto recortado" = Table.TransformColumns(Origen,{{"SK_TIENDA", Text.Trim, type text}, {"SK_ALMACEN", Text.Trim, type text}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Texto recortado", {"SK_ALMACEN", "SK_TIENDA"}, ALMACENES, {"Alm.", "Ce."}, "ALMACENES", JoinKind.LeftOuter),
 				    #"Se expandió ALMACENES" = Table.ExpandTableColumn(#"Consultas combinadas", "ALMACENES", {"Nombre", "Tipo", "Tipo Bodega"}, {"ALMACENES.Nombre", "ALMACENES.Tipo", "ALMACENES.Tipo Bodega"}),
 				    #"Consultas combinadas1" = Table.NestedJoin(#"Se expandió ALMACENES", {"SK_MATNR"}, DIM_ARTICULOS, {"SK_MATNR"}, "DIM_ARTICULOS", JoinKind.LeftOuter),
 				    #"Se expandió DIM_ARTICULOS" = Table.ExpandTableColumn(#"Consultas combinadas1", "DIM_ARTICULOS", {"SK_COLECCION"}, {"DIM_ARTICULOS.SK_COLECCION"})
