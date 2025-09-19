@@ -1,0 +1,43 @@
+table REF_PROVEEDOR
+	isHidden
+	lineageTag: c6910ed9-9ca8-4f44-a371-01b66c3dcb74
+
+	column SATNR
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 79dd80c4-8cc9-4633-89d4-87a71387a498
+		summarizeBy: none
+		sourceColumn: SATNR
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Desc. Proveedor'
+		dataType: string
+		isHidden
+		lineageTag: ccd16f32-d868-4a0a-bb1c-9a377734a968
+		summarizeBy: none
+		sourceColumn: Desc. Proveedor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition REF_PROVEEDOR = m
+		mode: import
+		queryGroup: dbSAP
+		source =
+				let
+				    Precio_FOB = Value.NativeQuery(SapHana.Database(srvSAP, [Implementation="2.0"]), "SELECT  #(lf)    CAST( p.SATNR AS BIGINT ) SATNR,#(lf)    MAX ( IDNLF ) IDNLF#(lf)FROM SAP_ECC.MARA p#(lf)INNER JOIN SAP_ECC.EINA d#(lf)    ON p.MATNR = d.MATNR#(lf)WHERE IDNLF != ''#(lf)    AND SATNR != ''#(lf)GROUP BY #(lf)    CAST( p.SATNR AS BIGINT )", null, [EnableFolding=true]),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(Precio_FOB,{{"IDNLF", "Desc. Proveedor"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

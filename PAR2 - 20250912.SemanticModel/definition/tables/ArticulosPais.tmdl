@@ -1,0 +1,56 @@
+table ArticulosPais
+	lineageTag: 5d013774-c742-45d3-90b1-34e690fa5005
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: bcb541bc-84c7-4589-b019-50a80aaca462
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_ARTICULO
+		dataType: int64
+		formatString: 0
+		lineageTag: 736ee9db-d6e2-4e23-859d-ff9f61a53ccf
+		summarizeBy: none
+		sourceColumn: SK_ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimeraFecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1578244f-6241-4fcf-8fca-d2edd34be69e
+		summarizeBy: none
+		sourceColumn: PrimeraFecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UltimaFecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 042f294c-bb92-4526-9ea0-65ae3a1aea6a
+		summarizeBy: none
+		sourceColumn: UltimaFecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition ArticulosPais = m
+		mode: import
+		queryGroup: dbCOGNOS
+		source =
+				let
+				    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query="WITH Dts#(lf)AS#(lf)(#(lf)    SELECT#(lf)        t.SK_PAIS ,#(lf)        SK_ARTICULO = TRY_CAST( a.SK_ARTICULO AS BIGINT ) ,#(lf)        PrimeraFecha = MIN( SK_PERIODO ) ,#(lf)        UltimaFecha = MAX( v.SK_PERIODO )#(lf)    FROM FAC_VENTARPRO v#(lf)    INNER JOIN dim_articulosap a#(lf)        ON v.SK_MATNR = a.SK_MATNR#(lf)    INNER JOIN DIM_TIENDA t#(lf)        ON v.SK_TIENDA = t.SK_TIENDA#(lf)    WHERE v.SK_DIVISION = 10#(lf)        AND a.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)        AND a.SK_ARTICULO != '000000000000000000'#(lf)        AND ISNUMERIC( a.SK_ARTICULO ) = 1#(lf)    GROUP BY t.SK_PAIS ,#(lf)             a.SK_ARTICULO#(lf))#(lf)SELECT#(lf)    d.SK_PAIS ,#(lf)    d.SK_ARTICULO ,#(lf)    PrimeraFecha = pf.PERIODO ,#(lf)    UltimaFecha = uf.PERIODO#(lf)FROM Dts d#(lf)LEFT JOIN DIM_PERIODO pf#(lf)    ON d.PrimeraFecha = pf.SK_PERIODO#(lf)LEFT JOIN DIM_PERIODO uf#(lf)    ON d.UltimaFecha = uf.SK_PERIODO", CreateNavigationProperties=false]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"PrimeraFecha", type date}, {"UltimaFecha", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

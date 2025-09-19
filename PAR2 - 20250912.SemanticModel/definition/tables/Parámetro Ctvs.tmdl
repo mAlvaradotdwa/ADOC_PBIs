@@ -1,0 +1,36 @@
+table 'Parámetro Ctvs'
+	lineageTag: 919e515a-616f-4cb2-92a9-c59ebb4548c2
+
+	measure Centavos = SELECTEDVALUE ( 'Parámetro Ctvs'[Parámetro] ) * DIVIDE ( [Inventario], [Inventario] )
+		isHidden
+		lineageTag: 40bf3659-2786-4f48-8f68-c6595272ffbc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Parámetro
+		lineageTag: 8014cce8-5943-4d08-a14d-0e175658ceda
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DESCUENTO = FORMAT ( 'Parámetro Ctvs'[Parámetro] , "#0" )
+		lineageTag: 18089a8a-eeee-4017-adca-496148bc9847
+		summarizeBy: none
+		sortByColumn: Parámetro
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Parámetro = calculated
+		mode: import
+		source = GENERATESERIES(0, 99, 1)
+
+	annotation PBI_Id = 71e180b35f234350814fb319a91ca715
+

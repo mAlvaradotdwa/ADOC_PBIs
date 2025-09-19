@@ -1,0 +1,73 @@
+table Precios
+	lineageTag: e0bbb9e8-9c78-43f0-bf1f-bd290311fd15
+
+	column SK_ARTICULO
+		dataType: int64
+		formatString: 0
+		lineageTag: 68ac3f9b-0f46-4cde-8853-0fd954ce902b
+		summarizeBy: none
+		sourceColumn: SK_ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_PAIS
+		dataType: string
+		lineageTag: beea38f8-012b-4c75-a470-f8b3fe6d36bc
+		summarizeBy: none
+		sourceColumn: SK_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column COSTO_LOCAL
+		dataType: double
+		lineageTag: ce8e3d5a-2d7e-4563-b108-4fa4bd3d5f00
+		summarizeBy: sum
+		sourceColumn: COSTO_LOCAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRECIO_LOCAL
+		dataType: double
+		lineageTag: ecd135bc-be54-4ee6-a4be-84bee940e8d6
+		summarizeBy: sum
+		sourceColumn: PRECIO_LOCAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COSTO_USD
+		dataType: double
+		lineageTag: a18c3ef1-2b9a-4ee9-b639-8372bbcd5703
+		summarizeBy: sum
+		sourceColumn: COSTO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRECIO_USD
+		dataType: double
+		lineageTag: b1589dcd-eb14-4f49-9c56-cc36d23ebd7b
+		summarizeBy: sum
+		sourceColumn: PRECIO_USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Precios = m
+		mode: import
+		queryGroup: dbCOGNOS
+		source =
+				let
+				    Origen = Sql.Database(srvCOGNOS, dbCOGNOS, [Query="SELECT#(lf)#(tab)SK_ARTICULO = TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)I.SK_PAIS ,#(lf)#(tab)COSTO_LOCAL = SUM( I.COSTO_LOCAL ) / SUM( I.PARES ) ,#(lf)#(tab)PRECIO_LOCAL = SUM( I.PRECIO_LOCAL ) / SUM( I.PARES ) ,#(lf)#(tab)COSTO_USD = SUM( I.COSTO_USD ) / SUM( I.PARES ) ,#(lf)#(tab)PRECIO_USD = SUM( I.PRECIO_USD ) / SUM( I.PARES )#(lf)FROM FAC_INVENTARIOUD I#(lf)INNER JOIN DIM_ARTICULOSAP A#(lf)#(tab)ON I.SK_MATNR = A.SK_MATNR#(lf)WHERE I.PARES > 0#(lf)#(tab)AND ISNUMERIC( I.SK_ARTICULO ) = 1#(lf)#(tab)AND A.SK_UNIDADNEGOCIO = 'UN PAR2'#(lf)#(tab)AND A.[SK_DEPTO] IN ('C' , 'R' , 'A')#(lf)GROUP BY TRY_CAST( A.SK_ARTICULO AS BIGINT ) ,#(lf)#(tab)#(tab) I.SK_PAIS", CreateNavigationProperties=false])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

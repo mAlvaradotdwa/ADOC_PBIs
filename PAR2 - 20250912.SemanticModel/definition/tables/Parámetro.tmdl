@@ -1,0 +1,64 @@
+table Parámetro
+	lineageTag: 08959bf1-51ab-43b9-b8e1-243d9f6c5a96
+
+	measure Oferta =
+			(
+			    SELECTEDVALUE ( 'Parámetro'[Parámetro] ) + DIVIDE( [Centavos] , 100 )
+			)
+			    * DIVIDE (
+			        [Inventario],
+			        [Inventario]
+			    )
+		lineageTag: 40bf3659-2786-4f48-8f68-c6595272ffbc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Desc %' =
+			DIVIDE (
+			    [PV $] - [Oferta],
+			    [PV $]
+			)
+		formatString: #,0.00 %
+		lineageTag: f0177fcb-fcb0-4fe7-9796-0150652434c3
+
+	measure MGN =
+			VAR _psi =
+			    DIVIDE (
+			        [Oferta],
+			        1.13
+			    )
+			RETURN
+			    DIVIDE (
+			        _psi - [Costo CA],
+			        _psi
+			    )
+		formatString: #,0.00 %
+		lineageTag: 48fa5bc9-33ff-4980-9441-b1c118987a67
+
+	column Parámetro
+		lineageTag: 8014cce8-5943-4d08-a14d-0e175658ceda
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DESCUENTO = FORMAT ( 'Parámetro'[Parámetro] , "#,0" )
+		lineageTag: 18089a8a-eeee-4017-adca-496148bc9847
+		summarizeBy: none
+		sortByColumn: Parámetro
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Parámetro = calculated
+		mode: import
+		source = GENERATESERIES(1, 60000, 1)
+
+	annotation PBI_Id = 71e180b35f234350814fb319a91ca715
+
