@@ -7,7 +7,7 @@
     "z": 0,
     "height": 391.81601903251391,
     "width": 493.3227597145123,
-    "tabOrder": 16000
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "barChart",
@@ -20,15 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "MARCA"
+                  "Property": "BV_MARCA"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).MARCA",
-              "nativeQueryRef": "MARCA",
-              "active": true
+              "queryRef": "DIM_ARTICULOS.BV_MARCA",
+              "nativeQueryRef": "Marca",
+              "active": true,
+              "displayName": "Marca"
             }
           ]
         },

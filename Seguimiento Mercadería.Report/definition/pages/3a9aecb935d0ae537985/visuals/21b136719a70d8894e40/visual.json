@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "21b136719a70d8894e40",
   "position": {
     "x": 555.74800247910355,
@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 68.610864503593035,
     "width": 171.52716125898257,
-    "tabOrder": 20000
+    "tabOrder": 17000
   },
   "visual": {
     "visualType": "card",
@@ -296,7 +296,7 @@
                         "DateSpan": {
                           "Expression": {
                             "Literal": {
-                              "Value": "datetime'2025-08-15T00:00:00'"
+                              "Value": "datetime'2025-09-12T00:00:00'"
                             }
                           },
                           "TimeUnit": 5
@@ -321,7 +321,7 @@
                         "DateSpan": {
                           "Expression": {
                             "Literal": {
-                              "Value": "datetime'2025-08-23T00:00:00'"
+                              "Value": "datetime'2025-09-20T00:00:00'"
                             }
                           },
                           "TimeUnit": 5
@@ -389,6 +389,25 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "53e2a6290b0a17b6af53",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PREPARACIONES CD (TRACING)"
+                  }
+                },
+                "Property": "CANTIDADREPARTO_TOTAL"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

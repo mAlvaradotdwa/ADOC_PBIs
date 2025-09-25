@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "627e10be00f0438beb64",
   "position": {
-    "x": 938,
-    "y": 453,
+    "x": 937.77777777777771,
+    "y": 468.88888888888886,
     "z": 20000,
-    "height": 263,
-    "width": 334,
-    "tabOrder": 13000
+    "height": 246.66666666666666,
+    "width": 334.44444444444446,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "pivotTable",

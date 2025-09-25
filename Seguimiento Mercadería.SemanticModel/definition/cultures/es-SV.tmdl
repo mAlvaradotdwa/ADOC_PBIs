@@ -261,16 +261,6 @@ cultureInfo es-SV
 			          }
 			        },
 			        {
-			          "Sub Categoría": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
 			          "Subcategoria": {
 			            "State": "Suggested",
 			            "Source": {
@@ -898,9 +888,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "sk marca": {
@@ -1019,22 +1006,6 @@ cultureInfo es-SV
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "dim_marca.un__negocio": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_MARCAS",
-			          "ConceptualProperty": "Un. Negocio"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "un. negocio": {
-			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -2249,29 +2220,6 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "dim_marca.sk_marca": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_MARCAS",
-			          "ConceptualProperty": "SK_MARCA"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "sk marca": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "SK_MARCA": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
 			    "dim_marca.marca": {
 			      "Definition": {
 			        "Binding": {
@@ -2284,29 +2232,6 @@ cultureInfo es-SV
 			        {
 			          "marca": {
 			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "dim_marca.sk_unidadnegocio": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_MARCAS",
-			          "ConceptualProperty": "SK_UNIDADNEGOCIO"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "sk unidadnegocio": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "SK_UNIDADNEGOCIO": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
 			          }
 			        }
 			      ]
@@ -2663,16 +2588,6 @@ cultureInfo es-SV
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "Atributo": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -17672,16 +17587,6 @@ cultureInfo es-SV
 			          "días diff por cambio ETA": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "Días Diferencia entre ETAs": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -24143,16 +24048,6 @@ cultureInfo es-SV
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
-			        },
-			        {
-			          "Año Liquidación": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -24182,16 +24077,6 @@ cultureInfo es-SV
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "Mes Liquidación": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -30086,9 +29971,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "marca": {
@@ -30997,129 +30879,6 @@ cultureInfo es-SV
 			      ],
 			      "SemanticType": "Time"
 			    },
-			    "dim_marcas_2": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_MARCAS (2)"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dim_marcas (2)": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "dim_marca (2)": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.78
-			          }
-			        }
-			      ]
-			    },
-			    "dim_marcas_2.marca": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_MARCAS (2)",
-			          "ConceptualProperty": "MARCA"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "marca": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "dim_marcas_2.unidad_negocio": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_MARCAS (2)",
-			          "ConceptualProperty": "UNIDAD_NEGOCIO"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "unidad negocio": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "UNIDAD_NEGOCIO": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "dim_marcas_2.formato_tienda": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_MARCAS (2)",
-			          "ConceptualProperty": "FORMATO_TIENDA"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "formato tienda": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "FORMATO_TIENDA": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "dim_marcas_2.marca_agrupada": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_MARCAS (2)",
-			          "ConceptualProperty": "MARCA_AGRUPADA"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "marca agrupada": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "MARCA_AGRUPADA": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "dim_marcas_2.un__negocio": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_MARCAS (2)",
-			          "ConceptualProperty": "Un. Negocio"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "un. negocio": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "EKPO_solped": {
 			      "Definition": {
 			        "Binding": {
@@ -31272,16 +31031,6 @@ cultureInfo es-SV
 			        {
 			          "descripcion": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Descripción": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -35063,6 +34812,9 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "articulo": {
@@ -35512,9 +35264,6 @@ cultureInfo es-SV
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "marca": {
@@ -37686,16 +37435,6 @@ cultureInfo es-SV
 			          "mara": {
 			            "State": "Generated",
 			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "Periodo Estadistico": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -40943,16 +40682,6 @@ cultureInfo es-SV
 			          "tipo Vencimiento2": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "Tipo Vencimiento": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -43459,9 +43188,1803 @@ cultureInfo es-SV
 			          }
 			        }
 			      ]
+			    },
+			    "ekpo.pe_mara": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "EKPO",
+			          "ConceptualProperty": "PE_MARA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pe mara": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PE_MARA": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "mara": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "ekpo.pe_ano_mara": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "EKPO",
+			          "ConceptualProperty": "PE_ANO_MARA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pe ano mara": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PE_ANO_MARA": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "ekpo.campaña": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "EKPO",
+			          "ConceptualProperty": "Campaña"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "campaña": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "ekpo_bfi_cd.campaña": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "EKPO_BFI-CD",
+			          "ConceptualProperty": "Campaña"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "campaña": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "ekpo_l1_v2.campaña": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "EKPO L1 V2",
+			          "ConceptualProperty": "Campaña"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "campaña": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inventarioud.articulo_generico_F": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INVENTARIOUD",
+			          "ConceptualProperty": "Articulo_GenericoF"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "articulo generico F": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Articulo_GenericoF": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inventarioud.campaña": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INVENTARIOUD",
+			          "ConceptualProperty": "Campaña"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "campaña": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.division_bv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "DIVISION_BV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "division bv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DIVISION_BV": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "bv": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.articulo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "ARTICULO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "articulo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.estilo_color_bv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "ESTILO_COLOR_BV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estilo color bv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ESTILO_COLOR_BV": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.estilo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "ESTILO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estilo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.color": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "COLOR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "color": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "dye": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "paint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pigment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.alu": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "ALU"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "alu": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.marca_bv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "MARCA_BV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "marca bv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "MARCA_BV": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.depto_bv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "DEPTO_BV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "depto bv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DEPTO_BV": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.genero_bv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "GENERO_BV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "genero bv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "GENERO_BV": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.categoria_bv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "CATEGORIA_BV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "categoria bv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CATEGORIA_BV": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.subcategoria_bv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "SUBCATEGORIA_BV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "subcategoria bv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "SUBCATEGORIA_BV": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.tipo_estilo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "TIPO_ESTILO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo estilo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TIPO_ESTILO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.periodo_est": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "PERIODO_EST"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "periodo est": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PERIODO_EST": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.estatus_bv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "ESTATUS_BV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estatus bv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ESTATUS_BV": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.marca_gr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "MARCA_GR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "marca gr": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "MARCA_GR": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_marca.jerarquia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MARCAS",
+			          "ConceptualProperty": "JERARQUIA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "jerarquia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_articulo.marca_gr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_ARTICULOS",
+			          "ConceptualProperty": "MARCA_GR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "marca gr": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "MARCA_GR": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Marca Agrupada": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid.horacreaciondocumentoekpo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "HORACREACIONDOCUMENTOEKPO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "horacreaciondocumentoekpo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "time": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "lt_tienda_vid.fechaajustada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "LT TIENDA VID",
+			          "ConceptualProperty": "FECHAAJUSTADA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fechaajustada": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "solped_ZTRA": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "solped ZTRA": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.doc_compra": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "DOC_COMPRA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "doc compra": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DOC_COMPRA": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.posicion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "POSICION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "posicion": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.articulo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "ARTICULO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "articulo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.cantidad_reparto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "CANTIDAD_REPARTO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad reparto": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CANTIDAD_REPARTO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.unidad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "UNIDAD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "unidad": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.entrega": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "ENTREGAS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "entrega": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.cantidad_salida": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "CANTIDAD_SALIDA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad salida": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CANTIDAD_SALIDA": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.cantidad_ingresada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "CANTIDAD_INGRESADA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidad ingresada": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CANTIDAD_INGRESADA": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.clase_doc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "CLASE_DOC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "clase doc": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CLASE_DOC": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.creado_el": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "CREADO_EL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "creado el": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CREADO_EL": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.creado_por": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "CREADO_POR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "creado por": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CREADO_POR": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.centro_suminis": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "CENTRO_SUMINIS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "centro suminis": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CENTRO_SUMINIS": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.texto_breve": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "TEXTO_BREVE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "texto breve": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TEXTO_BREVE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.centro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "CENTRO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "centro": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.tipo_material": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "TIPO_MATERIAL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo material": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TIPO_MATERIAL": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "tipo fabric": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.451
+			          }
+			        },
+			        {
+			          "tipo cloth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.451
+			          }
+			        },
+			        {
+			          "tipo textile": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.451
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.estilo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "ESTILO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estilo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.mat_gral_conf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "MAT_GRAL_CONF"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mat gral conf": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "MAT_GRAL_CONF": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.color": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "COLOR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "color": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "dye": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "paint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "pigment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.talla": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "TALLA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "talla": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.marca": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "MARCA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "marca": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.genero": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "GENERO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "genero": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.tienda": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "TIENDA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tienda": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.pais": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "PAIS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pais": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.indicador_de_borrado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "INDICADOR_DE_BORRADO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "indicador de borrado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "INDICADOR_DE_BORRADO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.departamento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "DEPARTAMENTO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "departamento": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.tipo_flete": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "TIPO_FLETE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo flete": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TIPO_FLETE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.vendedor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "VENDEDOR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vendedor": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.almacen_emisor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "ALMACEN_EMISOR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "almacen emisor": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ALMACEN_EMISOR": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.almacen": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "ALMACEN"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "almacen": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.contenedor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "CONTENEDOR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "contenedor": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "FECHA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.no_expediente": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "NO_EXPEDIENTE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "no expediente": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "NO_EXPEDIENTE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "number expediente": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.fecha_expediente": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "FECHA_EXPEDIENTE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha expediente": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "FECHA_EXPEDIENTE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.fecha_liquidacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "FECHA_LIQUIDACION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha liquidacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "FECHA_LIQUIDACION": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.lote": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "LOTE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "lote": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.fecha_documento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "FECHA_DOCUMENTO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha documento": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "FECHA_DOCUMENTO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.grupo_de_compra": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "GRUPO_DE_COMPRA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "grupo de compra": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "GRUPO_DE_COMPRA": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.upc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "UPC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "upc": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.indicador_de_liquidacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "INDICADOR_DE_LIQUIDACION"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "indicador de liquidacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "INDICADOR_DE_LIQUIDACION": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.entrega_final": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "ENTREGA_FINAL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "entrega final": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ENTREGA_FINAL": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "entrega decider": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.451
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.pe_mara": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "PE_MARA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pe mara": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PE_MARA": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "mara": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.pe_ano_mara": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "PE_ANO_MARA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pe ano mara": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PE_ANO_MARA": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.pe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "PE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pe": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.ano_pe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "ANO_PE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ano pe": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ANO_PE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "solped_ZTRA.cantidadreparto_total": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Solped ZTRA",
+			          "ConceptualProperty": "CANTIDADREPARTO_TOTAL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cantidadreparto total": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CANTIDADREPARTO_TOTAL": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "cantidadreparto aggregate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "cantidadreparto overall": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "dim_articulo.año_PE": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_ARTICULOS",
+			          "ConceptualProperty": "Año PE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "año PE": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_inventarioud.año_PE": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_INVENTARIOUD",
+			          "ConceptualProperty": "Año PE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "año PE": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "fecha_arribo_futuro_fecha_semana_has_año": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_semana": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_semana"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_semana.año": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_semana.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_semana"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_semana.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_semanas_have_años"
+			        }
+			      ]
+			    },
+			    "fecha_arribo_futuro_fecha_AMD_me_has_fecha_arribo_futuro_fecha_AMD_día": {
+			      "Binding": {
+			        "ConceptualEntity": "Fecha Arribo Futuro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fecha_arribo_futuro.fecha_AMD.me": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
+			          }
+			        },
+			        "fecha_arribo_futuro.fecha_AMD.día": {
+			          "Target": {
+			            "Entity": "fecha_arribo_futuro.fecha_AMD.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_días"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
+			            },
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_have_me"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_are_in_me1"
+			        }
+			      ]
+			    },
 			    "fecha_arribo_futuro_fecha_AMD_año_has_fecha_arribo_futuro_fecha_AMD_me": {
 			      "Binding": {
 			        "ConceptualEntity": "Fecha Arribo Futuro"
@@ -43854,7 +45377,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fecha_semanas_have_años"
+			          "ID": "fecha_semanas_have_años1"
 			        }
 			      ]
 			    },
@@ -43887,7 +45410,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "me_have_días"
+			          "ID": "me_have_días1"
 			        },
 			        {
 			          "Attribute": {
@@ -43900,7 +45423,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "días_have_me"
+			          "ID": "días_have_me1"
 			        },
 			        {
 			          "Preposition": {
@@ -44411,7 +45934,7 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "preparaciones_cd_tracing_has_dim_marcas_2": {
+			    "preparaciones_cd_tracing_has_dim_articulo": {
 			      "Binding": {
 			        "ConceptualEntity": "PREPARACIONES CD (TRACING)"
 			      },
@@ -44422,9 +45945,9 @@ cultureInfo es-SV
 			            "Entity": "preparaciones_cd_tracing"
 			          }
 			        },
-			        "dim_marcas_2": {
+			        "dim_articulo": {
 			          "Target": {
-			            "Entity": "dim_marcas_2"
+			            "Entity": "dim_articulo"
 			          }
 			        }
 			      },
@@ -44435,17 +45958,17 @@ cultureInfo es-SV
 			              "Role": "preparaciones_cd_tracing"
 			            },
 			            "Object": {
-			              "Role": "dim_marcas_2"
+			              "Role": "dim_articulo"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "preparaciones_cd_tracing_have_dim_marcas_2"
+			          "ID": "preparaciones_cd_tracing_have_dim_articulos"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_marcas_2"
+			              "Role": "dim_articulo"
 			            },
 			            "Object": {
 			              "Role": "preparaciones_cd_tracing"
@@ -44453,7 +45976,7 @@ cultureInfo es-SV
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_preparaciones_cd_tracing"
+			          "ID": "dim_articulos_have_preparaciones_cd_tracing"
 			        }
 			      ]
 			    },
@@ -44698,52 +46221,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_deptos_have_fl_tracing"
-			        }
-			      ]
-			    },
-			    "fl_tracing_has_dim_marcas_2": {
-			      "Binding": {
-			        "ConceptualEntity": "FL (TRACING)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fl_tracing": {
-			          "Target": {
-			            "Entity": "fl_tracing"
-			          }
-			        },
-			        "dim_marcas_2": {
-			          "Target": {
-			            "Entity": "dim_marcas_2"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fl_tracing"
-			            },
-			            "Object": {
-			              "Role": "dim_marcas_2"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fl_tracing_have_dim_marcas_2"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marcas_2"
-			            },
-			            "Object": {
-			              "Role": "fl_tracing"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_fl_tracing"
 			        }
 			      ]
 			    },
@@ -45126,6 +46603,52 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "SLA_maritimos_have_ekpo_cd_tiendas"
+			        }
+			      ]
+			    },
+			    "ekpo_bfi_cd_has_fecha_liquidación": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO_BFI-CD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo_bfi_cd": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd"
+			          }
+			        },
+			        "fecha_liquidación": {
+			          "Target": {
+			            "Entity": "fecha_liquidación"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo_bfi_cd"
+			            },
+			            "Object": {
+			              "Role": "fecha_liquidación"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpo_bfi_cd_have_fecha_liquidacións"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fecha_liquidación"
+			            },
+			            "Object": {
+			              "Role": "ekpo_bfi_cd"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_liquidacións_have_ekpo_bfi_cd"
 			        }
 			      ]
 			    },
@@ -46328,6 +47851,2415 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_articulos_have_EKPO_solpeds"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_año_PE": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "fact_inventarioud.año_PE": {
+			          "Target": {
+			            "Entity": "fact_inventarioud.año_PE"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "fact_inventarioud.año_PE"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_año_PE"
+			        }
+			      ]
+			    },
+			    "dim_articulo_has_año_PE": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ARTICULOS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_articulo": {
+			          "Target": {
+			            "Entity": "dim_articulo"
+			          }
+			        },
+			        "dim_articulo.año_PE": {
+			          "Target": {
+			            "Entity": "dim_articulo.año_PE"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_articulo"
+			            },
+			            "Object": {
+			              "Role": "dim_articulo.año_PE"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_articulos_have_año_PE"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_cantidadreparto_total": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.cantidadreparto_total": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.cantidadreparto_total"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.cantidadreparto_total"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_cantidadreparto_totals"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_ano_pe": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.ano_pe": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.ano_pe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.ano_pe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_ano_pe"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_pe": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.pe": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.pe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.pe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_pe"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_pe_ano_mara": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.pe_ano_mara": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.pe_ano_mara"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.pe_ano_mara"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_pe_ano_mara"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_pe_mara": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.pe_mara": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.pe_mara"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.pe_mara"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_pe_mara"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_entrega_final": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.entrega_final": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.entrega_final"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.entrega_final"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_entrega_finals"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_indicador_de_liquidacion": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.indicador_de_liquidacion": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.indicador_de_liquidacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.indicador_de_liquidacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_indicador_de_liquidacions"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_upc": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.upc": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.upc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.upc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_upcs"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_grupo_de_compra": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.grupo_de_compra": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.grupo_de_compra"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.grupo_de_compra"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_grupo_de_compras"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_fecha_documento": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.fecha_documento": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.fecha_documento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.fecha_documento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_fecha_documentos"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_lote": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.lote": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.lote"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.lote"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_lotes"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_fecha_liquidacion": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.fecha_liquidacion": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.fecha_liquidacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.fecha_liquidacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_fecha_liquidacions"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_fecha_expediente": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.fecha_expediente": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.fecha_expediente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.fecha_expediente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_fecha_expedientes"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_no_expediente": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.no_expediente": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.no_expediente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.no_expediente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_no_expedientes"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_fecha": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.fecha": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.fecha"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.fecha"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_fechas"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_contenedor": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.contenedor": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.contenedor"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.contenedor"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_contenedors"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_almacen": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.almacen": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.almacen"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.almacen"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_almacens"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_almacen_emisor": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.almacen_emisor": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.almacen_emisor"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.almacen_emisor"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_almacen_emisors"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_vendedor": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.vendedor": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.vendedor"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.vendedor"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_vendedors"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_tipo_flete": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.tipo_flete": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.tipo_flete"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.tipo_flete"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_tipo_fletes"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_departamento": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.departamento": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.departamento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.departamento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_departamentos"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_indicador_de_borrado": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.indicador_de_borrado": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.indicador_de_borrado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.indicador_de_borrado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_indicador_de_borrados"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_pais": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.pais": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.pais"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.pais"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_paises"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_tienda": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.tienda": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.tienda"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.tienda"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_tiendas"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_genero": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.genero": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.genero"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.genero"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_generos"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.marca": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_marcas"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_talla": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.talla": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.talla"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.talla"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_tallas"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_color": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.color": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_colors"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_mat_gral_conf": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.mat_gral_conf": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.mat_gral_conf"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.mat_gral_conf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_mat_gral_confs"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_estilo": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.estilo": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.estilo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.estilo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_estilos"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_tipo_material": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.tipo_material": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.tipo_material"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.tipo_material"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_tipo_materials"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_centro": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.centro": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.centro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.centro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_centro"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_texto_breve": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.texto_breve": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.texto_breve"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.texto_breve"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_texto_breves"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_centro_suminis": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.centro_suminis": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.centro_suminis"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.centro_suminis"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_centro_suminises"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_creado_por": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.creado_por": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.creado_por"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.creado_por"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_creado_pors"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_creado_el": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.creado_el": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.creado_el"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.creado_el"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_creado_els"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_clase_doc": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.clase_doc": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.clase_doc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.clase_doc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_clase_docs"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_cantidad_ingresada": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.cantidad_ingresada": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.cantidad_ingresada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.cantidad_ingresada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_cantidad_ingresadas"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_cantidad_salida": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.cantidad_salida": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.cantidad_salida"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.cantidad_salida"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_cantidad_salidas"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_entrega": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.entrega": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.entrega"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.entrega"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_entregas"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_unidad": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.unidad": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.unidad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.unidad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_unidads"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_cantidad_reparto": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.cantidad_reparto": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.cantidad_reparto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.cantidad_reparto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_cantidad_repartos"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_articulo": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.articulo": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.articulo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.articulo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_articulos"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_posicion": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.posicion": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.posicion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.posicion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_posicions"
+			        }
+			      ]
+			    },
+			    "solped_ZTRA_has_doc_compra": {
+			      "Binding": {
+			        "ConceptualEntity": "Solped ZTRA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "solped_ZTRA": {
+			          "Target": {
+			            "Entity": "solped_ZTRA"
+			          }
+			        },
+			        "solped_ZTRA.doc_compra": {
+			          "Target": {
+			            "Entity": "solped_ZTRA.doc_compra"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "solped_ZTRA"
+			            },
+			            "Object": {
+			              "Role": "solped_ZTRA.doc_compra"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "solped_ZTRAs_have_doc_compras"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_fechaajustada": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.fechaajustada": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.fechaajustada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.fechaajustada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_fechaajustadas"
+			        }
+			      ]
+			    },
+			    "lt_tienda_vid_has_horacreaciondocumentoekpo": {
+			      "Binding": {
+			        "ConceptualEntity": "LT TIENDA VID"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "lt_tienda_vid": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid"
+			          }
+			        },
+			        "lt_tienda_vid.horacreaciondocumentoekpo": {
+			          "Target": {
+			            "Entity": "lt_tienda_vid.horacreaciondocumentoekpo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "lt_tienda_vid"
+			            },
+			            "Object": {
+			              "Role": "lt_tienda_vid.horacreaciondocumentoekpo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "lt_tienda_vids_have_horacreaciondocumentoekpos"
+			        }
+			      ]
+			    },
+			    "dim_articulo_has_marca_gr": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ARTICULOS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_articulo": {
+			          "Target": {
+			            "Entity": "dim_articulo"
+			          }
+			        },
+			        "dim_articulo.marca_gr": {
+			          "Target": {
+			            "Entity": "dim_articulo.marca_gr"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_articulo"
+			            },
+			            "Object": {
+			              "Role": "dim_articulo.marca_gr"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_articulos_have_marca_grs"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_jerarquia": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.jerarquia": {
+			          "Target": {
+			            "Entity": "dim_marca.jerarquia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.jerarquia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_jerarquias"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_marca_gr": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.marca_gr": {
+			          "Target": {
+			            "Entity": "dim_marca.marca_gr"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.marca_gr"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_marca_grs"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_estatus_bv": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.estatus_bv": {
+			          "Target": {
+			            "Entity": "dim_marca.estatus_bv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.estatus_bv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_estatus_bv"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_periodo_est": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.periodo_est": {
+			          "Target": {
+			            "Entity": "dim_marca.periodo_est"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.periodo_est"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_periodo_ests"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_tipo_estilo": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.tipo_estilo": {
+			          "Target": {
+			            "Entity": "dim_marca.tipo_estilo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.tipo_estilo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_tipo_estilos"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_subcategoria_bv": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.subcategoria_bv": {
+			          "Target": {
+			            "Entity": "dim_marca.subcategoria_bv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.subcategoria_bv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_subcategoria_bv"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_categoria_bv": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.categoria_bv": {
+			          "Target": {
+			            "Entity": "dim_marca.categoria_bv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.categoria_bv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_categoria_bv"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_genero_bv": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.genero_bv": {
+			          "Target": {
+			            "Entity": "dim_marca.genero_bv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.genero_bv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_genero_bv"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_depto_bv": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.depto_bv": {
+			          "Target": {
+			            "Entity": "dim_marca.depto_bv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.depto_bv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_depto_bv"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_marca_bv": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.marca_bv": {
+			          "Target": {
+			            "Entity": "dim_marca.marca_bv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.marca_bv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_marca_bv"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_alu": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.alu": {
+			          "Target": {
+			            "Entity": "dim_marca.alu"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.alu"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_alus"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_color": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.color": {
+			          "Target": {
+			            "Entity": "dim_marca.color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_colors"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_estilo": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.estilo": {
+			          "Target": {
+			            "Entity": "dim_marca.estilo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.estilo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_estilos"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_estilo_color_bv": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.estilo_color_bv": {
+			          "Target": {
+			            "Entity": "dim_marca.estilo_color_bv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.estilo_color_bv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_estilo_color_bv"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_articulo": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.articulo": {
+			          "Target": {
+			            "Entity": "dim_marca.articulo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.articulo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_articulos"
+			        }
+			      ]
+			    },
+			    "dim_marca_has_division_bv": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MARCAS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_marca": {
+			          "Target": {
+			            "Entity": "dim_marca"
+			          }
+			        },
+			        "dim_marca.division_bv": {
+			          "Target": {
+			            "Entity": "dim_marca.division_bv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_marca"
+			            },
+			            "Object": {
+			              "Role": "dim_marca.division_bv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_marcas_have_division_bv"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_campaña": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "fact_inventarioud.campaña": {
+			          "Target": {
+			            "Entity": "fact_inventarioud.campaña"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "fact_inventarioud.campaña"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_campañas"
+			        }
+			      ]
+			    },
+			    "fact_inventarioud_has_articulo_generico_F": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_INVENTARIOUD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventarioud": {
+			          "Target": {
+			            "Entity": "fact_inventarioud"
+			          }
+			        },
+			        "fact_inventarioud.articulo_generico_F": {
+			          "Target": {
+			            "Entity": "fact_inventarioud.articulo_generico_F"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventarioud"
+			            },
+			            "Object": {
+			              "Role": "fact_inventarioud.articulo_generico_F"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventariouds_have_articulo_generico_F"
+			        }
+			      ]
+			    },
+			    "ekpo_l1_v2_has_campaña": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO L1 V2"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo_l1_v2": {
+			          "Target": {
+			            "Entity": "ekpo_l1_v2"
+			          }
+			        },
+			        "ekpo_l1_v2.campaña": {
+			          "Target": {
+			            "Entity": "ekpo_l1_v2.campaña"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo_l1_v2"
+			            },
+			            "Object": {
+			              "Role": "ekpo_l1_v2.campaña"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpo_l1_v2_have_campañas"
+			        }
+			      ]
+			    },
+			    "ekpo_bfi_cd_has_campaña": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO_BFI-CD"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo_bfi_cd": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd"
+			          }
+			        },
+			        "ekpo_bfi_cd.campaña": {
+			          "Target": {
+			            "Entity": "ekpo_bfi_cd.campaña"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo_bfi_cd"
+			            },
+			            "Object": {
+			              "Role": "ekpo_bfi_cd.campaña"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpo_bfi_cd_have_campañas"
+			        }
+			      ]
+			    },
+			    "ekpo_has_campaña": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo": {
+			          "Target": {
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "ekpo.campaña": {
+			          "Target": {
+			            "Entity": "ekpo.campaña"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "ekpo.campaña"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_campañas"
+			        }
+			      ]
+			    },
+			    "ekpo_has_pe_ano_mara": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo": {
+			          "Target": {
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "ekpo.pe_ano_mara": {
+			          "Target": {
+			            "Entity": "ekpo.pe_ano_mara"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "ekpo.pe_ano_mara"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_pe_ano_mara"
+			        }
+			      ]
+			    },
+			    "ekpo_has_pe_mara": {
+			      "Binding": {
+			        "ConceptualEntity": "EKPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "ekpo": {
+			          "Target": {
+			            "Entity": "ekpo"
+			          }
+			        },
+			        "ekpo.pe_mara": {
+			          "Target": {
+			            "Entity": "ekpo.pe_mara"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "ekpo"
+			            },
+			            "Object": {
+			              "Role": "ekpo.pe_mara"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ekpos_have_pe_mara"
 			        }
 			      ]
 			    },
@@ -51763,72 +55695,6 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "ekpo_has_pe_ano_mara": {
-			      "Binding": {
-			        "ConceptualEntity": "EKPO"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "ekpo": {
-			          "Target": {
-			            "Entity": "ekpo"
-			          }
-			        },
-			        "ekpo.pe_ano_mara": {
-			          "Target": {
-			            "Entity": "ekpo.pe_ano_mara"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "ekpo"
-			            },
-			            "Object": {
-			              "Role": "ekpo.pe_ano_mara"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "ekpos_have_pe_ano_mara"
-			        }
-			      ]
-			    },
-			    "ekpo_has_pe_mara": {
-			      "Binding": {
-			        "ConceptualEntity": "EKPO"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "ekpo": {
-			          "Target": {
-			            "Entity": "ekpo"
-			          }
-			        },
-			        "ekpo.pe_mara": {
-			          "Target": {
-			            "Entity": "ekpo.pe_mara"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "ekpo"
-			            },
-			            "Object": {
-			              "Role": "ekpo.pe_mara"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "ekpos_have_pe_mara"
-			        }
-			      ]
-			    },
 			    "fact_inventarioud_has_sk_tipo_tienda_108": {
 			      "Binding": {
 			        "ConceptualEntity": "FACT_INVENTARIOUD"
@@ -54436,6 +58302,39 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
+			    "preparaciones_cd_tracing_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "PREPARACIONES CD (TRACING)"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "preparaciones_cd_tracing": {
+			          "Target": {
+			            "Entity": "preparaciones_cd_tracing"
+			          }
+			        },
+			        "preparaciones_cd_tracing.marca": {
+			          "Target": {
+			            "Entity": "preparaciones_cd_tracing.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "preparaciones_cd_tracing"
+			            },
+			            "Object": {
+			              "Role": "preparaciones_cd_tracing.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "preparaciones_cd_tracing_have_marcas"
+			        }
+			      ]
+			    },
 			    "preparaciones_cd_tracing_has_talla": {
 			      "Binding": {
 			        "ConceptualEntity": "PREPARACIONES CD (TRACING)"
@@ -54961,39 +58860,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "preparaciones_cd_tracing_have_cantidad_repartos"
-			        }
-			      ]
-			    },
-			    "preparaciones_cd_tracing_has_articulo": {
-			      "Binding": {
-			        "ConceptualEntity": "PREPARACIONES CD (TRACING)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "preparaciones_cd_tracing": {
-			          "Target": {
-			            "Entity": "preparaciones_cd_tracing"
-			          }
-			        },
-			        "preparaciones_cd_tracing.articulo": {
-			          "Target": {
-			            "Entity": "preparaciones_cd_tracing.articulo"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "preparaciones_cd_tracing"
-			            },
-			            "Object": {
-			              "Role": "preparaciones_cd_tracing.articulo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "preparaciones_cd_tracing_have_articulos"
 			        }
 			      ]
 			    },
@@ -60661,171 +64527,6 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "dim_marcas_2_has_un__negocio": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_MARCAS (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_marcas_2": {
-			          "Target": {
-			            "Entity": "dim_marcas_2"
-			          }
-			        },
-			        "dim_marcas_2.un__negocio": {
-			          "Target": {
-			            "Entity": "dim_marcas_2.un__negocio"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marcas_2"
-			            },
-			            "Object": {
-			              "Role": "dim_marcas_2.un__negocio"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_un__negocios"
-			        }
-			      ]
-			    },
-			    "dim_marcas_2_has_marca_agrupada": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_MARCAS (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_marcas_2": {
-			          "Target": {
-			            "Entity": "dim_marcas_2"
-			          }
-			        },
-			        "dim_marcas_2.marca_agrupada": {
-			          "Target": {
-			            "Entity": "dim_marcas_2.marca_agrupada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marcas_2"
-			            },
-			            "Object": {
-			              "Role": "dim_marcas_2.marca_agrupada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_marca_agrupadas"
-			        }
-			      ]
-			    },
-			    "dim_marcas_2_has_formato_tienda": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_MARCAS (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_marcas_2": {
-			          "Target": {
-			            "Entity": "dim_marcas_2"
-			          }
-			        },
-			        "dim_marcas_2.formato_tienda": {
-			          "Target": {
-			            "Entity": "dim_marcas_2.formato_tienda"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marcas_2"
-			            },
-			            "Object": {
-			              "Role": "dim_marcas_2.formato_tienda"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_formato_tiendas"
-			        }
-			      ]
-			    },
-			    "dim_marcas_2_has_unidad_negocio": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_MARCAS (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_marcas_2": {
-			          "Target": {
-			            "Entity": "dim_marcas_2"
-			          }
-			        },
-			        "dim_marcas_2.unidad_negocio": {
-			          "Target": {
-			            "Entity": "dim_marcas_2.unidad_negocio"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marcas_2"
-			            },
-			            "Object": {
-			              "Role": "dim_marcas_2.unidad_negocio"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_unidad_negocios"
-			        }
-			      ]
-			    },
-			    "dim_marcas_2_has_marca": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_MARCAS (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_marcas_2": {
-			          "Target": {
-			            "Entity": "dim_marcas_2"
-			          }
-			        },
-			        "dim_marcas_2.marca": {
-			          "Target": {
-			            "Entity": "dim_marcas_2.marca"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marcas_2"
-			            },
-			            "Object": {
-			              "Role": "dim_marcas_2.marca"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_2_have_marcas"
-			        }
-			      ]
-			    },
 			    "ekpo_l1_v2_has_fecha_conciliacion": {
 			      "Binding": {
 			        "ConceptualEntity": "EKPO L1 V2"
@@ -61813,6 +65514,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fl_tracing_have_generos"
+			        }
+			      ]
+			    },
+			    "fl_tracing_has_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "FL (TRACING)"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fl_tracing": {
+			          "Target": {
+			            "Entity": "fl_tracing"
+			          }
+			        },
+			        "fl_tracing.marca": {
+			          "Target": {
+			            "Entity": "fl_tracing.marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fl_tracing"
+			            },
+			            "Object": {
+			              "Role": "fl_tracing.marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fl_tracing_have_marcas"
 			        }
 			      ]
 			    },
@@ -86586,39 +90320,6 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "dim_marca_has_sk_unidadnegocio": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_MARCAS"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_marca": {
-			          "Target": {
-			            "Entity": "dim_marca"
-			          }
-			        },
-			        "dim_marca.sk_unidadnegocio": {
-			          "Target": {
-			            "Entity": "dim_marca.sk_unidadnegocio"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marca"
-			            },
-			            "Object": {
-			              "Role": "dim_marca.sk_unidadnegocio"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_have_sk_unidadnegocios"
-			        }
-			      ]
-			    },
 			    "dim_marca_has_marca": {
 			      "Binding": {
 			        "ConceptualEntity": "DIM_MARCAS"
@@ -86649,39 +90350,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_marcas_have_marcas"
-			        }
-			      ]
-			    },
-			    "dim_marca_has_sk_marca": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_MARCAS"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_marca": {
-			          "Target": {
-			            "Entity": "dim_marca"
-			          }
-			        },
-			        "dim_marca.sk_marca": {
-			          "Target": {
-			            "Entity": "dim_marca.sk_marca"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marca"
-			            },
-			            "Object": {
-			              "Role": "dim_marca.sk_marca"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_have_sk_marcas"
 			        }
 			      ]
 			    },
@@ -87873,39 +91541,6 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "dim_marca_has_un__negocio": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_MARCAS"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_marca": {
-			          "Target": {
-			            "Entity": "dim_marca"
-			          }
-			        },
-			        "dim_marca.un__negocio": {
-			          "Target": {
-			            "Entity": "dim_marca.un__negocio"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_marca"
-			            },
-			            "Object": {
-			              "Role": "dim_marca.un__negocio"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_marcas_have_un__negocios"
-			        }
-			      ]
-			    },
 			    "dim_articulo_has_sk_matnr": {
 			      "Binding": {
 			        "ConceptualEntity": "DIM_ARTICULOS"
@@ -88035,6 +91670,39 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_articulos_have_sk_tipoestilos"
+			        }
+			      ]
+			    },
+			    "dim_articulo_has_sk_marca": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ARTICULOS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_articulo": {
+			          "Target": {
+			            "Entity": "dim_articulo"
+			          }
+			        },
+			        "dim_articulo.sk_marca": {
+			          "Target": {
+			            "Entity": "dim_articulo.sk_marca"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_articulo"
+			            },
+			            "Object": {
+			              "Role": "dim_articulo.sk_marca"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_articulos_have_sk_marcas"
 			        }
 			      ]
 			    },
@@ -89406,105 +93074,6 @@ cultureInfo es-SV
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "ekpos_are_readied_on_cargo_ready_dates"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_AMD_me_has_fecha_arribo_futuro_fecha_AMD_día": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_AMD.me": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.me"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_AMD.día": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_AMD.día"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "me_have_días1"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "días_have_me1"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.día"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_AMD.me"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "días_are_in_me1"
-			        }
-			      ]
-			    },
-			    "fecha_arribo_futuro_fecha_semana_has_año": {
-			      "Binding": {
-			        "ConceptualEntity": "Fecha Arribo Futuro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fecha_arribo_futuro.fecha_semana": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_semana"
-			          }
-			        },
-			        "fecha_arribo_futuro.fecha_semana.año": {
-			          "Target": {
-			            "Entity": "fecha_arribo_futuro.fecha_semana.año"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fecha_arribo_futuro.fecha_semana"
-			            },
-			            "Object": {
-			              "Role": "fecha_arribo_futuro.fecha_semana.año"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_semanas_have_años1"
 			        }
 			      ]
 			    },

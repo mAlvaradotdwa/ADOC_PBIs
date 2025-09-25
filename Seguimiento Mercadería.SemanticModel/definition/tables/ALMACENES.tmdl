@@ -41,6 +41,12 @@ table ALMACENES
 
 		annotation SummarizationSetBy = Automatic
 
+	column Conca = ALMACENES[Ce.]&ALMACENES[Alm.]
+		lineageTag: 64a2c155-16dd-47b1-9433-f97e9a57aad7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition ALMACENES = m
 		mode: import
 		source =

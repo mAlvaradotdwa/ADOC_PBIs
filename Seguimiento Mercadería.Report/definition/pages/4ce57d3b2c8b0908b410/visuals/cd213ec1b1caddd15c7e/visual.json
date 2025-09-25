@@ -55,15 +55,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Tabla_Conciliacion"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "Marca"
+                  "Property": "BV_MARCA"
                 }
               },
-              "queryRef": "Tabla_Conciliación.Marca",
+              "queryRef": "DIM_ARTICULOS.BV_MARCA",
               "nativeQueryRef": "Marca",
-              "active": true
+              "active": true,
+              "displayName": "Marca"
             }
           ]
         },
@@ -120,7 +121,7 @@
           },
           {
             "queryRefs": [
-              "Tabla_Conciliación.Marca"
+              "DIM_ARTICULOS.BV_MARCA"
             ],
             "isCollapsed": true,
             "isPinned": true

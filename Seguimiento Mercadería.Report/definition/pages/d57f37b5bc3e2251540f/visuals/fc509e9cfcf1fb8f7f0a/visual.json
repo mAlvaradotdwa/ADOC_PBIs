@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
-  "name": "d9e45371dde97c9c4a7b",
+  "name": "fc509e9cfcf1fb8f7f0a",
   "position": {
-    "x": 25,
-    "y": 531.25,
-    "z": 14000,
+    "x": 3,
+    "y": 540,
+    "z": 16000,
     "height": 55,
-    "width": 183.75,
-    "tabOrder": 8000
+    "width": 120,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "slicer",
@@ -27,9 +27,8 @@
                 }
               },
               "queryRef": "Períodos Estadísticos.Tipo Vencimiento2",
-              "nativeQueryRef": "Tipo Vencimiento",
-              "active": true,
-              "displayName": "Tipo Vencimiento"
+              "nativeQueryRef": "Tipo Vencimiento2",
+              "active": true
             }
           ]
         }
@@ -147,6 +146,13 @@
       "general": [
         {
           "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "orientation": {
               "expr": {
                 "Literal": {
@@ -230,7 +236,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'UNIDAD DE NEGOCIO'"
+                  "Value": "'ESTATUS MK'"
                 }
               }
             },
@@ -436,85 +442,42 @@
             }
           }
         }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "Filter91d4829c6feeac9fb812",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_MARCAS"
-              }
-            },
-            "Property": "SK_UNIDADNEGOCIO"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DIM_MARCAS",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "d"
-                              }
-                            },
-                            "Property": "SK_UNIDADNEGOCIO"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      }
-    ]
   }
 }

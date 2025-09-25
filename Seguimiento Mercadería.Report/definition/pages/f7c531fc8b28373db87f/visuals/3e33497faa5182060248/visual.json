@@ -7,7 +7,7 @@
     "z": 19000,
     "height": 56,
     "width": 120,
-    "tabOrder": 13000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Fecha Liquidación"
                     }
                   },
-                  "Property": "AÑO_ZINTLIQ"
+                  "Property": "Año"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.AÑO_ZINTLIQ",
-              "nativeQueryRef": "Año Liquidación",
-              "active": true,
-              "displayName": "Año Liquidación"
+              "queryRef": "Fecha Liquidación.Año",
+              "nativeQueryRef": "Año",
+              "active": true
             }
           ]
         }
@@ -152,47 +151,6 @@
                 "Literal": {
                   "Value": "0D"
                 }
-              }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "e",
-                    "Entity": "EKPO_BFI-CD",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "e"
-                                }
-                              },
-                              "Property": "AÑO_ZINTLIQ"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "2025L"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
               }
             }
           }

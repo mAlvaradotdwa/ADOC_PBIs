@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 55.440729483282681,
     "width": 122.55319148936171,
-    "tabOrder": 20000
+    "tabOrder": 17000
   },
   "visual": {
     "visualType": "slicer",
@@ -23,11 +23,11 @@
                       "Entity": "EKPO"
                     }
                   },
-                  "Property": "Año PE"
+                  "Property": "Campaña"
                 }
               },
-              "queryRef": "EKPO.Año PE",
-              "nativeQueryRef": "Año PE",
+              "queryRef": "EKPO.Campaña",
+              "nativeQueryRef": "Campaña",
               "active": true
             }
           ]
@@ -42,6 +42,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Dropdown'"
+                }
+              }
+            },
+            "isInvertedSelectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -158,6 +165,44 @@
                 "Literal": {
                   "Value": "0D"
                 }
+              }
+            },
+            "selfFilter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "e",
+                    "Entity": "EKPO",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Contains": {
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "e"
+                              }
+                            },
+                            "Property": "Campaña"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'NOVI'"
+                          }
+                        }
+                      }
+                    },
+                    "Annotations": {
+                      "PowerBI.MParameterBehavior": 1
+                    }
+                  }
+                ]
               }
             }
           }

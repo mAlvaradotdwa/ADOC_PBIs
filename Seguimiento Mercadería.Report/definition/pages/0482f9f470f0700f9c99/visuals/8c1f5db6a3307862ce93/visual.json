@@ -44,7 +44,7 @@
               },
               "queryRef": "EKPO Solped.DOCUMENTO",
               "nativeQueryRef": "Documento",
-              "active": true,
+              "active": false,
               "displayName": "Documento"
             },
             {
@@ -60,24 +60,8 @@
               },
               "queryRef": "DIM_ARTICULOS.BV_ESTILO_COLOR",
               "nativeQueryRef": "Estilo Color",
-              "active": true,
-              "displayName": "Estilo Color"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "EKPO Solped"
-                    }
-                  },
-                  "Property": "DESCRIPCION"
-                }
-              },
-              "queryRef": "EKPO Solped.DESCRIPCION",
-              "nativeQueryRef": "Descripción",
               "active": false,
-              "displayName": "Descripción"
+              "displayName": "Estilo Color"
             }
           ]
         },
@@ -153,12 +137,14 @@
             "queryRefs": [
               "EKPO Solped.CENTRO_DESTINO"
             ],
+            "isCollapsed": true,
             "isPinned": true
           },
           {
             "queryRefs": [
               "EKPO Solped.DOCUMENTO"
             ],
+            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -190,13 +176,6 @@
                 }
               }
             ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "EKPO Solped.DESCRIPCION"
-            ],
-            "isCollapsed": true,
             "isPinned": true
           }
         ],

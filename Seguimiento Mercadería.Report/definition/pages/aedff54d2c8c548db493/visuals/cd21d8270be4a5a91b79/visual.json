@@ -7,7 +7,7 @@
     "z": 12000,
     "height": 672.09726443769,
     "width": 640,
-    "tabOrder": 5000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -20,30 +20,32 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "Un. Negocio"
+                  "Property": "MARCA_GR"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).Un. Negocio",
-              "nativeQueryRef": "Un. Negocio",
-              "active": true
+              "queryRef": "DIM_ARTICULOS.MARCA_GR",
+              "nativeQueryRef": "Marca Agrupada",
+              "active": true,
+              "displayName": "Marca Agrupada"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "MARCA"
+                  "Property": "BV_MARCA"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).MARCA",
-              "nativeQueryRef": "MARCA",
-              "active": true
+              "queryRef": "DIM_ARTICULOS.BV_MARCA",
+              "nativeQueryRef": "Marca",
+              "active": true,
+              "displayName": "Marca"
             }
           ]
         },
@@ -150,13 +152,13 @@
         "levels": [
           {
             "queryRefs": [
-              "DIM_MARCAS (2).Un. Negocio"
+              "DIM_ARTICULOS.MARCA_GR"
             ],
             "isPinned": true
           },
           {
             "queryRefs": [
-              "DIM_MARCAS (2).MARCA"
+              "DIM_ARTICULOS.BV_MARCA"
             ],
             "isCollapsed": true,
             "isPinned": true

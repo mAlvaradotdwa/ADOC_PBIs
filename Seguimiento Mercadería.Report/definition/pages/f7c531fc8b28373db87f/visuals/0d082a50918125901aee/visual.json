@@ -7,7 +7,7 @@
     "z": 20000,
     "height": 56,
     "width": 120,
-    "tabOrder": 14000
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Fecha Liquidación"
                     }
                   },
-                  "Property": "MES_ZINTLIQ"
+                  "Property": "Mes Año"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.MES_ZINTLIQ",
-              "nativeQueryRef": "Mes Liquidación ",
-              "active": true,
-              "displayName": "Mes Liquidación "
+              "queryRef": "Fecha Liquidación.Mes Año",
+              "nativeQueryRef": "Mes Año",
+              "active": true
             }
           ]
         }
@@ -159,8 +158,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "e",
-                    "Entity": "EKPO_BFI-CD",
+                    "Name": "f",
+                    "Entity": "Fecha Liquidación",
                     "Type": 0
                   }
                 ],
@@ -173,10 +172,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "e"
+                                  "Source": "f"
                                 }
                               },
-                              "Property": "MES_ZINTLIQ"
+                              "Property": "Mes Año"
                             }
                           }
                         ],
@@ -184,7 +183,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "8L"
+                                "Value": "'sep. 2025'"
                               }
                             }
                           ]

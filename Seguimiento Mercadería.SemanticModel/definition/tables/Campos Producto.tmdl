@@ -94,6 +94,7 @@ table 'Campos Producto'
 		annotation SummarizationSetBy = Automatic
 
 	column Value3
+		formatString: 0
 		lineageTag: 8fea80a5-d65f-4230-8344-a562459b0c0c
 		summarizeBy: sum
 		isNameInferred
@@ -105,7 +106,7 @@ table 'Campos Producto'
 		mode: import
 		source =
 				{
-				    ("Un. Negocio", NAMEOF('DIM_MARCAS'[Un. Negocio]), 0),
+				    ("Un. Negocio", NAMEOF('DIM_ARTICULOS'[MARCA_GR]), 0),
 				    ("Marca", NAMEOF('DIM_MARCAS'[MARCA]), 1),
 				    ("Departamento", NAMEOF('DIM_DEPTO'[Departamento]), 2),
 				    ("Categoría", NAMEOF('DIM_ARTICULOS'[BV_CATEGORIA]), 3),

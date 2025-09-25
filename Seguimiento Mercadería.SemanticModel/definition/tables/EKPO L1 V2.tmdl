@@ -359,6 +359,12 @@ table 'EKPO L1 V2'
 
 		annotation SummarizationSetBy = Automatic
 
+	column Campaña = LOOKUPVALUE(FAC_TEMPORADAS[Campaña],FAC_TEMPORADAS[Articulo],'EKPO L1 V2'[Articulo_GenericoF],"Sin Campaña")
+		lineageTag: 24880504-ceed-4069-9340-a9aaf3079355
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'EKPO L1 V2' = m
 		mode: import
 		source =

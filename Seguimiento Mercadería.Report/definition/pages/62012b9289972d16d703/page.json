@@ -127,6 +127,13 @@
                               "Value": "null"
                             }
                           }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'INV25SA-001'"
+                            }
+                          }
                         ]
                       ]
                     }
@@ -136,6 +143,36 @@
             }
           ]
         },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "bb6a3d3128a5a7c1976a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "CENTRO"
+          }
+        },
+        "type": "Categorical",
         "howCreated": "User",
         "objects": {
           "general": [

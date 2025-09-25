@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 56.25,
     "width": 120,
-    "tabOrder": 14000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "slicer",
@@ -159,6 +159,44 @@
                 "Literal": {
                   "Value": "0D"
                 }
+              }
+            },
+            "selfFilter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "DIM_ARTICULOS",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Contains": {
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "BV_ESTILO_COLOR"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'rene 22'"
+                          }
+                        }
+                      }
+                    },
+                    "Annotations": {
+                      "PowerBI.MParameterBehavior": 1
+                    }
+                  }
+                ]
               }
             }
           }

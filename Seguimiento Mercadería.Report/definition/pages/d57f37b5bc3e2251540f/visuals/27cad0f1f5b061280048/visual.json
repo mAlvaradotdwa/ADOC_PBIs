@@ -5,9 +5,9 @@
     "x": 248,
     "y": 152,
     "z": 7000,
-    "height": 560,
+    "height": 253,
     "width": 1024,
-    "tabOrder": 1000
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "pivotTable",

@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 55.95628415300547,
     "width": 183.85636221701796,
-    "tabOrder": 20000
+    "tabOrder": 17000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
+                      "Entity": "EKPO_BFI-CD"
                     }
                   },
-                  "Property": "MARCA"
+                  "Property": "PAIS"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.MARCA",
-              "nativeQueryRef": "Marca",
+              "queryRef": "EKPO_BFI-CD.PAIS",
+              "nativeQueryRef": "País",
               "active": true,
-              "displayName": "Marca"
+              "displayName": "País"
             }
           ]
         }

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "ae4896362f34b0a750a5",
   "position": {
-    "x": 966.25,
-    "y": 495,
+    "x": 957.85714285714289,
+    "y": 517.9591836734694,
     "z": 14000,
-    "height": 225,
-    "width": 313.75,
-    "tabOrder": 7000
+    "height": 202.04081632653063,
+    "width": 314.08163265306126,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -102,7 +102,7 @@
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "1000D"
                 }
               }
             },
@@ -197,6 +197,39 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "34f4bca444284c1f4881",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "EKPO_BFI-CD"
+              }
+            },
+            "Property": "PAIS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "aa2828d8f815056022db",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "EKPO_BFI-CD"
+                  }
+                },
+                "Property": "CANTIDADREPARTO_TOTAL"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -592,7 +592,7 @@ table EKPO
 	column Transito_BFI =
 			
 			VAR _eta = [ETA]
-			VAR _etaMT = [MAX_ETA]
+			VAR _etaMT = [ETA_Marin_Traffic]
 			VAR _fl = [Fecha_Final_Liq]
 			RETURN
 			    IF(
@@ -1649,6 +1649,12 @@ table EKPO
 		lineageTag: 852864fe-2b9d-4ac4-90e3-51d6f84f78e6
 		summarizeBy: none
 		sourceColumn: PE_ANO_MARA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Campaña = LOOKUPVALUE(FAC_TEMPORADAS[Campaña],FAC_TEMPORADAS[Articulo],EKPO[Articulo_GenericoF],"Sin Campaña")
+		lineageTag: 8ce38a10-9e6f-4142-a12e-16949b9da223
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 

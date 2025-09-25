@@ -214,6 +214,30 @@ table FACT_INVENTARIOUD
 
 		annotation SummarizationSetBy = Automatic
 
+	column Articulo_GenericoF = MID('FACT_INVENTARIOUD'[SK_MATNR],FIND("0000000",'FACT_INVENTARIOUD'[SK_MATNR])+7,8)
+		lineageTag: ef1de25f-94f8-4ed1-b4ba-2c6df24dfff8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Campaña = LOOKUPVALUE(FAC_TEMPORADAS[Campaña],FAC_TEMPORADAS[Articulo],FACT_INVENTARIOUD[Articulo_GenericoF],"Sin Campaña")
+		lineageTag: 6e33bee1-887c-43cf-a155-bcbb08e3cf5d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año PE' = RIGHT(FACT_INVENTARIOUD[DIM_ARTICULOS.SK_COLECCION],4)
+		lineageTag: 55f6f083-f389-4a2e-9942-18ecf81aa308
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Conca = FACT_INVENTARIOUD[SK_TIENDA]&FACT_INVENTARIOUD[SK_ALMACEN]
+		lineageTag: ba0f891f-a3fc-42b6-9cca-6ec8287a9e27
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FACT_INVENTARIOUD = m
 		mode: import
 		source =

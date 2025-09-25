@@ -365,11 +365,25 @@ table DIM_ARTICULOS
 
 		annotation SummarizationSetBy = Automatic
 
+	column MARCA_GR
+		dataType: string
+		lineageTag: 60594bb4-21de-4c79-871b-809e59b52eb0
+		summarizeBy: none
+		sourceColumn: MARCA_GR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año PE' = RIGHT(DIM_ARTICULOS[SK_COLECCION],4)
+		lineageTag: 8755758f-8e41-45fe-92f0-11eda443954a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DIM_ARTICULOS = m
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="select * from DIM_ARTICULOSAP where TIPOESTILO is not null and MATNR_BORRADO = ''"])
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="WITH JerMarca AS (#(lf)    SELECT#(lf)        A.""BV_MARCA"",#(lf)        CASE#(lf)            WHEN A.""BV_MARCA"" IN ('4X4','501','BRA','KIP','KIC','MIR','VEL','PR2','BRI','NIP','USA','DIN')#(lf)                THEN 'PAR2'#(lf)            WHEN A.""BV_MARCA"" IN ('ADO','HEA','COY','DIS','DSP','STM','LCS')#(lf)                THEN 'ADOC'#(lf)            WHEN A.""BV_MARCA"" IN ('CAT','HPU','TNF','MER','VNS')#(lf)                THEN A.""BV_MARCA""#(lf)            ELSE 'OTH'#(lf)        END AS ""MARCA_GR""#(lf)    FROM ""DM_COMERCIAL"".""dbo"".""DIM_ARTICULOSAP"" A#(lf)    GROUP BY A.""BV_MARCA""#(lf))#(lf)SELECT #(lf)    A.*,#(lf)    J.""MARCA_GR""#(lf)FROM ""DM_COMERCIAL"".""dbo"".""DIM_ARTICULOSAP"" A#(lf)LEFT JOIN JerMarca J #(lf)       ON A.""BV_MARCA"" = J.""BV_MARCA""#(lf)WHERE A.""TIPOESTILO"" IS NOT NULL#(lf)  AND A.""MATNR_BORRADO"" = ''"])
 				in
 				    Origen
 

@@ -118,23 +118,7 @@ relationship 8eb4fa76-ce0e-e7e9-619b-b2b021c10aa9
 	fromColumn: EKPO.Fecha_OTB
 	toColumn: 'Fecha Conciliación OTB'.Fecha
 
-relationship 1f8712ea-9193-4178-eaee-582df5276b45
-	isActive: false
-	fromColumn: EKPO.MARCA
-	toColumn: 'DIM_MARCAS (2)'.MARCA
-
-relationship 816166a3-6546-8088-429d-1b7dad646154
-	isActive: false
-	fromColumn: 'EKPO L1'.MARCA
-	toColumn: 'DIM_MARCAS (2)'.MARCA
-
-relationship b79ca559-23a7-c8f9-5027-71b507a6169f
-	isActive: false
-	fromColumn: EKPO_BFI-CD.MARCA
-	toColumn: 'DIM_MARCAS (2)'.MARCA
-
 relationship 317dcec9-5e7e-228a-833d-5bb5c8c58a46
-	crossFilteringBehavior: bothDirections
 	toCardinality: many
 	fromColumn: DIM_ARTICULOS.BV_MATNR
 	toColumn: 'EKPO Solped'.ARTICULO
@@ -180,22 +164,6 @@ relationship c888f5c7-21d4-5d63-0494-10ecd0744da2
 relationship 14e3565a-76cf-fa6d-3fde-c377cfd8d0e2
 	fromColumn: EKPO_CD-TIENDA.PAIS
 	toColumn: SLA_Maritimo.Pais
-
-relationship e208f3a2-d013-8a3a-73de-c37dd8733e85
-	isActive: false
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: DIM_MARCAS.MARCA
-	toColumn: 'DIM_MARCAS (2)'.MARCA
-
-relationship 939cbe1f-ace3-38f1-1e4b-bfb8ec342c18
-	isActive: false
-	fromColumn: 'EKPO L1 V2'.MARCA
-	toColumn: 'DIM_MARCAS (2)'.MARCA
-
-relationship fe815b42-37ff-8620-6a85-2f0a5eb391e4
-	fromColumn: 'FL (TRACING)'.MARCA
-	toColumn: 'DIM_MARCAS (2)'.MARCA
 
 relationship 6d658db4-15ed-059e-d2be-1002f11556e6
 	isActive: false
@@ -243,15 +211,6 @@ relationship b454d682-cf83-0ac9-9d65-19f448ac0f54
 	fromColumn: DIM_PROVEEDOR.'DIM_PROVEEDOR_EKKO.LIFNR'
 	toColumn: DIM_PROVEEDOR_EKKO.LIFNR
 
-relationship d7a1a6bd-d125-a20a-3b9b-ed1d4e24a853
-	fromColumn: 'PREPARACIONES CD (TRACING)'.MARCA
-	toColumn: 'DIM_MARCAS (2)'.MARCA
-
-relationship d245d09f-ae8f-6396-7f9d-69182398426b
-	isActive: false
-	fromColumn: Tabla_Conciliacion.Marca
-	toColumn: 'DIM_MARCAS (2)'.MARCA
-
 relationship 86c69fd4-1c65-9dfd-c8ed-5233fcc63426
 	fromColumn: Tabla_Conciliacion.Articulo
 	toColumn: DIM_ARTICULOS.SK_MATNR
@@ -287,10 +246,6 @@ relationship 3532abfb-367f-37a8-352d-61ecd2ed1d47
 	fromColumn: FACT_INVENTARIOUD.SK_MATNR
 	toColumn: DIM_ARTICULOS.SK_MATNR
 
-relationship d790b8b8-bd9b-e8e6-aad4-9e838c940e49
-	fromColumn: DIM_ARTICULOS.SK_MARCA
-	toColumn: 'DIM_MARCAS (2)'.MARCA
-
 relationship 1c31302b-734d-aef3-7b25-c1606f3ad176
 	fromColumn: DIM_ARTICULOS.PE
 	toColumn: 'Períodos Estadísticos'.PE
@@ -313,6 +268,7 @@ relationship 1f91c1ff-fbef-010c-2387-9436c9b937d5
 	toColumn: DIM_PAIS.SK_PAIS
 
 relationship 790d8d4a-bfd2-9e0f-e078-884ae5cff01d
+	isActive: false
 	fromColumn: FACT_INVENTARIOUD.SK_TIENDA
 	toColumn: DIM_BODEGA.SK_TIENDA
 
@@ -329,11 +285,6 @@ relationship 2e7e29a5-5ab8-4231-43ee-42339fa3625e
 	toCardinality: many
 	fromColumn: Tabla_Campaña.Estilo
 	toColumn: FAC_TEMPORADAS.Estilo
-
-relationship 470caf1c-0b89-1850-33b3-eac29c1d19d0
-	isActive: false
-	fromColumn: Tabla_Campaña.Marca
-	toColumn: 'DIM_MARCAS (2)'.MARCA
 
 relationship 6db6375b-f7b1-8583-5420-2fa32807d811
 	fromColumn: Tabla_Campaña.Origen
@@ -357,6 +308,7 @@ relationship 2e01e5ad-aa13-cc99-39d6-cacdedc1561a
 	toColumn: 'Fecha Creación MK'.Fecha
 
 relationship 92eb84d4-ff4c-f457-a91d-375ca3de41b3
+	isActive: false
 	fromColumn: ALMACENES.'Ce.'
 	toColumn: DIM_BODEGA.SK_TIENDA
 
@@ -371,4 +323,20 @@ relationship 955a3483-c79a-96ca-138b-1f6795bf6437
 relationship 4395c6b0-a8f4-b0fa-9a18-3b5a9dcab58b
 	fromColumn: 'LT TIENDA VID'.FECHACONTABILIZACION
 	toColumn: 'Fecha Liquidación'.Fecha
+
+relationship 7366bfb6-21a9-93a1-9807-6d7f67415c6e
+	fromColumn: EKPO_BFI-CD.FECHA_LIQUIDACION
+	toColumn: 'Fecha Liquidación'.Fecha
+
+relationship cb913ad3-685f-367e-f794-ba2b0a3c89f7
+	fromColumn: 'PREPARACIONES CD (TRACING)'.ARTICULO
+	toColumn: DIM_ARTICULOS.SK_MATNR
+
+relationship d74ee15b-ea33-c183-b359-5da78c2755fb
+	fromColumn: FACT_INVENTARIOUD.Conca
+	toColumn: ALMACENES.Conca
+
+relationship 7740dcc0-745e-f8ca-b8a7-bc7c3eb10d45
+	fromColumn: FACT_INVENTARIOUD.SK_PAIS
+	toColumn: DIM_PAIS.SK_PAIS
 

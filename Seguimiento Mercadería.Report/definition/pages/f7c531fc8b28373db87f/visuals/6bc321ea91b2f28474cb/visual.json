@@ -7,7 +7,7 @@
     "z": 17000,
     "height": 56,
     "width": 120,
-    "tabOrder": 11000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -190,7 +190,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Fecha Expediente'"
+                                "Value": "'Fecha Documento'"
                               }
                             }
                           ]

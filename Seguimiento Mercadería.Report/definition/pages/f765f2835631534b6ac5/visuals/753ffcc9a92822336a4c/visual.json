@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 55.555555555555557,
     "width": 148.88888888888889,
-    "tabOrder": 21000
+    "tabOrder": 18000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "MARCA_AGRUPADA"
+                  "Property": "MARCA_GR"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).MARCA_AGRUPADA",
+              "queryRef": "DIM_ARTICULOS.MARCA_GR",
               "nativeQueryRef": "Marca Agrupada",
               "active": true,
               "displayName": "Marca Agrupada"
@@ -44,7 +44,7 @@
               },
               "queryRef": "DIM_ARTICULOS.BV_MARCA",
               "nativeQueryRef": "Marca",
-              "active": true,
+              "active": false,
               "displayName": "Marca"
             }
           ]
@@ -59,7 +59,7 @@
         "levels": [
           {
             "queryRefs": [
-              "DIM_MARCAS (2).MARCA_AGRUPADA"
+              "DIM_ARTICULOS.MARCA_GR"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -67,10 +67,10 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "MARCA_AGRUPADA"
+                  "Property": "MARCA_GR"
                 }
               }
             ],
@@ -80,24 +80,10 @@
             "queryRefs": [
               "DIM_ARTICULOS.BV_MARCA"
             ],
-            "isCollapsed": true,
-            "isPinned": true
+            "isCollapsed": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'ADO'"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {
@@ -116,7 +102,15 @@
       ],
       "general": [
         {
-          "properties": {}
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
         }
       ],
       "header": [

@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 56,
     "width": 120,
-    "tabOrder": 15000
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "slicer",
@@ -190,7 +190,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''Métricas''[LT VID]'"
+                                "Value": "'''Métricas''[LT Doc.]'"
                               }
                             }
                           ]
@@ -218,7 +218,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''Métricas''[LT VID]'"
+                                      "Value": "'''Métricas''[LT Doc.]'"
                                     }
                                   }
                                 ]
@@ -242,7 +242,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "LT VID"
+                            "0": "LT Doc."
                           }
                         ]
                       }

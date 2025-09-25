@@ -7,7 +7,7 @@
     "z": 13000,
     "height": 56.413373860182375,
     "width": 183.82978723404256,
-    "tabOrder": 6000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_PROVEEDOR"
+                      "Entity": "EKPO"
                     }
                   },
-                  "Property": "PROVEEDOR"
+                  "Property": "Campaña"
                 }
               },
-              "queryRef": "DIM_PROVEEDOR.PROVEEDOR",
-              "nativeQueryRef": "Proveedor",
-              "active": true,
-              "displayName": "Proveedor"
+              "queryRef": "EKPO.Campaña",
+              "nativeQueryRef": "Campaña",
+              "active": true
             }
           ]
         }
@@ -499,7 +498,8 @@
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
       }
     ]
   }

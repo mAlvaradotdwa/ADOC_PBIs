@@ -7,7 +7,7 @@
     "z": 15000,
     "height": 560,
     "width": 1024,
-    "tabOrder": 9000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fecha Creación MK"
+                      "Entity": "Fecha Liquidación"
                     }
                   },
                   "Property": "Año"
                 }
               },
-              "queryRef": "Fecha Creación MK.Año",
+              "queryRef": "Fecha Liquidación.Año",
               "nativeQueryRef": "Año",
               "active": true
             },
@@ -35,13 +35,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fecha Creación MK"
+                      "Entity": "Fecha Liquidación"
                     }
                   },
                   "Property": "NumSemana"
                 }
               },
-              "queryRef": "Fecha Creación MK.NumSemana",
+              "queryRef": "Fecha Liquidación.NumSemana",
               "nativeQueryRef": "NumSemana",
               "active": true
             }
@@ -101,36 +101,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Fecha Creación MK"
-                  }
-                },
-                "Property": "Año"
-              }
-            },
-            "direction": "Descending"
-          },
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Fecha Creación MK"
-                  }
-                },
-                "Property": "NumSemana"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {

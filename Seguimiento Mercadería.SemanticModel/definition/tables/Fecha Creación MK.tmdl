@@ -12,7 +12,7 @@ table 'Fecha Creación MK'
 
 	column Fecha
 		isKey
-		formatString: Long Date
+		formatString: Short Date
 		displayFolder: General
 		lineageTag: 7ef2b2b8-7037-43b1-90f8-512a1e034dee
 		summarizeBy: none
