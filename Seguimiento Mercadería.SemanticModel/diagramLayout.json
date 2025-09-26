@@ -723,6 +723,16 @@
             "width": 234
           },
           "zIndex": 8
+        },
+        {
+          "location": {},
+          "nodeIndex": "MK_LOTES",
+          "nodeLineageTag": "64b47367-bc58-4acc-9dd7-851cf92ad17c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
