@@ -733,6 +733,46 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "SLA CDs",
+          "nodeLineageTag": "5b0db0ca-6dc3-48b0-a681-e82bf136f230",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Tiempos Export",
+          "nodeLineageTag": "d3164c40-6b5a-4ecb-a841-8b1931219da0",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Tiempos Inbound",
+          "nodeLineageTag": "89e03991-7d77-448c-810e-e277fea45945",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Tiempos L1",
+          "nodeLineageTag": "09f47f16-9d91-4893-ab96-dd1cfecf3822",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
