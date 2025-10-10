@@ -1,0 +1,98 @@
+table TiemposObjetivo
+	lineageTag: 70e81988-7d18-4975-ace1-38619d086e4c
+
+	column Modalidad
+		dataType: string
+		lineageTag: b5bad9a8-56b1-4a86-a48b-e747ac99327b
+		summarizeBy: none
+		sourceColumn: Modalidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaisOrigen
+		dataType: string
+		lineageTag: eb232168-a728-4aad-861f-647abe3d5553
+		summarizeBy: none
+		sourceColumn: PaisOrigen
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		dataType: string
+		lineageTag: c4f84ac3-77c8-4a80-b2fb-0fccb076c2aa
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Origen
+		dataType: string
+		lineageTag: edf212a6-880c-45de-8c2f-577bc105e0a3
+		summarizeBy: none
+		sourceColumn: Origen
+
+		annotation SummarizationSetBy = Automatic
+
+	column Destino
+		dataType: string
+		lineageTag: fd7e8366-dc4e-41d3-a2a1-925e9887f796
+		summarizeBy: none
+		sourceColumn: Destino
+
+		annotation SummarizationSetBy = Automatic
+
+	column Actividad
+		dataType: string
+		lineageTag: e8febe1c-43d2-451e-8325-8d96509361e2
+		summarizeBy: none
+		sourceColumn: Actividad
+
+		annotation SummarizationSetBy = Automatic
+
+	column LT
+		dataType: string
+		lineageTag: 2b9e44ad-31c2-428f-83f9-2b3b3f9c91df
+		summarizeBy: none
+		sourceColumn: LT
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo
+		dataType: string
+		lineageTag: 47e799e9-a10e-4b5d-adfe-557f41b663a3
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TiemposObjetivo = m
+		mode: import
+		queryGroup: 'Base LeadTimes'
+		source =
+				let
+				    Origen = _inbound,
+				    #"Consultas combinadas" = Table.NestedJoin(Origen, {"Origen"}, #"Origen-Destino", {"Origen"}, "Origen-Destino", JoinKind.LeftOuter),
+				    #"Se expandió Origen-Destino" = Table.ExpandTableColumn(#"Consultas combinadas", "Origen-Destino", {"Destino"}, {"Destino"}),
+				    tempInbound = Table.ReorderColumns(#"Se expandió Origen-Destino",{"Modalidad", "Origen", "Destino", "Actividad", "LT", "ID", "Tipo"}) ,
+				    outbound = _export,
+				    #"Consultas combinadas1" = Table.NestedJoin(outbound, {"BV_PAIS"}, #"Origen-Destino", {"Destino"}, "Origen-Destino", JoinKind.LeftOuter),
+				    #"Se expandió Origen-Destino1" = Table.ExpandTableColumn(#"Consultas combinadas1", "Origen-Destino", {"Modalidad", "Origen"}, {"Modalidad", "Origen"}),
+				    #"Columnas reordenadas" = Table.ReorderColumns(#"Se expandió Origen-Destino1",{"Tipo", "Modalidad", "Origen", "BV_PAIS", "Actividad", "LT", "ID", "Tipo.1"}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Columnas reordenadas",{"Tipo"}),
+				    tempOutbound = Table.RenameColumns(#"Columnas quitadas",{{"Tipo.1", "Tipo"}, {"BV_PAIS", "Destino"}}),
+				    merge = Table.Combine({tempInbound, tempOutbound}) ,
+				    basePaises = PUERTO_ORIGEN,
+				    #"Otras columnas quitadas" = Table.SelectColumns(basePaises,{"Country", "Name Country"}),
+				    paises = Table.Distinct(#"Otras columnas quitadas") ,
+				    final = Table.NestedJoin(merge, {"Origen"}, paises, {"Name Country"}, "codOrigen", JoinKind.LeftOuter),
+				    #"Se expandió codOrigen" = Table.ExpandTableColumn(final, "codOrigen", {"Country"}, {"Country"}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Se expandió codOrigen",{{"Origen", "PaisOrigen"}}),
+				    #"Columnas reordenadas1" = Table.ReorderColumns(#"Columnas con nombre cambiado",{"Modalidad", "PaisOrigen", "Country", "Destino", "Actividad", "LT", "ID", "Tipo"}),
+				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Columnas reordenadas1",{{"Country", "Origen"}})
+				in
+				    #"Columnas con nombre cambiado1"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

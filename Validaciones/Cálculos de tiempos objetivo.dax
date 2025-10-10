@@ -1,0 +1,97 @@
+﻿EVALUATE
+TOPN (
+    500,
+    FILTER (
+        ADDCOLUMNS (
+            ADDCOLUMNS (
+                MK_LOTES,
+                "Pais Origen",
+                    LOOKUPVALUE (
+                        PUERTO_ORIGEN[Country],
+                        PUERTO_ORIGEN[Port Name SAP], MK_LOTES[PUERTO_ORIGEN]
+                    ),
+                "Pais Destino",
+                    VAR _codPais =
+                        LEFT ( MK_LOTES[ZCENTRODES], 1 )
+                    RETURN
+                        CALCULATE (
+                            MIN ( DIM_PAIS[BV_PAIS] ),
+                            LEFT ( DIM_PAIS[SK_PAIS], 1 ) = _codPais
+                        )
+            ),
+            "Obj1",
+                VAR _po = [Pais origen]
+                VAR _pd = [Pais Destino]
+                RETURN
+                    CALCULATE (
+                        MAX ( TiemposObjetivo[LT] ),
+                        TiemposObjetivo[Origen] = _po,
+                        TiemposObjetivo[Destino] = _pd,
+                        TiemposObjetivo[ID] = "1"
+                    ),
+            "Obj2",
+                VAR _po = [Pais origen]
+                VAR _pd = [Pais Destino]
+                RETURN
+                    CALCULATE (
+                        MAX ( TiemposObjetivo[LT] ),
+                        TiemposObjetivo[Origen] = _po,
+                        TiemposObjetivo[Destino] = _pd,
+                        TiemposObjetivo[ID] = "2"
+                    ),
+            "Obj3",
+                VAR _po = [Pais origen]
+                VAR _pd = [Pais Destino]
+                RETURN
+                    CALCULATE (
+                        MAX ( TiemposObjetivo[LT] ),
+                        TiemposObjetivo[Origen] = _po,
+                        TiemposObjetivo[Destino] = _pd,
+                        TiemposObjetivo[ID] = "3"
+                    ),
+            "Obj4",
+                VAR _po = [Pais origen]
+                VAR _pd = [Pais Destino]
+                RETURN
+                    CALCULATE (
+                        MAX ( TiemposObjetivo[LT] ),
+                        TiemposObjetivo[Origen] = _po,
+                        TiemposObjetivo[Destino] = _pd,
+                        TiemposObjetivo[ID] = "4"
+                    ),
+            "Obj5",
+                VAR _po = [Pais origen]
+                VAR _pd = [Pais Destino]
+                RETURN
+                    CALCULATE (
+                        MAX ( TiemposObjetivo[LT] ),
+                        TiemposObjetivo[Origen] = _po,
+                        TiemposObjetivo[Destino] = _pd,
+                        TiemposObjetivo[ID] = "5"
+                    ),
+            "Obj6",
+                VAR _po = [Pais origen]
+                VAR _pd = [Pais Destino]
+                RETURN
+                    CALCULATE (
+                        MAX ( TiemposObjetivo[LT] ),
+                        TiemposObjetivo[Origen] = _po,
+                        TiemposObjetivo[Destino] = _pd,
+                        TiemposObjetivo[ID] = "6"
+                    ),
+            "Obj7",
+                VAR _po = [Pais origen]
+                VAR _pd = [Pais Destino]
+                RETURN
+                    CALCULATE (
+                        MAX ( TiemposObjetivo[LT] ),
+                        TiemposObjetivo[Origen] = _po,
+                        TiemposObjetivo[Destino] = _pd,
+                        TiemposObjetivo[ID] = "7"
+                    )
+        ),
+        NOT ISBLANK ( [Pais origen] )
+            && NOT ISBLANK ( [zcentrodes] )
+                && [zcentrodes] <> ""
+    )
+)

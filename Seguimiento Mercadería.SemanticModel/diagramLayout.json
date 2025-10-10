@@ -725,7 +725,10 @@
           "zIndex": 8
         },
         {
-          "location": {},
+          "location": {
+            "x": 7998.0251972953356,
+            "y": 0
+          },
           "nodeIndex": "MK_LOTES",
           "nodeLineageTag": "64b47367-bc58-4acc-9dd7-851cf92ad17c",
           "size": {
@@ -735,7 +738,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 9150.8179031584659,
+            "y": 74
+          },
           "nodeIndex": "SLA CDs",
           "nodeLineageTag": "5b0db0ca-6dc3-48b0-a681-e82bf136f230",
           "size": {
@@ -745,31 +751,37 @@
           "zIndex": 0
         },
         {
-          "location": {},
-          "nodeIndex": "Tiempos Export",
-          "nodeLineageTag": "d3164c40-6b5a-4ecb-a841-8b1931219da0",
-          "size": {
-            "height": 176,
-            "width": 234
+          "location": {
+            "x": 9535.082138446176,
+            "y": 74
           },
-          "zIndex": 0
-        },
-        {
-          "location": {},
-          "nodeIndex": "Tiempos Inbound",
-          "nodeLineageTag": "89e03991-7d77-448c-810e-e277fea45945",
-          "size": {
-            "height": 176,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {},
           "nodeIndex": "Tiempos L1",
           "nodeLineageTag": "09f47f16-9d91-4893-ab96-dd1cfecf3822",
           "size": {
             "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9919.3463737338861,
+            "y": 74
+          },
+          "nodeIndex": "PuertosOrigen",
+          "nodeLineageTag": "c222bf1e-08ed-4087-be8f-20a26a528cf6",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "TiemposObjetivo",
+          "nodeLineageTag": "70e81988-7d18-4975-ace1-38619d086e4c",
+          "size": {
+            "height": 248,
             "width": 234
           },
           "zIndex": 0
@@ -2602,8 +2614,8 @@
         },
         {
           "location": {
-            "x": 1173.2073923490191,
-            "y": 367.96963652576687
+            "x": 647.03370988116808,
+            "y": 535.46035827229
           },
           "nodeIndex": "EKPO_BFI-CD",
           "nodeLineageTag": "f7eec4eb-88f0-4dfe-81fc-ac0ddb207251",
@@ -2624,17 +2636,17 @@
     {
       "ordinal": 17,
       "scrollPosition": {
-        "x": 242.85714285714286,
-        "y": 241.9047546386719
+        "x": 0,
+        "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 1348.5146302024864,
-            "y": 1174.4278290367711
+            "x": 152.33333206176758,
+            "y": 206
           },
-          "nodeIndex": "FACT_INVENTARIOUD",
-          "nodeLineageTag": "8501e32b-d593-4fa7-91aa-a5a4b27eb569",
+          "nodeIndex": "MK_LOTES",
+          "nodeLineageTag": "64b47367-bc58-4acc-9dd7-851cf92ad17c",
           "size": {
             "height": 300,
             "width": 234
@@ -2643,11 +2655,11 @@
         },
         {
           "location": {
-            "x": 954.95436223202819,
-            "y": 562.44666415008476
+            "x": 502.33333206176758,
+            "y": 207
           },
-          "nodeIndex": "ALMACENES",
-          "nodeLineageTag": "a969d932-d863-4fd9-92d1-5f6d9429c9ea",
+          "nodeIndex": "PUERTO_ORIGEN",
+          "nodeLineageTag": "7e33a770-1f34-4bbc-8e91-9fc84886e913",
           "size": {
             "height": 200,
             "width": 234
@@ -2656,150 +2668,33 @@
         },
         {
           "location": {
-            "x": 1105.4228311388697,
-            "y": 207.67899572239025
+            "x": 179.33333206176758,
+            "y": 652
           },
-          "nodeIndex": "EKPO",
-          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
+          "nodeIndex": "Tiempos L1",
+          "nodeLineageTag": "09f47f16-9d91-4893-ab96-dd1cfecf3822",
           "size": {
-            "height": 300,
+            "height": 152,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 1061.4589108757125,
-            "y": 1174.4241804586195
+            "x": 812.33333206176758,
+            "y": 417
           },
-          "nodeIndex": "EKPO L1",
-          "nodeLineageTag": "e8c1e282-cb04-444b-85ff-23b8de4cd5ff",
+          "nodeIndex": "TiemposObjetivo",
+          "nodeLineageTag": "70e81988-7d18-4975-ace1-38619d086e4c",
           "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 1181.1074327371675,
-            "y": 817.25709344154336
-          },
-          "nodeIndex": "EKPO L1 V2",
-          "nodeLineageTag": "a1db1e76-3f00-4839-94bb-ae76fdce80de",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 643.89828050237975,
-            "y": 305.89235899585242
-          },
-          "nodeIndex": "EKPO_BFI-CD",
-          "nodeLineageTag": "f7eec4eb-88f0-4dfe-81fc-ac0ddb207251",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 800.92784062145063,
-            "y": 817.21639584357035
-          },
-          "nodeIndex": "DIM_BODEGA",
-          "nodeLineageTag": "a61e0ad2-f2d9-4e8f-a51b-3aa45c13fdde",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 1720.2272314265924,
-            "y": 758.69038998445853
-          },
-          "nodeIndex": "DIM_PAIS",
-          "nodeLineageTag": "de7adcad-ac5c-4181-a2e9-b4438d69dea0",
-          "size": {
-            "height": 224,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 514.30310027610119,
-            "y": 661.96607169182789
-          },
-          "nodeIndex": "DIM_TasaCambio",
-          "nodeLineageTag": "5542b0d2-9669-471f-a853-d5a6cbb14880",
-          "size": {
-            "height": 176,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 350.27237253089334,
-            "y": 26.208342579409873
-          },
-          "nodeIndex": "EKPO_CD-TIENDA",
-          "nodeLineageTag": "17069062-e538-4ba3-97d3-36e35a95d107",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 50,
-            "y": 556.03763469400758
-          },
-          "nodeIndex": "VENTAS",
-          "nodeLineageTag": "75e8ee0c-2119-49bc-b630-455d836e7c27",
-          "size": {
-            "height": 224,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 746.90679272064835,
-            "y": -50
-          },
-          "nodeIndex": "Tabla_Campaña",
-          "nodeLineageTag": "95a57fa4-1e44-469b-a1cb-bdd7812b3d0c",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 60.600395099333809,
-            "y": 199.50988826422622
-          },
-          "nodeIndex": "LT TIENDA VID",
-          "nodeLineageTag": "7a104245-d261-414b-a2fd-bb7e861439ad",
-          "size": {
-            "height": 300,
+            "height": 248,
             "width": 234
           },
           "zIndex": 0
         }
       ],
       "name": "Disposición 6",
-      "zoomValue": 70,
+      "zoomValue": 100,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

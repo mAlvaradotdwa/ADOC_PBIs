@@ -340,3 +340,8 @@ relationship 7740dcc0-745e-f8ca-b8a7-bc7c3eb10d45
 	fromColumn: FACT_INVENTARIOUD.SK_PAIS
 	toColumn: DIM_PAIS.SK_PAIS
 
+relationship 840bb208-de4b-4eed-3823-7222f73fccae
+	toCardinality: many
+	fromColumn: MK_LOTES.PUERTO_ORIGEN
+	toColumn: PUERTO_ORIGEN.'Port Name SAP'
+
