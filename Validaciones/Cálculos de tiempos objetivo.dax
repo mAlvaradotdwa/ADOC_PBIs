@@ -1,97 +1,41 @@
-﻿EVALUATE
-TOPN (
-    500,
-    FILTER (
-        ADDCOLUMNS (
-            ADDCOLUMNS (
-                MK_LOTES,
-                "Pais Origen",
-                    LOOKUPVALUE (
-                        PUERTO_ORIGEN[Country],
-                        PUERTO_ORIGEN[Port Name SAP], MK_LOTES[PUERTO_ORIGEN]
-                    ),
-                "Pais Destino",
-                    VAR _codPais =
-                        LEFT ( MK_LOTES[ZCENTRODES], 1 )
-                    RETURN
-                        CALCULATE (
-                            MIN ( DIM_PAIS[BV_PAIS] ),
-                            LEFT ( DIM_PAIS[SK_PAIS], 1 ) = _codPais
-                        )
-            ),
-            "Obj1",
-                VAR _po = [Pais origen]
-                VAR _pd = [Pais Destino]
-                RETURN
-                    CALCULATE (
-                        MAX ( TiemposObjetivo[LT] ),
-                        TiemposObjetivo[Origen] = _po,
-                        TiemposObjetivo[Destino] = _pd,
-                        TiemposObjetivo[ID] = "1"
-                    ),
-            "Obj2",
-                VAR _po = [Pais origen]
-                VAR _pd = [Pais Destino]
-                RETURN
-                    CALCULATE (
-                        MAX ( TiemposObjetivo[LT] ),
-                        TiemposObjetivo[Origen] = _po,
-                        TiemposObjetivo[Destino] = _pd,
-                        TiemposObjetivo[ID] = "2"
-                    ),
-            "Obj3",
-                VAR _po = [Pais origen]
-                VAR _pd = [Pais Destino]
-                RETURN
-                    CALCULATE (
-                        MAX ( TiemposObjetivo[LT] ),
-                        TiemposObjetivo[Origen] = _po,
-                        TiemposObjetivo[Destino] = _pd,
-                        TiemposObjetivo[ID] = "3"
-                    ),
-            "Obj4",
-                VAR _po = [Pais origen]
-                VAR _pd = [Pais Destino]
-                RETURN
-                    CALCULATE (
-                        MAX ( TiemposObjetivo[LT] ),
-                        TiemposObjetivo[Origen] = _po,
-                        TiemposObjetivo[Destino] = _pd,
-                        TiemposObjetivo[ID] = "4"
-                    ),
-            "Obj5",
-                VAR _po = [Pais origen]
-                VAR _pd = [Pais Destino]
-                RETURN
-                    CALCULATE (
-                        MAX ( TiemposObjetivo[LT] ),
-                        TiemposObjetivo[Origen] = _po,
-                        TiemposObjetivo[Destino] = _pd,
-                        TiemposObjetivo[ID] = "5"
-                    ),
-            "Obj6",
-                VAR _po = [Pais origen]
-                VAR _pd = [Pais Destino]
-                RETURN
-                    CALCULATE (
-                        MAX ( TiemposObjetivo[LT] ),
-                        TiemposObjetivo[Origen] = _po,
-                        TiemposObjetivo[Destino] = _pd,
-                        TiemposObjetivo[ID] = "6"
-                    ),
-            "Obj7",
-                VAR _po = [Pais origen]
-                VAR _pd = [Pais Destino]
-                RETURN
-                    CALCULATE (
-                        MAX ( TiemposObjetivo[LT] ),
-                        TiemposObjetivo[Origen] = _po,
-                        TiemposObjetivo[Destino] = _pd,
-                        TiemposObjetivo[ID] = "7"
-                    )
+﻿DEFINE
+    MEASURE MK_LOTES[ParesT] =
+        SUM ( MK_LOTES[CANTIDAD_PARES] )
+    MEASURE MK_Lotes[ParesO] =
+        CALCULATE (
+            SUM ( MK_LOTES[CANTIDAD_PARES] ),
+            NOT ISBLANK ( MK_LOTES[_fTramo1] )
+        )
+    MEASURE MK_Lotes[ParesD] =
+        CALCULATE (
+            SUM ( MK_LOTES[CANTIDAD_PARES] ),
+            MK_LOTES[ZINSTOREDATE_MK] <> "00000000"
+        )
+
+EVALUATE
+SUMMARIZECOLUMNS (
+    ROLLUPADDISSUBTOTAL ( MK_LOTES[Pais Origen], "ST" ),
+    FILTER( MK_LOTES , MK_LOTES[AEDAT_MK] >=  "20250701" ),
+    "filas", COUNTROWS ( MK_LOTES ),
+    "% Filas",
+        DIVIDE (
+            COUNTROWS ( MK_LOTES ),
+            CALCULATE ( COUNTROWS ( MK_LOTES ), ALLSELECTED ( MK_LOTES ) )
         ),
-        NOT ISBLANK ( [Pais origen] )
-            && NOT ISBLANK ( [zcentrodes] )
-                && [zcentrodes] <> ""
-    )
+    "Pares Totales", [ParesT],
+    "% Pares",
+        DIVIDE (
+            SUM ( MK_LOTES[CANTIDAD_PARES] ),
+            CALCULATE ( SUM ( MK_LOTES[CANTIDAD_PARES] ), ALLSELECTED ( MK_LOTES ) )
+        ),
+    "Pares con ZINSTOREDATE", [ParesD],
+    "% Pares ZINSTORE", DIVIDE ( [paresD], [parest] ),
+    "Pares con Fechas Objetivo", [ParesO],
+    "% Pares con Objetivo", DIVIDE ( [paresO], [paresT] ),
+    "Destinos", CONCATENATEX ( VALUES ( MK_LOTES[Pais Destino] ), [Pais Destino], "," ),
+    "# Puertos Origen", COUNTROWS ( VALUES ( MK_LOTES[PUERTO_ORIGEN] ) ),
+    "min ZINSTORE", MIN ( MK_LOTES[ZINSTOREDATE_MK] ),
+    "max ZINSTORE", MAX ( MK_LOTES[ZINSTOREDATE_MK] ),
+//    "TiempoT", [TiemposMK],
+    "Puertos Origen", CONCATENATEX ( VALUES ( MK_LOTES[PUERTO_ORIGEN] ), [Puerto_ORIGEN], "," )
 )

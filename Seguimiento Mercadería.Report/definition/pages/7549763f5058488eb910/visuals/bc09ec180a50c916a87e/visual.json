@@ -1,0 +1,270 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "bc09ec180a50c916a87e",
+  "position": {
+    "x": 0,
+    "y": 304,
+    "z": 5,
+    "height": 520,
+    "width": 424
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "Pais Destino"
+                }
+              },
+              "queryRef": "MK_LOTES.Pais Destino",
+              "nativeQueryRef": "Pais Destino",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "onTime"
+                }
+              },
+              "queryRef": "MK_LOTES.onTime",
+              "nativeQueryRef": "onTime",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "TIPO_DOCUMENTO"
+                }
+              },
+              "queryRef": "MK_LOTES.TIPO_DOCUMENTO",
+              "nativeQueryRef": "TIPO_DOCUMENTO",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "ParesMKLotes"
+                }
+              },
+              "queryRef": "MK_LOTES.ParesMKLotes",
+              "nativeQueryRef": "ParesMKLotes"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "MK_LOTES.onTime"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "MK_LOTES.TIPO_DOCUMENTO"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Revisión OnTime por Destino y Tipo Documento'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ddafe7c365624e69e324",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MK_LOTES"
+              }
+            },
+            "Property": "Pais Origen"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "43bf156f6c2dd3799143",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MK_LOTES"
+              }
+            },
+            "Property": "Pais Destino"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "3fd23c5203852ada8534",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MK_LOTES"
+              }
+            },
+            "Property": "ZINSTOREDATE_MK"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "7adc88e686a058968c4e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MK_LOTES"
+              }
+            },
+            "Property": "ParesMKLotes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "066ed1d1a06bd65a10ed",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MK_LOTES"
+              }
+            },
+            "Property": "onTime"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "be9a7f6610287a4e2616",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MK_LOTES"
+              }
+            },
+            "Property": "TIPO_DOCUMENTO"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

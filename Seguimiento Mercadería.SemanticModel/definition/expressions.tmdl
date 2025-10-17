@@ -220,7 +220,7 @@ expression _export =
 
 	annotation PBI_ResultType = Table
 
-expression Origen-Destino = ```
+expression Origen-Destino =
 		let
 		    Origen = _inbound,
 		    #"Columnas quitadas" = Table.RemoveColumns(Origen,{"Actividad", "LT", "ID", "Tipo"}),
@@ -235,10 +235,9 @@ expression Origen-Destino = ```
 		    join = Table.NestedJoin ( inbound , {"flag"} , outbound , {"flag"} , "combine" , JoinKind.LeftOuter ),
 		    #"Se expandió combine" = Table.ExpandTableColumn(join, "combine", {"BV_PAIS", "CampoDestino"}, {"BV_PAIS", "CampoDestino"}),
 		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Se expandió combine",{{"BV_PAIS", "Destino"}}),
-		    #"Columnas reordenadas" = Table.ReorderColumns(#"Columnas con nombre cambiado",{"Modalidad", "Origen", "Destino", "CampoOrigen", "flag", "CampoDestino"}) 
+		    #"Columnas reordenadas" = Table.ReorderColumns(#"Columnas con nombre cambiado",{"Modalidad", "Origen", "Destino", "CampoOrigen", "flag", "CampoDestino"})
 		in
 		    #"Columnas reordenadas"
-		```
 	lineageTag: 2326a0d5-8c2d-4867-bd67-c4a000339640
 	queryGroup: 'Base LeadTimes'
 

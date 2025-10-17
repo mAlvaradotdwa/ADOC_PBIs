@@ -89,10 +89,6 @@ relationship eb7f1beb-1391-8fda-3d0b-b6ad2f4133ff
 	fromColumn: 'EKPO L1'.ARTICULO
 	toColumn: DIM_ARTICULOS.SK_MATNR
 
-relationship 5ca137bd-9f1f-2de0-8ff4-8732d9cf8956
-	fromColumn: 'EKPO L1'.FECHA_CONTABILIZACION
-	toColumn: 'Fecha Liquidación L1'.Fecha
-
 relationship 024c8b71-aba6-f44a-1062-b3e56a6b0aa0
 	fromColumn: 'EKPO L1'.GENERO
 	toColumn: DIM_GENERO.GENERO
@@ -344,4 +340,8 @@ relationship 840bb208-de4b-4eed-3823-7222f73fccae
 	toCardinality: many
 	fromColumn: MK_LOTES.PUERTO_ORIGEN
 	toColumn: PUERTO_ORIGEN.'Port Name SAP'
+
+relationship 5ca137bd-9f1f-2de0-8ff4-8732d9cf8956
+	fromColumn: 'EKPO L1'.FECHA_CONTABILIZACION
+	toColumn: 'Fecha Liquidación L1'.Fecha
 

@@ -18,9 +18,10 @@ table TiemposObjetivo
 		annotation SummarizationSetBy = Automatic
 
 	column ID
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: c4f84ac3-77c8-4a80-b2fb-0fccb076c2aa
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: ID
 
 		annotation SummarizationSetBy = Automatic
@@ -50,9 +51,10 @@ table TiemposObjetivo
 		annotation SummarizationSetBy = Automatic
 
 	column LT
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: 2b9e44ad-31c2-428f-83f9-2b3b3f9c91df
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: LT
 
 		annotation SummarizationSetBy = Automatic
@@ -88,9 +90,10 @@ table TiemposObjetivo
 				    #"Se expandió codOrigen" = Table.ExpandTableColumn(final, "codOrigen", {"Country"}, {"Country"}),
 				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Se expandió codOrigen",{{"Origen", "PaisOrigen"}}),
 				    #"Columnas reordenadas1" = Table.ReorderColumns(#"Columnas con nombre cambiado",{"Modalidad", "PaisOrigen", "Country", "Destino", "Actividad", "LT", "ID", "Tipo"}),
-				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Columnas reordenadas1",{{"Country", "Origen"}})
+				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Columnas reordenadas1",{{"Country", "Origen"}}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas con nombre cambiado1",{{"LT", Int64.Type}, {"ID", Int64.Type}})
 				in
-				    #"Columnas con nombre cambiado1"
+				    #"Tipo cambiado"
 
 	annotation PBI_NavigationStepName = Navegación
 

@@ -1,8 +1,31 @@
 table MK_LOTES
 	lineageTag: 64b47367-bc58-4acc-9dd7-851cf92ad17c
 
+	measure TiemposMK =
+			VAR _po = SELECTEDVALUE ( MK_Lotes[Pais origen] )
+			VAR _pd = SELECTEDVALUE ( MK_Lotes[Pais Destino] )
+			RETURN
+			    CALCULATE (
+			        SUM ( TiemposObjetivo[LT] ),
+			        TiemposObjetivo[Origen] = _po,
+			        TiemposObjetivo[Destino] = _pd
+			    )
+		displayFolder: Fechas Objetivo
+		lineageTag: 492b2e67-6a74-4d25-a68e-087ad0da290c
+
+	measure ParesMK = SUM ( MK_Lotes[Cantidad_Pares] )
+		formatString: #,0
+		displayFolder: Datos MK
+		lineageTag: 93a8e44d-a188-4bb6-a7fe-510807ea2a51
+
+	measure ParesMKLotes = SUM ( MK_Lotes[Cantidad_Pares] )
+		formatString: #,0
+		displayFolder: Fechas Objetivo
+		lineageTag: 6bb834d2-7037-4f5f-ae72-e18c2a049f37
+
 	column LOTE
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 98461ed7-bc12-4f62-87cf-9ca79b0d79f3
 		summarizeBy: none
 		sourceColumn: LOTE
@@ -11,6 +34,7 @@ table MK_LOTES
 
 	column MK
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 9a44f11b-5acd-4120-a43f-f90d0136393d
 		summarizeBy: none
 		sourceColumn: MK
@@ -19,6 +43,7 @@ table MK_LOTES
 
 	column ZINSTOREDATE_MK
 		dataType: string
+		displayFolder: Datos MK
 		lineageTag: 35bee1c5-63f7-4499-ba97-2df80ae05f76
 		summarizeBy: none
 		sourceColumn: ZINSTOREDATE_MK
@@ -27,6 +52,7 @@ table MK_LOTES
 
 	column INDICADOR_DE_LIBERACION
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: cd183034-34ae-4c83-8e52-e66bcf62ed99
 		summarizeBy: none
 		sourceColumn: INDICADOR_DE_LIBERACION
@@ -35,6 +61,7 @@ table MK_LOTES
 
 	column GRUPO_DE_LIBERACION
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 46691622-6576-46ae-996f-9e7587e63ac9
 		summarizeBy: none
 		sourceColumn: GRUPO_DE_LIBERACION
@@ -43,6 +70,7 @@ table MK_LOTES
 
 	column ESTRATEGIA_LIBERACION
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: da4510a4-75e5-436c-b6cc-3efb6f31b255
 		summarizeBy: none
 		sourceColumn: ESTRATEGIA_LIBERACION
@@ -51,6 +79,7 @@ table MK_LOTES
 
 	column TIPO_DOCUMENTO
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: e896e745-231d-4820-bf0f-b9707c12525d
 		summarizeBy: none
 		sourceColumn: TIPO_DOCUMENTO
@@ -59,6 +88,7 @@ table MK_LOTES
 
 	column DOCUMENTO
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 914cfc28-8f61-4c35-893b-42512219356f
 		summarizeBy: none
 		sourceColumn: DOCUMENTO
@@ -67,6 +97,7 @@ table MK_LOTES
 
 	column ARTICULO
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 4e70fc13-617e-4d26-af1c-3de4184a3f02
 		summarizeBy: none
 		sourceColumn: ARTICULO
@@ -75,6 +106,7 @@ table MK_LOTES
 
 	column DESCRIPCION
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: ee87eb90-3681-4e09-86f2-8dc89f4066be
 		summarizeBy: none
 		sourceColumn: DESCRIPCION
@@ -83,6 +115,7 @@ table MK_LOTES
 
 	column CANTIDAD
 		dataType: double
+		displayFolder: Otros Campos
 		lineageTag: 86c96b9e-336b-4daf-8240-167f96d44e25
 		summarizeBy: sum
 		sourceColumn: CANTIDAD
@@ -93,6 +126,7 @@ table MK_LOTES
 
 	column ALMACEN
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: c2dd949d-0f4e-4c79-8de9-89cc8c0e99fd
 		summarizeBy: none
 		sourceColumn: ALMACEN
@@ -101,6 +135,7 @@ table MK_LOTES
 
 	column CANTIDAD_PARES
 		dataType: double
+		displayFolder: Otros Campos
 		lineageTag: c97d72b9-96b1-4c53-b0f5-2c5397981eda
 		summarizeBy: sum
 		sourceColumn: CANTIDAD_PARES
@@ -111,6 +146,7 @@ table MK_LOTES
 
 	column PE
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 9fd0f162-7b70-4409-901f-4db9f20ec4dc
 		summarizeBy: none
 		sourceColumn: PE
@@ -119,6 +155,7 @@ table MK_LOTES
 
 	column ANO_PE
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: df84f4a1-02f2-41db-98b5-03e3c38de9e9
 		summarizeBy: none
 		sourceColumn: ANO_PE
@@ -127,6 +164,7 @@ table MK_LOTES
 
 	column FECHA_CREACION
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: a52122b4-6f3f-4bb1-a6bd-26d21be46a19
 		summarizeBy: none
 		sourceColumn: FECHA_CREACION
@@ -135,6 +173,7 @@ table MK_LOTES
 
 	column FECHA_CREACION2
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 133bf362-051a-4ab5-8223-dd966cc304ad
 		summarizeBy: none
 		sourceColumn: FECHA_CREACION2
@@ -143,6 +182,7 @@ table MK_LOTES
 
 	column XFACTORY_ACTUALIZADO
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: db0a6e09-a017-4044-9c6f-4ca81fe5eacb
 		summarizeBy: none
 		sourceColumn: XFACTORY_ACTUALIZADO
@@ -151,6 +191,7 @@ table MK_LOTES
 
 	column XFACTORY_ORIGINAL
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 463387a2-129f-4763-a619-ad2b00e2fe40
 		summarizeBy: none
 		sourceColumn: XFACTORY_ORIGINAL
@@ -159,6 +200,7 @@ table MK_LOTES
 
 	column ENTIDAD_CD
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 443430ee-bfb8-4dad-ab09-88996c59df73
 		summarizeBy: none
 		sourceColumn: ENTIDAD_CD
@@ -167,6 +209,7 @@ table MK_LOTES
 
 	column ENTIDAD_SOLICITANTE
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 22642d81-a07b-4687-82f2-1e1d4a12d017
 		summarizeBy: none
 		sourceColumn: ENTIDAD_SOLICITANTE
@@ -175,6 +218,7 @@ table MK_LOTES
 
 	column CENTRO_DESTINO_FINAL
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: a6187f98-8b1a-4806-bf73-7ac52a01ccfe
 		summarizeBy: none
 		sourceColumn: CENTRO_DESTINO_FINAL
@@ -183,6 +227,7 @@ table MK_LOTES
 
 	column FECHA_TIENDA
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: f5d7a963-037b-4f33-a6a9-9ea49c17a0da
 		summarizeBy: none
 		sourceColumn: FECHA_TIENDA
@@ -191,6 +236,7 @@ table MK_LOTES
 
 	column XFACTORY_REQUERIDA
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: e8f09a88-4eba-4688-b108-a56419a5989e
 		summarizeBy: none
 		sourceColumn: XFACTORY_REQUERIDA
@@ -199,6 +245,7 @@ table MK_LOTES
 
 	column FECHA_EKKO
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: a01f515b-aa93-4145-8089-6912f70434e5
 		summarizeBy: none
 		sourceColumn: FECHA_EKKO
@@ -207,6 +254,7 @@ table MK_LOTES
 
 	column NUMERO_PROVEEDOR
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 1dba178b-cf56-4499-81eb-e4efef9d991e
 		summarizeBy: none
 		sourceColumn: NUMERO_PROVEEDOR
@@ -215,6 +263,7 @@ table MK_LOTES
 
 	column INCOTERM
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: a3e5096c-be3c-47e5-a4c9-238fceeeb5ed
 		summarizeBy: none
 		sourceColumn: INCOTERM
@@ -223,6 +272,7 @@ table MK_LOTES
 
 	column PUERTO_ORIGEN
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 7af855de-48b4-4f5d-a80f-2da015c85dd9
 		summarizeBy: none
 		sourceColumn: PUERTO_ORIGEN
@@ -231,6 +281,7 @@ table MK_LOTES
 
 	column FECHA_DESPACHO_FINAL
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 9acb8b3f-f461-4e0c-bef0-458d3f1f6d8e
 		summarizeBy: none
 		sourceColumn: FECHA_DESPACHO_FINAL
@@ -239,6 +290,7 @@ table MK_LOTES
 
 	column FECHA_DESPACHO_INICIAL
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 6e5b41c7-d06f-4655-bf1b-a4bab5305b73
 		summarizeBy: none
 		sourceColumn: FECHA_DESPACHO_INICIAL
@@ -247,6 +299,7 @@ table MK_LOTES
 
 	column TIPO_DE_FLETE
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 4b8a026f-148a-48bc-9996-2a66efae9c01
 		summarizeBy: none
 		sourceColumn: TIPO_DE_FLETE
@@ -255,6 +308,7 @@ table MK_LOTES
 
 	column PUERTO_ORIGEN2
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 12fd2b76-b5b9-4f6c-8e69-6c99633d8a08
 		summarizeBy: none
 		sourceColumn: PUERTO_ORIGEN2
@@ -263,6 +317,7 @@ table MK_LOTES
 
 	column ENTIDAD_COMPRA
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 0250fa2e-0073-45aa-ada6-69a7c2da6bd2
 		summarizeBy: none
 		sourceColumn: ENTIDAD_COMPRA
@@ -271,6 +326,7 @@ table MK_LOTES
 
 	column ENTIDAD_SOLICITANTE2
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 1c8f9efa-aed1-4ab5-9820-153b7667be05
 		summarizeBy: none
 		sourceColumn: ENTIDAD_SOLICITANTE2
@@ -279,6 +335,7 @@ table MK_LOTES
 
 	column ENTIDAD_CD2
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: f4d4e3e0-dc89-44d4-9660-14e5195d5ef4
 		summarizeBy: none
 		sourceColumn: ENTIDAD_CD2
@@ -287,6 +344,7 @@ table MK_LOTES
 
 	column ZIMP
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 93e07e21-4433-4493-85b7-8c86ad5da40a
 		summarizeBy: none
 		sourceColumn: ZIMP
@@ -295,6 +353,7 @@ table MK_LOTES
 
 	column ZIMP_POS
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 47deccab-ba94-468b-8320-eacf242df724
 		summarizeBy: none
 		sourceColumn: ZIMP_POS
@@ -303,6 +362,7 @@ table MK_LOTES
 
 	column MK_POS
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: e4023104-b094-4d70-9016-16c959c62c0f
 		summarizeBy: none
 		sourceColumn: MK_POS
@@ -311,6 +371,7 @@ table MK_LOTES
 
 	column MATNR
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 2c70316e-dd4d-4be3-91a7-f2e035318234
 		summarizeBy: none
 		sourceColumn: MATNR
@@ -319,6 +380,7 @@ table MK_LOTES
 
 	column ZCENTRODES
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: a5f77ba9-c3fd-4d75-8a59-106e9edff12d
 		summarizeBy: none
 		sourceColumn: ZCENTRODES
@@ -327,6 +389,7 @@ table MK_LOTES
 
 	column AEDAT_MK
 		dataType: string
+		displayFolder: Datos MK
 		lineageTag: b16da739-7297-4cf2-a0ba-fd7502d2245d
 		summarizeBy: none
 		sourceColumn: AEDAT_MK
@@ -335,17 +398,277 @@ table MK_LOTES
 
 	column ZFACTORY_MK
 		dataType: string
+		displayFolder: Otros Campos
 		lineageTag: 3acda2a5-4b69-46d2-97ed-a104bc26d598
 		summarizeBy: none
 		sourceColumn: ZFACTORY_MK
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Pais Origen' = ```
+			VAR _p1 = 
+			    LOOKUPVALUE (
+			        PUERTO_ORIGEN[Country],
+			        PUERTO_ORIGEN[Port Name SAP], MK_LOTES[PUERTO_ORIGEN]
+			    )
+			VAR _p2 = 
+			    LOOKUPVALUE (
+			        'PuertosOrigen'[Pais],
+			        'PuertosOrigen'[PUERTO_ORIGEN], MK_LOTES[PUERTO_ORIGEN]
+			    )
+			RETURN COALESCE ( _p1 , _p2 )
+			```
+		displayFolder: Datos MK
+		lineageTag: 0ad17f8e-ff48-495e-b000-87e020b5f94d
+
+	column 'Pais Destino' =
+			VAR _codPais =
+			    LEFT ( MK_LOTES[ZCENTRODES], 1 )
+			RETURN
+			    CALCULATE (
+			        MIN ( DIM_PAIS[BV_PAIS] ),
+			        LEFT ( DIM_PAIS[SK_PAIS], 1 ) = _codPais
+			    )
+		displayFolder: Datos MK
+		lineageTag: c209b6b5-5659-41cb-a34d-6cf52bf90bc6
+
+	column FechaObjetivo = ```
+			VAR _doc = [TIPO_DOCUMENTO]
+			VAR _zInStoreDate =
+			    INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+			    LOOKUPVALUE (
+			        'Fecha Liquidación'[Fecha],
+			        'Fecha Liquidación'[IDFecha], _zInStoreDate
+			    )
+			VAR _offset =
+			    SWITCH (
+			        TRUE (),
+			        _doc IN { "ZIMP", "ZINT" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] <= 4 ),
+			        _doc IN { "ZINT", "ZTRU", "ZUIN" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] <= 10 ),
+			        _doc IN { "UB", "ZREP", "ZTR2", "ZTRA" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] <= 11 )
+			    )
+			RETURN 
+			    IF ( _zInStoreDate > 20200101 && _offset > 0, _inStoreDate - _offset )
+			```
+		displayFolder: Fechas Objetivo
+		lineageTag: 389bca72-a8bd-4f8e-983e-c9899494d4c7
+
+	column FECHA_LIQ
+		dataType: string
+		lineageTag: 530edd6a-fd1e-4ecd-89f2-66f2cdd307b6
+		summarizeBy: none
+		sourceColumn: FECHA_LIQ
+
+		annotation SummarizationSetBy = Automatic
+
+	column TiempoObjetivo = ```
+			VAR _doc = [TIPO_DOCUMENTO]
+			VAR _numTramo = 1
+			VAR _zInStoreDate =
+			    INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+			    LOOKUPVALUE (
+			        'Fecha Liquidación'[Fecha],
+			        'Fecha Liquidación'[IDFecha], _zInStoreDate
+			    )
+			VAR _offset =
+			    SWITCH (
+			        TRUE (),
+			        _doc IN { "ZIMP", "ZINT" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 4 ),
+			        _doc IN { "ZINT", "ZTRU", "ZUIN" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 10 ),
+			        _doc IN { "UB", "ZREP", "ZTR2", "ZTRA" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 11 )
+			    )
+			RETURN 
+			    _offset
+			```
+		displayFolder: Fechas Objetivo
+		lineageTag: cc4dd14f-4717-4c9f-97ce-6be036a75ae8
+
+	column onTime = ```
+			VAR _fEKKO =
+			    LOOKUPVALUE (
+			        'Fecha Liquidación'[Fecha],
+			        'Fecha Liquidación'[IDFecha], INT( 'MK_LOTES'[FECHA_EKKO] )
+			    )
+			RETURN
+			    SWITCH (
+			        TRUE() ,
+			        ISBLANK ( 'MK_LOTES'[FechaObjetivo] ) 
+			            || ISBLANK ( 'MK_LOTES'[TiempoObjetivo] ) 
+			            || MK_LOTES[Pais Origen] = "" , "NA" , 
+			        _fEKKO < 'MK_LOTES'[FechaObjetivo], "A Tiempo",
+			        "Con Retraso"
+			    )
+			```
+		displayFolder: Fechas Objetivo
+		lineageTag: 6dfc2523-6451-4f56-bda9-8300b9cb2b63
+
+	column T1 =
+			VAR _numTramo = 1
+			VAR _zInStoreDate =
+				INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+				LOOKUPVALUE (
+					'Fecha Liquidación'[Fecha],
+					'Fecha Liquidación'[IDFecha], _zInStoreDate
+				)
+			VAR _offset =
+				CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= _numTramo )
+			RETURN
+				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
+		displayFolder: Fechas Objetivo
+		lineageTag: 73216a08-c84b-45a7-828f-05f68d51875c
+
+	column T2 =
+			VAR _numTramo = 2
+			VAR _zInStoreDate =
+				INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+				LOOKUPVALUE (
+					'Fecha Liquidación'[Fecha],
+					'Fecha Liquidación'[IDFecha], _zInStoreDate
+				)
+			VAR _offset =
+				CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= _numTramo )
+			RETURN
+				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
+		displayFolder: Fechas Objetivo
+		lineageTag: 4b4e092c-5737-4ca4-a51b-9b676479aa30
+
+	column T3 =
+			VAR _numTramo = 3
+			VAR _zInStoreDate =
+				INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+				LOOKUPVALUE (
+					'Fecha Liquidación'[Fecha],
+					'Fecha Liquidación'[IDFecha], _zInStoreDate
+				)
+			VAR _offset =
+				CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= _numTramo )
+			RETURN
+				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
+		displayFolder: Fechas Objetivo
+		lineageTag: 7260df10-116f-46ca-a829-2823231f7c63
+
+	column T4 =
+			VAR _numTramo = 4
+			VAR _zInStoreDate =
+				INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+				LOOKUPVALUE (
+					'Fecha Liquidación'[Fecha],
+					'Fecha Liquidación'[IDFecha], _zInStoreDate
+				)
+			VAR _offset =
+				CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= _numTramo )
+			RETURN
+				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
+		displayFolder: Fechas Objetivo
+		lineageTag: b0b815dd-d734-4879-b97a-703f0767f247
+
+	column T5 =
+			VAR _numTramo = 5
+			VAR _zInStoreDate =
+				INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+				LOOKUPVALUE (
+					'Fecha Liquidación'[Fecha],
+					'Fecha Liquidación'[IDFecha], _zInStoreDate
+				)
+			VAR _offset =
+				CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= _numTramo )
+			RETURN
+				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
+		displayFolder: Fechas Objetivo
+		lineageTag: 8b43dca8-e542-4232-ac16-76c78e7dd1d8
+
+	column T6 =
+			VAR _numTramo = 6
+			VAR _zInStoreDate =
+				INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+				LOOKUPVALUE (
+					'Fecha Liquidación'[Fecha],
+					'Fecha Liquidación'[IDFecha], _zInStoreDate
+				)
+			VAR _offset =
+				CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= _numTramo )
+			RETURN
+				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
+		displayFolder: Fechas Objetivo
+		lineageTag: f0f05a03-3cd1-47eb-a588-44eb055ce115
+
+	column T7 =
+			VAR _numTramo = 7
+			VAR _zInStoreDate =
+				INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+				LOOKUPVALUE (
+					'Fecha Liquidación'[Fecha],
+					'Fecha Liquidación'[IDFecha], _zInStoreDate
+				)
+			VAR _offset =
+				CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= _numTramo )
+			RETURN
+				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
+		displayFolder: Fechas Objetivo
+		lineageTag: 95dd905e-2ace-4e56-92b4-ca8f4bbdd2d3
+
+	column T8 =
+			VAR _numTramo = 8
+			VAR _zInStoreDate =
+				INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+				LOOKUPVALUE (
+					'Fecha Liquidación'[Fecha],
+					'Fecha Liquidación'[IDFecha], _zInStoreDate
+				)
+			VAR _offset =
+				CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= _numTramo )
+			RETURN
+				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
+		displayFolder: Fechas Objetivo
+		lineageTag: 9ec43f78-27ec-4670-b37b-3a406d695fbd
+
+	column T9 =
+			VAR _numTramo = 9
+			VAR _zInStoreDate =
+				INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+				LOOKUPVALUE (
+					'Fecha Liquidación'[Fecha],
+					'Fecha Liquidación'[IDFecha], _zInStoreDate
+				)
+			VAR _offset =
+				CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= _numTramo )
+			RETURN
+				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
+		displayFolder: Fechas Objetivo
+		lineageTag: 0271ad2d-90ba-4b78-847b-2443bfcd9e65
+
+	column T10 =
+			VAR _numTramo = 10
+			VAR _zInStoreDate =
+				INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+				LOOKUPVALUE (
+					'Fecha Liquidación'[Fecha],
+					'Fecha Liquidación'[IDFecha], _zInStoreDate
+				)
+			VAR _offset =
+				CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= _numTramo )
+			RETURN
+				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
+		displayFolder: Fechas Objetivo
+		lineageTag: 4771a830-cdf3-4889-abe1-ac1395ccae87
+
 	partition MK_LOTES = m
 		mode: import
 		source =
 				let
-				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "#(lf)WITH ZIMPs AS (#(lf)    -- recosntrucción de mk para pre-packs#(lf)    SELECT#(lf)        pn.EBELN ZIMP ,#(lf)        pn.EBELP ZIMP_POS ,#(lf)        COALESCE ( NULLIF ( pn.KONNR , '' ) , p0.KONNR  ) MK ,#(lf)        COALESCE ( NULLIF ( pn.KTPNR , '00000'  ) , p0.KTPNR  ) MK_POS ,#(lf)        pn.MATNR #(lf)    FROM SAP_ECC.EKPO pn#(lf)    LEFT JOIN SAP_ECC.EKPO p0#(lf)        ON p0.EBELN = pn.EBELN #(lf)        AND p0.EBELP = pn.UEBPO #(lf)    WHERE pn.LOEKZ <> 'L'#(lf)         -- AND pn.EBELN = 4500038208 #(lf)),#(lf)DatosMK AS (#(lf)    SELECT #(lf)        z.* , #(lf)        k.INCO2 Puerto_Origen ,#(lf)        k.ZZ_ZPORT Puerto_Origen2 ,#(lf)        l.CHARG LOTE ,#(lf)        e.ZCENTRODES ,#(lf)        E.AEDAT AEDAT_MK ,#(lf)        e.ZFACTORY ZFACTORY_MK,#(lf)        e.ZINSTOREDATE ZINSTOREDATE_MK #(lf)    FROM ZIMPs z#(lf)    LEFT JOIN SAP_ECC.EKET l#(lf)        ON z.ZIMP  = l.EBELN #(lf)        AND z.ZIMP_POS = l.EBELP #(lf)    LEFT JOIN SAP_ECC.EKPO e #(lf)        ON z.MK = e.EBELN #(lf)        AND z.MK_POS = e.EBELP #(lf)    LEFT JOIN SAP_ECC.EKKO k#(lf)        ON z.MK = k.EBELN #(lf)    WHERE e.AEDAT >= 20240101#(lf)),#(lf)lotes AS (#(lf)    SELECT#(lf)        ek.CHARG ,#(lf)        EKPO.EBELN,#(lf)        EKPO.EBELP,#(lf)        EKPO.MATNR ,#(lf)        EKKO.FRGKE AS Indicador_de_Liberacion,#(lf)        EKKO.FRGGR AS Grupo_de_Liberacion,#(lf)        EKKO.FRGSX AS Estrategia_Liberacion,#(lf)        EKKO.BSART AS Tipo_Documento,  #(lf)        EKPO.EBELN AS Documento,#(lf)        EKPO.MATNR AS Articulo,#(lf)        EKPO.TXZ01 AS Descripcion, #(lf)        EKPO.MENGE AS Cantidad,#(lf)        EKPO.LGORT AS Almacen,#(lf)        CASE #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack' #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER) #(lf)            ELSE 1 #(lf)        END * EKPO.MENGE AS Cantidad_Pares,#(lf)        EKPO.SAISO AS PE,#(lf)        EKPO.SAISO AS Ano_PE,#(lf)        EKPO.AEDAT AS Fecha_Creacion,#(lf)        EKPO.CREATIONDATE AS Fecha_Creacion2,#(lf)        EKPO.ZFACTORY AS XFactory_Actualizado, #(lf)        EKPO.ZFACTORYO AS XFactory_Original,#(lf)        EKPO.WERKS AS Entidad_CD,#(lf)        EKPO.BUKRS AS Entidad_Solicitante,#(lf)        EKPO.ZCENTRODES AS Centro_Destino_Final,#(lf)        EKPO.ZINSTOREDATE AS Fecha_Tienda,#(lf)        EKKO.ZZF_DESPACHO AS XFactory_Requerida,#(lf)        EKKO.AEDAT AS Fecha_EKKO,#(lf)        EKKO.LIFNR AS Numero_Proveedor, #(lf)        EKKO.INCO1 AS Incoterm,#(lf)--        EKKO.INCO2 AS Puerto_Origen,#(lf)        EKKO.ZZF_DESPACHO AS Fecha_Despacho_Final,#(lf)        EKKO.ZZF_DESPINI AS Fecha_Despacho_Inicial,#(lf)        EKKO.ZZ_TIPO_FLETE AS Tipo_de_Flete,#(lf)--        EKKO.ZZ_ZPORT AS Puerto_Origen2,#(lf)        EKKO.BUKRS AS Entidad_Compra,#(lf)        EKKO.EKORG AS Entidad_Solicitante2,#(lf)        EKKO.ZZ_CENTRO_D AS Entidad_CD2#(lf)    FROM SAP_ECC.EKET ek#(lf)    INNER JOIN SAP_ECC.EKPO EKPO#(lf)        ON ek.EBELN = EKPO.EBELN #(lf)        AND ek.EBELP = EKPO.EBELP #(lf)    INNER JOIN SAP_ECC.ekko EKKO#(lf)        ON EKPO.EBELN = EKKO.EBELN #(lf)    WHERE EKPO.LOEKZ <> 'L'#(lf)),#(lf)final_cte AS (#(lf)    SELECT #(lf)        m.*,#(lf)        Indicador_de_Liberacion,#(lf)        Grupo_de_Liberacion,#(lf)        Estrategia_Liberacion,#(lf)        Tipo_Documento,  #(lf)        Documento,#(lf)        Articulo,#(lf)        Descripcion, #(lf)        Cantidad,#(lf)        Almacen,#(lf)        Cantidad_Pares,#(lf)        PE,#(lf)        Ano_PE,#(lf)        Fecha_Creacion,#(lf)        Fecha_Creacion2,#(lf)        XFactory_Actualizado, #(lf)        XFactory_Original,#(lf)        Entidad_CD,#(lf)        Entidad_Solicitante,#(lf)        Centro_Destino_Final,#(lf)        Fecha_Tienda,#(lf)        XFactory_Requerida,#(lf)        Fecha_EKKO,#(lf)        Numero_Proveedor, #(lf)        Incoterm,#(lf)--        Puerto_Origen,#(lf)        Fecha_Despacho_Final,#(lf)        Fecha_Despacho_Inicial,#(lf)        Tipo_de_Flete,#(lf)--        Puerto_Origen2,#(lf)        Entidad_Compra,#(lf)        Entidad_Solicitante2,#(lf)        Entidad_CD2#(lf)    FROM DatosMK m#(lf)    INNER JOIN lotes l#(lf)        ON m.LOTE = l.CHARG #(lf)        AND m.ZIMP_POS  = l.EBELP #(lf)        AND m.MATNR = l.MATNR #(lf))#(lf)SELECT *#(lf)FROM final_cte", null, [EnableFolding=true])
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "WITH ZIMPs AS (#(lf)    -- recosntrucción de mk para pre-packs#(lf)    SELECT#(lf)        pn.EBELN ZIMP ,#(lf)        pn.EBELP ZIMP_POS ,#(lf)        COALESCE ( NULLIF ( pn.KONNR , '' ) , p0.KONNR  ) MK ,#(lf)        COALESCE ( NULLIF ( pn.KTPNR , '00000'  ) , p0.KTPNR  ) MK_POS ,#(lf)        pn.MATNR #(lf)    FROM SAP_ECC.EKPO pn#(lf)    LEFT JOIN SAP_ECC.EKPO p0#(lf)        ON p0.EBELN = pn.EBELN #(lf)        AND p0.EBELP = pn.UEBPO #(lf)    WHERE pn.LOEKZ <> 'L'#(lf)         -- AND pn.EBELN = 4500038208 #(lf)),#(lf)DatosMK AS (#(lf)    SELECT #(lf)        z.* , #(lf)        k.INCO2 Puerto_Origen ,#(lf)        k.ZZ_ZPORT Puerto_Origen2 ,#(lf)        l.CHARG LOTE ,#(lf)        e.ZCENTRODES ,#(lf)        E.AEDAT AEDAT_MK ,#(lf)        e.ZFACTORY ZFACTORY_MK,#(lf)        e.ZINSTOREDATE ZINSTOREDATE_MK #(lf)    FROM ZIMPs z#(lf)    LEFT JOIN SAP_ECC.EKET l#(lf)        ON z.ZIMP  = l.EBELN #(lf)        AND z.ZIMP_POS = l.EBELP #(lf)    LEFT JOIN SAP_ECC.EKPO e #(lf)        ON z.MK = e.EBELN #(lf)        AND z.MK_POS = e.EBELP #(lf)    LEFT JOIN SAP_ECC.EKKO k#(lf)        ON z.MK = k.EBELN #(lf)    WHERE e.AEDAT >= 20240101#(lf)),#(lf)lotes AS (#(lf)    SELECT#(lf)        ek.CHARG ,#(lf)        EKPO.EBELN,#(lf)        EKPO.EBELP,#(lf)        EKPO.MATNR ,#(lf)        EKPO.FECHA_LIQ , #(lf)        EKKO.FRGKE AS Indicador_de_Liberacion,#(lf)        EKKO.FRGGR AS Grupo_de_Liberacion,#(lf)        EKKO.FRGSX AS Estrategia_Liberacion,#(lf)        EKKO.BSART AS Tipo_Documento,  #(lf)        EKPO.EBELN AS Documento,#(lf)        EKPO.MATNR AS Articulo,#(lf)        EKPO.TXZ01 AS Descripcion, #(lf)        EKPO.MENGE AS Cantidad,#(lf)        EKPO.LGORT AS Almacen,#(lf)        CASE #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack' #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER) #(lf)            ELSE 1 #(lf)        END * EKPO.MENGE AS Cantidad_Pares,#(lf)        EKPO.SAISO AS PE,#(lf)        EKPO.SAISO AS Ano_PE,#(lf)        EKPO.AEDAT AS Fecha_Creacion,#(lf)        EKPO.CREATIONDATE AS Fecha_Creacion2,#(lf)        EKPO.ZFACTORY AS XFactory_Actualizado, #(lf)        EKPO.ZFACTORYO AS XFactory_Original,#(lf)        EKPO.WERKS AS Entidad_CD,#(lf)        EKPO.BUKRS AS Entidad_Solicitante,#(lf)        EKPO.ZCENTRODES AS Centro_Destino_Final,#(lf)        EKPO.ZINSTOREDATE AS Fecha_Tienda,#(lf)        EKKO.ZZF_DESPACHO AS XFactory_Requerida,#(lf)        EKKO.AEDAT AS Fecha_EKKO,#(lf)        EKKO.LIFNR AS Numero_Proveedor, #(lf)        EKKO.INCO1 AS Incoterm,#(lf)--        EKKO.INCO2 AS Puerto_Origen,#(lf)        EKKO.ZZF_DESPACHO AS Fecha_Despacho_Final,#(lf)        EKKO.ZZF_DESPINI AS Fecha_Despacho_Inicial,#(lf)        EKKO.ZZ_TIPO_FLETE AS Tipo_de_Flete,#(lf)--        EKKO.ZZ_ZPORT AS Puerto_Origen2,#(lf)        EKKO.BUKRS AS Entidad_Compra,#(lf)        EKKO.EKORG AS Entidad_Solicitante2,#(lf)        EKKO.ZZ_CENTRO_D AS Entidad_CD2#(lf)    FROM SAP_ECC.EKET ek#(lf)    INNER JOIN SAP_ECC.EKPO EKPO#(lf)        ON ek.EBELN = EKPO.EBELN #(lf)        AND ek.EBELP = EKPO.EBELP #(lf)    INNER JOIN SAP_ECC.ekko EKKO#(lf)        ON EKPO.EBELN = EKKO.EBELN #(lf)    WHERE EKPO.LOEKZ <> 'L'#(lf)),#(lf)final_cte AS (#(lf)    SELECT #(lf)        m.*,#(lf)        Indicador_de_Liberacion,#(lf)        Grupo_de_Liberacion,#(lf)        Estrategia_Liberacion,#(lf)        Tipo_Documento,  #(lf)        Documento,#(lf)        Articulo,#(lf)        Descripcion, #(lf)        Cantidad,#(lf)        Almacen,#(lf)        Cantidad_Pares,#(lf)        PE,#(lf)        Ano_PE,#(lf)        Fecha_Creacion,#(lf)        Fecha_Creacion2,#(lf)        XFactory_Actualizado, #(lf)        XFactory_Original,#(lf)        Entidad_CD,#(lf)        Entidad_Solicitante,#(lf)        Centro_Destino_Final,#(lf)        Fecha_Tienda,#(lf)        XFactory_Requerida,#(lf)        Fecha_EKKO,#(lf)        Numero_Proveedor, #(lf)        Incoterm,#(lf)--        Puerto_Origen,#(lf)        Fecha_Despacho_Final,#(lf)        Fecha_Despacho_Inicial,#(lf)        Tipo_de_Flete,#(lf)--        Puerto_Origen2,#(lf)        Entidad_Compra,#(lf)        Entidad_Solicitante2,#(lf)        Entidad_CD2,#(lf)        FECHA_LIQ#(lf)    FROM DatosMK m#(lf)    INNER JOIN lotes l#(lf)        ON m.LOTE = l.CHARG #(lf)        AND m.ZIMP_POS  = l.EBELP #(lf)        AND m.MATNR = l.MATNR #(lf))#(lf)-- Incluir : FECHA_LIQ#(lf)SELECT *#(lf)FROM final_cte#(lf)WHERE FECHA_LIQ IS NULL OR FECHA_LIQ = '00000000'", null, [EnableFolding=true])
 				in
 				    Consulta1
 

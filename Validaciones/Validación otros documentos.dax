@@ -1,0 +1,34 @@
+﻿EVALUATE
+SUMMARIZECOLUMNS (
+    MK_LOTES[TIPO_DOCUMENTO],
+    //    FILTER (
+    //        MK_LOTES,
+    //        NOT ISBLANK ( MK_LOTES[Pais Origen] ) && NOT ISBLANK ( MK_LOTES[Pais Destino] )
+    //    ),
+    "n", MIN ( MK_LOTES[FechaObjetivo] ),
+    "x", MAX ( MK_LOTES[FechaObjetivo] ),
+    "a", AVERAGE ( MK_LOTES[FechaObjetivo] ),
+    "cnt", COUNTROWS ( MK_LOTES ),
+    "nZIN", MIN ( MK_LOTES[ZINSTOREDATE_MK] ),
+    "xZIN", MAX ( MK_LOTES[ZINSTOREDATE_MK] ),
+    "fechas usable",
+        CALCULATE (
+            COUNTROWS ( MK_LOTES ),
+            NOT ISBLANK ( MK_LOTES[Pais Origen] ) && NOT ISBLANK ( MK_LOTES[Pais Destino] )
+        ),
+    "usable",
+        CALCULATE (
+            COUNTROWS ( MK_LOTES ),
+            NOT ISBLANK ( MK_LOTES[Pais Origen] )
+                && NOT ISBLANK ( MK_LOTES[Pais Destino] )
+                    && MK_LOTES[Pais Origen]
+                        IN CALCULATETABLE (
+                            VALUES ( TiemposObjetivo[Origen] ),
+                            TiemposObjetivo[Origen] <> ""
+                        )
+                            && MK_LOTES[Pais Destino] <> ""
+        )
+)
+
+EVALUATE
+SUMMARIZECOLUMNS ( TiemposObjetivo[ID], TiemposObjetivo[Actividad] )
