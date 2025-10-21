@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "c91d1651220f731a2844",
   "position": {
     "x": 632,
@@ -368,6 +368,62 @@
             }
           ]
         }
+      },
+      {
+        "name": "ea8260b64649ee91d000",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fecha Liquidación"
+              }
+            },
+            "Property": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c0296cf9995b97c8862d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fecha Liquidación"
+              }
+            },
+            "Property": "Semana"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "edd87a52e8b4851a1cfa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "BV_ESTILO_COLOR"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4ac49dca804064832c37",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Indicador"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

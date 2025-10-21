@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FACT_INVENTARIOUD"
+                      "Entity": "Campañas"
                     }
                   },
                   "Property": "Campaña"
                 }
               },
-              "queryRef": "FACT_INVENTARIOUD.Campaña",
+              "queryRef": "Campañas.Campaña",
               "nativeQueryRef": "Campaña",
               "active": true
             }
@@ -146,13 +146,6 @@
       "general": [
         {
           "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "orientation": {
               "expr": {
                 "Literal": {
@@ -160,13 +153,58 @@
                 }
               }
             },
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "selfFilter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "c",
+                    "Entity": "Campañas",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Contains": {
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "c"
+                              }
+                            },
+                            "Property": "Campaña"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'cat'"
+                          }
+                        }
+                      }
+                    },
+                    "Annotations": {
+                      "PowerBI.MParameterBehavior": 1
+                    }
+                  }
+                ]
+              }
+            },
             "filter": {
               "filter": {
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "f",
-                    "Entity": "FACT_INVENTARIOUD",
+                    "Name": "c",
+                    "Entity": "Campañas",
                     "Type": 0
                   }
                 ],
@@ -179,7 +217,7 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "f"
+                                  "Source": "c"
                                 }
                               },
                               "Property": "Campaña"
@@ -190,7 +228,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "' JULIO / DIA DE LA MADRE CR'"
+                                "Value": "'CAT DNA WORKWEAR'"
                               }
                             }
                           ]
@@ -524,12 +562,12 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "fd5e14fab47fd7ad1155",
+        "name": "9044408c7a5be8a0e9ac",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "FACT_INVENTARIOUD"
+                "Entity": "Campañas"
               }
             },
             "Property": "Campaña"

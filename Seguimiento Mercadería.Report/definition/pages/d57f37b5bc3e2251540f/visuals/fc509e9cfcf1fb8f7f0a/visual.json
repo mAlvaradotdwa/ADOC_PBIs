@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "fc509e9cfcf1fb8f7f0a",
   "position": {
     "x": 3,
@@ -479,5 +479,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2213b9b7fb1090909088",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Períodos Estadísticos"
+              }
+            },
+            "Property": "Tipo Vencimiento2"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

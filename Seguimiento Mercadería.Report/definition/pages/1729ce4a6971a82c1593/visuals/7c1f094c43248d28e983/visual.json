@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO"
+                      "Entity": "Campañas"
                     }
                   },
                   "Property": "Campaña"
                 }
               },
-              "queryRef": "EKPO.Campaña",
+              "queryRef": "Campañas.Campaña",
               "nativeQueryRef": "Campaña",
               "active": true
             }

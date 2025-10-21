@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "396e5c93d15ba6138505",
   "position": {
     "x": 27.23404255319149,
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Campañas"
                     }
                   },
                   "Property": "Campaña"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.Campaña",
+              "queryRef": "Campañas.Campaña",
               "nativeQueryRef": "Campaña",
               "active": true
             }
@@ -146,17 +146,17 @@
       "general": [
         {
           "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "orientation": {
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -581,6 +581,20 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "d9ed86b953ee924e819d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Campañas"
+              }
+            },
+            "Property": "Campaña"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }
