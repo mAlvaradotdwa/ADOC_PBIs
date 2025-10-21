@@ -269,6 +269,7 @@ relationship 790d8d4a-bfd2-9e0f-e078-884ae5cff01d
 	toColumn: DIM_BODEGA.SK_TIENDA
 
 relationship e3efa585-ad98-b99e-4f16-fee5df2e1479
+	isActive: false
 	toCardinality: many
 	fromColumn: Tabla_Campaña.Articulo
 	toColumn: EKPO.ARTICULO
@@ -278,6 +279,7 @@ relationship 56847c0c-edbd-124d-584c-1947caae17bf
 	toColumn: DIM_ARTICULOS.SK_MATNR
 
 relationship 2e7e29a5-5ab8-4231-43ee-42339fa3625e
+	isActive: false
 	toCardinality: many
 	fromColumn: Tabla_Campaña.Estilo
 	toColumn: FAC_TEMPORADAS.Estilo
@@ -344,4 +346,28 @@ relationship 840bb208-de4b-4eed-3823-7222f73fccae
 relationship 5ca137bd-9f1f-2de0-8ff4-8732d9cf8956
 	fromColumn: 'EKPO L1'.FECHA_CONTABILIZACION
 	toColumn: 'Fecha Liquidación L1'.Fecha
+
+relationship 8f40dae1-1445-0e52-501d-80058b0eb1a2
+	fromColumn: FACT_INVENTARIOUD.Campaña
+	toColumn: Campañas.Campaña
+
+relationship e4ae58f2-f755-7b1d-8c9c-698321abe8f8
+	fromColumn: EKPO_BFI-CD.Campaña
+	toColumn: Campañas.Campaña
+
+relationship 758d4403-5e23-3ee5-6216-fada7833f822
+	fromColumn: 'EKPO L1 V2'.Campaña
+	toColumn: Campañas.Campaña
+
+relationship 78e1eb82-7084-09e9-e532-d398630f2fdd
+	fromColumn: FAC_TEMPORADAS.Campaña
+	toColumn: Campañas.Campaña
+
+relationship c081dea8-6be2-2fca-2911-d28b2dbb9824
+	fromColumn: Tabla_Campaña.Campaña
+	toColumn: Campañas.Campaña
+
+relationship 6890e8af-ed05-da06-b58f-989bc2500c76
+	fromColumn: FAC_TEMPORADAS.Articulo
+	toColumn: DIM_ARTICULOS.SK_MATNR
 

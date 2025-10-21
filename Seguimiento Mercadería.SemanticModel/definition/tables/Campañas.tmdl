@@ -1,0 +1,33 @@
+table Campañas
+	lineageTag: 34396805-a4ac-451e-a53f-08c74e8029f9
+
+	column Campaña
+		lineageTag: 08d0cc13-2129-4d79-a039-a288fe6ba061
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: EKPO[Campaña]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Campañas = calculated
+		mode: import
+		source = ```
+				
+				    SUMMARIZE (
+				        FILTER (
+				            UNION (
+				                DISTINCT ( EKPO[Campaña] ),
+				                DISTINCT ( FAC_TEMPORADAS[Campaña] ),
+				                DISTINCT ( 'EKPO_BFI-CD'[Campaña] ),
+				                DISTINCT ( 'EKPO L1 V2'[Campaña] ),
+				                DISTINCT ( 'Tabla_Campaña'[Campaña] ),
+				                DISTINCT ( FACT_INVENTARIOUD[Campaña] )
+				            ),
+				            [Campaña] <> ""
+				        ),
+				        [Campaña]
+				    )
+				```
+
+	annotation PBI_Id = d80d317b70b0473fadc0f641d1c5ad7a
+

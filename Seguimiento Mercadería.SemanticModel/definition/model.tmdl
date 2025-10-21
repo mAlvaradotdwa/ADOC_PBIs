@@ -102,6 +102,7 @@ ref table 'Tiempos L1'
 ref table 'SLA CDs'
 ref table PuertosOrigen
 ref table TiemposObjetivo
+ref table Campañas
 
 ref cultureInfo es-SV
 

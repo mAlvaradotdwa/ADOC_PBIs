@@ -785,6 +785,15 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Campañas",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
@@ -2699,8 +2708,130 @@
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
+    },
+    {
+      "ordinal": 18,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 275,
+            "y": 254
+          },
+          "nodeIndex": "Tabla_Campaña",
+          "nodeLineageTag": "95a57fa4-1e44-469b-a1cb-bdd7812b3d0c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1435.3333320617676,
+            "y": 259
+          },
+          "nodeIndex": "FACT_INVENTARIOUD",
+          "nodeLineageTag": "8501e32b-d593-4fa7-91aa-a5a4b27eb569",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 279.33333206176758,
+            "y": 0
+          },
+          "nodeIndex": "Campañas",
+          "nodeLineageTag": "34396805-a4ac-451e-a53f-08c74e8029f9",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 6,
+          "expandedHeight": 200
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 256
+          },
+          "nodeIndex": "EKPO",
+          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
+          "size": {
+            "height": 464,
+            "width": 234
+          },
+          "zIndex": 1,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 884.33333206176758,
+            "y": 267
+          },
+          "nodeIndex": "EKPO L1 V2",
+          "nodeLineageTag": "a1db1e76-3f00-4839-94bb-ae76fdce80de",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1166.3333320617676,
+            "y": 260
+          },
+          "nodeIndex": "EKPO_BFI-CD",
+          "nodeLineageTag": "f7eec4eb-88f0-4dfe-81fc-ac0ddb207251",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 573.33333206176758,
+            "y": 258
+          },
+          "nodeIndex": "FAC_TEMPORADAS",
+          "nodeLineageTag": "e9a6b2c2-cab4-4d7c-9ad4-5025842f0a48",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 803.33333206176758,
+            "y": 676
+          },
+          "nodeIndex": "DIM_ARTICULOS",
+          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 4,
+          "expandedHeight": 300
+        }
+      ],
+      "name": "Disposición 11",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Disposición 6",
+  "selectedDiagram": "Disposición 11",
   "defaultDiagram": "Todas las tablas"
 }
