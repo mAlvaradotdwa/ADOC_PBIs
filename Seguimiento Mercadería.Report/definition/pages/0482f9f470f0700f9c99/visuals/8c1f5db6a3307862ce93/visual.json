@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "8c1f5db6a3307862ce93",
   "position": {
     "x": 268.95458885408465,
@@ -325,89 +325,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7eb3b7aec50fcda6cded",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "EKPO Solped"
-              }
-            },
-            "Property": "CENTRO_DESTINO"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "557a545cc2fcebcc7031",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "EKPO Solped"
-              }
-            },
-            "Property": "DOCUMENTO"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6d54028f6107cd6cef7f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "BV_ESTILO_COLOR"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ab5a32cb6bbf69eeec32",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "EKPO Solped"
-                  }
-                },
-                "Property": "FECHA_CREACION_DOCUMENTO"
-              }
-            },
-            "Function": 3
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f6852b63ef4c539b937e",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "EKPO Solped"
-                  }
-                },
-                "Property": "CANTIDAD_TOTAL_SOLICITADA"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

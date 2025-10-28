@@ -9,14 +9,6 @@ table 'EKPO L1 V2'
 
 		annotation SummarizationSetBy = Automatic
 
-	column CENTRO_DISTRIBUCION
-		dataType: string
-		lineageTag: b5d48099-ec47-4300-b984-7b7028e3e3d8
-		summarizeBy: none
-		sourceColumn: CENTRO_DISTRIBUCION
-
-		annotation SummarizationSetBy = Automatic
-
 	column ALMACEN
 		dataType: string
 		lineageTag: e0718c48-beef-472d-b7f4-d99ddb6a7e41
@@ -24,16 +16,6 @@ table 'EKPO L1 V2'
 		sourceColumn: ALMACEN
 
 		annotation SummarizationSetBy = Automatic
-
-	column CANTIDAD
-		dataType: double
-		lineageTag: b3c2eb34-74b5-41a1-852b-266c7f4185bd
-		summarizeBy: sum
-		sourceColumn: CANTIDAD
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DESCRIPCION
 		dataType: string
@@ -51,73 +33,11 @@ table 'EKPO L1 V2'
 
 		annotation SummarizationSetBy = Automatic
 
-	column TIPO_MATERIAL
-		dataType: string
-		lineageTag: f9cab0b9-508c-4bb6-a4a0-f65a0734e7fa
-		summarizeBy: none
-		sourceColumn: TIPO_MATERIAL
-
-		annotation SummarizationSetBy = Automatic
-
-	column FECHA_ENTREGA
-		dataType: dateTime
-		formatString: Short Date
-		lineageTag: 062cd126-1a4e-4373-9ba4-d6d1c11c4c97
-		summarizeBy: none
-		sourceColumn: FECHA_ENTREGA
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
 	column PE
 		dataType: string
 		lineageTag: 3fbf6bf6-21da-4007-9618-46e089289c66
 		summarizeBy: none
 		sourceColumn: PE
-
-		annotation SummarizationSetBy = Automatic
-
-	column ANO_PE
-		dataType: string
-		lineageTag: 07ece62f-f732-4de0-82bd-5ee45077969b
-		summarizeBy: none
-		sourceColumn: ANO_PE
-
-		annotation SummarizationSetBy = Automatic
-
-	column FECHA_CREACION_EKKO
-		dataType: dateTime
-		formatString: Short Date
-		lineageTag: 8602d06b-5f40-44b4-b390-017c5089b0ce
-		summarizeBy: none
-		sourceColumn: FECHA_CREACION_EKKO
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column GRUPO_COMPRAS
-		dataType: string
-		lineageTag: 0b691ac5-d044-40dd-8316-850e9ba828dd
-		summarizeBy: none
-		sourceColumn: GRUPO_COMPRAS
-
-		annotation SummarizationSetBy = Automatic
-
-	column CLASE_DOCUMENTO
-		dataType: string
-		lineageTag: ba3f1ecb-0dcb-4a79-a522-bb8969ed06cd
-		summarizeBy: none
-		sourceColumn: CLASE_DOCUMENTO
-
-		annotation SummarizationSetBy = Automatic
-
-	column CENTRO_DESTINO
-		dataType: string
-		lineageTag: 4470a4e4-d8f7-4bb8-9667-cf781df72bf9
-		summarizeBy: none
-		sourceColumn: CENTRO_DESTINO
 
 		annotation SummarizationSetBy = Automatic
 
@@ -161,68 +81,6 @@ table 'EKPO L1 V2'
 
 		annotation SummarizationSetBy = Automatic
 
-	column PE2
-		dataType: string
-		lineageTag: 543c0b7e-1f0d-4569-937b-0f0c109dfce2
-		summarizeBy: none
-		sourceColumn: PE2
-
-		annotation SummarizationSetBy = Automatic
-
-	column PE_ANO2
-		dataType: string
-		lineageTag: a52908fc-889b-46a1-8699-cc07413c5bbd
-		summarizeBy: none
-		sourceColumn: PE_ANO2
-
-		annotation SummarizationSetBy = Automatic
-
-	column VENDOR
-		dataType: string
-		lineageTag: 2a489383-8069-47eb-9c33-4514e20a3b85
-		summarizeBy: none
-		sourceColumn: VENDOR
-
-		annotation SummarizationSetBy = Automatic
-
-	column SOCIEDAD
-		dataType: string
-		lineageTag: 03bf10db-72c7-499c-a3c8-88359c4f251c
-		summarizeBy: none
-		sourceColumn: SOCIEDAD
-
-		annotation SummarizationSetBy = Automatic
-
-	column POSICION
-		dataType: string
-		lineageTag: a01feb0d-0669-4fdb-be83-e8f769699dbd
-		summarizeBy: none
-		sourceColumn: POSICION
-
-		annotation SummarizationSetBy = Automatic
-
-	column Estatus_Documento = ```
-			
-			VAR _documento = 'EKPO L1 V2'[DOCUMENTO]  -- Obtiene el valor de DOCUMENTO en EKPO L1 V2
-			
-			VAR _clasificacion = 
-			    CALCULATE(
-			        FIRSTNONBLANK('EKPO L1'[Estatus_Documento], 1),  -- Extrae el valor de Estatus_Documento de EKPO L1
-			        'EKPO L1'[DOCUMENTO] = _documento  -- Relaciona ambas tablas por DOCUMENTO
-			    )
-			
-			RETURN
-			    IF(
-			        ISBLANK(_clasificacion),  -- Si no se encuentra clasificación
-			        "Pendiente",  -- Devuelve "Pendiente" si no hay valor
-			        _clasificacion  -- Si se encuentra, devuelve la clasificación
-			    )
-			```
-		lineageTag: 49d1418d-f278-484b-b036-c9c536d97d06
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
 	column Articulo_GenericoF = MID('EKPO L1 V2'[ARTICULO],FIND("0000000",'EKPO L1 V2'[ARTICULO])+7,8)
 		lineageTag: a54f79f3-c17a-400c-a4a1-1a8ef1575219
 		summarizeBy: none
@@ -232,9 +90,9 @@ table 'EKPO L1 V2'
 	column Fecha_Conciliacion = ```
 			
 			IF(
-			    'EKPO L1 V2'[Estatus_Documento] = "Entregado", 
-			    'EKPO L1 V2'[FECHA_ENTREGA],
-			    EOMONTH('EKPO L1 V2'[FECHA_ENTREGA], 0) + 1
+			    'EKPO L1 V2'[ESTADO ENTREGA] = "Entregado", 
+			    'EKPO L1 V2'[ULTIMA ENTREGA],
+			    EOMONTH('EKPO L1 V2'[F. DESPACHO], 0) + 1
 			)
 			```
 		formatString: Short Date
@@ -247,23 +105,26 @@ table 'EKPO L1 V2'
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column Pais_Destino = RELATED ( DIM_BODEGA[SK_PAIS] )
-		lineageTag: f9f87e27-fe4f-4dc1-98ab-649b408c2ffc
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
 	column PRECIOVENTA_USD =
 			
-			CALCULATE(
-			    FIRSTNONBLANK('Precio Venta'[PrecioVentaUSD], 1),
-			    FILTER(
-			        ALL('Precio Venta'),
-			        'Precio Venta'[Articulo_GenericoF] = 'EKPO L1 V2'[Articulo_GenericoF] &&
-			        'Precio Venta'[VKORG] = 'EKPO L1 V2'[Pais_Destino]
+			VAR PrecioUnitario =
+			    CALCULATE(
+			        FIRSTNONBLANK('Precio Venta'[PrecioVentaUSD], 1),
+			        FILTER(
+			            ALL('Precio Venta'),
+			            'Precio Venta'[Articulo_GenericoF] = 'EKPO L1 V2'[Articulo_GenericoF]
+			                && 'Precio Venta'[VKORG] = 'EKPO L1 V2'[SK_PAIS]
+			        )
 			    )
-			) * 'EKPO L1 V2'[CANTIDAD]
-			//LOOKUPVALUE(FACT_ARRIBOSFUTURO[PRECIO_VENTANETA_USD],FACT_ARRIBOSFUTURO[DOC],FACT_TUNGYA[DOC_COMPRA],FACT_ARRIBOSFUTURO[ARTICULO],FACT_TUNGYA[ARTICULO])))
+			VAR Cantidad =
+			    IF(
+			        'EKPO L1 V2'[ESTADO ENTREGA] = "ENTREGADO",
+			        'EKPO L1 V2'[QTY SOLICITADA],
+			        'EKPO L1 V2'[PENDIENTE ENTREGA]
+			    )
+			RETURN
+			    PrecioUnitario * Cantidad
+			//LOOKUPVALUE(FACT_ARRIBOSFUTURO[PRECIO_VENTANETA_USD],FACT_ARRIBOSFUTURO[DOC],FACT_TUNGYA[DOC_COMPRA],FACT_ARRIBOSFUTURO[ARTICULO],FACT_TUNGYA[ARTICULO]))))
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		lineageTag: ed550b83-bc31-4848-ba68-74dfba8fcd0b
 		summarizeBy: sum
@@ -271,14 +132,6 @@ table 'EKPO L1 V2'
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
-
-	column SOCIEDAD_CORRECTA
-		dataType: string
-		lineageTag: c3984117-22a7-47d2-975f-d4f50b93dc1f
-		summarizeBy: none
-		sourceColumn: SOCIEDAD_CORRECTA
-
-		annotation SummarizationSetBy = Automatic
 
 	column FirstDateSale = RELATED(FACT_PRIMERAVENTA_ARTICULO[date_firstsale])
 		lineageTag: f6fe93fb-bc9a-43ee-a4ed-34baa07e146c
@@ -293,13 +146,13 @@ table 'EKPO L1 V2'
 			-- Fechas de creación para el mismo artículo genérico
 			VAR _MinFecha = 
 			    CALCULATE(
-			        MIN('EKPO L1 V2'[FECHA_CREACION_EKKO]),
+			        MIN('EKPO L1 V2'[F. CREACION REGISTRO]),
 			        ALLEXCEPT('EKPO L1 V2', 'EKPO L1 V2'[Articulo_GenericoF])
 			    )
 			
 			VAR _MaxFecha = 
 			    CALCULATE(
-			        MAX('EKPO L1 V2'[FECHA_CREACION_EKKO]),
+			        MAX('EKPO L1 V2'[F. CREACION REGISTRO]),
 			        ALLEXCEPT('EKPO L1 V2', 'EKPO L1 V2'[Articulo_GenericoF])
 			    )
 			
@@ -315,7 +168,7 @@ table 'EKPO L1 V2'
 			            ISBLANK('EKPO L1 V2'[FirstDateSale]),
 			            "Nuevo",
 			            IF(
-			                'EKPO L1 V2'[FirstDateSale] <= 'EKPO L1 V2'[FECHA_CREACION_EKKO],
+			                'EKPO L1 V2'[FirstDateSale] <= 'EKPO L1 V2'[F. CREACION REGISTRO],
 			                "Recompra",
 			                "Nuevo"
 			            )
@@ -365,13 +218,156 @@ table 'EKPO L1 V2'
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'CLASE DOCUMENTO'
+		dataType: string
+		lineageTag: d22fdd5c-2722-4121-b6e3-41bd8b4e67f7
+		summarizeBy: none
+		sourceColumn: CLASE DOCUMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'F. CREACION REGISTRO'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 174191ac-ba28-4f93-8c62-5e57659fd397
+		summarizeBy: none
+		sourceColumn: F. CREACION REGISTRO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'GRUPO DE COMPRAS'
+		dataType: string
+		lineageTag: 3aa15c27-f56b-4605-b067-89aad8adfd1e
+		summarizeBy: none
+		sourceColumn: GRUPO DE COMPRAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CENTRO SUMINISTRADOR'
+		dataType: string
+		lineageTag: 0cb7b8d6-32ae-4688-a62e-924ea66c2207
+		summarizeBy: none
+		sourceColumn: CENTRO SUMINISTRADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'F. DESPACHO'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 63621137-9570-4348-8de3-0f1a8db269f5
+		summarizeBy: none
+		sourceColumn: F. DESPACHO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'CENTRO DESTINO'
+		dataType: string
+		lineageTag: b59e3dd9-d5d8-45e7-afb5-b3bedce48905
+		summarizeBy: none
+		sourceColumn: CENTRO DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DOC. POS'
+		dataType: string
+		lineageTag: c73ec617-7406-44b7-b5da-7fae615c4a58
+		summarizeBy: none
+		sourceColumn: DOC. POS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CENTRO ENTREGA'
+		dataType: string
+		lineageTag: fa70b355-344e-4cf9-bb12-ce10fd7a26f4
+		summarizeBy: none
+		sourceColumn: CENTRO ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QTY SOLICITADA'
+		dataType: double
+		lineageTag: 44576676-9aa6-4927-98b8-88dad292a099
+		summarizeBy: sum
+		sourceColumn: QTY SOLICITADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNIDAD
+		dataType: string
+		lineageTag: c10f1399-1ea9-4e0c-b801-980d828c2fba
+		summarizeBy: none
+		sourceColumn: UNIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'TIPO MATERIAL'
+		dataType: string
+		lineageTag: 682fc1e6-de1f-4690-b215-e3a6fa4f7f56
+		summarizeBy: none
+		sourceColumn: TIPO MATERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PE AÑO'
+		dataType: string
+		lineageTag: 3d36c3af-e7ff-4405-a7db-7fff87b8efc1
+		summarizeBy: none
+		sourceColumn: PE AÑO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'QTY ENTREGADA'
+		dataType: double
+		lineageTag: 02dacdd4-2f3f-464e-a8a0-525fa8975b04
+		summarizeBy: sum
+		sourceColumn: QTY ENTREGADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'PENDIENTE ENTREGA'
+		dataType: double
+		lineageTag: 62dd113f-903f-41ac-abb0-d6fabcb30e76
+		summarizeBy: sum
+		sourceColumn: PENDIENTE ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'ULTIMA ENTREGA'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 5a5abdf6-cb87-4de7-b214-353ea1f369aa
+		summarizeBy: none
+		sourceColumn: ULTIMA ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'ESTADO ENTREGA'
+		dataType: string
+		lineageTag: c430c8d1-735a-48ff-81c1-79d5f7b23d2b
+		summarizeBy: none
+		sourceColumn: ESTADO ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'EKPO L1 V2' = m
 		mode: import
 		source =
 				let
-				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "#(lf)SELECT #(lf)    EKPO.MATNR AS Articulo,#(lf)    EKPO.WERKS AS Centro_Distribucion,#(lf)    EKPO.LGORT AS Almacen, #(lf)    EKPO.MENGE AS Cantidad, -- Se usa la cantidad de EKPO en lugar de MSEG#(lf)    EKPO.TXZ01 AS Descripcion,#(lf)    EKPO.EBELN AS Documento,#(lf)    EKPO.EBELP AS Posicion, -- Agregado para identificar posiciones únicas#(lf)    EKPO.MTART AS Tipo_Material,#(lf)    EKPO.SAISO AS PE,#(lf)    EKPO.SAISO AS Ano_PE,#(lf)    EKKO.BEDAT AS Fecha_Creacion_EKKO,#(lf)    EKKO.EKGRP AS Grupo_Compras,#(lf)    EKKO.BSART AS Clase_Documento,#(lf)    EKET.EINDT AS Fecha_Entrega, -- Se eliminó el COALESCE#(lf)    EKKO.ZZ_CENTRO_D AS Centro_Destino,#(lf)    EKKO.VERKF AS Vendor,#(lf)    EKKO.BUKRS AS Sociedad,#(lf)    EKKO.RESWK AS Sociedad_Correcta,#(lf)    MARA.GROES AS ESTILO,#(lf)    MARA.FREE_CHAR AS COLOR,#(lf)    MARA.BRAND_ID AS MARCA,#(lf)    MARA.ZZ_ART_PROV AS GENERO,#(lf)    MARA.ZZ_DEPART AS DEPARTAMENTO,#(lf)    MARA.SAISO AS PE2,#(lf)    MARA.SAISJ AS PE_ANO2#(lf)FROM SAP_ECC.EKPO#(lf)LEFT JOIN SAP_ECC.EKKO #(lf)    ON EKPO.EBELN = EKKO.EBELN#(lf)LEFT JOIN SAP_ECC.MARA #(lf)    ON EKPO.MATNR = MARA.MATNR #(lf)LEFT JOIN SAP_ECC.EKET #(lf)    ON EKPO.EBELN = EKET.EBELN  #(lf)    AND EKPO.EBELP = EKET.EBELP -- Se mantiene esta condición para evitar duplicaciones#(lf)--WHERE EKKO.BSART IN ('ZUB', 'ZUB1')#(lf)--AND EKKO.BUKRS = '1000'#(tab)#(lf)WHERE EKPO.LOEKZ <> 'L'#(lf)AND EKKO.RESWK IN ('1000', '1020')#(lf)AND EKKO.BEDAT >= ADD_MONTHS(CURRENT_DATE, -24) #(lf)--AND EKPO.EBELN = '4801820562'#(lf)-- AND EKPO.MATNR = '000000010013616001'#(lf)--AND EKPO.WERKS = '1020'#(lf)--AND EKPO.LGORT = 'BP02'", null, [EnableFolding=true]),
-				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"FECHA_CREACION_EKKO", type date}, {"FECHA_ENTREGA", type date}}),
-				    #"Consultas combinadas" = Table.NestedJoin(#"Tipo cambiado", {"CENTRO_DESTINO"}, DIM_BODEGA, {"SK_TIENDA"}, "DIM_BODEGA", JoinKind.LeftOuter),
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "--SQL PARA L1--#(lf)SELECT#(lf)    EKKO.EBELN AS ""DOCUMENTO"",#(lf)    EKKO.BSART AS ""CLASE DOCUMENTO"",#(lf)    EKKO.AEDAT AS ""F. CREACION REGISTRO"",#(lf)    EKKO.EKGRP AS ""GRUPO DE COMPRAS"",#(lf)    EKKO.RESWK AS ""CENTRO SUMINISTRADOR"",#(lf)    EKKO.ZZF_DESPACHO AS ""F. DESPACHO"",#(lf)    EKKO.ZZ_CENTRO_D AS ""CENTRO DESTINO"",#(lf)    #(lf)    EKPO.EBELP AS ""DOC. POS"",#(lf)    EKPO.TXZ01 AS ""DESCRIPCION"",#(lf)    EKPO.MATNR AS ""ARTICULO"",#(lf)    EKPO.WERKS AS ""CENTRO ENTREGA"",#(lf)    EKPO.LGORT AS ""ALMACEN"",#(lf)    EKPO.MENGE AS ""QTY SOLICITADA"",#(lf)    EKPO.MEINS AS ""UNIDAD"",#(lf)    EKPO.MTART AS ""TIPO MATERIAL"",#(lf)    #(lf)    MARA.GROES AS ""ESTILO"",#(lf)    MARA.FREE_CHAR AS ""COLOR"",#(lf)    MARA.BRAND_ID AS ""MARCA"",#(lf)    MARA.ZZ_ART_PROV AS ""GENERO"",#(lf)    MARA.ZZ_DEPART AS ""DEPARTAMENTO"",#(lf)    MARA.SAISO AS ""PE"",#(lf)    MARA.SAISJ AS ""PE AÑO"",#(lf)    #(lf)    COALESCE(MSEG_SUM.QTY_ENTREGADA, 0) AS ""QTY ENTREGADA"",#(lf)    (EKPO.MENGE - COALESCE(MSEG_SUM.QTY_ENTREGADA, 0)) AS ""PENDIENTE ENTREGA"",#(lf)    MSEG_SUM.ULTIMA_FECHA AS ""ULTIMA ENTREGA"",#(lf)    CASE#(lf)        WHEN COALESCE(MSEG_SUM.QTY_ENTREGADA, 0) >= EKPO.MENGE THEN 'ENTREGADO'#(lf)        WHEN COALESCE(MSEG_SUM.QTY_ENTREGADA, 0) > 0 THEN 'PARCIAL'#(lf)        ELSE 'PENDIENTE'#(lf)    END AS ""ESTADO ENTREGA""#(lf)FROM SAP_ECC.EKPO#(lf)LEFT JOIN SAP_ECC.EKKO #(lf)    ON EKPO.EBELN = EKKO.EBELN#(lf)LEFT JOIN SAP_ECC.MARA #(lf)    ON EKPO.MATNR = MARA.MATNR#(lf)LEFT JOIN (#(lf)    SELECT EBELN, EBELP, #(lf)           SUM(MENGE) AS QTY_ENTREGADA,#(lf)           MAX(BUDAT_MKPF) AS ULTIMA_FECHA#(lf)    FROM SAP_ECC.MSEG#(lf)    WHERE BWART = '101'#(lf)    GROUP BY EBELN, EBELP#(lf)) MSEG_SUM#(lf)    ON EKPO.EBELN = MSEG_SUM.EBELN#(lf)    AND EKPO.EBELP = MSEG_SUM.EBELP#(lf)WHERE#(lf)    --EKKO.EKGRP = '303'#(lf)    EKKO.RESWK IN ('1000', '1020')#(lf)    AND EKPO.LOEKZ <> 'L'#(lf)    AND EKKO.AEDAT >= ADD_MONTHS(CURRENT_DATE, -24)#(lf)    --AND EKKO.EBELN = '4801958149'#(lf)    --AND EKPO.MATNR LIKE '%10013858001%'", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"F. CREACION REGISTRO", type date}, {"F. DESPACHO", type date},{"ULTIMA ENTREGA", type date}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Tipo cambiado", {"CENTRO DESTINO"}, DIM_BODEGA, {"SK_TIENDA"}, "DIM_BODEGA", JoinKind.LeftOuter),
 				    #"Se expandió DIM_BODEGA" = Table.ExpandTableColumn(#"Consultas combinadas", "DIM_BODEGA", {"SK_PAIS"}, {"SK_PAIS"}),
 				    #"Consultas combinadas1" = Table.NestedJoin(#"Se expandió DIM_BODEGA", {"SK_PAIS"}, DIM_PAIS, {"SK_PAIS"}, "DIM_PAIS", JoinKind.LeftOuter),
 				    #"Se expandió DIM_PAIS" = Table.ExpandTableColumn(#"Consultas combinadas1", "DIM_PAIS", {"BV_PAIS"}, {"BV_PAIS"}),

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "9e173adf3d86be855d85",
   "position": {
     "x": 43,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 55,
     "width": 183,
-    "tabOrder": 10000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -545,37 +545,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "27a9419d4124108c4037",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "MARCA_GR"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f869ad7a05e23b55a3d1",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "BV_MARCA"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

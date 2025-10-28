@@ -32,7 +32,7 @@ table Procesos
 		mode: import
 		source =
 				let
-				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUfLMLcgvKklMzjy8OQ+Nq5Co4OTmqRSrE61kBJTyASl3S0wqykyGygNFQJLGQPHg/JyC1BQQw98nwNUFLG4C5LpWoBjvDJExBTJDMlPzUhIRjNhYAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [idProceso = _t, Proceso = _t, #"Descripción Proceso" = _t])
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlTSUfLMLcgvKklMzjy8OQ+Nq5Co4OTmqRSrE61kBJTyASl3S0wqykyGygNFQJLGQPHg/JyC1BQQw98nwNUFLG4C5LpWoBjvDJExhetQiAoJckTjgVSYAcVCMlPzUhIRjNhYAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [idProceso = _t, Proceso = _t, #"Descripción Proceso" = _t])
 				in
 				    Origen
 

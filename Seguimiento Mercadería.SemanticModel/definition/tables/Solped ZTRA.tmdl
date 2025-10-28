@@ -82,12 +82,15 @@ table 'Solped ZTRA'
 		annotation SummarizationSetBy = Automatic
 
 	column CREADO_EL
-		dataType: string
+		dataType: dateTime
+		formatString: Short Date
 		lineageTag: dc18372f-858e-4b57-a74e-fc668e8b5494
 		summarizeBy: none
 		sourceColumn: CREADO_EL
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column CREADO_POR
 		dataType: string
@@ -250,12 +253,15 @@ table 'Solped ZTRA'
 		annotation SummarizationSetBy = Automatic
 
 	column FECHA
-		dataType: string
+		dataType: dateTime
+		formatString: Short Date
 		lineageTag: 252232c8-2492-49e6-9d85-d78f7bbd5578
 		summarizeBy: none
 		sourceColumn: FECHA
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column NO_EXPEDIENTE
 		dataType: string
@@ -290,12 +296,15 @@ table 'Solped ZTRA'
 		annotation SummarizationSetBy = Automatic
 
 	column FECHA_DOCUMENTO
-		dataType: string
+		dataType: dateTime
+		formatString: Short Date
 		lineageTag: 58e8c779-f5b0-4a8a-a902-1471e677e4a0
 		summarizeBy: none
 		sourceColumn: FECHA_DOCUMENTO
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column GRUPO_DE_COMPRA
 		dataType: string
@@ -371,13 +380,28 @@ table 'Solped ZTRA'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column Articulo_GenericoF = RIGHT('Solped ZTRA'[MAT_GRAL_CONF],8)
+		lineageTag: 143e19a5-5921-4926-a3a9-3101f6944905
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTENEDOR_REFERENCIA
+		dataType: string
+		lineageTag: 77cbbf28-89f2-4cff-bf99-d9d592fabcd3
+		summarizeBy: none
+		sourceColumn: CONTENEDOR_REFERENCIA
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Solped ZTRA' = m
 		mode: import
 		source =
 				let
-				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), " #(lf)SELECT #(lf)       EKPO.EBELN                 Doc_compra,  #(lf)       EKPO.EBELP                 posicion,  #(lf)       EKPO.MATNR                 articulo,  #(lf)       EKPO.MENGE                 cantidad_reparto,  #(lf)       EKPO.MEINS                 unidad,  #(lf)       EKET.GLMNG                 entregas,  #(lf)       EKET.WAMNG                 cantidad_salida,  #(lf)       EKET.WEMNG                 cantidad_ingresada,  #(lf)       EKKO.BSART                 clase_doc,  #(lf)       EKKO.AEDAT                 creado_el,  #(lf)       EKKO.ERNAM                 creado_por,  #(lf)       EKKO.RESWK                 centro_suminis,  #(lf)       EKPO.TXZ01                 Texto_breve,  #(lf)       EKPO.WERKS                 centro,  #(lf)       MARA.MTART                 tipo_material,  #(lf)       MARA.GROES                 estilo,  #(lf)       MARA.SATNR                 mat_gral_conf,  #(lf)       MARA.FREE_CHAR             color,  #(lf)       MARA.SIZE1                 talla,  #(lf)       MARA.BRAND_ID              marca,  #(lf)       MARA.ZZ_ART_PROV           genero,  #(lf)       T001W.NAME1                tienda,  #(lf)       T001W.LAND1                pais,  #(lf)       EKPO.LOEKZ                 indicador_de_borrado,  #(lf)       MARA.ZZ_DEPART             departamento,  #(lf)       EKKO.ZZ_TIPO_FLETE         tipo_flete,  #(lf)       EKKO.VERKF                 vendedor,  #(lf)       EKPO.RESLO                 almacen_emisor,  #(lf)       EKPO.LGORT                 almacen,  #(lf)       ZMM_EXPED_CONTS.CONTENEDOR contenedor,  #(lf)       EKKO.ZZF_DESPACHO          fecha,  #(lf)       EKPO.LBELN                 no_expediente,  -- Se mantiene solo EKPO.LBELN  #(lf)       EKPO.FECHA_EXP             fecha_expediente,  #(lf)       EKPO.FECHA_LIQ             fecha_liquidacion,  #(lf)       EKET.CHARG                 lote,  #(lf)       EKKO.BEDAT                 fecha_documento,  #(lf)       EKKO.EKGRP                 grupo_de_compra,  #(lf)       MARA.EAN11                 upc,  #(lf)       EKKO.FRGKE                 indicador_de_liquidacion,  #(lf)       EKPO.ELIKZ                 entrega_final,#(lf)       MARA.SAISO                 PE_MARA,#(lf)       MARA.SAISJ                 PE_ANO_MARA,#(lf)       EKPO.SAISO                 PE,#(lf)       EKPO.SAISO                 Ano_PE,#(lf)       CASE  #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack'  #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER)  #(lf)            ELSE 1  #(lf)     END * EKPO.MENGE             CantidadReparto_total  #(lf)FROM SAP_ECC.EKPO  #(lf)LEFT JOIN SAP_ECC.EKKO  #(lf)       ON EKPO.EBELN = EKKO.EBELN  #(lf)LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_CONTS#(lf)       ON ZMM_EXPED_CONTS.LBELN = EKPO.LBELN       #(lf)LEFT JOIN SAP_ECC.EKET  #(lf)       ON EKET.EBELN = EKPO.EBELN  #(lf)          AND EKET.EBELP = EKPO.EBELP  #(lf)LEFT JOIN SAP_ECC.MARA  #(lf)       ON MARA.MATNR = EKPO.MATNR  #(lf)LEFT JOIN SAP_ECC.T001W  #(lf)       ON T001W.WERKS = EKPO.WERKS  #(lf)WHERE  #(lf)    EKKO.AEDAT BETWEEN TO_VARCHAR(ADD_DAYS(LAST_DAY(ADD_MONTHS(CURRENT_DATE , -24)) , 1) , 'YYYYMMDD')  #(lf)                    AND TO_VARCHAR(LAST_DAY(CURRENT_DATE) , 'YYYYMMDD')  #(lf)    AND EKPO.LOEKZ <> 'L'  #(lf)    AND MARA.MTART IN ('MODE', 'ZMOD')  #(lf)    AND EKKO.BSART = 'ZTRA'  #(lf)    --AND EKKO.RESWK IN ('8010', '8020', '1010', '1020','2010', '3010', '3030', '4010', '5010', '5030','PA20')  #(lf)    --AND EKKO.RESWK = 'PA20'#(lf)    --AND EKPO.EBELN = '4700202098'  #(lf)    AND EKPO.MEINS <> 'CS'#(lf)    --AND MARA.GROES IN 'ASTRO T125A'#(lf)    --AND EKPO.MATNR IN ('000000030084889902', '000000030084889009', '000000030084889008', '000000030084889007', '000000030084889005', '000000030084889004', '000000030084889003', '000000030084889002', '000000030084889001')", null, [EnableFolding=true])
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), " #(lf)SELECT #(lf)       EKPO.EBELN                 Doc_compra,  #(lf)       EKPO.EBELP                 posicion,  #(lf)       EKPO.MATNR                 articulo,  #(lf)       EKPO.MENGE                 cantidad_reparto,  #(lf)       EKPO.MEINS                 unidad,  #(lf)       EKET.GLMNG                 entregas,  #(lf)       EKET.WAMNG                 cantidad_salida,  #(lf)       EKET.WEMNG                 cantidad_ingresada,  #(lf)       EKKO.BSART                 clase_doc,  #(lf)       EKKO.AEDAT                 creado_el,  #(lf)       EKKO.ERNAM                 creado_por,  #(lf)       EKKO.RESWK                 centro_suminis,  #(lf)       EKPO.TXZ01                 Texto_breve,  #(lf)       EKPO.WERKS                 centro,  #(lf)       MARA.MTART                 tipo_material,  #(lf)       MARA.GROES                 estilo,  #(lf)       MARA.SATNR                 mat_gral_conf,  #(lf)       MARA.FREE_CHAR             color,  #(lf)       MARA.SIZE1                 talla,  #(lf)       MARA.BRAND_ID              marca,  #(lf)       MARA.ZZ_ART_PROV           genero,  #(lf)       T001W.NAME1                tienda,  #(lf)       T001W.LAND1                pais,  #(lf)       EKPO.LOEKZ                 indicador_de_borrado,  #(lf)       MARA.ZZ_DEPART             departamento,  #(lf)       EKKO.ZZ_TIPO_FLETE         tipo_flete,  #(lf)       EKKO.VERKF                 vendedor,  #(lf)       EKPO.RESLO                 almacen_emisor,  #(lf)       EKPO.LGORT                 almacen,  #(lf)       ZMM_EXPED_CONTS.CONTENEDOR contenedor,  #(lf)       EKKO.ZZF_DESPACHO          fecha,  #(lf)       EKPO.LBELN                 no_expediente,  -- Se mantiene solo EKPO.LBELN  #(lf)       EKPO.FECHA_EXP             fecha_expediente,  #(lf)       EKPO.FECHA_LIQ             fecha_liquidacion,  #(lf)       EKET.CHARG                 lote,  #(lf)       EKKO.BEDAT                 fecha_documento,  #(lf)       EKKO.EKGRP                 grupo_de_compra,  #(lf)       MARA.EAN11                 upc,  #(lf)       EKKO.FRGKE                 indicador_de_liquidacion,  #(lf)       EKPO.ELIKZ                 entrega_final,#(lf)       EKKO.UNSEZ                 Contenedor_Referencia,#(lf)       MARA.SAISO                 PE_MARA,#(lf)       MARA.SAISJ                 PE_ANO_MARA,#(lf)       EKPO.SAISO                 PE,#(lf)       EKPO.SAISO                 Ano_PE,#(lf)       CASE  #(lf)            WHEN LOWER(EKPO.TXZ01) LIKE 'prepack%'  #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER)  #(lf)            ELSE 1  #(lf)     END * EKPO.MENGE             CantidadReparto_total  #(lf)FROM SAP_ECC.EKPO  #(lf)LEFT JOIN SAP_ECC.EKKO  #(lf)       ON EKPO.EBELN = EKKO.EBELN  #(lf)LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_CONTS#(lf)       ON ZMM_EXPED_CONTS.LBELN = EKPO.LBELN       #(lf)LEFT JOIN SAP_ECC.EKET  #(lf)       ON EKET.EBELN = EKPO.EBELN  #(lf)          AND EKET.EBELP = EKPO.EBELP  #(lf)LEFT JOIN SAP_ECC.MARA  #(lf)       ON MARA.MATNR = EKPO.MATNR  #(lf)LEFT JOIN SAP_ECC.T001W  #(lf)       ON T001W.WERKS = EKPO.WERKS  #(lf)WHERE  #(lf)    EKKO.AEDAT BETWEEN TO_VARCHAR(ADD_DAYS(LAST_DAY(ADD_MONTHS(CURRENT_DATE , -24)) , 1) , 'YYYYMMDD')  #(lf)                    AND TO_VARCHAR(LAST_DAY(CURRENT_DATE) , 'YYYYMMDD')  #(lf)    AND EKPO.LOEKZ <> 'L'  #(lf)    AND MARA.MTART IN ('MODE', 'ZMOD')  #(lf)    AND EKKO.BSART = 'ZTRA'  #(lf)    --AND EKKO.RESWK IN ('8010', '8020', '1010', '1020','2010', '3010', '3030', '4010', '5010', '5030','PA20')  #(lf)    --AND EKKO.RESWK = 'PA20'#(lf)    --AND EKPO.EBELN = '4700202098'  #(lf)    AND EKPO.MEINS <> 'CS'#(lf)    --AND MARA.GROES IN 'ASTRO T125A'#(lf)    --AND EKPO.MATNR IN ('000000030084889902', '000000030084889009', '000000030084889008', '000000030084889007', '000000030084889005', '000000030084889004', '000000030084889003', '000000030084889002', '000000030084889001')", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"CREADO_EL", type date}, {"FECHA", type date}, {"FECHA_DOCUMENTO", type date}})
 				in
-				    Consulta1
+				    #"Tipo cambiado"
 
 	annotation PBI_NavigationStepName = Navegación
 

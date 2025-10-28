@@ -10,7 +10,6 @@ table Tabla_Campaña
 		annotation SummarizationSetBy = Automatic
 
 	column 'Fecha Documento'
-		formatString: Short Date
 		lineageTag: 5bcb47ee-db41-4c5f-b62b-4e5e909b67c8
 		summarizeBy: none
 		isNameInferred
@@ -426,10 +425,10 @@ table Tabla_Campaña
 				        'EKPO L1 V2',
 				        "Articulo", [ARTICULO],
 				        "Descripcion", [DESCRIPCION],
-				        "Fecha Documento", [FECHA_CREACION_EKKO],
+				        "Fecha Documento", [F. CREACION REGISTRO],
 				        "Fecha Expediente", BLANK(),
 				        "Documento", [DOCUMENTO],
-				        "Cantidad", [CANTIDAD],
+				        "Cantidad", [QTY SOLICITADA],
 				        "Estilo", [ESTILO],
 				        "Color", [COLOR],
 				        "Marca", [MARCA],
@@ -441,14 +440,14 @@ table Tabla_Campaña
 				        "Origen", "L1",
 				        "Contenedor", BLANK(),
 				        "XFact Actualizada", BLANK(),
-				        "PE", [PE],
-				        "Año PE", [ANO_PE],
-				        "PE MARA", [PE2],
-				        "Año PE MARA", [ANO_PE],
-				        "Estatus", [ESTATUS_DOCUMENTO],
+				        "PE", BLANK(),
+				        "Año PE", BLANK(),
+				        "PE MARA", [PE],
+				        "Año PE MARA", [PE AÑO],
+				        "Estatus", [ESTADO ENTREGA],
 				        "MAX ETA", BLANK(),
 				        "ETA MarineTraffic BFI", BLANK(),
-				        "Fecha Entrega", [FECHA_ENTREGA],
+				        "Fecha Entrega", [F. DESPACHO],
 				        "Fecha Liquidacion", BLANK(),
 				        "SLA TOTAL", BLANK()
 				    ),
@@ -517,7 +516,39 @@ table Tabla_Campaña
 				        "SLA TOTAL", [SLA_BFI-CD]
 				    ),
 				
-				    // Tabla 5: EKPO_CD-TIENDA
+				// Tabla 5: Solped ZTRA
+				SELECTCOLUMNS(
+				    'Solped ZTRA',
+				    "Articulo", [ARTICULO],
+				    "Descripcion", [TEXTO_BREVE],
+				    "Fecha Documento", [CREADO_EL],
+				    "Fecha Expediente", BLANK(),
+				    "Documento", [DOC_COMPRA],
+				    "Cantidad", [CANTIDADREPARTO_TOTAL],
+				    "Estilo", [ESTILO],
+				    "Color", [COLOR],
+				    "Marca", [MARCA],
+				    "Genero", [GENERO],
+				    "Departamento", [DEPARTAMENTO],
+				    "Articulo Generico", [Articulo_GenericoF],
+				    "Pais Destino", [PAIS],
+				    "Precio Venta USD", BLANK(),
+				    "Origen", "Solped ZTRA",
+				    "Contenedor", BLANK(),
+				    "XFact Actualizada", BLANK(),
+				    "PE", [PE],
+				    "Año PE", [PE_ANO_MARA],
+				    "PE MARA", [PE_MARA],
+				    "Año PE MARA", [PE_ANO_MARA],
+				    "Estatus", "Pendiente",
+				    "MAX ETA", BLANK(),
+				    "ETA MarineTraffic BFI", BLANK(),
+				    "Fecha Entrega", BLANK(),
+				    "Fecha Liquidacion", BLANK(),
+				    "SLA TOTAL", BLANK()
+				),
+				
+				    // Tabla 6: EKPO_CD-TIENDA
 				    SELECTCOLUMNS(
 				        'EKPO_CD-TIENDA',
 				        "Articulo", [ARTICULO],

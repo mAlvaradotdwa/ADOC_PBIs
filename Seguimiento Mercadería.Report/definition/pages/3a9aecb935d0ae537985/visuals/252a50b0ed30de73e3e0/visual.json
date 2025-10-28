@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "252a50b0ed30de73e3e0",
   "position": {
-    "x": 18.75,
-    "y": 392.5,
-    "z": 8000,
-    "height": 310,
-    "width": 310,
-    "tabOrder": 20000
+    "x": 19.211042061006047,
+    "y": 400.68744870098328,
+    "z": 3000,
+    "height": 310.12110755624047,
+    "width": 310.12110755624047,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -276,6 +276,64 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "cd6c906187c00bbaf731",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PREPARACIONES CD (TRACING)"
+              }
+            },
+            "Property": "PAIS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4d582d026793b467f123",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "PREPARACIONES CD (TRACING)"
+                      }
+                    },
+                    "Property": "Pendiente"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Aggregation": {
+                    "Expression": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "PREPARACIONES CD (TRACING)"
+                          }
+                        },
+                        "Property": "Pendiente"
+                      }
+                    },
+                    "Function": 0
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

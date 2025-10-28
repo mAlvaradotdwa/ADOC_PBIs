@@ -1379,6 +1379,84 @@ table Métricas
 		displayFolder: Lead Times
 		lineageTag: b84dd3a6-b869-4977-868b-d125a80e86a6
 
+	measure 'Pares L1' = SUM('EKPO L1 V2'[PENDIENTE ENTREGA])
+		displayFolder: Pares
+		lineageTag: b54931f8-b1df-428f-8cff-bf3dde313e95
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Pares L1 Entregado' = SUM('EKPO L1 V2'[QTY ENTREGADA])
+		displayFolder: Pares
+		lineageTag: c055a2a4-69f5-4161-8466-e26933f52ac6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Qty ZTRA' =
+			
+			CALCULATE(
+			    SUM('Solped ZTRA'[CANTIDADREPARTO_TOTAL]) - SUM('Solped ZTRA'[ENTREGAS]),
+			    KEEPFILTERS(
+			    FILTER(
+			        'Solped ZTRA',
+			        'Solped ZTRA'[ENTREGA_FINAL] <> "X"
+			    )
+			)
+			)
+		displayFolder: Pares
+		lineageTag: 16fd75f4-3873-4cbe-8c59-7c3209cb5ed7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Qty Preparaciones' = SUM('PREPARACIONES CD (TRACING)'[Pendiente])
+		displayFolder: Pares
+		lineageTag: 7d26ba47-3ab1-4d1f-9a34-c7aa955c0952
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Pendiente Despacho' = ```
+			
+			CALCULATE(
+			    SUM('PREPARACIONES CD (TRACING)'[CANT_ORIGINAL]) - SUM('PREPARACIONES CD (TRACING)'[CANT_CANCELADO]) - SUM('PREPARACIONES CD (TRACING)'[QTY_PENDIENTE_PREPARAR]),
+			    FILTER(
+			        'PREPARACIONES CD (TRACING)',
+			        'PREPARACIONES CD (TRACING)'[ENTREGA_FINAL] <> "X"
+			    )
+			)
+			
+			```
+		displayFolder: Pares
+		lineageTag: 289fb5e8-912c-4afb-9357-6e1fc6f47f87
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Pendiente Prep' =
+			
+			CALCULATE(
+			    SUM('PREPARACIONES CD (TRACING)'[QTY_PENDIENTE_PREPARAR]),
+			    FILTER(
+			        'PREPARACIONES CD (TRACING)',
+			        'PREPARACIONES CD (TRACING)'[ENTREGA_FINAL] <> "X"
+			    )
+			)
+		displayFolder: Pares
+		lineageTag: f2911d0f-fd90-41cd-b27d-41d33053bb9c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Asignado Transp' =
+			
+			CALCULATE(
+			    SUM('PREPARACIONES CD (TRACING)'[TRANSITO_A_TIENDA]),
+			    FILTER(
+			        'PREPARACIONES CD (TRACING)',
+			        'PREPARACIONES CD (TRACING)'[ENTREGA_FINAL] <> "X"
+			    )
+			)
+		displayFolder: Pares
+		lineageTag: 6c089c00-a15f-4192-992a-1d9f59046da2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Value
 		isHidden
 		lineageTag: 6f34ce85-c6e8-4092-bcb8-0f79e4e3fd24

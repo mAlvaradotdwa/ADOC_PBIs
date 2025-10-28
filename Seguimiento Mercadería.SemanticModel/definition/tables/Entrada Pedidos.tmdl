@@ -1,0 +1,123 @@
+table 'Entrada Pedidos'
+	lineageTag: f6ce6349-0128-4ecf-a836-0851bd2edd25
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c7de3f2-35c3-427f-9825-2d65f7fed24f
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMPRESA
+		dataType: string
+		lineageTag: 71537020-f197-47fa-aeac-f5a0378b41d4
+		summarizeBy: none
+		sourceColumn: EMPRESA
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFERENCIA
+		dataType: string
+		lineageTag: dcd02944-c6fd-4db9-a369-7dd9ce5d2d6b
+		summarizeBy: none
+		sourceColumn: REFERENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIENDA_NUMERO
+		dataType: string
+		lineageTag: b42d7c48-e1db-445c-8fad-2bfaf95e8a36
+		summarizeBy: none
+		sourceColumn: TIENDA_NUMERO
+
+		annotation SummarizationSetBy = Automatic
+
+	column EBS_VID
+		dataType: int64
+		formatString: 0
+		lineageTag: bb7a2170-e612-4564-a8b3-a91405d07cfb
+		summarizeBy: count
+		sourceColumn: EBS_VID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCTO
+		dataType: string
+		lineageTag: 249343d9-bb37-425b-9b01-cd97fcbe8db5
+		summarizeBy: none
+		sourceColumn: PRODUCTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column LINEA
+		dataType: string
+		lineageTag: 19adf157-7ddd-4a7c-ad50-db240cc80db3
+		summarizeBy: none
+		sourceColumn: LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTIDAD
+		dataType: double
+		lineageTag: 08d6cdc1-9b15-475f-b021-f2ee94c51212
+		summarizeBy: sum
+		sourceColumn: CANTIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CREADO_EL
+		dataType: string
+		lineageTag: 7a2c837b-4ccb-4871-9beb-f44dfde377ed
+		summarizeBy: none
+		sourceColumn: CREADO_EL
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROCESADO_EL
+		dataType: string
+		lineageTag: 9f22c77c-e842-4c9f-9e33-598a79e2a7f6
+		summarizeBy: none
+		sourceColumn: PROCESADO_EL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ERRORES
+		dataType: string
+		lineageTag: 75e2345a-ab8e-4dd5-b8d3-ace8b7d87e66
+		summarizeBy: none
+		sourceColumn: ERRORES
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_RECEPCION
+		dataType: string
+		lineageTag: 56d6a4b2-28e8-46b9-a3fe-717fbf48b632
+		summarizeBy: none
+		sourceColumn: TIPO_RECEPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column VOUCHER_INGRESO
+		dataType: string
+		lineageTag: 6672f526-bb5c-48a2-8ddf-045364360bf0
+		summarizeBy: none
+		sourceColumn: VOUCHER_INGRESO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Entrada Pedidos' = m
+		mode: import
+		source =
+				let
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT *FROM SAP_ECC.ZWMS_ENTRAD_PEDI", null, [EnableFolding=true])
+				in
+				    Consulta1
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

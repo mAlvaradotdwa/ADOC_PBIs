@@ -4,5 +4,6 @@
   "displayName": "Evaluación de Tiempos Estimados",
   "displayOption": "ActualSize",
   "height": 1600,
-  "width": 1280
+  "width": 1280,
+  "visibility": "HiddenInViewMode"
 }

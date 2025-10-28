@@ -103,7 +103,7 @@ table Tabla_Conciliacion
 		annotation SummarizationSetBy = Automatic
 
 	column 'Fecha Conciliacion'
-		formatString: mmmm "de" yyyy
+		formatString: Long Date
 		lineageTag: 12b16111-1923-443a-a56e-d7c1917c60f8
 		summarizeBy: none
 		isNameInferred
@@ -112,8 +112,6 @@ table Tabla_Conciliacion
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
-
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column 'Precio Venta USD'
 		lineageTag: 9e5fe96a-fe1c-4a7c-a85a-bc8c6f962b36
@@ -205,16 +203,17 @@ table Tabla_Conciliacion
 				    SELECTCOLUMNS(
 				        FILTER(
 				            'EKPO L1 V2',
-				            'EKPO L1 V2'[ESTATUS_DOCUMENTO] = "Pendiente"
+				            'EKPO L1 V2'[ESTADO ENTREGA] = "Pendiente"
+				            || 'EKPO L1 V2'[ESTADO ENTREGA] = "Parcial"
 				        ),
 				        "Almacen",'EKPO L1 V2'[ALMACEN],
 				        "Numero Proveedor", BLANK(),
 				        "Nombre Proveedor", BLANK(),        
 				        "Articulo", 'EKPO L1 V2'[ARTICULO],
 				        "Descripcion", 'EKPO L1 V2'[DESCRIPCION],
-				        "Fecha Documento", 'EKPO L1 V2'[FECHA_CREACION_EKKO],
+				        "Fecha Documento", 'EKPO L1 V2'[F. CREACION REGISTRO],
 				        "Documento", 'EKPO L1 V2'[DOCUMENTO],
-				        "Cantidad", 'EKPO L1 V2'[CANTIDAD],
+				        "Cantidad", 'EKPO L1 V2'[PENDIENTE ENTREGA],
 				        "Estilo", 'EKPO L1 V2'[ESTILO],
 				        "Color", 'EKPO L1 V2'[COLOR],
 				        "Estilo Color", 'EKPO L1 V2'[ESTILO] & " - " & 'EKPO L1 V2'[COLOR],

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "ec1b338d102390ff2d4d",
   "position": {
     "x": 248,
@@ -7,7 +7,7 @@
     "z": 15000,
     "height": 560,
     "width": 1024,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -636,79 +636,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0ad36a658b24a7d199bb",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fecha Liquidación"
-              }
-            },
-            "Property": "Año"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d28618c14ab447a8272f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fecha Liquidación"
-              }
-            },
-            "Property": "NumSemana"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "631026c877f34ad58dc3",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_PAIS"
-              }
-            },
-            "Property": "PAIS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "cda933a378581ecb4dec",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "EKPO_BFI-CD"
-              }
-            },
-            "Property": "Tránsito BFI-CD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f89b4855a1c7d5cec34f",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "EKPO_BFI-CD"
-              }
-            },
-            "Property": "SLA BFI-CD"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

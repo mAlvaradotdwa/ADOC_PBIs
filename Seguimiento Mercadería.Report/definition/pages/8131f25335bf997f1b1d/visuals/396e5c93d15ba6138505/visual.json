@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "396e5c93d15ba6138505",
   "position": {
     "x": 27.23404255319149,
@@ -581,20 +581,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "d9ed86b953ee924e819d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Campañas"
-              }
-            },
-            "Property": "Campaña"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

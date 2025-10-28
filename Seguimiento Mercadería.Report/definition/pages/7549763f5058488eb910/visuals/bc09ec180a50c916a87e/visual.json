@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "bc09ec180a50c916a87e",
   "position": {
     "x": 0,
     "y": 304,
-    "z": 5,
+    "z": 4000,
     "height": 520,
-    "width": 424
+    "width": 424,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -222,48 +223,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "7adc88e686a058968c4e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MK_LOTES"
-              }
-            },
-            "Property": "ParesMKLotes"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "066ed1d1a06bd65a10ed",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MK_LOTES"
-              }
-            },
-            "Property": "onTime"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "be9a7f6610287a4e2616",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MK_LOTES"
-              }
-            },
-            "Property": "TIPO_DOCUMENTO"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

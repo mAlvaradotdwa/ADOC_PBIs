@@ -1,0 +1,93 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "862fa3389c7ac8693445",
+  "position": {
+    "x": 26.072128511365349,
+    "y": 303.26002110588121,
+    "z": 8001,
+    "height": 68.610864503593035,
+    "width": 171.52716125898257,
+    "tabOrder": 8001
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PREPARACIONES CD (TRACING)"
+                    }
+                  },
+                  "Property": "DOC_COMPRA"
+                }
+              },
+              "queryRef": "PREPARACIONES CD (TRACING).DOC_COMPRA",
+              "nativeQueryRef": "Documento",
+              "active": true,
+              "displayName": "Documento"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9bf007f6c0881a157d34",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PREPARACIONES CD (TRACING)"
+              }
+            },
+            "Property": "DOC_COMPRA"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

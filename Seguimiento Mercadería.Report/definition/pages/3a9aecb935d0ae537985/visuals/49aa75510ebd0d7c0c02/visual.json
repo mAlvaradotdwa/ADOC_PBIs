@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "49aa75510ebd0d7c0c02",
   "position": {
-    "x": 967.5,
-    "y": 392.5,
-    "z": 16000,
-    "height": 310,
-    "width": 310,
-    "tabOrder": 6000
+    "x": 967.4131895006617,
+    "y": 399.31523141091145,
+    "z": 6000,
+    "height": 310.12110755624047,
+    "width": 310.12110755624047,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "funnel",
@@ -190,5 +190,42 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7d72cc7ea7456572682c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PREPARACIONES CD (TRACING)"
+              }
+            },
+            "Property": "Mes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c6469abf81166dc56eab",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PREPARACIONES CD (TRACING)"
+                  }
+                },
+                "Property": "Pendiente"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

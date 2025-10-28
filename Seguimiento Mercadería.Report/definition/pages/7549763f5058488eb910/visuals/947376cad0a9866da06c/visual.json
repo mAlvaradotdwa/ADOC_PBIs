@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "947376cad0a9866da06c",
   "position": {
     "x": 432,
     "y": 304,
-    "z": 4,
+    "z": 3000,
     "height": 520,
-    "width": 848
+    "width": 848,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -174,48 +175,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "da0bf61719aae6c0ac62",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MK_LOTES"
-              }
-            },
-            "Property": "ParesMKLotes"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8960b20191690a323eeb",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MK_LOTES"
-              }
-            },
-            "Property": "Pais Origen"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "4cafe22c206b51ab149a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MK_LOTES"
-              }
-            },
-            "Property": "onTime"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

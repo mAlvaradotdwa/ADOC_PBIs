@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "40310cb450c6a517a256",
   "position": {
-    "x": 335,
-    "y": 392.5,
-    "z": 15000,
-    "height": 311.25,
-    "width": 310,
-    "tabOrder": 5000
+    "x": 334.821018777534,
+    "y": 400.68744870098328,
+    "z": 5000,
+    "height": 311.49332484631236,
+    "width": 310.12110755624047,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -159,5 +159,42 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0293a38a1eb64fc1961e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "MARCA_GR"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0efb40107dd45c27fcc2",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PREPARACIONES CD (TRACING)"
+                  }
+                },
+                "Property": "Pendiente"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

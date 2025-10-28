@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "2583c7d9deac16c0ab55",
   "position": {
     "x": 43,
     "y": 532,
     "z": 11000,
     "height": 54.888691602874424,
-    "width": 183,
-    "tabOrder": 1000
+    "width": 183
   },
   "visual": {
     "visualType": "slicer",
@@ -539,20 +538,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "43ff0f1c6e2bb5856466",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Campañas"
-              }
-            },
-            "Property": "Campaña"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

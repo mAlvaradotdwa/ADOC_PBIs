@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "82d121e99ea379786204",
   "position": {
-    "x": 6.329148696536,
-    "y": 131.64629288794879,
-    "z": 3000,
-    "height": 134.1779523665632,
-    "width": 200.0010988105376,
-    "tabOrder": 14000
+    "x": 9.6055210305030236,
+    "y": 107.03294862560513,
+    "z": 2000,
+    "height": 134.47729442704232,
+    "width": 204.46037622070722,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PREPARACIONES CD (TRACING)"
+                      "Entity": "Fecha Creación MK"
                     }
                   },
-                  "Property": "CREADO_EL"
+                  "Property": "Fecha"
                 }
               },
-              "queryRef": "PREPARACIONES CD (TRACING).CREADO_EL",
-              "nativeQueryRef": "Rango Fecha",
-              "active": true,
-              "displayName": "Rango Fecha"
+              "queryRef": "Fecha Creación MK.Fecha",
+              "nativeQueryRef": "Fecha",
+              "active": true
             }
           ]
         }
@@ -41,10 +40,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "PREPARACIONES CD (TRACING)"
+                    "Entity": "Fecha Creación MK"
                   }
                 },
-                "Property": "CREADO_EL"
+                "Property": "Fecha"
               }
             },
             "direction": "Ascending"
@@ -60,14 +59,7 @@
             "startDate": {
               "expr": {
                 "Literal": {
-                  "Value": "datetime'2025-04-01T00:00:00'"
-                }
-              }
-            },
-            "endDate": {
-              "expr": {
-                "Literal": {
-                  "Value": "datetime'2025-09-22T00:00:00'"
+                  "Value": "datetime'2025-09-01T00:00:00'"
                 }
               }
             },
@@ -96,53 +88,29 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "p",
-                    "Entity": "PREPARACIONES CD (TRACING)",
+                    "Name": "f",
+                    "Entity": "Fecha Creación MK",
                     "Type": 0
                   }
                 ],
                 "Where": [
                   {
                     "Condition": {
-                      "And": {
+                      "Comparison": {
+                        "ComparisonKind": 2,
                         "Left": {
-                          "Comparison": {
-                            "ComparisonKind": 2,
-                            "Left": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "p"
-                                  }
-                                },
-                                "Property": "CREADO_EL"
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "f"
                               }
                             },
-                            "Right": {
-                              "Literal": {
-                                "Value": "datetime'2025-04-01T00:00:00'"
-                              }
-                            }
+                            "Property": "Fecha"
                           }
                         },
                         "Right": {
-                          "Comparison": {
-                            "ComparisonKind": 3,
-                            "Left": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "p"
-                                  }
-                                },
-                                "Property": "CREADO_EL"
-                              }
-                            },
-                            "Right": {
-                              "Literal": {
-                                "Value": "datetime'2025-09-23T00:00:00'"
-                              }
-                            }
+                          "Literal": {
+                            "Value": "datetime'2025-09-01T00:00:00'"
                           }
                         }
                       }
@@ -528,15 +496,15 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "87f314451c406216152b",
+        "name": "59d32f4774272876527e",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "PREPARACIONES CD (TRACING)"
+                "Entity": "Fecha Creación MK"
               }
             },
-            "Property": "CREADO_EL"
+            "Property": "Fecha"
           }
         },
         "type": "Categorical"

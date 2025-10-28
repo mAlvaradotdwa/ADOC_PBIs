@@ -380,11 +380,91 @@ table 'PREPARACIONES CD (TRACING)'
 
 		annotation SummarizationSetBy = Automatic
 
+	column CANT_ORIGINAL
+		dataType: double
+		lineageTag: 7f2162d6-3e38-4f71-8f07-1ab8b634c54b
+		summarizeBy: sum
+		sourceColumn: CANT_ORIGINAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NO_REGISTRADO
+		dataType: double
+		lineageTag: 9f12c3e3-e8ef-4ba4-8a46-35468f72abe4
+		summarizeBy: sum
+		sourceColumn: NO_REGISTRADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CANT_CANCELADO
+		dataType: double
+		lineageTag: 899a34e5-8dee-414b-8bc9-075f2f61acf3
+		summarizeBy: sum
+		sourceColumn: CANT_CANCELADO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTY_PENDIENTE_PREPARAR
+		dataType: double
+		lineageTag: 53242bfb-2f1e-41bd-8458-2f2b4a71b86f
+		summarizeBy: sum
+		sourceColumn: QTY_PENDIENTE_PREPARAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TRANSITO_A_TIENDA
+		dataType: double
+		lineageTag: e1a3d99c-fc8b-479d-95c1-a36104f17aad
+		summarizeBy: sum
+		sourceColumn: TRANSITO_A_TIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TRANSITO_FISICO
+		dataType: double
+		lineageTag: 9f5e2215-2948-4b85-be28-824e71727560
+		summarizeBy: sum
+		sourceColumn: TRANSITO_FISICO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NO_TRANSITO_DESPACHADA
+		dataType: double
+		lineageTag: c592f7f4-4f29-437f-8322-f714dd12c5f0
+		summarizeBy: sum
+		sourceColumn: NO_TRANSITO_DESPACHADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTY_PICKEADA
+		dataType: double
+		lineageTag: ab06d757-4317-4ef2-a874-c08c5d28329a
+		summarizeBy: sum
+		sourceColumn: QTY_PICKEADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition 'PREPARACIONES CD (TRACING)' = m
 		mode: import
 		source =
 				let
-				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT #(lf)       EKPO.EBELN                 Doc_compra,  #(lf)       EKPO.EBELP                 posicion,  #(lf)       EKPO.MATNR                 articulo,  #(lf)       EKPO.MENGE                 cantidad_reparto,  #(lf)       EKPO.MEINS                 unidad,  #(lf)       EKET.GLMNG                 entregas,  #(lf)       EKET.WAMNG                 cantidad_salida,  #(lf)       EKET.WEMNG                 cantidad_ingresada,  #(lf)       EKKO.BSART                 clase_doc,  #(lf)       EKKO.AEDAT                 creado_el,  #(lf)       EKKO.ERNAM                 creado_por,  #(lf)       EKKO.RESWK                 centro_suminis,  #(lf)       EKPO.TXZ01                 Texto_breve,  #(lf)       EKPO.WERKS                 centro,  #(lf)       MARA.MTART                 tipo_material,  #(lf)       MARA.GROES                 estilo,  #(lf)       MARA.SATNR                 mat_gral_conf,  #(lf)       MARA.FREE_CHAR             color,  #(lf)       MARA.SIZE1                 talla,  #(lf)       MARA.BRAND_ID              marca,  #(lf)       MARA.ZZ_ART_PROV           genero,  #(lf)       T001W.NAME1                tienda,  #(lf)       T001W.LAND1                pais,  #(lf)       EKPO.LOEKZ                 indicador_de_borrado,  #(lf)       MARA.ZZ_DEPART             departamento,  #(lf)       EKKO.ZZ_TIPO_FLETE         tipo_flete,  #(lf)       EKKO.VERKF                 vendedor,  #(lf)       EKPO.RESLO                 almacen_emisor,  #(lf)       EKPO.LGORT                 almacen,  #(lf)       ZMM_EXPED_CONTS.CONTENEDOR contenedor,  #(lf)       EKKO.ZZF_DESPACHO          fecha,  #(lf)       EKPO.LBELN                 no_expediente,  -- Se mantiene solo EKPO.LBELN  #(lf)       EKPO.FECHA_EXP             fecha_expediente,  #(lf)       EKPO.FECHA_LIQ             fecha_liquidacion,  #(lf)       EKET.CHARG                 lote,  #(lf)       EKKO.BEDAT                 fecha_documento,  #(lf)       EKKO.EKGRP                 grupo_de_compra,  #(lf)       MARA.EAN11                 upc,  #(lf)       EKKO.FRGKE                 indicador_de_liquidacion,  #(lf)       EKPO.ELIKZ                 entrega_final,  #(lf)       CASE  #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack'  #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER)  #(lf)            ELSE 1  #(lf)     END * EKPO.MENGE             CantidadReparto_total  #(lf)FROM SAP_ECC.EKPO  #(lf)LEFT JOIN SAP_ECC.EKKO  #(lf)       ON EKPO.EBELN = EKKO.EBELN  #(lf)LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_CONTS#(lf)       ON ZMM_EXPED_CONTS.LBELN = EKPO.LBELN       #(lf)LEFT JOIN SAP_ECC.EKET  #(lf)       ON EKET.EBELN = EKPO.EBELN  #(lf)          AND EKET.EBELP = EKPO.EBELP  #(lf)LEFT JOIN SAP_ECC.MARA  #(lf)       ON MARA.MATNR = EKPO.MATNR  #(lf)LEFT JOIN SAP_ECC.T001W  #(lf)       ON T001W.WERKS = EKPO.WERKS  #(lf)WHERE  #(lf)    EKKO.AEDAT BETWEEN TO_VARCHAR(ADD_DAYS(LAST_DAY(ADD_MONTHS(CURRENT_DATE , -24)) , 1) , 'YYYYMMDD')  #(lf)                    AND TO_VARCHAR(LAST_DAY(CURRENT_DATE) , 'YYYYMMDD')  #(lf)    AND EKPO.LOEKZ <> 'L'  #(lf)    AND MARA.MTART IN ('MODE', 'ZMOD')  #(lf)    AND EKKO.BSART IN ('ZTR2', 'ZREP', 'UB')  #(lf)    --AND EKKO.RESWK IN ('8010', '8020', '1010', '1020','2010', '3010', '3030', '4010', '5010', '5030')  #(lf)    --AND EKPO.EBELN = '4801848088'  #(lf)    AND EKPO.MEINS <> 'CS'#(lf)    --AND EKPO.MATNR IN ('000000030060626902', '000000030060626001', '000000030060626002', '000000030060626003', '000000030060626004', '000000030060626005')", null, [EnableFolding=true]),
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "    #(lf)SELECT#(lf)       EKPO.EBELN                 AS Doc_compra,  #(lf)       EKPO.EBELP                 AS posicion,  #(lf)       EKPO.MATNR                 AS articulo,  #(lf)       EKPO.MENGE                 AS cantidad_reparto,  #(lf)       EKPO.MEINS                 AS unidad,  #(lf)       EKET.GLMNG                 AS entregas,  #(lf)       EKET.WAMNG                 AS cantidad_salida,  #(lf)       EKET.WEMNG                 AS cantidad_ingresada,  #(lf)       EKKO.BSART                 AS clase_doc,  #(lf)       EKKO.AEDAT                 AS creado_el,  #(lf)       EKKO.ERNAM                 AS creado_por,  #(lf)       EKKO.RESWK                 AS centro_suminis,  #(lf)       EKPO.TXZ01                 AS Texto_breve,  #(lf)       EKPO.WERKS                 AS centro,  #(lf)       MARA.MTART                 AS tipo_material,  #(lf)       MARA.GROES                 AS estilo,  #(lf)       MARA.SATNR                 AS mat_gral_conf,  #(lf)       MARA.FREE_CHAR             AS color,  #(lf)       MARA.SIZE1                 AS talla,  #(lf)       MARA.BRAND_ID              AS marca,  #(lf)       MARA.ZZ_ART_PROV           AS genero,  #(lf)       T001W.NAME1                AS tienda,  #(lf)       T001W.LAND1                AS pais,  #(lf)       EKPO.LOEKZ                 AS indicador_de_borrado,  #(lf)       MARA.ZZ_DEPART             AS departamento,  #(lf)       EKKO.ZZ_TIPO_FLETE         AS tipo_flete,  #(lf)       EKKO.VERKF                 AS vendedor,  #(lf)       EKPO.RESLO                 AS almacen_emisor,  #(lf)       EKPO.LGORT                 AS almacen,  #(lf)       ZMM_EXPED_CONTS.CONTENEDOR AS contenedor,  #(lf)       EKKO.ZZF_DESPACHO          AS fecha,  #(lf)       EKPO.LBELN                 AS no_expediente,  #(lf)       EKPO.FECHA_EXP             AS fecha_expediente,  #(lf)       EKPO.FECHA_LIQ             AS fecha_liquidacion,  #(lf)       EKET.CHARG                 AS lote,  #(lf)       EKKO.BEDAT                 AS fecha_documento,  #(lf)       EKKO.EKGRP                 AS grupo_de_compra,  #(lf)       MARA.EAN11                 AS upc,  #(lf)       EKKO.FRGKE                 AS indicador_de_liquidacion,  #(lf)       EKPO.ELIKZ                 AS entrega_final,  #(lf)#(lf)       -- Cálculo de CantidadReparto_total#(lf)       CASE  #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack'  #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER)  #(lf)            ELSE 1  #(lf)       END * EKPO.MENGE           AS CantidadReparto_total,#(lf)#(lf)       -- Campos de ZWMS_STATUS_PEDI#(lf)       ZWMS.CANT_ORIGINAL         AS CANT_ORIGINAL,#(lf)       ZWMS.CANT_NO_PROCESADO     AS NO_REGISTRADO,#(lf)       ZWMS.CANT_CANCELADO        AS CANT_CANCELADO,#(lf)       ZWMS.CANT_PENDIENTE        AS QTY_PENDIENTE_PREPARAR,#(lf)       ZWMS.CANT_SIN_DESPACHO     AS QTY_PICKEADA,#(lf)       ZWMS.CANT_DESPACHADO       AS TRANSITO_A_TIENDA,#(lf)       ZWMS.CANT_SIN_CONF         AS TRANSITO_FISICO,#(lf)       ZWMS.CANT_CONF             AS NO_TRANSITO_DESPACHADA#(lf)#(lf)FROM SAP_ECC.EKPO  #(lf)LEFT JOIN SAP_ECC.EKKO  #(lf)       ON EKPO.EBELN = EKKO.EBELN  #(lf)LEFT OUTER JOIN SAP_ECC.ZMM_EXPED_CONTS#(lf)       ON ZMM_EXPED_CONTS.LBELN = EKPO.LBELN  #(lf)LEFT JOIN SAP_ECC.EKET  #(lf)       ON EKET.EBELN = EKPO.EBELN  #(lf)      AND EKET.EBELP = EKPO.EBELP  #(lf)LEFT JOIN SAP_ECC.MARA  #(lf)       ON MARA.MATNR = EKPO.MATNR  #(lf)LEFT JOIN SAP_ECC.T001W  #(lf)       ON T001W.WERKS = EKPO.WERKS  #(lf)LEFT JOIN SAP_ECC.ZWMS_STATUS_PEDI ZWMS  #(lf)       ON ZWMS.DOCUMENTO = EKPO.EBELN  #(lf)      AND ZWMS.LINEA = EKPO.EBELP  #(lf)#(lf)WHERE  #(lf)    EKKO.AEDAT BETWEEN TO_VARCHAR(ADD_DAYS(LAST_DAY(ADD_MONTHS(CURRENT_DATE , -24)) , 1), 'YYYYMMDD')  #(lf)                    AND TO_VARCHAR(LAST_DAY(CURRENT_DATE), 'YYYYMMDD')  #(lf)    AND EKPO.LOEKZ <> 'L'  #(lf)    AND MARA.MTART IN ('MODE', 'ZMOD')  #(lf)    AND EKKO.BSART IN ('ZTR2', 'ZREP', 'UB')  #(lf)    AND EKPO.MEINS <> 'CS'#(lf)    ", null, [EnableFolding=true]),
 				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"CREADO_EL", type date}, {"FECHA", type date}, {"FECHA_LIQUIDACION", type date}, {"FECHA_DOCUMENTO", type date}, {"FECHA_EXPEDIENTE", type date}})
 				in
 				    #"Tipo cambiado"

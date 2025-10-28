@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "27cad0f1f5b061280048",
   "position": {
     "x": 248,
@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 253,
     "width": 1024,
-    "tabOrder": 16000
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -358,163 +358,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4957faf605769a19e72d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_PAIS"
-              }
-            },
-            "Property": "PAIS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a8895dce26fef5631fd1",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "BV_MARCA"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2b99f1cb2980d38695a5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "DESCRIPCION"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "918bfd0bb05453460bbd",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "664fead6568ff952fc32",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario BFI"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "94d3f1176fe0ec2c2545",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario CD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "26666f8d9e59e27c95e8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario Tiendas"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "cde2c7562d061e28df2d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario USD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "22961367da1bc5c96666",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario USD BFI"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "fbc285bd64c8317f1bb0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario USD CD"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a33065fa28100794e9d9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Inventario USD Tiendas"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

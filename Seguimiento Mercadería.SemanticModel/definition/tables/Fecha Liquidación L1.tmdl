@@ -13,7 +13,7 @@ table 'Fecha Liquidación L1'
 	column IDFecha
 		formatString: 0
 		lineageTag: 20b92705-4dbc-460f-a6db-4bbe7ae3fd53
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDFecha]
 
@@ -22,7 +22,7 @@ table 'Fecha Liquidación L1'
 	column Año
 		formatString: 0
 		lineageTag: cb40ef4e-98ff-48e8-8e31-a92e98466b61
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Año]
 
@@ -31,7 +31,7 @@ table 'Fecha Liquidación L1'
 	column NumTrimestre
 		formatString: 0
 		lineageTag: c2bf8879-ab9c-4e62-87e8-236943b4ea8c
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumTrimestre]
 
@@ -40,7 +40,7 @@ table 'Fecha Liquidación L1'
 	column NumCuatrimestre
 		formatString: 0
 		lineageTag: 77c88212-a90a-4dac-a6d3-8ae0433f6891
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumCuatrimestre]
 
@@ -49,7 +49,7 @@ table 'Fecha Liquidación L1'
 	column NumMes
 		formatString: 0
 		lineageTag: e7315b33-a266-400c-9808-b05fc012af00
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumMes]
 
@@ -74,7 +74,7 @@ table 'Fecha Liquidación L1'
 	column NumDia
 		formatString: 0
 		lineageTag: 34c57ef1-9eb0-49f2-a200-ee1068d1b038
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumDia]
 
@@ -83,7 +83,7 @@ table 'Fecha Liquidación L1'
 	column NumSemana
 		formatString: 0
 		lineageTag: 3bbe5b58-a5b8-4073-8da2-5ae6f02b4a96
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumSemana]
 
@@ -92,7 +92,7 @@ table 'Fecha Liquidación L1'
 	column NumDiaSemana
 		formatString: 0
 		lineageTag: fa5f2bbe-8c41-49bf-b654-0658ca153908
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumDiaSemana]
 
@@ -109,7 +109,7 @@ table 'Fecha Liquidación L1'
 	column IDAñoMes
 		formatString: 0
 		lineageTag: 0b3b38ad-1acd-4ec8-a323-149de3cb9d3e
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDAñoMes]
 
@@ -118,7 +118,7 @@ table 'Fecha Liquidación L1'
 	column NumAñoMes
 		formatString: 0
 		lineageTag: 5cc615bf-b364-4bbd-bb64-104049acf178
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumAñoMes]
 
@@ -135,7 +135,7 @@ table 'Fecha Liquidación L1'
 	column IDAñoTrimestre
 		formatString: 0
 		lineageTag: e885385d-f6bd-40a2-bc23-438bafa5ba58
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDAñoTrimestre]
 
@@ -144,7 +144,7 @@ table 'Fecha Liquidación L1'
 	column NumAñoTrimestre
 		formatString: 0
 		lineageTag: 2cc9148d-0803-44c3-aa9c-0e4b9a872afe
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumAñoTrimestre]
 
@@ -161,7 +161,7 @@ table 'Fecha Liquidación L1'
 	column IDAñoCuatrimestre
 		formatString: 0
 		lineageTag: 04a9b1da-f7c4-4efa-b471-251418595674
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDAñoCuatrimestre]
 
@@ -170,7 +170,7 @@ table 'Fecha Liquidación L1'
 	column NumAñoCuatrimestre
 		formatString: 0
 		lineageTag: be8ef676-691c-4b7b-8de6-ee28034266f3
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumAñoCuatrimestre]
 
@@ -187,7 +187,7 @@ table 'Fecha Liquidación L1'
 	column IDAñoSemestre
 		formatString: 0
 		lineageTag: e385e553-fb21-43bd-8ff9-144ae7d174ec
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDAñoSemestre]
 
@@ -196,7 +196,7 @@ table 'Fecha Liquidación L1'
 	column NumAñoSemestre
 		formatString: 0
 		lineageTag: 815145a4-101a-4de4-9367-b08fa0052715
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumAñoSemestre]
 
@@ -213,7 +213,7 @@ table 'Fecha Liquidación L1'
 	column NumAñoSemana
 		formatString: 0
 		lineageTag: 87820461-90ec-49bc-beb0-a1960ea2a69d
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumAñoSemana]
 
@@ -237,7 +237,7 @@ table 'Fecha Liquidación L1'
 
 	column IDMesDia
 		lineageTag: 0e02ee8d-13a2-4b68-9dff-58a825612aa2
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [IDMesDia]
 
@@ -256,7 +256,7 @@ table 'Fecha Liquidación L1'
 	column NumDiaAño
 		formatString: 0
 		lineageTag: e1c21692-20f8-4341-8bae-1b61071a4d31
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [NumDiaAño]
 
@@ -282,7 +282,7 @@ table 'Fecha Liquidación L1'
 	column Offset
 		formatString: 0
 		lineageTag: 0c7208a7-a80b-428f-b77e-57af8bddac9a
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Offset]
 
@@ -291,7 +291,7 @@ table 'Fecha Liquidación L1'
 	column TrendAxis
 		formatString: 0
 		lineageTag: d7aa3260-9c80-4baa-a417-c455fb920ad3
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [TrendAxis]
 
@@ -395,11 +395,11 @@ table 'Fecha Liquidación L1'
 				/* Internal Configuration */
 				VAR _today =
 				    TRUNC ( UTCNOW () - _UTCOffset )
-				VAR _iniYear = YEAR ( MIN ( 'EKPO L1'[FECHA_CONTABILIZACION] ) )
+				VAR _iniYear = YEAR ( MIN ( 'EKPO L1 V2'[ULTIMA ENTREGA] ) )
 				VAR _endYear =
 				    YEAR ( _today + 30 ) + 1
 				VAR _LastDayWithSales =
-				    MAXX ( { MAX ( 'EKPO L1'[FECHA_CONTABILIZACION] ) }, [Value] )
+				    MAXX ( { MAX ( 'EKPO L1 V2'[ULTIMA ENTREGA] ) }, [Value] )
 				VAR _currentMonthID =
 				    (
 				        ( YEAR ( _LastDayWithSales ) - 2000 ) * 12

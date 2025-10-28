@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "15dd48518d6a7dc43c98",
   "position": {
     "x": 432,
     "y": 128,
-    "z": 6,
+    "z": 5000,
     "height": 168,
-    "width": 384
+    "width": 384,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -200,34 +201,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "effb3afa200579000077",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MK_LOTES"
-              }
-            },
-            "Property": "ParesMKLotes"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e498bb26db6013a05ea3",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MK_LOTES"
-              }
-            },
-            "Property": "onTime"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }
