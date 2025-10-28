@@ -1,0 +1,41 @@
+﻿DEFINE
+    MEASURE MK_LOTES[ParesT] =
+        SUM ( MK_LOTES[CANTIDAD_PARES] )
+    MEASURE MK_Lotes[ParesO] =
+        CALCULATE (
+            SUM ( MK_LOTES[CANTIDAD_PARES] ),
+            NOT ISBLANK ( MK_LOTES[_fTramo1] )
+        )
+    MEASURE MK_Lotes[ParesD] =
+        CALCULATE (
+            SUM ( MK_LOTES[CANTIDAD_PARES] ),
+            MK_LOTES[ZINSTOREDATE_MK] <> "00000000"
+        )
+
+EVALUATE
+SUMMARIZECOLUMNS (
+    ROLLUPADDISSUBTOTAL ( MK_LOTES[Pais Origen], "ST" ),
+    FILTER( MK_LOTES , MK_LOTES[AEDAT_MK] >=  "20250701" ),
+    "filas", COUNTROWS ( MK_LOTES ),
+    "% Filas",
+        DIVIDE (
+            COUNTROWS ( MK_LOTES ),
+            CALCULATE ( COUNTROWS ( MK_LOTES ), ALLSELECTED ( MK_LOTES ) )
+        ),
+    "Pares Totales", [ParesT],
+    "% Pares",
+        DIVIDE (
+            SUM ( MK_LOTES[CANTIDAD_PARES] ),
+            CALCULATE ( SUM ( MK_LOTES[CANTIDAD_PARES] ), ALLSELECTED ( MK_LOTES ) )
+        ),
+    "Pares con ZINSTOREDATE", [ParesD],
+    "% Pares ZINSTORE", DIVIDE ( [paresD], [parest] ),
+    "Pares con Fechas Objetivo", [ParesO],
+    "% Pares con Objetivo", DIVIDE ( [paresO], [paresT] ),
+    "Destinos", CONCATENATEX ( VALUES ( MK_LOTES[Pais Destino] ), [Pais Destino], "," ),
+    "# Puertos Origen", COUNTROWS ( VALUES ( MK_LOTES[PUERTO_ORIGEN] ) ),
+    "min ZINSTORE", MIN ( MK_LOTES[ZINSTOREDATE_MK] ),
+    "max ZINSTORE", MAX ( MK_LOTES[ZINSTOREDATE_MK] ),
+//    "TiempoT", [TiemposMK],
+    "Puertos Origen", CONCATENATEX ( VALUES ( MK_LOTES[PUERTO_ORIGEN] ), [Puerto_ORIGEN], "," )
+)

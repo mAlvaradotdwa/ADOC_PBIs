@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "7549763f5058488eb910",
+  "displayName": "Evaluación de Tiempos Estimados",
+  "displayOption": "ActualSize",
+  "height": 1600,
+  "width": 1280
+}

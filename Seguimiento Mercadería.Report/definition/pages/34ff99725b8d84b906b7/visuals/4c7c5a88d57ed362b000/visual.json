@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "d9e45371dde97c9c4a7b",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "4c7c5a88d57ed362b000",
   "position": {
-    "x": 25,
-    "y": 531.25,
-    "z": 14000,
-    "height": 55,
-    "width": 183.75,
-    "tabOrder": 12000
+    "x": 0,
+    "y": 510.18809376836651,
+    "z": 15000,
+    "height": 56.02532805400287,
+    "width": 120.39485390328275,
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
+                      "Entity": "LT TIENDA VID"
                     }
                   },
-                  "Property": "BV_ATRIBUTO"
+                  "Property": "ALMACENRECEPTOR"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.BV_ATRIBUTO",
-              "nativeQueryRef": "Atributo",
+              "queryRef": "LT TIENDA VID.ALMACENRECEPTOR",
+              "nativeQueryRef": "Almacen",
               "active": true,
-              "displayName": "Atributo"
+              "displayName": "Almacen"
             }
           ]
         }
@@ -43,6 +43,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Dropdown'"
+                }
+              }
+            },
+            "isInvertedSelectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -153,6 +160,13 @@
                   "Value": "0D"
                 }
               }
+            },
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -230,7 +244,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'UNIDAD DE NEGOCIO'"
+                  "Value": "'TIPO LINEA'"
                 }
               }
             },
@@ -436,22 +450,61 @@
             }
           }
         }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
       ]
+    },
+    "syncGroup": {
+      "groupName": "ALMACENRECEPTOR",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "Filter91d4829c6feeac9fb812",
+        "name": "10011929ba0ea9da500c",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "DIM_MARCAS"
+                "Entity": "DIM_PAIS"
               }
             },
-            "Property": "SK_UNIDADNEGOCIO"
+            "Property": "PAIS"
           }
         },
         "type": "Categorical",
@@ -460,60 +513,76 @@
           "From": [
             {
               "Name": "d",
-              "Entity": "DIM_MARCAS",
+              "Entity": "DIM_PAIS",
               "Type": 0
             }
           ],
           "Where": [
             {
               "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "d"
-                              }
-                            },
-                            "Property": "SK_UNIDADNEGOCIO"
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
                           }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ]
-                      ]
+                        },
+                        "Property": "PAIS"
+                      }
                     }
-                  }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'COSTA RICA'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'EL SALVADOR'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'GUATEMALA'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'HONDURAS'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'NICARAGUA'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'PANAMA'"
+                        }
+                      }
+                    ]
+                  ]
                 }
               }
             }
           ]
         },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
+        "howCreated": "User"
       }
     ]
   }

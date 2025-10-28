@@ -1,0 +1,44 @@
+table 'Tiempos L1'
+	lineageTag: 09f47f16-9d91-4893-ab96-dd1cfecf3822
+
+	column Actividad
+		dataType: string
+		lineageTag: 0729aef6-f21f-4453-9ea1-c9120670f9d3
+		summarizeBy: none
+		sourceColumn: Actividad
+
+		annotation SummarizationSetBy = Automatic
+
+	column BV_PAIS
+		dataType: string
+		lineageTag: 8de9f0f3-a671-48f9-ba4a-a0f4f8632783
+		summarizeBy: none
+		sourceColumn: BV_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column LT
+		dataType: string
+		lineageTag: 034ea8a7-3efd-410f-bcf1-bec4115476b7
+		summarizeBy: none
+		sourceColumn: LT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Tiempos L1' = m
+		mode: import
+		queryGroup: 'Base LeadTimes'
+		source =
+				let
+				    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/Documents/TEMP_Sharepoint/Lead%20Time%20para%20Modelo%20Panama.xlsx"), null, true),
+				    #"Tiempos L1_Sheet" = Origen{[Item="Tiempos L1",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"Tiempos L1_Sheet", [PromoteAllScalars=true]),
+				    #"Columna de anulación de dinamización" = Table.UnpivotOtherColumns(#"Encabezados promovidos", {"Actividad"}, "Atributo", "Valor"),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columna de anulación de dinamización",{{"Atributo", "BV_PAIS"}, {"Valor", "LT"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

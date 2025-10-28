@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 68.610864503593035,
     "width": 172.89937854905443,
-    "tabOrder": 3000
+    "tabOrder": 18000
   },
   "visual": {
     "visualType": "card",
@@ -296,7 +296,7 @@
                         "DateSpan": {
                           "Expression": {
                             "Literal": {
-                              "Value": "datetime'2025-08-08T00:00:00'"
+                              "Value": "datetime'2025-09-12T00:00:00'"
                             }
                           },
                           "TimeUnit": 5
@@ -321,7 +321,7 @@
                         "DateSpan": {
                           "Expression": {
                             "Literal": {
-                              "Value": "datetime'2025-08-16T00:00:00'"
+                              "Value": "datetime'2025-09-20T00:00:00'"
                             }
                           },
                           "TimeUnit": 5
@@ -389,6 +389,25 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "ae1f27e4f7cdd0b12f7e",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PREPARACIONES CD (TRACING)"
+                  }
+                },
+                "Property": "CANTIDADREPARTO_TOTAL"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

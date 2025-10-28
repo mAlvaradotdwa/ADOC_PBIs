@@ -1153,23 +1153,30 @@ table Métricas
 	measure 'Inventario BFI' =
 			CALCULATE (
 			    [Inventario],
+			    keepfilters(
 			    CONTAINSSTRING (
 			        'FACT_INVENTARIOUD'[SK_ALMACEN],
 			        "BF"
 			    )
-			)
+			))
 		formatString: #,0
 		displayFolder: Inventario
 		lineageTag: b6402bab-ad9b-4675-9c00-bc9c4312f544
 
-	measure 'Inventario CD' =
+	measure 'Inventario CD' = ```
 			CALCULATE (
 			    [Inventario],
+			    KEEPFILTERS(
 			    CONTAINSSTRING (
 			        'FACT_INVENTARIOUD'[SK_ALMACEN],
 			        "BP"
-			    )
-			)
+			    ) || 
+			     CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "BS"
+			    ) 
+			))
+			```
 		formatString: #,0
 		displayFolder: Inventario
 		lineageTag: bc97f252-1b10-42de-a7f2-9e3b5d907002
@@ -1177,11 +1184,12 @@ table Métricas
 	measure 'Inventario Tiendas' =
 			CALCULATE (
 			    [Inventario],
+			    KEEPFILTERS(
 			    CONTAINSSTRING (
 			        'FACT_INVENTARIOUD'[SK_ALMACEN],
 			        "AL"
 			    )
-			)
+			))
 		formatString: #,0
 		displayFolder: Inventario
 		lineageTag: 1c6d09c3-0db3-4fe0-a6ad-4170a1413028
@@ -1274,23 +1282,32 @@ table Métricas
 	measure 'Inventario USD BFI' =
 			CALCULATE (
 			    [Inventario USD],
+			    KEEPFILTERS(
 			    CONTAINSSTRING (
 			        'FACT_INVENTARIOUD'[SK_ALMACEN],
 			        "BF"
 			    )
 			)
+			)
 		formatString: $ #,0
 		displayFolder: Inventario USD
 		lineageTag: 930d00b2-ab2b-4491-bb15-e1e4503863e4
 
-	measure 'Inventario USD CD' =
+	measure 'Inventario USD CD' = ```
 			CALCULATE (
 			    [Inventario USD],
+			    KEEPFILTERS(
 			    CONTAINSSTRING (
 			        'FACT_INVENTARIOUD'[SK_ALMACEN],
 			        "BP"
-			    )
+			    )  || 
+			     CONTAINSSTRING (
+			        'FACT_INVENTARIOUD'[SK_ALMACEN],
+			        "BS"
+			    ) 
 			)
+			)
+			```
 		formatString: $ #,0
 		displayFolder: Inventario USD
 		lineageTag: 905f0027-2c89-419f-b45e-b989f78314f7
@@ -1298,10 +1315,12 @@ table Métricas
 	measure 'Inventario USD Tiendas' =
 			CALCULATE (
 			    [Inventario USD],
+			    KEEPFILTERS(
 			    CONTAINSSTRING (
 			        'FACT_INVENTARIOUD'[SK_ALMACEN],
 			        "AL"
 			    )
+			)
 			)
 		formatString: $ #,0
 		displayFolder: Inventario USD

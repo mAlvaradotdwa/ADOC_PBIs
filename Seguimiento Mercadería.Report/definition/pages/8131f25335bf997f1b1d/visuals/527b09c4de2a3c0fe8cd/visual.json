@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "DEPARTAMENTO"
+                  "Property": "BV_DEPTO"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.DEPARTAMENTO",
+              "queryRef": "DIM_ARTICULOS.BV_DEPTO",
               "nativeQueryRef": "Departamento",
               "active": true,
               "displayName": "Departamento"
@@ -451,82 +451,5 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "Filter91d4829c6feeac9fb812",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_MARCAS"
-              }
-            },
-            "Property": "SK_UNIDADNEGOCIO"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DIM_MARCAS",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "d"
-                              }
-                            },
-                            "Property": "SK_UNIDADNEGOCIO"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      }
-    ]
   }
 }

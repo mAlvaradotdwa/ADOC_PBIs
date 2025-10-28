@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "004ff2a507b6663518ab",
   "position": {
     "x": 120,
@@ -7,7 +7,7 @@
     "z": 19000,
     "height": 56,
     "width": 120,
-    "tabOrder": 17000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_BFI-CD"
+                      "Entity": "Fecha Liquidación"
                     }
                   },
-                  "Property": "MES_ZINTLIQ"
+                  "Property": "Mes Año"
                 }
               },
-              "queryRef": "EKPO_BFI-CD.MES_ZINTLIQ",
-              "nativeQueryRef": "Mes Liquidación",
-              "active": true,
-              "displayName": "Mes Liquidación"
+              "queryRef": "Fecha Liquidación.Mes Año",
+              "nativeQueryRef": "Mes Año",
+              "active": true
             }
           ]
         }
@@ -152,6 +151,47 @@
                 "Literal": {
                   "Value": "0D"
                 }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "f",
+                    "Entity": "Fecha Liquidación",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "f"
+                                }
+                              },
+                              "Property": "Mes Año"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'sep. 2025'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
               }
             }
           }

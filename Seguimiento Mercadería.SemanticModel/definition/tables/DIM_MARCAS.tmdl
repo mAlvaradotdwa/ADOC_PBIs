@@ -1,14 +1,6 @@
 table DIM_MARCAS
 	lineageTag: 68579c87-353a-400d-a9ba-bff6979cfe4e
 
-	column SK_MARCA
-		dataType: string
-		lineageTag: cc2ec83b-4432-41d0-9c26-1ca934d5a670
-		summarizeBy: none
-		sourceColumn: SK_MARCA
-
-		annotation SummarizationSetBy = Automatic
-
 	column MARCA
 		dataType: string
 		lineageTag: d3df9946-11fa-42d1-ad6a-f02a74315247
@@ -17,17 +9,131 @@ table DIM_MARCAS
 
 		annotation SummarizationSetBy = Automatic
 
-	column SK_UNIDADNEGOCIO
+	column DIVISION_BV
 		dataType: string
-		lineageTag: 698cf19f-2f8a-4a5e-8dd0-d07bd15a43ec
+		lineageTag: 542fa10a-97d6-4320-b436-3fa42da49fbb
 		summarizeBy: none
-		sourceColumn: SK_UNIDADNEGOCIO
+		sourceColumn: DIVISION_BV
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Un. Negocio' = IF(AND(DIM_MARCAS[SK_UNIDADNEGOCIO]="UN HPU",DIM_MARCAS[SK_MARCA]="CAT"),"CAT",SWITCH(DIM_MARCAS[SK_UNIDADNEGOCIO],"UN OUTDOOR","TNF",DIM_MARCAS[SK_UNIDADNEGOCIO]))
-		lineageTag: fe5d9739-a0dc-4772-a87c-035f41bc32ed
+	column ARTICULO
+		dataType: string
+		lineageTag: af45e8ec-3be0-4e99-b395-5fcaec97eba1
 		summarizeBy: none
+		sourceColumn: ARTICULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO_COLOR_BV
+		dataType: string
+		lineageTag: 7b0e4abd-5c00-4a6c-b196-86ae15c46b4a
+		summarizeBy: none
+		sourceColumn: ESTILO_COLOR_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTILO
+		dataType: string
+		lineageTag: d9816dd9-da0b-4935-b7cb-10f12740276d
+		summarizeBy: none
+		sourceColumn: ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLOR
+		dataType: string
+		lineageTag: 317d7ba7-3c1f-4ff4-a176-635904656f43
+		summarizeBy: none
+		sourceColumn: COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALU
+		dataType: string
+		lineageTag: 380669d0-c167-4b3a-a21a-5946b6e5cbfa
+		summarizeBy: none
+		sourceColumn: ALU
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA_BV
+		dataType: string
+		lineageTag: a5fb4b91-1cb4-4bac-b02c-c9b87e12cd79
+		summarizeBy: none
+		sourceColumn: MARCA_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPTO_BV
+		dataType: string
+		lineageTag: 6cd0d2fe-c00c-490a-9c04-5980e04d0ca4
+		summarizeBy: none
+		sourceColumn: DEPTO_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENERO_BV
+		dataType: string
+		lineageTag: dee6770a-ddc7-4d8f-8d8e-2422c3939ee1
+		summarizeBy: none
+		sourceColumn: GENERO_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORIA_BV
+		dataType: string
+		lineageTag: 5ec35ba9-e3ae-4775-9084-a8e59bec2dc5
+		summarizeBy: none
+		sourceColumn: CATEGORIA_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBCATEGORIA_BV
+		dataType: string
+		lineageTag: 54f5427d-465e-4c03-b78e-4dcb42eac75f
+		summarizeBy: none
+		sourceColumn: SUBCATEGORIA_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_ESTILO
+		dataType: string
+		lineageTag: 2bc2899f-3e0b-4360-a242-65d0fba72fdc
+		summarizeBy: none
+		sourceColumn: TIPO_ESTILO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIODO_EST
+		dataType: string
+		lineageTag: fc057dae-6bb1-4ab2-ad41-52189609ad47
+		summarizeBy: none
+		sourceColumn: PERIODO_EST
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTATUS_BV
+		dataType: string
+		lineageTag: fbaa4d3b-f43b-4974-8b62-366e69322a25
+		summarizeBy: none
+		sourceColumn: ESTATUS_BV
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA_GR
+		dataType: string
+		lineageTag: f26d2458-8052-4e61-b73c-cab1ec77fac0
+		summarizeBy: none
+		sourceColumn: MARCA_GR
+
+		annotation SummarizationSetBy = Automatic
+
+	column JERARQUIA
+		dataType: string
+		lineageTag: c949812b-4a3d-47af-aa52-5f99660b9ab3
+		summarizeBy: none
+		sourceColumn: JERARQUIA
 
 		annotation SummarizationSetBy = Automatic
 
@@ -35,7 +141,7 @@ table DIM_MARCAS
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="SELECT * FROM DM_COMERCIAL.dbo.DIM_MARCA dm WHERE dm.SK_UNIDADNEGOCIO in ('UN PAR2','UN ADOC','UN HPU','UN OUTDOOR')#(lf)AND dm.SK_MARCA NOT IN ('CAR','BRI','CSH','SKE','SFT','REF','PIL','NIP')#(lf)ORDER BY SK_MARCA ASC"])
+				    Origen = Sql.Database("192.168.16.74", "DM_COMERCIAL", [Query="WITH JerMarca AS (#(lf)    SELECT#(lf)        ""DIM_ARTICULOSAP"".""BV_MARCA"",#(lf)        CASE#(lf)            WHEN ""DIM_ARTICULOSAP"".""BV_MARCA"" IN ('4X4','501','BRA','KIP','KIC','MIR','VEL','PR2','BRI','NIP')#(lf)            THEN 'PAR2'#(lf)            WHEN ""DIM_ARTICULOSAP"".""BV_MARCA"" IN ('ADO','HEA','COY','DIS','DSP','CAT','HPU','TNF','USA','STM','DIN','LCS','MER','VAN')#(lf)            THEN ""DIM_ARTICULOSAP"".""BV_MARCA""#(lf)            ELSE 'OTH'#(lf)        END AS ""MARCA"",#(lf)        CASE#(lf)            WHEN ""DIM_ARTICULOSAP"".""BV_MARCA"" IN ('4X4','501','BRA','KIP','KIC','MIR','VEL','PR2','BRI','NIP','USA','DIN')#(lf)            THEN 'PAR2'#(lf)            WHEN ""DIM_ARTICULOSAP"".""BV_MARCA"" IN ('ADO','HEA','COY','DIS','DSP','STM','LCS')#(lf)            THEN 'ADOC'#(lf)    #(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""BV_MARCA"" IN ('CAT','HPU','TNF','MER','VAN')#(lf)            THEN ""DIM_ARTICULOSAP"".""BV_MARCA""#(lf)            ELSE 'OTH'#(lf)        END AS ""MARCA_GR""#(lf)    FROM ""DM_COMERCIAL"".""dbo"".""DIM_ARTICULOSAP"" ""DIM_ARTICULOSAP""#(lf)    GROUP BY#(lf)        ""DIM_ARTICULOSAP"".""BV_MARCA"",#(lf)        CASE#(lf)            WHEN ""DIM_ARTICULOSAP"".""BV_MARCA"" IN ('4X4','501','BRA','KIP','KIC','MIR','VEL','PR2','BRI','NIP')#(lf)            THEN 'PAR2'#(lf)            WHEN ""DIM_ARTICULOSAP"".""BV_MARCA"" IN ('ADO','HEA','COY','DIS','DSP','CAT','HPU','TNF','USA','STM','DIN','LCS','MER','VAN')#(lf)            THEN ""DIM_ARTICULOSAP"".""BV_MARCA""#(lf)            ELSE 'OTH'#(lf)        END,#(lf)        CASE#(lf)            WHEN ""DIM_ARTICULOSAP"".""BV_MARCA"" IN ('4X4','501','BRA','KIP','KIC','MIR','VEL','PR2','BRI','NIP','USA','DIN')#(lf)            THEN 'PAR2'#(lf)            WHEN ""DIM_ARTICULOSAP"".""BV_MARCA"" IN ('ADO','HEA','COY','DIS','DSP','STM','LCS')#(lf)            THEN 'ADOC'#(lf)    #(tab)#(tab)WHEN ""DIM_ARTICULOSAP"".""BV_MARCA"" IN ('CAT','HPU','TNF','MER','VAN')#(lf)            THEN ""DIM_ARTICULOSAP"".""BV_MARCA""#(lf)            ELSE 'OTH'#(lf)        END#(lf)),#(lf)DatosAgrupados AS (#(lf)    SELECT#(lf)        ""DIM_ALMACEN"".""BV_DIVISION"" AS ""DIVISION_BV"",#(lf)        RIGHT(""DIM_ARTICULOSAP"".""SK_ARTICULO"", 8) AS ""ARTICULO"",#(lf)        ""DIM_ARTICULOSAP"".""BV_ESTILO_COLOR"" AS ""ESTILO_COLOR_BV"",#(lf)        ""DIM_ARTICULOSAP"".""ESTILO"" AS ""ESTILO"",#(lf)        ""DIM_ARTICULOSAP"".""COLOR"" AS ""COLOR"",#(lf)        ""DIM_ARTICULOSAP"".""ALU"" AS ""ALU"",#(lf)        ""DIM_ARTICULOSAP"".""BV_MARCA"" AS ""MARCA_BV"",#(lf)        ""DIM_ARTICULOSAP"".""BV_DEPTO"" AS ""DEPTO_BV"",#(lf)        ""DIM_ARTICULOSAP"".""BV_GENERO"" AS ""GENERO_BV"",#(lf)        ""DIM_ARTICULOSAP"".""BV_CATEGORIA"" AS ""CATEGORIA_BV"",#(lf)        ""DIM_ARTICULOSAP"".""BV_SUBCATEGORIA"" AS ""SUBCATEGORIA_BV"",#(lf)        UPPER(""DIM_ARTICULOSAP"".""TIPOESTILO"") AS ""TIPO_ESTILO"",#(lf)        LEFT(""DIM_ARTICULOSAP"".""SK_COLECCION"", 4) AS ""PERIODO_EST"",#(lf)        ""DIM_ARTICULOSAP"".""BV_ESTATUS"" AS ""ESTATUS_BV"",#(lf)        COUNT(DISTINCT ""DIM_ARTICULOSAP"".""SK_MATNR"") AS ""ROWS"",#(lf)        ROW_NUMBER() OVER(PARTITION BY RIGHT(""DIM_ARTICULOSAP"".""SK_ARTICULO"", 8) ORDER BY COUNT(DISTINCT ""DIM_ARTICULOSAP"".""SK_MATNR"") DESC) AS ""RowNum""#(lf)    FROM#(lf)        ""DM_COMERCIAL"".""dbo"".""DIM_ALMACEN"" ""DIM_ALMACEN"",#(lf)        ""DM_COMERCIAL"".""dbo"".""DIM_ARTICULOSAP"" ""DIM_ARTICULOSAP"",#(lf)        ""DM_COMERCIAL"".""dbo"".""DIM_TIENDA"" ""DIM_TIENDA""#(lf)    WHERE#(lf)        ""DIM_ALMACEN"".""BV_DIVISION"" IN ('DET')#(lf)        AND ""DIM_ARTICULOSAP"".""SK_DEPTO"" IN (N'A', N'C', N'R')#(lf)        AND ""DIM_ARTICULOSAP"".""SK_CATEGORIA"" NOT IN (N'PR', N'G4')#(lf)        AND ""DIM_TIENDA"".""SK_TIENDA"" NOT IN (#(lf)            '0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010',#(lf)            '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020'#(lf)        )#(lf)        AND RIGHT(""DIM_ARTICULOSAP"".""SK_ARTICULO"", 8) NOT LIKE '%[^0-9]%'#(lf)        AND RIGHT(""DIM_ARTICULOSAP"".""SK_ARTICULO"", 8) NOT LIKE '00000000'#(lf)        AND RIGHT(""DIM_ARTICULOSAP"".""SK_ARTICULO"", 8) NOT LIKE '0'#(lf)    GROUP BY#(lf)        ""DIM_ALMACEN"".""BV_DIVISION"",#(lf)        RIGHT(""DIM_ARTICULOSAP"".""SK_ARTICULO"", 8),#(lf)        ""DIM_ARTICULOSAP"".""BV_ESTILO_COLOR"",#(lf)        ""DIM_ARTICULOSAP"".""ESTILO"",#(lf)        ""DIM_ARTICULOSAP"".""COLOR"",#(lf)        ""DIM_ARTICULOSAP"".""ALU"",#(lf)        ""DIM_ARTICULOSAP"".""BV_MARCA"",#(lf)        ""DIM_ARTICULOSAP"".""BV_DEPTO"",#(lf)        ""DIM_ARTICULOSAP"".""BV_GENERO"",#(lf)        ""DIM_ARTICULOSAP"".""BV_CATEGORIA"",#(lf)        ""DIM_ARTICULOSAP"".""BV_SUBCATEGORIA"",#(lf)        UPPER(""DIM_ARTICULOSAP"".""TIPOESTILO""),#(lf)        LEFT(""DIM_ARTICULOSAP"".""SK_COLECCION"", 4),#(lf)        ""DIM_ARTICULOSAP"".""BV_ESTATUS""#(lf))#(lf)SELECT#(lf)    DA.""DIVISION_BV"",#(lf)    DA.""ARTICULO"",#(lf)    DA.""ESTILO_COLOR_BV"",#(lf)    DA.""ESTILO"",#(lf)    DA.""COLOR"",#(lf)    DA.""ALU"",#(lf)    DA.""MARCA_BV"",#(lf)    DA.""DEPTO_BV"",#(lf)    DA.""GENERO_BV"",#(lf)    DA.""CATEGORIA_BV"",#(lf)    DA.""SUBCATEGORIA_BV"",#(lf)    DA.""TIPO_ESTILO"",#(lf)    DA.""PERIODO_EST"",#(lf)    DA.""ESTATUS_BV"",#(lf)    JM.""MARCA"",#(lf)    JM.""MARCA_GR"",#(lf)    JM.""MARCA"" + ',' + DA.""DEPTO_BV"" + ',' + DA.""GENERO_BV"" + ',' + DA.""CATEGORIA_BV"" + ',' + DA.""TIPO_ESTILO"" AS ""JERARQUIA""#(lf)FROM#(lf)    DatosAgrupados DA#(lf)JOIN#(lf)    JerMarca JM ON JM.""BV_MARCA"" = DA.""MARCA_BV""#(lf)WHERE#(lf)    DA.""RowNum"" = 1 AND#(lf)    DA.""ARTICULO"" IS NOT NULL#(lf)ORDER BY#(lf)    DA.""ROWS"" DESC"])
 				in
 				    Origen
 

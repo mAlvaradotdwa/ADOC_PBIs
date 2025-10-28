@@ -251,12 +251,42 @@ table 'LT TIENDA VID'
 
 		annotation SummarizationSetBy = Automatic
 
+	column ALMACENRECEPTOR
+		dataType: string
+		lineageTag: 69d3e88f-fee6-49be-a360-bf436be262f2
+		summarizeBy: none
+		sourceColumn: ALMACENRECEPTOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column HORACREACIONDOCUMENTOEKPO
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 3b1a3296-4e80-45d2-a9d9-5c1abe6ae0e2
+		summarizeBy: none
+		sourceColumn: HORACREACIONDOCUMENTOEKPO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column FECHAAJUSTADA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: fb294fbf-deab-4e94-881b-68e668b11df8
+		summarizeBy: none
+		sourceColumn: FECHAAJUSTADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition 'LT TIENDA VID' = m
 		mode: import
 		source =
 				let
-				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- NUEVA DATA LT TIENDA --#(lf)SELECT #(lf)    L.VBELN         AS Referencia,#(lf)    L.TRAID         AS VID,#(lf)    L.WADAT         AS FechaCreacionVID,#(lf)    L.AEDAT         AS FechaCierreVID,#(lf)#(lf)    M.MATNR         AS Articulo,#(lf)    MAKT.MAKTX      AS DescripcionArticulo,#(lf)    M.WERKS         AS Tienda,#(lf)    T.NAME1         AS NombreTienda,#(lf)    M.EBELN         AS Documento,#(lf)    M.MENGE         AS Cantidad,#(lf)    M.MEINS         AS UnidadMedida,#(lf)    M.BUKRS         AS Pais,#(lf)    M.BUDAT_MKPF    AS FechaContabilizacion,#(lf)    M.CPUDT_MKPF    AS FechaIngreso,#(lf)    M.VBELN_IM      AS ReferenciaMSEG,#(lf)    M.VBELP_IM      AS PosicionReferencia,#(lf)#(lf)    P.CREATIONDATE  AS FechaCreacionDocumentoEKPO,#(lf)#(lf)    K.AEDAT         AS FechaCreacionDocumentoEKKO,#(lf)    K.RESWK         AS CentroSuministrador,#(lf)#(lf)    -- Lead time 1: Creación VID -> Cierre VID#(lf)    DAYS_BETWEEN(L.WADAT, L.AEDAT) AS LeadTime_Creacion_Cierre,#(lf)#(lf)    -- Lead time 2: Creación VID -> Contabilización#(lf)    DAYS_BETWEEN(L.WADAT, M.BUDAT_MKPF) AS LeadTime_Creacion_Contabilizacion,#(lf)#(lf)    -- Lead time 3: Creación Documento (EKPO) -> Contabilización#(lf)    DAYS_BETWEEN(P.CREATIONDATE, M.BUDAT_MKPF) AS LeadTime_Doc_Contabilizacion,#(lf)#(lf)    -- Ponderados por VID usando ventana#(lf)    SUM(DAYS_BETWEEN(L.WADAT, L.AEDAT) * M.MENGE) OVER (PARTITION BY L.TRAID) #(lf)    / SUM(M.MENGE) OVER (PARTITION BY L.TRAID) AS LeadTime1_Ponderado,#(lf)#(lf)    SUM(DAYS_BETWEEN(L.WADAT, M.BUDAT_MKPF) * M.MENGE) OVER (PARTITION BY L.TRAID) #(lf)    / SUM(M.MENGE) OVER (PARTITION BY L.TRAID) AS LeadTime2_Ponderado,#(lf)#(lf)    SUM(DAYS_BETWEEN(P.CREATIONDATE, M.BUDAT_MKPF) * M.MENGE) OVER (PARTITION BY L.TRAID) #(lf)    / SUM(M.MENGE) OVER (PARTITION BY L.TRAID) AS LeadTime3_Ponderado#(lf)#(lf)FROM SAP_ECC.LIKP L#(lf)INNER JOIN SAP_ECC.MSEG M #(lf)    ON M.VBELN_IM = L.VBELN#(lf)    AND M.BWART = '101'#(lf)    AND M.LGORT = 'AL01'#(lf)#(lf)INNER JOIN SAP_ECC.EKPO P#(lf)    ON P.EBELN = M.EBELN#(lf)    AND P.EBELP = M.EBELP             -- 🔹 Clave compuesta#(lf)    AND P.LOEKZ <> 'L'#(lf)    AND P.MTART IN ('MODE','ZMOD')#(lf)    --AND P.EBELN = '4801906247'#(lf)#(lf)INNER JOIN SAP_ECC.EKKO K#(lf)    ON K.EBELN = M.EBELN#(lf)    AND K.BSART IN ('UB', 'ZTR2', 'ZREP')#(lf)#(lf)LEFT JOIN SAP_ECC.T001W T#(lf)    ON M.WERKS = T.WERKS#(lf)#(lf)LEFT JOIN SAP_ECC.MAKT MAKT#(lf)    ON M.MATNR = MAKT.MATNR#(lf)    AND MAKT.SPRAS = 'S'              -- 🔹 Clave compuesta para evitar múltiples idiomas#(lf)#(lf)WHERE L.TRAID IS NOT NULL#(lf)  AND L.AEDAT >= '20240101'#(lf)  AND L.AEDAT <= CURRENT_DATE#(lf)ORDER BY M.BUDAT_MKPF DESC ", null, [EnableFolding=true]),
-				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"FECHACREACIONVID", type date}, {"FECHACIERREVID", type date}, {"FECHACONTABILIZACION", type date}, {"FECHAINGRESO", type date}, {"FECHACREACIONDOCUMENTOEKPO", type date}, {"FECHACREACIONDOCUMENTOEKKO", type date}})
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "-- NUEVA DATA LT TIENDA --#(lf)SELECT #(lf)    -- VID (solo aplica si no es PA ni SV)#(lf)    CASE WHEN M.BUKRS IN ('PA','SV') THEN NULL ELSE L.VBELN END AS Referencia,#(lf)    CASE WHEN M.BUKRS IN ('PA','SV') THEN NULL ELSE L.TRAID END AS VID,#(lf)    CASE WHEN M.BUKRS IN ('PA','SV') THEN NULL ELSE L.WADAT END AS FechaCreacionVID,#(lf)    CASE WHEN M.BUKRS IN ('PA','SV') THEN NULL ELSE L.AEDAT END AS FechaCierreVID,#(lf)#(lf)    -- Artículos y tienda#(lf)    M.MATNR         AS Articulo,#(lf)    MAKT.MAKTX      AS DescripcionArticulo,#(lf)    M.WERKS         AS Tienda,#(lf)    T.NAME1         AS NombreTienda,#(lf)    M.EBELN         AS Documento,#(lf)    M.MENGE         AS Cantidad,#(lf)    M.MEINS         AS UnidadMedida,#(lf)    M.BUKRS         AS Pais,#(lf)    M.BUDAT_MKPF    AS FechaContabilizacion,#(lf)    M.CPUDT_MKPF    AS FechaIngreso,#(lf)    M.VBELN_IM      AS ReferenciaMSEG,#(lf)    M.VBELP_IM      AS PosicionReferencia,#(lf)#(lf)    -- Documento#(lf)    P.CREATIONDATE  AS FechaCreacionDocumentoEKPO,#(lf)    P.CREATIONTIME  AS HoraCreacionDocumentoEKPO,   #(lf)    P.RESLO         AS AlmacenReceptor,#(lf)#(lf)    -- Cabecera de pedido#(lf)    K.AEDAT         AS FechaCreacionDocumentoEKKO,#(lf)    K.RESWK         AS CentroSuministrador,#(lf)#(lf)    -- Nueva columna ajustada (fecha EKKO corregida con la hora de EKPO)#(lf)    CASE #(lf)        WHEN P.CREATIONTIME > '120000' #(lf)            THEN ADD_DAYS(K.AEDAT, 1)#(lf)        ELSE K.AEDAT#(lf)    END AS FechaAjustada,#(lf)#(lf)    -- Lead time 1: Creación VID -> Cierre VID (solo si no es PA ni SV)#(lf)    CASE #(lf)        WHEN M.BUKRS IN ('PA','SV') THEN NULL#(lf)        ELSE DAYS_BETWEEN(L.WADAT, L.AEDAT)#(lf)    END AS LeadTime_Creacion_Cierre,#(lf)#(lf)    -- Lead time 2: Creación VID -> Contabilización (solo si no es PA ni SV)#(lf)    CASE #(lf)        WHEN M.BUKRS IN ('PA','SV') THEN NULL#(lf)        ELSE DAYS_BETWEEN(L.WADAT, M.BUDAT_MKPF)#(lf)    END AS LeadTime_Creacion_Contabilizacion,#(lf)#(lf)    -- Lead time 3: Creación Documento (EKPO/EKKO ajustado) -> Contabilización#(lf)    DAYS_BETWEEN(#(lf)        CASE #(lf)            WHEN P.CREATIONTIME > '120000' #(lf)                THEN ADD_DAYS(K.AEDAT, 1)#(lf)            ELSE K.AEDAT#(lf)        END,#(lf)        M.BUDAT_MKPF#(lf)    ) AS LeadTime_Doc_Contabilizacion,#(lf)#(lf)    -- Ponderados por VID (solo si no es PA ni SV)#(lf)    CASE #(lf)        WHEN M.BUKRS IN ('PA','SV') THEN NULL#(lf)        ELSE SUM(DAYS_BETWEEN(L.WADAT, L.AEDAT) * M.MENGE) OVER (PARTITION BY L.TRAID) #(lf)             / NULLIF(SUM(M.MENGE) OVER (PARTITION BY L.TRAID),0)#(lf)    END AS LeadTime1_Ponderado,#(lf)#(lf)    CASE #(lf)        WHEN M.BUKRS IN ('PA','SV') THEN NULL#(lf)        ELSE SUM(DAYS_BETWEEN(L.WADAT, M.BUDAT_MKPF) * M.MENGE) OVER (PARTITION BY L.TRAID) #(lf)             / NULLIF(SUM(M.MENGE) OVER (PARTITION BY L.TRAID),0)#(lf)    END AS LeadTime2_Ponderado,#(lf)#(lf)    SUM(DAYS_BETWEEN(#(lf)            CASE #(lf)                WHEN P.CREATIONTIME > '120000' #(lf)                    THEN ADD_DAYS(K.AEDAT, 1)#(lf)                ELSE K.AEDAT#(lf)            END,#(lf)            M.BUDAT_MKPF#(lf)        ) * M.MENGE#(lf)    ) OVER (PARTITION BY L.TRAID) #(lf)    / NULLIF(SUM(M.MENGE) OVER (PARTITION BY L.TRAID),0) AS LeadTime3_Ponderado#(lf)#(lf)FROM SAP_ECC.LIKP L#(lf)INNER JOIN SAP_ECC.MSEG M #(lf)    ON M.VBELN_IM = L.VBELN#(lf)    AND M.BWART = '101'#(lf)    AND M.LGORT = 'AL01'#(lf)#(lf)INNER JOIN SAP_ECC.EKPO P#(lf)    ON P.EBELN = M.EBELN#(lf)    AND P.EBELP = M.EBELP             -- 🔹 Clave compuesta#(lf)    AND P.LOEKZ <> 'L'#(lf)    AND P.MTART IN ('MODE','ZMOD')#(lf)#(lf)INNER JOIN SAP_ECC.EKKO K#(lf)    ON K.EBELN = M.EBELN#(lf)    AND K.BSART IN ('UB', 'ZTR2', 'ZREP')#(lf)#(lf)LEFT JOIN SAP_ECC.T001W T#(lf)    ON M.WERKS = T.WERKS#(lf)#(lf)LEFT JOIN SAP_ECC.MAKT MAKT#(lf)    ON M.MATNR = MAKT.MATNR#(lf)    AND MAKT.SPRAS = 'S'              -- 🔹 Clave compuesta para evitar múltiples idiomas#(lf)#(lf)WHERE L.TRAID IS NOT NULL#(lf)  AND L.AEDAT >= '20240101'#(lf)  AND L.AEDAT <= CURRENT_DATE#(lf)ORDER BY M.BUDAT_MKPF DESC", null, [EnableFolding=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Consulta1,{{"FECHACREACIONVID", type date}, {"FECHACIERREVID", type date}, {"FECHACONTABILIZACION", type date}, {"FECHAINGRESO", type date}, {"FECHACREACIONDOCUMENTOEKPO", type date}, {"FECHACREACIONDOCUMENTOEKKO", type date}, {"HORACREACIONDOCUMENTOEKPO", type time}, {"FECHAAJUSTADA", type date}})
 				in
 				    #"Tipo cambiado"
 

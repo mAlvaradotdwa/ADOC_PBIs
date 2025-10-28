@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "40310cb450c6a517a256",
   "position": {
     "x": 335,
@@ -7,7 +7,7 @@
     "z": 15000,
     "height": 311.25,
     "width": 310,
-    "tabOrder": 12000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -20,15 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "Un. Negocio"
+                  "Property": "MARCA_GR"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).Un. Negocio",
-              "nativeQueryRef": "Un. Negocio",
-              "active": true
+              "queryRef": "DIM_ARTICULOS.MARCA_GR",
+              "nativeQueryRef": "Marca Agrupada",
+              "active": true,
+              "displayName": "Marca Agrupada"
             }
           ]
         },

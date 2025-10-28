@@ -7,7 +7,7 @@
     "z": 14000,
     "height": 368,
     "width": 1264,
-    "tabOrder": 11000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -245,7 +245,8 @@
                 }
               },
               "queryRef": "Métricas.Pares SOLPED",
-              "nativeQueryRef": "Pares SOLPED"
+              "nativeQueryRef": "SOLPED",
+              "displayName": "SOLPED"
             },
             {
               "field": {
@@ -287,7 +288,8 @@
                 }
               },
               "queryRef": "Métricas.Pares CD",
-              "nativeQueryRef": "Pares CD"
+              "nativeQueryRef": "Solicitud CD",
+              "displayName": "Solicitud CD"
             },
             {
               "field": {
@@ -343,7 +345,8 @@
                 }
               },
               "queryRef": "Métricas.Pares Tienda",
-              "nativeQueryRef": "Pares Tienda"
+              "nativeQueryRef": "Solicitud Tienda",
+              "displayName": "Solicitud Tienda"
             },
             {
               "field": {
@@ -826,5 +829,415 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a8d7d3336dc6114476d8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_PAIS"
+              }
+            },
+            "Property": "BV_PAIS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c38b87f57570bb5489a2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "PE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "809d349118e172997267",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "SK_UNIDADNEGOCIO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "bf6aa4ed8ad692303383",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "BV_MARCA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e53b0e2fbe7612bfd490",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "BV_GENERO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "315feafadfea23913bdd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "ESTILO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ee29bedb711634e2d6b6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "COLOR"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5f746c41f8438de20847",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Pares Import"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1455074ef900889e446c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "% Entregado Import"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "be17b6aaa231ffd21407",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "% Pendiente Import"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7b9e8f2cda68ec86c30c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Inventario BFI"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e537c9881088eedbea07",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Pares Fabricación L1"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b56bf9565e01e0205824",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "% Entregado Fabricación L1"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dec6d4847ad581b3495a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "% Pendiente Fabricación L1"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ab8a66ed8776b1d3bd7b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Pares SOLPED"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "66a335e0839e69608cc4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "% Entregado SOLPED"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7c1b055eb4ebcd19a65b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "% Pendiente SOLPED"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "98bc8487870094752418",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Pares CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ec82ca6e2001460031b5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "% Entregado CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c152e2da54fb313e75f6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "% Pendiente CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "85c3a13fdd45bc816b74",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Inventario CD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2fea9a6131a53d076cd5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Pares Tienda"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "71e9b4cf1168590fae88",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "% Entregado Tienda"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "905b3c877739181d5c6d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "% Pendiente Tienda"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9e8bc38a84d9601fbecb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Inventario Tiendas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "46f246a255147e80e8ab",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Entregado OnTime"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d6c3b0a8728077ee14ef",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Entregado Atrasado"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "536bec8c12aaa50066c3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Venta Pares"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dd835a5ccf88b4ce94f3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Sell Off"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

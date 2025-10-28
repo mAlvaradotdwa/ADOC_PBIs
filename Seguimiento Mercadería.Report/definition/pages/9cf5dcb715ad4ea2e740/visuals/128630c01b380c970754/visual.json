@@ -117,11 +117,35 @@
             "queryRefs": [
               "EKPO L1 V2.DOCUMENTO"
             ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO L1 V2"
+                    }
+                  },
+                  "Property": "DOCUMENTO"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
             "queryRefs": [
               "EKPO L1 V2.ESTILO"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EKPO L1 V2"
+                    }
+                  },
+                  "Property": "ESTILO"
+                }
+              }
             ],
             "isPinned": true
           },

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "f2ef4d4d9bebb7c464d0",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "be4be400cca6a62408b9",
   "position": {
     "x": 248,
     "y": 32,
-    "z": 16001,
+    "z": 14000,
     "height": 148,
     "width": 1011,
-    "tabOrder": 16001
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "Métricas.LT SLA",
-              "nativeQueryRef": "LT SLA",
-              "displayName": "LT SLA"
+              "nativeQueryRef": "LT SLA"
             }
           ]
         },
@@ -71,321 +70,6 @@
       }
     },
     "objects": {
-      "referenceLabel": [
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-8d4ff534-5853-1bb6-c6c7-b8096ebe2f57",
-            "order": 0
-          }
-        },
-        {
-          "properties": {
-            "backgroundShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD"
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-d59aaca2-106b-019c-149a-b8fe4f6e24e7",
-            "order": 0
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-a916cc10-4a11-6d01-9666-83a6c2d4640a",
-            "order": 0
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-9aada26e-55a4-c046-0a27-00fde608025d",
-            "order": 0
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "LT VID"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-cfd5788f-e390-a3f6-4755-737dfa6c5fbb",
-            "order": 0
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "LT Doc."
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-2d6c41ea-7a46-cf7c-9dfc-5b2747f5e1e7",
-            "order": 1
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "LT Pond. VID"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-46c1e629-5d22-80a9-a003-6535394fa91f",
-            "order": 2
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "LT Pond. Doc."
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-6c4be6a7-360c-c1ae-c753-9d97a111b52a",
-            "order": 3
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "LT VID"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "Métricas.LT SLA",
-            "id": "field-37f7007b-ac38-f82a-b299-3c9be54bace0",
-            "order": 0
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "Métricas.LT SLA",
-            "id": "field-c8bf39df-ab7e-b9a7-4537-d4e3217441f4",
-            "order": 1
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "LT Doc."
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "Métricas.LT SLA",
-            "id": "field-248f8ceb-b5e8-24bc-381f-f85c60156736",
-            "order": 1
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "LT Pond. VID"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "Métricas.LT SLA",
-            "id": "field-4ef0762d-e725-decb-996b-8ff184914246",
-            "order": 2
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Métricas"
-                    }
-                  },
-                  "Property": "LT Pond. Doc."
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "Métricas.LT SLA",
-            "id": "field-b1c9875e-a1fc-e1a2-fd1a-10732ad40de7",
-            "order": 3
-          }
-        }
-      ],
       "smallMultiplesLayout": [
         {
           "properties": {
@@ -540,46 +224,10 @@
       "referenceLabelTitle": [
         {
           "properties": {
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'SLA'"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "titleContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'custom'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-01a2b4e5-4f3d-2582-c486-4127b94788c1"
-          }
-        },
-        {
-          "properties": {
             "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "titleFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
                 }
               }
             }
@@ -599,75 +247,7 @@
             }
           },
           "selector": {
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD"
-          }
-        },
-        {
-          "properties": {
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'LT Creación'"
-                }
-              }
-            },
-            "titleContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'custom'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-8d4ff534-5853-1bb6-c6c7-b8096ebe2f57"
-          }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "titleText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'LT Doc.'"
-                }
-              }
-            },
-            "titleContentType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'custom'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-d59aaca2-106b-019c-149a-b8fe4f6e24e7"
-          }
-        }
-      ],
-      "referenceLabelDetail": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD",
-            "id": "field-01a2b4e5-4f3d-2582-c486-4127b94788c1"
+            "metadata": "Métricas.LT SLA"
           }
         }
       ],
@@ -746,14 +326,7 @@
             "valueFontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "valueBold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "10D"
                 }
               }
             }
@@ -764,72 +337,16 @@
         },
         {
           "properties": {
-            "valueFontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
             "valueBold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
-            },
-            "valueTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
             }
           },
           "selector": {
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD"
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "Métricas.LT SLA",
-            "id": "field-37f7007b-ac38-f82a-b299-3c9be54bace0"
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "Métricas.LT SLA",
-            "id": "field-248f8ceb-b5e8-24bc-381f-f85c60156736"
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "Métricas.LT SLA",
-            "id": "field-4ef0762d-e725-decb-996b-8ff184914246"
+            "metadata": "Métricas.LT SLA"
           }
         }
       ],
@@ -915,41 +432,6 @@
       "divider": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "dividerTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "dividerIgnorePadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "dividerWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD"
-          }
-        },
-        {
-          "properties": {
             "dividerIgnorePadding": {
               "expr": {
                 "Literal": {
@@ -968,6 +450,39 @@
           "selector": {
             "id": "default"
           }
+        },
+        {
+          "properties": {
+            "dividerWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "dividerColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "dividerTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Métricas.LT SLA"
+          }
         }
       ],
       "label": [
@@ -983,20 +498,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD"
           }
         }
       ],
@@ -1208,20 +709,6 @@
           "selector": {
             "id": "default"
           }
-        },
-        {
-          "properties": {
-            "horizontalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "EKPO_BFI-CD.Tránsito BFI-CD"
-          }
         }
       ],
       "smallMultiplesOverFlow": [
@@ -1234,6 +721,120 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "referenceLabel": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "LT VID"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-27782aa2-6cb7-afbe-7740-ba1871777d56",
+            "order": 0
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "LT Doc."
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-4c272ef8-3d8a-9b7e-7f6a-bbeb3234e9bd",
+            "order": 1
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "LT Pond. VID"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-a9cd41c0-3d1a-b8df-a64a-92dd581a78fa",
+            "order": 2
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Métricas"
+                    }
+                  },
+                  "Property": "LT Pond. Doc."
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Métricas.LT SLA",
+            "id": "field-ff6b8f26-8650-e599-2198-a2743426fc39",
+            "order": 3
           }
         }
       ]

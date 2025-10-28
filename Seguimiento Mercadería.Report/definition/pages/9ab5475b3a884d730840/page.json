@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "9ab5475b3a884d730840",
-  "displayName": "Lead Time Tienda 2",
-  "displayOption": "ActualSize",
+  "displayName": "Lead Time Tienda",
+  "displayOption": "FitToWidth",
   "height": 720,
   "width": 1280,
   "filterConfig": {

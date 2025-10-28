@@ -1,0 +1,222 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "947376cad0a9866da06c",
+  "position": {
+    "x": 432,
+    "y": 304,
+    "z": 4,
+    "height": 520,
+    "width": 848
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "Pais Destino"
+                }
+              },
+              "queryRef": "MK_LOTES.Pais Destino",
+              "nativeQueryRef": "Pais Destino",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "Pais Origen"
+                }
+              },
+              "queryRef": "MK_LOTES.Pais Origen",
+              "nativeQueryRef": "Pais Origen",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "onTime"
+                }
+              },
+              "queryRef": "MK_LOTES.onTime",
+              "nativeQueryRef": "onTime",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "ParesMKLotes"
+                }
+              },
+              "queryRef": "MK_LOTES.ParesMKLotes",
+              "nativeQueryRef": "ParesMKLotes"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "MK_LOTES.Pais Origen"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "Pais Origen"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "MK_LOTES.onTime"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Evaluación de OnTime por Pais Origen y Destino'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "43bf156f6c2dd3799143",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MK_LOTES"
+              }
+            },
+            "Property": "Pais Destino"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "da0bf61719aae6c0ac62",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MK_LOTES"
+              }
+            },
+            "Property": "ParesMKLotes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8960b20191690a323eeb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MK_LOTES"
+              }
+            },
+            "Property": "Pais Origen"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4cafe22c206b51ab149a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MK_LOTES"
+              }
+            },
+            "Property": "onTime"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

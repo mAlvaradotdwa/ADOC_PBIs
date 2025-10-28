@@ -176,13 +176,80 @@ table FACT_INVENTARIOUD
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'ALMACENES.Nombre'
+		dataType: string
+		lineageTag: 5df341cc-c27d-46b6-9b5b-259656e27f40
+		summarizeBy: none
+		sourceColumn: ALMACENES.Nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ALMACENES.Tipo'
+		dataType: string
+		lineageTag: 3cee6428-1603-4b6b-9c6c-b633733a5d20
+		summarizeBy: none
+		sourceColumn: ALMACENES.Tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ALMACENES.Tipo Bodega'
+		dataType: string
+		lineageTag: a7ab5390-0fab-4ade-bff8-4d011dbb6fad
+		summarizeBy: none
+		sourceColumn: ALMACENES.Tipo Bodega
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DIM_ARTICULOS.SK_COLECCION'
+		dataType: string
+		lineageTag: 3b9e5be3-6252-4269-a120-e5998428cb55
+		summarizeBy: none
+		sourceColumn: DIM_ARTICULOS.SK_COLECCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column PE = LEFT( [DIM_ARTICULOS.SK_COLECCION] , 4 )
+		lineageTag: 3037e33e-faa6-4011-b47a-17e508905ae9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Articulo_GenericoF = MID('FACT_INVENTARIOUD'[SK_MATNR],FIND("0000000",'FACT_INVENTARIOUD'[SK_MATNR])+7,8)
+		lineageTag: ef1de25f-94f8-4ed1-b4ba-2c6df24dfff8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Campaña = LOOKUPVALUE(FAC_TEMPORADAS[Campaña],FAC_TEMPORADAS[Articulo],FACT_INVENTARIOUD[Articulo_GenericoF],"Sin Campaña")
+		lineageTag: 6e33bee1-887c-43cf-a155-bcbb08e3cf5d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año PE' = RIGHT(FACT_INVENTARIOUD[DIM_ARTICULOS.SK_COLECCION],4)
+		lineageTag: 55f6f083-f389-4a2e-9942-18ecf81aa308
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Conca = FACT_INVENTARIOUD[SK_TIENDA]&FACT_INVENTARIOUD[SK_ALMACEN]
+		lineageTag: ba0f891f-a3fc-42b6-9cca-6ec8287a9e27
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FACT_INVENTARIOUD = m
 		mode: import
 		source =
 				let
-				    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="adoc-bi-dev"]){[Name="adoc-bi-dev"]}[Data], "SELECT *#(lf)FROM `adoc-bi-dev.CA_TEMP.FAC_INVENTARIOUD`", null, [EnableFolding=true])
+				    Origen = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="adoc-bi-dev"]){[Name="adoc-bi-dev"]}[Data], "SELECT *#(lf)FROM `adoc-bi-dev.CA_TEMP.FAC_INVENTARIOUD`", null, [EnableFolding=true]),
+				    #"Texto recortado" = Table.TransformColumns(Origen,{{"SK_TIENDA", Text.Trim, type text}, {"SK_ALMACEN", Text.Trim, type text}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Texto recortado", {"SK_ALMACEN", "SK_TIENDA"}, ALMACENES, {"Alm.", "Ce."}, "ALMACENES", JoinKind.LeftOuter),
+				    #"Se expandió ALMACENES" = Table.ExpandTableColumn(#"Consultas combinadas", "ALMACENES", {"Nombre", "Tipo", "Tipo Bodega"}, {"ALMACENES.Nombre", "ALMACENES.Tipo", "ALMACENES.Tipo Bodega"}),
+				    #"Consultas combinadas1" = Table.NestedJoin(#"Se expandió ALMACENES", {"SK_MATNR"}, DIM_ARTICULOS, {"SK_MATNR"}, "DIM_ARTICULOS", JoinKind.LeftOuter),
+				    #"Se expandió DIM_ARTICULOS" = Table.ExpandTableColumn(#"Consultas combinadas1", "DIM_ARTICULOS", {"SK_COLECCION"}, {"DIM_ARTICULOS.SK_COLECCION"})
 				in
-				    Origen
+				    #"Se expandió DIM_ARTICULOS"
 
 	annotation PBI_NavigationStepName = Navegación
 

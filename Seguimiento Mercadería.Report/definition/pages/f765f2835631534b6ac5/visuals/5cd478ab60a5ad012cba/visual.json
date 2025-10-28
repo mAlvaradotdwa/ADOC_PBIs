@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "5cd478ab60a5ad012cba",
   "position": {
     "x": 698.52855829033365,
     "y": 72.713723644556907,
     "z": 11000,
     "height": 54.833299797534721,
-    "width": 106.090514825665,
-    "tabOrder": 8000
+    "width": 106.090514825665
   },
   "visual": {
     "visualType": "slicer",
@@ -23,13 +22,13 @@
                       "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "TIPOESTILO"
+                  "Property": "ESTILO"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.TIPOESTILO",
-              "nativeQueryRef": "Tipo Estilo",
+              "queryRef": "DIM_ARTICULOS.ESTILO",
+              "nativeQueryRef": "Estilo",
               "active": true,
-              "displayName": "Tipo Estilo"
+              "displayName": "Estilo"
             }
           ]
         }

@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Tabla_Campaña"
+                      "Entity": "Campañas"
                     }
                   },
                   "Property": "Campaña"
                 }
               },
-              "queryRef": "Tabla_Campaña.Campaña",
+              "queryRef": "Campañas.Campaña",
               "nativeQueryRef": "Campaña",
               "active": true
             }

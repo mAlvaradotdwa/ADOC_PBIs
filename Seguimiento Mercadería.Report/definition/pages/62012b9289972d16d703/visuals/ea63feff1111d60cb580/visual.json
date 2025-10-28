@@ -1,16 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "ea63feff1111d60cb580",
   "position": {
-    "x": 966.66666666666663,
-    "y": 272.22222222222223,
+    "x": 957.85714285714289,
+    "y": 40.408163265306129,
     "z": 15000,
-    "height": 206.66666666666666,
-    "width": 313.33333333333331,
-    "tabOrder": 12000
+    "height": 236.02040816326533,
+    "width": 314.08163265306126,
+    "tabOrder": 5000
   },
   "visual": {
-    "visualType": "funnel",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,15 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "Un. Negocio"
+                  "Property": "MARCA_GR"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).Un. Negocio",
-              "nativeQueryRef": "Un. Negocio",
-              "active": true
+              "queryRef": "DIM_ARTICULOS.MARCA_GR",
+              "nativeQueryRef": "Marca Agrupada",
+              "active": true,
+              "displayName": "Marca Agrupada"
             }
           ]
         },
@@ -132,6 +133,20 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000D"
                 }
               }
             }

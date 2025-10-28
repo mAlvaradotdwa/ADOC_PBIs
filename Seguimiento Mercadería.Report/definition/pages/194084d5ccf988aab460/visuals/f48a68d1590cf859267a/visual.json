@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "f48a68d1590cf859267a",
   "position": {
     "x": 24.364741641337375,
@@ -7,7 +7,7 @@
     "z": 13000,
     "height": 55.440729483282681,
     "width": 183.82978723404256,
-    "tabOrder": 11000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -442,79 +442,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "Filter91d4829c6feeac9fb812",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_MARCAS"
-              }
-            },
-            "Property": "SK_UNIDADNEGOCIO"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DIM_MARCAS",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "d"
-                              }
-                            },
-                            "Property": "SK_UNIDADNEGOCIO"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
       {
         "name": "32a47d384ba605820460",
         "field": {

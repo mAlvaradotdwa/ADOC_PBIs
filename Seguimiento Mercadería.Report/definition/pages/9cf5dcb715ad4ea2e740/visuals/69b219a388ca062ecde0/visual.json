@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "69b219a388ca062ecde0",
   "position": {
     "x": 43.910953282299538,
@@ -20,38 +20,20 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_ARTICULOS"
+                      "Entity": "Campañas"
                     }
                   },
-                  "Property": "BV_CATEGORIA"
+                  "Property": "Campaña"
                 }
               },
-              "queryRef": "DIM_ARTICULOS.BV_CATEGORIA",
-              "nativeQueryRef": "Categoría",
-              "active": true,
-              "displayName": "Categoría"
+              "queryRef": "Campañas.Campaña",
+              "nativeQueryRef": "Campaña",
+              "active": true
             }
           ]
         }
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Values"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "DIM_ARTICULOS.BV_CATEGORIA"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {}
-      }
-    ],
     "objects": {
       "data": [
         {
@@ -164,17 +146,17 @@
       "general": [
         {
           "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "orientation": {
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -501,79 +483,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "Filter91d4829c6feeac9fb812",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_MARCAS"
-              }
-            },
-            "Property": "SK_UNIDADNEGOCIO"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DIM_MARCAS",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "d"
-                              }
-                            },
-                            "Property": "SK_UNIDADNEGOCIO"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
         "name": "3efe150bd05aabc09331",
         "field": {
           "Column": {
@@ -704,7 +613,22 @@
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "cbc85300195ebd00d15d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Campañas"
+              }
+            },
+            "Property": "Campaña"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

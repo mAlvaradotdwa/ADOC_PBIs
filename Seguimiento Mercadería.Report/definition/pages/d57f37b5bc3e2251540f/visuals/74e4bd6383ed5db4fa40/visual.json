@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "74e4bd6383ed5db4fa40",
   "position": {
     "x": 23.75,
     "y": 108.75,
     "z": 2000,
     "height": 55,
-    "width": 183.75
+    "width": 183.75,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "slicer",
@@ -19,15 +20,32 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_MARCAS (2)"
+                      "Entity": "DIM_ARTICULOS"
                     }
                   },
-                  "Property": "Un. Negocio"
+                  "Property": "MARCA_GR"
                 }
               },
-              "queryRef": "DIM_MARCAS (2).Un. Negocio",
-              "nativeQueryRef": "Un. Negocio",
-              "active": true
+              "queryRef": "DIM_ARTICULOS.MARCA_GR",
+              "nativeQueryRef": "Marca Agrupada",
+              "active": true,
+              "displayName": "Marca Agrupada"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ARTICULOS"
+                    }
+                  },
+                  "Property": "BV_MARCA"
+                }
+              },
+              "queryRef": "DIM_ARTICULOS.BV_MARCA",
+              "nativeQueryRef": "Marca",
+              "active": false,
+              "displayName": "Marca"
             }
           ]
         }
@@ -442,82 +460,5 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "Filter91d4829c6feeac9fb812",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_MARCAS"
-              }
-            },
-            "Property": "SK_UNIDADNEGOCIO"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DIM_MARCAS",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "d"
-                              }
-                            },
-                            "Property": "SK_UNIDADNEGOCIO"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      }
-    ]
   }
 }

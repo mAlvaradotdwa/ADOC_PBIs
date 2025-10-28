@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "71b1d3913dd0dd188140",
   "position": {
     "x": 248,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 525,
     "width": 1011,
-    "tabOrder": 1000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "tableEx",
@@ -58,6 +58,36 @@
               "queryRef": "LT TIENDA VID.DOCUMENTO",
               "nativeQueryRef": "Documento",
               "displayName": "Documento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "FECHACREACIONVID"
+                }
+              },
+              "queryRef": "LT TIENDA VID.FECHACREACIONVID",
+              "nativeQueryRef": "F.Creación VID",
+              "displayName": "F.Creación VID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "LT TIENDA VID"
+                    }
+                  },
+                  "Property": "FECHACREACIONDOCUMENTOEKKO"
+                }
+              },
+              "queryRef": "LT TIENDA VID.FECHACREACIONDOCUMENTOEKKO",
+              "nativeQueryRef": "F.Creación Doc.",
+              "displayName": "F.Creación Doc."
             },
             {
               "field": {

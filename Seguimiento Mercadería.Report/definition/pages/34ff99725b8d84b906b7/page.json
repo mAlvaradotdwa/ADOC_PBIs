@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "34ff99725b8d84b906b7",
-  "displayName": "Lead Time Tienda",
+  "displayName": "Gráfico Lead Time Tienda",
   "displayOption": "ActualSize",
   "height": 720,
   "width": 1280,

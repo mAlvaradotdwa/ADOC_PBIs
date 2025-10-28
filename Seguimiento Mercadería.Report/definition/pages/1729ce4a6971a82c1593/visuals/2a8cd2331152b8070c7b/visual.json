@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "2a8cd2331152b8070c7b",
   "position": {
-    "x": 243.1737643195018,
-    "y": 178.80423847022192,
+    "x": 243.34934797529172,
+    "y": 179.21757035003432,
     "z": 1000,
-    "height": 281.3186685264825,
-    "width": 1028.72038533201,
-    "tabOrder": 19000
+    "height": 281.12560054907345,
+    "width": 685.24365133836659,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -122,26 +122,6 @@
                           "Entity": "EKPO"
                         }
                       },
-                      "Property": "FIRST_ETA"
-                    }
-                  },
-                  "Function": 3
-                }
-              },
-              "queryRef": "Min(EKPO.FIRST_ETA)",
-              "nativeQueryRef": "Primer ETA",
-              "displayName": "Primer ETA"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "EKPO"
-                        }
-                      },
                       "Property": "ETA_MarineTraffic"
                     }
                   },
@@ -177,35 +157,6 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Campos Producto"
-                    }
-                  },
-                  "Property": "Cantidad de Cambios en ETA"
-                }
-              },
-              "queryRef": "Campos Producto.Cantidad de Cambios en ETA",
-              "nativeQueryRef": "Cantidad de Cambios en ETA"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Campos Producto"
-                    }
-                  },
-                  "Property": "Días Diff por Cambio ETA"
-                }
-              },
-              "queryRef": "Campos Producto.Días Diff por Cambio ETA",
-              "nativeQueryRef": "Días Diferencia entre ETAs",
-              "displayName": "Días Diferencia entre ETAs"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
                       "Entity": "Métricas"
                     }
                   },
@@ -218,23 +169,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Campos Producto"
-                  }
-                },
-                "Property": "Días Diff por Cambio ETA"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "expansionStates": [
@@ -247,7 +181,6 @@
             "queryRefs": [
               "EKPO.Pais_OrigenF"
             ],
-            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -327,20 +260,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'China'"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {
@@ -397,48 +317,6 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "111.21276582193482D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Min(EKPO.FIRST_ETA)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "114.27866975831236D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Campos Producto.Cantidad de Cambios en ETA"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "115.94745919209674D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Campos Producto.Días Diff por Cambio ETA"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
                   "Value": "127.57205026866201D"
                 }
               }
@@ -475,91 +353,7 @@
             }
           },
           "selector": {
-            "metadata": "Min(EKPO.FIRST_ETA)"
-          }
-        },
-        {
-          "properties": {
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Center'"
-                }
-              }
-            }
-          },
-          "selector": {
             "metadata": "Métricas.Indicador"
-          }
-        },
-        {
-          "properties": {
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Center'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Campos Producto.Cantidad de Cambios en ETA"
-          }
-        },
-        {
-          "properties": {
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Center'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Campos Producto.Días Diff por Cambio ETA"
           }
         }
       ]

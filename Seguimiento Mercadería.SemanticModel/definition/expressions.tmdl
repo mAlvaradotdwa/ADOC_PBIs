@@ -168,3 +168,80 @@ expression 'FACT_TUNGYA_Valor reemplazado2 CRD_Aggregated_2025-07-09_17:13' = ``
 	lineageTag: a0553d6f-0d7e-4e4d-9e49-c6f0ea71f6c3
 	queryGroup: Diagnóstico
 
+expression Pasos =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/Documents/TEMP_Sharepoint/Lead%20Time%20para%20Modelo%20Panama.xlsx"), null, true),
+		    #"Tiempos L1_Sheet" = Origen{[Item="Pasos",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(#"Tiempos L1_Sheet", [PromoteAllScalars=true])
+		in
+		    #"Encabezados promovidos"
+	lineageTag: 6dd434de-40ad-4ac9-bb28-3dfbeeb6842e
+	queryGroup: 'Base LeadTimes'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression _inbound =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/Documents/TEMP_Sharepoint/Lead%20Time%20para%20Modelo%20Panama.xlsx"), null, true),
+		    #"Tiempos Inbound_Sheet" = Origen{[Item="Tiempos Inbound",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(#"Tiempos Inbound_Sheet", [PromoteAllScalars=true]),
+		    #"Columna de anulación de dinamización" = Table.UnpivotOtherColumns(#"Encabezados promovidos", {"Modalidad", "Origen"}, "Atributo", "Valor"),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columna de anulación de dinamización",{{"Atributo", "Actividad"}, {"Valor", "LT"}}),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Columnas con nombre cambiado", {"Actividad"}, Pasos, {"Paso"}, "Pasos", JoinKind.LeftOuter),
+		    #"Se expandió Pasos" = Table.ExpandTableColumn(#"Consultas combinadas", "Pasos", {"ID"}, {"ID"}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Se expandió Pasos", "Tipo", each "Import")
+		in
+		    #"Personalizada agregada"
+	lineageTag: f1f839ab-2b75-4a10-9a19-a989495bfc19
+	queryGroup: 'Base LeadTimes'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression _export =
+		let
+		    Origen = Excel.Workbook(Web.Contents("https://empresasadoc-my.sharepoint.com/personal/no-reply_empresasadoc_com/Documents/TEMP_Sharepoint/Lead%20Time%20para%20Modelo%20Panama.xlsx"), null, true),
+		    #"Tiempos Export_Sheet" = Origen{[Item="Tiempos Export",Kind="Sheet"]}[Data],
+		    #"Encabezados promovidos" = Table.PromoteHeaders(#"Tiempos Export_Sheet", [PromoteAllScalars=true]),
+		    #"Columna de anulación de dinamización" = Table.UnpivotOtherColumns(#"Encabezados promovidos", {"Tipo", "Descripción"}, "Atributo", "Valor"),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columna de anulación de dinamización",{{"Atributo", "BV_PAIS"}, {"Valor", "LT"}, {"Descripción", "Actividad"}}),
+		    #"Consultas combinadas" = Table.NestedJoin(#"Columnas con nombre cambiado", {"Actividad"}, Pasos, {"Paso"}, "Pasos", JoinKind.LeftOuter),
+		    #"Se expandió Pasos" = Table.ExpandTableColumn(#"Consultas combinadas", "Pasos", {"ID"}, {"ID"}),
+		    #"Personalizada agregada" = Table.AddColumn(#"Se expandió Pasos", "Tipo.1", each "Export")
+		in
+		    #"Personalizada agregada"
+	lineageTag: c95538b6-7384-4894-b6c6-a6803753ab61
+	queryGroup: 'Base LeadTimes'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
+expression Origen-Destino =
+		let
+		    Origen = _inbound,
+		    #"Columnas quitadas" = Table.RemoveColumns(Origen,{"Actividad", "LT", "ID", "Tipo"}),
+		    #"Duplicados quitados" = Table.Distinct(#"Columnas quitadas"),
+		    #"Personalizada agregada" = Table.AddColumn(#"Duplicados quitados", "CampoOrigen", each 1),
+		    inbound = Table.AddColumn(#"Personalizada agregada", "flag", each 1),
+		    OrigenOutbound = _export,
+		    #"Otras columnas quitadas" = Table.SelectColumns(OrigenOutbound,{"BV_PAIS"}),
+		    #"Duplicados quitados1" = Table.Distinct(#"Otras columnas quitadas"),
+		    #"Personalizada agregada2" = Table.AddColumn(#"Duplicados quitados1", "CampoDestino", each 1),
+		    outbound = Table.AddColumn(#"Personalizada agregada2", "flag", each 1),
+		    join = Table.NestedJoin ( inbound , {"flag"} , outbound , {"flag"} , "combine" , JoinKind.LeftOuter ),
+		    #"Se expandió combine" = Table.ExpandTableColumn(join, "combine", {"BV_PAIS", "CampoDestino"}, {"BV_PAIS", "CampoDestino"}),
+		    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Se expandió combine",{{"BV_PAIS", "Destino"}}),
+		    #"Columnas reordenadas" = Table.ReorderColumns(#"Columnas con nombre cambiado",{"Modalidad", "Origen", "Destino", "CampoOrigen", "flag", "CampoDestino"})
+		in
+		    #"Columnas reordenadas"
+	lineageTag: 2326a0d5-8c2d-4867-bd67-c4a000339640
+	queryGroup: 'Base LeadTimes'
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

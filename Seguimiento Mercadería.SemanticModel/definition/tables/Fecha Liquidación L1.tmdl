@@ -397,7 +397,7 @@ table 'Fecha Liquidación L1'
 				    TRUNC ( UTCNOW () - _UTCOffset )
 				VAR _iniYear = YEAR ( MIN ( 'EKPO L1'[FECHA_CONTABILIZACION] ) )
 				VAR _endYear =
-				    YEAR ( _today + 30 )
+				    YEAR ( _today + 30 ) + 1
 				VAR _LastDayWithSales =
 				    MAXX ( { MAX ( 'EKPO L1'[FECHA_CONTABILIZACION] ) }, [Value] )
 				VAR _currentMonthID =

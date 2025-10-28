@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
   "name": "82d121e99ea379786204",
   "position": {
-    "x": 18.987446089608,
-    "y": 169.62118506716479,
+    "x": 6.329148696536,
+    "y": 131.64629288794879,
     "z": 3000,
     "height": 134.1779523665632,
-    "width": 200.0010988105376
+    "width": 200.0010988105376,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "slicer",
@@ -59,14 +60,14 @@
             "startDate": {
               "expr": {
                 "Literal": {
-                  "Value": "datetime'2025-02-02T00:00:00'"
+                  "Value": "datetime'2025-04-01T00:00:00'"
                 }
               }
             },
             "endDate": {
               "expr": {
                 "Literal": {
-                  "Value": "datetime'2025-08-16T00:00:00'"
+                  "Value": "datetime'2025-09-22T00:00:00'"
                 }
               }
             },
@@ -119,7 +120,7 @@
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "datetime'2025-02-02T00:00:00'"
+                                "Value": "datetime'2025-04-01T00:00:00'"
                               }
                             }
                           }
@@ -139,7 +140,7 @@
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "datetime'2025-08-17T00:00:00'"
+                                "Value": "datetime'2025-09-23T00:00:00'"
                               }
                             }
                           }
@@ -523,5 +524,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "87f314451c406216152b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PREPARACIONES CD (TRACING)"
+              }
+            },
+            "Property": "CREADO_EL"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

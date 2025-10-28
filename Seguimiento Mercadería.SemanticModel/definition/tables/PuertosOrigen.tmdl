@@ -1,0 +1,57 @@
+table PuertosOrigen
+	lineageTag: c222bf1e-08ed-4087-be8f-20a26a528cf6
+
+	column PUERTO_ORIGEN
+		dataType: string
+		lineageTag: f82a90f9-0ce3-4bbd-b373-7c0ea3e663a4
+		summarizeBy: none
+		sourceColumn: PUERTO_ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ciudad
+		dataType: string
+		lineageTag: 87296c1b-8a62-4acc-9168-26d3f1659c08
+		summarizeBy: none
+		sourceColumn: Ciudad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pais
+		dataType: string
+		lineageTag: 8b796f60-f5cb-49b7-863c-9c39f8c50aca
+		summarizeBy: none
+		sourceColumn: Pais
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PuertosOrigen = m
+		mode: import
+		source =
+				let
+				    Origen = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "SELECT DISTINCT #(lf)    k.INCO2 Puerto_Origen #(lf)FROM SAP_ECC.EKKO k#(lf)WHERE k.BSART = 'MK'", null, [EnableFolding=true]),
+				    #"Columna duplicada" = Table.DuplicateColumn(Origen, "PUERTO_ORIGEN", "PUERTO_ORIGEN - Copia"),
+				    #"Dividir columna por delimitador" = Table.SplitColumn(#"Columna duplicada", "PUERTO_ORIGEN - Copia", Splitter.SplitTextByDelimiter("-", QuoteStyle.Csv), {"Ciudad", "Pais"}),
+				    #"Texto limpio" = Table.TransformColumns(#"Dividir columna por delimitador",{{"Ciudad", Text.Clean, type text}, {"Pais", Text.Clean, type text}}),
+				    #"Texto recortado" = Table.TransformColumns(#"Texto limpio",{{"Ciudad", Text.Trim, type text}, {"Pais", Text.Trim, type text}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Texto recortado","",null,Replacer.ReplaceValue,{"Pais"}),
+				    refs = Table.TransformColumns(#"Valor reemplazado",{{"Ciudad", Text.Upper, type text}, {"Pais", Text.Upper, type text}}),
+				    baseReverseLookup = refs,
+				    #"Columnas quitadas" = Table.RemoveColumns(baseReverseLookup,{"PUERTO_ORIGEN"}),
+				    #"Filas filtradas" = Table.SelectRows(#"Columnas quitadas", each [Pais] <> null and [Pais] <> ""),
+				    #"Duplicados quitados" = Table.Distinct(#"Filas filtradas"),
+				    #"Personalizada agregada" = Table.AddColumn(#"Duplicados quitados", "strl", each Text.Length ( [Pais] )),
+				    #"Filas ordenadas" = Table.Sort(#"Personalizada agregada",{{"Ciudad", Order.Descending},{"strl", Order.Descending}}),
+				    reverseLookUp = Table.Distinct(#"Filas ordenadas", {"Ciudad"}),
+				    #"Consultas combinadas" = Table.NestedJoin(refs, {"Ciudad"}, reverseLookUp, {"Ciudad"}, "lookup", JoinKind.LeftOuter),
+				    #"Se expandió lookup" = Table.ExpandTableColumn(#"Consultas combinadas", "lookup", {"Pais"}, {"lookup.Pais"}),
+				    #"Personalizada agregada1" = Table.AddColumn(#"Se expandió lookup", "PaisF", each if [Pais] is null then [lookup.Pais] else [Pais]),
+				    #"Columnas quitadas1" = Table.RemoveColumns(#"Personalizada agregada1",{"Pais", "lookup.Pais"}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columnas quitadas1",{{"PaisF", "Pais"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

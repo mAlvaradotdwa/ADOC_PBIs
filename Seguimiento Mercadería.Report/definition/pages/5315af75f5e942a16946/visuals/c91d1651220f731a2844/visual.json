@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 671,
     "width": 640,
-    "tabOrder": 23000
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -368,6 +368,62 @@
             }
           ]
         }
+      },
+      {
+        "name": "ea8260b64649ee91d000",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fecha Liquidación"
+              }
+            },
+            "Property": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c0296cf9995b97c8862d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fecha Liquidación"
+              }
+            },
+            "Property": "Semana"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "edd87a52e8b4851a1cfa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ARTICULOS"
+              }
+            },
+            "Property": "BV_ESTILO_COLOR"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4ac49dca804064832c37",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Métricas"
+              }
+            },
+            "Property": "Indicador"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

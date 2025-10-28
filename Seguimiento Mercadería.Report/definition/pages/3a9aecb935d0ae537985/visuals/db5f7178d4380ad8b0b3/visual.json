@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
-  "name": "71beef6cebaae5ff73d4",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "db5f7178d4380ad8b0b3",
   "position": {
-    "x": 663.08518802762853,
-    "y": 17.682271680736761,
-    "z": 4000,
-    "height": 102.16423637759017,
-    "width": 305.5103607060629,
-    "tabOrder": 1000
+    "x": 16.4557866109936,
+    "y": 291.14084004065603,
+    "z": 21000,
+    "height": 68.3548059225888,
+    "width": 172.1528445457792,
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "EKPO_CD-TIENDA"
+                      "Entity": "PREPARACIONES CD (TRACING)"
                     }
                   },
-                  "Property": "Semana"
+                  "Property": "TIENDA"
                 }
               },
-              "queryRef": "EKPO_CD-TIENDA.Semana",
-              "nativeQueryRef": "Semana",
+              "queryRef": "PREPARACIONES CD (TRACING).TIENDA",
+              "nativeQueryRef": "TIENDA",
               "active": true
             }
           ]
@@ -48,26 +48,20 @@
           }
         }
       ],
-      "slider": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
       "general": [
         {
           "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "orientation": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "1D"
                 }
               }
             }
