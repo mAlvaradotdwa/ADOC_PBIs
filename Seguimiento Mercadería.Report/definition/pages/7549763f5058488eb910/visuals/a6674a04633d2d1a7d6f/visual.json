@@ -1,10 +1,10 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "a7c551860e55386a0b71",
+  "name": "a6674a04633d2d1a7d6f",
   "position": {
-    "x": 0,
+    "x": 480,
     "y": 0,
-    "z": 1000,
+    "z": 6002,
     "height": 96,
     "width": 232
   },
@@ -19,16 +19,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fecha Objetivo"
+                      "Entity": "Fecha ZINSTORE"
                     }
                   },
                   "Property": "Fecha"
                 }
               },
-              "queryRef": "Fecha Objetivo.Fecha",
-              "nativeQueryRef": "Fecha Objetivo",
+              "queryRef": "Fecha ZINSTORE.Fecha",
+              "nativeQueryRef": "Fecha ZINSTORE",
               "active": true,
-              "displayName": "Fecha Objetivo"
+              "displayName": "Fecha ZINSTORE"
             }
           ]
         }
@@ -40,7 +40,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Fecha Objetivo"
+                    "Entity": "Fecha ZINSTORE"
                   }
                 },
                 "Property": "Fecha"

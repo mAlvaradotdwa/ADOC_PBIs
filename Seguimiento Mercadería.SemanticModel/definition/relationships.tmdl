@@ -356,3 +356,19 @@ relationship 362b24c7-f2b9-efad-7d5d-c6c5de7caa33
 	fromColumn: 'PREPARACIONES CD (TRACING)'.CREADO_EL
 	toColumn: 'Fecha Creación MK'.Fecha
 
+relationship 019b50da-7545-4709-33a9-22c87b5e34b1
+	fromColumn: MK_LOTES.FechaObjetivo
+	toColumn: 'Fecha Objetivo'.Fecha
+
+relationship 42030dcf-d8db-df64-2f4b-c73c1d097f09
+	fromColumn: MK_LOTES.FECHA_EKKO
+	toColumn: 'Fecha Documento'.IDFecha
+
+relationship d11a37f7-1835-9c56-ae7c-e4d68f1f7336
+	fromColumn: MK_LOTES.AEDAT_MK
+	toColumn: 'Fecha Creación MK'.IDFecha
+
+relationship 12126ff4-65c5-32aa-5070-a7cedbb11826
+	fromColumn: MK_LOTES.ZINSTOREDATE_MK
+	toColumn: 'Fecha ZINSTORE'.IDFecha
+

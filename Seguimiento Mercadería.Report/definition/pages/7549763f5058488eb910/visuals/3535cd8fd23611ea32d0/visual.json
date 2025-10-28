@@ -1,10 +1,10 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "a7c551860e55386a0b71",
+  "name": "3535cd8fd23611ea32d0",
   "position": {
-    "x": 0,
+    "x": 240,
     "y": 0,
-    "z": 1000,
+    "z": 6001,
     "height": 96,
     "width": 232
   },
@@ -19,16 +19,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fecha Objetivo"
+                      "Entity": "Fecha Creación MK"
                     }
                   },
                   "Property": "Fecha"
                 }
               },
-              "queryRef": "Fecha Objetivo.Fecha",
-              "nativeQueryRef": "Fecha Objetivo",
+              "queryRef": "Fecha Creación MK.Fecha",
+              "nativeQueryRef": "Fecha MK",
               "active": true,
-              "displayName": "Fecha Objetivo"
+              "displayName": "Fecha MK"
             }
           ]
         }
@@ -40,7 +40,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Fecha Objetivo"
+                    "Entity": "Fecha Creación MK"
                   }
                 },
                 "Property": "Fecha"

@@ -420,6 +420,9 @@ table MK_LOTES
 			```
 		displayFolder: Datos MK
 		lineageTag: 0ad17f8e-ff48-495e-b000-87e020b5f94d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column 'Pais Destino' =
 			VAR _codPais =
@@ -431,6 +434,9 @@ table MK_LOTES
 			    )
 		displayFolder: Datos MK
 		lineageTag: c209b6b5-5659-41cb-a34d-6cf52bf90bc6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column FechaObjetivo = ```
 			VAR _doc = [TIPO_DOCUMENTO]
@@ -444,15 +450,18 @@ table MK_LOTES
 			VAR _offset =
 			    SWITCH (
 			        TRUE (),
-			        _doc IN { "ZIMP", "ZINT" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] <= 4 ),
-			        _doc IN { "ZINT", "ZTRU", "ZUIN" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] <= 10 ),
-			        _doc IN { "UB", "ZREP", "ZTR2", "ZTRA" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] <= 11 )
+			        _doc IN { "ZIMP" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 4 ),
+			        _doc IN { "ZINT", "ZTRU", "ZUIN" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 10 ),
+			        _doc IN { "UB", "ZREP", "ZTR2", "ZTRA" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 11 )
 			    )
 			RETURN 
 			    IF ( _zInStoreDate > 20200101 && _offset > 0, _inStoreDate - _offset )
 			```
 		displayFolder: Fechas Objetivo
 		lineageTag: 389bca72-a8bd-4f8e-983e-c9899494d4c7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column FECHA_LIQ
 		dataType: string
@@ -464,7 +473,6 @@ table MK_LOTES
 
 	column TiempoObjetivo = ```
 			VAR _doc = [TIPO_DOCUMENTO]
-			VAR _numTramo = 1
 			VAR _zInStoreDate =
 			    INT ( MK_LOTES[ZINSTOREDATE_MK] )
 			VAR _inStoreDate =
@@ -475,7 +483,7 @@ table MK_LOTES
 			VAR _offset =
 			    SWITCH (
 			        TRUE (),
-			        _doc IN { "ZIMP", "ZINT" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 4 ),
+			        _doc IN { "ZIMP" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 4 ),
 			        _doc IN { "ZINT", "ZTRU", "ZUIN" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 10 ),
 			        _doc IN { "UB", "ZREP", "ZTR2", "ZTRA" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 11 )
 			    )
@@ -484,6 +492,9 @@ table MK_LOTES
 			```
 		displayFolder: Fechas Objetivo
 		lineageTag: cc4dd14f-4717-4c9f-97ce-6be036a75ae8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
 
 	column onTime = ```
 			VAR _fEKKO =
@@ -503,6 +514,9 @@ table MK_LOTES
 			```
 		displayFolder: Fechas Objetivo
 		lineageTag: 6dfc2523-6451-4f56-bda9-8300b9cb2b63
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column T1 =
 			VAR _numTramo = 1
@@ -519,6 +533,9 @@ table MK_LOTES
 				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
 		displayFolder: Fechas Objetivo
 		lineageTag: 73216a08-c84b-45a7-828f-05f68d51875c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column T2 =
 			VAR _numTramo = 2
@@ -535,6 +552,9 @@ table MK_LOTES
 				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
 		displayFolder: Fechas Objetivo
 		lineageTag: 4b4e092c-5737-4ca4-a51b-9b676479aa30
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column T3 =
 			VAR _numTramo = 3
@@ -551,6 +571,9 @@ table MK_LOTES
 				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
 		displayFolder: Fechas Objetivo
 		lineageTag: 7260df10-116f-46ca-a829-2823231f7c63
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column T4 =
 			VAR _numTramo = 4
@@ -567,6 +590,9 @@ table MK_LOTES
 				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
 		displayFolder: Fechas Objetivo
 		lineageTag: b0b815dd-d734-4879-b97a-703f0767f247
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column T5 =
 			VAR _numTramo = 5
@@ -583,6 +609,9 @@ table MK_LOTES
 				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
 		displayFolder: Fechas Objetivo
 		lineageTag: 8b43dca8-e542-4232-ac16-76c78e7dd1d8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column T6 =
 			VAR _numTramo = 6
@@ -599,6 +628,9 @@ table MK_LOTES
 				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
 		displayFolder: Fechas Objetivo
 		lineageTag: f0f05a03-3cd1-47eb-a588-44eb055ce115
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column T7 =
 			VAR _numTramo = 7
@@ -615,6 +647,9 @@ table MK_LOTES
 				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
 		displayFolder: Fechas Objetivo
 		lineageTag: 95dd905e-2ace-4e56-92b4-ca8f4bbdd2d3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column T8 =
 			VAR _numTramo = 8
@@ -631,6 +666,9 @@ table MK_LOTES
 				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
 		displayFolder: Fechas Objetivo
 		lineageTag: 9ec43f78-27ec-4670-b37b-3a406d695fbd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column T9 =
 			VAR _numTramo = 9
@@ -647,6 +685,9 @@ table MK_LOTES
 				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
 		displayFolder: Fechas Objetivo
 		lineageTag: 0271ad2d-90ba-4b78-847b-2443bfcd9e65
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	column T10 =
 			VAR _numTramo = 10
@@ -663,6 +704,9 @@ table MK_LOTES
 				IF ( NOT ISBLANK ( _zInStoreDate ) && _zInStoreDate > 20240101 && _offset > 0, _inStoreDate - _offset )
 		displayFolder: Fechas Objetivo
 		lineageTag: 4771a830-cdf3-4889-abe1-ac1395ccae87
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	partition MK_LOTES = m
 		mode: import

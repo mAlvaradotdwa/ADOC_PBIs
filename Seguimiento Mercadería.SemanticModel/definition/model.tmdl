@@ -78,7 +78,7 @@ ref table MedidaImportacionTabla
 ref table EKPO_BFI-CD
 ref table 'Fecha Liquidación ZINT'
 ref table EKPO_CD-TIENDA
-ref table 'Fecha Liquidación L1'
+ref table 'Fecha Objetivo'
 ref table 'EKPO L1 V2'
 ref table 'FL (TRACING)'
 ref table 'EKPO Solped'
@@ -103,6 +103,8 @@ ref table PuertosOrigen
 ref table TiemposObjetivo
 ref table Campañas
 ref table 'Entrada Pedidos'
+ref table 'Fecha Documento'
+ref table 'Fecha ZINSTORE'
 
 ref cultureInfo es-SV
 

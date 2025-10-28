@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 937.5,
+        "x": 938.33335876464844,
         "y": 75
       },
       "nodes": [
@@ -482,18 +482,6 @@
         },
         {
           "location": {
-            "x": 1199.4356132666308,
-            "y": 2164.1096747514944
-          },
-          "nodeIndex": "Fecha Liquidación L1",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 21
-        },
-        {
-          "location": {
             "x": 1208.3631091990208,
             "y": 746.901067328357
           },
@@ -789,9 +777,50 @@
           "zIndex": 5
         },
         {
-          "location": {},
+          "location": {
+            "x": 10883.544831788007,
+            "y": 0
+          },
           "nodeIndex": "Entrada Pedidos",
           "nodeLineageTag": "f6ce6349-0128-4ecf-a836-0851bd2edd25",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1199.4356132666308,
+            "y": 2164.1096747514944
+          },
+          "nodeIndex": "Fecha Objetivo",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11167.544831788007,
+            "y": 0
+          },
+          "nodeIndex": "Fecha Documento",
+          "nodeLineageTag": "7c1ab132-b666-4011-b3e4-08b2f6a49b32",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11591.77889813786,
+            "y": 0
+          },
+          "nodeIndex": "Fecha ZINSTORE",
+          "nodeLineageTag": "fd6a3b7e-b3f4-4686-a5ac-8d2807a31500",
           "size": {
             "height": 300,
             "width": 234
@@ -973,130 +1002,6 @@
       "ordinal": 2,
       "scrollPosition": {
         "x": 0,
-        "y": 38.857143947056365
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 317,
-            "y": 278
-          },
-          "nodeIndex": "EKPO",
-          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
-          "size": {
-            "height": 440,
-            "width": 234
-          },
-          "zIndex": 5,
-          "expandedHeight": 300
-        },
-        {
-          "location": {
-            "x": 317,
-            "y": 0
-          },
-          "nodeIndex": "Fecha Arribo Futuro",
-          "nodeLineageTag": "15b4f6d2-1815-4407-9ca2-c22b4cef3fe0",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 4,
-          "expandedHeight": 300
-        },
-        {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "nodeIndex": "Fecha Creación MK",
-          "nodeLineageTag": "4995e7f0-586d-4795-8d4c-f409753e3923",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 6,
-          "expandedHeight": 300
-        },
-        {
-          "location": {
-            "x": 619,
-            "y": 0
-          },
-          "nodeIndex": "Fecha Liquidación",
-          "nodeLineageTag": "e929c8c5-c9b8-4084-bcbb-e468f67fa02b",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 3,
-          "expandedHeight": 300
-        },
-        {
-          "location": {
-            "x": 956.03511370583647,
-            "y": 0
-          },
-          "nodeIndex": "Fecha Conciliación OTB",
-          "nodeLineageTag": "58bb4095-32a3-4cd1-8994-dfe07fefb0f3",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 1,
-          "expandedHeight": 300
-        },
-        {
-          "location": {
-            "x": 1138.2857153756279,
-            "y": 409.28571428571433
-          },
-          "nodeIndex": "EKPO L1 V2",
-          "nodeLineageTag": "a1db1e76-3f00-4839-94bb-ae76fdce80de",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 2
-        },
-        {
-          "location": {
-            "x": 0,
-            "y": 490.71428571428567
-          },
-          "nodeIndex": "Solped ZTRA",
-          "nodeLineageTag": "d1b42b09-0522-4649-a3f0-733915453bee",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 7
-        },
-        {
-          "location": {
-            "x": 644.00000108991355,
-            "y": 156.14285060337619
-          },
-          "nodeIndex": "PREPARACIONES CD (TRACING)",
-          "nodeLineageTag": "dd09d60a-aeb8-4792-867a-7ad4bfbbdd93",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        }
-      ],
-      "name": "Fechas",
-      "zoomValue": 70,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 3,
-      "scrollPosition": {
-        "x": 0,
         "y": 0
       },
       "nodes": [
@@ -1134,616 +1039,7 @@
       "tablesLocked": false
     },
     {
-      "ordinal": 4,
-      "scrollPosition": {
-        "x": 0,
-        "y": 116.66666666666667
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 459.20000076293945,
-            "y": 132
-          },
-          "nodeIndex": "ALMACENES",
-          "nodeLineageTag": "a969d932-d863-4fd9-92d1-5f6d9429c9ea",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 7
-        },
-        {
-          "location": {
-            "x": 26.666666666666657,
-            "y": 0
-          },
-          "nodeIndex": "DIM_ARTICULOS",
-          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 9
-        },
-        {
-          "location": {
-            "x": 623.20000076293945,
-            "y": 395.80000305175781
-          },
-          "nodeIndex": "DIM_BODEGA",
-          "nodeLineageTag": "a61e0ad2-f2d9-4e8f-a51b-3aa45c13fdde",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 2
-        },
-        {
-          "location": {
-            "x": 985.491377106551,
-            "y": 146.75547572847225
-          },
-          "nodeIndex": "Fecha Liquidación L1",
-          "nodeLineageTag": "cce5bae4-30d6-4efd-854f-206c7c773177",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 3
-        },
-        {
-          "location": {
-            "x": 987.0714782551031,
-            "y": 620.78582029410416
-          },
-          "nodeIndex": "DIM_GENERO",
-          "nodeLineageTag": "bee47d17-140c-4c34-8815-78a1bdb36b94",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 4
-        },
-        {
-          "location": {
-            "x": 399.27385099371963,
-            "y": 738.66136657885193
-          },
-          "nodeIndex": "DIM_DEPTO",
-          "nodeLineageTag": "ec9c1855-f761-47f6-9351-a79680edf6eb",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 5
-        },
-        {
-          "location": {
-            "x": 786.39863238898567,
-            "y": 802.18143244926625
-          },
-          "nodeIndex": "EKPO L1 V2",
-          "nodeLineageTag": "a1db1e76-3f00-4839-94bb-ae76fdce80de",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 11
-        },
-        {
-          "location": {
-            "x": 1116.6397724363758,
-            "y": 1210.1635487040398
-          },
-          "nodeIndex": "FAC_TEMPORADAS",
-          "nodeLineageTag": "e9a6b2c2-cab4-4d7c-9ad4-5025842f0a48",
-          "size": {
-            "height": 272,
-            "width": 234
-          },
-          "zIndex": 6
-        },
-        {
-          "location": {
-            "x": 486.17941416408553,
-            "y": 1113.4613391243067
-          },
-          "nodeIndex": "EKPO",
-          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 10
-        },
-        {
-          "location": {
-            "x": 0,
-            "y": 516.50778677955441
-          },
-          "nodeIndex": "EKPO Solped",
-          "nodeLineageTag": "4b489dd3-5460-462d-b56d-3196d2d478e1",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 12
-        }
-      ],
-      "name": "Disposición 1",
-      "zoomValue": 60,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 5,
-      "scrollPosition": {
-        "x": 0,
-        "y": 176.66666666666669
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 1642.0144535895117,
-            "y": 620.49000189416836
-          },
-          "nodeIndex": "Tabla_Campaña",
-          "nodeLineageTag": "95a57fa4-1e44-469b-a1cb-bdd7812b3d0c",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 12
-        },
-        {
-          "location": {
-            "x": 1745.9357780030941,
-            "y": 977.719638180242
-          },
-          "nodeIndex": "FAC_TEMPORADAS",
-          "nodeLineageTag": "e9a6b2c2-cab4-4d7c-9ad4-5025842f0a48",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 8
-        },
-        {
-          "location": {
-            "x": 1044.433597027569,
-            "y": -50
-          },
-          "nodeIndex": "DIM_MARCAS",
-          "nodeLineageTag": "68579c87-353a-400d-a9ba-bff6979cfe4e",
-          "size": {
-            "height": 176,
-            "width": 234
-          },
-          "zIndex": 10
-        },
-        {
-          "location": {
-            "x": 1149.8902403908423,
-            "y": 789.579729322289
-          },
-          "nodeIndex": "EKPO L1 V2",
-          "nodeLineageTag": "a1db1e76-3f00-4839-94bb-ae76fdce80de",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 14
-        },
-        {
-          "location": {
-            "x": 861.83713364830885,
-            "y": 491.6909186905682
-          },
-          "nodeIndex": "EKPO",
-          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 11
-        },
-        {
-          "location": {
-            "x": 175.38183639618364,
-            "y": 525.91495556033169
-          },
-          "nodeIndex": "ALMACENES",
-          "nodeLineageTag": "a969d932-d863-4fd9-92d1-5f6d9429c9ea",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 1
-        },
-        {
-          "location": {
-            "x": 1106.5453579992072,
-            "y": 1205.9888182585178
-          },
-          "nodeIndex": "DIM_ARTICULOS",
-          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 2
-        },
-        {
-          "location": {
-            "x": 50,
-            "y": 733.70560683312488
-          },
-          "nodeIndex": "Fecha Liquidación L1",
-          "nodeLineageTag": "cce5bae4-30d6-4efd-854f-206c7c773177",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 3
-        },
-        {
-          "location": {
-            "x": 496.18318955541451,
-            "y": 1075.6514135866908
-          },
-          "nodeIndex": "DIM_GENERO",
-          "nodeLineageTag": "bee47d17-140c-4c34-8815-78a1bdb36b94",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 4
-        },
-        {
-          "location": {
-            "x": 1396.399622097663,
-            "y": 1144.0531533076125
-          },
-          "nodeIndex": "DIM_DEPTO",
-          "nodeLineageTag": "ec9c1855-f761-47f6-9351-a79680edf6eb",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 5
-        },
-        {
-          "location": {
-            "x": 754.4028218263885,
-            "y": 138.47454942626655
-          },
-          "nodeIndex": "DIM_BODEGA",
-          "nodeLineageTag": "a61e0ad2-f2d9-4e8f-a51b-3aa45c13fdde",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 6
-        },
-        {
-          "location": {
-            "x": 465.24084642097137,
-            "y": 326.35075382019295
-          },
-          "nodeIndex": "TEMPORADA",
-          "nodeLineageTag": "486ff539-9b2e-4e67-9630-780a115ee9d4",
-          "size": {
-            "height": 272,
-            "width": 234
-          },
-          "zIndex": 7
-        }
-      ],
-      "name": "Disposición 2",
-      "zoomValue": 60,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 6,
-      "scrollPosition": {
-        "x": 0,
-        "y": 0
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 147.43585500000003,
-            "y": 371.57823224460464
-          },
-          "nodeIndex": "PREPARACIONES CD (TRACING)",
-          "nodeLineageTag": "dd09d60a-aeb8-4792-867a-7ad4bfbbdd93",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 5
-        },
-        {
-          "location": {
-            "x": 813.44845314730844,
-            "y": 441.87512121368172
-          },
-          "nodeIndex": "EKPO L1 V2",
-          "nodeLineageTag": "a1db1e76-3f00-4839-94bb-ae76fdce80de",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 4
-        },
-        {
-          "location": {
-            "x": 1238.2579482601186,
-            "y": 387.332147887972
-          },
-          "nodeIndex": "FACT_PRIMERAVENTA_ARTICULO",
-          "nodeLineageTag": "3f4bd7a9-aa32-4aa3-ad1a-3f9eac6bb92e",
-          "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 3
-        },
-        {
-          "location": {
-            "x": 576.04889320165853,
-            "y": -50
-          },
-          "nodeIndex": "EKPO",
-          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 2
-        },
-        {
-          "location": {
-            "x": 1004.2121717363893,
-            "y": -49.992210076051492
-          },
-          "nodeIndex": "DIM_ARTICULOS",
-          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 1
-        }
-      ],
-      "name": "Disposición 3",
-      "zoomValue": 56.447393005377734,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 7,
-      "scrollPosition": {
-        "x": 0,
-        "y": 156.66666666666669
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 845.43926420315,
-            "y": 308.90527490456884
-          },
-          "nodeIndex": "EKPO_CD-TIENDA",
-          "nodeLineageTag": "17069062-e538-4ba3-97d3-36e35a95d107",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 1
-        },
-        {
-          "location": {
-            "x": 623.82412945560236,
-            "y": -50
-          },
-          "nodeIndex": "EKPO_BFI-CD",
-          "nodeLineageTag": "f7eec4eb-88f0-4dfe-81fc-ac0ddb207251",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 2
-        },
-        {
-          "location": {
-            "x": 628.65796263508821,
-            "y": 680.69341896115554
-          },
-          "nodeIndex": "DIM_ARTICULOS",
-          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 3,
-          "expandedHeight": 300
-        },
-        {
-          "location": {
-            "x": 331.09622904370531,
-            "y": 190.37445693707969
-          },
-          "nodeIndex": "Tabla_Campaña",
-          "nodeLineageTag": "95a57fa4-1e44-469b-a1cb-bdd7812b3d0c",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 7
-        },
-        {
-          "location": {
-            "x": 50,
-            "y": -20.192268574015088
-          },
-          "nodeIndex": "Procesos",
-          "nodeLineageTag": "e89fccc3-a6bc-4462-a7d5-7517fa2fbd3b",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 4
-        },
-        {
-          "location": {
-            "x": 734.974967120239,
-            "y": 1025.9719381796228
-          },
-          "nodeIndex": "FACT_INVENTARIOUD",
-          "nodeLineageTag": "8501e32b-d593-4fa7-91aa-a5a4b27eb569",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 5
-        },
-        {
-          "location": {
-            "x": 442.19025866651373,
-            "y": 1217.349973112887
-          },
-          "nodeIndex": "DIM_BODEGA",
-          "nodeLineageTag": "a61e0ad2-f2d9-4e8f-a51b-3aa45c13fdde",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 6
-        },
-        {
-          "location": {
-            "x": 339.86600449539037,
-            "y": 845.52386008642088
-          },
-          "nodeIndex": "EKPO",
-          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 914.99952300768484,
-            "y": 669.66114097928357
-          },
-          "nodeIndex": "FAC_TEMPORADAS",
-          "nodeLineageTag": "e9a6b2c2-cab4-4d7c-9ad4-5025842f0a48",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        }
-      ],
-      "name": "Disposición 4",
-      "zoomValue": 60,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 8,
-      "scrollPosition": {
-        "x": 0,
-        "y": 32
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 334,
-            "y": 12
-          },
-          "nodeIndex": "ALMACENES",
-          "nodeLineageTag": "a969d932-d863-4fd9-92d1-5f6d9429c9ea",
-          "size": {
-            "height": 176,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 50,
-            "y": -50
-          },
-          "nodeIndex": "EKPO",
-          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 565,
-            "y": 287
-          },
-          "nodeIndex": "EKPO L1 V2",
-          "nodeLineageTag": "a1db1e76-3f00-4839-94bb-ae76fdce80de",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 846,
-            "y": 110
-          },
-          "nodeIndex": "EKPO_BFI-CD",
-          "nodeLineageTag": "f7eec4eb-88f0-4dfe-81fc-ac0ddb207251",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 900,
-            "y": 518
-          },
-          "nodeIndex": "EKPO_CD-TIENDA",
-          "nodeLineageTag": "17069062-e538-4ba3-97d3-36e35a95d107",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        }
-      ],
-      "name": "Disposición 5",
-      "zoomValue": 100,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 9,
+      "ordinal": 3,
       "scrollPosition": {
         "x": 0,
         "y": 0
@@ -1853,460 +1149,7 @@
       "tablesLocked": false
     },
     {
-      "ordinal": 10,
-      "scrollPosition": {
-        "x": 0,
-        "y": 0
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 62.439099105297885,
-            "y": 401.96891689919948
-          },
-          "nodeIndex": "EKPO",
-          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 2
-        },
-        {
-          "location": {
-            "x": 395.3040161069955,
-            "y": 522.25973178520326
-          },
-          "nodeIndex": "EKPO_BFI-CD",
-          "nodeLineageTag": "f7eec4eb-88f0-4dfe-81fc-ac0ddb207251",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 4
-        },
-        {
-          "location": {
-            "x": 1572.7810880705408,
-            "y": 54.474049396913529
-          },
-          "nodeIndex": "DIM_MARCAS",
-          "nodeLineageTag": "68579c87-353a-400d-a9ba-bff6979cfe4e",
-          "size": {
-            "height": 176,
-            "width": 234
-          },
-          "zIndex": 5
-        },
-        {
-          "location": {
-            "x": 62.323355359477432,
-            "y": 772.5
-          },
-          "nodeIndex": "EKPO L1 V2",
-          "nodeLineageTag": "a1db1e76-3f00-4839-94bb-ae76fdce80de",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 6
-        },
-        {
-          "location": {
-            "x": 1006.3905742132307,
-            "y": 540.45440251667515
-          },
-          "nodeIndex": "FL (TRACING)",
-          "nodeLineageTag": "a192b59d-cdb5-4144-9117-ab6e4f961993",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 7
-        },
-        {
-          "location": {
-            "x": 1264.7532417031011,
-            "y": 537.10404903254334
-          },
-          "nodeIndex": "PREPARACIONES CD (TRACING)",
-          "nodeLineageTag": "dd09d60a-aeb8-4792-867a-7ad4bfbbdd93",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 8
-        },
-        {
-          "location": {
-            "x": 1524.7547831678303,
-            "y": 538.75
-          },
-          "nodeIndex": "Tabla_Conciliacion",
-          "nodeLineageTag": "d5e41e38-62f4-4ef0-b9e2-829a7c63f156",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 9
-        },
-        {
-          "location": {
-            "x": 741.02389634902818,
-            "y": 538.21631900532657
-          },
-          "nodeIndex": "Tabla_Campaña",
-          "nodeLineageTag": "95a57fa4-1e44-469b-a1cb-bdd7812b3d0c",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 10
-        },
-        {
-          "location": {
-            "x": 513.654796431013,
-            "y": 0
-          },
-          "nodeIndex": "DIM_ARTICULOS",
-          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 11,
-          "expandedHeight": 300
-        },
-        {
-          "location": {
-            "x": -33.25,
-            "y": -5
-          },
-          "nodeIndex": "Períodos Estadísticos",
-          "nodeLineageTag": "46cb4b28-b8c2-4579-a75b-a4a6655c214a",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 12
-        },
-        {
-          "location": {
-            "x": 876.75,
-            "y": 128.75
-          },
-          "nodeIndex": "EKPO_CD-TIENDA",
-          "nodeLineageTag": "17069062-e538-4ba3-97d3-36e35a95d107",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 13
-        }
-      ],
-      "name": "Disposición 7",
-      "zoomValue": 80,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 11,
-      "scrollPosition": {
-        "x": 0,
-        "y": 0
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 143,
-            "y": 328
-          },
-          "nodeIndex": "EKPO_CD-TIENDA",
-          "nodeLineageTag": "17069062-e538-4ba3-97d3-36e35a95d107",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 460,
-            "y": 33
-          },
-          "nodeIndex": "DIM_BODEGA",
-          "nodeLineageTag": "a61e0ad2-f2d9-4e8f-a51b-3aa45c13fdde",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 766,
-            "y": 81
-          },
-          "nodeIndex": "ALMACENES",
-          "nodeLineageTag": "a969d932-d863-4fd9-92d1-5f6d9429c9ea",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 805,
-            "y": 382
-          },
-          "nodeIndex": "DIM_PAIS",
-          "nodeLineageTag": "de7adcad-ac5c-4181-a2e9-b4438d69dea0",
-          "size": {
-            "height": 224,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 1195,
-            "y": 267
-          },
-          "nodeIndex": "Tabla_Campaña",
-          "nodeLineageTag": "95a57fa4-1e44-469b-a1cb-bdd7812b3d0c",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        }
-      ],
-      "name": "Disposición 8",
-      "zoomValue": 100,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 12,
-      "scrollPosition": {
-        "x": 0,
-        "y": 0
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 564.9480864306887,
-            "y": 384.41150071084184
-          },
-          "nodeIndex": "Tabla_Campaña",
-          "nodeLineageTag": "95a57fa4-1e44-469b-a1cb-bdd7812b3d0c",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 50,
-            "y": 258.93405494092963
-          },
-          "nodeIndex": "EKPO",
-          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 1219.0848629940879,
-            "y": 298
-          },
-          "nodeIndex": "DIM_ARTICULOS",
-          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 849.12611899269837,
-            "y": 81.839376107443286
-          },
-          "nodeIndex": "FAC_TEMPORADAS",
-          "nodeLineageTag": "e9a6b2c2-cab4-4d7c-9ad4-5025842f0a48",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 849.1418486684521,
-            "y": 681.80546167050045
-          },
-          "nodeIndex": "Procesos",
-          "nodeLineageTag": "e89fccc3-a6bc-4462-a7d5-7517fa2fbd3b",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 41,
-            "y": 0
-          },
-          "nodeIndex": "DIM_PAIS",
-          "nodeLineageTag": "de7adcad-ac5c-4181-a2e9-b4438d69dea0",
-          "size": {
-            "height": 224,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 615,
-            "y": 0
-          },
-          "nodeIndex": "ALMACENES",
-          "nodeLineageTag": "a969d932-d863-4fd9-92d1-5f6d9429c9ea",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 340,
-            "y": 0
-          },
-          "nodeIndex": "DIM_BODEGA",
-          "nodeLineageTag": "a61e0ad2-f2d9-4e8f-a51b-3aa45c13fdde",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        }
-      ],
-      "name": "Disposición 9",
-      "zoomValue": 56.447393005377734,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 13,
-      "scrollPosition": {
-        "x": 0,
-        "y": 0
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 3.5914878373926911,
-            "y": 45.838483838092145
-          },
-          "nodeIndex": "VENTAS",
-          "nodeLineageTag": "75e8ee0c-2119-49bc-b630-455d836e7c27",
-          "size": {
-            "height": 224,
-            "width": 234
-          },
-          "zIndex": 1
-        },
-        {
-          "location": {
-            "x": 784.50548698150374,
-            "y": 415.3750203505474
-          },
-          "nodeIndex": "DIM_ARTICULOS",
-          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 2,
-          "expandedHeight": 300
-        },
-        {
-          "location": {
-            "x": 1142,
-            "y": 0
-          },
-          "nodeIndex": "DIM_PAIS",
-          "nodeLineageTag": "de7adcad-ac5c-4181-a2e9-b4438d69dea0",
-          "size": {
-            "height": 224,
-            "width": 234
-          },
-          "zIndex": 3
-        },
-        {
-          "location": {
-            "x": 437,
-            "y": 98
-          },
-          "nodeIndex": "FACT_INVENTARIOUD",
-          "nodeLineageTag": "8501e32b-d593-4fa7-91aa-a5a4b27eb569",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 6
-        },
-        {
-          "location": {
-            "x": 736,
-            "y": 0
-          },
-          "nodeIndex": "DIM_BODEGA",
-          "nodeLineageTag": "a61e0ad2-f2d9-4e8f-a51b-3aa45c13fdde",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 4
-        },
-        {
-          "location": {
-            "x": 402.75038724227284,
-            "y": 662.8039336898571
-          },
-          "nodeIndex": "Tabla_Campaña",
-          "nodeLineageTag": "95a57fa4-1e44-469b-a1cb-bdd7812b3d0c",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 5,
-          "expandedHeight": 300
-        }
-      ],
-      "name": "Disposición 10",
-      "zoomValue": 55.687227426389953,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 14,
+      "ordinal": 4,
       "scrollPosition": {
         "x": 0,
         "y": 40
@@ -2456,7 +1299,7 @@
       "tablesLocked": false
     },
     {
-      "ordinal": 15,
+      "ordinal": 5,
       "scrollPosition": {
         "x": 0,
         "y": 0
@@ -2536,7 +1379,7 @@
       "tablesLocked": false
     },
     {
-      "ordinal": 16,
+      "ordinal": 6,
       "scrollPosition": {
         "x": 0,
         "y": 0
@@ -2620,74 +1463,7 @@
       "tablesLocked": false
     },
     {
-      "ordinal": 17,
-      "scrollPosition": {
-        "x": 0,
-        "y": 0
-      },
-      "nodes": [
-        {
-          "location": {
-            "x": 152.33333206176758,
-            "y": 206
-          },
-          "nodeIndex": "MK_LOTES",
-          "nodeLineageTag": "64b47367-bc58-4acc-9dd7-851cf92ad17c",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 502.33333206176758,
-            "y": 207
-          },
-          "nodeIndex": "PUERTO_ORIGEN",
-          "nodeLineageTag": "7e33a770-1f34-4bbc-8e91-9fc84886e913",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 179.33333206176758,
-            "y": 652
-          },
-          "nodeIndex": "Tiempos L1",
-          "nodeLineageTag": "09f47f16-9d91-4893-ab96-dd1cfecf3822",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 812.33333206176758,
-            "y": 417
-          },
-          "nodeIndex": "TiemposObjetivo",
-          "nodeLineageTag": "70e81988-7d18-4975-ace1-38619d086e4c",
-          "size": {
-            "height": 248,
-            "width": 234
-          },
-          "zIndex": 0
-        }
-      ],
-      "name": "Disposición 6",
-      "zoomValue": 50.346892102823141,
-      "pinKeyFieldsToTop": false,
-      "showExtraHeaderInfo": false,
-      "hideKeyFieldsWhenCollapsed": false,
-      "tablesLocked": false
-    },
-    {
-      "ordinal": 18,
+      "ordinal": 7,
       "scrollPosition": {
         "x": 0,
         "y": 0
@@ -2801,7 +1577,7 @@
           "expandedHeight": 300
         }
       ],
-      "name": "Disposición 11",
+      "name": "Campañas",
       "zoomValue": 56.447393005377734,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
@@ -2809,19 +1585,19 @@
       "tablesLocked": false
     },
     {
-      "ordinal": 19,
+      "ordinal": 8,
       "scrollPosition": {
         "x": 0,
-        "y": 70.862439999999921
+        "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 584,
-            "y": 25
+            "x": 0,
+            "y": 0
           },
-          "nodeIndex": "Procesos",
-          "nodeLineageTag": "e89fccc3-a6bc-4462-a7d5-7517fa2fbd3b",
+          "nodeIndex": "Tiempos",
+          "nodeLineageTag": "7b98d45c-8b9b-4685-ab53-01bdfbda09a5",
           "size": {
             "height": 152,
             "width": 234
@@ -2830,39 +1606,25 @@
         },
         {
           "location": {
-            "x": 50,
-            "y": -50
+            "x": 0,
+            "y": 216
           },
-          "nodeIndex": "Tabla_Campaña",
-          "nodeLineageTag": "95a57fa4-1e44-469b-a1cb-bdd7812b3d0c",
+          "nodeIndex": "TiemposObjetivo",
+          "nodeLineageTag": "70e81988-7d18-4975-ace1-38619d086e4c",
           "size": {
-            "height": 200,
+            "height": 72,
             "width": 234
           },
           "zIndex": 0,
-          "expandedHeight": 300
+          "expandedHeight": 272
         },
         {
           "location": {
-            "x": 271,
-            "y": 387
+            "x": 393.33333206176758,
+            "y": 136
           },
-          "nodeIndex": "DIM_ARTICULOS",
-          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
-          "size": {
-            "height": 176,
-            "width": 234
-          },
-          "zIndex": 0,
-          "expandedHeight": 300
-        },
-        {
-          "location": {
-            "x": 1078.5635505515922,
-            "y": 131.75980799999974
-          },
-          "nodeIndex": "PREPARACIONES CD (TRACING)",
-          "nodeLineageTag": "dd09d60a-aeb8-4792-867a-7ad4bfbbdd93",
+          "nodeIndex": "MK_LOTES",
+          "nodeLineageTag": "64b47367-bc58-4acc-9dd7-851cf92ad17c",
           "size": {
             "height": 300,
             "width": 234
@@ -2871,8 +1633,200 @@
         },
         {
           "location": {
-            "x": 548.86681155159306,
-            "y": 585.27942399999915
+            "x": 765.33333206176758,
+            "y": 30
+          },
+          "nodeIndex": "DIM_ARTICULOS",
+          "nodeLineageTag": "d4736719-8ee3-4585-9eef-9de1cbbde666",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "MK_Lotes",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 9,
+      "scrollPosition": {
+        "x": 724.66668701171875,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 296.09562783399792,
+            "y": 0
+          },
+          "nodeIndex": "Fecha Liquidación",
+          "nodeLineageTag": "e929c8c5-c9b8-4084-bcbb-e468f67fa02b",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 7,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 258.0450280402282,
+            "y": 455.04406801292339
+          },
+          "nodeIndex": "EKPO",
+          "nodeLineageTag": "0bbf09a6-bd20-43ef-9164-a4e4b8c85f8b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 454.07770665743107
+          },
+          "nodeIndex": "LT TIENDA VID",
+          "nodeLineageTag": "7a104245-d261-414b-a2fd-bb7e861439ad",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 516.211610408707,
+            "y": 454.3057471452766
+          },
+          "nodeIndex": "EKPO_BFI-CD",
+          "nodeLineageTag": "f7eec4eb-88f0-4dfe-81fc-ac0ddb207251",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 773.20759673372515,
+            "y": 454
+          },
+          "nodeIndex": "EKPO L1 V2",
+          "nodeLineageTag": "a1db1e76-3f00-4839-94bb-ae76fdce80de",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 4,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 559.99999809265137,
+            "y": 0
+          },
+          "nodeIndex": "Fecha Liquidación ZINT",
+          "nodeLineageTag": "7ba8c377-91fe-4bc4-a18b-6e325238fb3b",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 5,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1104.3333320617676,
+            "y": 0
+          },
+          "nodeIndex": "Fecha Creación MK",
+          "nodeLineageTag": "4995e7f0-586d-4795-8d4c-f409753e3923",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 6,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 32,
+            "y": 0
+          },
+          "nodeIndex": "Fecha Conciliación OTB",
+          "nodeLineageTag": "58bb4095-32a3-4cd1-8994-dfe07fefb0f3",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 827.33333206176758,
+            "y": 0
+          },
+          "nodeIndex": "Fecha Arribo Futuro",
+          "nodeLineageTag": "15b4f6d2-1815-4407-9ca2-c22b4cef3fe0",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1904.6666603088379,
+            "y": 0
+          },
+          "nodeIndex": "Fecha Objetivo",
+          "nodeLineageTag": "cce5bae4-30d6-4efd-854f-206c7c773177",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1659.3333320617676,
+            "y": 450
+          },
+          "nodeIndex": "MK_LOTES",
+          "nodeLineageTag": "64b47367-bc58-4acc-9dd7-851cf92ad17c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1652.9999885559082,
+            "y": 0
+          },
+          "nodeIndex": "Fecha Documento",
+          "nodeLineageTag": "7c1ab132-b666-4011-b3e4-08b2f6a49b32",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1307.3333320617676,
+            "y": 452
           },
           "nodeIndex": "Solped ZTRA",
           "nodeLineageTag": "d1b42b09-0522-4649-a3f0-733915453bee",
@@ -2884,40 +1838,40 @@
         },
         {
           "location": {
-            "x": 997.07174455159247,
-            "y": 631.34000999999921
+            "x": 1040.666675567627,
+            "y": 454
           },
-          "nodeIndex": "DIM_PAIS",
-          "nodeLineageTag": "de7adcad-ac5c-4181-a2e9-b4438d69dea0",
+          "nodeIndex": "PREPARACIONES CD (TRACING)",
+          "nodeLineageTag": "dd09d60a-aeb8-4792-867a-7ad4bfbbdd93",
           "size": {
-            "height": 224,
+            "height": 300,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 271.04883299999966,
-            "y": 895.302598999999
+            "x": 1379.9999885559082,
+            "y": 0
           },
-          "nodeIndex": "LT TIENDA VID",
-          "nodeLineageTag": "7a104245-d261-414b-a2fd-bb7e861439ad",
+          "nodeIndex": "Fecha ZINSTORE",
+          "nodeLineageTag": "fd6a3b7e-b3f4-4686-a5ac-8d2807a31500",
           "size": {
-            "height": 152,
+            "height": 104,
             "width": 234
           },
           "zIndex": 0,
           "expandedHeight": 300
         }
       ],
-      "name": "Disposición 12",
-      "zoomValue": 56.447393005377812,
+      "name": "Fechas",
+      "zoomValue": 100,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Disposición 12",
+  "selectedDiagram": "Fechas",
   "defaultDiagram": "Todas las tablas"
 }
