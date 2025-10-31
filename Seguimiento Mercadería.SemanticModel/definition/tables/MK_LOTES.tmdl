@@ -198,15 +198,6 @@ table MK_LOTES
 
 		annotation SummarizationSetBy = Automatic
 
-	column ENTIDAD_CD
-		dataType: string
-		displayFolder: Otros Campos
-		lineageTag: 443430ee-bfb8-4dad-ab09-88996c59df73
-		summarizeBy: none
-		sourceColumn: ENTIDAD_CD
-
-		annotation SummarizationSetBy = Automatic
-
 	column ENTIDAD_SOLICITANTE
 		dataType: string
 		displayFolder: Otros Campos
@@ -450,9 +441,9 @@ table MK_LOTES
 			VAR _offset =
 			    SWITCH (
 			        TRUE (),
-			        _doc IN { "ZIMP" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 4 ),
-			        _doc IN { "ZINT", "ZTRU", "ZUIN" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 10 ),
-			        _doc IN { "UB", "ZREP", "ZTR2", "ZTRA" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 11 )
+			        [Tramo] = "1 Importación", CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 4 ),
+			        [Tramo] = "2 Exportación", CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 10 ),
+			        [Tramo] = "3 Tienda", CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 11 )
 			    )
 			RETURN 
 			    IF ( _zInStoreDate > 20200101 && _offset > 0, _inStoreDate - _offset )
@@ -483,18 +474,22 @@ table MK_LOTES
 			VAR _offset =
 			    SWITCH (
 			        TRUE (),
-			        _doc IN { "ZIMP" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 4 ),
-			        _doc IN { "ZINT", "ZTRU", "ZUIN" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 10 ),
-			        _doc IN { "UB", "ZREP", "ZTR2", "ZTRA" }, CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 11 )
+			        [Tramo] = "1 Importación", CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 4 ),
+			        [Tramo] = "2 Exportación", CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 10 ),
+			        [Tramo] = "3 Tienda", CALCULATE ( [TiemposMK], TiemposObjetivo[ID] >= 11 )
 			    )
 			RETURN 
-			    _offset
+			    IF ( _zInStoreDate > 20200101 && _offset > 0, _offset )
 			```
 		displayFolder: Fechas Objetivo
 		lineageTag: cc4dd14f-4717-4c9f-97ce-6be036a75ae8
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":null}
+
+		annotation 277cc1b9-af89-4597-8e15-cacc25c0886b = Para usar caracteres especiales en un nombre de columna, incluya el nombre completo entre corchetes ([]) y agregue un ] a cualquier corchete de cierre en el nombre.
 
 	column onTime = ```
 			VAR _fEKKO =
@@ -708,28 +703,35 @@ table MK_LOTES
 
 		annotation SummarizationSetBy = Automatic
 
-	column Tramo = ```
-			VAR _doc = [TIPO_DOCUMENTO]
-			VAR _zInStoreDate =
-			    INT ( MK_LOTES[ZINSTOREDATE_MK] )
-			VAR _inStoreDate =
-			    LOOKUPVALUE (
-			        'Fecha Liquidación'[Fecha],
-			        'Fecha Liquidación'[IDFecha], _zInStoreDate
-			    )
-			VAR _offset =
-			    SWITCH (
-			        TRUE (),
-			        _doc IN { "ZIMP" }, "1 Importación",
-			        _doc IN { "ZINT", "ZTRU", "ZUIN" }, "Exportación",
-			        _doc IN { "UB", "ZREP", "ZTR2", "ZTRA" }, "Tienda"
-			    )
-			RETURN 
-			    IF ( _zInStoreDate > 20200101 && _offset <> "" , _offset )
-			```
+	column Tramo =
+			SWITCH (
+			    TRUE (),
+			    [TIPO_DOCUMENTO] IN { "ZIMP" }, "1 Importación" ,
+			    [TIPO_DOCUMENTO] IN { "ZTRU", "ZUIN" }, "2 Exportación" ,
+			    [TIPO_DOCUMENTO] IN { "ZINT" } && [ENTIDAD_ORIGEN] IN { "8020", "8010" } && [ENTIDAD_DESTINO] in { "PA20" }, "1 Importación" ,
+			    [TIPO_DOCUMENTO] IN { "ZINT" } && [ENTIDAD_ORIGEN] IN { "PA20" } && [ENTIDAD_DESTINO] IN { "1010", "2010", "3010", "3030", "4010", "4020", "5010", "6010"} , "2 Exportación" ,
+			    [TIPO_DOCUMENTO] IN { "UB", "ZREP", "ZTR2", "ZTRA" }, "3 Tienda" ,
+			    "9 NO DEFINIDO"
+			)
 		displayFolder: Fechas Objetivo
 		lineageTag: ec61112f-dcea-49ce-b470-be081c346566
 		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_ORIGEN
+		dataType: string
+		lineageTag: d7a6e0e0-85f7-4891-a78d-4bf70b45802b
+		summarizeBy: none
+		sourceColumn: ENTIDAD_ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTIDAD_DESTINO
+		dataType: string
+		lineageTag: 2386e1aa-9781-422c-a397-0baba85208e0
+		summarizeBy: none
+		sourceColumn: ENTIDAD_DESTINO
 
 		annotation SummarizationSetBy = Automatic
 
@@ -737,7 +739,7 @@ table MK_LOTES
 		mode: import
 		source =
 				let
-				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "WITH ZIMPs AS (#(lf)    -- recosntrucción de mk para pre-packs#(lf)    SELECT#(lf)        pn.EBELN ZIMP ,#(lf)        pn.EBELP ZIMP_POS ,#(lf)        COALESCE ( NULLIF ( pn.KONNR , '' ) , p0.KONNR  ) MK ,#(lf)        COALESCE ( NULLIF ( pn.KTPNR , '00000'  ) , p0.KTPNR  ) MK_POS ,#(lf)        pn.MATNR #(lf)    FROM SAP_ECC.EKPO pn#(lf)    LEFT JOIN SAP_ECC.EKPO p0#(lf)        ON p0.EBELN = pn.EBELN #(lf)        AND p0.EBELP = pn.UEBPO #(lf)    WHERE pn.LOEKZ <> 'L'#(lf)         -- AND pn.EBELN = 4500038208 #(lf)),#(lf)DatosMK AS (#(lf)    SELECT #(lf)        z.* , #(lf)        k.INCO2 Puerto_Origen ,#(lf)        k.ZZ_ZPORT Puerto_Origen2 ,#(lf)        l.CHARG LOTE ,#(lf)        e.ZCENTRODES ,#(lf)        E.AEDAT AEDAT_MK ,#(lf)        e.ZFACTORY ZFACTORY_MK,#(lf)        e.ZINSTOREDATE ZINSTOREDATE_MK #(lf)    FROM ZIMPs z#(lf)    LEFT JOIN SAP_ECC.EKET l#(lf)        ON z.ZIMP  = l.EBELN #(lf)        AND z.ZIMP_POS = l.EBELP #(lf)    LEFT JOIN SAP_ECC.EKPO e #(lf)        ON z.MK = e.EBELN #(lf)        AND z.MK_POS = e.EBELP #(lf)    LEFT JOIN SAP_ECC.EKKO k#(lf)        ON z.MK = k.EBELN #(lf)    WHERE e.AEDAT >= 20240101#(lf)),#(lf)lotes AS (#(lf)    SELECT#(lf)        ek.CHARG ,#(lf)        EKPO.EBELN,#(lf)        EKPO.EBELP,#(lf)        EKPO.MATNR ,#(lf)        EKPO.FECHA_LIQ , #(lf)        EKKO.FRGKE AS Indicador_de_Liberacion,#(lf)        EKKO.FRGGR AS Grupo_de_Liberacion,#(lf)        EKKO.FRGSX AS Estrategia_Liberacion,#(lf)        EKKO.BSART AS Tipo_Documento,  #(lf)        EKPO.EBELN AS Documento,#(lf)        EKPO.MATNR AS Articulo,#(lf)        EKPO.TXZ01 AS Descripcion, #(lf)        EKPO.MENGE AS Cantidad,#(lf)        EKPO.LGORT AS Almacen,#(lf)        CASE #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack' #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER) #(lf)            ELSE 1 #(lf)        END * EKPO.MENGE AS Cantidad_Pares,#(lf)        EKPO.SAISO AS PE,#(lf)        EKPO.SAISO AS Ano_PE,#(lf)        EKPO.AEDAT AS Fecha_Creacion,#(lf)        EKPO.CREATIONDATE AS Fecha_Creacion2,#(lf)        EKPO.ZFACTORY AS XFactory_Actualizado, #(lf)        EKPO.ZFACTORYO AS XFactory_Original,#(lf)        EKPO.WERKS AS Entidad_CD,#(lf)        EKPO.BUKRS AS Entidad_Solicitante,#(lf)        EKPO.ZCENTRODES AS Centro_Destino_Final,#(lf)        EKPO.ZINSTOREDATE AS Fecha_Tienda,#(lf)        EKKO.ZZF_DESPACHO AS XFactory_Requerida,#(lf)        EKKO.AEDAT AS Fecha_EKKO,#(lf)        EKKO.LIFNR AS Numero_Proveedor, #(lf)        EKKO.INCO1 AS Incoterm,#(lf)--        EKKO.INCO2 AS Puerto_Origen,#(lf)        EKKO.ZZF_DESPACHO AS Fecha_Despacho_Final,#(lf)        EKKO.ZZF_DESPINI AS Fecha_Despacho_Inicial,#(lf)        EKKO.ZZ_TIPO_FLETE AS Tipo_de_Flete,#(lf)--        EKKO.ZZ_ZPORT AS Puerto_Origen2,#(lf)        EKKO.BUKRS AS Entidad_Compra,#(lf)        EKKO.EKORG AS Entidad_Solicitante2,#(lf)        EKKO.ZZ_CENTRO_D AS Entidad_CD2#(lf)    FROM SAP_ECC.EKET ek#(lf)    INNER JOIN SAP_ECC.EKPO EKPO#(lf)        ON ek.EBELN = EKPO.EBELN #(lf)        AND ek.EBELP = EKPO.EBELP #(lf)    INNER JOIN SAP_ECC.ekko EKKO#(lf)        ON EKPO.EBELN = EKKO.EBELN #(lf)    WHERE EKPO.LOEKZ <> 'L'#(lf)),#(lf)final_cte AS (#(lf)    SELECT #(lf)        m.*,#(lf)        Indicador_de_Liberacion,#(lf)        Grupo_de_Liberacion,#(lf)        Estrategia_Liberacion,#(lf)        Tipo_Documento,  #(lf)        Documento,#(lf)        Articulo,#(lf)        Descripcion, #(lf)        Cantidad,#(lf)        Almacen,#(lf)        Cantidad_Pares,#(lf)        PE,#(lf)        Ano_PE,#(lf)        Fecha_Creacion,#(lf)        Fecha_Creacion2,#(lf)        XFactory_Actualizado, #(lf)        XFactory_Original,#(lf)        Entidad_CD,#(lf)        Entidad_Solicitante,#(lf)        Centro_Destino_Final,#(lf)        Fecha_Tienda,#(lf)        XFactory_Requerida,#(lf)        Fecha_EKKO,#(lf)        Numero_Proveedor, #(lf)        Incoterm,#(lf)--        Puerto_Origen,#(lf)        Fecha_Despacho_Final,#(lf)        Fecha_Despacho_Inicial,#(lf)        Tipo_de_Flete,#(lf)--        Puerto_Origen2,#(lf)        Entidad_Compra,#(lf)        Entidad_Solicitante2,#(lf)        Entidad_CD2,#(lf)        FECHA_LIQ#(lf)    FROM DatosMK m#(lf)    INNER JOIN lotes l#(lf)        ON m.LOTE = l.CHARG #(lf)        AND m.ZIMP_POS  = l.EBELP #(lf)        AND m.MATNR = l.MATNR #(lf))#(lf)-- Incluir : FECHA_LIQ#(lf)SELECT *#(lf)FROM final_cte#(lf)WHERE FECHA_LIQ IS NULL OR FECHA_LIQ = '00000000'", null, [EnableFolding=true])
+				    Consulta1 = Value.NativeQuery(SapHana.Database("vhadoahpdb01.hec.empresasadoc.com:30215", [Implementation="2.0"]), "WITH ZIMPs AS (#(lf)    -- recosntrucción de mk para pre-packs#(lf)    SELECT#(lf)        pn.EBELN ZIMP ,#(lf)        pn.EBELP ZIMP_POS ,#(lf)        COALESCE (#(lf)            NULLIF (#(lf)                pn.KONNR ,#(lf)                ''#(lf)            ) ,#(lf)            p0.KONNR#(lf)        ) MK ,#(lf)        COALESCE (#(lf)            NULLIF (#(lf)                pn.KTPNR ,#(lf)                '00000'#(lf)            ) ,#(lf)            p0.KTPNR#(lf)        ) MK_POS ,#(lf)        pn.MATNR#(lf)    FROM#(lf)        SAP_ECC.EKPO pn#(lf)    LEFT JOIN SAP_ECC.EKPO p0#(lf)        ON#(lf)        p0.EBELN = pn.EBELN#(lf)        AND p0.EBELP = pn.UEBPO#(lf)    WHERE#(lf)        pn.LOEKZ <> 'L'#(lf)        -- AND pn.EBELN = 4500038208 #(lf)),#(lf)DatosMK AS (#(lf)    SELECT #(lf)        z.* , #(lf)        k.INCO2 Puerto_Origen ,#(lf)        k.ZZ_ZPORT Puerto_Origen2 ,#(lf)        l.CHARG LOTE ,#(lf)        e.ZCENTRODES ,#(lf)        E.AEDAT AEDAT_MK ,#(lf)        e.ZFACTORY ZFACTORY_MK,#(lf)        e.ZINSTOREDATE ZINSTOREDATE_MK#(lf)    FROM#(lf)        ZIMPs z#(lf)    LEFT JOIN SAP_ECC.EKET l#(lf)        ON#(lf)        z.ZIMP = l.EBELN#(lf)        AND z.ZIMP_POS = l.EBELP#(lf)    LEFT JOIN SAP_ECC.EKPO e #(lf)        ON#(lf)        z.MK = e.EBELN#(lf)        AND z.MK_POS = e.EBELP#(lf)    LEFT JOIN SAP_ECC.EKKO k#(lf)        ON#(lf)        z.MK = k.EBELN#(lf)    WHERE#(lf)        e.AEDAT >= 20240101#(lf)),#(lf)lotes AS (#(lf)    SELECT#(lf)        ek.CHARG ,#(lf)        EKPO.EBELN,#(lf)        EKPO.EBELP,#(lf)        EKPO.MATNR ,#(lf)        EKPO.FECHA_LIQ , #(lf)        EKKO.FRGKE AS Indicador_de_Liberacion,#(lf)        EKKO.FRGGR AS Grupo_de_Liberacion,#(lf)        EKKO.FRGSX AS Estrategia_Liberacion,#(lf)        EKKO.BSART AS Tipo_Documento,  #(lf)        EKPO.EBELN AS Documento,#(lf)        EKPO.MATNR AS Articulo,#(lf)        EKPO.TXZ01 AS Descripcion, #(lf)        EKPO.MENGE AS Cantidad,#(lf)        EKPO.LGORT AS Almacen,#(lf)        CASE #(lf)            WHEN LEFT(EKPO.TXZ01, 7) = 'Prepack' #(lf)            THEN CAST(SUBSTRING_REGEXPR('(\d+)' IN EKPO.TXZ01 GROUP 1) AS INTEGER)#(lf)            ELSE 1#(lf)        END * EKPO.MENGE AS Cantidad_Pares,#(lf)        EKPO.SAISO AS PE,#(lf)        EKPO.SAISO AS Ano_PE,#(lf)        EKPO.AEDAT AS Fecha_Creacion,#(lf)        EKPO.CREATIONDATE AS Fecha_Creacion2,#(lf)        EKPO.ZFACTORY AS XFactory_Actualizado, #(lf)        EKPO.ZFACTORYO AS XFactory_Original,#(lf)        EKKO.RESWK AS Entidad_Origen,#(lf)        EKPO.WERKS AS Entidad_Destino,#(lf)        EKPO.BUKRS AS Entidad_Solicitante,#(lf)        EKPO.ZCENTRODES AS Centro_Destino_Final,#(lf)        EKPO.ZINSTOREDATE AS Fecha_Tienda,#(lf)        EKKO.ZZF_DESPACHO AS XFactory_Requerida,#(lf)        EKKO.AEDAT AS Fecha_EKKO,#(lf)        EKKO.LIFNR AS Numero_Proveedor, #(lf)        EKKO.INCO1 AS Incoterm,#(lf)        --        EKKO.INCO2 AS Puerto_Origen,#(lf)        EKKO.ZZF_DESPACHO AS Fecha_Despacho_Final,#(lf)        EKKO.ZZF_DESPINI AS Fecha_Despacho_Inicial,#(lf)        EKKO.ZZ_TIPO_FLETE AS Tipo_de_Flete,#(lf)        --        EKKO.ZZ_ZPORT AS Puerto_Origen2,#(lf)        EKKO.BUKRS AS Entidad_Compra,#(lf)        EKKO.EKORG AS Entidad_Solicitante2,#(lf)        EKKO.ZZ_CENTRO_D AS Entidad_CD2#(lf)    FROM#(lf)        SAP_ECC.EKET ek#(lf)    INNER JOIN SAP_ECC.EKPO EKPO#(lf)        ON#(lf)        ek.EBELN = EKPO.EBELN#(lf)        AND ek.EBELP = EKPO.EBELP#(lf)    INNER JOIN SAP_ECC.ekko EKKO#(lf)        ON#(lf)        EKPO.EBELN = EKKO.EBELN#(lf)    WHERE#(lf)        EKPO.LOEKZ <> 'L'#(lf)),#(lf)final_cte AS (#(lf)    SELECT #(lf)        m.*,#(lf)        Indicador_de_Liberacion,#(lf)        Grupo_de_Liberacion,#(lf)        Estrategia_Liberacion,#(lf)        Tipo_Documento,  #(lf)        Documento,#(lf)        Articulo,#(lf)        Descripcion, #(lf)        Cantidad,#(lf)        Almacen,#(lf)        Cantidad_Pares,#(lf)        PE,#(lf)        Ano_PE,#(lf)        Fecha_Creacion,#(lf)        Fecha_Creacion2,#(lf)        XFactory_Actualizado, #(lf)        XFactory_Original,#(lf)        Entidad_Origen,#(lf)        Entidad_Destino,#(lf)        Entidad_Solicitante,#(lf)        Centro_Destino_Final,#(lf)        Fecha_Tienda,#(lf)        XFactory_Requerida,#(lf)        Fecha_EKKO,#(lf)        Numero_Proveedor, #(lf)        Incoterm,#(lf)        --        Puerto_Origen,#(lf)        Fecha_Despacho_Final,#(lf)        Fecha_Despacho_Inicial,#(lf)        Tipo_de_Flete,#(lf)        --        Puerto_Origen2,#(lf)        Entidad_Compra,#(lf)        Entidad_Solicitante2,#(lf)        Entidad_CD2,#(lf)        FECHA_LIQ#(lf)    FROM#(lf)        DatosMK m#(lf)    INNER JOIN lotes l#(lf)        ON#(lf)        m.LOTE = l.CHARG#(lf)        AND m.ZIMP_POS = l.EBELP#(lf)        AND m.MATNR = l.MATNR#(lf))#(lf)-- Incluir : FECHA_LIQ#(lf)SELECT#(lf)    *#(lf)FROM#(lf)    final_cte#(lf)WHERE#(lf)    FECHA_LIQ IS NULL#(lf)    OR FECHA_LIQ = '00000000'#(lf)", null, [EnableFolding=true])
 				in
 				    Consulta1
 

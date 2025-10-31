@@ -31664,29 +31664,6 @@ cultureInfo es-SV
 			        }
 			      ]
 			    },
-			    "mk_lote.entidad_cd": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "MK_LOTES",
-			          "ConceptualProperty": "ENTIDAD_CD"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "entidad cd": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "ENTIDAD_CD": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
 			    "mk_lote.entidad_solicitante": {
 			      "Definition": {
 			        "Binding": {
