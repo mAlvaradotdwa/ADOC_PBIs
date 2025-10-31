@@ -6,7 +6,8 @@
     "y": 0,
     "z": 0,
     "height": 30,
-    "width": 1028
+    "width": 1028,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "card",

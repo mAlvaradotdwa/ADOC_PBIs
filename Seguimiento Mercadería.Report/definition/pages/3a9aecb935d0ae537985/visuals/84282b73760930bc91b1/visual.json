@@ -6,7 +6,8 @@
     "y": 400.68744870098328,
     "z": 4000,
     "height": 310.12110755624047,
-    "width": 310.12110755624047
+    "width": 310.12110755624047,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -157,42 +158,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "de9b52290adb342c7129",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "PREPARACIONES CD (TRACING)"
-              }
-            },
-            "Property": "MARCA"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b9b143cf26ba565e82a6",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "PREPARACIONES CD (TRACING)"
-                  }
-                },
-                "Property": "Pendiente"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

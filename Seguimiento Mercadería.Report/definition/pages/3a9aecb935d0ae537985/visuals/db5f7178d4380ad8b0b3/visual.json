@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 68.610864503593035,
     "width": 171.52716125898257,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -70,23 +70,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "e222190ad5fa9106a76f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "PREPARACIONES CD (TRACING)"
-              }
-            },
-            "Property": "TIENDA"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

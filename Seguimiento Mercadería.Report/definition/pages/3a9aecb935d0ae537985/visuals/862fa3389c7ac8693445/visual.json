@@ -4,10 +4,10 @@
   "position": {
     "x": 26.072128511365349,
     "y": 303.26002110588121,
-    "z": 8001,
+    "z": 9000,
     "height": 68.610864503593035,
     "width": 171.52716125898257,
-    "tabOrder": 8001
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -71,23 +71,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9bf007f6c0881a157d34",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "PREPARACIONES CD (TRACING)"
-              }
-            },
-            "Property": "DOC_COMPRA"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

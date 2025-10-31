@@ -1,0 +1,356 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "9ed5fd871b1378cf16b6",
+  "position": {
+    "x": 8,
+    "y": 408,
+    "z": 13000,
+    "height": 304,
+    "width": 1264,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "MK"
+                }
+              },
+              "queryRef": "MK_LOTES.MK",
+              "nativeQueryRef": "MK"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "Pais Origen"
+                }
+              },
+              "queryRef": "MK_LOTES.Pais Origen",
+              "nativeQueryRef": "Pais Origen"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "Pais Destino"
+                }
+              },
+              "queryRef": "MK_LOTES.Pais Destino",
+              "nativeQueryRef": "Pais Destino"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "ParesMKLotes"
+                }
+              },
+              "queryRef": "MK_LOTES.ParesMKLotes",
+              "nativeQueryRef": "ParesMKLotes"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "Tramo"
+                }
+              },
+              "queryRef": "MK_LOTES.Tramo",
+              "nativeQueryRef": "Tramo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "onTime"
+                }
+              },
+              "queryRef": "MK_LOTES.onTime",
+              "nativeQueryRef": "onTime"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "ZINSTOREDATE_MK"
+                }
+              },
+              "queryRef": "MK_LOTES.ZINSTOREDATE_MK",
+              "nativeQueryRef": "ZINSTOREDATE_MK"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "TiempoObjetivo"
+                }
+              },
+              "queryRef": "MK_LOTES.TiempoObjetivo",
+              "nativeQueryRef": "TiempoObjetivo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "ZCENTRODES"
+                }
+              },
+              "queryRef": "MK_LOTES.ZCENTRODES",
+              "nativeQueryRef": "ZCENTRODES"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MK_LOTES"
+                    }
+                  },
+                  "Property": "ENTIDAD_CD"
+                }
+              },
+              "queryRef": "MK_LOTES.ENTIDAD_CD",
+              "nativeQueryRef": "ENTIDAD_CD"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MK_LOTES"
+                  }
+                },
+                "Property": "Pais Destino"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.4
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.67889161453881D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Tabla_Campaña.Color"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PES x Estilo-Color'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "keepLayerOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

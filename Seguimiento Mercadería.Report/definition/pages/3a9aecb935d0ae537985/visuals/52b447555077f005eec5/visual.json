@@ -7,7 +7,7 @@
     "z": 8000,
     "height": 369.1264510293305,
     "width": 1063.4683998056919,
-    "tabOrder": 8000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -1270,34 +1270,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "498bf9f74709c9ac5224",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_PAIS"
-              }
-            },
-            "Property": "PAIS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6eb9278b3767e127a1bf",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Métricas"
-              }
-            },
-            "Property": "Qty Preparaciones"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 134.47729442704232,
     "width": 204.46037622070722,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -492,23 +492,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "59d32f4774272876527e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Fecha Creación MK"
-              }
-            },
-            "Property": "Fecha"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

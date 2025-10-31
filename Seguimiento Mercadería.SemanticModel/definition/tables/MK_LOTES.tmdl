@@ -708,6 +708,31 @@ table MK_LOTES
 
 		annotation SummarizationSetBy = Automatic
 
+	column Tramo = ```
+			VAR _doc = [TIPO_DOCUMENTO]
+			VAR _zInStoreDate =
+			    INT ( MK_LOTES[ZINSTOREDATE_MK] )
+			VAR _inStoreDate =
+			    LOOKUPVALUE (
+			        'Fecha Liquidación'[Fecha],
+			        'Fecha Liquidación'[IDFecha], _zInStoreDate
+			    )
+			VAR _offset =
+			    SWITCH (
+			        TRUE (),
+			        _doc IN { "ZIMP" }, "1 Importación",
+			        _doc IN { "ZINT", "ZTRU", "ZUIN" }, "Exportación",
+			        _doc IN { "UB", "ZREP", "ZTR2", "ZTRA" }, "Tienda"
+			    )
+			RETURN 
+			    IF ( _zInStoreDate > 20200101 && _offset <> "" , _offset )
+			```
+		displayFolder: Fechas Objetivo
+		lineageTag: ec61112f-dcea-49ce-b470-be081c346566
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition MK_LOTES = m
 		mode: import
 		source =

@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 310.12110755624047,
     "width": 310.12110755624047,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -276,64 +276,6 @@
         },
         "type": "Advanced",
         "howCreated": "User"
-      },
-      {
-        "name": "cd6c906187c00bbaf731",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "PREPARACIONES CD (TRACING)"
-              }
-            },
-            "Property": "PAIS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "4d582d026793b467f123",
-        "field": {
-          "Arithmetic": {
-            "Left": {
-              "Aggregation": {
-                "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "PREPARACIONES CD (TRACING)"
-                      }
-                    },
-                    "Property": "Pendiente"
-                  }
-                },
-                "Function": 0
-              }
-            },
-            "Right": {
-              "ScopedEval": {
-                "Expression": {
-                  "Aggregation": {
-                    "Expression": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "PREPARACIONES CD (TRACING)"
-                          }
-                        },
-                        "Property": "Pendiente"
-                      }
-                    },
-                    "Function": 0
-                  }
-                },
-                "Scope": []
-              }
-            },
-            "Operator": 3
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

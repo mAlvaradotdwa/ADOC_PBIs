@@ -6,8 +6,7 @@
     "y": 400.68744870098328,
     "z": 5000,
     "height": 311.49332484631236,
-    "width": 310.12110755624047,
-    "tabOrder": 1000
+    "width": 310.12110755624047
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -159,42 +158,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0293a38a1eb64fc1961e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ARTICULOS"
-              }
-            },
-            "Property": "MARCA_GR"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0efb40107dd45c27fcc2",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "PREPARACIONES CD (TRACING)"
-                  }
-                },
-                "Property": "Pendiente"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

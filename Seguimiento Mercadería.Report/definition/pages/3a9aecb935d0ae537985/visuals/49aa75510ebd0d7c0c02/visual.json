@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 310.12110755624047,
     "width": 310.12110755624047,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "funnel",
@@ -190,42 +190,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7d72cc7ea7456572682c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "PREPARACIONES CD (TRACING)"
-              }
-            },
-            "Property": "Mes"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "c6469abf81166dc56eab",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "PREPARACIONES CD (TRACING)"
-                  }
-                },
-                "Property": "Pendiente"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
